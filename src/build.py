@@ -253,6 +253,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None):
 PAGES = {}
 def add(slug, *a, **k): PAGES[slug] = page(slug, *a, **k)
 
+DEVNUM = str.maketrans("0123456789","०१२३४५६७८९")
 def lyrics_body(verses, label_map=True):
     out, n = [], 0
     last = None
@@ -261,7 +262,7 @@ def lyrics_body(verses, label_map=True):
             lab = {"doha":"दोहा","chaupai":"चौपाई"}.get(kind)
             if lab: out.append(f'<p class="section-label">{lab}</p>')
             last = kind
-        if kind in ("chaupai", "shloka"): n += 1; no = str(n)
+        if kind in ("chaupai", "shloka"): n += 1; no = str(n).translate(DEVNUM)
         else: no = ""
         if kind == "mantra":
             head, body = text.split("\n", 1)
@@ -272,20 +273,49 @@ def lyrics_body(verses, label_map=True):
 
 def reader_tools():
     return ('<div class="reader-tools no-print" role="toolbar" aria-label="पढ़ने के विकल्प">'
+            '<button class="chip chip-paath" data-paath aria-pressed="false"><span class="pm-on">पाठ मोड</span><span class="pm-off">पाठ मोड बंद करें</span></button>'
             '<button class="chip" data-meaning aria-pressed="true">अर्थ दिखाएँ</button>'
             '<button class="chip" data-size="0.15" aria-label="अक्षर बड़े करें">अ+</button>'
             '<button class="chip" data-size="-0.15" aria-label="अक्षर छोटे करें">अ−</button>'
             '<button class="chip" data-print>प्रिंट / PDF</button></div>')
+
+
+def verse_count(verses):
+    from collections import Counter
+    c = Counter(k for k,_,_ in verses)
+    names = [("chaupai","चौपाई"),("shloka","श्लोक"),("pad","पद"),("mantra","मंत्र"),("doha","दोहे")]
+    parts = [f"{c[k]} {n}" for k,n in names if c.get(k)]
+    other = sum(v for k,v in c.items() if k not in dict(names))
+    if other and not parts: parts.append(f"{other} पद")
+    return ", ".join(parts)
+
+def paath_end(slug, name):
+    from urllib.parse import quote
+    msg = quote(f"{name} — पूरे बोल और हर पंक्ति का अर्थ:\n{SITE}{slug}")
+    return (f'<div class="paath-end"><p class="pe-mark" aria-hidden="true">॥ इति ॥</p>'
+            f'<p class="pe-text">{e(name)} का पाठ पूरा हुआ।</p>'
+            f'<a class="btn pe-share no-print" href="https://wa.me/?text={msg}" rel="noopener" target="_blank">किसी अपने को WhatsApp पर भेजें</a></div>')
+
+def paath_rail(slug, verses):
+    return (f'<aside class="paath-rail no-print" aria-label="इस पाठ के बारे में"><div class="rail-card">'
+            f'<p class="rail-count">{verse_count(verses)}</p>'
+            f'<button class="btn rail-btn" data-paath>पाठ मोड में पढ़ें</button>'
+            f'<p class="rail-hint">पूजा के समय: बड़े अक्षर, दीपक की रोशनी जैसा अँधेरा पन्ना, और स्क्रीन अपने-आप बंद नहीं होगी।</p></div>'
+            f'<!--REL:{slug}--></aside>')
 
 def lyrics_page(slug, title, desc, h1, answer, verses, intro_html, vid_ids, faqs, crumb, extra="", work_name=None, author=None, art=None):
     akey = {"hanuman-chalisa.html":"hanuman","om-jai-jagdish-hare-aarti.html":"vishnu",
             "ganesh-aarti-jai-ganesh-deva.html":"ganesh","shiv-aarti-om-jai-shiv-omkara.html":"shivaarti"}.get(slug)
     vid, pos = art if art else ART.get(akey, (None,50))
     body = f'''<article>{band(h1, answer, crumb, vid, pos, h1, extra=intro_html)}
-<section style="padding-top:1.5rem;padding-bottom:0"><div class="wrap">
+<section class="paath-sec"><div class="paath-diya" aria-hidden="true"><div class="diya"><span class="bowl"></span><span class="flame"></span></div></div><div class="wrap paath-grid">
+<div class="paath-main">
 {reader_tools()}
 <div class="lyrics">{lyrics_body(verses)}</div>
-<p class="note">पाठ पारंपरिक है और अलग-अलग क्षेत्रों में शब्दों में थोड़ा अंतर मिलता है। अर्थ सरल हिंदी में OmKiran Bhakti ने लिखा है। कोई त्रुटि दिखे तो <a href="{YT}">YouTube पर कमेंट</a> करके बताएँ।</p>
+{paath_end(slug, work_name or h1)}
+<p class="note no-print">पाठ पारंपरिक है और अलग-अलग क्षेत्रों में शब्दों में थोड़ा अंतर मिलता है। अर्थ सरल हिंदी में OmKiran Bhakti ने लिखा है। कोई त्रुटि दिखे तो <a href="{YT}">YouTube पर कमेंट</a> करके बताएँ।</p>
+</div>
+{paath_rail(slug, verses)}
 </div></section></article>
 {('<section class="no-print"><div class="wrap"><h2>साथ में गाएँ — वीडियो</h2>' + video_cards(vid_ids) + '</div></section>') if vid_ids else ''}
 {extra}
@@ -537,6 +567,17 @@ add("404.html","पेज नहीं मिला | OmKiran Bhakti","यह �
 PAGES["404.html"] = PAGES["404.html"].replace('<meta name="robots" content="index,follow,max-image-preview:large">','<meta name="robots" content="noindex">')
 
 # ---------------- Write ----------------
+import re as _re
+def _rel_html(slug):
+    me = next((c for c in CATALOG if c[0]==slug), None)
+    if not me: return ""
+    same = [c for c in CATALOG if c[0]!=slug and c[4][0]==me[4][0]]
+    more = [c for c in CATALOG if c[0]!=slug and c not in same and c[1]==me[1]]
+    items = (same + more)[:6]
+    lis = "".join(f'<li><a href="{c[0]}"><strong>{e(c[2])}</strong><span>{e(c[3])}</span></a></li>' for c in items)
+    return f'<div class="rail-rel"><h2>इनका भी पाठ करें</h2><ul>{lis}</ul></div>'
+for _s in list(PAGES):
+    PAGES[_s] = _re.sub(r"<!--REL:([^>]+?)-->", lambda m: _rel_html(m.group(1)), PAGES[_s])
 for slug, content in PAGES.items():
     with open(os.path.join(ROOT, slug), "w", encoding="utf-8") as f: f.write(content)
 

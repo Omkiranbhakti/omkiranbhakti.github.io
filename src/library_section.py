@@ -297,6 +297,53 @@ ENTRIES += [
    "शांति मंत्र किसी भी पूजा, पाठ या पढ़ाई की शुरुआत और अंत में बोले जाते हैं; हर मंत्र ‘ॐ शान्तिः शान्तिः शान्तिः’ पर खत्म होता है — तीनों तरह के कष्टों की शांति के लिए।",'',[]),
 ]
 
+# ---- batch 3: chalisas
+import library6 as L6
+def _vids(slug):
+    return next((x[11] for x in ENTRIES if x[0]==slug), [])
+ENTRIES += [
+ E("gayatri-chalisa.html","chalisa","गायत्री चालीसा","ह्रीं श्रीं क्लीं मेधा प्रभा",ART["mata"],L6.GAYATRI_CHALISA,"गायत्री चालीसा","पूरे बोल और अर्थ",
+   "श्री गायत्री चालीसा (ह्रीं श्रीं क्लीं मेधा प्रभा) के पूरे बोल, हर चौपाई का सरल हिंदी अर्थ, बड़े अक्षर और प्रिंट PDF। गायत्री जयंती और रोज़ की संध्या के लिए।",
+   "‘ह्रीं श्रीं क्लीं मेधा प्रभा, जीवन ज्योति प्रचण्ड’ से शुरू होने वाली गायत्री चालीसा में वेदमाता गायत्री के स्वरूप, गायत्री मंत्र के 24 अक्षरों की महिमा और पाठ के फल का वर्णन है।",
+   '<p class="lede">साथ में पढ़ें: <a href="gayatri-mantra.html">गायत्री मंत्र अर्थ सहित</a> और <a href="gayatri-mantra-sangrah.html">सभी देवताओं के गायत्री मंत्र</a>।</p>',
+   _vids("gayatri-mantra.html"),[("गायत्री चालीसा कब पढ़ें?","सुबह संध्या के समय, गायत्री मंत्र जप के बाद; गायत्री जयंती (ज्येष्ठ शुक्ल एकादशी) और गुरुवार को विशेष रूप से।")]),
+ E("surya-chalisa.html","chalisa","सूर्य चालीसा","12 नाम और सूर्य कवच सहित",A_SURYA,L6.SURYA_CHALISA,"सूर्य चालीसा","पूरे बोल और अर्थ",
+   "श्री सूर्य देव चालीसा (जय सविता जय जयति दिवाकर) के पूरे बोल और हर चौपाई का अर्थ — सूर्य के 12 नाम, अंग-अंग की रक्षा वाला सूर्य कवच और 12 महीनों के सूर्य।",
+   "‘जय सविता जय जयति दिवाकर’ वाली सूर्य चालीसा में सूर्य के बारह नाम, सूर्य नमस्कार का फल, शरीर के हर अंग की रक्षा करने वाला कवच और हर महीने के सूर्य के नाम आते हैं।",
+   '<p class="lede">रविवार सुबह, अर्घ्य देने के बाद; छठ पूजा और मकर संक्रांति पर विशेष — <a href="surya-12-naam-mantra.html">सूर्य के 12 नाम मंत्र</a>।</p>',
+   _vids("surya-dev-aarti.html"),[("सूर्य चालीसा का पाठ कब करें?","रविवार को सूर्योदय के समय, तांबे के लोटे से जल चढ़ाकर; छठ, रथ सप्तमी और मकर संक्रांति पर विशेष रूप से।")]),
+ E("ganga-chalisa.html","chalisa","गंगा चालीसा","गंगा अवतरण कथा सहित",ART["navdurga"],L6.GANGA_CHALISA,"गंगा चालीसा","पूरे बोल और अर्थ",
+   "श्री गंगा चालीसा (जय जय जय जग पावनी) के पूरे बोल, हर चौपाई का अर्थ और भगीरथ द्वारा गंगा अवतरण की कथा। गंगा दशहरा और कार्तिक पूर्णिमा के लिए।",
+   "‘जय जय जय जग पावनी, जयति देवसरि गंग’ से शुरू होने वाली गंगा चालीसा सुंदरदास जी की रचना मानी जाती है। इसमें भगीरथ के तप, शिव की जटा में गंगा के समाने और तीन धाराओं (मंदाकिनी, भागीरथी, प्रभावती) की कथा है।",
+   '<p class="lede"><a href="kartik-purnima-kab-hai.html">कार्तिक पूर्णिमा</a> और गंगा दशहरा पर गंगा स्नान के बाद — साथ में <a href="ganga-aarti.html">गंगा आरती</a>।</p>',
+   _vids("ganga-aarti.html"),[("गंगा चालीसा किसने लिखी?","अंतिम चौपाई के अनुसार इसके रचयिता सुंदरदास जी हैं, जो दुर्वासा ऋषि के स्थान ककरा गाँव से जुड़े थे।")],"सुंदरदास"),
+ E("parvati-chalisa.html","chalisa","पार्वती चालीसा","उमा नाम की कथा सहित",ART["mata"],L6.PARVATI_CHALISA,"पार्वती चालीसा","पूरे बोल और अर्थ",
+   "श्री पार्वती चालीसा (जय गिरि तनये दक्षजे) के पूरे बोल और हर चौपाई का सरल अर्थ — माँ पार्वती का तप, ‘उमा’ नाम की कथा और शिव-विवाह। हरतालिका तीज और गणगौर के लिए।",
+   "‘जय गिरि तनये दक्षजे, शम्भु प्रिये गुणखानि’ वाली पार्वती चालीसा में माँ के रूप-शृंगार, नीलकंठ शिव की महिमा, कठोर तप से ‘उमा’ नाम पड़ने और शिव से विवाह की कथा है।",
+   '<p class="lede">हरतालिका तीज, गणगौर, सोमवार और मंगला गौरी व्रत में — साथ में <a href="parvati-aarti.html">पार्वती आरती</a>।</p>',
+   _vids("parvati-aarti.html"),[("पार्वती चालीसा का पाठ किसे करना चाहिए?","अच्छे वर की कामना करने वाली कन्याएँ और सुहागिनें; हरतालिका तीज, गणगौर और सोमवार को इसका पाठ विशेष माना जाता है।")]),
+ E("kali-chalisa.html","chalisa","काली चालीसा","जय काली कंकाल मालिनी",ART["navdurga"],L6.KALI_CHALISA,"काली चालीसा","पूरे बोल और अर्थ",
+   "श्री काली चालीसा (जय काली कंकाल मालिनी) के पूरे बोल और हर चौपाई का सरल हिंदी अर्थ। काली पूजा, नवरात्रि की सप्तमी और अमावस्या के लिए।",
+   "‘जय काली कंकाल मालिनी, जय मंगला महाकपालिनी’ से शुरू होने वाली काली चालीसा में रक्तबीज-वध, दस महाविद्याओं और दक्षिणेश्वर, कामाख्या, हिंगलाज जैसे शक्तिपीठों का वर्णन है।",
+   '<p class="lede">दीपावली की रात काली पूजा, नवरात्रि की सप्तमी (कालरात्रि) और अमावस्या को इसका पाठ किया जाता है।</p>',
+   _vids("durga-chalisa.html"),[("काली चालीसा कब पढ़ें?","अमावस्या, शनिवार-मंगलवार, नवरात्रि की सप्तमी और दीपावली की रात काली पूजा में; दीपक जलाकर शांत मन से।")]),
+ E("bhairav-chalisa.html","chalisa","भैरव चालीसा","काशी के कोतवाल",A_BHAIRAV,L6.BHAIRAV_CHALISA,"भैरव चालीसा","पूरे बोल और अर्थ",
+   "श्री भैरव चालीसा (जय जय श्री काली के लाला) के पूरे बोल और हर चौपाई का अर्थ। काल भैरव जयंती, कालाष्टमी और रविवार के पाठ के लिए।",
+   "‘जय जय श्री काली के लाला, जयति जयति काशी कुतवाला’ वाली भैरव चालीसा में बटुक भैरव और काल भैरव के रूप, उनके अनेक नामों और काशी के कोतवाल के रूप में उनकी महिमा का वर्णन है।",
+   '<p class="lede">हर महीने की कालाष्टमी, काल भैरव जयंती और रविवार को — साथ में <a href="bhairav-aarti.html">भैरव आरती</a>।</p>',
+   _vids("bhairav-aarti.html"),[("भैरव चालीसा कब पढ़नी चाहिए?","कालाष्टमी (हर महीने की कृष्ण अष्टमी), काल भैरव जयंती और रविवार को; सरसों के तेल का दीपक जलाकर।")],"सुंदरदास"),
+ E("radha-chalisa.html","chalisa","राधा चालीसा","जय वृषभानु कुँवरि श्री श्यामा",A_RADHA,L6.RADHA_CHALISA,"राधा चालीसा","पूरे बोल और अर्थ",
+   "श्री राधा चालीसा (जय वृषभानु कुँवरि श्री श्यामा) के पूरे बोल और हर चौपाई का सरल अर्थ। राधा अष्टमी और रोज़ के राधा-कृष्ण भजन के लिए।",
+   "‘जय वृषभानु कुँवरि श्री श्यामा, कीरति नंदिनी शोभा धामा’ वाली राधा चालीसा में श्री राधा के रूप, रास-लीला और इस भाव का वर्णन है कि राधा नाम के बिना श्याम नहीं मिलते।",
+   '<p class="lede">राधा अष्टमी (भाद्रपद शुक्ल अष्टमी) और हर दिन कृष्ण-भजन के साथ — <a href="aarti-kunj-bihari-ki.html">आरती कुंजबिहारी की</a>।</p>',
+   _vids("aarti-kunj-bihari-ki.html"),[("राधा चालीसा कब पढ़ें?","राधा अष्टमी, जन्माष्टमी, एकादशी और रोज़ सुबह-शाम कृष्ण की पूजा के साथ।")]),
+ E("annapurna-chalisa.html","chalisa","अन्नपूर्णा चालीसा","काशी की अन्नदात्री",ART["mata"],L6.ANNAPURNA_CHALISA,"अन्नपूर्णा चालीसा","पूरे बोल और अर्थ",
+   "श्री अन्नपूर्णा चालीसा (नित्य आनंद करिणी माता) के पूरे बोल और हर चौपाई का अर्थ — काशी की अधीश्वरी, अन्न-धन देने वाली माँ। अन्नपूर्णा जयंती के लिए।",
+   "‘नित्य आनंद करिणी माता, वर अरु अभय भाव प्रख्याता’ वाली अन्नपूर्णा चालीसा में सती के देह-त्याग, गिरिजा रूप में तप, ब्रह्मा से वर और काशी की अन्नपूर्णा की महिमा है।",
+   '<p class="lede">अन्नपूर्णा जयंती (मार्गशीर्ष पूर्णिमा) और रसोई की पूजा में — साथ में <a href="annapurna-aarti.html">अन्नपूर्णा आरती</a> और <a href="bhojan-mantra.html">भोजन मंत्र</a>।</p>',
+   _vids("annapurna-aarti.html"),[("अन्नपूर्णा चालीसा पढ़ने से क्या होता है?","मान्यता है कि घर में अन्न-धन की कमी नहीं होती; अन्नपूर्णा जयंती और शुक्रवार को रसोई में दीपक जलाकर पढ़ते हैं।")]),
+]
+
 for (slug, cat, ltitle, sub, art, verses, h1, title, desc, answer, intro, vids, faqs, author, work) in ENTRIES:
     vids = [v for v in vids if v in V]
     lyrics_page(slug, title, desc, h1, answer, verses, intro, vids, faqs, h1, work_name=work, author=author,
@@ -312,16 +359,32 @@ EXISTING = [("hanuman-chalisa.html","chalisa","हनुमान चाली�
 CATALOG = EXISTING + [(x[0], x[1], x[2], x[3], x[4] or ART["vishnu"]) for x in ENTRIES] + KATHA_CAT
 NPAATH = len(CATALOG)
 
+DEITY_OF = {ART["mata"][0]:"devi", ART["navdurga"][0]:"devi", A_VAISHNO[0]:"devi", ART["skandamata"][0]:"devi",
+            ART["shiv"][0]:"shiv", ART["shivaarti"][0]:"shiv", A_BHAIRAV[0]:"shiv",
+            ART["hanuman"][0]:"hanuman", ART["ganesh"][0]:"ganesh", A_KRISHNA[0]:"krishna", A_RADHA[0]:"krishna",
+            ART["ram"][0]:"vishnu", A_TULSI[0]:"vishnu", A_LAKSHMI[0]:"lakshmi", A_SHANI[0]:"shani", A_SURYA[0]:"surya"}
+DEITIES = [("devi","देवी माँ",ART["mata"]),("shiv","शिव",ART["shiv"]),("hanuman","हनुमान",ART["hanuman"]),
+           ("ganesh","गणेश",ART["ganesh"]),("krishna","कृष्ण",A_KRISHNA),("vishnu","राम और विष्णु",ART["ram"]),
+           ("lakshmi","लक्ष्मी",A_LAKSHMI),("shani","शनि",A_SHANI),("surya","सूर्य",A_SURYA)]
+def deity_of(slug, art):
+    if slug.startswith(("ram-","shri-ramchandra","ramayan")): return "vishnu"
+    if slug.startswith("karwa-chauth"): return "devi"
+    return DEITY_OF.get(art[0], "")
 def cat_cards(cat):
     items = [c for c in CATALOG if c[1] == cat]
-    return '<ul class="paath">' + "".join(f'<li><a href="{h}">{arch(*a, alt="")}<div><strong>{e(t)}</strong><span>{e(s)}</span></div></a></li>' for h, c, t, s, a in items) + '</ul>'
+    return '<ul class="paath">' + "".join(f'<li data-deity="{deity_of(h,a)}"><a href="{h}">{arch(*a, alt="")}<div><strong>{e(t)}</strong><span>{e(s)}</span></div></a></li>' for h, c, t, s, a in items) + '</ul>'
+def deity_bar():
+    meds = "".join(f'<button type="button" class="dv" data-dv="{k}" aria-pressed="false"><span class="dv-img"><img src="https://i.ytimg.com/vi/{a[0]}/hqdefault.jpg" style="object-position:{a[1]}% 30%" alt="" loading="lazy" width="120" height="90"></span><span class="dv-n">{n}</span></button>' for k,n,a in DEITIES)
+    return ('<div class="dv-wrap no-print"><h2 class="dv-h">किसका पाठ करना है?</h2>'
+            '<p class="dv-today" id="dv-today" hidden></p>'
+            f'<div class="dv-row" role="group" aria-label="देवता चुनें">{meds}</div></div>')
 
 cats_nav = "".join(f'<a class="chip" href="#{k}">{n} ({sum(1 for c in CATALOG if c[1]==k)})</a>' for k, n in CATS)
 cat_sections = "".join(f'<section id="{k}"{" class=\"band\"" if i % 2 else ""}><div class="wrap">{sec_head(n)}{cat_cards(k)}</div></section>' for i, (k, n) in enumerate(CATS))
 add("aarti-mantra.html", "आरती, चालीसा, मंत्र और स्तोत्र — पूरे बोल अर्थ सहित | OmKiran Bhakti",
     f"{NPAATH} पाठ अर्थ सहित: हनुमान, दुर्गा, शिव, लक्ष्मी, शनि चालीसा; जय अम्बे गौरी, सत्यनारायण आरती; शिव तांडव, अयि गिरिनन्दिनि; गायत्री मंत्र; व्रत कथाएँ।"[:160],
     f'''{band("पाठ संग्रह", f"{NPAATH} पाठ — हर पंक्ति के सरल हिंदी अर्थ के साथ। पूजा के समय फ़ोन पर बड़े अक्षरों में पढ़ें या प्रिंट करें। हर हफ़्ते नए पाठ जुड़ते हैं।", "पाठ संग्रह", *ART["navdurga"], "पाठ संग्रह")}
-<section style="padding-bottom:0"><div class="wrap"><div class="lib-search no-print"><label for="lib-q" class="sr">पाठ खोजें</label><input type="search" id="lib-q" placeholder="पाठ खोजें — जैसे हनुमान, शिव, आरती, मंत्र…" autocomplete="off"><p class="lib-count" id="lib-count" aria-live="polite"></p></div><nav class="lib-cats" aria-label="श्रेणियाँ">{cats_nav}</nav></div></section>
+<section style="padding-bottom:0"><div class="wrap"><div class="lib-search no-print"><label for="lib-q" class="sr">पाठ खोजें</label><input type="search" id="lib-q" placeholder="पाठ खोजें — जैसे हनुमान, शिव, आरती, मंत्र…" autocomplete="off"><p class="lib-count" id="lib-count" aria-live="polite"></p></div><nav class="lib-cats" aria-label="श्रेणियाँ">{cats_nav}</nav>{deity_bar()}</div></section>
 {cat_sections}
 <section><div class="wrap">{sec_head("मंत्र जाप — 108 बार","एक माला के बराबर जाप, ध्यान के साथ सुनें")}{video_cards(mantra_ids)}</div></section>''',
     crumbs="पाठ संग्रह", active="aarti-mantra.html",

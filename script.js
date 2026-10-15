@@ -146,12 +146,47 @@
     var items=[].slice.call(document.querySelectorAll('.paath li')), cnt=document.getElementById('lib-count');
     var secs=[].slice.call(document.querySelectorAll('section[id]')).filter(function(s){return s.querySelector('.paath')});
     var alias={'hanuman':'हनुमान','shiv':'शिव','shiva':'शिव','durga':'दुर्गा','ganesh':'गणेश','krishna':'कृष्ण','ram':'राम','lakshmi':'लक्ष्मी','laxmi':'लक्ष्मी','shani':'शनि','saraswati':'सरस्वती','surya':'सूर्य','aarti':'आरती','chalisa':'चालीसा','mantra':'मंत्र','katha':'कथा','vishnu':'विष्णु','gayatri':'गायत्री','ganga':'गंगा','tulsi':'तुलसी'};
+    var dvs=[].slice.call(document.querySelectorAll('.dv')), dsel='';
+    var DN={devi:'देवी माँ',shiv:'शिव',hanuman:'हनुमान',ganesh:'गणेश',krishna:'कृष्ण',vishnu:'राम और विष्णु',lakshmi:'लक्ष्मी',shani:'शनि',surya:'सूर्य'};
     function run(){
       var q=lq.value.trim().toLowerCase(); var qq=alias[q]||q; var n=0;
-      items.forEach(function(li){var t=li.textContent.toLowerCase()+' '+(li.querySelector('a').getAttribute('href')||'');var ok=!q||t.indexOf(qq)>-1||t.indexOf(q)>-1;li.hidden=!ok;if(ok)n++;});
+      items.forEach(function(li){var t=li.textContent.toLowerCase()+' '+(li.querySelector('a').getAttribute('href')||'');
+        var ok=(!q||t.indexOf(qq)>-1||t.indexOf(q)>-1)&&(!dsel||li.getAttribute('data-deity')===dsel);li.hidden=!ok;if(ok)n++;});
       secs.forEach(function(s){s.hidden=!s.querySelector('.paath li:not([hidden])');});
-      cnt.textContent=q?(n+' पाठ मिले'):'';
+      cnt.textContent=(q||dsel)?(n+' पाठ मिले'+(dsel?' — '+DN[dsel]:'')):'';
+    }
+    function pick(k){ dsel=(dsel===k)?'':k; dvs.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-dv')===dsel?'true':'false')}); run();
+      if(dsel){var f=document.querySelector('.paath li:not([hidden])'); if(f){var sec=f.closest('section'); if(sec) sec.scrollIntoView({behavior:'smooth',block:'start'});}} }
+    dvs.forEach(function(b){b.addEventListener('click',function(){pick(b.getAttribute('data-dv'))})});
+    var today=document.getElementById('dv-today');
+    if(today){
+      var W=[['रविवार','surya','सूर्य देव'],['सोमवार','shiv','भगवान शिव'],['मंगलवार','hanuman','हनुमान जी'],['बुधवार','ganesh','गणेश जी'],['गुरुवार','vishnu','भगवान विष्णु'],['शुक्रवार','devi','माँ दुर्गा और लक्ष्मी'],['शनिवार','shani','शनि देव और हनुमान जी']][new Date().getDay()];
+      today.innerHTML='आज '+W[0]+' है — '+W[2]+' का दिन। <button type="button" class="linkish" data-today="'+W[1]+'">इनके पाठ देखें</button>';
+      today.hidden=false;
+      today.querySelector('button').addEventListener('click',function(){pick(W[1])});
     }
     lq.addEventListener('input',run);
   }
+
+  /* ---- paath mode: lamp-lit full page, screen stays awake ---- */
+  (function(){
+    var btns=document.querySelectorAll('[data-paath]'), sec=document.querySelector('.paath-sec');
+    if(!btns.length||!sec) return;
+    var root=document.documentElement, lock=null, bar=document.createElement('div');
+    bar.className='paath-progress'; bar.setAttribute('aria-hidden','true'); document.body.appendChild(bar);
+    function prog(){ if(!root.classList.contains('paath-on')) return;
+      var max=document.documentElement.scrollHeight-innerHeight; bar.style.width=(max>0?Math.min(100,scrollY/max*100):0)+'%'; }
+    function wake(){ try{ if('wakeLock' in navigator) navigator.wakeLock.request('screen').then(function(l){lock=l}).catch(function(){}); }catch(e){} }
+    function set(on){
+      root.classList.toggle('paath-on',on);
+      btns.forEach(function(b){ if(b.classList.contains('chip')) b.setAttribute('aria-pressed',on?'true':'false'); });
+      if(on){ window.scrollTo(0,0); wake(); }
+      else { if(lock){ try{lock.release()}catch(e){} lock=null; } sec.scrollIntoView(); }
+      prog();
+    }
+    btns.forEach(function(b){ b.addEventListener('click',function(){ set(!root.classList.contains('paath-on')); }); });
+    addEventListener('scroll',prog,{passive:true});
+    addEventListener('keydown',function(ev){ if(ev.key==='Escape'&&root.classList.contains('paath-on')) set(false); });
+    document.addEventListener('visibilitychange',function(){ if(document.visibilityState==='visible'&&root.classList.contains('paath-on')) wake(); });
+  })();
 })();
