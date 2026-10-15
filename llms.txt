@@ -1,0 +1,25 @@
+# OmKiran Bhakti
+
+> Hindi devotional music channel and website: full lyrics of traditional aartis and chalisas with plain-Hindi meanings, bhajan videos by deity, Navratri 2026 dates, and a free online jaap mala (108 counter).
+
+Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
+
+## Lyrics with meanings
+- [हनुमान चालीसा — पूरे बोल, सरल हिंदी अर्थ और वीडियो | OmKiran Bhakti](https://omkiranbhakti.github.io/hanuman-chalisa.html)
+- [ॐ जय जगदीश हरे आरती — पूरे बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/om-jai-jagdish-hare-aarti.html)
+- [जय गणेश जय गणेश देवा आरती — पूरे बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/ganesh-aarti-jai-ganesh-deva.html)
+- [ॐ जय शिव ओंकारा आरती — पूरे बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/shiv-aarti-om-jai-shiv-omkara.html)
+
+## Bhajans by deity
+- [माता रानी भजन — देवी गीत, दुर्गा चालीसा और नवरात्रि भजन | OmKiran Bhakti](https://omkiranbhakti.github.io/mata-rani-bhajan.html)
+- [शिव भजन, शिव आरती और महामृत्युंजय मंत्र | OmKiran Bhakti](https://omkiranbhakti.github.io/shiv-bhajan.html)
+- [गणेश भजन, गणेश आरती और गणेश चालीसा | OmKiran Bhakti](https://omkiranbhakti.github.io/ganesh-bhajan.html)
+- [कृष्ण भजन — राधा कृष्ण भक्ति गीत और जन्माष्टमी बधाई | OmKiran Bhakti](https://omkiranbhakti.github.io/krishna-bhajan.html)
+- [राम भजन, श्री राम चालीसा और राम स्तुति | OmKiran Bhakti](https://omkiranbhakti.github.io/ram-bhajan.html)
+- [भक्ति EDM — शिव तांडव, हनुमान तांडव और अयि गिरिनन्दिनि मिक्स | OmKiran Bhakti](https://omkiranbhakti.github.io/devotional-edm-bhajans.html)
+
+## Festivals and tools
+- [नवरात्रि 2026 — तिथियाँ, नौ देवियाँ और हर दिन की आरती | OmKiran Bhakti](https://omkiranbhakti.github.io/navratri-2026.html)
+- [ऑनलाइन जाप माला — 108 नाम जाप काउंटर | OmKiran Bhakti](https://omkiranbhakti.github.io/jaap-mala.html)
+- [आरती, चालीसा और मंत्र — बोल, अर्थ और वीडियो | OmKiran Bhakti](https://omkiranbhakti.github.io/aarti-mantra.html)
+- [OmKiran Bhakti के बारे में — हिंदी भक्ति संगीत चैनल](https://omkiranbhakti.github.io/about.html)
