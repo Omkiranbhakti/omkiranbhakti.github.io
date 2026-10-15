@@ -139,4 +139,19 @@
       window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank','noopener');
     });
   }
+
+  // ---------- Library search ----------
+  var lq=document.getElementById('lib-q');
+  if(lq){
+    var items=[].slice.call(document.querySelectorAll('.paath li')), cnt=document.getElementById('lib-count');
+    var secs=[].slice.call(document.querySelectorAll('section[id]')).filter(function(s){return s.querySelector('.paath')});
+    var alias={'hanuman':'हनुमान','shiv':'शिव','shiva':'शिव','durga':'दुर्गा','ganesh':'गणेश','krishna':'कृष्ण','ram':'राम','lakshmi':'लक्ष्मी','laxmi':'लक्ष्मी','shani':'शनि','saraswati':'सरस्वती','surya':'सूर्य','aarti':'आरती','chalisa':'चालीसा','mantra':'मंत्र','katha':'कथा','vishnu':'विष्णु','gayatri':'गायत्री','ganga':'गंगा','tulsi':'तुलसी'};
+    function run(){
+      var q=lq.value.trim().toLowerCase(); var qq=alias[q]||q; var n=0;
+      items.forEach(function(li){var t=li.textContent.toLowerCase()+' '+(li.querySelector('a').getAttribute('href')||'');var ok=!q||t.indexOf(qq)>-1||t.indexOf(q)>-1;li.hidden=!ok;if(ok)n++;});
+      secs.forEach(function(s){s.hidden=!s.querySelector('.paath li:not([hidden])');});
+      cnt.textContent=q?(n+' पाठ मिले'):'';
+    }
+    lq.addEventListener('input',run);
+  }
 })();

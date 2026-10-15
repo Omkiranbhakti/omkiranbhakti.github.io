@@ -441,3 +441,12 @@ select,input[type=text]{font:inherit;padding:.55rem .8rem;border-radius:var(--r-
 .lib-cats{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:0 0 1.5rem}
 .lib-cats a{text-decoration:none}
 .lib-count{color:var(--ink-soft);font-size:.95rem;text-align:center;margin:-.2rem 0 1rem}
+/* library search + katha */
+.lib-search{max-width:36rem;margin:0 auto 1rem}
+.lib-search input{width:100%;max-width:none;font-size:1.08rem;padding:.8rem 1.1rem;border-radius:999px;border:1.5px solid var(--chandan);background:var(--paper)}
+.lib-search input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 4px rgba(217,164,65,.2)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.paath li[hidden]{display:none}
+.katha p{font-size:1.1rem;line-height:1.85}
+.katha .k-h{margin-top:2rem;color:var(--sindoor-deep)}
+.katha .k-h:first-child{margin-top:0}

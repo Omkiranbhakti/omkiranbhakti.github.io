@@ -123,6 +123,13 @@ V = {
  "96GJOWJFJgA":("गुरु मंत्र जाप — 108 बार","26:22"),
  "EE2zjTPyHaI":("खाटू में तेरा दरबार — ग्यारस (एकादशी) भजन","4:31"),
  "A-vFduFpIHg":("निर्जला एकादशी व्रत कथा","11:23"),
+ "PvWUk5b8eF0":("शिव गायत्री मंत्र — ध्यान संगीत","5:15"),
+ "dZ7iceOQt9Y":("आशुतोष शशांक शेखर — शिव महापुराण मंत्र","10:06"),
+ "oiQLsZFwU7I":("सुखकर्ता दुखहर्ता — गणपती आरती (मराठी)","2:03"),
+ "ZZcOOWNvFg8":("गणपति आरती — सुखकर्ता दुखहर्ता, बोल सहित","3:45"),
+ "r-yfzKxNW0w":("मंगल की सेवा सुन मेरी देवा — आरती","6:13"),
+ "LwmVaSve_mM":("कुलदेवी मंत्र — ॐ कुलदैव्यै नमः","8:28"),
+ "PSKXIFYrtcU":("एक नज़र कृपा की कर दो — शेरावाली भजन","3:33"),
  "bWKRDa8dDqE":("दुर्गा चालीसा — 4 मिनट में (नवरात्रि 2026)","3:49"),
  "p7MyXd8oj9s":("दुर्गा चालीसा — 7 बार सुपरफ़ास्ट पाठ","26:43"),
 }
@@ -280,13 +287,13 @@ def lyrics_page(slug, title, desc, h1, answer, verses, intro_html, vid_ids, faqs
 <div class="lyrics">{lyrics_body(verses)}</div>
 <p class="note">पाठ पारंपरिक है और अलग-अलग क्षेत्रों में शब्दों में थोड़ा अंतर मिलता है। अर्थ सरल हिंदी में OmKiran Bhakti ने लिखा है। कोई त्रुटि दिखे तो <a href="{YT}">YouTube पर कमेंट</a> करके बताएँ।</p>
 </div></section></article>
-<section class="no-print"><div class="wrap"><h2>साथ में गाएँ — वीडियो</h2>{video_cards(vid_ids)}</div></section>
+{('<section class="no-print"><div class="wrap"><h2>साथ में गाएँ — वीडियो</h2>' + video_cards(vid_ids) + '</div></section>') if vid_ids else ''}
 {extra}
 {faq_html(faqs)}'''
     ld = [{"@type":"CreativeWork","name":work_name or h1,"inLanguage":"hi","text":"\n".join(v[1] for v in verses),
            **({"author":{"@type":"Person","name":author}} if author else {}),
            "isAccessibleForFree":True,"publisher":{"@id":SITE+"#organization"}},
-          itemlist(vid_ids, h1+" — वीडियो"), faq_ld(faqs)]
+          ] + ([itemlist(vid_ids, h1+" — वीडियो")] if vid_ids else []) + ([faq_ld(faqs)] if faqs else [])
     add(slug, title, desc, body, crumbs=crumb, ld=ld, active="aarti-mantra.html")
 
 # ---------------- Lyrics pages ----------------
