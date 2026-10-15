@@ -214,7 +214,7 @@ for idx, m in enumerate(months):
         crumbs=f"{mname} पंचांग", active="aaj-ka-panchang.html")
 
 # ---------- Festival 'kab hai' pages ----------
-FVID = {"karwa-chauth":["w8pxctA2998"],"diwali":["KPZbsWemcIg","F95csn49Rq0"],"dhanteras":["KPZbsWemcIg"],
+FVID = {"karwa-chauth":["oQl6-dRDfWU","w8pxctA2998"],"diwali":["F95csn49Rq0","KPZbsWemcIg"],"dhanteras":["F95csn49Rq0"],
  "ganesh-chaturthi":["ZswQ9qUMDTs","NGI-JiRiwSc","Qpe4rrfzWhk"],"anant-chaturdashi":["lMHZDM-RRb4","5WeumLCpi5w"],
  "janmashtami":["vy6ucthmxmk","ZIhDdYk6Gus","ZQ_OBR-596M"],"holi":["3ChBJC1Vigk","Potbxr2V0jI","oXTPb9esaQ8"],"holika-dahan":["3ChBJC1Vigk"],
  "chhath-puja":["M5_SEzyH_b4"],"dev-uthani-ekadashi":["hwoEYtPy7Qw"],"maha-shivratri":["sllSUVgfjnw","rxeMNQ48yWU","ZqFztNyxSgU"],
@@ -222,7 +222,7 @@ FVID = {"karwa-chauth":["w8pxctA2998"],"diwali":["KPZbsWemcIg","F95csn49Rq0"],"d
  "hanuman-jayanti":["707iS1Iyv-E","W__UjJxgK_o"],"dussehra":["pCixItfj5Vo","ZqOnkb7zElU"],"guru-purnima":["96GJOWJFJgA"],
  "vivah-panchami":["sLQF1nm_RqU"],"govardhan-puja":["TVdX5XbbjHs"],"kartik-purnima":["ZqFztNyxSgU"],"gita-jayanti":["uCUR842niAU"],
  "sharad-purnima":["KPZbsWemcIg"],"akshaya-tritiya":["F95csn49Rq0"],"narak-chaturdashi":["KPZbsWemcIg"],"vasant-panchami":["Fxfm-eadkTY"]}
-FART = {"karwa-chauth":("w8pxctA2998",50),"diwali":("KPZbsWemcIg",50),"ganesh-chaturthi":ART["ganesh"],"janmashtami":ART["krishna"],
+FART = {"karwa-chauth":("oQl6-dRDfWU",36),"diwali":("F95csn49Rq0",72),"dhanteras":("F95csn49Rq0",72),"sharad-purnima":("F95csn49Rq0",72),"ganesh-chaturthi":ART["ganesh"],"janmashtami":ART["krishna"],
  "holi":("3ChBJC1Vigk",50),"maha-shivratri":ART["shiv"],"ram-navami":ART["ram"],"hanuman-jayanti":ART["hanuman"],"dussehra":ART["ram"],
  "sharadiya-navratri":ART["navdurga"],"chaitra-navratri":ART["navdurga"]}
 TODAY_KEYS = []
