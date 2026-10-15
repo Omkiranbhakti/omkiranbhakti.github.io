@@ -11,6 +11,10 @@ SITE = "https://omkiranbhakti.github.io/"
 YT = "https://www.youtube.com/@OmKiranBhakti"
 LOGO = "https://yt3.ggpht.com/v-SABQ87EfZPploVIJ9mR6pumFaiUs0RMrncVYcy0IfrZWA4EQ8MA8agzp_m-TLDq1sh00r5ZA=s256-c-k-c0x00ffffff-no-rj"
 TODAY = datetime.date.today().isoformat()
+import hashlib
+def ver(f):
+    return hashlib.md5(open(os.path.join(ROOT,f),"rb").read()).hexdigest()[:8]
+CSSV, JSV = ver("styles.css"), ver("script.js")
 e = html.escape
 
 # ---------- Real channel videos (IDs read from the channel, Oct 2026) ----------
@@ -203,7 +207,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None):
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v={CSSV}">
 <script>try{{var t=localStorage.getItem('okb-theme');if(t)document.documentElement.setAttribute('data-theme',t)}}catch(e){{}}</script>
 <script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@graph":graph},ensure_ascii=False)}</script>
 </head>
@@ -225,7 +229,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None):
 <div><h2>पाठ</h2><ul><li><a href="hanuman-chalisa.html">हनुमान चालीसा</a></li><li><a href="om-jai-jagdish-hare-aarti.html">ॐ जय जगदीश हरे</a></li><li><a href="ganesh-aarti-jai-ganesh-deva.html">गणेश आरती</a></li><li><a href="shiv-aarti-om-jai-shiv-omkara.html">शिव आरती</a></li><li><a href="jaap-mala.html">ऑनलाइन जाप माला</a></li></ul></div>
 <div><h2>भजन</h2><ul><li><a href="mata-rani-bhajan.html">माता रानी</a></li><li><a href="shiv-bhajan.html">शिव</a></li><li><a href="ganesh-bhajan.html">गणेश</a></li><li><a href="krishna-bhajan.html">कृष्ण</a></li><li><a href="ram-bhajan.html">राम</a></li><li><a href="devotional-edm-bhajans.html">भक्ति EDM</a></li></ul></div>
 </div><div class="wrap fine">© {datetime.date.today().year} OmKiran Bhakti. पारंपरिक पाठ सार्वजनिक धरोहर हैं; अर्थ और संगीत OmKiran Bhakti के हैं।</div></footer>
-<script src="script.js" defer></script>
+<script src="script.js?v={JSV}" defer></script>
 </body></html>'''
 
 PAGES = {}
