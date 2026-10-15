@@ -74,7 +74,7 @@
   document.querySelectorAll('.days li[data-ymd]').forEach(function(li){
     var d=new Date(), ist=new Date(d.getTime()+(d.getTimezoneOffset()+330)*60000);
     var ymd=String(ist.getFullYear()*10000+(ist.getMonth()+1)*100+ist.getDate());
-    if(li.dataset.ymd.split(',').indexOf(ymd)>-1){li.classList.add('now');var dv=li.querySelector('div')||li;dv.insertAdjacentHTML('afterbegin','<strong style="color:var(--sindoor)">आज · </strong>');}
+    if(li.dataset.ymd.split(',').indexOf(ymd)>-1){li.classList.add('now');var dv=li.querySelector('div:not(.arch)')||li;dv.insertAdjacentHTML('afterbegin','<strong style="color:var(--sindoor)">आज · </strong>');}
   });
 
   // Jaap mala

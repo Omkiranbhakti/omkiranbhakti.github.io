@@ -342,3 +342,6 @@ select,input[type=text]{font:inherit;padding:.55rem .8rem;border-radius:var(--r-
 .video .play::after{left:26px;bottom:20px;border-width:8px 0 8px 13px;margin:0}
 .shrine figcaption{margin-top:2.6rem}
 .shrine .diya{bottom:-30px}
+.days{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.days li{grid-template-columns:76px 1fr}
+.days .d{display:block;line-height:1.4}
