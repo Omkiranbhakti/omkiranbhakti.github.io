@@ -1,7 +1,7 @@
 # Panchang + festival pages. Executed inside build.py's namespace (uses page, add, band, sec_head, video_cards, V, e, SITE ...).
 import datetime as dt, json, os
 from panchang import day_panchang, tithi_spans, tithi_name, lunar_month, moonrise, sunrise_sunset, to_ist, from_ist, EKADASHI_NAME, tithi_index
-from festivals import find_dates, MONTHS_HI, RULES, tithi_at
+from festivals import find_dates, MONTHS_HI, RULES, tithi_at, MINOR_KEYS
 
 IST_NOW = dt.datetime.now(dt.timezone.utc).replace(tzinfo=None) + dt.timedelta(hours=5, minutes=30)
 TODAY_D = IST_NOW.date()
@@ -145,6 +145,7 @@ TODAY_P = DAYS[TODAY_D]
 def upcoming(n=10, from_day=TODAY_D, majors_only=True):
     items = []
     for key, occ in FEST.items():
+        if majors_only and key in MINOR_KEYS: continue
         for x in occ:
             if x["date"] >= from_day: items.append((x["date"], x["name"], f"{key}-kab-hai.html", WHEN[x["kaal"]]))
     if not majors_only:
@@ -222,6 +223,13 @@ FVID = {"karwa-chauth":["oQl6-dRDfWU","w8pxctA2998"],"diwali":["F95csn49Rq0","KP
  "hanuman-jayanti":["707iS1Iyv-E","W__UjJxgK_o"],"dussehra":["pCixItfj5Vo","ZqOnkb7zElU"],"guru-purnima":["96GJOWJFJgA"],
  "vivah-panchami":["sLQF1nm_RqU"],"govardhan-puja":["TVdX5XbbjHs"],"kartik-purnima":["ZqFztNyxSgU"],"gita-jayanti":["uCUR842niAU"],
  "sharad-purnima":["KPZbsWemcIg"],"akshaya-tritiya":["F95csn49Rq0"],"narak-chaturdashi":["KPZbsWemcIg"],"vasant-panchami":["Fxfm-eadkTY"]}
+_K, _M, _S, _G, _V, _N = ("uCUR842niAU",12), ("2yVR5zSaKpc",76), ("Kbe3pbLsg1U",80), ("NGI-JiRiwSc",80), ("pCixItfj5Vo",80), ("G99-49Pfs6U",50)
+FART_MINOR = {"govatsa-dwadashi":_K,"gopashtami":_K,"jagannath-rath-yatra":_K,"hal-shashthi":_K,"rang-panchami":("3ChBJC1Vigk",50),
+ "chhath-nahay-khay":("ktQUU5Y3tPE",50),"chhath-kharna":("ktQUU5Y3tPE",50),"chhath-usha-arghya":("ktQUU5Y3tPE",50),"ratha-saptami":("ktQUU5Y3tPE",50),
+ "tulsi-vivah":("hwoEYtPy7Qw",50),"vaikunth-chaturdashi":_S,"sawan-start":_S,"nag-panchami":_S,"kaal-bhairav-jayanti":("unfGUJz6D8U",78),
+ "sakat-chauth":_G,"shani-jayanti":("gZ7DoH6ZOa4",50),"radha-ashtami":("R1PiCmntXIM",50),"sita-navami":_V,
+ "sheetala-ashtami":_M,"gangaur":_M,"vat-savitri":_M,"hariyali-teej":_M,"kajari-teej":_M,"hartalika-teej":_M,
+ "hindu-nav-varsh":_N,"mauni-amavasya":_N,"magh-purnima":_N,"ganga-dussehra":_N}
 FART = {"karwa-chauth":("oQl6-dRDfWU",36),"diwali":("F95csn49Rq0",72),"dhanteras":("F95csn49Rq0",72),"sharad-purnima":("F95csn49Rq0",72),"ganesh-chaturthi":ART["ganesh"],"janmashtami":ART["krishna"],
  "holi":("3ChBJC1Vigk",50),"maha-shivratri":ART["shiv"],"ram-navami":ART["ram"],"hanuman-jayanti":ART["hanuman"],"dussehra":ART["ram"],
  "sharadiya-navratri":ART["navdurga"],"chaitra-navratri":ART["navdurga"]}
@@ -231,6 +239,7 @@ for key, name, month, paksha, n, kaal, off, meaning in RULES:
     if not occ: continue
     nxt = next((x for x in occ if x["date"] >= TODAY_D), occ[-1])
     base = name.split(" (")[0]
+    alias = name.split(" (")[1].rstrip(")") if " (" in name else ""
     yrs = " / ".join(str(y) for y in sorted({x["date"].year for x in occ}))
     rows = ""
     for x in occ:
@@ -252,8 +261,11 @@ for key, name, month, paksha, n, kaal, off, meaning in RULES:
     ffaq = [(f"{base} {nxt['date'].year} कब है?", re.sub('<[^>]+>','',ans)),
             (f"{base} किस तिथि को मनाया जाता है?", f"{month} मास, {pk} पक्ष, {tname}। {why}"),
             (f"{base} का महत्व क्या है?", meaning + "।")]
-    fart = FART.get(key, ART["vishnu"])
-    add(f"{key}-kab-hai.html", f"{base} {yrs} कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti",
+    fart = FART.get(key) or FART_MINOR.get(key, ART["vishnu"])
+    _t = f"{base} ({alias}) {yrs} कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti" if alias else ""
+    if _t and len(_t) > 95: _t = f"{base} ({alias}) {yrs} कब है? तारीख़ और तिथि | OmKiran Bhakti"
+    if not _t or len(_t) > 95: _t = f"{base} {yrs} कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti"
+    add(f"{key}-kab-hai.html", _t,
         f"{base} {nxt['date'].year}: {hdate_w(nxt['date'])}। {month} {pk} {tname} — तिथि शुरू और समाप्त होने का समय, {WHEN[kaal]} पूजा का समय (दिल्ली) और महत्व।"[:160],
         f'''{band(f"{base} कब है?", ans, base, *fart, base)}
 <section><div class="wrap">{sec_head(f"{base}: तारीख़ और समय")}<div class="tbl"><table class="ptable"><thead><tr><th>साल</th><th>तारीख़</th><th>तिथि ({pk} {tname})</th><th>पूजा का समय (नई दिल्ली)</th></tr></thead><tbody>{rows}</tbody></table></div>

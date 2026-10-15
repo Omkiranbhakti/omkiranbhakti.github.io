@@ -127,12 +127,14 @@ for h, t, k in CITY_PAGES:
     if h == "navratri-ashtami-navami-kab-hai.html": continue
     QA.append((t.split(":")[0] + " में " + {"karwa-chauth":"चाँद कब निकलेगा?","diwali":"लक्ष्मी पूजा का मुहूर्त क्या है?","chhath-puja":"अर्घ्य का समय क्या है?","dussehra":"विजय मुहूर्त और रावण दहन कब है?"}.get(k, "समय क्या है?"),
                CITY_ANS.get(k, "") + " दूसरे शहरों का समय पेज पर।", h))
-qa_html = "".join(f'<details class="qa" open><summary>{e(q)}</summary><p><strong>{e(a)}</strong> <a href="{u}">पूरी जानकारी</a></p></details>' for q, a, u in QA)
-add("tyohar-kab-hai.html", "त्योहार कब है? — एकादशी, पूर्णिमा, दशहरा, दिवाली के सीधे जवाब | OmKiran Bhakti",
-    f"अगली एकादशी, पूर्णिमा, अमावस्या, अष्टमी-नवमी, दशहरा, करवा चौथ, दिवाली, छठ — हर ‘कब है’ सवाल का सीधा जवाब, रोज़ अपडेट।"[:160],
-    band("त्योहार कब है? सीधे जवाब", f"हर ‘कब है’ सवाल का सीधा जवाब — नई दिल्ली के पंचांग से, हर दिन अपने-आप अपडेट। ({hdate_w(TODAY_D)} तक की जानकारी)", "त्योहार कब है", *ART["navdurga"], "त्योहार") +
-    f'<section><div class="wrap faq">{qa_html}</div></section>',
-    crumbs="त्योहार कब है", ld=[faq_ld([(q, a) for q, a, u in QA])], active="tyohar-calendar.html")
+def build_hub():
+    qa_html = "".join(f'<details class="qa" open><summary>{e(q)}</summary><p><strong>{e(a)}</strong> <a href="{u}">पूरी जानकारी</a></p></details>' for q, a, u in QA)
+    add("tyohar-kab-hai.html", "त्योहार कब है? — एकादशी, पूर्णिमा, दशहरा, दिवाली के सीधे जवाब | OmKiran Bhakti",
+        f"अगली एकादशी, पूर्णिमा, अमावस्या, अष्टमी-नवमी, दशहरा, करवा चौथ, दिवाली, छठ — हर ‘कब है’ सवाल का सीधा जवाब, रोज़ अपडेट।"[:160],
+        band("त्योहार कब है? सीधे जवाब", f"हर ‘कब है’ सवाल का सीधा जवाब — नई दिल्ली के पंचांग से, हर दिन अपने-आप अपडेट। ({hdate_w(TODAY_D)} तक की जानकारी)", "त्योहार कब है", *ART["navdurga"], "त्योहार") +
+        f'<section><div class="wrap faq">{qa_html}</div></section>',
+        crumbs="त्योहार कब है", ld=[faq_ld([(q, a) for q, a, u in QA])], active="tyohar-calendar.html")
+
 
 # surface the answer pages from the calendar and Navratri pages
 _strip = ('<section class="hot"><div class="wrap"><ul class="hot-list"><li><a href="tyohar-kab-hai.html"><strong>त्योहार कब है? सीधे जवाब</strong><span>एकादशी, पूर्णिमा, अमावस्या और हर त्योहार</span></a></li>' +

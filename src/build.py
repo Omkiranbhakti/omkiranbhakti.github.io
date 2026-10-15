@@ -527,6 +527,7 @@ exec(open(os.path.join(os.path.dirname(__file__), "city_section.py"), encoding="
 exec(open(os.path.join(os.path.dirname(__file__), "question_section.py"), encoding="utf-8").read())
 
 exec(open(os.path.join(os.path.dirname(__file__), "library_section.py"), encoding="utf-8").read())
+exec(open(os.path.join(os.path.dirname(__file__), "vrat_section.py"), encoding="utf-8").read())
 
 # ---------------- Home ----------------
 ORG = {"@type":"Organization","@id":SITE+"#organization","name":"OmKiran Bhakti","alternateName":["Om Kiran Bhakti","ओमकिरण भक्ति"],"url":SITE,
