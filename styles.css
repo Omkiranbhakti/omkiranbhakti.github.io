@@ -519,17 +519,21 @@ html.paath-on .paath-diya{display:block;position:relative;width:84px;height:64px
 html.paath-on .paath-diya .diya{bottom:0}
 
 /* ---- hub: browse by deity ---- */
-.dv-wrap{margin-top:2rem}
+.dv-wrap{margin-top:2.25rem;text-align:center}
 .dv-h{font-size:1.35rem;margin:0}
 .dv-today{margin:.35rem 0 0;color:var(--ink-soft)}
 .linkish{background:none;border:0;padding:0;font:inherit;color:var(--sindoor-deep);text-decoration:underline;text-underline-offset:.2em;cursor:pointer}
-.dv-row{display:flex;gap:1.1rem;overflow-x:auto;padding:1rem 2px .75rem;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.dv-row{width:max-content;max-width:100%;margin:0 auto;display:flex;gap:1.1rem;overflow-x:auto;padding:1rem 2px .75rem;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
 .dv{flex:0 0 auto;width:5.6rem;background:none;border:0;padding:0;font:inherit;color:var(--ink);cursor:pointer;scroll-snap-align:start;text-align:center}
 .dv-img{display:block;width:5rem;height:5rem;margin:0 auto .45rem;border-radius:50%;overflow:hidden;
   box-shadow:0 0 0 2px var(--paper),0 0 0 4px var(--chandan);transition:box-shadow .2s}
-.dv-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.35)}
+.dv-img img{width:100%;height:100%;object-fit:cover}
 .dv-n{font-size:.95rem;line-height:1.25;display:block}
 .dv:hover .dv-img{box-shadow:0 0 0 2px var(--paper),0 0 0 4px var(--genda)}
 .dv[aria-pressed="true"] .dv-img{box-shadow:0 0 0 2px var(--paper),0 0 0 5px var(--sindoor)}
 .dv[aria-pressed="true"] .dv-n{color:var(--sindoor);font-weight:600}
 @media (max-width:600px){html.paath-on .verse .line{font-size:var(--ls)}}
+.verse.dhyan{background:linear-gradient(90deg,rgba(232,163,23,.10),transparent 70%);border-left:3px solid var(--genda-deep);padding-left:1rem;border-radius:0 var(--r-s) var(--r-s) 0}
+html.paath-on .verse.dhyan{background:none;border-left:0}
+html.paath-on .verse.dhyan .line{color:#F5B83A}
+.verse .line,.verse .mean{overflow-wrap:anywhere}

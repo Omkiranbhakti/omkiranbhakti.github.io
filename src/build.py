@@ -264,9 +264,9 @@ def lyrics_body(verses, label_map=True):
             last = kind
         if kind in ("chaupai", "shloka"): n += 1; no = str(n).translate(DEVNUM)
         else: no = ""
-        if kind == "mantra":
+        if kind in ("mantra", "dhyan"):
             head, body = text.split("\n", 1)
-            out.append(f'<div class="verse mantra"><h3 class="m-name">{e(head)}</h3><p class="line">{e(body)}</p><p class="mean">{e(mean)}</p></div>')
+            out.append(f'<div class="verse mantra{" dhyan" if kind == "dhyan" else ""}"><h3 class="m-name">{e(head)}</h3><p class="line">{e(body)}</p><p class="mean">{e(mean)}</p></div>')
             continue
         out.append(f'<div class="verse {kind}"><span class="no">{no}</span><p class="line">{e(text)}</p><p class="mean">{e(mean)}</p></div>')
     return "\n".join(out)
