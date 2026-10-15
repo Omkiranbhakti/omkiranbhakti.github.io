@@ -524,6 +524,7 @@ add("about.html", "OmKiran Bhakti के बारे में — हिंद
 from panchang import TITHI as TITHI_HI
 exec(open(os.path.join(os.path.dirname(__file__), "panchang_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "city_section.py"), encoding="utf-8").read())
+exec(open(os.path.join(os.path.dirname(__file__), "question_section.py"), encoding="utf-8").read())
 
 exec(open(os.path.join(os.path.dirname(__file__), "library_section.py"), encoding="utf-8").read())
 
@@ -540,10 +541,11 @@ deities = [("mata-rani-bhajan.html","माता रानी","शेराव
            ("krishna-bhajan.html","श्रीकृष्ण","राधा-कृष्ण, कन्हैया"),("ram-bhajan.html","श्रीराम","सियाराम, रघुनंदन")]
 dlist = "".join(f'<li><a href="{h}">{arch(*ART[k], alt=t)}<strong>{t}</strong><small>{sub}</small></a></li>' for h,t,sub,k in
    [(h,t,sub,k) for (h,t,sub),k in zip(deities,["mata","shiv","hanuman","ganesh","krishna","ram"])])
-_hot = sorted([(nxt_fest(k)["date"], h, t) for h, t, k in CITY_PAGES if nxt_fest(k)], key=lambda x: x[0])
+_hot = sorted([(HOT_DATES.get(k) or nxt_fest(k)["date"], h, t) for h, t, k in CITY_PAGES if HOT_DATES.get(k) or nxt_fest(k)], key=lambda x: x[0])
+_hot = [x for x in _hot if x[0] >= TODAY_D]
 hot_html = ('<section class="hot"><div class="wrap"><h2 class="hot-h">अपने शहर का समय देखें</h2><ul class="hot-list">' +
             "".join(f'<li><a href="{h}"><strong>{e(t)}</strong><span>{hdate_w(d)}</span></a></li>' for d, h, t in _hot) +
-            '</ul></div></section>') if _hot else ""
+            '</ul><p style="text-align:center;margin:1rem 0 0"><a href="tyohar-kab-hai.html">एकादशी, पूर्णिमा, हर त्योहार — सभी ‘कब है’ सवालों के जवाब</a></p></div></section>') if _hot else ""
 add("index.html", "OmKiran Bhakti — आरती, चालीसा, मंत्र और भजन (बोल व अर्थ सहित)",
  "हनुमान चालीसा, आरती और मंत्रों के पूरे बोल सरल अर्थ के साथ; माता रानी, शिव, गणेश, कृष्ण और राम के भजन; नवरात्रि 2026 और ऑनलाइन जाप माला।",
  f'''<section class="night scallop to-band hero3"><div class="wrap">
@@ -602,7 +604,7 @@ llms = ["# OmKiran Bhakti","",
  f"Official YouTube channel: {YT}",
  "Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi, purnimanta months; festivals follow their traditional kaal rule (sunrise, pradosh, moonrise, nishita).","",
  "## Upcoming festivals (dates for New Delhi)",*[f"- {html.unescape(n)}: {d.isoformat()} — {SITE}{u}" for d,n,u,w in _up],"",
- "## City-wise festival timings",*[f"- [{html.unescape(titles[h])}]({SITE}{h})" for h,_,_ in CITY_PAGES],"",
+ "## City-wise festival timings and quick answers",f"- [{html.unescape(titles['tyohar-kab-hai.html'])}]({SITE}tyohar-kab-hai.html)",*[f"- [{html.unescape(titles[h])}]({SITE}{h})" for h,_,_ in CITY_PAGES],"",
  "## Lyrics and texts with meanings",*[f"- [{html.unescape(titles[c[0]])}]({SITE}{c[0]})" for c in CATALOG if c[0] in titles],"",
  "## Bhajans by deity",*[f"- [{html.unescape(titles[d[0]])}]({SITE}{d[0]})" for d in DEITY],"",
  "## Panchang, festivals and tools",f"- [{html.unescape(titles['aaj-ka-panchang.html'])}]({SITE}aaj-ka-panchang.html): daily Hindu panchang for New Delhi (tithi, nakshatra, muhurat, Rahu kaal), updated every day",

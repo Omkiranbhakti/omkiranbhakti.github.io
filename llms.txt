@@ -19,10 +19,13 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - देवउठनी एकादशी: 2026-11-20 — https://omkiranbhakti.github.io/dev-uthani-ekadashi-kab-hai.html
 - कार्तिक पूर्णिमा (देव दीपावली): 2026-11-24 — https://omkiranbhakti.github.io/kartik-purnima-kab-hai.html
 
-## City-wise festival timings
+## City-wise festival timings and quick answers
+- [त्योहार कब है? — एकादशी, पूर्णिमा, दशहरा, दिवाली के सीधे जवाब | OmKiran Bhakti](https://omkiranbhakti.github.io/tyohar-kab-hai.html)
 - [करवा चौथ 2026 चाँद कब निकलेगा? शहरवार चंद्रोदय समय | OmKiran Bhakti](https://omkiranbhakti.github.io/karwa-chauth-chand-kab-niklega.html)
 - [दिवाली 2026 लक्ष्मी पूजा मुहूर्त — आपके शहर का शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/diwali-lakshmi-puja-muhurat.html)
 - [छठ पूजा 2026 अर्घ्य का समय — पटना, दिल्ली और शहरवार | OmKiran Bhakti](https://omkiranbhakti.github.io/chhath-puja-arghya-time.html)
+- [नवरात्रि 2026 अष्टमी-नवमी कब है? क्या एक साथ हैं, संधि पूजा का समय | OmKiran Bhakti](https://omkiranbhakti.github.io/navratri-ashtami-navami-kab-hai.html)
+- [दशहरा 2026 विजय मुहूर्त, रावण दहन का समय — शहरवार | OmKiran Bhakti](https://omkiranbhakti.github.io/dussehra-vijay-muhurat-ravan-dahan.html)
 
 ## Lyrics and texts with meanings
 - [हनुमान चालीसा — पूरे बोल, सरल हिंदी अर्थ और वीडियो | OmKiran Bhakti](https://omkiranbhakti.github.io/hanuman-chalisa.html)

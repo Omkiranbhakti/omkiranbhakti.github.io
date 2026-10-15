@@ -55,6 +55,7 @@ CITY_JS = ('<script>(function(){var q=document.getElementById("city-q");if(!q)re
 def city_search(ph):
     return f'<div class="lib-search no-print"><label for="city-q" class="sr">शहर खोजें</label><input type="search" id="city-q" placeholder="{ph}" autocomplete="off"></div>'
 CITY_PAGES = []
+CITY_ANS = {}
 
 # ---------- Karwa Chauth: moonrise city-wise ----------
 kc = nxt_fest("karwa-chauth")
@@ -90,6 +91,7 @@ if kc:
     add("karwa-chauth-chand-kab-niklega.html", f"करवा चौथ {Y} चाँद कब निकलेगा? शहरवार चंद्रोदय समय | OmKiran Bhakti",
         f"करवा चौथ {Y} ({hdate_w(D)}): दिल्ली में चाँद {ct12(dl)}, मुंबई {ct12(mb)}। भारत के 65+ शहरों और USA, कनाडा, UK, दुबई का चंद्रोदय समय।"[:160],
         body, crumbs="करवा चौथ चाँद का समय", ld=ld, active="tyohar-calendar.html")
+    CITY_ANS["karwa-chauth"] = f"दिल्ली में {ct12(dl)}, मुंबई में {ct12(mb)} (लगभग)।"
     CITY_PAGES.append(("karwa-chauth-chand-kab-niklega.html", f"करवा चौथ {Y}: शहरवार चाँद निकलने का समय", "karwa-chauth"))
 
 # ---------- Diwali: Lakshmi puja muhurat city-wise ----------
@@ -127,6 +129,7 @@ if dw:
     add("diwali-lakshmi-puja-muhurat.html", f"दिवाली {Y} लक्ष्मी पूजा मुहूर्त — आपके शहर का शुभ समय | OmKiran Bhakti",
         f"दिवाली {Y} ({hdate_w(D)}): दिल्ली में लक्ष्मी पूजा {ct12(db[0])}–{ct12(db[1])}। 65+ शहरों का प्रदोष काल, वृषभ लग्न और सबसे शुभ समय।"[:160],
         body, crumbs="दिवाली लक्ष्मी पूजा मुहूर्त", ld=ld, active="tyohar-calendar.html")
+    CITY_ANS["diwali"] = f"दिल्ली में {ct12(db[0])} से {ct12(db[1])} तक।"
     CITY_PAGES.append(("diwali-lakshmi-puja-muhurat.html", f"दिवाली {Y}: शहरवार लक्ष्मी पूजा मुहूर्त", "diwali"))
 
 # ---------- Chhath: sandhya arghya (sunset) and usha arghya (sunrise) ----------
@@ -158,6 +161,7 @@ if ch:
     add("chhath-puja-arghya-time.html", f"छठ पूजा {Y} अर्घ्य का समय — पटना, दिल्ली और शहरवार | OmKiran Bhakti",
         f"छठ पूजा {Y}: संध्या अर्घ्य {hdate_w(D)}, उषा अर्घ्य {hdate_w(D2)}। पटना में सूर्यास्त {ct12(ps)}, सूर्योदय {ct12(pr)} — 34 शहरों का अर्घ्य समय।"[:160],
         body, crumbs="छठ अर्घ्य का समय", ld=ld, active="tyohar-calendar.html")
+    CITY_ANS["chhath-puja"] = f"पटना में संध्या अर्घ्य {ct12(ps)}, उषा अर्घ्य {ct12(pr)}।"
     CITY_PAGES.append(("chhath-puja-arghya-time.html", f"छठ पूजा {Y}: शहरवार अर्घ्य का समय", "chhath-puja"))
 
 # link each festival page to its city-wise page

@@ -19,4 +19,4 @@ req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body, hea
 try:
     with urllib.request.urlopen(req, timeout=30) as r: print("IndexNow", r.status, len(urls), "urls")
 except Exception as e:
-    print("IndexNow failed (non-fatal):", e)
+    print("IndexNow failed:", e); sys.exit(1)

@@ -549,3 +549,8 @@ html.paath-on .verse.dhyan .line{color:#F5B83A}
 .hot-list a strong{display:block;font-family:var(--display);font-weight:400;font-size:1.15rem;line-height:1.3}
 .hot-list a span{font-size:.9rem;color:var(--ink-soft)}
 .hot-list a:hover strong{color:var(--sindoor)}
+.nv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:1.5rem}
+.nv-card h3{font-size:1.3rem;margin:0 0 .5rem}
+.nv-card table{width:100%;table-layout:fixed}.nv-card th{text-align:left;font-weight:600;padding-right:.75rem;width:38%}.nv-card td{overflow-wrap:anywhere}
+.nv-card td.big{font-family:var(--display);font-size:1.15rem}
+.nv-card .ptable{min-width:0}.nv-card td.big{white-space:normal}
