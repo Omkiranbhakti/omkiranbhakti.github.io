@@ -554,3 +554,32 @@ html.paath-on .verse.dhyan .line{color:#F5B83A}
 .nv-card table{width:100%;table-layout:fixed}.nv-card th{text-align:left;font-weight:600;padding-right:.75rem;width:38%}.nv-card td{overflow-wrap:anywhere}
 .nv-card td.big{font-family:var(--display);font-size:1.15rem}
 .nv-card .ptable{min-width:0}.nv-card td.big{white-space:normal}
+
+/* ---- choghadiya ---- */
+.ch-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:1.5rem;margin-top:1.5rem}
+.chogh{min-width:0!important}
+.chogh caption{text-align:left;font-family:var(--display);font-size:1.2rem;padding:.4rem 0}
+.chogh tr.ch-good td:first-child{color:var(--tulsi,#2E7D57)}
+.chogh tr.ch-bad td:first-child{color:var(--sindoor)}
+.chogh tr.now td{background:rgba(232,163,23,.18);font-weight:600}
+.ch-tom{margin-top:2.5rem}
+.kaal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr));gap:.8rem}
+.kaal-grid div{border:1px solid var(--chandan);border-radius:var(--r-m);padding:.8rem 1rem;background:var(--paper-2)}
+.kaal-grid b{display:block;font-size:.95rem}
+.kaal-grid span{display:block;font-family:var(--display);font-size:1.2rem}
+.kaal-grid small{color:var(--ink-soft);font-size:.85rem}
+.city-grid a{min-width:9rem}
+.city-grid li[hidden]{display:none}
+
+/* ---- calculator ---- */
+.jcalc{max-width:46rem;margin-top:1rem}
+.jrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr));gap:1rem}
+.jcalc label{display:flex;flex-direction:column;gap:.35rem;font-weight:600}
+.jcalc input,.jcalc select{font:inherit;padding:.6rem .8rem;border-radius:var(--r-s);border:1px solid var(--chandan);background:var(--paper);color:var(--ink);width:100%;box-sizing:border-box}
+.jcalc .jchk{flex-direction:row;align-items:center;font-weight:400;margin:.8rem 0}
+.jcalc .jchk input{width:auto}
+.jcalc .btn{margin-top:.8rem}
+.jout{max-width:46rem;margin-top:1.5rem;border:1px solid var(--gold,#C9A24A);border-radius:var(--r-l);padding:1.25rem;background:var(--paper-2)}
+.jout h3{font-size:1.35rem;margin:0 0 .75rem}
+.jt{min-width:0!important}.jt th{text-align:left;width:38%;vertical-align:top}
+.jt mark{background:var(--genda);color:#1C2350;padding:0 .2rem;border-radius:3px}

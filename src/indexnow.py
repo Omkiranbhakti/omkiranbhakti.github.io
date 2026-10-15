@@ -5,7 +5,7 @@ KEY = "5e7698afbb45a82de929a42aaf0783fe"
 event = sys.argv[1] if len(sys.argv) > 1 else "push"
 if event == "schedule":
     today = (dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=5, minutes=30)).date()
-    files = ["index.html", "aaj-ka-panchang.html", f"panchang-{today:%Y-%m}.html"]
+    files = ["index.html", "aaj-ka-panchang.html", f"panchang-{today:%Y-%m}.html", "aaj-ka-choghadiya.html", "bhadra-kaal.html", "panchak-kab-hai.html", "tyohar-kab-hai.html"]
 else:
     try:
         out = subprocess.run(["git", "diff", "--name-only", "HEAD~1", "HEAD"], capture_output=True, text=True).stdout.split()

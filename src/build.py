@@ -527,6 +527,9 @@ exec(open(os.path.join(os.path.dirname(__file__), "city_section.py"), encoding="
 exec(open(os.path.join(os.path.dirname(__file__), "question_section.py"), encoding="utf-8").read())
 
 exec(open(os.path.join(os.path.dirname(__file__), "library_section.py"), encoding="utf-8").read())
+exec(open(os.path.join(os.path.dirname(__file__), "kaal_section.py"), encoding="utf-8").read())
+exec(open(os.path.join(os.path.dirname(__file__), "choghadiya_section.py"), encoding="utf-8").read())
+exec(open(os.path.join(os.path.dirname(__file__), "calc_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "vrat_section.py"), encoding="utf-8").read())
 
 # ---------------- Home ----------------
@@ -547,6 +550,11 @@ _hot = [x for x in _hot if x[0] >= TODAY_D]
 hot_html = ('<section class="hot"><div class="wrap"><h2 class="hot-h">अपने शहर का समय देखें</h2><ul class="hot-list">' +
             "".join(f'<li><a href="{h}"><strong>{e(t)}</strong><span>{hdate_w(d)}</span></a></li>' for d, h, t in _hot) +
             '</ul><p style="text-align:center;margin:1rem 0 0"><a href="tyohar-kab-hai.html">एकादशी, पूर्णिमा, हर त्योहार — सभी ‘कब है’ सवालों के जवाब</a></p></div></section>') if _hot else ""
+_tools = [("aaj-ka-choghadiya.html","आज का चौघड़िया","65 शहरों का शुभ समय"),("janm-tithi-rashi-calculator.html","जन्म तिथि और राशि कैलकुलेटर","नाम अक्षर, नक्षत्र, तिथि वाला जन्मदिन")] + [(h, t, sub) for h, t, sub in KAAL_PAGES if h in ("panchak-kab-hai.html","bhadra-kaal.html","kharmas-kab-hai.html","gandmool-nakshatra.html")]
+tools_html = ('<section class="hot"><div class="wrap"><h2 class="hot-h">रोज़ काम आने वाला</h2><ul class="hot-list">' +
+              "".join(f'<li><a href="{h}"><strong>{e(t)}</strong><span>{e(sub)}</span></a></li>' for h, t, sub in _tools) + '</ul></div></section>')
+for _fp in ("aaj-ka-panchang.html", "tyohar-calendar.html"):
+    if _fp in PAGES: PAGES[_fp] = PAGES[_fp].replace('<section class="hot">', tools_html + '<section class="hot">', 1)
 add("index.html", "OmKiran Bhakti — आरती, चालीसा, मंत्र और भजन (बोल व अर्थ सहित)",
  "हनुमान चालीसा, आरती और मंत्रों के पूरे बोल सरल अर्थ के साथ; माता रानी, शिव, गणेश, कृष्ण और राम के भजन; नवरात्रि 2026 और ऑनलाइन जाप माला।",
  f'''<section class="night scallop to-band hero3"><div class="wrap">
@@ -558,7 +566,7 @@ add("index.html", "OmKiran Bhakti — आरती, चालीसा, मं�
 <div class="actions"><a class="btn gold go" href="hanuman-chalisa.html">पाठ खोलें</a><a class="btn ghost" href="jaap-mala.html">जाप माला</a></div>
 </div>
 </div></section>
-{hot_html}<section class="band"><div class="wrap">{sec_head("आने वाले त्योहार","तारीख़, और त्योहार सुबह से है या शाम-रात को")}{up_list(upcoming(8))}
+{hot_html}{tools_html}<section class="band"><div class="wrap">{sec_head("आने वाले त्योहार","तारीख़, और त्योहार सुबह से है या शाम-रात को")}{up_list(upcoming(8))}
 <p style="text-align:center;margin-top:1.5rem"><a class="btn" href="tyohar-calendar.html">पूरा त्योहार कैलेंडर</a> <a class="btn ghost" href="ekadashi-2026-2027.html">सभी एकादशी</a></p></div></section>
 <section><div class="wrap">{sec_head("अपने आराध्य चुनें","हर देवता के भजन, आरती और मंत्र एक जगह")}<ul class="devta devta-light">{dlist}</ul></div></section>
 <section class="band"><div class="wrap">{sec_head("बोल और अर्थ","पूजा के समय फ़ोन पर बड़े अक्षरों में पढ़ें, या प्रिंट करके रखें")}{paath_html}</div></section>
@@ -606,6 +614,9 @@ llms = ["# OmKiran Bhakti","",
  "Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi, purnimanta months; festivals follow their traditional kaal rule (sunrise, pradosh, moonrise, nishita).","",
  "## Upcoming festivals (dates for New Delhi)",*[f"- {html.unescape(n)}: {d.isoformat()} — {SITE}{u}" for d,n,u,w in _up],"",
  "## City-wise festival timings and quick answers",f"- [{html.unescape(titles['tyohar-kab-hai.html'])}]({SITE}tyohar-kab-hai.html)",*[f"- [{html.unescape(titles[h])}]({SITE}{h})" for h,_,_ in CITY_PAGES],"",
+ "## Daily tools (updated every day)",f"- [{html.unescape(titles['aaj-ka-choghadiya.html'])}]({SITE}aaj-ka-choghadiya.html): choghadiya, Rahu kaal, Abhijit for 65 Indian cities",
+ f"- [{html.unescape(titles['janm-tithi-rashi-calculator.html'])}]({SITE}janm-tithi-rashi-calculator.html): birth tithi, nakshatra, moon sign, naam akshar and next tithi-birthday from a birth date (runs in the browser)",
+ *[f"- [{html.unescape(titles[h])}]({SITE}{h})" for h,_,_ in KAAL_PAGES],"",
  "## Lyrics and texts with meanings",*[f"- [{html.unescape(titles[c[0]])}]({SITE}{c[0]})" for c in CATALOG if c[0] in titles],"",
  "## Bhajans by deity",*[f"- [{html.unescape(titles[d[0]])}]({SITE}{d[0]})" for d in DEITY],"",
  "## Panchang, festivals and tools",f"- [{html.unescape(titles['aaj-ka-panchang.html'])}]({SITE}aaj-ka-panchang.html): daily Hindu panchang for New Delhi (tithi, nakshatra, muhurat, Rahu kaal), updated every day",
