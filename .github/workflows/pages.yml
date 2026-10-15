@@ -1,8 +1,11 @@
-name: Deploy OmKiran Bhakti to GitHub Pages
+name: Build and deploy OmKiran Bhakti
 
 on:
   push:
     branches: ["main"]
+  schedule:
+    # 00:05 IST every day (18:35 UTC) — refreshes "आज का पंचांग", upcoming festivals and sitemap dates
+    - cron: "35 18 * * *"
   workflow_dispatch:
 
 permissions:
@@ -23,6 +26,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install panchang library
+        run: pip install ephem==4.2.1
+      - name: Build site (today's panchang)
+        run: python src/build.py
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:

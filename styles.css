@@ -345,3 +345,57 @@ select,input[type=text]{font:inherit;padding:.55rem .8rem;border-radius:var(--r-
 .days{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
 .days li{grid-template-columns:76px 1fr}
 .days .d{display:block;line-height:1.4}
+
+/* ---------- Panchang ---------- */
+.pan-home{display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(1.25rem,3vw,2.5rem);align-items:start;margin-top:1.5rem}
+.pan-home aside h3{font-size:1.35rem;margin:0 0 .5rem}
+@media (max-width:900px){.pan-home{grid-template-columns:1fr}}
+.pcard{background:var(--paper);border:1px solid var(--chandan);border-radius:var(--r-l);padding:clamp(1.1rem,3vw,1.75rem);
+  box-shadow:0 0 0 4px rgba(217,164,65,.12),0 18px 40px -26px rgba(120,60,10,.55);position:relative}
+.pcard::before{content:"";position:absolute;inset:8px;border:1px solid rgba(217,164,65,.35);border-radius:calc(var(--r-l) - 6px);pointer-events:none}
+.pc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;position:relative}
+.pc-date{margin:0;color:var(--ink-soft);font-weight:500}
+.pc-tithi{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,4.5vw,2.5rem);color:var(--sindoor-deep);margin:.1rem 0 .2rem}
+.pc-sub{margin:0;color:var(--ink-soft);font-size:.98rem}
+.chip.share{background:#1f8f4e;border-color:#1f8f4e;color:#fff;font-weight:600}
+.chip.share:hover{background:#17733e}
+.pc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.2rem 1.5rem;margin:1.25rem 0 0;position:relative}
+.pc-grid div{padding:.7rem 0;border-top:1px dashed var(--chandan)}
+.pc-grid dt{font-weight:600;font-size:.98rem}
+.pc-grid dt small{display:block;font-weight:400;color:var(--ink-soft);font-size:.84rem}
+.pc-grid dd{margin:.15rem 0 0;font-family:var(--display);font-size:1.15rem}
+.pc-grid .good dt::before{content:"";display:inline-block;width:.55rem;height:.55rem;border-radius:50%;background:var(--tulsi);margin-right:.4rem}
+.pc-grid .bad dt::before{content:"";display:inline-block;width:.55rem;height:.55rem;border-radius:50%;background:var(--sindoor);margin-right:.4rem}
+@media (max-width:560px){.pc-grid{grid-template-columns:1fr}}
+.pc-fest{margin-top:1rem;position:relative;background:var(--paper-2);border-radius:var(--r-m);padding:.9rem 1.1rem}
+.pc-fest h4{margin:0 0 .35rem;font-size:1rem}
+.pc-fest ul{margin:0;padding:0;list-style:none}
+.pc-fest li{padding:.15rem 0}
+.pc-fest li a{font-weight:600}
+.pc-fest li span{color:var(--ink-soft);font-size:.92rem}
+.pc-fest .muted{color:var(--ink-soft)}
+.pc-note{font-size:.9rem;color:var(--ink-soft);margin:.9rem 0 0;position:relative}
+/* upcoming list */
+.ulist{list-style:none;padding:0;margin:.5rem 0 0;display:grid;gap:.55rem}
+.ulist li{display:grid;grid-template-columns:3.4rem 1fr;gap:.8rem;align-items:center}
+.ulist time{display:grid;place-items:center;background:var(--ink);color:var(--paper);border-radius:var(--r-m);padding:.3rem 0;line-height:1.1}
+.ulist time b{font-family:var(--display);font-weight:400;font-size:1.35rem}
+.ulist time span{font-size:.75rem;opacity:.85}
+.ulist a{text-decoration:none;color:var(--ink);display:block}
+.ulist a strong{display:block;font-weight:600}
+.ulist a span{color:var(--ink-soft);font-size:.9rem}
+.ulist a:hover strong{color:var(--sindoor)}
+.cal-m{margin:2rem 0 .4rem;color:var(--sindoor-deep)}
+/* tables */
+.tbl{overflow-x:auto;margin-top:1rem;border:1px solid var(--chandan);border-radius:var(--r-m);background:var(--paper)}
+.ptable{border-collapse:collapse;width:100%;min-width:560px;font-size:.98rem}
+.ptable th,.ptable td{text-align:left;padding:.65rem .8rem;border-bottom:1px solid var(--chandan);vertical-align:top}
+.ptable thead th{background:var(--paper-2);font-weight:600;font-size:.92rem}
+.ptable tbody th{font-weight:600;white-space:nowrap}
+.ptable small{display:block;color:var(--ink-soft);font-weight:400;font-size:.84rem}
+.ptable tr.has-f{background:rgba(232,163,23,.08)}
+.ptable tr:last-child th,.ptable tr:last-child td{border-bottom:0}
+.mnav{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-weight:600}
+.gloss div{padding:.9rem 0;border-bottom:1px solid var(--chandan)}
+.gloss dt{font-family:var(--display);font-size:1.3rem;color:var(--sindoor-deep)}
+.gloss dd{margin:.2rem 0 0}

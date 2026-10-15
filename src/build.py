@@ -2,7 +2,7 @@
 """Builds the OmKiran Bhakti static site into the repo root.
 Run:  python3 src/build.py
 Every page is plain HTML (fast, crawlable). Data lives in this file and lyrics.py."""
-import json, html, os, sys, datetime
+import json, html, os, sys, re, datetime
 sys.path.insert(0, os.path.dirname(__file__))
 from lyrics import HANUMAN_CHALISA, OM_JAI_JAGDISH, JAI_GANESH_DEVA, OM_JAI_SHIV_OMKARA
 
@@ -10,7 +10,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://omkiranbhakti.github.io/"
 YT = "https://www.youtube.com/@OmKiranBhakti"
 LOGO = "https://yt3.ggpht.com/v-SABQ87EfZPploVIJ9mR6pumFaiUs0RMrncVYcy0IfrZWA4EQ8MA8agzp_m-TLDq1sh00r5ZA=s256-c-k-c0x00ffffff-no-rj"
-TODAY = datetime.date.today().isoformat()
+TODAY = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=5, minutes=30)).date().isoformat()
 import hashlib
 def ver(f):
     return hashlib.md5(open(os.path.join(ROOT,f),"rb").read()).hexdigest()[:8]
@@ -114,6 +114,15 @@ V = {
  "5HxuQ9YgtiE":("श्री पितृ चालीसा","6:04"),
  "WutRzz-5xZw":("पितृ स्तोत्र पाठ","4:11"),
  "hwoEYtPy7Qw":("मेरी तुलसी दुल्हन बन आई रे — तुलसी विवाह गीत","4:56"),
+ "oQl6-dRDfWU":("करवा माता की आरती — पारंपरिक","3:41"),
+ "F95csn49Rq0":("महालक्ष्मी मंत्र — 108 बार (धन और सुख-शांति)","17:33"),
+ "Potbxr2V0jI":("कह दो राधा रानी से — उड़े रे गुलाल","4:17"),
+ "oXTPb9esaQ8":("बरसाने की छोरी — राधा कृष्ण होली गीत","4:10"),
+ "M5_SEzyH_b4":("छठ पूजा भजन — नॉन स्टॉप","13:33"),
+ "sllSUVgfjnw":("नाथों के नाथ सुन लो पुकार — महाशिवरात्रि भजन","5:37"),
+ "96GJOWJFJgA":("गुरु मंत्र जाप — 108 बार","26:22"),
+ "EE2zjTPyHaI":("खाटू में तेरा दरबार — ग्यारस (एकादशी) भजन","4:31"),
+ "A-vFduFpIHg":("निर्जला एकादशी व्रत कथा","11:23"),
 }
 PLAYLISTS = {
  "mata":("PLblSMxBGjJTo6wp1f_kZODt5LSwoGf1IH","नवरात्रि DJ भजन प्लेलिस्ट"),
@@ -153,8 +162,8 @@ def band(h1, answer, crumb, vid=None, pos=50, alt="", extra="", gold=True, to_ba
             f'<nav class="crumbs-in" aria-label="breadcrumb"><a href="index.html">होम</a> / {e(crumb)}</nav>'
             f'<h1{" class=\"gold-type\"" if gold else ""}>{e(h1)}</h1><p class="answer">{answer}</p>{extra}</div>{art}</div></section>')
 
-NAV = [("index.html","होम"),("aarti-mantra.html","आरती और चालीसा"),("navratri-2026.html","नवरात्रि 2026"),
-       ("jaap-mala.html","जाप माला"),("mata-rani-bhajan.html","भजन"),("about.html","परिचय")]
+NAV = [("index.html","होम"),("aaj-ka-panchang.html","आज का पंचांग"),("tyohar-calendar.html","त्योहार"),
+       ("aarti-mantra.html","आरती-चालीसा"),("jaap-mala.html","जाप माला"),("mata-rani-bhajan.html","भजन")]
 
 def watch(i): return f"https://www.youtube.com/watch?v={i}"
 
@@ -226,7 +235,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None):
 </main>
 <footer class="site-foot"><div class="wrap foot-grid">
 <div><h2>OmKiran Bhakti</h2><p>हिंदी भक्ति संगीत का घर — आरती, चालीसा, मंत्र और भजन, बोल और अर्थ के साथ। हमारे सभी वीडियो <a href="{YT}">YouTube चैनल</a> पर हैं।</p></div>
-<div><h2>पाठ</h2><ul><li><a href="hanuman-chalisa.html">हनुमान चालीसा</a></li><li><a href="om-jai-jagdish-hare-aarti.html">ॐ जय जगदीश हरे</a></li><li><a href="ganesh-aarti-jai-ganesh-deva.html">गणेश आरती</a></li><li><a href="shiv-aarti-om-jai-shiv-omkara.html">शिव आरती</a></li><li><a href="jaap-mala.html">ऑनलाइन जाप माला</a></li></ul></div>
+<div><h2>पाठ</h2><ul><li><a href="hanuman-chalisa.html">हनुमान चालीसा</a></li><li><a href="om-jai-jagdish-hare-aarti.html">ॐ जय जगदीश हरे</a></li><li><a href="ganesh-aarti-jai-ganesh-deva.html">गणेश आरती</a></li><li><a href="shiv-aarti-om-jai-shiv-omkara.html">शिव आरती</a></li><li><a href="jaap-mala.html">ऑनलाइन जाप माला</a></li><li><a href="aaj-ka-panchang.html">आज का पंचांग</a></li><li><a href="tyohar-calendar.html">त्योहार कैलेंडर</a></li><li><a href="about.html">परिचय</a></li></ul></div>
 <div><h2>भजन</h2><ul><li><a href="mata-rani-bhajan.html">माता रानी</a></li><li><a href="shiv-bhajan.html">शिव</a></li><li><a href="ganesh-bhajan.html">गणेश</a></li><li><a href="krishna-bhajan.html">कृष्ण</a></li><li><a href="ram-bhajan.html">राम</a></li><li><a href="devotional-edm-bhajans.html">भक्ति EDM</a></li></ul></div>
 </div><div class="wrap fine">© {datetime.date.today().year} OmKiran Bhakti. पारंपरिक पाठ सार्वजनिक धरोहर हैं; अर्थ और संगीत OmKiran Bhakti के हैं।</div></footer>
 <script src="script.js?v={JSV}" defer></script>
@@ -440,7 +449,7 @@ jfaq = [("जाप माला में 108 मनके क्यों ह�
         ("क्या मेरी गिनती सेव रहती है?","हाँ, गिनती आपके ही फ़ोन या कंप्यूटर के ब्राउज़र में सेव रहती है। हमें कोई जानकारी नहीं भेजी जाती।"),
         ("क्या बिना इंटरनेट के चलेगी?","पेज एक बार खुलने के बाद गिनती बिना रुकावट चलती रहती है।")]
 add("jaap-mala.html", "ऑनलाइन जाप माला — 108 नाम जाप काउंटर | OmKiran Bhakti",
- "मुफ़्त ऑनलाइन जाप माला: मंत्र चुनें, टैप करके गिनें, 108 पूरे होने पर माला गिनती। ॐ नमः शिवाय, राम, हरे कृष्ण, जय माता दी या अपना मंत्र। गिनती आपके फ़ोन में सेव रहती है।",
+ "मुफ़्त ऑनलाइन जाप माला: मंत्र चुनें, टैप करके गिनें, 108 पूरे होने पर माला गिनती। ॐ नमः शिवाय, राम, हरे कृष्ण, जय माता दी या अपना मंत्र।",
  f'''<section class="night scallop mala-night"><div class="wrap"><nav class="crumbs-in" aria-label="breadcrumb"><a href="index.html">होम</a> / जाप माला</nav><h1 class="gold-type">ऑनलाइन जाप माला</h1>
 <p class="answer">मंत्र चुनें और बीच के बटन पर टैप करें — हर टैप एक जाप है। 108 जाप पर एक माला पूरी होती है और फ़ोन हल्का-सा कंपन करता है। कंप्यूटर पर स्पेसबार भी दबा सकते हैं।</p>
 <div class="mala-wrap" style="margin-top:2rem">
@@ -468,6 +477,10 @@ add("about.html", "OmKiran Bhakti के बारे में — हिंद
  crumbs="परिचय", active="about.html",
  ld=[{"@type":"AboutPage","url":SITE+"about.html","about":{"@id":SITE+"#organization"}}])
 
+# ---------------- Panchang & festivals ----------------
+from panchang import TITHI as TITHI_HI
+exec(open(os.path.join(os.path.dirname(__file__), "panchang_section.py"), encoding="utf-8").read())
+
 # ---------------- Home ----------------
 ORG = {"@type":"Organization","@id":SITE+"#organization","name":"OmKiran Bhakti","alternateName":["Om Kiran Bhakti","ओमकिरण भक्ति"],"url":SITE,
        "logo":{"@type":"ImageObject","url":LOGO},"sameAs":[YT,"https://www.facebook.com/omkiranbhakti/","https://www.instagram.com/omkiranbhakti/"],
@@ -490,11 +503,13 @@ add("index.html", "OmKiran Bhakti — आरती, चालीसा, मं�
 <div class="actions"><a class="btn gold go" href="hanuman-chalisa.html">पाठ खोलें</a><a class="btn ghost" href="jaap-mala.html">जाप माला</a></div></div></div>
 <figure class="shrine">{arch(*ART["skandamata"], alt="आज के आराध्य", eager=True).replace('<div class="arch">','<div class="arch" id="today-art">').replace('</div>','<div class="diya" aria-hidden="true"><span class="bowl"></span><span class="flame"></span></div></div>')}<figcaption id="today-cap">जय माता दी</figcaption></figure>
 </div></section>
-<section class="band"><div class="wrap">{sec_head("अपने आराध्य चुनें","हर देवता के भजन, आरती और मंत्र एक जगह")}<ul class="devta devta-light">{dlist}</ul></div></section>
-<section><div class="wrap">{sec_head("बोल और अर्थ","पूजा के समय फ़ोन पर बड़े अक्षरों में पढ़ें, या प्रिंट करके रखें")}{paath_html}</div></section>
-<section class="band"><div class="wrap">{sec_head("नए भजन","इस हफ़्ते चैनल पर आए")}{video_cards(home_latest)}
+<section class="band"><div class="wrap">{sec_head("आज का पंचांग","तिथि, शुभ मुहूर्त, राहु काल और आज के व्रत-त्योहार — रोज़ अपने आप बदलता है")}
+<div class="pan-home">{today_card(TODAY_P)}<aside><h3>आने वाले त्योहार</h3>{up_list(upcoming(6))}<p><a href="tyohar-calendar.html">पूरा कैलेंडर देखें</a></p></aside></div></div></section>
+<section><div class="wrap">{sec_head("अपने आराध्य चुनें","हर देवता के भजन, आरती और मंत्र एक जगह")}<ul class="devta devta-light">{dlist}</ul></div></section>
+<section class="band"><div class="wrap">{sec_head("बोल और अर्थ","पूजा के समय फ़ोन पर बड़े अक्षरों में पढ़ें, या प्रिंट करके रखें")}{paath_html}</div></section>
+<section><div class="wrap">{sec_head("नए भजन","इस हफ़्ते चैनल पर आए")}{video_cards(home_latest)}
 <p style="margin-top:2rem;text-align:center"><a class="btn" href="{YT}?sub_confirmation=1" target="_blank" rel="noopener">YouTube पर सब्सक्राइब करें</a></p></div></section>
-<section><div class="wrap">{sec_head("सबसे ज़्यादा सुने गए","लाखों भक्तों की पसंद")}{video_cards(home_popular)}</div></section>
+<section class="band"><div class="wrap">{sec_head("सबसे ज़्यादा सुने गए","लाखों भक्तों की पसंद")}{video_cards(home_popular)}</div></section>
 <section class="night"><div class="wrap">{sec_head("भक्ति EDM","स्तोत्र और मंत्र, आज की धुन में")}{video_cards(["unfGUJz6D8U","D5LIL8j8Kqs","XLYs9iEXKmA"])}
 <p style="margin-top:2rem;text-align:center"><a class="btn gold" href="devotional-edm-bhajans.html">सभी EDM ट्रैक</a></p></div></section>''',
  ld=[ORG, WEBSITE, itemlist(home_popular,"सबसे ज़्यादा सुने गए भजन")])
@@ -524,6 +539,10 @@ llms = ["# OmKiran Bhakti","",
  "## Lyrics with meanings",*[f"- [{html.unescape(titles[s])}]({SITE}{s})" for s,_,_ in LIB],"",
  "## Bhajans by deity",*[f"- [{html.unescape(titles[d[0]])}]({SITE}{d[0]})" for d in DEITY],"",
  "## Festivals and tools",f"- [{html.unescape(titles['navratri-2026.html'])}]({SITE}navratri-2026.html)",f"- [{html.unescape(titles['jaap-mala.html'])}]({SITE}jaap-mala.html)",
- f"- [{html.unescape(titles['aarti-mantra.html'])}]({SITE}aarti-mantra.html)",f"- [{html.unescape(titles['about.html'])}]({SITE}about.html)",""]
+ f"- [{html.unescape(titles['aarti-mantra.html'])}]({SITE}aarti-mantra.html)",
+ f"- [{html.unescape(titles['aaj-ka-panchang.html'])}]({SITE}aaj-ka-panchang.html): daily Hindu panchang for New Delhi (tithi, nakshatra, muhurat, Rahu kaal), updated every day",
+ f"- [{html.unescape(titles['tyohar-calendar.html'])}]({SITE}tyohar-calendar.html)",
+ f"- [{html.unescape(titles['ekadashi-2026-2027.html'])}]({SITE}ekadashi-2026-2027.html)",
+ *[f"- [{html.unescape(titles[k+'-kab-hai.html'])}]({SITE}{k}-kab-hai.html)" for k,_ in TODAY_KEYS],f"- [{html.unescape(titles['about.html'])}]({SITE}about.html)",""]
 open(os.path.join(ROOT,"llms.txt"),"w",encoding="utf-8").write("\n".join(llms))
 print(f"built {len(PAGES)} pages, sitemap {len(urls)} urls")

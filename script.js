@@ -101,4 +101,42 @@
     document.getElementById('reset').addEventListener('click',function(){count=0;draw();save()});
     draw();
   }
+
+  // ---------- Panchang card: always show today's data (IST) ----------
+  var pc=document.getElementById('pcard');
+  function istDate(){var d=new Date(),t=new Date(d.getTime()+(d.getTimezoneOffset()+330)*60000);
+    var m=('0'+(t.getMonth()+1)).slice(-2),dd=('0'+t.getDate()).slice(-2);return t.getFullYear()+'-'+m+'-'+dd;}
+  var MON=['','जनवरी','फ़रवरी','मार्च','अप्रैल','मई','जून','जुलाई','अगस्त','सितंबर','अक्टूबर','नवंबर','दिसंबर'];
+  function t12(s){var a=s.split(':'),h=+a[0],m=a[1];var part=h<4?'रात':h<12?'सुबह':h<16?'दोपहर':h<19?'शाम':'रात';return part+' '+(h%12||12)+':'+m;}
+  function endTxt(p){if(!p.tithi_end)return '';var day=p.tithi_end.slice(0,10),tm=p.tithi_end.slice(11);return (day===p.date?'आज ':'कल ')+t12(tm)+' तक, फिर '+p.next_tithi;}
+  function fill(p){
+    var q=function(k){return pc.querySelector('[data-k="'+k+'"]')}, dd=p.date.split('-');
+    q('gdate').textContent=(+dd[2])+' '+MON[+dd[1]]+' '+dd[0]+', '+p.vaar;
+    q('tithi').textContent=p.paksha+' पक्ष '+p.tithi; q('month').textContent=p.month_purnimanta+' मास'+(p.adhik?' (अधिक मास)':'');
+    q('vs').textContent=p.vs; q('tend').textContent=endTxt(p); q('nak').textContent=p.nakshatra;
+    q('sunrise').textContent=t12(p.sunrise); q('sunset').textContent=t12(p.sunset);
+    q('brahma').textContent=t12(p.brahma[0])+' – '+t12(p.brahma[1]);
+    q('abhijit').textContent=t12(p.abhijit[0])+' – '+t12(p.abhijit[1])+(p.abhijit_ok?'':' (बुधवार को नहीं माना जाता)');
+    q('rahu').textContent=t12(p.rahu[0])+' – '+t12(p.rahu[1]); q('pradosh').textContent=t12(p.pradosh[0])+' – '+t12(p.pradosh[1]);
+    var ul=q('fest'); ul.innerHTML='';
+    if(!p.fest.length){ul.innerHTML='<li class="muted">आज कोई बड़ा त्योहार नहीं है</li>';}
+    p.fest.forEach(function(f){var li=document.createElement('li'),a=document.createElement('a');a.href=f[2];a.textContent=f[0];
+      var sp=document.createElement('span');sp.textContent=' '+f[1];li.appendChild(a);li.appendChild(sp);ul.appendChild(li);});
+    pc.setAttribute('data-date',p.date); pc._p=p;
+  }
+  if(pc){
+    var today=istDate();
+    if(pc.getAttribute('data-date')!==today){
+      fetch('panchang/'+today.slice(0,7)+'.json').then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j[today])fill(j[today]);}).catch(function(){});
+    }
+    var sb=pc.querySelector('[data-share]');
+    if(sb) sb.addEventListener('click',function(){
+      var g=function(k){return pc.querySelector('[data-k="'+k+'"]').textContent};
+      var fest=[].map.call(pc.querySelectorAll('[data-k="fest"] a'),function(a){return a.textContent}).join(', ');
+      var txt='🙏 आज का पंचांग — '+g('gdate')+'\n🌙 तिथि: '+g('tithi')+' ('+g('month')+')\n⭐ नक्षत्र: '+g('nak')+
+        '\n🌅 सूर्योदय '+g('sunrise')+' | सूर्यास्त '+g('sunset')+'\n✨ अभिजीत मुहूर्त: '+g('abhijit')+'\n⚠️ राहु काल: '+g('rahu')+
+        (fest?'\n🪔 आज: '+fest:'')+'\n\nपूरा पंचांग: https://omkiranbhakti.github.io/aaj-ka-panchang.html';
+      window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank','noopener');
+    });
+  }
 })();
