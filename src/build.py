@@ -123,10 +123,10 @@ PLAYLISTS = {
 # Deity art = the channel's own thumbnails, cropped into a temple-arch frame.
 # value: (video id, horizontal focus % for the crop)
 ART = {
- "mata":("woNhYRu376g",68), "shiv":("vsfjF59qj4Q",42), "hanuman":("707iS1Iyv-E",18),
- "ganesh":("ZswQ9qUMDTs",86), "krishna":("vy6ucthmxmk",16), "ram":("pCixItfj5Vo",80),
+ "mata":("2yVR5zSaKpc",76), "shiv":("Kbe3pbLsg1U",80), "hanuman":("707iS1Iyv-E",12),
+ "ganesh":("NGI-JiRiwSc",80), "krishna":("uCUR842niAU",12), "ram":("pCixItfj5Vo",80),
  "edm":("unfGUJz6D8U",78), "skandamata":("Q5_3JBKLNpg",74), "navdurga":("G99-49Pfs6U",50),
- "shivaarti":("vsfjF59qj4Q",42), "vishnu":("pCixItfj5Vo",80),
+ "shivaarti":("rxeMNQ48yWU",50), "vishnu":("pCixItfj5Vo",80),
 }
 DAY_ART = {"Ht_SogxJ_D8":62,"SsrEdkAf4xI":62,"lUhDATRpvrs":62,"65nhAnBmYuQ":62,"Q5_3JBKLNpg":74,"r32U54qyerw":60,"FFcNanFHSaY":60,"89wxOjTwPwQ":60}
 
@@ -388,7 +388,8 @@ aarti_ids = ["ZqFztNyxSgU","Qpe4rrfzWhk","jAdixB5m0Zo","axKgdxe7JZE","w8pxctA299
 lib_html = "".join(f'<li><a href="{h}"><strong>{t}</strong><span>{s}</span></a></li>' for h,t,s in LIB)
 PAATH_ART = {"hanuman-chalisa.html":"hanuman","om-jai-jagdish-hare-aarti.html":"vishnu","ganesh-aarti-jai-ganesh-deva.html":"ganesh","shiv-aarti-om-jai-shiv-omkara.html":"shivaarti"}
 paath_html = '<ul class="paath">' + "".join(f'<li><a href="{h}">{arch(*ART[PAATH_ART[h]], alt="")}<div><strong>{t}</strong><span>{s}</span></div></a></li>' for h,t,s in LIB) + \
-  f'<li><a href="jaap-mala.html">{arch(*ART["shiv"], alt="")}<div><strong>ऑनलाइन जाप माला</strong><span>108 की गिनती</span></div></a></li></ul>'
+  f'<li><a href="jaap-mala.html">{arch("C5lE4JA3sKc",30, alt="")}<div><strong>ऑनलाइन जाप माला</strong><span>108 की गिनती</span></div></a></li>' + \
+  f'<li><a href="navratri-2026.html">{arch(*ART["navdurga"], alt="")}<div><strong>नवरात्रि 2026</strong><span>तिथियाँ और नौ देवियाँ</span></div></a></li></ul>'
 add("aarti-mantra.html", "आरती, चालीसा और मंत्र — बोल, अर्थ और वीडियो | OmKiran Bhakti",
  "हनुमान चालीसा, ॐ जय जगदीश हरे, गणेश आरती और शिव आरती के पूरे बोल और अर्थ; साथ में चालीसा, आरती और 108 बार मंत्र जाप के वीडियो।",
  f'''{band("आरती, चालीसा और मंत्र","पूजा के समय पढ़ने के लिए पूरे बोल, हर पंक्ति के सरल हिंदी अर्थ के साथ — बड़े अक्षरों में पढ़ें या प्रिंट करें। नीचे हर पाठ का गाने वाला वीडियो भी है।","आरती, चालीसा और मंत्र",*ART["navdurga"],"नवदुर्गा आरती")}
@@ -482,7 +483,7 @@ add("index.html", "OmKiran Bhakti — आरती, चालीसा, मं�
 <p class="lede">आरती, चालीसा और मंत्रों के पूरे बोल सरल अर्थ के साथ, और साथ में गाने के लिए OmKiran Bhakti के भजन।</p>
 <div class="today2" id="today" aria-live="polite"><p class="when">आज</p><h2>हनुमान चालीसा</h2><p class="say">रोज़ के पाठ के लिए पूरे बोल और अर्थ।</p>
 <div class="actions"><a class="btn gold go" href="hanuman-chalisa.html">पाठ खोलें</a><a class="btn ghost" href="jaap-mala.html">जाप माला</a></div></div></div>
-<figure class="shrine">{arch(*ART["skandamata"], alt="आज के आराध्य", eager=True).replace('<div class="arch">','<div class="arch" id="today-art">')}<div class="diya" aria-hidden="true"><span class="bowl"></span><span class="flame"></span></div><figcaption id="today-cap">जय माता दी</figcaption></figure>
+<figure class="shrine">{arch(*ART["skandamata"], alt="आज के आराध्य", eager=True).replace('<div class="arch">','<div class="arch" id="today-art">').replace('</div>','<div class="diya" aria-hidden="true"><span class="bowl"></span><span class="flame"></span></div></div>')}<figcaption id="today-cap">जय माता दी</figcaption></figure>
 </div></section>
 <section class="band"><div class="wrap">{sec_head("अपने आराध्य चुनें","हर देवता के भजन, आरती और मंत्र एक जगह")}<ul class="devta devta-light">{dlist}</ul></div></section>
 <section><div class="wrap">{sec_head("बोल और अर्थ","पूजा के समय फ़ोन पर बड़े अक्षरों में पढ़ें, या प्रिंट करके रखें")}{paath_html}</div></section>

@@ -332,3 +332,13 @@ select,input[type=text]{font:inherit;padding:.55rem .8rem;border-radius:var(--r-
 .night .lotus::before{background:linear-gradient(90deg,transparent,rgba(246,210,122,.45))}
 .night .lotus::after{background:linear-gradient(90deg,rgba(246,210,122,.45),transparent)}
 .days .g{font-size:1.3rem}
+
+/* v2 refinements */
+.paath{grid-template-columns:repeat(3,1fr)}
+@media (max-width:860px){.paath{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.paath{grid-template-columns:1fr}}
+.video .play{place-items:end start;padding:10px}
+.video .play::before{width:42px;height:42px;box-shadow:0 0 0 4px rgba(255,248,238,.35)}
+.video .play::after{left:26px;bottom:20px;border-width:8px 0 8px 13px;margin:0}
+.shrine figcaption{margin-top:2.6rem}
+.shrine .diya{bottom:-30px}
