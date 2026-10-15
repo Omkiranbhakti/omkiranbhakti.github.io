@@ -1,10 +1,30 @@
 # OmKiran Bhakti
 
-> Hindi devotional music channel and website: full lyrics of traditional aartis and chalisas with plain-Hindi meanings, bhajan videos by deity, Navratri 2026 dates, and a free online jaap mala (108 counter).
+> Hindi devotional website of the OmKiran Bhakti YouTube channel: 86 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
 
 Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
+Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi, purnimanta months; festivals follow their traditional kaal rule (sunrise, pradosh, moonrise, nishita).
 
-## Lyrics with meanings
+## Upcoming festivals (dates for New Delhi)
+- दशहरा (विजयादशमी): 2026-10-20 — https://omkiranbhakti.github.io/dussehra-kab-hai.html
+- शरद पूर्णिमा: 2026-10-25 — https://omkiranbhakti.github.io/sharad-purnima-kab-hai.html
+- करवा चौथ: 2026-10-29 — https://omkiranbhakti.github.io/karwa-chauth-kab-hai.html
+- अहोई अष्टमी: 2026-11-01 — https://omkiranbhakti.github.io/ahoi-ashtami-kab-hai.html
+- धनतेरस: 2026-11-06 — https://omkiranbhakti.github.io/dhanteras-kab-hai.html
+- दिवाली (लक्ष्मी पूजा): 2026-11-08 — https://omkiranbhakti.github.io/diwali-kab-hai.html
+- नरक चतुर्दशी (छोटी दिवाली): 2026-11-08 — https://omkiranbhakti.github.io/narak-chaturdashi-kab-hai.html
+- गोवर्धन पूजा: 2026-11-10 — https://omkiranbhakti.github.io/govardhan-puja-kab-hai.html
+- भाई दूज: 2026-11-11 — https://omkiranbhakti.github.io/bhai-dooj-kab-hai.html
+- छठ पूजा (संध्या अर्घ्य): 2026-11-15 — https://omkiranbhakti.github.io/chhath-puja-kab-hai.html
+- देवउठनी एकादशी: 2026-11-20 — https://omkiranbhakti.github.io/dev-uthani-ekadashi-kab-hai.html
+- कार्तिक पूर्णिमा (देव दीपावली): 2026-11-24 — https://omkiranbhakti.github.io/kartik-purnima-kab-hai.html
+
+## City-wise festival timings
+- [करवा चौथ 2026 चाँद कब निकलेगा? शहरवार चंद्रोदय समय | OmKiran Bhakti](https://omkiranbhakti.github.io/karwa-chauth-chand-kab-niklega.html)
+- [दिवाली 2026 लक्ष्मी पूजा मुहूर्त — आपके शहर का शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/diwali-lakshmi-puja-muhurat.html)
+- [छठ पूजा 2026 अर्घ्य का समय — पटना, दिल्ली और शहरवार | OmKiran Bhakti](https://omkiranbhakti.github.io/chhath-puja-arghya-time.html)
+
+## Lyrics and texts with meanings
 - [हनुमान चालीसा — पूरे बोल, सरल हिंदी अर्थ और वीडियो | OmKiran Bhakti](https://omkiranbhakti.github.io/hanuman-chalisa.html)
 - [ॐ जय जगदीश हरे आरती — पूरे बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/om-jai-jagdish-hare-aarti.html)
 - [जय गणेश जय गणेश देवा आरती — पूरे बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/ganesh-aarti-jai-ganesh-deva.html)
@@ -100,13 +120,11 @@ Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
 - [राम भजन, श्री राम चालीसा और राम स्तुति | OmKiran Bhakti](https://omkiranbhakti.github.io/ram-bhajan.html)
 - [भक्ति EDM — शिव तांडव, हनुमान तांडव और अयि गिरिनन्दिनि मिक्स | OmKiran Bhakti](https://omkiranbhakti.github.io/devotional-edm-bhajans.html)
 
-## Festivals and tools
-- [नवरात्रि 2026 — तिथियाँ, नौ देवियाँ और हर दिन की आरती | OmKiran Bhakti](https://omkiranbhakti.github.io/navratri-2026.html)
-- [ऑनलाइन जाप माला — 108 नाम जाप काउंटर | OmKiran Bhakti](https://omkiranbhakti.github.io/jaap-mala.html)
-- [आरती, चालीसा, मंत्र और स्तोत्र — पूरे बोल अर्थ सहित | OmKiran Bhakti](https://omkiranbhakti.github.io/aarti-mantra.html)
+## Panchang, festivals and tools
 - [आज का पंचांग — तिथि, शुभ मुहूर्त, राहु काल और त्योहार | OmKiran Bhakti](https://omkiranbhakti.github.io/aaj-ka-panchang.html): daily Hindu panchang for New Delhi (tithi, nakshatra, muhurat, Rahu kaal), updated every day
 - [हिंदू त्योहार कैलेंडर 2026–2027 — व्रत और त्योहारों की तारीख़ें | OmKiran Bhakti](https://omkiranbhakti.github.io/tyohar-calendar.html)
 - [एकादशी 2026–2027 — सभी एकादशी की तारीख़, नाम और पारण समय | OmKiran Bhakti](https://omkiranbhakti.github.io/ekadashi-2026-2027.html)
+- [पूर्णिमा और अमावस्या 2026–2027 — तारीख़ और तिथि समय | OmKiran Bhakti](https://omkiranbhakti.github.io/purnima-amavasya-2026-2027.html)
 - [शरद पूर्णिमा 2026 / 2027 कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/sharad-purnima-kab-hai.html)
 - [करवा चौथ 2026 / 2027 कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/karwa-chauth-kab-hai.html)
 - [अहोई अष्टमी 2026 / 2027 कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/ahoi-ashtami-kab-hai.html)
@@ -135,4 +153,7 @@ Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
 - [अनंत चतुर्दशी 2027 कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/anant-chaturdashi-kab-hai.html)
 - [शारदीय नवरात्रि 2026 / 2027 कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/sharadiya-navratri-kab-hai.html)
 - [दशहरा 2026 / 2027 कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/dussehra-kab-hai.html)
+- [नवरात्रि 2026 — तिथियाँ, नौ देवियाँ और हर दिन की आरती | OmKiran Bhakti](https://omkiranbhakti.github.io/navratri-2026.html)
+- [ऑनलाइन जाप माला — 108 नाम जाप काउंटर | OmKiran Bhakti](https://omkiranbhakti.github.io/jaap-mala.html)
+- [आरती, चालीसा, मंत्र और स्तोत्र — पूरे बोल अर्थ सहित | OmKiran Bhakti](https://omkiranbhakti.github.io/aarti-mantra.html)
 - [OmKiran Bhakti के बारे में — हिंदी भक्ति संगीत चैनल](https://omkiranbhakti.github.io/about.html)

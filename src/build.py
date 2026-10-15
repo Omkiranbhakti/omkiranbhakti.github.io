@@ -523,6 +523,7 @@ add("about.html", "OmKiran Bhakti के बारे में — हिंद
 # ---------------- Panchang & festivals ----------------
 from panchang import TITHI as TITHI_HI
 exec(open(os.path.join(os.path.dirname(__file__), "panchang_section.py"), encoding="utf-8").read())
+exec(open(os.path.join(os.path.dirname(__file__), "city_section.py"), encoding="utf-8").read())
 
 exec(open(os.path.join(os.path.dirname(__file__), "library_section.py"), encoding="utf-8").read())
 
@@ -539,6 +540,10 @@ deities = [("mata-rani-bhajan.html","माता रानी","शेराव
            ("krishna-bhajan.html","श्रीकृष्ण","राधा-कृष्ण, कन्हैया"),("ram-bhajan.html","श्रीराम","सियाराम, रघुनंदन")]
 dlist = "".join(f'<li><a href="{h}">{arch(*ART[k], alt=t)}<strong>{t}</strong><small>{sub}</small></a></li>' for h,t,sub,k in
    [(h,t,sub,k) for (h,t,sub),k in zip(deities,["mata","shiv","hanuman","ganesh","krishna","ram"])])
+_hot = sorted([(nxt_fest(k)["date"], h, t) for h, t, k in CITY_PAGES if nxt_fest(k)], key=lambda x: x[0])
+hot_html = ('<section class="hot"><div class="wrap"><h2 class="hot-h">अपने शहर का समय देखें</h2><ul class="hot-list">' +
+            "".join(f'<li><a href="{h}"><strong>{e(t)}</strong><span>{hdate_w(d)}</span></a></li>' for d, h, t in _hot) +
+            '</ul></div></section>') if _hot else ""
 add("index.html", "OmKiran Bhakti — आरती, चालीसा, मंत्र और भजन (बोल व अर्थ सहित)",
  "हनुमान चालीसा, आरती और मंत्रों के पूरे बोल सरल अर्थ के साथ; माता रानी, शिव, गणेश, कृष्ण और राम के भजन; नवरात्रि 2026 और ऑनलाइन जाप माला।",
  f'''<section class="night scallop to-band hero3"><div class="wrap">
@@ -550,7 +555,7 @@ add("index.html", "OmKiran Bhakti — आरती, चालीसा, मं�
 <div class="actions"><a class="btn gold go" href="hanuman-chalisa.html">पाठ खोलें</a><a class="btn ghost" href="jaap-mala.html">जाप माला</a></div>
 </div>
 </div></section>
-<section class="band"><div class="wrap">{sec_head("आने वाले त्योहार","तारीख़, और त्योहार सुबह से है या शाम-रात को")}{up_list(upcoming(8))}
+{hot_html}<section class="band"><div class="wrap">{sec_head("आने वाले त्योहार","तारीख़, और त्योहार सुबह से है या शाम-रात को")}{up_list(upcoming(8))}
 <p style="text-align:center;margin-top:1.5rem"><a class="btn" href="tyohar-calendar.html">पूरा त्योहार कैलेंडर</a> <a class="btn ghost" href="ekadashi-2026-2027.html">सभी एकादशी</a></p></div></section>
 <section><div class="wrap">{sec_head("अपने आराध्य चुनें","हर देवता के भजन, आरती और मंत्र एक जगह")}<ul class="devta devta-light">{dlist}</ul></div></section>
 <section class="band"><div class="wrap">{sec_head("बोल और अर्थ","पूजा के समय फ़ोन पर बड़े अक्षरों में पढ़ें, या प्रिंट करके रखें")}{paath_html}</div></section>
@@ -591,16 +596,21 @@ open(os.path.join(ROOT,"sitemap.xml"),"w").write("\n".join(sm)+"\n")
 open(os.path.join(ROOT,"robots.txt"),"w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}sitemap.xml\n")
 
 titles = {s: PAGES[s].split("<title>")[1].split("</title>")[0] for s in urls}
+_up = upcoming(12)
 llms = ["# OmKiran Bhakti","",
- "> Hindi devotional music channel and website: full lyrics of traditional aartis and chalisas with plain-Hindi meanings, bhajan videos by deity, Navratri 2026 dates, and a free online jaap mala (108 counter).","",
- f"Official YouTube channel: {YT}","",
- "## Lyrics with meanings",*[f"- [{html.unescape(titles[s])}]({SITE}{s})" for s,_,_ in LIB_ALL],"",
+ f"> Hindi devotional website of the OmKiran Bhakti YouTube channel: {NPAATH} traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.","",
+ f"Official YouTube channel: {YT}",
+ "Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi, purnimanta months; festivals follow their traditional kaal rule (sunrise, pradosh, moonrise, nishita).","",
+ "## Upcoming festivals (dates for New Delhi)",*[f"- {html.unescape(n)}: {d.isoformat()} — {SITE}{u}" for d,n,u,w in _up],"",
+ "## City-wise festival timings",*[f"- [{html.unescape(titles[h])}]({SITE}{h})" for h,_,_ in CITY_PAGES],"",
+ "## Lyrics and texts with meanings",*[f"- [{html.unescape(titles[c[0]])}]({SITE}{c[0]})" for c in CATALOG if c[0] in titles],"",
  "## Bhajans by deity",*[f"- [{html.unescape(titles[d[0]])}]({SITE}{d[0]})" for d in DEITY],"",
- "## Festivals and tools",f"- [{html.unescape(titles['navratri-2026.html'])}]({SITE}navratri-2026.html)",f"- [{html.unescape(titles['jaap-mala.html'])}]({SITE}jaap-mala.html)",
- f"- [{html.unescape(titles['aarti-mantra.html'])}]({SITE}aarti-mantra.html)",
- f"- [{html.unescape(titles['aaj-ka-panchang.html'])}]({SITE}aaj-ka-panchang.html): daily Hindu panchang for New Delhi (tithi, nakshatra, muhurat, Rahu kaal), updated every day",
+ "## Panchang, festivals and tools",f"- [{html.unescape(titles['aaj-ka-panchang.html'])}]({SITE}aaj-ka-panchang.html): daily Hindu panchang for New Delhi (tithi, nakshatra, muhurat, Rahu kaal), updated every day",
  f"- [{html.unescape(titles['tyohar-calendar.html'])}]({SITE}tyohar-calendar.html)",
  f"- [{html.unescape(titles['ekadashi-2026-2027.html'])}]({SITE}ekadashi-2026-2027.html)",
- *[f"- [{html.unescape(titles[k+'-kab-hai.html'])}]({SITE}{k}-kab-hai.html)" for k,_ in TODAY_KEYS],f"- [{html.unescape(titles['about.html'])}]({SITE}about.html)",""]
+ f"- [{html.unescape(titles['purnima-amavasya-2026-2027.html'])}]({SITE}purnima-amavasya-2026-2027.html)",
+ *[f"- [{html.unescape(titles[k+'-kab-hai.html'])}]({SITE}{k}-kab-hai.html)" for k in FEST if k+'-kab-hai.html' in titles],
+ f"- [{html.unescape(titles['navratri-2026.html'])}]({SITE}navratri-2026.html)",f"- [{html.unescape(titles['jaap-mala.html'])}]({SITE}jaap-mala.html)",
+ f"- [{html.unescape(titles['aarti-mantra.html'])}]({SITE}aarti-mantra.html)",f"- [{html.unescape(titles['about.html'])}]({SITE}about.html)",""]
 open(os.path.join(ROOT,"llms.txt"),"w",encoding="utf-8").write("\n".join(llms))
 print(f"built {len(PAGES)} pages, sitemap {len(urls)} urls")

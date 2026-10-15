@@ -26,12 +26,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Install panchang library
-        run: pip install ephem==4.2.1
+        run: pip install ephem==4.2.1 tzdata
       - name: Build site (today's panchang)
         run: python src/build.py
       - name: Configure GitHub Pages
@@ -45,3 +47,6 @@ jobs:
       - name: Deploy website
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Tell search engines about changed pages (IndexNow)
+        continue-on-error: true
+        run: python src/indexnow.py "${{ github.event_name }}"
