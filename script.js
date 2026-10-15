@@ -110,7 +110,7 @@
   function t12(s){var a=s.split(':'),h=+a[0],m=a[1];var part=h<4?'रात':h<12?'सुबह':h<16?'दोपहर':h<19?'शाम':'रात';return part+' '+(h%12||12)+':'+m;}
   function endTxt(p){if(!p.tithi_end)return '';var day=p.tithi_end.slice(0,10),tm=p.tithi_end.slice(11);return (day===p.date?'आज ':'कल ')+t12(tm)+' तक, फिर '+p.next_tithi;}
   function fill(p){
-    var q=function(k){return pc.querySelector('[data-k="'+k+'"]')}, dd=p.date.split('-');
+    var q=function(k){return pc.querySelector('[data-k="'+k+'"]')||document.createElement('span')}, dd=p.date.split('-');
     q('gdate').textContent=(+dd[2])+' '+MON[+dd[1]]+' '+dd[0]+', '+p.vaar;
     q('tithi').textContent=p.paksha+' पक्ष '+p.tithi; q('month').textContent=p.month_purnimanta+' मास'+(p.adhik?' (अधिक मास)':'');
     q('vs').textContent=p.vs; q('tend').textContent=endTxt(p); q('nak').textContent=p.nakshatra;
@@ -131,7 +131,7 @@
     }
     var sb=pc.querySelector('[data-share]');
     if(sb) sb.addEventListener('click',function(){
-      var g=function(k){return pc.querySelector('[data-k="'+k+'"]').textContent};
+      var g=function(k){var el=pc.querySelector('[data-k="'+k+'"]');return el?el.textContent:''};
       var fest=[].map.call(pc.querySelectorAll('[data-k="fest"] a'),function(a){return a.textContent}).join(', ');
       var txt='🙏 आज का पंचांग — '+g('gdate')+'\n🌙 तिथि: '+g('tithi')+' ('+g('month')+')\n⭐ नक्षत्र: '+g('nak')+
         '\n🌅 सूर्योदय '+g('sunrise')+' | सूर्यास्त '+g('sunset')+'\n✨ अभिजीत मुहूर्त: '+g('abhijit')+'\n⚠️ राहु काल: '+g('rahu')+

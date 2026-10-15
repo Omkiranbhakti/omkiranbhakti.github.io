@@ -328,3 +328,26 @@ msg = (f"🙏 आज का पंचांग — {hdate_w(TODAY_D)}\n"
        + (f"🪔 आज: {', '.join(n for n,w,u in fest_today)}\n" if fest_today else "")
        + f"\nपूरा पंचांग: {SITE}aaj-ka-panchang.html\n— OmKiran Bhakti")
 open(os.path.join(ROOT, "panchang", "today.txt"), "w", encoding="utf-8").write(msg)
+
+# ---------- compact card for the home hero ----------
+def hero_card(p):
+    day = dt.date.fromisoformat(p["date"])
+    fest = DAYFEST.get(day, [])
+    fhtml = "".join(f'<li><a href="{u}">{e(n)}</a> <span>{e(w)}</span></li>' for n, w, u in fest) or '<li class="muted">आज कोई बड़ा त्योहार नहीं है</li>'
+    adhik = " (अधिक मास)" if p["adhik"] else ""
+    return f'''<div class="pcard hero-pc" id="pcard" data-date="{p['date']}">
+<div class="pc-head"><div><h1 class="pc-h1">आज का पंचांग</h1><p class="pc-date"><span data-k="gdate">{hdate_w(day)}</span></p></div>
+<button class="chip share" type="button" data-share>WhatsApp पर भेजें</button></div>
+<p class="pc-tithi"><span data-k="tithi">{p['paksha']} पक्ष {p['tithi']}</span></p>
+<p class="pc-sub"><span data-k="month">{p['month_purnimanta']} मास{adhik}</span>, विक्रम संवत <span data-k="vs">{p['vs']}</span> · <span data-k="tend">{tithi_end_txt(p)}</span></p>
+<dl class="pc-grid">
+<div><dt>सूर्योदय / सूर्यास्त</dt><dd><span data-k="sunrise">{t12(p['sunrise'])}</span> / <span data-k="sunset">{t12(p['sunset'])}</span></dd></div>
+<div><dt>नक्षत्र</dt><dd data-k="nak">{p['nakshatra']}</dd></div>
+<div class="good"><dt>अभिजीत मुहूर्त <small>नया काम शुरू करने का शुभ समय</small></dt><dd><span data-k="abhijit">{t12(p['abhijit'][0])} – {t12(p['abhijit'][1])}{'' if p['abhijit_ok'] else ' (बुधवार को नहीं माना जाता)'}</span></dd></div>
+<div class="bad"><dt>राहु काल <small>इसमें नया शुभ काम शुरू न करें</small></dt><dd><span data-k="rahu">{t12(p['rahu'][0])} – {t12(p['rahu'][1])}</span></dd></div>
+<div class="good"><dt>ब्रह्म मुहूर्त <small>ध्यान, जप और पढ़ाई के लिए</small></dt><dd><span data-k="brahma">{t12(p['brahma'][0])} – {t12(p['brahma'][1])}</span></dd></div>
+<div><dt>प्रदोष काल <small>शाम की पूजा, दीपदान</small></dt><dd><span data-k="pradosh">{t12(p['pradosh'][0])} – {t12(p['pradosh'][1])}</span></dd></div>
+</dl>
+<div class="pc-fest"><h2 class="pc-fh">आज के व्रत-त्योहार</h2><ul data-k="fest">{fhtml}</ul></div>
+<p class="pc-note">नई दिल्ली के अनुसार · <a href="aaj-ka-panchang.html">पूरा पंचांग और शब्दों का मतलब</a></p>
+</div>'''

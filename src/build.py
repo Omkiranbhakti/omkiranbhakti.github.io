@@ -496,15 +496,17 @@ dlist = "".join(f'<li><a href="{h}">{arch(*ART[k], alt=t)}<strong>{t}</strong><s
    [(h,t,sub,k) for (h,t,sub),k in zip(deities,["mata","shiv","hanuman","ganesh","krishna","ram"])])
 add("index.html", "OmKiran Bhakti — आरती, चालीसा, मंत्र और भजन (बोल व अर्थ सहित)",
  "हनुमान चालीसा, आरती और मंत्रों के पूरे बोल सरल अर्थ के साथ; माता रानी, शिव, गणेश, कृष्ण और राम के भजन; नवरात्रि 2026 और ऑनलाइन जाप माला।",
- f'''<section class="night scallop to-band hero2"><div class="wrap">
-<div><h1 class="gold-type">आज किसका स्मरण करें?</h1>
-<p class="lede">आरती, चालीसा और मंत्रों के पूरे बोल सरल अर्थ के साथ, और साथ में गाने के लिए OmKiran Bhakti के भजन।</p>
-<div class="today2" id="today" aria-live="polite"><p class="when">आज</p><h2>हनुमान चालीसा</h2><p class="say">रोज़ के पाठ के लिए पूरे बोल और अर्थ।</p>
-<div class="actions"><a class="btn gold go" href="hanuman-chalisa.html">पाठ खोलें</a><a class="btn ghost" href="jaap-mala.html">जाप माला</a></div></div></div>
+ f'''<section class="night scallop to-band hero3"><div class="wrap">
+{hero_card(TODAY_P)}
+<div class="aaj-panel" id="today" aria-live="polite">
+<p class="when">आज</p><h2>हनुमान चालीसा</h2>
 <figure class="shrine">{arch(*ART["skandamata"], alt="आज के आराध्य", eager=True).replace('<div class="arch">','<div class="arch" id="today-art">').replace('</div>','<div class="diya" aria-hidden="true"><span class="bowl"></span><span class="flame"></span></div></div>')}<figcaption id="today-cap">जय माता दी</figcaption></figure>
+<p class="say">रोज़ के पाठ के लिए पूरे बोल और अर्थ।</p>
+<div class="actions"><a class="btn gold go" href="hanuman-chalisa.html">पाठ खोलें</a><a class="btn ghost" href="jaap-mala.html">जाप माला</a></div>
+</div>
 </div></section>
-<section class="band"><div class="wrap">{sec_head("आज का पंचांग","तिथि, शुभ मुहूर्त, राहु काल और आज के व्रत-त्योहार — रोज़ अपने आप बदलता है")}
-<div class="pan-home">{today_card(TODAY_P)}<aside><h3>आने वाले त्योहार</h3>{up_list(upcoming(6))}<p><a href="tyohar-calendar.html">पूरा कैलेंडर देखें</a></p></aside></div></div></section>
+<section class="band"><div class="wrap">{sec_head("आने वाले त्योहार","तारीख़, और त्योहार सुबह से है या शाम-रात को")}{up_list(upcoming(8))}
+<p style="text-align:center;margin-top:1.5rem"><a class="btn" href="tyohar-calendar.html">पूरा त्योहार कैलेंडर</a> <a class="btn ghost" href="ekadashi-2026-2027.html">सभी एकादशी</a></p></div></section>
 <section><div class="wrap">{sec_head("अपने आराध्य चुनें","हर देवता के भजन, आरती और मंत्र एक जगह")}<ul class="devta devta-light">{dlist}</ul></div></section>
 <section class="band"><div class="wrap">{sec_head("बोल और अर्थ","पूजा के समय फ़ोन पर बड़े अक्षरों में पढ़ें, या प्रिंट करके रखें")}{paath_html}</div></section>
 <section><div class="wrap">{sec_head("नए भजन","इस हफ़्ते चैनल पर आए")}{video_cards(home_latest)}
