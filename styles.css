@@ -176,7 +176,6 @@ select,input[type=text]{font:inherit;padding:.55rem .8rem;border-radius:var(--r-
 
 /* ---------- Footer ---------- */
 .site-foot{background:var(--ink);color:#EFE4D0;padding:2.5rem 0 2rem;margin-top:2rem}
-:root[data-theme="dark"] .site-foot{background:#0E1130}
 .site-foot a{color:#F5C46A}
 .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem}
 .site-foot h2{font-size:1.2rem;color:#fff}
@@ -190,3 +189,146 @@ select,input[type=text]{font:inherit;padding:.55rem .8rem;border-radius:var(--r-
   .site-head,.toran,.site-foot,.reader-tools,.videos,.no-print,.faq{display:none!important}
   body{background:#fff;color:#000}.verse .line{color:#000!important}
 }
+
+/* =====================================================================
+   v2 "Sandhya aarti" layer — night temple bands, gold, deity arches.
+   Bands keep one look in both themes (the temple at night).
+   ===================================================================== */
+:root{
+  --night:#1D0C09; --night-2:#2B120C; --gold:#D9A441; --gold-hi:#F6D27A; --cream:#F7EBD3;
+  --glow:rgba(246,190,90,.38);
+}
+.night{background:
+  radial-gradient(60% 70% at 72% 40%,rgba(217,120,40,.28),transparent 70%),
+  radial-gradient(40% 50% at 15% 10%,rgba(184,50,31,.25),transparent 70%),
+  var(--night);color:var(--cream);position:relative}
+.night h1,.night h2{color:var(--gold-hi)}
+.night .lede,.night .answer{color:var(--cream)}
+.night .answer{border-color:var(--gold)}
+.night a{color:var(--gold-hi)}
+.night .crumbs-in{font-size:.9rem;opacity:.75;margin:0 0 1rem}
+.night .crumbs-in a{color:var(--cream)}
+/* scalloped lower edge, like a temple canopy */
+.night.scallop{padding-bottom:calc(clamp(2.5rem,6vw,4.5rem) + 14px)}
+.night.scallop::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:16px;
+  background:radial-gradient(circle at 12px 16px,var(--paper) 11px,transparent 11.5px) 0 0/24px 16px repeat-x}
+.band + .night.scallop::after,.night.scallop.to-band::after{background:radial-gradient(circle at 12px 16px,var(--paper-2) 11px,transparent 11.5px) 0 0/24px 16px repeat-x}
+
+/* gold headline treatment */
+.gold-type{background:linear-gradient(180deg,#FFE7A8 0%,#F2C35E 45%,#C8862A 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 0 28px rgba(242,180,80,.18)}
+
+/* ---------- Arch frame (mandir dwar) ---------- */
+.arch{position:relative;aspect-ratio:3/4;max-width:100%;border-radius:999px 999px 14px 14px;padding:6px;
+  background:linear-gradient(160deg,#FCE3A0,#C8862A 40%,#F6D27A 60%,#9C5F14);box-shadow:0 0 0 1px rgba(0,0,0,.25),0 18px 50px -12px var(--glow)}
+.arch::before{content:"";position:absolute;inset:6px;border-radius:999px 999px 10px 10px;box-shadow:inset 0 0 0 2px rgba(255,236,180,.55);z-index:2;pointer-events:none}
+.arch img{width:100%;height:100%;object-fit:cover;border-radius:999px 999px 10px 10px;background:var(--night-2)}
+
+/* ---------- Home hero v2 ---------- */
+.hero2{padding:clamp(2.5rem,6vw,4.5rem) 0}
+.hero2 .wrap{display:grid;grid-template-columns:1.25fr .85fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero2 h1{font-size:clamp(2.4rem,6.4vw,4.2rem);line-height:1.15;margin-bottom:.4em}
+.hero2 .lede{max-width:34rem;opacity:.92}
+.today2{margin-top:1.75rem;border-top:1px solid rgba(246,210,122,.35);padding-top:1.25rem;max-width:34rem}
+.today2 .when{color:var(--gold);font-weight:600;margin:0}
+.today2 h2{font-size:clamp(1.6rem,3.4vw,2.1rem);margin:.15rem 0 .35rem;color:var(--cream)}
+.today2 p{margin:0 0 1rem;opacity:.85}
+.today2 .actions{display:flex;flex-wrap:wrap;gap:.6rem}
+.btn.gold{background:linear-gradient(180deg,#F6D27A,#D9A441);color:#2B120C}
+.btn.gold:hover{background:linear-gradient(180deg,#FFE29A,#E6B04E);color:#1D0C09}
+.night .btn.ghost{color:var(--cream);border-color:rgba(247,235,211,.55)}
+.shrine{position:relative;justify-self:center;width:min(340px,100%)}
+.shrine .arch{box-shadow:0 0 0 1px rgba(0,0,0,.3),0 0 90px -10px rgba(246,190,90,.55)}
+.shrine figcaption{text-align:center;margin-top:1.4rem;font-family:var(--display);font-size:1.15rem;color:var(--gold-hi)}
+@media (max-width:860px){.hero2 .wrap{grid-template-columns:1fr}.shrine{width:min(260px,72%);order:-1}}
+
+/* ---------- Diya: the one moving thing ---------- */
+.diya{position:absolute;left:50%;bottom:-26px;transform:translateX(-50%);width:84px;height:44px;z-index:3}
+.diya .bowl{position:absolute;bottom:0;left:0;right:0;height:26px;border-radius:0 0 50% 50%/0 0 100% 100%;
+  background:linear-gradient(180deg,#E9A35A,#9A4A17)}
+.diya .bowl::before{content:"";position:absolute;top:-5px;left:0;right:0;height:10px;border-radius:50%;background:#6B2E0E}
+.diya .flame{position:absolute;left:50%;bottom:22px;width:16px;height:30px;margin-left:-8px;border-radius:50% 50% 50% 50%/62% 62% 38% 38%;
+  background:radial-gradient(circle at 50% 75%,#FFFBE6 0 20%,#FFD36B 40%,#F28A1C 75%,rgba(242,138,28,0) 100%);
+  box-shadow:0 0 22px 8px rgba(255,190,80,.55),0 0 60px 20px rgba(255,150,40,.25);transform-origin:50% 100%;animation:flicker 2.6s ease-in-out infinite}
+@keyframes flicker{0%,100%{transform:scale(1,1) rotate(-1deg)}25%{transform:scale(.94,1.06) rotate(1.5deg)}50%{transform:scale(1.04,.96) rotate(-.5deg)}75%{transform:scale(.97,1.04) rotate(1deg)}}
+@media (prefers-reduced-motion:reduce){.diya .flame{animation:none}}
+
+/* ---------- Deity arches row ---------- */
+.devta{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(.9rem,2vw,1.6rem)}
+.devta a{display:block;text-decoration:none;color:var(--cream);text-align:center}
+.devta .arch{padding:4px;box-shadow:0 10px 30px -10px rgba(0,0,0,.6)}
+.devta .arch::before{inset:4px}
+.devta a:hover .arch,.devta a:focus-visible .arch{box-shadow:0 0 0 1px rgba(0,0,0,.25),0 0 44px -4px var(--glow)}
+.devta strong{display:block;font-family:var(--display);font-weight:400;font-size:clamp(1.25rem,2.2vw,1.55rem);color:var(--gold-hi);margin-top:.7rem;line-height:1.2}
+.devta small{display:block;font-size:.88rem;opacity:.8}
+@media (max-width:980px){.devta{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:420px){.devta{grid-template-columns:repeat(2,1fr)}}
+.devta-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}
+
+/* ---------- Ornament divider: lotus between rules ---------- */
+.lotus{display:flex;align-items:center;gap:.9rem;color:var(--genda-deep);margin:0 0 1.2rem}
+.lotus::before,.lotus::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--chandan))}
+.lotus::after{background:linear-gradient(90deg,var(--chandan),transparent)}
+.lotus svg{width:34px;height:20px;flex:none}
+.sec-head{text-align:center;margin-bottom:.5rem}
+.sec-head h2{margin-bottom:.2em}
+.sec-head p{color:var(--ink-soft);margin:0 auto;max-width:40rem}
+
+/* ---------- Paath cards ---------- */
+.paath{list-style:none;padding:0;margin:1.75rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.paath a{display:grid;grid-template-columns:64px 1fr;gap:.9rem;align-items:center;text-decoration:none;color:var(--ink);
+  background:var(--paper);border:1px solid var(--chandan);border-radius:var(--r-m);padding:.7rem .9rem .7rem .7rem}
+.paath a:hover{border-color:var(--gold);box-shadow:0 8px 24px -14px rgba(156,95,20,.6)}
+.paath .arch{aspect-ratio:4/5;padding:3px;box-shadow:none}
+.paath .arch::before{inset:3px;box-shadow:inset 0 0 0 1px rgba(255,236,180,.5)}
+.paath strong{font-family:var(--display);font-weight:400;font-size:1.3rem;display:block;line-height:1.25}
+.paath span{color:var(--ink-soft);font-size:.92rem}
+
+/* ---------- Videos v2: gold-framed ---------- */
+.video .frame{box-shadow:0 0 0 1px var(--chandan);transition:box-shadow .2s}
+.video:hover .frame{box-shadow:0 0 0 2px var(--gold),0 14px 30px -14px rgba(156,95,20,.55)}
+.night .video h3 a{color:var(--cream)}
+.night .video p{color:var(--cream);opacity:.7}
+.night .video .frame{box-shadow:0 0 0 1px rgba(246,210,122,.35)}
+
+/* ---------- Page band (deity/lyrics headers) ---------- */
+.page-band .wrap{display:grid;grid-template-columns:1fr 220px;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+.page-band h1{margin-bottom:.4em}
+.page-band .arch{width:220px}
+@media (max-width:760px){.page-band .wrap{grid-template-columns:1fr}.page-band .arch{width:150px;order:-1}}
+
+/* ---------- Lyrics v2 details ---------- */
+.verse .no{width:2rem;height:2rem;float:left;display:grid;place-items:center;padding:0;margin-top:.55rem;border-radius:50%;
+  border:1px solid var(--gold);color:var(--genda-deep);font-size:.85rem}
+.verse .no:empty{border:0}
+.verse .line,.verse .mean{margin-left:3rem}
+.verse.doha{background:linear-gradient(90deg,rgba(232,163,23,.10),transparent 70%);border-radius:var(--r-s);padding-left:.5rem}
+
+/* ---------- Navratri day arches ---------- */
+.days li{display:grid;grid-template-columns:70px 1fr;gap:.9rem;align-items:center}
+.days .arch{aspect-ratio:4/5;padding:3px;box-shadow:none}
+.days .arch::before{inset:3px}
+
+/* ---------- Jaap mala on night ---------- */
+.mala-night .mala .bead{fill:#5A2A12;stroke:#2B120C;stroke-width:1}
+.mala-night .mala .bead.on{fill:var(--gold-hi);filter:drop-shadow(0 0 3px rgba(246,210,122,.8))}
+.mala-night .mala .bead.sumeru{fill:var(--sindoor)}
+.mala-night .mala button.tap{background:radial-gradient(circle at 50% 35%,#3A1A10,#1D0C09 70%);color:var(--gold-hi);box-shadow:0 0 0 2px rgba(246,210,122,.45),0 0 60px -10px var(--glow)}
+.mala-night label strong{color:var(--gold-hi)}
+.mala-night .stats b{color:var(--gold-hi)}
+.mala-night select,.mala-night input[type=text]{background:var(--night-2);color:var(--cream);border-color:rgba(246,210,122,.4);color-scheme:dark}
+
+/* footer gets the gold too */
+.site-foot{background:var(--night)}
+.site-foot h2{color:var(--gold-hi)}
+
+/* light-surface variant of the deity row */
+.devta-light a{color:var(--ink)}
+.devta-light strong{color:var(--sindoor-deep)}
+.devta-light small{color:var(--ink-soft);opacity:1}
+.devta-light .arch{box-shadow:0 10px 28px -14px rgba(120,60,10,.55)}
+.night .sec-head p{color:var(--cream);opacity:.85}
+.night .lotus{color:var(--gold)}
+.night .lotus::before{background:linear-gradient(90deg,transparent,rgba(246,210,122,.45))}
+.night .lotus::after{background:linear-gradient(90deg,rgba(246,210,122,.45),transparent)}
+.days .g{font-size:1.3rem}

@@ -120,6 +120,34 @@ PLAYLISTS = {
  "mantra":("PLblSMxBGjJTr2IRYOvJgJKxA13VVUR5Xd","मंत्रों का खज़ाना प्लेलिस्ट"),
 }
 
+# Deity art = the channel's own thumbnails, cropped into a temple-arch frame.
+# value: (video id, horizontal focus % for the crop)
+ART = {
+ "mata":("woNhYRu376g",68), "shiv":("vsfjF59qj4Q",42), "hanuman":("707iS1Iyv-E",18),
+ "ganesh":("ZswQ9qUMDTs",86), "krishna":("vy6ucthmxmk",16), "ram":("pCixItfj5Vo",80),
+ "edm":("unfGUJz6D8U",78), "skandamata":("Q5_3JBKLNpg",74), "navdurga":("G99-49Pfs6U",50),
+ "shivaarti":("vsfjF59qj4Q",42), "vishnu":("pCixItfj5Vo",80),
+}
+DAY_ART = {"Ht_SogxJ_D8":62,"SsrEdkAf4xI":62,"lUhDATRpvrs":62,"65nhAnBmYuQ":62,"Q5_3JBKLNpg":74,"r32U54qyerw":60,"FFcNanFHSaY":60,"89wxOjTwPwQ":60}
+
+def arch(vid, pos=50, alt="", eager=False):
+    return (f'<div class="arch"><img src="https://i.ytimg.com/vi/{vid}/maxresdefault.jpg" '
+            f'onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/{vid}/hqdefault.jpg\'" '
+            f'style="object-position:{pos}% 30%" alt="{e(alt)}" {"" if eager else "loading=\"lazy\""} width="300" height="400"></div>')
+
+LOTUS = ('<div class="lotus" aria-hidden="true"><svg viewBox="0 0 34 20"><g fill="currentColor">'
+         '<path d="M17 1c3 4 3 10 0 15-3-5-3-11 0-15z"/><path d="M17 16C13 13 9 12 4 13c3 3 8 4 13 3z" opacity=".75"/>'
+         '<path d="M17 16c4-3 8-4 13-3-3 3-8 4-13 3z" opacity=".75"/><path d="M3 18h28" stroke="currentColor" stroke-width="1"/></g></svg></div>')
+
+def sec_head(title, sub=""):
+    return f'<div class="sec-head">{LOTUS}<h2>{title}</h2>{f"<p>{sub}</p>" if sub else ""}</div>'
+
+def band(h1, answer, crumb, vid=None, pos=50, alt="", extra="", gold=True, to_band=False):
+    art = arch(vid, pos, alt, eager=True) if vid else ""
+    return (f'<section class="night scallop page-band{" to-band" if to_band else ""}"><div class="wrap"><div>'
+            f'<nav class="crumbs-in" aria-label="breadcrumb"><a href="index.html">होम</a> / {e(crumb)}</nav>'
+            f'<h1{" class=\"gold-type\"" if gold else ""}>{e(h1)}</h1><p class="answer">{answer}</p>{extra}</div>{art}</div></section>')
+
 NAV = [("index.html","होम"),("aarti-mantra.html","आरती और चालीसा"),("navratri-2026.html","नवरात्रि 2026"),
        ("jaap-mala.html","जाप माला"),("mata-rani-bhajan.html","भजन"),("about.html","परिचय")]
 
@@ -156,7 +184,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None):
             [{"@type":"ListItem","position":2,"name":crumbs,"item":url}]})
     graph += (ld or [])
     navh = "".join(f'<a href="{h}"{" aria-current=\"page\"" if h==(active or slug) else ""}>{t}</a>' for h,t in NAV)
-    crumb_html = f'<nav class="crumbs wrap" aria-label="breadcrumb"><a href="index.html">होम</a> / {e(crumbs)}</nav>' if crumbs else ""
+    crumb_html = f'<nav class="crumbs wrap" aria-label="breadcrumb"><a href="index.html">होम</a> / {e(crumbs)}</nav>' if (crumbs and 'crumbs-in' not in body) else ""
     return f'''<!doctype html>
 <html lang="hi">
 <head>
@@ -223,8 +251,11 @@ def reader_tools():
             '<button class="chip" data-print>प्रिंट / PDF</button></div>')
 
 def lyrics_page(slug, title, desc, h1, answer, verses, intro_html, vid_ids, faqs, crumb, extra="", work_name=None, author=None):
-    body = f'''<article><section style="padding-bottom:0"><div class="wrap">
-<h1>{e(h1)}</h1><p class="answer">{answer}</p>{intro_html}
+    akey = {"hanuman-chalisa.html":"hanuman","om-jai-jagdish-hare-aarti.html":"vishnu",
+            "ganesh-aarti-jai-ganesh-deva.html":"ganesh","shiv-aarti-om-jai-shiv-omkara.html":"shivaarti"}.get(slug)
+    vid, pos = ART.get(akey, (None,50))
+    body = f'''<article>{band(h1, answer, crumb, vid, pos, h1, extra=intro_html)}
+<section style="padding-top:1.5rem;padding-bottom:0"><div class="wrap">
 {reader_tools()}
 <div class="lyrics">{lyrics_body(verses)}</div>
 <p class="note">पाठ पारंपरिक है और अलग-अलग क्षेत्रों में शब्दों में थोड़ा अंतर मिलता है। अर्थ सरल हिंदी में OmKiran Bhakti ने लिखा है। कोई त्रुटि दिखे तो <a href="{YT}">YouTube पर कमेंट</a> करके बताएँ।</p>
@@ -339,9 +370,10 @@ for slug, pk, title, desc, h1, answer, ids, related, faqs in DEITY:
     plid, plname = PLAYLISTS.get(pk, (None,None))
     rel = "".join(f'<li><a href="{h}"><strong>{e(t)}</strong><span>{e(s)}</span></a></li>' for h,t,s in related)
     pl = f'<p style="margin-top:2rem"><a class="btn" href="https://www.youtube.com/playlist?list={plid}" target="_blank" rel="noopener">पूरी प्लेलिस्ट YouTube पर सुनें: {e(plname)}</a></p>' if plid else ""
-    body = f'''<section style="padding-bottom:1rem"><div class="wrap"><h1>{e(h1)}</h1><p class="answer">{answer}</p></div></section>
-<section style="padding-top:1rem"><div class="wrap"><h2>सबसे पसंद किए गए वीडियो</h2>{video_cards(ids)}{pl}</div></section>
-<section class="band"><div class="wrap"><h2>बोल और पाठ</h2><ul class="library">{rel}<li><a href="aarti-mantra.html"><strong>सभी आरती और चालीसा</strong><span>पूरी सूची</span></a></li></ul></div></section>
+    vid, pos = ART[pk]
+    body = f'''{band(h1, answer, h1, vid, pos, h1)}
+<section><div class="wrap">{sec_head("सबसे पसंद किए गए वीडियो")}{video_cards(ids)}{pl}</div></section>
+<section class="band"><div class="wrap">{sec_head("बोल और पाठ")}<ul class="library">{rel}<li><a href="aarti-mantra.html"><strong>सभी आरती और चालीसा</strong><span>पूरी सूची</span></a></li></ul></div></section>
 {faq_html(faqs)}'''
     add(slug, title, desc, body, crumbs=h1, ld=[itemlist(ids, h1), faq_ld(faqs)] if faqs else [itemlist(ids,h1)], active="mata-rani-bhajan.html")
 
@@ -354,15 +386,17 @@ mantra_ids = ["rxeMNQ48yWU","C5lE4JA3sKc","KPZbsWemcIg","SE1RyQ6fWQs","h4EjlAYqQ
 chalisa_ids = ["707iS1Iyv-E","eA6tcqEncoE","u3kbBEHOs9o","JUg809TxgRg","ASNq5VCqOhY","ZQ_OBR-596M","pCixItfj5Vo","5HxuQ9YgtiE"]
 aarti_ids = ["ZqFztNyxSgU","Qpe4rrfzWhk","jAdixB5m0Zo","axKgdxe7JZE","w8pxctA2998","G99-49Pfs6U"]
 lib_html = "".join(f'<li><a href="{h}"><strong>{t}</strong><span>{s}</span></a></li>' for h,t,s in LIB)
+PAATH_ART = {"hanuman-chalisa.html":"hanuman","om-jai-jagdish-hare-aarti.html":"vishnu","ganesh-aarti-jai-ganesh-deva.html":"ganesh","shiv-aarti-om-jai-shiv-omkara.html":"shivaarti"}
+paath_html = '<ul class="paath">' + "".join(f'<li><a href="{h}">{arch(*ART[PAATH_ART[h]], alt="")}<div><strong>{t}</strong><span>{s}</span></div></a></li>' for h,t,s in LIB) + \
+  f'<li><a href="jaap-mala.html">{arch(*ART["shiv"], alt="")}<div><strong>ऑनलाइन जाप माला</strong><span>108 की गिनती</span></div></a></li></ul>'
 add("aarti-mantra.html", "आरती, चालीसा और मंत्र — बोल, अर्थ और वीडियो | OmKiran Bhakti",
  "हनुमान चालीसा, ॐ जय जगदीश हरे, गणेश आरती और शिव आरती के पूरे बोल और अर्थ; साथ में चालीसा, आरती और 108 बार मंत्र जाप के वीडियो।",
- f'''<section style="padding-bottom:1rem"><div class="wrap"><h1>आरती, चालीसा और मंत्र</h1>
-<p class="answer">पूजा के समय पढ़ने के लिए पूरे बोल, हर पंक्ति के सरल हिंदी अर्थ के साथ — बड़े अक्षरों में पढ़ें या प्रिंट करें। नीचे हर पाठ का गाने वाला वीडियो भी है।</p></div></section>
-<section style="padding-top:1rem"><div class="wrap"><h2>बोल और अर्थ</h2><ul class="library">{lib_html}<li><a href="jaap-mala.html"><strong>ऑनलाइन जाप माला</strong><span>108 की गिनती</span></a></li></ul>
+ f'''{band("आरती, चालीसा और मंत्र","पूजा के समय पढ़ने के लिए पूरे बोल, हर पंक्ति के सरल हिंदी अर्थ के साथ — बड़े अक्षरों में पढ़ें या प्रिंट करें। नीचे हर पाठ का गाने वाला वीडियो भी है।","आरती, चालीसा और मंत्र",*ART["navdurga"],"नवदुर्गा आरती")}
+<section><div class="wrap">{sec_head("बोल और अर्थ","हर पंक्ति के साथ उसका सरल हिंदी अर्थ")}{paath_html}
 <p class="note">हर हफ़्ते नए पाठ जुड़ते हैं — दुर्गा चालीसा, शिव चालीसा, आरती कुंजबिहारी की और व्रत कथाएँ जल्द आ रही हैं।</p></div></section>
-<section class="band"><div class="wrap"><h2>चालीसा — 4 मिनट में</h2>{video_cards(chalisa_ids)}</div></section>
-<section><div class="wrap"><h2>आरती</h2>{video_cards(aarti_ids)}</div></section>
-<section class="band"><div class="wrap"><h2>मंत्र जाप — 108 बार</h2>{video_cards(mantra_ids)}
+<section class="band"><div class="wrap">{sec_head("चालीसा — 4 मिनट में","रोज़ के पाठ के लिए तेज़ लय में")}{video_cards(chalisa_ids)}</div></section>
+<section><div class="wrap">{sec_head("आरती")}{video_cards(aarti_ids)}</div></section>
+<section class="band"><div class="wrap">{sec_head("मंत्र जाप — 108 बार","एक माला के बराबर जाप, ध्यान के साथ सुनें")}{video_cards(mantra_ids)}
 <p style="margin-top:2rem"><a class="btn" href="https://www.youtube.com/playlist?list={PLAYLISTS['mantra'][0]}" target="_blank" rel="noopener">मंत्रों का खज़ाना — पूरी प्लेलिस्ट</a></p></div></section>''',
  crumbs="आरती, चालीसा और मंत्र", ld=[itemlist(chalisa_ids+aarti_ids+mantra_ids,"आरती, चालीसा और मंत्र वीडियो")])
 
@@ -376,20 +410,19 @@ NDAYS = [("20261011","11 अक्टूबर, रविवार","पहल�
          ("20261017","17 अक्टूबर, शनिवार","सातवाँ दिन","माँ कालरात्रि","FFcNanFHSaY"),
          ("20261018,20261019","18–19 अक्टूबर","अष्टमी","माँ महागौरी",None),
          ("20261019","19 अक्टूबर, सोमवार","नवमी","माँ सिद्धिदात्री","89wxOjTwPwQ")]
-days = "".join(f'<li data-ymd="{y}"><span class="d">{d} · {n}</span><span class="g">{g}</span>' +
-               (f'<a href="{watch(v)}" target="_blank" rel="noopener">{g.replace("माँ ","")} की आरती सुनें</a>' if v else '<span class="d">आरती जल्द</span>') + '</li>'
+days = "".join(f'<li data-ymd="{y}">' + (arch(v, DAY_ART.get(v,60), g) if v else arch("G99-49Pfs6U",50,g)) +
+               f'<div><span class="d">{d} · {n}</span><span class="g">{g}</span>' +
+               (f'<a href="{watch(v)}" target="_blank" rel="noopener">आरती सुनें</a>' if v else '<a href="https://www.youtube.com/watch?v=G99-49Pfs6U" target="_blank" rel="noopener">नवदुर्गा आरती सुनें</a>') + '</div></li>'
                for y,d,n,g,v in NDAYS)
 nav_faq = [("नवरात्रि 2026 कब से कब तक है?","शारदीय नवरात्रि 2026, 11 अक्टूबर (रविवार) को घटस्थापना से शुरू हुई। दुर्गा अष्टमी और महानवमी दोनों 19 अक्टूबर (सोमवार) को हैं, और विजयादशमी (दशहरा) 20 अक्टूबर (मंगलवार) को है।"),
            ("इस बार अष्टमी और नवमी एक ही दिन क्यों हैं?","2026 में अष्टमी तिथि 19 अक्टूबर की सुबह समाप्त होकर उसी दिन नवमी तिथि शुरू हो रही है, इसलिए दिल्ली के पंचांग के अनुसार दोनों का पूजन 19 अक्टूबर को होगा। आपके शहर में तिथि का समय थोड़ा अलग हो सकता है।"),
            ("नवरात्रि में किस दिन किस देवी की पूजा होती है?","क्रम से: शैलपुत्री, ब्रह्मचारिणी, चंद्रघंटा, कूष्मांडा, स्कंदमाता, कात्यायनी, कालरात्रि, महागौरी और सिद्धिदात्री।")]
 add("navratri-2026.html", "नवरात्रि 2026 — तिथियाँ, नौ देवियाँ और हर दिन की आरती | OmKiran Bhakti",
  "शारदीय नवरात्रि 2026: 11 अक्टूबर से शुरू, अष्टमी-नवमी 19 अक्टूबर, दशहरा 20 अक्टूबर। हर दिन की देवी, उनकी आरती का वीडियो और माता रानी के भजन।",
- f'''<section style="padding-bottom:1rem"><div class="wrap"><h1>नवरात्रि 2026</h1>
-<p class="answer">शारदीय नवरात्रि 2026 की शुरुआत <strong>11 अक्टूबर (रविवार)</strong> को घटस्थापना से हुई। <strong>दुर्गा अष्टमी और महानवमी — दोनों 19 अक्टूबर (सोमवार)</strong> को हैं, और <strong>दशहरा 20 अक्टूबर (मंगलवार)</strong> को है।</p>
-<p class="lede">तिथियाँ दिल्ली के पंचांग पर आधारित हैं; अपने शहर का मुहूर्त स्थानीय पंचांग से मिला लें।</p></div></section>
-<section style="padding-top:1rem"><div class="wrap"><h2>नौ दिन, नौ देवियाँ</h2><ul class="days">{days}</ul></div></section>
-<section class="band"><div class="wrap"><h2>नवरात्रि के भजन</h2>{video_cards(["G99-49Pfs6U","woNhYRu376g","NuWOBRQ9B3Q","dJAZTUkHcBs","SE1RyQ6fWQs","h4EjlAYqQo0"])}
-<p style="margin-top:2rem"><a class="btn" href="mata-rani-bhajan.html">माता रानी के सभी भजन</a> <a class="btn ghost" href="jaap-mala.html">‘जय माता दी’ जाप गिनें</a></p></div></section>
+ f'''{band("नवरात्रि 2026", "शारदीय नवरात्रि 2026 की शुरुआत <strong>11 अक्टूबर (रविवार)</strong> को घटस्थापना से हुई। <strong>दुर्गा अष्टमी और महानवमी, दोनों 19 अक्टूबर (सोमवार)</strong> को हैं, और <strong>दशहरा 20 अक्टूबर (मंगलवार)</strong> को है।", "नवरात्रि 2026", *ART["navdurga"], "माँ दुर्गा के नौ स्वरूप", extra='<p class="lede">तिथियाँ दिल्ली के पंचांग पर आधारित हैं; अपने शहर का मुहूर्त स्थानीय पंचांग से मिला लें।</p>')}
+<section><div class="wrap">{sec_head("नौ दिन, नौ देवियाँ","आज का दिन अपने आप चमकता हुआ दिखेगा")}<ul class="days">{days}</ul></div></section>
+<section class="band"><div class="wrap">{sec_head("नवरात्रि के भजन")}{video_cards(["G99-49Pfs6U","woNhYRu376g","NuWOBRQ9B3Q","dJAZTUkHcBs","SE1RyQ6fWQs","h4EjlAYqQo0"])}
+<p style="margin-top:2rem;text-align:center"><a class="btn" href="mata-rani-bhajan.html">माता रानी के सभी भजन</a> <a class="btn ghost" href="jaap-mala.html">‘जय माता दी’ जाप गिनें</a></p></div></section>
 {faq_html(nav_faq)}''',
  crumbs="नवरात्रि 2026", active="navratri-2026.html",
  ld=[{"@type":"Event","name":"शारदीय नवरात्रि 2026","startDate":"2026-10-11","endDate":"2026-10-20","eventAttendanceMode":"https://schema.org/MixedEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"भारत","address":{"@type":"PostalAddress","addressCountry":"IN"}},"organizer":{"@id":SITE+"#organization"},"description":"नौ दिनों तक माँ दुर्गा के नौ स्वरूपों की पूजा का पर्व।"}, faq_ld(nav_faq)])
@@ -402,7 +435,7 @@ jfaq = [("जाप माला में 108 मनके क्यों ह�
         ("क्या बिना इंटरनेट के चलेगी?","पेज एक बार खुलने के बाद गिनती बिना रुकावट चलती रहती है।")]
 add("jaap-mala.html", "ऑनलाइन जाप माला — 108 नाम जाप काउंटर | OmKiran Bhakti",
  "मुफ़्त ऑनलाइन जाप माला: मंत्र चुनें, टैप करके गिनें, 108 पूरे होने पर माला गिनती। ॐ नमः शिवाय, राम, हरे कृष्ण, जय माता दी या अपना मंत्र। गिनती आपके फ़ोन में सेव रहती है।",
- f'''<section><div class="wrap"><h1>ऑनलाइन जाप माला</h1>
+ f'''<section class="night scallop mala-night"><div class="wrap"><nav class="crumbs-in" aria-label="breadcrumb"><a href="index.html">होम</a> / जाप माला</nav><h1 class="gold-type">ऑनलाइन जाप माला</h1>
 <p class="answer">मंत्र चुनें और बीच के बटन पर टैप करें — हर टैप एक जाप है। 108 जाप पर एक माला पूरी होती है और फ़ोन हल्का-सा कंपन करता है। कंप्यूटर पर स्पेसबार भी दबा सकते हैं।</p>
 <div class="mala-wrap" style="margin-top:2rem">
 <div class="mala" id="mala"><svg viewBox="0 0 400 400" aria-hidden="true"></svg>
@@ -411,7 +444,7 @@ add("jaap-mala.html", "ऑनलाइन जाप माला — 108 ना�
 <p hidden style="margin-top:.8rem"><label for="custom">अपना मंत्र</label><br><input type="text" id="custom" maxlength="80" placeholder="जैसे: ॐ श्री गुरवे नमः"></p>
 <div class="stats"><div><b id="malas">0</b>मालाएँ पूरी</div><div><b id="total">0</b>कुल जाप</div></div>
 <button class="btn ghost" id="reset">इस माला को शून्य करें</button>
-<p class="lede" style="margin-top:1.5rem">जाप के साथ सुनना चाहें तो <a href="aarti-mantra.html">108 बार मंत्र जाप के वीडियो</a> देखें।</p></div></div></div></section>
+<p style="margin-top:1.5rem">जाप के साथ सुनना चाहें तो <a href="aarti-mantra.html">108 बार मंत्र जाप के वीडियो</a> देखें।</p></div></div></div></section>
 {faq_html(jfaq)}''',
  crumbs="जाप माला", active="jaap-mala.html",
  ld=[{"@type":"WebApplication","name":"OmKiran Bhakti जाप माला","applicationCategory":"LifestyleApplication","operatingSystem":"Any","inLanguage":"hi","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"url":SITE+"jaap-mala.html"}, faq_ld(jfaq)])
@@ -419,8 +452,8 @@ add("jaap-mala.html", "ऑनलाइन जाप माला — 108 ना�
 # ---------------- About ----------------
 add("about.html", "OmKiran Bhakti के बारे में — हिंदी भक्ति संगीत चैनल",
  "OmKiran Bhakti एक हिंदी भक्ति संगीत चैनल है — भजन, आरती, चालीसा, मंत्र जाप और भक्ति EDM। जानें हम क्या बनाते हैं और हमें कहाँ सुनें।",
- f'''<section><div class="wrap prose"><h1>OmKiran Bhakti के बारे में</h1>
-<p class="answer">OmKiran Bhakti एक हिंदी भक्ति संगीत चैनल है, जो भजन, आरती, चालीसा, 108 बार मंत्र जाप और भक्ति EDM बनाता है। YouTube पर इसके 28 हज़ार से ज़्यादा सब्सक्राइबर और 890 से ज़्यादा वीडियो हैं।</p>
+ f'''{band("OmKiran Bhakti के बारे में","OmKiran Bhakti एक हिंदी भक्ति संगीत चैनल है, जो भजन, आरती, चालीसा, 108 बार मंत्र जाप और भक्ति EDM बनाता है। YouTube पर इसके 28 हज़ार से ज़्यादा सब्सक्राइबर और 890 से ज़्यादा वीडियो हैं।","परिचय",*ART["ganesh"],"OmKiran Bhakti")}
+<section><div class="wrap prose">
 <p>हमारे चैनल पर माता रानी, शिव, गणेश, हनुमान, श्रीराम और श्रीकृष्ण के भजन, त्योहारों के विशेष गीत (नवरात्रि, गणेश चतुर्थी, जन्माष्टमी, पितृ पक्ष, होली) और रोज़ के पाठ के लिए तेज़ गति वाली चालीसा मिलती है।</p>
 <p>यह वेबसाइट उन भक्तों के लिए है जो पूजा के समय आरती और चालीसा के सही बोल पढ़ना चाहते हैं, उनका अर्थ समझना चाहते हैं, या साथ में गाने के लिए वीडियो ढूँढ रहे हैं।</p>
 <h2>हमें कहाँ सुनें</h2>
@@ -440,21 +473,24 @@ home_popular = ["ZswQ9qUMDTs","707iS1Iyv-E","lMHZDM-RRb4","eA6tcqEncoE","woNhYRu
 deities = [("mata-rani-bhajan.html","माता रानी","शेरावाली, दुर्गा, नवदुर्गा"),("shiv-bhajan.html","शिव","भोलेनाथ, महाकाल"),
            ("hanuman-chalisa.html","हनुमान","बजरंगबली, संकटमोचन"),("ganesh-bhajan.html","गणेश","विघ्नहर्ता, गणपति बप्पा"),
            ("krishna-bhajan.html","श्रीकृष्ण","राधा-कृष्ण, कन्हैया"),("ram-bhajan.html","श्रीराम","सियाराम, रघुनंदन")]
-dlist = "".join(f'<li><a href="{h}"><span>{t}</span><small>{s}</small></a></li>' for h,t,s in deities)
+dlist = "".join(f'<li><a href="{h}">{arch(*ART[k], alt=t)}<strong>{t}</strong><small>{sub}</small></a></li>' for h,t,sub,k in
+   [(h,t,sub,k) for (h,t,sub),k in zip(deities,["mata","shiv","hanuman","ganesh","krishna","ram"])])
 add("index.html", "OmKiran Bhakti — आरती, चालीसा, मंत्र और भजन (बोल व अर्थ सहित)",
  "हनुमान चालीसा, आरती और मंत्रों के पूरे बोल सरल अर्थ के साथ; माता रानी, शिव, गणेश, कृष्ण और राम के भजन; नवरात्रि 2026 और ऑनलाइन जाप माला।",
- f'''<section class="hero"><div class="wrap hero-grid">
-<div><h1>आज किसका स्मरण करें?</h1>
-<p class="lede">आरती और चालीसा के पूरे बोल अर्थ सहित, और साथ में गाने के लिए OmKiran Bhakti के भजन।</p>
-<ul class="deities">{dlist}</ul></div>
-<aside class="today" id="today" aria-live="polite"><p class="when">आज</p><h2>हनुमान चालीसा</h2><p class="say">रोज़ के पाठ के लिए पूरे बोल और अर्थ।</p>
-<div class="actions"><a class="btn go" href="hanuman-chalisa.html">पाठ खोलें</a><a class="btn ghost" href="jaap-mala.html">जाप माला</a></div></aside>
+ f'''<section class="night scallop to-band hero2"><div class="wrap">
+<div><h1 class="gold-type">आज किसका स्मरण करें?</h1>
+<p class="lede">आरती, चालीसा और मंत्रों के पूरे बोल सरल अर्थ के साथ, और साथ में गाने के लिए OmKiran Bhakti के भजन।</p>
+<div class="today2" id="today" aria-live="polite"><p class="when">आज</p><h2>हनुमान चालीसा</h2><p class="say">रोज़ के पाठ के लिए पूरे बोल और अर्थ।</p>
+<div class="actions"><a class="btn gold go" href="hanuman-chalisa.html">पाठ खोलें</a><a class="btn ghost" href="jaap-mala.html">जाप माला</a></div></div></div>
+<figure class="shrine">{arch(*ART["skandamata"], alt="आज के आराध्य", eager=True).replace('<div class="arch">','<div class="arch" id="today-art">')}<div class="diya" aria-hidden="true"><span class="bowl"></span><span class="flame"></span></div><figcaption id="today-cap">जय माता दी</figcaption></figure>
 </div></section>
-<section class="band"><div class="wrap"><h2>बोल और अर्थ</h2><p class="lede">पूजा के समय फ़ोन पर बड़े अक्षरों में पढ़ें, या प्रिंट करके रखें।</p><ul class="library">{lib_html}<li><a href="navratri-2026.html"><strong>नवरात्रि 2026</strong><span>तिथियाँ और नौ देवियाँ</span></a></li></ul></div></section>
-<section><div class="wrap"><h2>नए भजन</h2>{video_cards(home_latest)}
-<p style="margin-top:2rem"><a class="btn" href="{YT}?sub_confirmation=1" target="_blank" rel="noopener">YouTube पर सब्सक्राइब करें</a></p></div></section>
-<section class="band"><div class="wrap"><h2>सबसे ज़्यादा सुने गए</h2>{video_cards(home_popular)}</div></section>
-<section><div class="wrap"><h2>भक्ति EDM</h2><p class="lede">स्तोत्र और मंत्र, आज की धुन में — <a href="devotional-edm-bhajans.html">सभी EDM ट्रैक</a></p>{video_cards(["unfGUJz6D8U","D5LIL8j8Kqs","XLYs9iEXKmA"])}</div></section>''',
+<section class="band"><div class="wrap">{sec_head("अपने आराध्य चुनें","हर देवता के भजन, आरती और मंत्र एक जगह")}<ul class="devta devta-light">{dlist}</ul></div></section>
+<section><div class="wrap">{sec_head("बोल और अर्थ","पूजा के समय फ़ोन पर बड़े अक्षरों में पढ़ें, या प्रिंट करके रखें")}{paath_html}</div></section>
+<section class="band"><div class="wrap">{sec_head("नए भजन","इस हफ़्ते चैनल पर आए")}{video_cards(home_latest)}
+<p style="margin-top:2rem;text-align:center"><a class="btn" href="{YT}?sub_confirmation=1" target="_blank" rel="noopener">YouTube पर सब्सक्राइब करें</a></p></div></section>
+<section><div class="wrap">{sec_head("सबसे ज़्यादा सुने गए","लाखों भक्तों की पसंद")}{video_cards(home_popular)}</div></section>
+<section class="night"><div class="wrap">{sec_head("भक्ति EDM","स्तोत्र और मंत्र, आज की धुन में")}{video_cards(["unfGUJz6D8U","D5LIL8j8Kqs","XLYs9iEXKmA"])}
+<p style="margin-top:2rem;text-align:center"><a class="btn gold" href="devotional-edm-bhajans.html">सभी EDM ट्रैक</a></p></div></section>''',
  ld=[ORG, WEBSITE, itemlist(home_popular,"सबसे ज़्यादा सुने गए भजन")])
 
 # 404

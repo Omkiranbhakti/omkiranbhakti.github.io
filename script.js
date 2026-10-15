@@ -55,6 +55,15 @@
       ['गुरुवार','भगवान विष्णु','गुरुवार श्रीहरि विष्णु का दिन है। ॐ जय जगदीश हरे आरती गाएँ।','om-jai-jagdish-hare-aarti.html','जगदीश आरती पढ़ें'],
       ['शुक्रवार','माता रानी','शुक्रवार देवी माँ का दिन है। माता रानी के भजन सुनें।','mata-rani-bhajan.html','माता रानी भजन'],
       ['शनिवार','शनि देव और हनुमान जी','शनिवार को शनि देव और हनुमान जी का स्मरण किया जाता है।','hanuman-chalisa.html','हनुमान चालीसा पढ़ें']];
+    var navArt={20261011:'Ht_SogxJ_D8',20261012:'SsrEdkAf4xI',20261013:'lUhDATRpvrs',20261014:'65nhAnBmYuQ',20261015:'Q5_3JBKLNpg',
+      20261016:'r32U54qyerw',20261017:'FFcNanFHSaY',20261018:'G99-49Pfs6U',20261019:'G99-49Pfs6U',20261020:'pCixItfj5Vo'};
+    var weekArt=[['ktQUU5Y3tPE',50,'ॐ सूर्याय नमः'],['vsfjF59qj4Q',42,'हर हर महादेव'],['707iS1Iyv-E',18,'जय बजरंगबली'],['ZswQ9qUMDTs',86,'गणपति बप्पा मोरया'],
+      ['pCixItfj5Vo',80,'ॐ नमो नारायणाय'],['woNhYRu376g',68,'जय माता दी'],['707iS1Iyv-E',18,'जय बजरंगबली']];
+    var art=document.querySelector('#today-art img'), cap=document.getElementById('today-cap');
+    function setArt(id,pos,c){if(!art)return;art.onerror=function(){art.onerror=null;art.src='https://i.ytimg.com/vi/'+id+'/hqdefault.jpg'};
+      art.src='https://i.ytimg.com/vi/'+id+'/maxresdefault.jpg';art.style.objectPosition=pos+'% 30%';if(cap)cap.textContent=c;}
+    if(navArt[ymd]) setArt(navArt[ymd], navArt[ymd]==='G99-49Pfs6U'?50:(navArt[ymd]==='pCixItfj5Vo'?80:68), ymd===20261020?'जय श्री राम':'जय माता दी');
+    else { var wa=weekArt[ist.getDay()]; setArt(wa[0],wa[1],wa[2]); }
     var w=week[ist.getDay()], h=today.querySelector('h2'), p=today.querySelector('p.say'), a=today.querySelector('a.go'), when=today.querySelector('.when');
     if(navratri[ymd]){when.textContent='आज · शारदीय नवरात्रि 2026';h.textContent=navratri[ymd];
       p.textContent='नवरात्रि के हर दिन देवी के एक स्वरूप की पूजा होती है। आज की आरती और पूरे नौ दिनों की सूची देखें।';a.href='navratri-2026.html';a.textContent='नवरात्रि 2026 पेज खोलें';}
@@ -65,7 +74,7 @@
   document.querySelectorAll('.days li[data-ymd]').forEach(function(li){
     var d=new Date(), ist=new Date(d.getTime()+(d.getTimezoneOffset()+330)*60000);
     var ymd=String(ist.getFullYear()*10000+(ist.getMonth()+1)*100+ist.getDate());
-    if(li.dataset.ymd.split(',').indexOf(ymd)>-1){li.classList.add('now');li.insertAdjacentHTML('afterbegin','<strong style="color:var(--sindoor)">आज</strong> ');}
+    if(li.dataset.ymd.split(',').indexOf(ymd)>-1){li.classList.add('now');var dv=li.querySelector('div')||li;dv.insertAdjacentHTML('afterbegin','<strong style="color:var(--sindoor)">आज · </strong>');}
   });
 
   // Jaap mala
