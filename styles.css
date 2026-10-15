@@ -435,3 +435,9 @@ select,input[type=text]{font:inherit;padding:.55rem .8rem;border-radius:var(--r-
 .hero-pc .pc-grid div{padding:.42rem 0}
 .hero-pc .pc-fest{margin-top:.75rem;padding:.7rem 1rem}
 .hero-pc .pc-note{margin-top:.6rem}
+.verse.mantra{border-bottom:1px solid var(--chandan);padding:1.4rem 0}
+.verse.mantra .m-name{font-family:var(--text);font-weight:600;font-size:1rem;color:var(--genda-deep);margin:0 0 .3rem}
+.verse.mantra .line,.verse.mantra .mean{margin-left:0}
+.lib-cats{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:0 0 1.5rem}
+.lib-cats a{text-decoration:none}
+.lib-count{color:var(--ink-soft);font-size:.95rem;text-align:center;margin:-.2rem 0 1rem}

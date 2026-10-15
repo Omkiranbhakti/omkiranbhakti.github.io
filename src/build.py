@@ -123,6 +123,8 @@ V = {
  "96GJOWJFJgA":("गुरु मंत्र जाप — 108 बार","26:22"),
  "EE2zjTPyHaI":("खाटू में तेरा दरबार — ग्यारस (एकादशी) भजन","4:31"),
  "A-vFduFpIHg":("निर्जला एकादशी व्रत कथा","11:23"),
+ "bWKRDa8dDqE":("दुर्गा चालीसा — 4 मिनट में (नवरात्रि 2026)","3:49"),
+ "p7MyXd8oj9s":("दुर्गा चालीसा — 7 बार सुपरफ़ास्ट पाठ","26:43"),
 }
 PLAYLISTS = {
  "mata":("PLblSMxBGjJTo6wp1f_kZODt5LSwoGf1IH","नवरात्रि DJ भजन प्लेलिस्ट"),
@@ -252,8 +254,12 @@ def lyrics_body(verses, label_map=True):
             lab = {"doha":"दोहा","chaupai":"चौपाई"}.get(kind)
             if lab: out.append(f'<p class="section-label">{lab}</p>')
             last = kind
-        if kind == "chaupai": n += 1; no = str(n)
+        if kind in ("chaupai", "shloka"): n += 1; no = str(n)
         else: no = ""
+        if kind == "mantra":
+            head, body = text.split("\n", 1)
+            out.append(f'<div class="verse mantra"><h3 class="m-name">{e(head)}</h3><p class="line">{e(body)}</p><p class="mean">{e(mean)}</p></div>')
+            continue
         out.append(f'<div class="verse {kind}"><span class="no">{no}</span><p class="line">{e(text)}</p><p class="mean">{e(mean)}</p></div>')
     return "\n".join(out)
 
@@ -264,10 +270,10 @@ def reader_tools():
             '<button class="chip" data-size="-0.15" aria-label="अक्षर छोटे करें">अ−</button>'
             '<button class="chip" data-print>प्रिंट / PDF</button></div>')
 
-def lyrics_page(slug, title, desc, h1, answer, verses, intro_html, vid_ids, faqs, crumb, extra="", work_name=None, author=None):
+def lyrics_page(slug, title, desc, h1, answer, verses, intro_html, vid_ids, faqs, crumb, extra="", work_name=None, author=None, art=None):
     akey = {"hanuman-chalisa.html":"hanuman","om-jai-jagdish-hare-aarti.html":"vishnu",
             "ganesh-aarti-jai-ganesh-deva.html":"ganesh","shiv-aarti-om-jai-shiv-omkara.html":"shivaarti"}.get(slug)
-    vid, pos = ART.get(akey, (None,50))
+    vid, pos = art if art else ART.get(akey, (None,50))
     body = f'''<article>{band(h1, answer, crumb, vid, pos, h1, extra=intro_html)}
 <section style="padding-top:1.5rem;padding-bottom:0"><div class="wrap">
 {reader_tools()}
@@ -481,6 +487,8 @@ add("about.html", "OmKiran Bhakti के बारे में — हिंद
 from panchang import TITHI as TITHI_HI
 exec(open(os.path.join(os.path.dirname(__file__), "panchang_section.py"), encoding="utf-8").read())
 
+exec(open(os.path.join(os.path.dirname(__file__), "library_section.py"), encoding="utf-8").read())
+
 # ---------------- Home ----------------
 ORG = {"@type":"Organization","@id":SITE+"#organization","name":"OmKiran Bhakti","alternateName":["Om Kiran Bhakti","ओमकिरण भक्ति"],"url":SITE,
        "logo":{"@type":"ImageObject","url":LOGO},"sameAs":[YT,"https://www.facebook.com/omkiranbhakti/","https://www.instagram.com/omkiranbhakti/"],
@@ -538,7 +546,7 @@ titles = {s: PAGES[s].split("<title>")[1].split("</title>")[0] for s in urls}
 llms = ["# OmKiran Bhakti","",
  "> Hindi devotional music channel and website: full lyrics of traditional aartis and chalisas with plain-Hindi meanings, bhajan videos by deity, Navratri 2026 dates, and a free online jaap mala (108 counter).","",
  f"Official YouTube channel: {YT}","",
- "## Lyrics with meanings",*[f"- [{html.unescape(titles[s])}]({SITE}{s})" for s,_,_ in LIB],"",
+ "## Lyrics with meanings",*[f"- [{html.unescape(titles[s])}]({SITE}{s})" for s,_,_ in LIB_ALL],"",
  "## Bhajans by deity",*[f"- [{html.unescape(titles[d[0]])}]({SITE}{d[0]})" for d in DEITY],"",
  "## Festivals and tools",f"- [{html.unescape(titles['navratri-2026.html'])}]({SITE}navratri-2026.html)",f"- [{html.unescape(titles['jaap-mala.html'])}]({SITE}jaap-mala.html)",
  f"- [{html.unescape(titles['aarti-mantra.html'])}]({SITE}aarti-mantra.html)",

@@ -9,6 +9,19 @@ Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
 - [ॐ जय जगदीश हरे आरती — पूरे बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/om-jai-jagdish-hare-aarti.html)
 - [जय गणेश जय गणेश देवा आरती — पूरे बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/ganesh-aarti-jai-ganesh-deva.html)
 - [ॐ जय शिव ओंकारा आरती — पूरे बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/shiv-aarti-om-jai-shiv-omkara.html)
+- [दुर्गा चालीसा — पूरे बोल, सरल हिंदी अर्थ और वीडियो | OmKiran Bhakti](https://omkiranbhakti.github.io/durga-chalisa.html)
+- [शिव चालीसा — पूरे बोल, सरल हिंदी अर्थ और वीडियो | OmKiran Bhakti](https://omkiranbhakti.github.io/shiv-chalisa.html)
+- [गणेश चालीसा — पूरे बोल, सरल हिंदी अर्थ और वीडियो | OmKiran Bhakti](https://omkiranbhakti.github.io/ganesh-chalisa.html)
+- [जय अम्बे गौरी आरती — पूरे बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/jai-ambe-gauri-aarti.html)
+- [आरती कुंजबिहारी की — पूरे बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/aarti-kunj-bihari-ki.html)
+- [हनुमान जी की आरती — आरती कीजै हनुमान लला की, बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/hanuman-aarti.html)
+- [ॐ जय लक्ष्मी माता आरती — पूरे बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/lakshmi-aarti.html)
+- [गायत्री मंत्र — संस्कृत, हिंदी अर्थ और जाप विधि | OmKiran Bhakti](https://omkiranbhakti.github.io/gayatri-mantra.html)
+- [महामृत्युंजय मंत्र — संस्कृत, हिंदी अर्थ और 108 बार जाप | OmKiran Bhakti](https://omkiranbhakti.github.io/mahamrityunjay-mantra.html)
+- [प्रमुख हिंदू मंत्र — गणेश, शिव, विष्णु, कृष्ण, हनुमान, दुर्गा, सरस्वती मंत्र अर्थ सहित | OmKiran Bhakti](https://omkiranbhakti.github.io/mantra-sangrah.html)
+- [रुद्राष्टकम् (नमामीशमीशान) — पूरे श्लोक और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/rudrashtakam.html)
+- [निर्वाण षटकम् (शिवोऽहम्) — छह श्लोक और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/nirvana-shatakam.html)
+- [श्री रामचंद्र कृपालु भजु मन — पूरे बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/shri-ramchandra-kripalu.html)
 
 ## Bhajans by deity
 - [माता रानी भजन — देवी गीत, दुर्गा चालीसा और नवरात्रि भजन | OmKiran Bhakti](https://omkiranbhakti.github.io/mata-rani-bhajan.html)
@@ -21,7 +34,7 @@ Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
 ## Festivals and tools
 - [नवरात्रि 2026 — तिथियाँ, नौ देवियाँ और हर दिन की आरती | OmKiran Bhakti](https://omkiranbhakti.github.io/navratri-2026.html)
 - [ऑनलाइन जाप माला — 108 नाम जाप काउंटर | OmKiran Bhakti](https://omkiranbhakti.github.io/jaap-mala.html)
-- [आरती, चालीसा और मंत्र — बोल, अर्थ और वीडियो | OmKiran Bhakti](https://omkiranbhakti.github.io/aarti-mantra.html)
+- [आरती, चालीसा, मंत्र और स्तोत्र — पूरे बोल अर्थ सहित | OmKiran Bhakti](https://omkiranbhakti.github.io/aarti-mantra.html)
 - [आज का पंचांग — तिथि, शुभ मुहूर्त, राहु काल और त्योहार | OmKiran Bhakti](https://omkiranbhakti.github.io/aaj-ka-panchang.html): daily Hindu panchang for New Delhi (tithi, nakshatra, muhurat, Rahu kaal), updated every day
 - [हिंदू त्योहार कैलेंडर 2026–2027 — व्रत और त्योहारों की तारीख़ें | OmKiran Bhakti](https://omkiranbhakti.github.io/tyohar-calendar.html)
 - [एकादशी 2026–2027 — सभी एकादशी की तारीख़, नाम और पारण समय | OmKiran Bhakti](https://omkiranbhakti.github.io/ekadashi-2026-2027.html)
