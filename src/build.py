@@ -133,6 +133,7 @@ DAY_ART = {"Ht_SogxJ_D8":62,"SsrEdkAf4xI":62,"lUhDATRpvrs":62,"65nhAnBmYuQ":62,"
 def arch(vid, pos=50, alt="", eager=False):
     return (f'<div class="arch"><img src="https://i.ytimg.com/vi/{vid}/maxresdefault.jpg" '
             f'onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/{vid}/hqdefault.jpg\'" '
+            f'onload="if(this.naturalWidth<200&&!this.dataset.f){{this.dataset.f=1;this.src=\'https://i.ytimg.com/vi/{vid}/hqdefault.jpg\'}}" '
             f'style="object-position:{pos}% 30%" alt="{e(alt)}" {"" if eager else "loading=\"lazy\""} width="300" height="400"></div>')
 
 LOTUS = ('<div class="lotus" aria-hidden="true"><svg viewBox="0 0 34 20"><g fill="currentColor">'
@@ -388,7 +389,7 @@ aarti_ids = ["ZqFztNyxSgU","Qpe4rrfzWhk","jAdixB5m0Zo","axKgdxe7JZE","w8pxctA299
 lib_html = "".join(f'<li><a href="{h}"><strong>{t}</strong><span>{s}</span></a></li>' for h,t,s in LIB)
 PAATH_ART = {"hanuman-chalisa.html":"hanuman","om-jai-jagdish-hare-aarti.html":"vishnu","ganesh-aarti-jai-ganesh-deva.html":"ganesh","shiv-aarti-om-jai-shiv-omkara.html":"shivaarti"}
 paath_html = '<ul class="paath">' + "".join(f'<li><a href="{h}">{arch(*ART[PAATH_ART[h]], alt="")}<div><strong>{t}</strong><span>{s}</span></div></a></li>' for h,t,s in LIB) + \
-  f'<li><a href="jaap-mala.html">{arch("C5lE4JA3sKc",30, alt="")}<div><strong>ऑनलाइन जाप माला</strong><span>108 की गिनती</span></div></a></li>' + \
+  f'<li><a href="jaap-mala.html">{arch("Kbe3pbLsg1U",80, alt="")}<div><strong>ऑनलाइन जाप माला</strong><span>108 की गिनती</span></div></a></li>' + \
   f'<li><a href="navratri-2026.html">{arch(*ART["navdurga"], alt="")}<div><strong>नवरात्रि 2026</strong><span>तिथियाँ और नौ देवियाँ</span></div></a></li></ul>'
 add("aarti-mantra.html", "आरती, चालीसा और मंत्र — बोल, अर्थ और वीडियो | OmKiran Bhakti",
  "हनुमान चालीसा, ॐ जय जगदीश हरे, गणेश आरती और शिव आरती के पूरे बोल और अर्थ; साथ में चालीसा, आरती और 108 बार मंत्र जाप के वीडियो।",
