@@ -684,3 +684,5 @@ html.paath-on .verse.dhyan .line{color:#F5B83A}
 .hl-live .chip{color:var(--cream);border-color:rgba(246,210,122,.55);background:transparent}
 .hl-live .chip[aria-pressed="true"]{background:var(--gold,#C9A24A);color:#1a0d05;border-color:transparent}
 .hl-live .chip:hover{border-color:var(--gold)}
+.chip.live-chip{border-color:#e01e1e}
+.chip.live-chip[aria-pressed="true"]{background:#e01e1e;color:#fff;border-color:#e01e1e}

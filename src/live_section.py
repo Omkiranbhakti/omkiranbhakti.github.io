@@ -36,7 +36,7 @@ function load(m){var src=m==="live"?"https://www.youtube.com/embed/live_stream?c
 box.innerHTML='<iframe src="'+src+'" title="'+p.dataset.t+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>';
 [].forEach.call(bts,function(b){b.setAttribute("aria-pressed",b.dataset.mode===m?"true":"false")});}
 [].forEach.call(bts,function(b){b.addEventListener("click",function(){load(b.dataset.mode)})});
-var st=p.querySelector(".ld-start"); if(st) st.addEventListener("click",function(){load("live")});
+var st=p.querySelector(".ld-start"); if(st) st.addEventListener("click",function(){load("recent")});
 });})();</script>'''
 def ld_player(cid, title, art):
     return (f'<div class="ld-player" data-ch="{cid}" data-t="{e(title)}"><div class="ld-frame">'
@@ -81,22 +81,22 @@ function pick(b,start){cur=b;picks.forEach(function(x){x.setAttribute("aria-pres
  nm.textContent=b.dataset.name+", "+b.dataset.place;src.textContent="स्रोत: मंदिर का आधिकारिक YouTube चैनल “"+b.dataset.src+"” — "+b.dataset.note+"। वीडियो के सभी अधिकार उन्हीं के हैं।";
  aar.forEach(function(a){a.hidden=a.dataset.a!==b.dataset.a});
  try{history.replaceState(null,"","#"+b.dataset.slug)}catch(e){}
- if(start)play("live");else{box.innerHTML='<button class="ld-start" type="button"><span>▶ '+b.dataset.name+' — लाइव दर्शन शुरू करें</span></button>';box.querySelector(".ld-start").addEventListener("click",function(){play("live")});}}
+ if(start)play("recent");else{box.innerHTML='<button class="ld-start" type="button"><span>▶ '+b.dataset.name+' — दर्शन शुरू करें</span></button>';box.querySelector(".ld-start").addEventListener("click",function(){play("recent")});}}
 picks.forEach(function(b){b.addEventListener("click",function(){pick(b,true);document.querySelector(".ld-player").scrollIntoView({behavior:"smooth",block:"start"})})});
 [].forEach.call(document.querySelectorAll("[data-mode]"),function(b){b.addEventListener("click",function(){play(b.dataset.mode)})});
 var h=(location.hash||"").slice(1),hit=picks.filter(function(p){return p.dataset.slug===h})[0],first=hit||picks[0];pick(first,!!hit);if(hit)document.querySelector(".ld-player").scrollIntoView({block:"start"});
 })();</script>"""
 _faqs = [("मंदिरों के लाइव दर्शन कहाँ देखें?", "इसी पेज पर ऊपर से मंदिर चुनें — राम मंदिर अयोध्या, महाकाल उज्जैन, काशी विश्वनाथ, सोमनाथ, ओंकारेश्वर, त्र्यंबकेश्वर, केदारनाथ-बद्रीनाथ, सिद्धिविनायक, वैष्णो देवी, बांके बिहारी, तिरुपति और शिर्डी का आधिकारिक प्रसारण यहीं चलता है।"),
-         ("लाइव प्रसारण न दिखे तो क्या करें?", "मंदिर आरती और विशेष अवसरों पर लाइव आते हैं। उस समय ‘हाल के दर्शन और आरती’ दबाएँ — उसी मंदिर के चैनल के सबसे नए वीडियो चलेंगे।"),
+         ("लाइव प्रसारण न दिखे तो क्या करें?", "मंदिर आरती और विशेष अवसरों पर लाइव आते हैं। इसलिए पेज खुलते ही उसी मंदिर के चैनल के सबसे नए दर्शन-आरती वीडियो चलते हैं; प्रसारण चल रहा हो तो ‘अभी लाइव देखें’ दबाएँ।"),
          ("क्या ये प्रसारण आधिकारिक हैं?", "हाँ। केवल वही YouTube चैनल लिए गए हैं जिन्हें मंदिर की अपनी वेबसाइट दिखाती है या जो मंदिर ट्रस्ट के नाम से चलते हैं। वीडियो और प्रसारण पूरी तरह मंदिरों के हैं; OmKiran Bhakti उन्हें YouTube के प्लेयर से यहाँ दिखाता है।")]
 add("live-darshan.html", "लाइव दर्शन — राम मंदिर, महाकाल, काशी विश्वनाथ, सोमनाथ और 12 मंदिर | OmKiran Bhakti",
     "राम मंदिर अयोध्या, महाकाल उज्जैन, काशी विश्वनाथ, सोमनाथ, सिद्धिविनायक, वैष्णो देवी, बांके बिहारी, तिरुपति, शिर्डी — 12 मंदिरों के आधिकारिक लाइव दर्शन एक ही पेज पर, साथ में आरती।",
     band("मंदिरों के लाइव दर्शन", "भारत के 12 प्रमुख मंदिरों का <strong>आधिकारिक</strong> लाइव प्रसारण एक ही जगह। मंदिर चुनें — दर्शन यहीं चलेगा, और नीचे उसी देवता की आरती साथ में पढ़ें।", "लाइव दर्शन", *ART["shivaarti"], "लाइव दर्शन") +
     f'<section><div class="wrap"><ul class="ld-picks" role="list">{"".join(_cards)}</ul>'
     f'<div class="ld-player"><h2 id="ld-name" class="ld-name">{e(_first[1])}, {e(_first[2])}</h2><div class="ld-frame"></div>'
-    '<div class="ld-modes" role="group" aria-label="क्या देखें"><button class="chip" data-mode="live" aria-pressed="false">अभी लाइव</button>'
-    '<button class="chip" data-mode="recent" aria-pressed="false">हाल के दर्शन और आरती</button></div>'
-    '<p class="ld-hint">दर्शन बिना आवाज़ के चलता है और नीचे भजन बजते हैं। मंदिर की आवाज़ सुननी हो तो दर्शन वाले वीडियो पर 🔇 दबाएँ। अभी प्रसारण न हो तो ‘हाल के दर्शन और आरती’ दबाएँ।</p>'
+    '<div class="ld-modes" role="group" aria-label="क्या देखें"><button class="chip" data-mode="recent" aria-pressed="false">दर्शन और आरती</button>'
+    '<button class="chip live-chip" data-mode="live" aria-pressed="false">🔴 अभी लाइव देखें</button></div>'
+    '<p class="ld-hint">दर्शन बिना आवाज़ के चलता है और नीचे भजन बजते हैं। मंदिर की आवाज़ सुननी हो तो दर्शन वाले वीडियो पर 🔇 दबाएँ। शुरुआत में मंदिर के हाल के दर्शन-आरती चलते हैं; प्रसारण चल रहा हो तो ‘अभी लाइव देखें’ दबाएँ।</p>'
     '<div class="ld-bhw" id="ld-bhw" hidden><h3>भजन साथ में — OmKiran Bhakti</h3><div class="ld-bh" id="ld-bh"></div></div>'
     '<p class="note" id="ld-src"></p></div></div></section>'
     f'<section class="band"><div class="wrap">{sec_head("दर्शन के साथ आरती पढ़ें")}{"".join(_aartis)}</div></section>'

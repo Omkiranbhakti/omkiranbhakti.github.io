@@ -562,9 +562,9 @@ home_live = ('<div class="hl-live"><div class="hl-head"><h2><span class="hl-dot"
   "".join(f'<li><a href="live-darshan.html#{x[0]}" title="{x[1]} — लाइव दर्शन" data-ch="{x[3]}" data-name="{x[1]}, {x[2]}" data-bh="{_bh(x[0])}"><img src="img/live/{x[0]}.webp" alt="{x[1]}, {x[2]} लाइव दर्शन" width="320" height="180" decoding="async"{"" if i < 4 else " loading=\"lazy\""}><span>{HL_SHORT.get(x[0], x[1])}</span></a></li>' for i, x in enumerate(LIVE)) +
   '</ul><p class="hl-note">मंदिर पर दबाएँ — आधिकारिक लाइव दर्शन यहीं चलेगा, और साथ में भजन बजेंगे।</p></div>')
 home_live = home_live.replace('<ul class="hl-grid">', '<div class="hl-stage" hidden><p class="hl-now" id="hl-now"></p><div class="hl-frame" id="hl-frame"></div>'
-  '<div class="hl-ctrl"><div class="hl-modes"><button class="chip" type="button" data-hm="live" aria-pressed="true">अभी लाइव</button>'
-  '<button class="chip" type="button" data-hm="recent" aria-pressed="false">हाल के दर्शन और आरती</button><button class="chip" type="button" id="hl-close">✕ बंद करें</button></div>'
-  '<p class="hl-tip">दर्शन बिना आवाज़ के चलता है, साथ में भजन बजते हैं। मंदिर की आवाज़ के लिए वीडियो पर 🔇 दबाएँ।</p>'
+  '<div class="hl-ctrl"><div class="hl-modes"><button class="chip" type="button" data-hm="recent" aria-pressed="true">दर्शन और आरती</button>'
+  '<button class="chip live-chip" type="button" data-hm="live" aria-pressed="false">🔴 अभी लाइव देखें</button><button class="chip" type="button" id="hl-close">✕ बंद करें</button></div>'
+  '<p class="hl-tip">मंदिर के हाल के दर्शन-आरती चल रहे हैं। प्रसारण चल रहा हो तो ‘अभी लाइव देखें’ दबाएँ। मंदिर की आवाज़ के लिए वीडियो पर 🔇 दबाएँ।</p>'
   '<div class="hl-bh"><p>भजन साथ में</p><div id="hl-bh"></div></div></div></div><ul class="hl-grid">', 1)
 HOME_LIVE_JS = r'''<script>(function(){var L=document.querySelector(".hl-live");if(!L)return;
 var st=L.querySelector(".hl-stage"),fr=document.getElementById("hl-frame"),bh=document.getElementById("hl-bh"),now=document.getElementById("hl-now"),cur=null,
@@ -573,7 +573,7 @@ function ifr(u,t){return '<iframe src="'+u+'" title="'+t+'" allow="'+al+'" allow
 function play(m){var c=cur.dataset.ch;fr.innerHTML=ifr(m==="live"?"https://www.youtube.com/embed/live_stream?channel="+c+"&autoplay=1&mute=1&rel=0":"https://www.youtube.com/embed/videoseries?list=UU"+c.slice(2)+"&autoplay=1&mute=1&rel=0",cur.dataset.name+" लाइव दर्शन");
  [].forEach.call(L.querySelectorAll("[data-hm]"),function(b){b.setAttribute("aria-pressed",b.dataset.hm===m?"true":"false")});}
 tiles.forEach(function(a){a.addEventListener("click",function(ev){ev.preventDefault();cur=a;tiles.forEach(function(t){t.classList.toggle("on",t===a)});
- now.innerHTML='<span class="hl-dot"></span>'+a.dataset.name;st.hidden=false;L.classList.add("playing");play("live");
+ now.innerHTML='<span class="hl-dot"></span>'+a.dataset.name;st.hidden=false;L.classList.add("playing");play("recent");
  var ids=(a.dataset.bh||"").split(",").filter(Boolean);if(ids.length)bh.innerHTML=ifr("https://www.youtube.com/embed/"+ids[0]+"?autoplay=1&rel=0&playlist="+ids.slice(1).join(","),"OmKiran Bhakti भजन");
  var r=L.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.5)L.scrollIntoView({behavior:"smooth",block:"start"});});});
 [].forEach.call(L.querySelectorAll("[data-hm]"),function(b){b.addEventListener("click",function(){if(cur)play(b.dataset.hm)})});
