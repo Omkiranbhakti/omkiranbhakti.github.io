@@ -67,9 +67,28 @@ import json as _json, os as _os
 # Our own bhajan MP3s (no ads): {"shiv":[{"t":"title","f":"url"}], "ram":[...], ...}. Empty -> YouTube player fallback.
 AUD = next((_json.load(open(_p, encoding="utf-8")) for _p in ("audio_bhajan.json", "src/audio_bhajan.json") if _os.path.exists(_p)), {})
 def _aud(slug):
-    l = AUD.get(_TEMPLE_BH.get(slug, "shiv"), [])
+    l = AUD.get(_TEMPLE_BH.get(slug, "shiv")) or AUD.get("_all", [])
     return e(_json.dumps(l, ensure_ascii=False)) if l else ""
+_SHIV = ["vsfjF59qj4Q","Kbe3pbLsg1U","DGsy57lUApA","pn5OODJqmTc","fQiD96yFR6o","sllSUVgfjnw","ZqFztNyxSgU","qCwFf_cCWGM","6vVDsn9R6DM","dZ7iceOQt9Y","JUg809TxgRg","icIEKo5vLjw"]
+_RAM = ["sLQF1nm_RqU","lBRP9bTTLek","kHM8fGmqoLw","l9z2J0I6Kao","fmbCXi2K9tw","pCixItfj5Vo","ZqOnkb7zElU"]
+_GAN = ["ZswQ9qUMDTs","NGI-JiRiwSc","XscYggWHC5o","EtnvDW1AlOY","Qpe4rrfzWhk","IkcVwmMUUmw","BmrflIPOqAk","r-yfzKxNW0w","u3kbBEHOs9o"]
+_MATA = ["NuWOBRQ9B3Q","woNhYRu376g","fhm1dqyttu0","2yVR5zSaKpc","9hzay6Ebzas","rLSpMEkB7eU","vr5Bp46iA-Q","PSKXIFYrtcU","CcDzHzu7sIw","jAdixB5m0Zo"]
+_KRI = ["TVdX5XbbjHs","_8yw36Jn7iM","P9N1XQzw8CI","vy6ucthmxmk","ZIhDdYk6Gus","ZQ_OBR-596M","GtRRHlLc5gQ"]
+def _first(lead, base): return lead + [x for x in base if x not in lead]
+# Hand-picked OmKiran Bhakti tracks for each temple: the temple's own song first, then that deity's bhajans.
+TEMPLE_TRACKS = {
+ "mahakaleshwar-ujjain": _first(["axKgdxe7JZE","icIEKo5vLjw"], _SHIV), "kashi-vishwanath-varanasi": _first(["dZ7iceOQt9Y","Kbe3pbLsg1U"], _SHIV),
+ "kal-bhairav-ujjain": _first(["unfGUJz6D8U","axKgdxe7JZE"], _SHIV), "somnath": _SHIV, "omkareshwar": _first(["C5lE4JA3sKc"], _SHIV),
+ "trimbakeshwar": _SHIV, "kedarnath-badrinath": _first(["DGsy57lUApA"], _SHIV),
+ "ram-mandir-ayodhya": _RAM, "shirdi-sai-baba": _first(["iUo6Ui1lPMY","96GJOWJFJgA"], _RAM),
+ "siddhivinayak-mumbai": _GAN, "dagdusheth-ganpati-pune": _first(["oiQLsZFwU7I","ZZcOOWNvFg8","Qpe4rrfzWhk"], _GAN),
+ "vaishno-devi": _first(["PHNyA0VlAI8"], _MATA), "ambaji-mata": _first(["dJAZTUkHcBs"], _MATA), "naina-devi": _first(["PSKXIFYrtcU","PHNyA0VlAI8"], _MATA),
+ "pavagadh-mahakali": _first(["jAdixB5m0Zo","nFvgYHuqZt0"], _MATA),
+ "banke-bihari-vrindavan": _KRI, "khatu-shyam": _first(["EE2zjTPyHaI"], _KRI), "iskcon-vrindavan": _first(["GtRRHlLc5gQ","P9N1XQzw8CI"], _KRI),
+ "iskcon-mayapur": _first(["GtRRHlLc5gQ","P9N1XQzw8CI"], _KRI), "tirupati-balaji": _first(["P9N1XQzw8CI","GtRRHlLc5gQ"], _KRI),
+}
 def _bh(slug):
+    if slug in TEMPLE_TRACKS: return ",".join(x for x in TEMPLE_TRACKS[slug] if x in V)
     ids = _BH.get(_TEMPLE_BH.get(slug, "shiv"), []) or home_popular
     return ",".join(ids[:12])
 _cards, _aartis, _seen = [], [], {}
@@ -90,12 +109,12 @@ var picks=[].slice.call(document.querySelectorAll(".ld-pick")),box=document.quer
 var bh=document.getElementById("ld-bh"),bhw=document.getElementById("ld-bhw");
 var nm=document.getElementById("ld-name"),src=document.getElementById("ld-src"),aar=[].slice.call(document.querySelectorAll(".ld-aarti"));
 function play(m){mode=m;if(!cur)return;var cid=cur.dataset.ch;
- var u=m==="live"?"https://www.youtube.com/embed/live_stream?channel="+cid+"&autoplay=1&mute=1&rel=0":"https://www.youtube.com/embed/videoseries?list=UU"+cid.slice(2)+"&autoplay=1&mute=1&rel=0";
+ var u=m==="live"?"https://www.youtube.com/embed/live_stream?channel="+cid+"&autoplay=1&mute=1&rel=0&cc_load_policy=0&iv_load_policy=3":"https://www.youtube.com/embed/videoseries?list=UU"+cid.slice(2)+"&autoplay=1&mute=1&rel=0&cc_load_policy=0&iv_load_policy=3";
  box.innerHTML='<iframe src="'+u+'" title="'+cur.dataset.name+' लाइव दर्शन" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
  [].forEach.call(document.querySelectorAll("[data-mode]"),function(b){b.setAttribute("aria-pressed",b.dataset.mode===m?"true":"false")});
  bhajan();}
-function bhajan(){if(cur.dataset.aud&&window.okbAudio){okbAudio(bh,JSON.parse(cur.dataset.aud));bhw.hidden=false;return;}bh.classList.remove("is-audio");var ids=(cur.dataset.bh||"").split(",").filter(Boolean);if(!ids.length)return;
- bh.innerHTML='<iframe src="https://www.youtube.com/embed/'+ids[0]+'?autoplay=1&rel=0&playlist='+ids.slice(1).join(",")+'" title="OmKiran Bhakti भजन" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+function bhajan(){var au=document.getElementById("ld-aud");if(cur.dataset.aud&&window.okbAudio&&au){okbAudio(au,JSON.parse(cur.dataset.aud));}var ids=(cur.dataset.bh||"").split(",").filter(Boolean);if(!ids.length){bhw.hidden=false;return;}
+ bh.innerHTML='<iframe src="https://www.youtube.com/embed/'+ids[0]+'?autoplay=1&mute=1&rel=0&cc_load_policy=0&iv_load_policy=3&playlist='+ids.slice(1).join(",")+'" title="OmKiran Bhakti भजन" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
  bhw.hidden=false;}
 function pick(b,start){cur=b;picks.forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
  nm.textContent=b.dataset.name+", "+b.dataset.place;src.textContent="स्रोत: मंदिर का आधिकारिक YouTube चैनल “"+b.dataset.src+"” — "+b.dataset.note+"। वीडियो के सभी अधिकार उन्हीं के हैं।";
@@ -116,8 +135,8 @@ add("live-darshan.html", f"लाइव दर्शन — राम मंद�
     f'<div class="ld-player"><h2 id="ld-name" class="ld-name">{e(_first[1])}, {e(_first[2])}</h2><div class="ld-frame"></div>'
     '<div class="ld-modes" role="group" aria-label="क्या देखें"><button class="chip" data-mode="recent" aria-pressed="false">दर्शन और आरती</button>'
     '<button class="chip live-chip" data-mode="live" aria-pressed="false">🔴 अभी लाइव देखें</button></div>'
-    '<p class="ld-hint">दर्शन बिना आवाज़ के चलता है और नीचे भजन बजते हैं। मंदिर की आवाज़ सुननी हो तो दर्शन वाले वीडियो पर 🔇 दबाएँ। शुरुआत में मंदिर के हाल के दर्शन-आरती चलते हैं; प्रसारण चल रहा हो तो ‘अभी लाइव देखें’ दबाएँ।</p>'
-    '<div class="ld-bhw" id="ld-bhw" hidden><h3>भजन साथ में — OmKiran Bhakti</h3><div class="ld-bh" id="ld-bh"></div></div>'
+    '<p class="ld-hint">दर्शन और वीडियो बिना आवाज़ के चलते हैं, भजन नीचे वाले प्लेयर में बजते हैं। मंदिर की आवाज़ सुननी हो तो दर्शन वाले वीडियो पर 🔇 दबाएँ। शुरुआत में मंदिर के हाल के दर्शन-आरती चलते हैं; प्रसारण चल रहा हो तो ‘अभी लाइव देखें’ दबाएँ।</p>'
+    '<div class="ld-bhw" id="ld-bhw" hidden><h3>भजन साथ में — OmKiran Bhakti</h3><div class="bh-row"><div class="bh-aud" id="ld-aud"></div><div class="ld-bh" id="ld-bh"></div></div></div>'
     '<p class="note" id="ld-src"></p></div></div></section>'
     f'<section class="band"><div class="wrap">{sec_head("दर्शन के साथ आरती पढ़ें")}{"".join(_aartis)}</div></section>'
     + faq_html(_faqs) + LIVE_ONE_JS,

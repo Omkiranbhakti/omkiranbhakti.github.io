@@ -584,20 +584,20 @@ home_live = ('<div class="hl-live"><div class="hl-head"><h2><span class="hl-dot"
 home_live = home_live.replace('<ul class="hl-grid">', '<div class="hl-stage" hidden><p class="hl-now" id="hl-now"></p><div class="hl-frame" id="hl-frame"></div>'
   '<div class="hl-ctrl"><div class="hl-modes"><button class="chip" type="button" data-hm="recent" aria-pressed="true">दर्शन और आरती</button>'
   '<button class="chip live-chip" type="button" data-hm="live" aria-pressed="false">🔴 अभी लाइव देखें</button><button class="chip" type="button" id="hl-close">✕ बंद करें</button></div>'
-  '<p class="hl-tip">मंदिर के हाल के दर्शन-आरती चल रहे हैं। प्रसारण चल रहा हो तो ‘अभी लाइव देखें’ दबाएँ। मंदिर की आवाज़ के लिए वीडियो पर 🔇 दबाएँ।</p>'
-  '<div class="hl-bh"><p>भजन साथ में</p><div id="hl-bh"></div></div></div></div><ul class="hl-grid">', 1)
+  '<p class="hl-tip">मंदिर के हाल के दर्शन-आरती चल रहे हैं; प्रसारण चल रहा हो तो ‘अभी लाइव देखें’ दबाएँ। वीडियो बिना आवाज़ के चलते हैं, भजन साथ वाले प्लेयर में बजते हैं।</p>'
+  '<div class="hl-bh"><p>भजन साथ में</p><div class="bh-aud" id="hl-aud"></div><div id="hl-bh"></div></div></div></div><ul class="hl-grid">', 1)
 HOME_LIVE_JS = r'''<script>(function(){var L=document.querySelector(".hl-live");if(!L)return;
 var st=L.querySelector(".hl-stage"),fr=document.getElementById("hl-frame"),bh=document.getElementById("hl-bh"),now=document.getElementById("hl-now"),cur=null,
 al="autoplay; encrypted-media; picture-in-picture; fullscreen",tiles=[].slice.call(L.querySelectorAll(".hl-grid a"));
 function ifr(u,t){return '<iframe src="'+u+'" title="'+t+'" allow="'+al+'" allowfullscreen></iframe>'}
-function play(m){var c=cur.dataset.ch;fr.innerHTML=ifr(m==="live"?"https://www.youtube.com/embed/live_stream?channel="+c+"&autoplay=1&mute=1&rel=0":"https://www.youtube.com/embed/videoseries?list=UU"+c.slice(2)+"&autoplay=1&mute=1&rel=0",cur.dataset.name+" लाइव दर्शन");
+function play(m){var c=cur.dataset.ch;fr.innerHTML=ifr(m==="live"?"https://www.youtube.com/embed/live_stream?channel="+c+"&autoplay=1&mute=1&rel=0&cc_load_policy=0&iv_load_policy=3":"https://www.youtube.com/embed/videoseries?list=UU"+c.slice(2)+"&autoplay=1&mute=1&rel=0&cc_load_policy=0&iv_load_policy=3",cur.dataset.name+" लाइव दर्शन");
  [].forEach.call(L.querySelectorAll("[data-hm]"),function(b){b.setAttribute("aria-pressed",b.dataset.hm===m?"true":"false")});}
 tiles.forEach(function(a){a.addEventListener("click",function(ev){ev.preventDefault();cur=a;tiles.forEach(function(t){t.classList.toggle("on",t===a)});
  now.innerHTML='<span class="hl-dot"></span>'+a.dataset.name;st.hidden=false;L.classList.add("playing");play("recent");
- if(a.dataset.aud&&window.okbAudio)okbAudio(bh,JSON.parse(a.dataset.aud));else{bh.classList.remove("is-audio");var ids=(a.dataset.bh||"").split(",").filter(Boolean);if(ids.length)bh.innerHTML=ifr("https://www.youtube.com/embed/"+ids[0]+"?autoplay=1&rel=0&playlist="+ids.slice(1).join(","),"OmKiran Bhakti भजन");}
+ var au=document.getElementById("hl-aud");if(a.dataset.aud&&window.okbAudio)okbAudio(au,JSON.parse(a.dataset.aud));{var ids=(a.dataset.bh||"").split(",").filter(Boolean);if(ids.length)bh.innerHTML=ifr("https://www.youtube.com/embed/"+ids[0]+"?autoplay=1&mute=1&rel=0&cc_load_policy=0&iv_load_policy=3&playlist="+ids.slice(1).join(","),"OmKiran Bhakti भजन");}
  var r=L.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.5)L.scrollIntoView({behavior:"smooth",block:"start"});});});
 [].forEach.call(L.querySelectorAll("[data-hm]"),function(b){b.addEventListener("click",function(){if(cur)play(b.dataset.hm)})});
-document.getElementById("hl-close").addEventListener("click",function(){fr.innerHTML="";if(bh._a)bh._a.pause();bh.innerHTML="";st.hidden=true;L.classList.remove("playing");tiles.forEach(function(t){t.classList.remove("on")})});
+document.getElementById("hl-close").addEventListener("click",function(){fr.innerHTML="";var au=document.getElementById("hl-aud");if(au._a)au._a.pause();au.innerHTML="";bh.innerHTML="";st.hidden=true;L.classList.remove("playing");tiles.forEach(function(t){t.classList.remove("on")})});
 })();</script>'''
 add("index.html", "OmKiran Bhakti — आरती, चालीसा, मंत्र और भजन (बोल व अर्थ सहित)",
  "हनुमान चालीसा, आरती और मंत्रों के पूरे बोल सरल अर्थ के साथ; माता रानी, शिव, गणेश, कृष्ण और राम के भजन; नवरात्रि 2026 और ऑनलाइन जाप माला।",

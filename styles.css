@@ -701,3 +701,12 @@ html.paath-on .verse.dhyan .line{color:#F5B83A}
 .hl-ctrl{grid-template-columns:minmax(0,1fr) 240px}
 @media (max-width:900px){.hl-ctrl{grid-template-columns:minmax(0,1fr)}}
 @media (min-width:901px){.hl-live:not(.playing) .hl-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:.4rem}}
+/* bhajan: own MP3 player + small muted OmKiran video */
+.bh-aud:empty{display:none}
+.bh-aud{margin-bottom:.45rem}
+#hl-bh{width:200px;max-width:100%}
+.ld-bhw .bh-row{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;justify-content:center}
+.ld-bhw .bh-aud{flex:1 1 280px;max-width:30rem;margin:0}
+.ld-bh{width:220px;max-width:100%;margin:0;flex:none}
+.hl-ctrl{grid-template-columns:minmax(0,1fr) 260px}
+@media (max-width:900px){.hl-ctrl{grid-template-columns:minmax(0,1fr)}.hl-bh{max-width:none}}
