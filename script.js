@@ -212,5 +212,26 @@ window.okbAudio=function(box,list){
   pl.addEventListener('click',function(){a.paused?a.play():a.pause();});
   box.querySelector('.ap-prev').addEventListener('click',function(){load(i-1,true);});
   box.querySelector('.ap-next').addEventListener('click',function(){load(i+1,true);});
-  load(Math.floor(Math.random()*list.length),true);
+  load(0,true);
 };
+
+/* Home welcome: marigold & rose petal shower + greeting (once per visit, skipped for reduced motion) */
+(function(){
+  if(!document.querySelector('.hero4'))return;
+  try{if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;}catch(e){}
+  try{if(sessionStorage.getItem('okbWelcome'))return;sessionStorage.setItem('okbWelcome','1');}catch(e){}
+  var COL=['#ff9f1c','#ffbf3c','#f77f00','#ffd166','#e63946','#ff6f91','#fca311'];
+  var box=document.createElement('div');box.className='petal-rain';box.setAttribute('aria-hidden','true');
+  var n=window.innerWidth<600?26:44;
+  for(var i=0;i<n;i++){var p=document.createElement('i');var c=COL[i%COL.length];
+    p.style.left=(Math.random()*100)+'vw';p.style.background='radial-gradient(circle at 30% 30%,#fff6 0,'+c+' 55%)';
+    var s=10+Math.random()*12;p.style.width=s+'px';p.style.height=(s*1.35)+'px';
+    p.style.animationDuration=(3.2+Math.random()*2.6)+'s,'+(1.4+Math.random()*1.4)+'s';p.style.animationDelay=(Math.random()*1.6)+'s,0s';
+    box.appendChild(p);}
+  var d=new Date(),g=['ॐ नमः शिवाय','हर हर महादेव','जय बजरंगबली','गणपति बप्पा मोरया','जय श्री हरि','जय माता दी','जय शनिदेव'][d.getDay()];
+  var w=document.createElement('div');w.className='welcome-toast';w.setAttribute('role','status');
+  w.innerHTML='<span class="wt-om">ॐ</span><span><b>'+g+'</b><small>OmKiran Bhakti में आपका स्वागत है 🙏</small></span>';
+  document.body.appendChild(box);document.body.appendChild(w);
+  setTimeout(function(){w.classList.add('out')},4200);
+  setTimeout(function(){box.remove();w.remove()},7600);
+})();

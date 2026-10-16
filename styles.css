@@ -748,3 +748,22 @@ html.paath-on .verse.dhyan .line{color:#F5B83A}
 .brand img{width:62px;height:auto;border-radius:0;filter:drop-shadow(0 2px 4px rgba(200,80,0,.25))}
 .brand b{font-family:"Samarkan",var(--display);font-size:1.7rem;letter-spacing:.02em;background:linear-gradient(180deg,#e8590c,#b3200e);-webkit-background-clip:text;background-clip:text;color:transparent}
 @media (max-width:420px){.brand img{width:50px}.brand b{font-size:1.4rem}}
+/* welcome petal shower */
+.petal-rain{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
+.petal-rain i{position:absolute;top:-40px;border-radius:60% 10% 60% 10%;opacity:.95;animation-name:petalFall,petalSway;animation-timing-function:linear,ease-in-out;animation-iteration-count:1,infinite;animation-fill-mode:forwards;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+@keyframes petalFall{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(110vh) rotate(540deg);opacity:.85}}
+@keyframes petalSway{0%,100%{margin-left:-18px}50%{margin-left:18px}}
+.welcome-toast{position:fixed;left:50%;top:18px;transform:translate(-50%,-30px);opacity:0;z-index:61;display:flex;align-items:center;gap:.7rem;
+  padding:.6rem 1.2rem .6rem .7rem;border-radius:999px;background:linear-gradient(135deg,#3a1206,#1a0a14);color:#fff4dc;
+  box-shadow:0 0 0 1px rgba(246,210,122,.55),0 12px 40px rgba(0,0,0,.45),0 0 40px rgba(255,170,40,.35);animation:wtIn .7s .3s cubic-bezier(.2,.9,.3,1.2) forwards;max-width:calc(100vw - 32px)}
+.welcome-toast.out{animation:wtOut .6s forwards}
+.welcome-toast b{display:block;font-family:var(--display);font-size:1.15rem;color:#ffd54a;line-height:1.2}
+.welcome-toast small{display:block;font-size:.8rem;opacity:.85}
+.wt-om{flex:none;width:2.4rem;height:2.4rem;border-radius:50%;display:grid;place-items:center;font-size:1.5rem;color:#fff;background:radial-gradient(circle,#ffb347,#e8590c);animation:omGlow 1.6s ease-in-out infinite}
+@keyframes wtIn{to{transform:translate(-50%,0);opacity:1}}
+@keyframes wtOut{to{transform:translate(-50%,-30px);opacity:0}}
+@keyframes omGlow{0%,100%{box-shadow:0 0 0 0 rgba(255,170,40,.6)}50%{box-shadow:0 0 18px 6px rgba(255,170,40,.55)}}
+/* gentle glow on the live darshan title */
+.hl-head h2{animation:titleGlow 3s ease-in-out infinite}
+@keyframes titleGlow{0%,100%{text-shadow:0 0 0 rgba(255,200,80,0)}50%{text-shadow:0 0 14px rgba(255,200,80,.55)}}
+@media (prefers-reduced-motion:reduce){.hl-head h2,.wt-om{animation:none}}

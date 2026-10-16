@@ -76,7 +76,7 @@ import json as _json, os as _os
 AUD = next((_json.load(open(_p, encoding="utf-8")) for _p in ("audio_bhajan.json", "src/audio_bhajan.json") if _os.path.exists(_p)), {})
 def _aud(slug):
     if slug == "golden-temple-amritsar": return ""
-    l = AUD.get(_TEMPLE_BH.get(slug, "shiv")) or AUD.get("_all", [])
+    l = AUD.get("_temples", {}).get(slug) or AUD.get(_TEMPLE_BH.get(slug, "shiv")) or AUD.get("_all", [])
     return e(_json.dumps(l, ensure_ascii=False)) if l else ""
 _SHIV = ["vsfjF59qj4Q","Kbe3pbLsg1U","DGsy57lUApA","pn5OODJqmTc","fQiD96yFR6o","sllSUVgfjnw","ZqFztNyxSgU","qCwFf_cCWGM","6vVDsn9R6DM","dZ7iceOQt9Y","JUg809TxgRg","icIEKo5vLjw"]
 _RAM = ["sLQF1nm_RqU","lBRP9bTTLek","kHM8fGmqoLw","l9z2J0I6Kao","fmbCXi2K9tw","pCixItfj5Vo","ZqOnkb7zElU"]
