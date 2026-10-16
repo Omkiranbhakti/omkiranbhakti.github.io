@@ -147,7 +147,7 @@ add("live-darshan.html", f"लाइव दर्शन — राम मंद�
     '<div class="ld-modes" role="group" aria-label="क्या देखें"><button class="chip" data-mode="recent" aria-pressed="false">दर्शन और आरती</button>'
     '<button class="chip live-chip" data-mode="live" aria-pressed="false"><span class="lv-dot" aria-hidden="true"></span>अभी लाइव देखें</button></div>'
     f'<details class="ld-aline" id="ld-aline"><summary>📖 साथ में पढ़ें: <b id="ld-atitle"></b></summary>{"".join(_aartis)}</details>'
-    '<div class="ok-card"><div class="ok-yt" id="ld-bh"></div><div class="ok-msg"><b>🙏 OmKiran Bhakti में आपका स्वागत है</b><p>दर्शन के साथ हमारे भजन सुनिए। रोज़ नए भजन, आरती और मंत्र के लिए चैनल से जुड़िए।</p><a class="ok-sub" href="https://www.youtube.com/@OmKiranBhakti?sub_confirmation=1" target="_blank" rel="noopener">▶ Subscribe करें</a></div></div>'
+    '<div class="ok-card"><div class="ok-yt" id="ld-bh"></div><div class="ok-msg"><b>🙏 OmKiran Bhakti में आपका स्वागत है</b><p>दर्शन के साथ हमारे भजन सुनिए। रोज़ नए भजन, आरती और मंत्र के लिए चैनल से जुड़िए।</p><a class="ok-sub" href="https://www.youtube.com/@OmKiranBhakti?sub_confirmation=1" target="_blank" rel="noopener">▶ Subscribe करें</a> <a class="ok-wa" href="https://whatsapp.com/channel/0029Vb8NYJMCXC3MDVIhkB3p" target="_blank" rel="noopener">WhatsApp चैनल</a></div></div>'
     '<div class="bh-aud" id="ld-aud"></div>'
     '<p class="note" id="ld-src"></p></div></div></section>'
     + faq_html(_faqs) + LIVE_ONE_JS,

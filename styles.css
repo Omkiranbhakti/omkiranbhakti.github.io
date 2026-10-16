@@ -767,3 +767,17 @@ html.paath-on .verse.dhyan .line{color:#F5B83A}
 .hl-head h2{animation:titleGlow 3s ease-in-out infinite}
 @keyframes titleGlow{0%,100%{text-shadow:0 0 0 rgba(255,200,80,0)}50%{text-shadow:0 0 14px rgba(255,200,80,.55)}}
 @media (prefers-reduced-motion:reduce){.hl-head h2,.wt-om{animation:none}}
+/* WhatsApp channel join */
+.join-strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.6rem 1rem;padding:1rem 0;border-top:1px solid rgba(246,210,122,.25);text-align:center}
+.join-strip span{flex-basis:100%;opacity:.9}
+.wa-join,.ok-wa{display:inline-flex;align-items:center;gap:.4rem;background:#25d366;color:#06301a!important;font-weight:700;padding:.5rem 1rem;border-radius:999px;text-decoration:none}
+.wa-join:hover,.ok-wa:hover{background:#1ebe5a}
+.yt-join{display:inline-flex;align-items:center;background:#e01e1e;color:#fff!important;font-weight:700;padding:.5rem 1rem;border-radius:999px;text-decoration:none}
+.ok-wa{padding:.38rem .9rem;font-size:.88rem;margin-left:.3rem}
+.wa-float{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;align-items:center;gap:.4rem;background:#25d366;color:#06301a!important;font-weight:700;text-decoration:none;
+  padding:.65rem .9rem;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25);animation:waPop 4s ease-in-out 2s infinite}
+.wa-float svg{width:22px;height:22px}
+@keyframes waPop{0%,90%,100%{transform:none}93%{transform:scale(1.08)}96%{transform:scale(.97)}}
+@media (max-width:600px){.wa-float span{display:none}.wa-float{padding:.7rem}}
+@media print{.wa-float{display:none}}
+@media (prefers-reduced-motion:reduce){.wa-float{animation:none}}

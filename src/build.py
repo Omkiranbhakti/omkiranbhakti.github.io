@@ -8,6 +8,8 @@ from lyrics import HANUMAN_CHALISA, OM_JAI_JAGDISH, JAI_GANESH_DEVA, OM_JAI_SHIV
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://omkiranbhakti.github.io/"
+WA_CH = "https://whatsapp.com/channel/0029Vb8NYJMCXC3MDVIhkB3p"
+WA_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>'
 YT = "https://www.youtube.com/@OmKiranBhakti"
 LOGO = "https://omkiranbhakti.github.io/assets/logo-512.png"
 TODAY = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=5, minutes=30)).date().isoformat()
@@ -266,7 +268,8 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None):
 <div><h2>OmKiran Bhakti</h2><p>हिंदी भक्ति संगीत का घर — आरती, चालीसा, मंत्र और भजन, बोल और अर्थ के साथ। हमारे सभी वीडियो <a href="{YT}">YouTube चैनल</a> पर हैं।</p></div>
 <div><h2>पाठ</h2><ul><li><a href="hanuman-chalisa.html">हनुमान चालीसा</a></li><li><a href="om-jai-jagdish-hare-aarti.html">ॐ जय जगदीश हरे</a></li><li><a href="ganesh-aarti-jai-ganesh-deva.html">गणेश आरती</a></li><li><a href="shiv-aarti-om-jai-shiv-omkara.html">शिव आरती</a></li><li><a href="jaap-mala.html">ऑनलाइन जाप माला</a></li><li><a href="aaj-ka-panchang.html">आज का पंचांग</a></li><li><a href="tyohar-calendar.html">त्योहार कैलेंडर</a></li><li><a href="about.html">परिचय</a></li></ul></div>
 <div><h2>भजन</h2><ul><li><a href="mata-rani-bhajan.html">माता रानी</a></li><li><a href="shiv-bhajan.html">शिव</a></li><li><a href="ganesh-bhajan.html">गणेश</a></li><li><a href="krishna-bhajan.html">कृष्ण</a></li><li><a href="ram-bhajan.html">राम</a></li><li><a href="devotional-edm-bhajans.html">भक्ति EDM</a></li></ul></div>
-</div><div class="wrap fine">© {datetime.date.today().year} OmKiran Bhakti. पारंपरिक पाठ सार्वजनिक धरोहर हैं; अर्थ और संगीत OmKiran Bhakti के हैं।</div></footer>
+</div><div class="wrap join-strip"><span>🙏 रोज़ का पंचांग, त्योहार और नए भजन सीधे फ़ोन पर पाएँ</span><a class="wa-join" href="{WA_CH}" target="_blank" rel="noopener">{WA_ICON} WhatsApp चैनल से जुड़ें</a><a class="yt-join" href="https://www.youtube.com/@OmKiranBhakti?sub_confirmation=1" target="_blank" rel="noopener">▶ YouTube Subscribe</a></div><div class="wrap fine">© {datetime.date.today().year} OmKiran Bhakti. पारंपरिक पाठ सार्वजनिक धरोहर हैं; अर्थ और संगीत OmKiran Bhakti के हैं।</div></footer>
+<a class="wa-float" href="{WA_CH}" target="_blank" rel="noopener" aria-label="OmKiran Bhakti WhatsApp चैनल से जुड़ें">{WA_ICON}<span>चैनल से जुड़ें</span></a>
 <script src="script.js?v={JSV}" defer></script>
 </body></html>'''
 
@@ -585,7 +588,7 @@ home_live = home_live.replace('<ul class="hl-grid">', '<div class="hl-stage" hid
   '<div class="hl-modes"><button class="chip" type="button" data-hm="recent" aria-pressed="true">दर्शन और आरती</button>'
   '<button class="chip live-chip" type="button" data-hm="live" aria-pressed="false"><span class="lv-dot" aria-hidden="true"></span>अभी लाइव देखें</button><button class="chip" type="button" id="hl-close">✕ बंद करें</button></div>'
   '<a class="hl-aline" id="hl-aline" href="#" hidden>📖 साथ में पढ़ें: <b></b></a>'
-  '<div class="ok-card"><div class="ok-yt" id="hl-bh"></div><div class="ok-msg"><b>🙏 OmKiran Bhakti में आपका स्वागत है</b><p>दर्शन के साथ हमारे भजन सुनिए। रोज़ नए भजन, आरती और मंत्र के लिए चैनल से जुड़िए।</p><a class="ok-sub" href="https://www.youtube.com/@OmKiranBhakti?sub_confirmation=1" target="_blank" rel="noopener">▶ Subscribe करें</a></div></div><div class="bh-aud" id="hl-aud"></div></div><ul class="hl-grid">', 1)
+  '<div class="ok-card"><div class="ok-yt" id="hl-bh"></div><div class="ok-msg"><b>🙏 OmKiran Bhakti में आपका स्वागत है</b><p>दर्शन के साथ हमारे भजन सुनिए। रोज़ नए भजन, आरती और मंत्र के लिए चैनल से जुड़िए।</p><a class="ok-sub" href="https://www.youtube.com/@OmKiranBhakti?sub_confirmation=1" target="_blank" rel="noopener">▶ Subscribe करें</a> <a class="ok-wa" href="https://whatsapp.com/channel/0029Vb8NYJMCXC3MDVIhkB3p" target="_blank" rel="noopener">WhatsApp चैनल</a></div></div><div class="bh-aud" id="hl-aud"></div></div><ul class="hl-grid">', 1)
 HOME_LIVE_JS = r'''<script>(function(){var L=document.querySelector(".hl-live");if(!L)return;
 var st=L.querySelector(".hl-stage"),fr=document.getElementById("hl-frame"),bh=document.getElementById("hl-bh"),now=document.getElementById("hl-now"),cur=null,
 al="autoplay; encrypted-media; picture-in-picture; fullscreen",tiles=[].slice.call(L.querySelectorAll(".hl-grid a"));
