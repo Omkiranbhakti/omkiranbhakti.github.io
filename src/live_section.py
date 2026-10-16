@@ -84,7 +84,7 @@ function pick(b,start){cur=b;picks.forEach(function(x){x.setAttribute("aria-pres
  if(start)play("live");else{box.innerHTML='<button class="ld-start" type="button"><span>▶ '+b.dataset.name+' — लाइव दर्शन शुरू करें</span></button>';box.querySelector(".ld-start").addEventListener("click",function(){play("live")});}}
 picks.forEach(function(b){b.addEventListener("click",function(){pick(b,true);document.querySelector(".ld-player").scrollIntoView({behavior:"smooth",block:"start"})})});
 [].forEach.call(document.querySelectorAll("[data-mode]"),function(b){b.addEventListener("click",function(){play(b.dataset.mode)})});
-var h=(location.hash||"").slice(1),first=picks.filter(function(p){return p.dataset.slug===h})[0]||picks[0];pick(first,false);
+var h=(location.hash||"").slice(1),hit=picks.filter(function(p){return p.dataset.slug===h})[0],first=hit||picks[0];pick(first,!!hit);if(hit)document.querySelector(".ld-player").scrollIntoView({block:"start"});
 })();</script>"""
 _faqs = [("मंदिरों के लाइव दर्शन कहाँ देखें?", "इसी पेज पर ऊपर से मंदिर चुनें — राम मंदिर अयोध्या, महाकाल उज्जैन, काशी विश्वनाथ, सोमनाथ, ओंकारेश्वर, त्र्यंबकेश्वर, केदारनाथ-बद्रीनाथ, सिद्धिविनायक, वैष्णो देवी, बांके बिहारी, तिरुपति और शिर्डी का आधिकारिक प्रसारण यहीं चलता है।"),
          ("लाइव प्रसारण न दिखे तो क्या करें?", "मंदिर आरती और विशेष अवसरों पर लाइव आते हैं। उस समय ‘हाल के दर्शन और आरती’ दबाएँ — उसी मंदिर के चैनल के सबसे नए वीडियो चलेंगे।"),
