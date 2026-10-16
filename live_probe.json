@@ -1,0 +1,399 @@
+{
+ "srisailam": {
+  "sites": {
+   "https://www.srisailadevasthanam.org/en-in/home": {
+    "status": 200,
+    "channels": [],
+    "handles": [],
+    "videos": []
+   }
+  },
+  "handles": {
+   "srisailatv": [
+    "UCNIzL2dT2gZxQae2LHXvl0A",
+    200
+   ],
+   "c/srisailatv": [
+    "UCNIzL2dT2gZxQae2LHXvl0A",
+    200
+   ]
+  },
+  "site_video_oembed": {},
+  "channels": {
+   "UCNIzL2dT2gZxQae2LHXvl0A": {
+    "status": 200,
+    "title": "Srisaila Tv",
+    "subs": "91.1K",
+    "streams_found": 4,
+    "live_badges": 0,
+    "live_now": false,
+    "live_video": null,
+    "recent": [
+     {
+      "id": "9TkeCcanj2A",
+      "ok": true,
+      "author": "Srisaila Tv",
+      "title": "Srisaila TV"
+     },
+     {
+      "id": "AHzoc_c9YH8",
+      "ok": true,
+      "author": "Srisaila Tv",
+      "title": "16-10-2026 || Sri Valli Devasena Subramanya Swamy Kalyanam || Paroksaha Seva Srisailam ||Srisailatv"
+     },
+     {
+      "id": "f2lMf8IKGzE",
+      "ok": true,
+      "author": "Srisaila Tv",
+      "title": "15-10-2026 || Ekanta Seva to Sri Bhramaramba Mallikarjuna Swamyvaru at Srisailam ||Srisaila tv"
+     },
+     {
+      "id": "6Y8TFTVgAn0",
+      "ok": true,
+      "author": "Srisaila Tv",
+      "title": "15-10-2026 || Sri Devi Sarannavarathra Mahotsavam || Skanda Maatha Alamkaram || Sesha Vaahana Seva"
+     }
+    ]
+   }
+  }
+ },
+ "haridwar-ganga-aarti": {
+  "sites": {},
+  "handles": {
+   "c/ShriGangaSabhaRegHaridwar": [
+    "UCKi6NnIyqlz3jBqcCQJ4b0A",
+    200
+   ]
+  },
+  "site_video_oembed": {},
+  "channels": {
+   "UCKi6NnIyqlz3jBqcCQJ4b0A": {
+    "status": 200,
+    "title": "Shri Ganga Sabha Reg. Haridwar",
+    "subs": "11.4K",
+    "streams_found": 4,
+    "live_badges": 0,
+    "live_now": false,
+    "live_video": null,
+    "recent": [
+     {
+      "id": "O2Zj7OlLvcM",
+      "ok": true,
+      "author": "Shri Ganga Sabha Reg. Haridwar",
+      "title": "Haridwar Live Ganga Aarti 28 September 2026 || Shri Ganga Sabha Reg. Haridwar"
+     },
+     {
+      "id": "jDjliY-qTe0",
+      "ok": true,
+      "author": "Shri Ganga Sabha Reg. Haridwar",
+      "title": "Haridwar Live Ganga Aarti 27 September 2026 || Shri Ganga Sabha Reg. Haridwar"
+     },
+     {
+      "id": "xOEbv3UO56I",
+      "ok": true,
+      "author": "Shri Ganga Sabha Reg. Haridwar",
+      "title": "Haridwar Live Ganga Aarti 11 September 2026 || Shri Ganga Sabha Reg. Haridwar"
+     },
+     {
+      "id": "4ONndF_sw2M",
+      "ok": true,
+      "author": "Shri Ganga Sabha Reg. Haridwar",
+      "title": "Haridwar Live Ganga Aarti 9 September 2026 || Shri Ganga Sabha Reg. Haridwar"
+     }
+    ]
+   }
+  }
+ },
+ "varanasi-ganga-aarti": {
+  "sites": {},
+  "handles": {},
+  "site_video_oembed": {},
+  "channels": {
+   "UCNDyYxUskLujzM6X3XVtXXw": {
+    "status": 200,
+    "title": "GANGA AARTI GANGA SEVA NIDHI",
+    "subs": "14K",
+    "streams_found": 4,
+    "live_badges": 0,
+    "live_now": false,
+    "live_video": null,
+    "recent": [
+     {
+      "id": "SESPPvu4vFM",
+      "ok": true,
+      "author": "GANGA AARTI GANGA SEVA NIDHI",
+      "title": "GANGA AARTI GANGA SEVA NIDHI is live"
+     },
+     {
+      "id": "H8jBldmAjTk",
+      "ok": true,
+      "author": "GANGA AARTI GANGA SEVA NIDHI",
+      "title": "GANGA AARTI GANGA SEVA NIDHI is live"
+     },
+     {
+      "id": "Nkt5zMYV-aY",
+      "ok": true,
+      "author": "GANGA AARTI GANGA SEVA NIDHI",
+      "title": "GANGA AARTI GANGA SEVA NIDHI is live"
+     },
+     {
+      "id": "1iHPY4QW1rk",
+      "ok": true,
+      "author": "GANGA AARTI GANGA SEVA NIDHI",
+      "title": "GANGA AARTI GANGA SEVA NIDHI is live"
+     }
+    ]
+   }
+  }
+ },
+ "golden-temple": {
+  "sites": {},
+  "handles": {
+   "c/SGPCAmritsar-official": [
+    "UCYn6UEtQ771a_OWSiNBoG8w",
+    200
+   ]
+  },
+  "site_video_oembed": {},
+  "channels": {
+   "UCYn6UEtQ771a_OWSiNBoG8w": {
+    "status": 200,
+    "title": "SGPC, Sri Amritsar",
+    "subs": null,
+    "streams_found": 4,
+    "live_badges": 0,
+    "live_now": false,
+    "live_video": null,
+    "recent": [
+     {
+      "id": "avf5KQDidW0",
+      "ok": true,
+      "author": "SGPC, Sri Amritsar",
+      "title": "Official SGPC LIVE (Audio) | Gurbani Kirtan | Sachkhand Sri Harmandir Sahib, Sri Amritsar 16.10.2026"
+     },
+     {
+      "id": "agDSF5onBsQ",
+      "ok": true,
+      "author": "SGPC, Sri Amritsar",
+      "title": "Official SGPC LIVE | Gurbani Kirtan | Sachkhand Sri Harmandir Sahib, Sri Amritsar | 16.10.2026"
+     },
+     {
+      "id": "q83Bx7Wkm5g",
+      "ok": true,
+      "author": "SGPC, Sri Amritsar",
+      "title": "Official SGPC LIVE | Gurbani Kirtan | Sachkhand Sri Harmandir Sahib, Sri Amritsar | 16.10.2026"
+     },
+     {
+      "id": "XEsqZXFskWI",
+      "ok": true,
+      "author": "SGPC, Sri Amritsar",
+      "title": "Hukamnama Katha (discourse) Gurdwara Sri Manji Sahib Diwan Hall, Sri Amritsar | Friday 16.10.2026"
+     }
+    ]
+   }
+  }
+ },
+ "dwarkadhish": {
+  "sites": {},
+  "handles": {},
+  "site_video_oembed": {},
+  "channels": {
+   "UCBAvMHZO3BIfMMhOK9LMOYQ": {
+    "status": 200,
+    "title": "Shri Dwarkadhish Mandir",
+    "subs": null,
+    "streams_found": 4,
+    "live_badges": 0,
+    "live_now": false,
+    "live_video": null,
+    "recent": [
+     {
+      "id": "jGanN_TPUEY",
+      "ok": true,
+      "author": "Shri Dwarkadhish Mandir",
+      "title": "Shri Dwarkadhish Mandir"
+     },
+     {
+      "id": "-8dNxYRstgU",
+      "ok": true,
+      "author": "Shri Dwarkadhish Mandir",
+      "title": "Shri Dwarkadhish Mandir"
+     },
+     {
+      "id": "XYcG4Zk93XY",
+      "ok": true,
+      "author": "Shri Dwarkadhish Mandir",
+      "title": "Shri Dwarkadhish Mandir"
+     },
+     {
+      "id": "Z_jT6NqnZkg",
+      "ok": true,
+      "author": "Shri Dwarkadhish Mandir",
+      "title": "Shri Dwarkadhish Mandir"
+     }
+    ]
+   }
+  }
+ },
+ "nathdwara": {
+  "sites": {},
+  "handles": {},
+  "site_video_oembed": {},
+  "channels": {
+   "UCsXwdvZigny0t_d0TBIeHVA": {
+    "status": 200,
+    "title": "Shrinathji Temple",
+    "subs": "14.2K",
+    "streams_found": 4,
+    "live_badges": 0,
+    "live_now": false,
+    "live_video": null,
+    "recent": [
+     {
+      "id": "p6UgiJDf3jk",
+      "ok": true,
+      "author": "Shrinathji Temple",
+      "title": "श्रीनाथजी मंदिर दीपावली उत्सव || गोवर्धन पूजा || अन्नकूट लूट दर्शन 2025 || गीता स्टूडियो नाथद्वारा"
+     },
+     {
+      "id": "Ecub2lniCvc",
+      "ok": true,
+      "author": "Shrinathji Temple",
+      "title": "दीपावली का उत्सव (कान जगाई) 2025  || GEETA STUDIO"
+     },
+     {
+      "id": "3yu-RUcrC_4",
+      "ok": true,
+      "author": "Shrinathji Temple",
+      "title": "श्रीनाथजी मंदिर नाथद्वारा गोस्वामी चि. श्री लालगोविन्द बावा साहब || गौशाला मनोरथ"
+     },
+     {
+      "id": "qXAhHIqadBI",
+      "ok": true,
+      "author": "Shrinathji Temple",
+      "title": "श्रीनाथजी मंदिर नाथद्वारा गोस्वामी चि. श्री लालगोविन्द बावा साहब (श्री अधिराज जी बावा ) जन्मदिन 2025"
+     }
+    ]
+   }
+  }
+ },
+ "guruvayur": {
+  "sites": {},
+  "handles": {},
+  "site_video_oembed": {},
+  "channels": {
+   "UCgYLLt5Drs2Scd-J--JqDzQ": {
+    "status": 200,
+    "title": "Guruvayur Devaswom",
+    "subs": null,
+    "streams_found": 4,
+    "live_badges": 0,
+    "live_now": false,
+    "live_video": "roUL7Rqdm5o",
+    "recent": [
+     {
+      "id": "ejdh_NT6Dqw",
+      "ok": true,
+      "author": "Guruvayur Devaswom",
+      "title": "ഗുരുവായൂർ ദേവസ്വം അഷ്ടമിരോഹിണി ഭാഗവത സപ്താഹം 2026"
+     },
+     {
+      "id": "DZOus1HANbI",
+      "ok": true,
+      "author": "Guruvayur Devaswom",
+      "title": "ഗുരുവായൂർ ദേവസ്വം അഷ്ടമിരോഹിണി ഭാഗവത സപ്താഹം 2026"
+     },
+     {
+      "id": "hXexsxvcnnk",
+      "ok": true,
+      "author": "Guruvayur Devaswom",
+      "title": "പ്രഭാഷണം"
+     },
+     {
+      "id": "ilxtdo-TrqA",
+      "ok": true,
+      "author": "Guruvayur Devaswom",
+      "title": "പ്രഭാഷണം"
+     }
+    ]
+   }
+  }
+ },
+ "mehandipur": {
+  "sites": {},
+  "handles": {},
+  "site_video_oembed": {},
+  "channels": {
+   "UCROq4qiZoivt1oZjGFR_EsQ": {
+    "status": 200,
+    "title": "MEHANDIPUR BALA JI BHAWAN",
+    "subs": "28.9K",
+    "streams_found": 3,
+    "live_badges": 0,
+    "live_now": false,
+    "live_video": null,
+    "recent": [
+     {
+      "id": "2FwbRhlPmyo",
+      "ok": true,
+      "author": "MEHANDIPUR BALA JI BHAWAN",
+      "title": "Bhangibada 🌚 Bhog Vidhan  || Mehandipur Balaji 🚩"
+     },
+     {
+      "id": "OrGRsbSLcmc",
+      "ok": true,
+      "author": "MEHANDIPUR BALA JI BHAWAN",
+      "title": "Holika Dahan Mahotsav ||  mehandipur balaji|"
+     },
+     {
+      "id": "QYYYB0VqmIA",
+      "ok": true,
+      "author": "MEHANDIPUR BALA JI BHAWAN",
+      "title": "Holika Dahan Maidan mehandipur balaji| 13 |3 |25"
+     }
+    ]
+   },
+   "UCs3IeKoxt-RFDI2qzp1oGFA": {
+    "status": 200,
+    "title": "Mehandipur Balaji",
+    "subs": null,
+    "streams_found": 4,
+    "live_badges": 0,
+    "live_now": false,
+    "live_video": null,
+    "recent": [
+     {
+      "id": "jyEHd0FRlw8",
+      "ok": true,
+      "author": "Mehandipur Balaji",
+      "title": "बालाजी का सबसे हिट भजन - बालाजी नाम भजले - Balaji Naam Bhajle - Mehandipur Balaji Song - Balaji Song"
+     },
+     {
+      "id": "CYpqUiuZ-fg",
+      "ok": true,
+      "author": "Mehandipur Balaji",
+      "title": "सभी कष्टों के निवारण के लिए एक बार जरूर सुने \"सम्पूर्ण सुन्दर काण्ड\" - सवा घंटे में #जय बाला जी"
+     },
+     {
+      "id": "Y1gRAfEVKz0",
+      "ok": true,
+      "author": "Mehandipur Balaji",
+      "title": "जिस घर में बालाजी का ये शक्तिशाली पाठ होता है वहां दुर्भाग्य, दरिद्रता, भूत प्रेत नहीं आते है"
+     },
+     {
+      "id": "REQh9wbZUYc",
+      "ok": true,
+      "author": "Mehandipur Balaji",
+      "title": "जिंदगी में ऊपर उठना है तो ये भजन जरूर सुने | Balaji Bhajan 2021 | Mehandipur Balaji | Hanuman Gatha"
+     }
+    ]
+   }
+  }
+ },
+ "mahakal-old": {
+  "sites": {},
+  "handles": {},
+  "site_video_oembed": {},
+  "channels": {}
+ }
+}
