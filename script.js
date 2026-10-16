@@ -190,3 +190,26 @@
     document.addEventListener('visibilitychange',function(){ if(document.visibilityState==='visible'&&root.classList.contains('paath-on')) wake(); });
   })();
 })();
+
+/* OmKiran Bhakti own bhajan player (MP3, no ads). list = [{t:title, f:url}] */
+window.okbAudio=function(box,list){
+  if(!box||!list||!list.length)return;
+  if(box._a){box._a.pause();}
+  box.classList.add('is-audio');
+  box.innerHTML='<div class="okb-ap"><button type="button" class="ap-b ap-prev" aria-label="पिछला भजन">⏮</button>'+
+    '<button type="button" class="ap-b ap-play" aria-label="चलाएँ / रोकें">▶</button><button type="button" class="ap-b ap-next" aria-label="अगला भजन">⏭</button>'+
+    '<div class="ap-info"><b class="ap-t"></b><div class="ap-bar"><i></i></div><small class="ap-n"></small></div><audio preload="none"></audio></div>';
+  var a=box.querySelector('audio'),t=box.querySelector('.ap-t'),n=box.querySelector('.ap-n'),bar=box.querySelector('.ap-bar i'),pl=box.querySelector('.ap-play'),i=0;
+  box._a=a;
+  function load(k,go){i=(k+list.length)%list.length;a.src=list[i].f;t.textContent=list[i].t;n.textContent=(i+1)+' / '+list.length+' · OmKiran Bhakti';
+    if(go){var p=a.play();if(p&&p.catch)p.catch(function(){pl.textContent='▶';});}}
+  a.addEventListener('play',function(){pl.textContent='⏸';});
+  a.addEventListener('pause',function(){pl.textContent='▶';});
+  a.addEventListener('ended',function(){load(i+1,true);});
+  a.addEventListener('timeupdate',function(){if(a.duration)bar.style.width=(a.currentTime/a.duration*100)+'%';});
+  box.querySelector('.ap-bar').addEventListener('click',function(ev){if(a.duration){var r=this.getBoundingClientRect();a.currentTime=(ev.clientX-r.left)/r.width*a.duration;}});
+  pl.addEventListener('click',function(){a.paused?a.play():a.pause();});
+  box.querySelector('.ap-prev').addEventListener('click',function(){load(i-1,true);});
+  box.querySelector('.ap-next').addEventListener('click',function(){load(i+1,true);});
+  load(Math.floor(Math.random()*list.length),true);
+};

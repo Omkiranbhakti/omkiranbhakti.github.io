@@ -49,6 +49,12 @@ def ld_player(cid, title, art):
 # ---- one page for all temples: picker on top, a single player, the matching aarti below ----
 _BH = {d[1]: [v for v in d[6] if v in V] for d in DEITY}
 _TEMPLE_BH = {"ram-mandir-ayodhya":"ram","siddhivinayak-mumbai":"ganesh","vaishno-devi":"mata","banke-bihari-vrindavan":"krishna","tirupati-balaji":"krishna","shirdi-sai-baba":"ram"}
+import json as _json, os as _os
+# Our own bhajan MP3s (no ads): {"shiv":[{"t":"title","f":"url"}], "ram":[...], ...}. Empty -> YouTube player fallback.
+AUD = next((_json.load(open(_p, encoding="utf-8")) for _p in ("audio_bhajan.json", "src/audio_bhajan.json") if _os.path.exists(_p)), {})
+def _aud(slug):
+    l = AUD.get(_TEMPLE_BH.get(slug, "shiv"), [])
+    return e(_json.dumps(l, ensure_ascii=False)) if l else ""
 def _bh(slug):
     ids = _BH.get(_TEMPLE_BH.get(slug, "shiv"), []) or home_popular
     return ",".join(ids[:12])
@@ -61,11 +67,11 @@ for i, (slug, name, place, cid, cname, note, art, aarti, rel) in enumerate(LIVE)
         _aartis.append(f'<div class="ld-aarti" data-a="{akey}" hidden><h3>{e(at)}</h3><div class="lyrics">{lyrics_body(verses)}</div>'
                        f'<p style="margin-top:1rem"><a class="btn ghost" href="{au}">अर्थ सहित पढ़ें</a></p></div>')
     _cards.append(f'<li><button type="button" class="ld-pick" data-slug="{slug}" data-ch="{cid}" data-name="{e(name)}" data-place="{e(place)}" '
-                  f'data-src="{e(cname)}" data-note="{e(note)}" data-a="{akey}" data-bh="{_bh(slug)}" aria-pressed="{"true" if i == 0 else "false"}">'
+                  f'data-src="{e(cname)}" data-note="{e(note)}" data-a="{akey}" data-bh="{_bh(slug)}" data-aud="{_aud(slug)}" aria-pressed="{"true" if i == 0 else "false"}">'
                   f'<span class="ld-thumb"><img src="img/live/{slug}.webp" onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/{art[0]}/hqdefault.jpg\'" alt="" loading="lazy" width="320" height="180"></span>'
                   f'<strong>{e(name)}</strong><small>{e(place)}</small></button></li>')
 _first = LIVE[0]
-LIVE_ONE_JS = r"""<script>(function(){
+LIVE_ONE_JS = r"""<script>document.addEventListener("DOMContentLoaded",function(){
 var picks=[].slice.call(document.querySelectorAll(".ld-pick")),box=document.querySelector(".ld-frame"),mode="live",cur=null;
 var bh=document.getElementById("ld-bh"),bhw=document.getElementById("ld-bhw");
 var nm=document.getElementById("ld-name"),src=document.getElementById("ld-src"),aar=[].slice.call(document.querySelectorAll(".ld-aarti"));
@@ -74,7 +80,7 @@ function play(m){mode=m;if(!cur)return;var cid=cur.dataset.ch;
  box.innerHTML='<iframe src="'+u+'" title="'+cur.dataset.name+' लाइव दर्शन" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
  [].forEach.call(document.querySelectorAll("[data-mode]"),function(b){b.setAttribute("aria-pressed",b.dataset.mode===m?"true":"false")});
  bhajan();}
-function bhajan(){var ids=(cur.dataset.bh||"").split(",").filter(Boolean);if(!ids.length)return;
+function bhajan(){if(cur.dataset.aud&&window.okbAudio){okbAudio(bh,JSON.parse(cur.dataset.aud));bhw.hidden=false;return;}bh.classList.remove("is-audio");var ids=(cur.dataset.bh||"").split(",").filter(Boolean);if(!ids.length)return;
  bh.innerHTML='<iframe src="https://www.youtube.com/embed/'+ids[0]+'?autoplay=1&rel=0&playlist='+ids.slice(1).join(",")+'" title="OmKiran Bhakti भजन" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
  bhw.hidden=false;}
 function pick(b,start){cur=b;picks.forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
@@ -85,7 +91,7 @@ function pick(b,start){cur=b;picks.forEach(function(x){x.setAttribute("aria-pres
 picks.forEach(function(b){b.addEventListener("click",function(){pick(b,true);document.querySelector(".ld-player").scrollIntoView({behavior:"smooth",block:"start"})})});
 [].forEach.call(document.querySelectorAll("[data-mode]"),function(b){b.addEventListener("click",function(){play(b.dataset.mode)})});
 var h=(location.hash||"").slice(1),hit=picks.filter(function(p){return p.dataset.slug===h})[0],first=hit||picks[0];pick(first,!!hit);if(hit)document.querySelector(".ld-player").scrollIntoView({block:"start"});
-})();</script>"""
+});</script>"""
 _faqs = [("मंदिरों के लाइव दर्शन कहाँ देखें?", "इसी पेज पर ऊपर से मंदिर चुनें — राम मंदिर अयोध्या, महाकाल उज्जैन, काशी विश्वनाथ, सोमनाथ, ओंकारेश्वर, त्र्यंबकेश्वर, केदारनाथ-बद्रीनाथ, सिद्धिविनायक, वैष्णो देवी, बांके बिहारी, तिरुपति और शिर्डी का आधिकारिक प्रसारण यहीं चलता है।"),
          ("लाइव प्रसारण न दिखे तो क्या करें?", "मंदिर आरती और विशेष अवसरों पर लाइव आते हैं। इसलिए पेज खुलते ही उसी मंदिर के चैनल के सबसे नए दर्शन-आरती वीडियो चलते हैं; प्रसारण चल रहा हो तो ‘अभी लाइव देखें’ दबाएँ।"),
          ("क्या ये प्रसारण आधिकारिक हैं?", "हाँ। केवल वही YouTube चैनल लिए गए हैं जिन्हें मंदिर की अपनी वेबसाइट दिखाती है या जो मंदिर ट्रस्ट के नाम से चलते हैं। वीडियो और प्रसारण पूरी तरह मंदिरों के हैं; OmKiran Bhakti उन्हें YouTube के प्लेयर से यहाँ दिखाता है।")]

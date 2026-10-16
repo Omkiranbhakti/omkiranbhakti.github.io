@@ -559,7 +559,7 @@ for _fp in ("aaj-ka-panchang.html", "tyohar-calendar.html"):
 HL_SHORT = {'ram-mandir-ayodhya': 'राम मंदिर', 'mahakaleshwar-ujjain': 'महाकाल', 'kashi-vishwanath-varanasi': 'काशी विश्वनाथ', 'somnath': 'सोमनाथ', 'omkareshwar': 'ओंकारेश्वर', 'trimbakeshwar': 'त्र्यंबकेश्वर', 'kedarnath-badrinath': 'केदारनाथ', 'siddhivinayak-mumbai': 'सिद्धिविनायक', 'vaishno-devi': 'वैष्णो देवी', 'banke-bihari-vrindavan': 'बांके बिहारी', 'tirupati-balaji': 'तिरुपति बालाजी', 'shirdi-sai-baba': 'साईं बाबा'}
 home_live = ('<div class="hl-live"><div class="hl-head"><h2><span class="hl-dot" aria-hidden="true"></span>मंदिरों के लाइव दर्शन</h2>'
   '<a href="live-darshan.html">सभी 12 मंदिर →</a></div><ul class="hl-grid">' +
-  "".join(f'<li><a href="live-darshan.html#{x[0]}" title="{x[1]} — लाइव दर्शन" data-ch="{x[3]}" data-name="{x[1]}, {x[2]}" data-bh="{_bh(x[0])}"><img src="img/live/{x[0]}.webp" alt="{x[1]}, {x[2]} लाइव दर्शन" width="320" height="180" decoding="async"{"" if i < 4 else " loading=\"lazy\""}><span>{HL_SHORT.get(x[0], x[1])}</span></a></li>' for i, x in enumerate(LIVE)) +
+  "".join(f'<li><a href="live-darshan.html#{x[0]}" title="{x[1]} — लाइव दर्शन" data-ch="{x[3]}" data-name="{x[1]}, {x[2]}" data-bh="{_bh(x[0])}" data-aud="{_aud(x[0])}"><img src="img/live/{x[0]}.webp" alt="{x[1]}, {x[2]} लाइव दर्शन" width="320" height="180" decoding="async"{"" if i < 4 else " loading=\"lazy\""}><span>{HL_SHORT.get(x[0], x[1])}</span></a></li>' for i, x in enumerate(LIVE)) +
   '</ul><p class="hl-note">मंदिर पर दबाएँ — आधिकारिक लाइव दर्शन यहीं चलेगा, और साथ में भजन बजेंगे।</p></div>')
 home_live = home_live.replace('<ul class="hl-grid">', '<div class="hl-stage" hidden><p class="hl-now" id="hl-now"></p><div class="hl-frame" id="hl-frame"></div>'
   '<div class="hl-ctrl"><div class="hl-modes"><button class="chip" type="button" data-hm="recent" aria-pressed="true">दर्शन और आरती</button>'
@@ -574,10 +574,10 @@ function play(m){var c=cur.dataset.ch;fr.innerHTML=ifr(m==="live"?"https://www.y
  [].forEach.call(L.querySelectorAll("[data-hm]"),function(b){b.setAttribute("aria-pressed",b.dataset.hm===m?"true":"false")});}
 tiles.forEach(function(a){a.addEventListener("click",function(ev){ev.preventDefault();cur=a;tiles.forEach(function(t){t.classList.toggle("on",t===a)});
  now.innerHTML='<span class="hl-dot"></span>'+a.dataset.name;st.hidden=false;L.classList.add("playing");play("recent");
- var ids=(a.dataset.bh||"").split(",").filter(Boolean);if(ids.length)bh.innerHTML=ifr("https://www.youtube.com/embed/"+ids[0]+"?autoplay=1&rel=0&playlist="+ids.slice(1).join(","),"OmKiran Bhakti भजन");
+ if(a.dataset.aud&&window.okbAudio)okbAudio(bh,JSON.parse(a.dataset.aud));else{bh.classList.remove("is-audio");var ids=(a.dataset.bh||"").split(",").filter(Boolean);if(ids.length)bh.innerHTML=ifr("https://www.youtube.com/embed/"+ids[0]+"?autoplay=1&rel=0&playlist="+ids.slice(1).join(","),"OmKiran Bhakti भजन");}
  var r=L.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.5)L.scrollIntoView({behavior:"smooth",block:"start"});});});
 [].forEach.call(L.querySelectorAll("[data-hm]"),function(b){b.addEventListener("click",function(){if(cur)play(b.dataset.hm)})});
-document.getElementById("hl-close").addEventListener("click",function(){fr.innerHTML="";bh.innerHTML="";st.hidden=true;L.classList.remove("playing");tiles.forEach(function(t){t.classList.remove("on")})});
+document.getElementById("hl-close").addEventListener("click",function(){fr.innerHTML="";if(bh._a)bh._a.pause();bh.innerHTML="";st.hidden=true;L.classList.remove("playing");tiles.forEach(function(t){t.classList.remove("on")})});
 })();</script>'''
 add("index.html", "OmKiran Bhakti — आरती, चालीसा, मंत्र और भजन (बोल व अर्थ सहित)",
  "हनुमान चालीसा, आरती और मंत्रों के पूरे बोल सरल अर्थ के साथ; माता रानी, शिव, गणेश, कृष्ण और राम के भजन; नवरात्रि 2026 और ऑनलाइन जाप माला।",
