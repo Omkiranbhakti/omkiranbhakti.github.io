@@ -11,22 +11,11 @@ def get(url, timeout=25):
     except Exception as e:
         return 0, str(e)[:120]
 CANDS = {
- "ram-mandir": {"handles": ["@srjbtkshetra"], "pages": ["https://srjbtkshetra.org/", "https://srjbtkshetra.org/live-darshan/"]},
- "somnath": {"handles": ["@SomnathTempleOfficialChannel"], "pages": ["https://somnath.org/somnath-live-darshan", "https://somnath.org/"]},
- "kashi-vishwanath": {"handles": ["@ShreeKashiVishwanathMandir"], "pages": ["https://shrikashivishwanath.org/", "https://shrikashivishwanath.org/live-darshan"]},
- "mahakal": {"channels": ["UCEUuwXHmHckwmdANSy4c7Sw"], "pages": ["https://www.shrimahakaleshwar.mp.gov.in/live-darshan", "https://www.shrimahakaleshwar.mp.gov.in/"]},
- "tirupati": {"handles": ["@SVBCTTD", "@svbc2", "@SVBC3"], "pages": ["https://www.tirumala.org/", "https://ttdevasthanams.ap.gov.in/home/dashboard"]},
- "vaishno-devi": {"handles": [], "pages": ["https://www.maavaishnodevi.org/", "https://www.maavaishnodevi.org/live-darshan"]},
- "siddhivinayak": {"handles": [], "pages": ["https://siddhivinayak.org/", "https://siddhivinayak.org/live-darshan"]},
- "shirdi": {"handles": [], "pages": ["https://sai.org.in/en", "https://sai.org.in/en/live-darshan"]},
- "dwarkadhish": {"handles": [], "pages": ["https://www.dwarkadhish.org/", "https://dwarkadhish.org/live-darshan"]},
- "jagannath-puri": {"handles": [], "pages": ["https://www.shreejagannatha.in/"]},
- "omkareshwar": {"handles": [], "pages": ["https://shriomkareshwar.org/"]},
- "kedarnath-badrinath": {"handles": [], "pages": ["https://badrinath-kedarnath.gov.in/"]},
- "trimbakeshwar": {"handles": [], "pages": ["https://trimbakeshwartrust.com/"]},
- "iskcon-mayapur": {"handles": ["@MayapurTV"], "pages": ["https://www.mayapur.com/"]},
- "banke-bihari": {"handles": [], "pages": ["https://www.bihariji.org/", "https://bankeybiharimandir.in/"]},
- "khatu-shyam": {"handles": [], "pages": ["https://www.shrishyammandir.com/"]},
+ "kashi-vishwanath": {"handles": ["@ShreeKashiVishwanathMandir"], "pages": ["https://utsav.gov.in/view-darshan/kashi-vishwanath-live-darshan-1", "https://shrikashivishwanath.org/en/page/live-darshan", "https://shrikashivishwanath.org/sitemap.xml"]},
+ "mahakal": {"channels": ["UCEUuwXHmHckwmdANSy4c7Sw"], "pages": ["https://utsav.gov.in/view-darshan/mahakaleshwar-live-darshan", "https://utsav.gov.in/view-darshan/shri-mahakaleshwar-live-darshan", "https://utsav.gov.in/live-darshan", "https://utsav.gov.in/darshan"]},
+ "somnath-utsav": {"handles": [], "pages": ["https://utsav.gov.in/view-darshan/somnath-live-darshan"]},
+ "shirdi": {"handles": ["@saibabasansthantrust"], "pages": []},
+ "tirupati": {"handles": ["@SVBCTTD"], "pages": ["https://www.tirumala.org/SVBC.aspx", "https://www.svbcttd.com/"]},
 }
 def oembed(vid):
     s, b = get("https://www.youtube.com/oembed?format=json&url=" + urllib.parse.quote(f"https://www.youtube.com/watch?v={vid}"))
@@ -66,6 +55,9 @@ for key, c in CANDS.items():
     for cid in list(found_ch)[:5]:
         f = feed(cid)
         lv = live_now(cid)
+        s_, b_ = get(f"https://www.youtube.com/channel/{cid}/streams")
+        vid_ = re.findall(r'"videoId":"([\w-]{11})"', b_)
+        f["latest"] = f["latest"] or [{"id": v, "title": "", "published": ""} for v in list(dict.fromkeys(vid_))[:3]]
         emb = oembed(f["latest"][0]["id"]) if f["latest"] else None
         r["channels"][cid] = {"feed": f, "live": lv, "latest_embed": emb, "live_embed": oembed(lv["video"]) if lv.get("video") else None}
     out[key] = r
