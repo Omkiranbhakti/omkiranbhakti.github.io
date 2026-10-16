@@ -700,3 +700,4 @@ html.paath-on .verse.dhyan .line{color:#F5B83A}
 .okb-ap .ap-info{order:-1;flex-basis:100%}
 .hl-ctrl{grid-template-columns:minmax(0,1fr) 240px}
 @media (max-width:900px){.hl-ctrl{grid-template-columns:minmax(0,1fr)}}
+.hl-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:.4rem}

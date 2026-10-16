@@ -28,6 +28,20 @@ LIVE = [
   ART["vishnu"],("ॐ जय जगदीश हरे",OM_JAI_JAGDISH,"om-jai-jagdish-hare-aarti.html"),["vishnu-chalisa.html","shri-hari-stotram.html"]),
  ("shirdi-sai-baba","श्री साईबाबा समाधि मंदिर","शिर्डी","UCKGvJDh7g_Kzocbwy7aKicA","Shree Saibaba Sansthan Trust","साईबाबा संस्थान की आधिकारिक वेबसाइट sai.org.in इसी चैनल के वीडियो दिखाती है",
   ART["vishnu"],None,["om-jai-jagdish-hare-aarti.html","hanuman-chalisa.html"]),
+ ("khatu-shyam","श्री खाटू श्याम जी","खाटू, सीकर (राजस्थान)","UCT-3fEwrrxlwMrWgMvoqt-w","श्री श्याम दर्शन - खाटूश्यामजी","श्री श्याम मंदिर की वेबसाइट shrishyammandir.com इसी चैनल का लिंक और रोज़ की लाइव आरती दिखाती है",
+  ART["krishna"],("आरती कुंजबिहारी की",_L.KUNJ_BIHARI,"aarti-kunj-bihari-ki.html"),["krishna-chalisa.html","madhurashtakam.html"]),
+ ("dagdusheth-ganpati-pune","श्रीमंत दगडूशेठ हलवाई गणपति","पुणे","UCFUYpQptYcTT_IKWf2GlESg","Official Shrimant Dagdusheth Halwai Ganpati Trust","ट्रस्ट की वेबसाइट dagdushethganpati.com अपने लाइव दर्शन पेज पर यही चैनल देती है",
+  ART["ganesh"],("जय गणेश देवा",JAI_GANESH_DEVA,"ganesh-aarti-jai-ganesh-deva.html"),["sukhkarta-dukhharta-aarti.html","ganesh-chalisa.html"]),
+ ("iskcon-vrindavan","इस्कॉन श्री कृष्ण बलराम मंदिर","वृंदावन","UCAA6IsLVfbHrP1I_lzxv09Q","ISKCON Vrindavan","iskconvrindavan.com का लाइव पेज इसी चैनल का प्रसारण दिखाता है",
+  ART["krishna"],("आरती कुंजबिहारी की",_L.KUNJ_BIHARI,"aarti-kunj-bihari-ki.html"),["hare-krishna-mahamantra.html","damodarashtakam.html"]),
+ ("iskcon-mayapur","इस्कॉन मायापुर (श्री राधा माधव)","मायापुर, पश्चिम बंगाल","UCypj9Vvizo4cCERfDFIG3zw","Mayapur TV","इस्कॉन मायापुर का अपना चैनल, जिस पर रोज़ की आरतियाँ लाइव आती हैं",
+  ART["radha"] if "radha" in ART else ART["krishna"],("आरती कुंजबिहारी की",_L.KUNJ_BIHARI,"aarti-kunj-bihari-ki.html"),["hare-krishna-mahamantra.html","radha-kripa-kataksh-stotra.html"]),
+ ("ambaji-mata","अम्बाजी माता मंदिर","बनासकांठा, गुजरात","UCUge9PCf1By7w1DEP95xXoA","Ambaji Temple Official","मंदिर की वेबसाइट ambajitemple.in अपने लाइव दर्शन पेज पर यही चैनल देती है",
+  ART["mata"],("जय अम्बे गौरी",_L.JAI_AMBE_GAURI,"jai-ambe-gauri-aarti.html"),["durga-chalisa.html","durga-mantra.html"]),
+ ("naina-devi","माता श्री नैना देवी जी","बिलासपुर, हिमाचल प्रदेश","UCeHrvDbvedJ6b_RPJWmQJFw","Temple Trust Shri Naina Devi Ji Official","मंदिर ट्रस्ट की वेबसाइट srinainadevi.com इसी चैनल का लाइव प्रसारण दिखाती है",
+  ART["mata"],("जय अम्बे गौरी",_L.JAI_AMBE_GAURI,"jai-ambe-gauri-aarti.html"),["durga-chalisa.html","saptashloki-durga.html"]),
+ ("pavagadh-mahakali","महाकाली माता मंदिर, पावागढ़","पंचमहाल, गुजरात","UCyxo14WjnjBLdCZ1k7YGRbg","Pavagadh Temple","मंदिर की वेबसाइट pavagadhtemple.in इसी चैनल से जुड़ी है",
+  ART["mata"],("जय अम्बे गौरी",_L.JAI_AMBE_GAURI,"jai-ambe-gauri-aarti.html"),["kali-chalisa.html","durga-chalisa.html"]),
 ]
 def _uu(cid): return "UU" + cid[2:]
 LIVE_JS = '''<script>(function(){[].slice.call(document.querySelectorAll(".ld-player")).forEach(function(p){
@@ -48,7 +62,7 @@ def ld_player(cid, title, art):
 
 # ---- one page for all temples: picker on top, a single player, the matching aarti below ----
 _BH = {d[1]: [v for v in d[6] if v in V] for d in DEITY}
-_TEMPLE_BH = {"ram-mandir-ayodhya":"ram","siddhivinayak-mumbai":"ganesh","vaishno-devi":"mata","banke-bihari-vrindavan":"krishna","tirupati-balaji":"krishna","shirdi-sai-baba":"ram"}
+_TEMPLE_BH = {"khatu-shyam":"krishna","dagdusheth-ganpati-pune":"ganesh","iskcon-vrindavan":"krishna","iskcon-mayapur":"krishna","ambaji-mata":"mata","naina-devi":"mata","pavagadh-mahakali":"mata","ram-mandir-ayodhya":"ram","siddhivinayak-mumbai":"ganesh","vaishno-devi":"mata","banke-bihari-vrindavan":"krishna","tirupati-balaji":"krishna","shirdi-sai-baba":"ram"}
 import json as _json, os as _os
 # Our own bhajan MP3s (no ads): {"shiv":[{"t":"title","f":"url"}], "ram":[...], ...}. Empty -> YouTube player fallback.
 AUD = next((_json.load(open(_p, encoding="utf-8")) for _p in ("audio_bhajan.json", "src/audio_bhajan.json") if _os.path.exists(_p)), {})
@@ -68,7 +82,7 @@ for i, (slug, name, place, cid, cname, note, art, aarti, rel) in enumerate(LIVE)
                        f'<p style="margin-top:1rem"><a class="btn ghost" href="{au}">अर्थ सहित पढ़ें</a></p></div>')
     _cards.append(f'<li><button type="button" class="ld-pick" data-slug="{slug}" data-ch="{cid}" data-name="{e(name)}" data-place="{e(place)}" '
                   f'data-src="{e(cname)}" data-note="{e(note)}" data-a="{akey}" data-bh="{_bh(slug)}" data-aud="{_aud(slug)}" aria-pressed="{"true" if i == 0 else "false"}">'
-                  f'<span class="ld-thumb"><img src="img/live/{slug}.webp" onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/{art[0]}/hqdefault.jpg\'" alt="" loading="lazy" width="320" height="180"></span>'
+                  f'<span class="ld-thumb"><img src="img/live/sm/{slug}.webp" onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/{art[0]}/hqdefault.jpg\'" alt="" loading="lazy" width="320" height="180"></span>'
                   f'<strong>{e(name)}</strong><small>{e(place)}</small></button></li>')
 _first = LIVE[0]
 LIVE_ONE_JS = r"""<script>document.addEventListener("DOMContentLoaded",function(){
@@ -92,12 +106,12 @@ picks.forEach(function(b){b.addEventListener("click",function(){pick(b,true);doc
 [].forEach.call(document.querySelectorAll("[data-mode]"),function(b){b.addEventListener("click",function(){play(b.dataset.mode)})});
 var h=(location.hash||"").slice(1),hit=picks.filter(function(p){return p.dataset.slug===h})[0],first=hit||picks[0];pick(first,!!hit);if(hit)document.querySelector(".ld-player").scrollIntoView({block:"start"});
 });</script>"""
-_faqs = [("मंदिरों के लाइव दर्शन कहाँ देखें?", "इसी पेज पर ऊपर से मंदिर चुनें — राम मंदिर अयोध्या, महाकाल उज्जैन, काशी विश्वनाथ, सोमनाथ, ओंकारेश्वर, त्र्यंबकेश्वर, केदारनाथ-बद्रीनाथ, सिद्धिविनायक, वैष्णो देवी, बांके बिहारी, तिरुपति और शिर्डी का आधिकारिक प्रसारण यहीं चलता है।"),
+_faqs = [("मंदिरों के लाइव दर्शन कहाँ देखें?", "इसी पेज पर ऊपर से मंदिर चुनें — राम मंदिर अयोध्या, महाकाल उज्जैन, काशी विश्वनाथ, सोमनाथ, ओंकारेश्वर, त्र्यंबकेश्वर, केदारनाथ-बद्रीनाथ, सिद्धिविनायक, वैष्णो देवी, बांके बिहारी, तिरुपति, शिर्डी, खाटू श्याम, दगडूशेठ गणपति, इस्कॉन वृंदावन, इस्कॉन मायापुर, अम्बाजी, नैना देवी और पावागढ़ महाकाली का आधिकारिक प्रसारण यहीं चलता है।"),
          ("लाइव प्रसारण न दिखे तो क्या करें?", "मंदिर आरती और विशेष अवसरों पर लाइव आते हैं। इसलिए पेज खुलते ही उसी मंदिर के चैनल के सबसे नए दर्शन-आरती वीडियो चलते हैं; प्रसारण चल रहा हो तो ‘अभी लाइव देखें’ दबाएँ।"),
          ("क्या ये प्रसारण आधिकारिक हैं?", "हाँ। केवल वही YouTube चैनल लिए गए हैं जिन्हें मंदिर की अपनी वेबसाइट दिखाती है या जो मंदिर ट्रस्ट के नाम से चलते हैं। वीडियो और प्रसारण पूरी तरह मंदिरों के हैं; OmKiran Bhakti उन्हें YouTube के प्लेयर से यहाँ दिखाता है।")]
-add("live-darshan.html", "लाइव दर्शन — राम मंदिर, महाकाल, काशी विश्वनाथ, सोमनाथ और 12 मंदिर | OmKiran Bhakti",
-    "राम मंदिर अयोध्या, महाकाल उज्जैन, काशी विश्वनाथ, सोमनाथ, सिद्धिविनायक, वैष्णो देवी, बांके बिहारी, तिरुपति, शिर्डी — 12 मंदिरों के आधिकारिक लाइव दर्शन एक ही पेज पर, साथ में आरती।",
-    band("मंदिरों के लाइव दर्शन", "भारत के 12 प्रमुख मंदिरों का <strong>आधिकारिक</strong> लाइव प्रसारण एक ही जगह। मंदिर चुनें — दर्शन यहीं चलेगा, और नीचे उसी देवता की आरती साथ में पढ़ें।", "लाइव दर्शन", *ART["shivaarti"], "लाइव दर्शन") +
+add("live-darshan.html", f"लाइव दर्शन — राम मंदिर, महाकाल, खाटू श्याम समेत {len(LIVE)} मंदिर | OmKiran Bhakti",
+    f"राम मंदिर, महाकाल, काशी विश्वनाथ, खाटू श्याम, दगडूशेठ, वैष्णो देवी, बांके बिहारी, इस्कॉन वृंदावन, तिरुपति — {len(LIVE)} मंदिरों के आधिकारिक लाइव दर्शन एक ही पेज पर, साथ में आरती।",
+    band("मंदिरों के लाइव दर्शन", f"भारत के {len(LIVE)} प्रमुख मंदिरों का <strong>आधिकारिक</strong> लाइव प्रसारण एक ही जगह। मंदिर चुनें — दर्शन यहीं चलेगा, और नीचे उसी देवता की आरती साथ में पढ़ें।", "लाइव दर्शन", *ART["shivaarti"], "लाइव दर्शन") +
     f'<section><div class="wrap"><ul class="ld-picks" role="list">{"".join(_cards)}</ul>'
     f'<div class="ld-player"><h2 id="ld-name" class="ld-name">{e(_first[1])}, {e(_first[2])}</h2><div class="ld-frame"></div>'
     '<div class="ld-modes" role="group" aria-label="क्या देखें"><button class="chip" data-mode="recent" aria-pressed="false">दर्शन और आरती</button>'
