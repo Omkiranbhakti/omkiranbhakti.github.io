@@ -411,6 +411,17 @@ ENTRIES += [
    _vids("shiv-chalisa.html"),[("दारिद्र्य दहन स्तोत्र किसने लिखा?","महर्षि वसिष्ठ ने; अंतिम श्लोक में यही लिखा है और तीनों संध्याओं में पाठ का फल बताया गया है।")],"महर्षि वसिष्ठ"),
 ]
 
+# Page-specific artwork from img/art (overrides the shared deity art)
+SLUG_ART = {"saraswati-chalisa.html":"@saraswati","saraswati-aarti.html":"@saraswati","kali-chalisa.html":"@kalaratri","bhairav-chalisa.html":"@bhairav",
+ "bhairav-aarti.html":"@bhairav","radha-chalisa.html":"@radha-krishna","radha-kripa-kataksh-stotra.html":"@radha-krishna","madhurashtakam.html":"@radha-krishna",
+ "tulsi-mata-aarti.html":"@tulsi","surya-dev-aarti.html":"@surya","surya-chalisa.html":"@surya","aditya-hridaya-stotra.html":"@surya","surya-12-naam-mantra.html":"@surya",
+ "shani-chalisa.html":"@shani","shani-dev-aarti.html":"@shani","dashrath-krit-shani-stotra.html":"@shani","lakshmi-chalisa.html":"@lakshmi","mahalakshmi-ashtakam.html":"@lakshmi",
+ "shri-suktam.html":"@lakshmi","satyanarayan-aarti.html":"@vishnu","shri-hari-stotram.html":"@vishnu","dashavatar-stotram.html":"@vishnu","ekadashi-mata-aarti.html":"@vishnu",
+ "brihaspati-dev-aarti.html":"@vishnu","lingashtakam.html":"@shiv-aarti","dwadash-jyotirlinga-stotram.html":"@shiv-aarti","om-namah-shivaya.html":"@shiv-aarti",
+ "daridrya-dahan-shiv-stotra.html":"@shiv-aarti","parvati-chalisa.html":"@mahagauri","parvati-aarti.html":"@mahagauri","annapurna-chalisa.html":"@siddhidatri",
+ "annapurna-aarti.html":"@siddhidatri","gayatri-chalisa.html":"@saraswati","durga-mantra.html":"@navdurga","argala-stotram.html":"@navdurga","devi-kshama-prarthana.html":"@mata",
+ "krishnashtakam.html":"@krishna","damodarashtakam.html":"@krishna","hare-krishna-mahamantra.html":"@krishna"}
+ENTRIES = [x[:4] + ((SLUG_ART[x[0]], 50),) + x[5:] if x[0] in SLUG_ART and art_src(SLUG_ART[x[0]]) else x for x in ENTRIES]
 for (slug, cat, ltitle, sub, art, verses, h1, title, desc, answer, intro, vids, faqs, author, work) in ENTRIES:
     vids = [v for v in vids if v in V]
     lyrics_page(slug, title, desc, h1, answer, verses, intro, vids, faqs, h1, work_name=work, author=author,
@@ -436,12 +447,14 @@ DEITIES = [("devi","देवी माँ",ART["mata"]),("shiv","शिव",ART
 def deity_of(slug, art):
     if slug.startswith(("ram-","shri-ramchandra","ramayan")): return "vishnu"
     if slug.startswith("karwa-chauth"): return "devi"
-    return DEITY_OF.get(art[0], "")
+    AT = {"@saraswati":"devi","@kalaratri":"devi","@bhairav":"shiv","@radha-krishna":"krishna","@tulsi":"krishna","@surya":"surya","@shani":"shani",
+          "@lakshmi":"lakshmi","@vishnu":"vishnu","@shiv-aarti":"shiv","@mahagauri":"devi","@siddhidatri":"devi","@navdurga":"devi","@mata":"devi","@krishna":"krishna"}
+    return AT.get(art[0]) or DEITY_OF.get(art[0], "")
 def cat_cards(cat):
     items = [c for c in CATALOG if c[1] == cat]
     return '<ul class="paath">' + "".join(f'<li data-deity="{deity_of(h,a)}"><a href="{h}">{arch(*a, alt="")}<div><strong>{e(t)}</strong><span>{e(s)}</span></div></a></li>' for h, c, t, s, a in items) + '</ul>'
 def deity_bar():
-    meds = "".join(f'<button type="button" class="dv" data-dv="{k}" aria-pressed="false"><span class="dv-img"><img src="https://i.ytimg.com/vi/{a[0]}/maxresdefault.jpg" onerror="this.onerror=null;this.src=&#39;https://i.ytimg.com/vi/{a[0]}/hqdefault.jpg&#39;" style="object-position:{a[1]}% 25%" alt="" loading="lazy" width="120" height="90"></span><span class="dv-n">{n}</span></button>' for k,n,a in DEITIES)
+    meds = "".join(f'<button type="button" class="dv" data-dv="{k}" aria-pressed="false"><span class="dv-img">{(f'<img src="{art_src(a[0])}" style="object-position:50% 18%" alt="" loading="lazy" width="120" height="90">') if art_src(a[0]) else (f'<img src="https://i.ytimg.com/vi/{a[0]}/maxresdefault.jpg" onerror="this.onerror=null;this.src=&#39;https://i.ytimg.com/vi/{a[0]}/hqdefault.jpg&#39;" style="object-position:{a[1]}% 25%" alt="" loading="lazy" width="120" height="90">')}</span><span class="dv-n">{n}</span></button>' for k,n,a in DEITIES)
     return ('<div class="dv-wrap no-print"><h2 class="dv-h">किसका पाठ करना है?</h2>'
             '<p class="dv-today" id="dv-today" hidden></p>'
             f'<div class="dv-row" role="group" aria-label="देवता चुनें">{meds}</div></div>')

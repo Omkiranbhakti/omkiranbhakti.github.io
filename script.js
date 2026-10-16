@@ -56,11 +56,12 @@
       ['शुक्रवार','माता रानी','शुक्रवार देवी माँ का दिन है। माता रानी के भजन सुनें।','mata-rani-bhajan.html','माता रानी भजन'],
       ['शनिवार','शनि देव और हनुमान जी','शनिवार को शनि देव और हनुमान जी का स्मरण किया जाता है।','hanuman-chalisa.html','हनुमान चालीसा पढ़ें']];
     var navArt={20261011:'Ht_SogxJ_D8',20261012:'SsrEdkAf4xI',20261013:'lUhDATRpvrs',20261014:'65nhAnBmYuQ',20261015:'Q5_3JBKLNpg',
-      20261016:'r32U54qyerw',20261017:'FFcNanFHSaY',20261018:'G99-49Pfs6U',20261019:'G99-49Pfs6U',20261020:'pCixItfj5Vo'};
+      20261016:'r32U54qyerw',20261017:'FFcNanFHSaY',20261018:'@mahagauri',20261019:'@siddhidatri',20261020:'pCixItfj5Vo'};
     var weekArt=[['pCixItfj5Vo',80,'जय श्री राम'],['Kbe3pbLsg1U',80,'हर हर महादेव'],['707iS1Iyv-E',12,'जय बजरंगबली'],['NGI-JiRiwSc',80,'गणपति बप्पा मोरया'],
       ['pCixItfj5Vo',80,'ॐ नमो नारायणाय'],['2yVR5zSaKpc',76,'जय माता दी'],['707iS1Iyv-E',12,'जय बजरंगबली']];
     var art=document.querySelector('#today-art img'), cap=document.getElementById('today-cap');
-    function setArt(id,pos,c){if(!art)return;art.onerror=function(){art.onerror=null;art.src='https://i.ytimg.com/vi/'+id+'/hqdefault.jpg'};
+    var LOC={'2yVR5zSaKpc':'mata','Kbe3pbLsg1U':'shiv','707iS1Iyv-E':'hanuman','NGI-JiRiwSc':'ganesh','pCixItfj5Vo':'ram','G99-49Pfs6U':'navdurga','Ht_SogxJ_D8':'shailputri','SsrEdkAf4xI':'brahmacharini','lUhDATRpvrs':'chandraghanta','65nhAnBmYuQ':'kushmanda','Q5_3JBKLNpg':'skandamata','r32U54qyerw':'katyayani','FFcNanFHSaY':'kalaratri'};
+    function setArt(id,pos,c){if(!art)return;if(id.charAt(0)==='@'){art.src='img/art/'+id.slice(1)+'.webp';art.style.objectPosition='50% 22%';if(cap)cap.textContent=c;return;}if(LOC[id]){art.onerror=null;art.src='img/art/'+LOC[id]+'.webp';art.style.objectPosition='50% 22%';if(cap)cap.textContent=c;return;}art.onerror=function(){art.onerror=null;art.src='https://i.ytimg.com/vi/'+id+'/hqdefault.jpg'};
       art.src='https://i.ytimg.com/vi/'+id+'/maxresdefault.jpg';art.style.objectPosition=pos+'% 30%';if(cap)cap.textContent=c;}
     if(navArt[ymd]) setArt(navArt[ymd], navArt[ymd]==='G99-49Pfs6U'?50:(navArt[ymd]==='pCixItfj5Vo'?80:68), ymd===20261020?'जय श्री राम':'जय माता दी');
     else { var wa=weekArt[ist.getDay()]; setArt(wa[0],wa[1],wa[2]); }

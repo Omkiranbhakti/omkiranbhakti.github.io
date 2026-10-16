@@ -148,11 +148,31 @@ ART = {
  "mata":("2yVR5zSaKpc",76), "shiv":("Kbe3pbLsg1U",80), "hanuman":("707iS1Iyv-E",12),
  "ganesh":("NGI-JiRiwSc",80), "krishna":("uCUR842niAU",12), "ram":("pCixItfj5Vo",80),
  "edm":("unfGUJz6D8U",78), "skandamata":("Q5_3JBKLNpg",74), "navdurga":("G99-49Pfs6U",50),
- "shivaarti":("rxeMNQ48yWU",50), "vishnu":("pCixItfj5Vo",80),
+ "shivaarti":("rxeMNQ48yWU",50), "vishnu":("@vishnu",50),
 }
 DAY_ART = {"Ht_SogxJ_D8":62,"SsrEdkAf4xI":62,"lUhDATRpvrs":62,"65nhAnBmYuQ":62,"Q5_3JBKLNpg":74,"r32U54qyerw":60,"FFcNanFHSaY":60,"89wxOjTwPwQ":60}
 
+# Our own deity artwork (portrait 3:4, img/art/<key>.webp) replaces YouTube-thumbnail crops wherever a known video id is used as art.
+LOCAL_ART = {"2yVR5zSaKpc":"mata","Kbe3pbLsg1U":"shiv","707iS1Iyv-E":"hanuman","NGI-JiRiwSc":"ganesh","uCUR842niAU":"krishna",
+ "pCixItfj5Vo":"ram","rxeMNQ48yWU":"shiv-aarti","G99-49Pfs6U":"navdurga","F95csn49Rq0":"lakshmi","ktQUU5Y3tPE":"surya",
+ "R1PiCmntXIM":"radha-krishna","oQl6-dRDfWU":"karwa-chauth","3ChBJC1Vigk":"holi","hwoEYtPy7Qw":"tulsi","gZ7DoH6ZOa4":"shani",
+ "unfGUJz6D8U":"bhairav","Fxfm-eadkTY":"saraswati","KPZbsWemcIg":"sharad-purnima","Ht_SogxJ_D8":"shailputri","SsrEdkAf4xI":"brahmacharini",
+ "lUhDATRpvrs":"chandraghanta","65nhAnBmYuQ":"kushmanda","Q5_3JBKLNpg":"skandamata","r32U54qyerw":"katyayani","FFcNanFHSaY":"kalaratri",
+ "89wxOjTwPwQ":"siddhidatri"}
+def art_src(vid):
+    k = vid[1:] if str(vid).startswith("@") else LOCAL_ART.get(vid)
+    if k and os.path.exists(os.path.join(ROOT, "img", "art", k + ".webp")): return f"img/art/{k}.webp"
+    return None
+
 def arch(vid, pos=50, alt="", eager=False):
+    if isinstance(vid, tuple):  # some callers pass the ART tuple itself
+        if not isinstance(pos, (int, float)): alt = alt or pos
+        vid, pos = vid[0], vid[1]
+    loc = art_src(vid)
+    if loc:
+        return (f'<div class="arch"><img src="{loc}" style="object-position:50% 22%" alt="{e(alt)}" '
+                f'{"fetchpriority=\"high\"" if eager else "loading=\"lazy\""} decoding="async" width="300" height="400"></div>')
+    if str(vid).startswith("@"): vid = "pCixItfj5Vo"
     return (f'<div class="arch"><img src="https://i.ytimg.com/vi/{vid}/maxresdefault.jpg" '
             f'onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/{vid}/hqdefault.jpg\'" '
             f'onload="if(this.naturalWidth<200&&!this.dataset.f){{this.dataset.f=1;this.src=\'https://i.ytimg.com/vi/{vid}/hqdefault.jpg\'}}" '
@@ -468,7 +488,7 @@ NDAYS = [("20261011","11 अक्टूबर, रविवार","पहल�
          ("20261017","17 अक्टूबर, शनिवार","सातवाँ दिन","माँ कालरात्रि","FFcNanFHSaY"),
          ("20261018,20261019","18–19 अक्टूबर","अष्टमी","माँ महागौरी",None),
          ("20261019","19 अक्टूबर, सोमवार","नवमी","माँ सिद्धिदात्री","89wxOjTwPwQ")]
-days = "".join(f'<li data-ymd="{y}">' + (arch(v, DAY_ART.get(v,60), g) if v else arch("G99-49Pfs6U",50,g)) +
+days = "".join(f'<li data-ymd="{y}">' + (arch(v, DAY_ART.get(v,60), g) if v else arch("@mahagauri",50,g)) +
                f'<div><span class="d">{d} · {n}</span><span class="g">{g}</span>' +
                (f'<a href="{watch(v)}" target="_blank" rel="noopener">आरती सुनें</a>' if v else '<a href="https://www.youtube.com/watch?v=G99-49Pfs6U" target="_blank" rel="noopener">नवदुर्गा आरती सुनें</a>') + '</div></li>'
                for y,d,n,g,v in NDAYS)
