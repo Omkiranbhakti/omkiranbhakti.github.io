@@ -604,3 +604,7 @@ html.paath-on .verse.dhyan .line{color:#F5B83A}
 .ld-name{font-size:1.35rem;margin:0 0 .6rem;text-align:center}
 .ld-frame .ld-start{position:absolute;inset:0;margin:auto}
 .ld-aarti h3{font-size:1.3rem;margin:0}
+.ld-bhw{margin-top:1.25rem}
+.ld-bhw h3{font-size:1.1rem;margin:0 0 .5rem;text-align:center}
+.ld-bh{position:relative;aspect-ratio:16/9;max-width:30rem;margin:0 auto;border-radius:var(--r-m);overflow:hidden;background:#100E2A}
+.ld-bh iframe{position:absolute;inset:0;width:100%;height:100%;border:0}

@@ -47,6 +47,11 @@ def ld_player(cid, title, art):
             '<p class="ld-hint">अगर मंदिर से अभी प्रसारण नहीं हो रहा है, तो ‘हाल के दर्शन और आरती’ दबाएँ — मंदिर के चैनल के सबसे नए वीडियो चलेंगे।</p></div>')
 
 # ---- one page for all temples: picker on top, a single player, the matching aarti below ----
+_BH = {d[1]: [v for v in d[6] if v in V] for d in DEITY}
+_TEMPLE_BH = {"ram-mandir-ayodhya":"ram","siddhivinayak-mumbai":"ganesh","vaishno-devi":"mata","banke-bihari-vrindavan":"krishna","tirupati-balaji":"krishna","shirdi-sai-baba":"ram"}
+def _bh(slug):
+    ids = _BH.get(_TEMPLE_BH.get(slug, "shiv"), []) or home_popular
+    return ",".join(ids[:12])
 _cards, _aartis, _seen = [], [], {}
 for i, (slug, name, place, cid, cname, note, art, aarti, rel) in enumerate(LIVE):
     akey = aarti[2] if aarti else ""
@@ -56,17 +61,22 @@ for i, (slug, name, place, cid, cname, note, art, aarti, rel) in enumerate(LIVE)
         _aartis.append(f'<div class="ld-aarti" data-a="{akey}" hidden><h3>{e(at)}</h3><div class="lyrics">{lyrics_body(verses)}</div>'
                        f'<p style="margin-top:1rem"><a class="btn ghost" href="{au}">अर्थ सहित पढ़ें</a></p></div>')
     _cards.append(f'<li><button type="button" class="ld-pick" data-slug="{slug}" data-ch="{cid}" data-name="{e(name)}" data-place="{e(place)}" '
-                  f'data-src="{e(cname)}" data-note="{e(note)}" data-a="{akey}" aria-pressed="{"true" if i == 0 else "false"}">'
+                  f'data-src="{e(cname)}" data-note="{e(note)}" data-a="{akey}" data-bh="{_bh(slug)}" aria-pressed="{"true" if i == 0 else "false"}">'
                   f'<span class="ld-thumb"><img src="img/live/{slug}.webp" onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/{art[0]}/hqdefault.jpg\'" alt="" loading="lazy" width="320" height="180"></span>'
                   f'<strong>{e(name)}</strong><small>{e(place)}</small></button></li>')
 _first = LIVE[0]
 LIVE_ONE_JS = r"""<script>(function(){
 var picks=[].slice.call(document.querySelectorAll(".ld-pick")),box=document.querySelector(".ld-frame"),mode="live",cur=null;
+var bh=document.getElementById("ld-bh"),bhw=document.getElementById("ld-bhw");
 var nm=document.getElementById("ld-name"),src=document.getElementById("ld-src"),aar=[].slice.call(document.querySelectorAll(".ld-aarti"));
 function play(m){mode=m;if(!cur)return;var cid=cur.dataset.ch;
- var u=m==="live"?"https://www.youtube.com/embed/live_stream?channel="+cid+"&autoplay=1&rel=0":"https://www.youtube.com/embed/videoseries?list=UU"+cid.slice(2)+"&autoplay=1&rel=0";
+ var u=m==="live"?"https://www.youtube.com/embed/live_stream?channel="+cid+"&autoplay=1&mute=1&rel=0":"https://www.youtube.com/embed/videoseries?list=UU"+cid.slice(2)+"&autoplay=1&mute=1&rel=0";
  box.innerHTML='<iframe src="'+u+'" title="'+cur.dataset.name+' लाइव दर्शन" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
- [].forEach.call(document.querySelectorAll("[data-mode]"),function(b){b.setAttribute("aria-pressed",b.dataset.mode===m?"true":"false")});}
+ [].forEach.call(document.querySelectorAll("[data-mode]"),function(b){b.setAttribute("aria-pressed",b.dataset.mode===m?"true":"false")});
+ bhajan();}
+function bhajan(){var ids=(cur.dataset.bh||"").split(",").filter(Boolean);if(!ids.length)return;
+ bh.innerHTML='<iframe src="https://www.youtube.com/embed/'+ids[0]+'?autoplay=1&rel=0&playlist='+ids.slice(1).join(",")+'" title="OmKiran Bhakti भजन" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+ bhw.hidden=false;}
 function pick(b,start){cur=b;picks.forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
  nm.textContent=b.dataset.name+", "+b.dataset.place;src.textContent="स्रोत: मंदिर का आधिकारिक YouTube चैनल “"+b.dataset.src+"” — "+b.dataset.note+"। वीडियो के सभी अधिकार उन्हीं के हैं।";
  aar.forEach(function(a){a.hidden=a.dataset.a!==b.dataset.a});
@@ -86,7 +96,9 @@ add("live-darshan.html", "लाइव दर्शन — राम मंद�
     f'<div class="ld-player"><h2 id="ld-name" class="ld-name">{e(_first[1])}, {e(_first[2])}</h2><div class="ld-frame"></div>'
     '<div class="ld-modes" role="group" aria-label="क्या देखें"><button class="chip" data-mode="live" aria-pressed="false">अभी लाइव</button>'
     '<button class="chip" data-mode="recent" aria-pressed="false">हाल के दर्शन और आरती</button></div>'
-    '<p class="ld-hint">मंदिर से अभी प्रसारण न हो रहा हो तो ‘हाल के दर्शन और आरती’ दबाएँ।</p><p class="note" id="ld-src"></p></div></div></section>'
+    '<p class="ld-hint">दर्शन बिना आवाज़ के चलता है और नीचे भजन बजते हैं। मंदिर की आवाज़ सुननी हो तो दर्शन वाले वीडियो पर 🔇 दबाएँ। अभी प्रसारण न हो तो ‘हाल के दर्शन और आरती’ दबाएँ।</p>'
+    '<div class="ld-bhw" id="ld-bhw" hidden><h3>भजन साथ में — OmKiran Bhakti</h3><div class="ld-bh" id="ld-bh"></div></div>'
+    '<p class="note" id="ld-src"></p></div></div></section>'
     f'<section class="band"><div class="wrap">{sec_head("दर्शन के साथ आरती पढ़ें")}{"".join(_aartis)}</div></section>'
     + faq_html(_faqs) + LIVE_ONE_JS,
     crumbs="लाइव दर्शन", ld=[faq_ld(_faqs)], active="aarti-mantra.html")
