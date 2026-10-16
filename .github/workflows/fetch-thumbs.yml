@@ -1,0 +1,27 @@
+name: Fetch channel thumbnails (design source)
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: "comma separated YouTube video ids"
+        required: true
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download thumbnails
+        run: |
+          mkdir -p /tmp/t
+          for id in $(echo "${{ github.event.inputs.ids }}" | tr ',' ' '); do
+            curl -sf -o /tmp/t/$id.jpg https://i.ytimg.com/vi/$id/maxresdefault.jpg || curl -sf -o /tmp/t/$id.jpg https://i.ytimg.com/vi/$id/hqdefault.jpg || true
+          done
+          ls -la /tmp/t
+      - name: Save to branch thumbs-src
+        run: |
+          git config user.name "github-actions" && git config user.email "actions@github.com"
+          git fetch origin thumbs-src || true
+          git checkout --orphan thumbs-src && git rm -rf . >/dev/null
+          cp /tmp/t/*.jpg . && git add *.jpg && git commit -m "thumbs" && git push -f origin thumbs-src
