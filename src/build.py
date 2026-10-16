@@ -556,14 +556,19 @@ tools_html = ('<section class="hot"><div class="wrap"><h2 class="hot-h">रो�
               "".join(f'<li><a href="{h}"><strong>{e(t)}</strong><span>{e(sub)}</span></a></li>' for h, t, sub in _tools) + '</ul></div></section>')
 for _fp in ("aaj-ka-panchang.html", "tyohar-calendar.html"):
     if _fp in PAGES: PAGES[_fp] = PAGES[_fp].replace('<section class="hot">', tools_html + '<section class="hot">', 1)
+HL_SHORT = {'ram-mandir-ayodhya': 'राम मंदिर', 'mahakaleshwar-ujjain': 'महाकाल', 'kashi-vishwanath-varanasi': 'काशी विश्वनाथ', 'somnath': 'सोमनाथ', 'omkareshwar': 'ओंकारेश्वर', 'trimbakeshwar': 'त्र्यंबकेश्वर', 'kedarnath-badrinath': 'केदारनाथ', 'siddhivinayak-mumbai': 'सिद्धिविनायक', 'vaishno-devi': 'वैष्णो देवी', 'banke-bihari-vrindavan': 'बांके बिहारी', 'tirupati-balaji': 'तिरुपति बालाजी', 'shirdi-sai-baba': 'साईं बाबा'}
+home_live = ('<div class="hl-live"><div class="hl-head"><h2><span class="hl-dot" aria-hidden="true"></span>मंदिरों के लाइव दर्शन</h2>'
+  '<a href="live-darshan.html">सभी 12 मंदिर →</a></div><ul class="hl-grid">' +
+  "".join(f'<li><a href="live-darshan.html#{x[0]}" title="{x[1]} — लाइव दर्शन"><img src="img/live/{x[0]}.webp" alt="{x[1]}, {x[2]} लाइव दर्शन" width="320" height="180" decoding="async"{"" if i < 4 else " loading=\"lazy\""}><span>{HL_SHORT.get(x[0], x[1])}</span></a></li>' for i, x in enumerate(LIVE)) +
+  '</ul><p class="hl-note">मंदिर चुनें — आधिकारिक लाइव दर्शन यहीं चलेगा, और साथ में भजन बजेंगे।</p></div>')
 add("index.html", "OmKiran Bhakti — आरती, चालीसा, मंत्र और भजन (बोल व अर्थ सहित)",
  "हनुमान चालीसा, आरती और मंत्रों के पूरे बोल सरल अर्थ के साथ; माता रानी, शिव, गणेश, कृष्ण और राम के भजन; नवरात्रि 2026 और ऑनलाइन जाप माला।",
- f'''<section class="night scallop to-band hero3"><div class="wrap">
-{hero_card(TODAY_P)}
-<div class="aaj-panel" id="today" aria-live="polite">
-<p class="when">आज</p><h2>हनुमान चालीसा</h2>
-<figure class="shrine">{arch(*ART["skandamata"], alt="आज के आराध्य", eager=True).replace('<div class="arch">','<div class="arch" id="today-art">').replace('</div>','<div class="diya" aria-hidden="true"><span class="bowl"></span><span class="flame"></span></div></div>')}<figcaption id="today-cap">जय माता दी</figcaption></figure>
-<p class="say">रोज़ के पाठ के लिए पूरे बोल और अर्थ।</p>
+ f'''<section class="night scallop to-band hero3 hero4"><div class="wrap">
+{hero_card(TODAY_P).replace('class="pcard hero-pc"','class="pcard hero-pc mini"')}
+{home_live}
+<div class="aaj-panel slim" id="today" aria-live="polite">
+<figure class="shrine">{arch(*ART["skandamata"], alt="आज के आराध्य", eager=True).replace('<div class="arch">','<div class="arch" id="today-art">')}<figcaption id="today-cap">जय माता दी</figcaption></figure>
+<div class="aaj-txt"><p class="when">आज</p><h2>हनुमान चालीसा</h2><p class="say">रोज़ के पाठ के लिए पूरे बोल और अर्थ।</p></div>
 <div class="actions"><a class="btn gold go" href="hanuman-chalisa.html">पाठ खोलें</a><a class="btn ghost" href="jaap-mala.html">जाप माला</a></div>
 </div>
 </div></section>

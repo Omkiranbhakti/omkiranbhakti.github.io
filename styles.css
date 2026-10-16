@@ -608,3 +608,56 @@ html.paath-on .verse.dhyan .line{color:#F5B83A}
 .ld-bhw h3{font-size:1.1rem;margin:0 0 .5rem;text-align:center}
 .ld-bh{position:relative;aspect-ratio:16/9;max-width:30rem;margin:0 auto;border-radius:var(--r-m);overflow:hidden;background:#100E2A}
 .ld-bh iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+/* ---- Home hero v4: compact panchang + live darshan above the fold ---- */
+.hero4{padding-block:clamp(.9rem,2vw,1.4rem) calc(clamp(1.2rem,3vw,1.8rem) + 14px)}
+.hero4 > .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);align-items:stretch;gap:clamp(.8rem,2vw,1.25rem)}
+.hero-pc.mini{padding:clamp(.9rem,2vw,1.2rem) clamp(1rem,2.2vw,1.35rem)}
+.hero-pc.mini .pc-head{flex-wrap:nowrap;align-items:center}
+.hero-pc.mini .pc-h1{font-size:clamp(1.35rem,2.4vw,1.65rem)}
+.hero-pc.mini .pc-date{font-size:.9rem}
+.hero-pc.mini .share{font-size:.8rem;padding:.38rem .75rem;white-space:nowrap}
+.hero-pc.mini .pc-tithi{font-size:clamp(1.45rem,2.8vw,1.85rem);margin:.35rem 0 0}
+.hero-pc.mini .pc-sub{font-size:.86rem}
+.hero-pc.mini .pc-grid{grid-template-columns:1fr 1fr;gap:0 1rem;margin-top:.45rem}
+.hero-pc.mini .pc-grid > div:nth-child(n+5){display:none}
+.hero-pc.mini .pc-grid div{padding:.32rem 0}
+.hero-pc.mini .pc-grid dt{font-size:.85rem}
+.hero-pc.mini .pc-grid dt small{display:none}
+.hero-pc.mini .pc-grid dd{font-size:1rem;margin-top:.05rem}
+.hero-pc.mini .pc-fest{margin-top:.5rem;padding:.45rem .8rem;display:flex;flex-wrap:wrap;gap:.2rem .5rem;align-items:baseline}
+.hero-pc.mini .pc-fh{font-size:.88rem;margin:0}
+.hero-pc.mini .pc-fest li{padding:0;font-size:.92rem}
+.hero-pc.mini .pc-note{font-size:.8rem;margin-top:.4rem}
+.hl-live{border-radius:var(--r-l);padding:clamp(.85rem,2vw,1.15rem);min-width:0;
+  background:radial-gradient(70% 50% at 50% 0%,rgba(246,190,90,.18),transparent 70%),var(--night-2);
+  box-shadow:inset 0 0 0 1px rgba(246,210,122,.3),0 24px 50px -30px rgba(0,0,0,.8)}
+.hl-head{display:flex;justify-content:space-between;align-items:center;gap:.8rem}
+.hl-head h2{margin:0;color:var(--gold-hi);font-size:clamp(1.15rem,2.2vw,1.4rem);display:flex;align-items:center;gap:.55rem}
+.hl-dot{flex:none;width:.7rem;height:.7rem;border-radius:50%;background:#e01e1e;animation:hlp 1.6s infinite}
+@keyframes hlp{0%{box-shadow:0 0 0 0 rgba(224,30,30,.75)}70%{box-shadow:0 0 0 9px rgba(224,30,30,0)}100%{box-shadow:0 0 0 0 rgba(224,30,30,0)}}
+.hl-head a{color:var(--gold);font-weight:600;font-size:.92rem;white-space:nowrap}
+.hl-grid{list-style:none;margin:.7rem 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem}
+.hl-grid a{display:block;border-radius:9px;overflow:hidden;box-shadow:0 0 0 1px rgba(246,210,122,.35);background:#120814}
+.hl-grid img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:transform .3s}
+.hl-grid a:hover img,.hl-grid a:focus-visible img{transform:scale(1.07)}
+.hl-grid span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.aaj-panel.slim{grid-column:1 / -1;flex-direction:row;align-items:center;gap:1rem;text-align:left;padding:.7rem 1.1rem}
+.aaj-panel.slim .shrine{width:58px;flex:none;margin:0}
+.aaj-panel.slim .shrine figcaption,.aaj-panel.slim .diya{display:none}
+.aaj-panel.slim .aaj-txt{flex:1;min-width:0}
+.aaj-panel.slim h2{margin:0;font-size:clamp(1.1rem,2vw,1.3rem)}
+.aaj-panel.slim .say{margin:.1rem 0 0;font-size:.9rem;max-width:none}
+.aaj-panel.slim .actions{margin:0;flex:none;justify-content:flex-end}
+@media (max-width:900px){
+  .hero4 > .wrap{grid-template-columns:minmax(0,1fr)}
+  .aaj-panel.slim{order:0;display:flex;flex-wrap:wrap;column-gap:.8rem;row-gap:.5rem}
+  .aaj-panel.slim .shrine{width:46px}
+  .aaj-panel.slim .say{display:none}
+  .aaj-panel.slim .actions{width:100%;justify-content:flex-start}
+  .hl-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:44%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.35rem;scrollbar-width:thin}
+  .hl-grid li{scroll-snap-align:start}
+}
+.hl-live{display:flex;flex-direction:column}
+.hl-grid{margin-block:auto}
+.hl-note{margin:.6rem 0 0;color:var(--cream);opacity:.8;font-size:.88rem}
+@media (max-width:900px){.hl-note{display:none}}
