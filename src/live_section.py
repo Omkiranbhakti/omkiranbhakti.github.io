@@ -141,7 +141,7 @@ _faqs = [("मंदिरों के लाइव दर्शन कहा�
          ("क्या ये प्रसारण आधिकारिक हैं?", "हाँ। केवल वही YouTube चैनल लिए गए हैं जिन्हें मंदिर की अपनी वेबसाइट दिखाती है या जो मंदिर ट्रस्ट के नाम से चलते हैं। वीडियो और प्रसारण पूरी तरह मंदिरों के हैं; OmKiran Bhakti उन्हें YouTube के प्लेयर से यहाँ दिखाता है।")]
 add("live-darshan.html", f"लाइव दर्शन — राम मंदिर, महाकाल, खाटू श्याम समेत {len(LIVE)} मंदिर | OmKiran Bhakti",
     f"राम मंदिर, महाकाल, काशी विश्वनाथ, खाटू श्याम, दगडूशेठ, वैष्णो देवी, बांके बिहारी, इस्कॉन वृंदावन, तिरुपति — {len(LIVE)} मंदिरों के आधिकारिक लाइव दर्शन एक ही पेज पर, साथ में आरती।",
-    band("मंदिरों के लाइव दर्शन", f"भारत के {len(LIVE)} प्रमुख मंदिरों का <strong>आधिकारिक</strong> लाइव प्रसारण एक ही जगह। मंदिर चुनें — दर्शन यहीं चलेगा, साथ में आरती पढ़ें और भजन सुनें।", "लाइव दर्शन", *ART["shivaarti"], "लाइव दर्शन") +
+    band("मंदिरों के लाइव दर्शन", f"भारत के {len(LIVE)} प्रमुख मंदिरों का <strong>आधिकारिक</strong> लाइव प्रसारण एक ही जगह। मंदिर चुनें — दर्शन यहीं चलेगा, साथ में आरती पढ़ें और भजन सुनें।", "लाइव दर्शन", "@live-hero", 50, "राम लला, अयोध्या — लाइव दर्शन") +
     f'<section><div class="wrap"><ul class="ld-picks" role="list">{"".join(_cards)}</ul>'
     f'<div class="ld-player"><h2 id="ld-name" class="ld-name">{e(_first[1])}, {e(_first[2])}</h2><div class="ld-frame"></div>'
     '<div class="ld-modes" role="group" aria-label="क्या देखें"><button class="chip" data-mode="recent" aria-pressed="false">दर्शन और आरती</button>'
@@ -151,4 +151,4 @@ add("live-darshan.html", f"लाइव दर्शन — राम मंद�
     '<div class="bh-aud" id="ld-aud"></div>'
     '<p class="note" id="ld-src"></p></div></div></section>'
     + faq_html(_faqs) + LIVE_ONE_JS,
-    crumbs="लाइव दर्शन", ld=[faq_ld(_faqs)], active="aarti-mantra.html")
+    crumbs="लाइव दर्शन", ld=[faq_ld(_faqs)], active="live-darshan.html", og=SITE + "assets/og-live.jpg")

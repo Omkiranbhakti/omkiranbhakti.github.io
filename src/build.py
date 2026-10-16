@@ -8,6 +8,7 @@ from lyrics import HANUMAN_CHALISA, OM_JAI_JAGDISH, JAI_GANESH_DEVA, OM_JAI_SHIV
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://omkiranbhakti.github.io/"
+OG_DEFAULT = SITE + "assets/og-home.jpg"
 WA_CH = "https://whatsapp.com/channel/0029Vb8NYJMCXC3MDVIhkB3p"
 WA_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>'
 YT = "https://www.youtube.com/@OmKiranBhakti"
@@ -194,7 +195,7 @@ def band(h1, answer, crumb, vid=None, pos=50, alt="", extra="", gold=True, to_ba
             f'<h1{" class=\"gold-type\"" if gold else ""}>{e(h1)}</h1><p class="answer">{answer}</p>{extra}</div>{art}</div></section>')
 
 NAV = [("index.html","होम"),("aaj-ka-panchang.html","आज का पंचांग"),("tyohar-calendar.html","त्योहार"),
-       ("aarti-mantra.html","आरती-चालीसा"),("jaap-mala.html","जाप माला"),("mata-rani-bhajan.html","भजन")]
+       ("live-darshan.html","लाइव दर्शन"),("aarti-mantra.html","आरती-चालीसा"),("jaap-mala.html","जाप माला"),("mata-rani-bhajan.html","भजन")]
 
 def watch(i): return f"https://www.youtube.com/watch?v={i}"
 
@@ -220,7 +221,7 @@ def faq_ld(faqs):
     import re
     return {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":re.sub("<[^>]+>","",a)}} for q,a in faqs]}
 
-def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None):
+def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og=None):
     url = SITE if slug=="index.html" else SITE+slug
     graph = [{"@type":"WebPage","@id":url+"#page","url":url,"name":title,"description":desc,"inLanguage":"hi-IN",
               "isPartOf":{"@id":SITE+"#website"},"publisher":{"@id":SITE+"#organization"},"dateModified":TODAY}]
@@ -242,8 +243,8 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None):
 <meta name="theme-color" content="#1C2350">
 <meta property="og:type" content="website"><meta property="og:site_name" content="OmKiran Bhakti">
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}">
-<meta property="og:url" content="{url}"><meta property="og:image" content="{LOGO}"><meta property="og:locale" content="hi_IN">
-<meta name="twitter:card" content="summary">
+<meta property="og:url" content="{url}"><meta property="og:image" content="{og or OG_DEFAULT}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="hi_IN">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{og or OG_DEFAULT}">
 <link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
@@ -608,7 +609,7 @@ add("index.html", "OmKiran Bhakti — आरती, चालीसा, मं�
 {hero_card(TODAY_P).replace('class="pcard hero-pc"','class="pcard hero-pc mini"')}
 {home_live}{HOME_LIVE_JS}
 <div class="aaj-panel slim" id="today" aria-live="polite">
-<figure class="shrine">{arch(*ART["skandamata"], alt="आज के आराध्य", eager=True).replace('<div class="arch">','<div class="arch" id="today-art">')}<figcaption id="today-cap">जय माता दी</figcaption></figure>
+<figure class="shrine">{arch(*ART["hanuman"], alt="आज के आराध्य", eager=True).replace('<div class="arch">','<div class="arch" id="today-art">')}<figcaption id="today-cap">जय बजरंगबली</figcaption></figure>
 <div class="aaj-txt"><p class="when">आज</p><h2>हनुमान चालीसा</h2><p class="say">रोज़ के पाठ के लिए पूरे बोल और अर्थ।</p></div>
 <div class="actions"><a class="btn gold go" href="hanuman-chalisa.html">पाठ खोलें</a><a class="btn ghost" href="jaap-mala.html">जाप माला</a></div>
 </div>
