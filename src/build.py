@@ -556,6 +556,7 @@ exec(open(os.path.join(os.path.dirname(__file__), "choghadiya_section.py"), enco
 exec(open(os.path.join(os.path.dirname(__file__), "calc_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "live_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "vrat_section.py"), encoding="utf-8").read())
+exec(open(os.path.join(os.path.dirname(__file__), "whatsapp_section.py"), encoding="utf-8").read())
 
 # ---------------- Home ----------------
 ORG = {"@type":"Organization","@id":SITE+"#organization","name":"OmKiran Bhakti","alternateName":["Om Kiran Bhakti","ओमकिरण भक्ति"],"url":SITE,
@@ -645,7 +646,7 @@ for _s in list(PAGES):
 for slug, content in PAGES.items():
     with open(os.path.join(ROOT, slug), "w", encoding="utf-8") as f: f.write(content)
 
-urls = [s for s in PAGES if s != "404.html"]
+urls = [s for s in PAGES if s not in ("404.html", "whatsapp-sandesh.html")]
 prio = {"index.html":"1.0","hanuman-chalisa.html":"0.9","navratri-2026.html":"0.9"}
 sm = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 for s in urls:
