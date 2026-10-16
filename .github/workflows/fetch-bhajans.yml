@@ -12,10 +12,17 @@ jobs:
       - uses: actions/checkout@v4
       - run: pip install -q gdown==5.2.0 && sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null
       - name: Download
-        run: gdown --folder --remaining-ok -O dl "${{ github.event.inputs.drive_url }}"; find dl -type f
+        run: |
+          set +e
+          gdown --folder --remaining-ok -O dl "${{ github.event.inputs.drive_url }}" > /tmp/gdown.log 2>&1
+          echo "exit=$?" >> /tmp/gdown.log
+          find dl -type f -exec ls -la {} \; >> /tmp/gdown.log 2>&1
+          tail -c 20000 /tmp/gdown.log > /tmp/gdown-tail.log
+          exit 0
       - name: Convert
         run: python3 src/prep_bhajans.py dl audio
       - name: Commit
         run: |
           git config user.name "github-actions" && git config user.email "actions@github.com"
           git add audio && git commit -m "Add bhajan audio from Drive" && git push || echo "nothing new"
+          mkdir -p /tmp/lg && cp /tmp/gdown-tail.log /tmp/lg/ && cd /tmp/lg && git init -q && git checkout -q -b bhajan-log && git add . && git -c user.name=bot -c user.email=bot@x commit -qm log && git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" bhajan-log
