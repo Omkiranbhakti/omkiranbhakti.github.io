@@ -42,6 +42,14 @@ LIVE = [
   ART["mata"],("जय अम्बे गौरी",_L.JAI_AMBE_GAURI,"jai-ambe-gauri-aarti.html"),["durga-chalisa.html","saptashloki-durga.html"]),
  ("pavagadh-mahakali","महाकाली माता मंदिर, पावागढ़","पंचमहाल, गुजरात","UCyxo14WjnjBLdCZ1k7YGRbg","Pavagadh Temple","मंदिर की वेबसाइट pavagadhtemple.in इसी चैनल से जुड़ी है",
   ART["mata"],("जय अम्बे गौरी",_L.JAI_AMBE_GAURI,"jai-ambe-gauri-aarti.html"),["kali-chalisa.html","durga-chalisa.html"]),
+ ("srisailam-mallikarjuna","श्री मल्लिकार्जुन ज्योतिर्लिंग","श्रीशैलम, आंध्र प्रदेश","UCNIzL2dT2gZxQae2LHXvl0A","Srisaila Tv","श्रीशैलम देवस्थानम का अपना चैनल ‘श्रीशैल टीवी’, जिस पर रोज़ की सेवाएँ आती हैं",
+  ART["shivaarti"],("ॐ जय शिव ओंकारा",OM_JAI_SHIV_OMKARA,"shiv-aarti-om-jai-shiv-omkara.html"),["dwadash-jyotirlinga-stotram.html","shiv-chalisa.html"]),
+ ("haridwar-ganga-aarti","हर की पौड़ी गंगा आरती","हरिद्वार","UCKi6NnIyqlz3jBqcCQJ4b0A","Shri Ganga Sabha Reg. Haridwar","हर की पौड़ी पर गंगा आरती कराने वाली श्री गंगा सभा का अपना चैनल",
+  ART["shivaarti"],("ॐ जय गंगे माता",__import__("library3").GANGA_AARTI,"ganga-aarti.html"),["ganga-chalisa.html"]),
+ ("varanasi-ganga-aarti","दशाश्वमेध घाट गंगा आरती","वाराणसी","UCNDyYxUskLujzM6X3XVtXXw","Ganga Seva Nidhi","दशाश्वमेध घाट की आरती कराने वाली गंगा सेवा निधि का अपना चैनल",
+  ART["shivaarti"],("ॐ जय गंगे माता",__import__("library3").GANGA_AARTI,"ganga-aarti.html"),["ganga-chalisa.html"]),
+ ("golden-temple-amritsar","श्री हरमंदिर साहिब (स्वर्ण मंदिर)","अमृतसर","UCYn6UEtQ771a_OWSiNBoG8w","SGPC, Sri Amritsar","SGPC की आधिकारिक वेबसाइट sgpc.net इसी चैनल का लिंक देती है",
+  ART["shivaarti"],None,[]),
 ]
 def _uu(cid): return "UU" + cid[2:]
 LIVE_JS = '''<script>(function(){[].slice.call(document.querySelectorAll(".ld-player")).forEach(function(p){
@@ -67,6 +75,7 @@ import json as _json, os as _os
 # Our own bhajan MP3s (no ads): {"shiv":[{"t":"title","f":"url"}], "ram":[...], ...}. Empty -> YouTube player fallback.
 AUD = next((_json.load(open(_p, encoding="utf-8")) for _p in ("audio_bhajan.json", "src/audio_bhajan.json") if _os.path.exists(_p)), {})
 def _aud(slug):
+    if slug == "golden-temple-amritsar": return ""
     l = AUD.get(_TEMPLE_BH.get(slug, "shiv")) or AUD.get("_all", [])
     return e(_json.dumps(l, ensure_ascii=False)) if l else ""
 _SHIV = ["vsfjF59qj4Q","Kbe3pbLsg1U","DGsy57lUApA","pn5OODJqmTc","fQiD96yFR6o","sllSUVgfjnw","ZqFztNyxSgU","qCwFf_cCWGM","6vVDsn9R6DM","dZ7iceOQt9Y","JUg809TxgRg","icIEKo5vLjw"]
@@ -78,6 +87,7 @@ def _first(lead, base): return lead + [x for x in base if x not in lead]
 # Hand-picked OmKiran Bhakti tracks for each temple: the temple's own song first, then that deity's bhajans.
 TEMPLE_TRACKS = {
  "mahakaleshwar-ujjain": _first(["axKgdxe7JZE","icIEKo5vLjw"], _SHIV), "kashi-vishwanath-varanasi": _first(["dZ7iceOQt9Y","Kbe3pbLsg1U"], _SHIV),
+ "srisailam-mallikarjuna": _first(["DGsy57lUApA"], _SHIV), "haridwar-ganga-aarti": _SHIV, "varanasi-ganga-aarti": _first(["dZ7iceOQt9Y"], _SHIV), "golden-temple-amritsar": [],
  "kal-bhairav-ujjain": _first(["unfGUJz6D8U","axKgdxe7JZE"], _SHIV), "somnath": _SHIV, "omkareshwar": _first(["C5lE4JA3sKc"], _SHIV),
  "trimbakeshwar": _SHIV, "kedarnath-badrinath": _first(["DGsy57lUApA"], _SHIV),
  "ram-mandir-ayodhya": _RAM, "shirdi-sai-baba": _first(["iUo6Ui1lPMY","96GJOWJFJgA"], _RAM),
@@ -88,6 +98,7 @@ TEMPLE_TRACKS = {
  "iskcon-mayapur": _first(["GtRRHlLc5gQ","P9N1XQzw8CI"], _KRI), "tirupati-balaji": _first(["P9N1XQzw8CI","GtRRHlLc5gQ"], _KRI),
 }
 def _bh(slug):
+    if slug in TEMPLE_TRACKS and not TEMPLE_TRACKS[slug]: return ""
     if slug in TEMPLE_TRACKS: return ",".join(x for x in TEMPLE_TRACKS[slug] if x in V)
     ids = _BH.get(_TEMPLE_BH.get(slug, "shiv"), []) or home_popular
     return ",".join(ids[:12])
@@ -101,7 +112,7 @@ for i, (slug, name, place, cid, cname, note, art, aarti, rel) in enumerate(LIVE)
                        f'<p style="margin-top:1rem"><a class="btn ghost" href="{au}">अर्थ सहित पढ़ें</a></p></div>')
     _cards.append(f'<li><button type="button" class="ld-pick" data-slug="{slug}" data-ch="{cid}" data-name="{e(name)}" data-place="{e(place)}" '
                   f'data-src="{e(cname)}" data-note="{e(note)}" data-a="{akey}" data-bh="{_bh(slug)}" data-aud="{_aud(slug)}" aria-pressed="{"true" if i == 0 else "false"}">'
-                  f'<span class="ld-thumb"><img src="img/live/sm/{slug}.webp" onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/{art[0]}/hqdefault.jpg\'" alt="" loading="lazy" width="320" height="180"></span>'
+                  f'<span class="ld-thumb"><img src="img/live/sm/{slug}.webp" alt="" loading="lazy" width="300" height="300"></span>'
                   f'<strong>{e(name)}</strong><small>{e(place)}</small></button></li>')
 _first = LIVE[0]
 LIVE_ONE_JS = r"""<script>document.addEventListener("DOMContentLoaded",function(){
@@ -125,7 +136,7 @@ picks.forEach(function(b){b.addEventListener("click",function(){pick(b,true);doc
 [].forEach.call(document.querySelectorAll("[data-mode]"),function(b){b.addEventListener("click",function(){play(b.dataset.mode)})});
 var h=(location.hash||"").slice(1),hit=picks.filter(function(p){return p.dataset.slug===h})[0],first=hit||picks[0];pick(first,!!hit);if(hit)document.querySelector(".ld-player").scrollIntoView({block:"start"});
 });</script>"""
-_faqs = [("मंदिरों के लाइव दर्शन कहाँ देखें?", "इसी पेज पर ऊपर से मंदिर चुनें — राम मंदिर अयोध्या, महाकाल उज्जैन, काशी विश्वनाथ, सोमनाथ, ओंकारेश्वर, त्र्यंबकेश्वर, केदारनाथ-बद्रीनाथ, सिद्धिविनायक, वैष्णो देवी, बांके बिहारी, तिरुपति, शिर्डी, खाटू श्याम, दगडूशेठ गणपति, इस्कॉन वृंदावन, इस्कॉन मायापुर, अम्बाजी, नैना देवी और पावागढ़ महाकाली का आधिकारिक प्रसारण यहीं चलता है।"),
+_faqs = [("मंदिरों के लाइव दर्शन कहाँ देखें?", "इसी पेज पर ऊपर से मंदिर चुनें — राम मंदिर अयोध्या, महाकाल उज्जैन, काशी विश्वनाथ, सोमनाथ, ओंकारेश्वर, त्र्यंबकेश्वर, केदारनाथ-बद्रीनाथ, सिद्धिविनायक, वैष्णो देवी, बांके बिहारी, तिरुपति, शिर्डी, खाटू श्याम, दगडूशेठ गणपति, इस्कॉन वृंदावन, इस्कॉन मायापुर, अम्बाजी, नैना देवी, पावागढ़ महाकाली, श्रीशैलम मल्लिकार्जुन, हरिद्वार और काशी की गंगा आरती तथा स्वर्ण मंदिर अमृतसर का आधिकारिक प्रसारण यहीं चलता है।"),
          ("लाइव प्रसारण न दिखे तो क्या करें?", "मंदिर आरती और विशेष अवसरों पर लाइव आते हैं। इसलिए पेज खुलते ही उसी मंदिर के चैनल के सबसे नए दर्शन-आरती वीडियो चलते हैं; प्रसारण चल रहा हो तो ‘अभी लाइव देखें’ दबाएँ।"),
          ("क्या ये प्रसारण आधिकारिक हैं?", "हाँ। केवल वही YouTube चैनल लिए गए हैं जिन्हें मंदिर की अपनी वेबसाइट दिखाती है या जो मंदिर ट्रस्ट के नाम से चलते हैं। वीडियो और प्रसारण पूरी तरह मंदिरों के हैं; OmKiran Bhakti उन्हें YouTube के प्लेयर से यहाँ दिखाता है।")]
 add("live-darshan.html", f"लाइव दर्शन — राम मंदिर, महाकाल, खाटू श्याम समेत {len(LIVE)} मंदिर | OmKiran Bhakti",

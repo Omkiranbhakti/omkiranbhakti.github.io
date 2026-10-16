@@ -710,3 +710,9 @@ html.paath-on .verse.dhyan .line{color:#F5B83A}
 .ld-bh{width:220px;max-width:100%;margin:0;flex:none}
 .hl-ctrl{grid-template-columns:minmax(0,1fr) 260px}
 @media (max-width:900px){.hl-ctrl{grid-template-columns:minmax(0,1fr)}.hl-bh{max-width:none}}
+/* square temple thumbnails (text is on the image) */
+.ld-thumb{aspect-ratio:1/1}
+.hl-grid img{aspect-ratio:1/1}
+@media (min-width:901px){.hl-live:not(.playing) .hl-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:.4rem}}
+@media (max-width:900px){.hl-grid{grid-auto-columns:34%}.hl-live.playing .hl-grid{grid-auto-columns:28%}}
+.hl-live.playing .hl-grid{grid-auto-columns:minmax(0,13%)}
