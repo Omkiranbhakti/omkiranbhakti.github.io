@@ -716,3 +716,31 @@ html.paath-on .verse.dhyan .line{color:#F5B83A}
 @media (min-width:901px){.hl-live:not(.playing) .hl-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:.4rem}}
 @media (max-width:900px){.hl-grid{grid-auto-columns:34%}.hl-live.playing .hl-grid{grid-auto-columns:28%}}
 .hl-live.playing .hl-grid{grid-auto-columns:minmax(0,13%)}
+/* live chip: moving dot to draw attention */
+.lv-dot{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:#e01e1e;margin-right:.45rem;vertical-align:.05em;animation:hlp 1.2s infinite}
+.live-chip[aria-pressed="true"] .lv-dot{background:#fff}
+.live-chip{animation:lvnudge 3.5s ease-in-out infinite}
+@keyframes lvnudge{0%,86%,100%{transform:none}89%{transform:translateX(-2px) rotate(-2deg)}92%{transform:translateX(2px) rotate(2deg)}95%{transform:translateX(-1px)}}
+@media (prefers-reduced-motion:reduce){.live-chip,.lv-dot{animation:none}}
+/* one-line aarti under the darshan window */
+.ld-aline,.hl-aline{display:block;margin:.55rem 0 0;font-size:.95rem}
+.ld-aline summary{cursor:pointer;list-style:none;padding:.45rem .8rem;border:1px solid var(--chandan);border-radius:999px;display:inline-block;background:var(--paper-2)}
+.ld-aline summary::-webkit-details-marker{display:none}
+.ld-aline[open] summary{margin-bottom:.5rem}
+.ld-aline .lyrics{max-height:55vh;overflow:auto;padding:.4rem .2rem}
+.hl-aline{color:var(--gold-hi,#f6d27a)}
+.hl-aline[hidden],.ld-aline[hidden]{display:none}
+/* OmKiran welcome card with small muted video */
+.ok-card{display:flex;align-items:center;gap:.8rem;margin-top:.7rem;padding:.6rem;border-radius:var(--r-m);background:linear-gradient(135deg,#2a1206,#160a14);box-shadow:inset 0 0 0 1px rgba(246,210,122,.4);color:#fff4dc}
+.ok-yt{position:relative;flex:none;width:200px;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#100E2A}
+.ok-yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ok-msg{min-width:0}
+.ok-msg b{display:block;color:#ffd54a;font-size:1rem}
+.ok-msg p{margin:.15rem 0 .45rem;font-size:.86rem;opacity:.9;color:#fff4dc}
+.ok-sub{display:inline-block;background:#e01e1e;color:#fff!important;font-weight:700;padding:.38rem .9rem;border-radius:999px;text-decoration:none;font-size:.88rem}
+.ok-sub:hover{background:#c41212}
+.bh-aud{margin-top:.6rem}
+.hl-modes{margin-top:.6rem}
+#hl-bh{width:200px}
+@media (max-width:480px){.ok-card{flex-wrap:wrap}.ok-yt{width:100%;max-width:260px}}
+@media (max-width:900px){.hl-live.playing .hl-grid{grid-auto-columns:26%}}

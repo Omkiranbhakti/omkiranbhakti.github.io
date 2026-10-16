@@ -108,8 +108,8 @@ for i, (slug, name, place, cid, cname, note, art, aarti, rel) in enumerate(LIVE)
     if aarti and akey not in _seen:
         _seen[akey] = len(_seen)
         at, verses, au = aarti
-        _aartis.append(f'<div class="ld-aarti" data-a="{akey}" hidden><h3>{e(at)}</h3><div class="lyrics">{lyrics_body(verses)}</div>'
-                       f'<p style="margin-top:1rem"><a class="btn ghost" href="{au}">अर्थ सहित पढ़ें</a></p></div>')
+        _aartis.append(f'<div class="ld-aarti" data-a="{akey}" data-t="{e(at)}" hidden><div class="lyrics">{lyrics_body(verses)}</div>'
+                       f'<p style="margin-top:.6rem"><a class="btn ghost" href="{au}">अर्थ सहित पढ़ें</a></p></div>')
     _cards.append(f'<li><button type="button" class="ld-pick" data-slug="{slug}" data-ch="{cid}" data-name="{e(name)}" data-place="{e(place)}" '
                   f'data-src="{e(cname)}" data-note="{e(note)}" data-a="{akey}" data-bh="{_bh(slug)}" data-aud="{_aud(slug)}" aria-pressed="{"true" if i == 0 else "false"}">'
                   f'<span class="ld-thumb"><img src="img/live/sm/{slug}.webp" alt="" loading="lazy" width="300" height="300"></span>'
@@ -117,7 +117,7 @@ for i, (slug, name, place, cid, cname, note, art, aarti, rel) in enumerate(LIVE)
 _first = LIVE[0]
 LIVE_ONE_JS = r"""<script>document.addEventListener("DOMContentLoaded",function(){
 var picks=[].slice.call(document.querySelectorAll(".ld-pick")),box=document.querySelector(".ld-frame"),mode="live",cur=null;
-var bh=document.getElementById("ld-bh"),bhw=document.getElementById("ld-bhw");
+var bh=document.getElementById("ld-bh"),bhw={};
 var nm=document.getElementById("ld-name"),src=document.getElementById("ld-src"),aar=[].slice.call(document.querySelectorAll(".ld-aarti"));
 function play(m){mode=m;if(!cur)return;var cid=cur.dataset.ch;
  var u=m==="live"?"https://www.youtube.com/embed/live_stream?channel="+cid+"&autoplay=1&mute=1&rel=0&cc_load_policy=0&iv_load_policy=3":"https://www.youtube.com/embed/videoseries?list=UU"+cid.slice(2)+"&autoplay=1&mute=1&rel=0&cc_load_policy=0&iv_load_policy=3";
@@ -129,7 +129,7 @@ function bhajan(){var au=document.getElementById("ld-aud");if(cur.dataset.aud&&w
  bhw.hidden=false;}
 function pick(b,start){cur=b;picks.forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
  nm.textContent=b.dataset.name+", "+b.dataset.place;src.textContent="स्रोत: मंदिर का आधिकारिक YouTube चैनल “"+b.dataset.src+"” — "+b.dataset.note+"। वीडियो के सभी अधिकार उन्हीं के हैं।";
- aar.forEach(function(a){a.hidden=a.dataset.a!==b.dataset.a});
+ var ta="";aar.forEach(function(a){var on=a.dataset.a===b.dataset.a;a.hidden=!on;if(on)ta=a.dataset.t});var al=document.getElementById("ld-aline");al.hidden=!ta;document.getElementById("ld-atitle").textContent=ta;
  try{history.replaceState(null,"","#"+b.dataset.slug)}catch(e){}
  if(start)play("recent");else{box.innerHTML='<button class="ld-start" type="button"><span>▶ '+b.dataset.name+' — दर्शन शुरू करें</span></button>';box.querySelector(".ld-start").addEventListener("click",function(){play("recent")});}}
 picks.forEach(function(b){b.addEventListener("click",function(){pick(b,true);document.querySelector(".ld-player").scrollIntoView({behavior:"smooth",block:"start"})})});
@@ -141,14 +141,14 @@ _faqs = [("मंदिरों के लाइव दर्शन कहा�
          ("क्या ये प्रसारण आधिकारिक हैं?", "हाँ। केवल वही YouTube चैनल लिए गए हैं जिन्हें मंदिर की अपनी वेबसाइट दिखाती है या जो मंदिर ट्रस्ट के नाम से चलते हैं। वीडियो और प्रसारण पूरी तरह मंदिरों के हैं; OmKiran Bhakti उन्हें YouTube के प्लेयर से यहाँ दिखाता है।")]
 add("live-darshan.html", f"लाइव दर्शन — राम मंदिर, महाकाल, खाटू श्याम समेत {len(LIVE)} मंदिर | OmKiran Bhakti",
     f"राम मंदिर, महाकाल, काशी विश्वनाथ, खाटू श्याम, दगडूशेठ, वैष्णो देवी, बांके बिहारी, इस्कॉन वृंदावन, तिरुपति — {len(LIVE)} मंदिरों के आधिकारिक लाइव दर्शन एक ही पेज पर, साथ में आरती।",
-    band("मंदिरों के लाइव दर्शन", f"भारत के {len(LIVE)} प्रमुख मंदिरों का <strong>आधिकारिक</strong> लाइव प्रसारण एक ही जगह। मंदिर चुनें — दर्शन यहीं चलेगा, और नीचे उसी देवता की आरती साथ में पढ़ें।", "लाइव दर्शन", *ART["shivaarti"], "लाइव दर्शन") +
+    band("मंदिरों के लाइव दर्शन", f"भारत के {len(LIVE)} प्रमुख मंदिरों का <strong>आधिकारिक</strong> लाइव प्रसारण एक ही जगह। मंदिर चुनें — दर्शन यहीं चलेगा, साथ में आरती पढ़ें और भजन सुनें।", "लाइव दर्शन", *ART["shivaarti"], "लाइव दर्शन") +
     f'<section><div class="wrap"><ul class="ld-picks" role="list">{"".join(_cards)}</ul>'
     f'<div class="ld-player"><h2 id="ld-name" class="ld-name">{e(_first[1])}, {e(_first[2])}</h2><div class="ld-frame"></div>'
     '<div class="ld-modes" role="group" aria-label="क्या देखें"><button class="chip" data-mode="recent" aria-pressed="false">दर्शन और आरती</button>'
-    '<button class="chip live-chip" data-mode="live" aria-pressed="false">🔴 अभी लाइव देखें</button></div>'
-    '<p class="ld-hint">दर्शन और वीडियो बिना आवाज़ के चलते हैं, भजन नीचे वाले प्लेयर में बजते हैं। मंदिर की आवाज़ सुननी हो तो दर्शन वाले वीडियो पर 🔇 दबाएँ। शुरुआत में मंदिर के हाल के दर्शन-आरती चलते हैं; प्रसारण चल रहा हो तो ‘अभी लाइव देखें’ दबाएँ।</p>'
-    '<div class="ld-bhw" id="ld-bhw" hidden><h3>भजन साथ में — OmKiran Bhakti</h3><div class="bh-row"><div class="bh-aud" id="ld-aud"></div><div class="ld-bh" id="ld-bh"></div></div></div>'
+    '<button class="chip live-chip" data-mode="live" aria-pressed="false"><span class="lv-dot" aria-hidden="true"></span>अभी लाइव देखें</button></div>'
+    f'<details class="ld-aline" id="ld-aline"><summary>📖 साथ में पढ़ें: <b id="ld-atitle"></b></summary>{"".join(_aartis)}</details>'
+    '<div class="ok-card"><div class="ok-yt" id="ld-bh"></div><div class="ok-msg"><b>🙏 OmKiran Bhakti में आपका स्वागत है</b><p>दर्शन के साथ हमारे भजन सुनिए। रोज़ नए भजन, आरती और मंत्र के लिए चैनल से जुड़िए।</p><a class="ok-sub" href="https://www.youtube.com/@OmKiranBhakti?sub_confirmation=1" target="_blank" rel="noopener">▶ Subscribe करें</a></div></div>'
+    '<div class="bh-aud" id="ld-aud"></div>'
     '<p class="note" id="ld-src"></p></div></div></section>'
-    f'<section class="band"><div class="wrap">{sec_head("दर्शन के साथ आरती पढ़ें")}{"".join(_aartis)}</div></section>'
     + faq_html(_faqs) + LIVE_ONE_JS,
     crumbs="लाइव दर्शन", ld=[faq_ld(_faqs)], active="aarti-mantra.html")
