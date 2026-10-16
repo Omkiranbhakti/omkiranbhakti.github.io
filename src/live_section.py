@@ -45,41 +45,48 @@ def ld_player(cid, title, art):
             '<div class="ld-modes" role="group" aria-label="क्या देखें"><button class="chip" data-mode="live" aria-pressed="false">अभी लाइव</button>'
             '<button class="chip" data-mode="recent" aria-pressed="false">हाल के दर्शन और आरती</button></div>'
             '<p class="ld-hint">अगर मंदिर से अभी प्रसारण नहीं हो रहा है, तो ‘हाल के दर्शन और आरती’ दबाएँ — मंदिर के चैनल के सबसे नए वीडियो चलेंगे।</p></div>')
-def _ttl2(slug):
-    t = PAGES[slug].split("<title>")[1].split("</title>")[0] if slug in PAGES else None
-    return html.unescape(t.split(" | ")[0]) if t else None
-LIVE_PAGES = []
-for slug, name, place, cid, cname, note, art, aarti, rel in LIVE:
-    page_slug = f"live-darshan-{slug}.html"
-    ans = (f"{name}, {place} के <strong>लाइव दर्शन</strong> यहीं देखें। प्रसारण मंदिर के अपने YouTube चैनल <strong>“{e(cname)}”</strong> से है, जो YouTube के प्लेयर में चलता है — "
-           "दर्शन मंदिर का है और व्यू भी उन्हीं के चैनल पर गिने जाते हैं।")
-    rel_li = "".join(f'<li><a href="{u}"><strong>{e(_ttl2(u).split(" — ")[0])}</strong><span>{e(" — ".join(_ttl2(u).split(" — ")[1:]) or "पढ़ें")}</span></a></li>' for u in rel if _ttl2(u))
-    aarti_html = ""
-    if aarti:
+
+# ---- one page for all temples: picker on top, a single player, the matching aarti below ----
+_cards, _aartis, _seen = [], [], {}
+for i, (slug, name, place, cid, cname, note, art, aarti, rel) in enumerate(LIVE):
+    akey = aarti[2] if aarti else ""
+    if aarti and akey not in _seen:
+        _seen[akey] = len(_seen)
         at, verses, au = aarti
-        aarti_html = (f'<section class="band"><div class="wrap">{sec_head(f"दर्शन के साथ पढ़ें — {at}","आरती के समय वीडियो चलाकर साथ में गाएँ")}'
-                      f'<details class="ld-aarti" open><summary>{e(at)} — पूरे बोल</summary><div class="lyrics">{lyrics_body(verses)}</div></details>'
-                      f'<p style="margin-top:1rem"><a class="btn ghost" href="{au}">अर्थ सहित पढ़ें (पाठ मोड)</a></p></div></section>')
-    faqs = [(f"{name} के लाइव दर्शन कहाँ देखें?", f"इसी पेज पर — मंदिर के आधिकारिक YouTube चैनल “{cname}” का प्रसारण यहाँ चलता है। {note}।"),
-            ("लाइव प्रसारण न दिखे तो क्या करें?", "मंदिर हर समय प्रसारण नहीं करता; आरती और विशेष अवसरों पर लाइव आता है। उस समय ‘हाल के दर्शन और आरती’ दबाएँ — चैनल के सबसे नए वीडियो चलेंगे।"),
-            ("क्या यह प्रसारण OmKiran Bhakti का है?", f"नहीं। वीडियो और प्रसारण पूरी तरह मंदिर के चैनल “{cname}” का है; OmKiran Bhakti सिर्फ़ YouTube के प्लेयर से उसे इस पेज पर दिखाता है ताकि भक्त दर्शन के साथ आरती भी पढ़ सकें।")]
-    body = (band(f"{name} लाइव दर्शन", ans, f"{name} लाइव दर्शन", *art, name,
-                 extra='<p class="lede"><a href="live-darshan.html">दूसरे मंदिरों के लाइव दर्शन</a></p>') +
-            f'<section><div class="wrap">{ld_player(cid, name + " लाइव दर्शन", art)}'
-            f'<p class="note">स्रोत: मंदिर का आधिकारिक YouTube चैनल “{e(cname)}” — {e(note)}। वीडियो के सभी अधिकार उन्हीं के हैं।</p></div></section>'
-            + aarti_html +
-            (f'<section><div class="wrap">{sec_head("और पाठ")}<ul class="library">{rel_li}</ul></div></section>' if rel_li else "")
-            + faq_html(faqs) + LIVE_JS)
-    add(page_slug, f"{name} लाइव दर्शन — {place} | OmKiran Bhakti" if len(f"{name} लाइव दर्शन — {place} | OmKiran Bhakti") <= 95 else f"{name} लाइव दर्शन | OmKiran Bhakti",
-        f"{name} ({place}) के लाइव दर्शन और आरती — मंदिर के आधिकारिक YouTube चैनल से, साथ में आरती के पूरे बोल पढ़ें।"[:160],
-        body, crumbs=f"{name} लाइव दर्शन", ld=[faq_ld(faqs)], active="aarti-mantra.html")
-    LIVE_PAGES.append((page_slug, name, place, art))
-grid = "".join(f'<li><a href="{s}">{arch(*a, alt="")}<div><strong>{e(n)}</strong><span>{e(p)}</span></div></a></li>' for s, n, p, a in LIVE_PAGES)
-_faqs = [("मंदिरों के लाइव दर्शन कहाँ देखें?", "इस पेज से मंदिर चुनें — राम मंदिर अयोध्या, महाकाल उज्जैन, काशी विश्वनाथ, सोमनाथ, सिद्धिविनायक, वैष्णो देवी, बांके बिहारी, तिरुपति और शिर्डी समेत 12 मंदिरों का आधिकारिक प्रसारण यहीं चलता है।"),
-         ("क्या ये प्रसारण आधिकारिक हैं?", "हाँ, हमने केवल वही YouTube चैनल लिए हैं जिन्हें मंदिर की अपनी वेबसाइट दिखाती है या जो मंदिर ट्रस्ट के नाम से चलते हैं। नकली ‘लाइव’ चैनल शामिल नहीं किए गए।")]
+        _aartis.append(f'<div class="ld-aarti" data-a="{akey}" hidden><h3>{e(at)}</h3><div class="lyrics">{lyrics_body(verses)}</div>'
+                       f'<p style="margin-top:1rem"><a class="btn ghost" href="{au}">अर्थ सहित पढ़ें</a></p></div>')
+    _cards.append(f'<li><button type="button" class="ld-pick" data-slug="{slug}" data-ch="{cid}" data-name="{e(name)}" data-place="{e(place)}" '
+                  f'data-src="{e(cname)}" data-note="{e(note)}" data-a="{akey}" aria-pressed="{"true" if i == 0 else "false"}">'
+                  f'<span class="ld-thumb"><img src="img/live/{slug}.webp" onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/{art[0]}/hqdefault.jpg\'" alt="" loading="lazy" width="320" height="180"></span>'
+                  f'<strong>{e(name)}</strong><small>{e(place)}</small></button></li>')
+_first = LIVE[0]
+LIVE_ONE_JS = r"""<script>(function(){
+var picks=[].slice.call(document.querySelectorAll(".ld-pick")),box=document.querySelector(".ld-frame"),mode="live",cur=null;
+var nm=document.getElementById("ld-name"),src=document.getElementById("ld-src"),aar=[].slice.call(document.querySelectorAll(".ld-aarti"));
+function play(m){mode=m;if(!cur)return;var cid=cur.dataset.ch;
+ var u=m==="live"?"https://www.youtube.com/embed/live_stream?channel="+cid+"&autoplay=1&rel=0":"https://www.youtube.com/embed/videoseries?list=UU"+cid.slice(2)+"&autoplay=1&rel=0";
+ box.innerHTML='<iframe src="'+u+'" title="'+cur.dataset.name+' लाइव दर्शन" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+ [].forEach.call(document.querySelectorAll("[data-mode]"),function(b){b.setAttribute("aria-pressed",b.dataset.mode===m?"true":"false")});}
+function pick(b,start){cur=b;picks.forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
+ nm.textContent=b.dataset.name+", "+b.dataset.place;src.textContent="स्रोत: मंदिर का आधिकारिक YouTube चैनल “"+b.dataset.src+"” — "+b.dataset.note+"। वीडियो के सभी अधिकार उन्हीं के हैं।";
+ aar.forEach(function(a){a.hidden=a.dataset.a!==b.dataset.a});
+ try{history.replaceState(null,"","#"+b.dataset.slug)}catch(e){}
+ if(start)play("live");else{box.innerHTML='<button class="ld-start" type="button"><span>▶ '+b.dataset.name+' — लाइव दर्शन शुरू करें</span></button>';box.querySelector(".ld-start").addEventListener("click",function(){play("live")});}}
+picks.forEach(function(b){b.addEventListener("click",function(){pick(b,true);document.querySelector(".ld-player").scrollIntoView({behavior:"smooth",block:"start"})})});
+[].forEach.call(document.querySelectorAll("[data-mode]"),function(b){b.addEventListener("click",function(){play(b.dataset.mode)})});
+var h=(location.hash||"").slice(1),first=picks.filter(function(p){return p.dataset.slug===h})[0]||picks[0];pick(first,false);
+})();</script>"""
+_faqs = [("मंदिरों के लाइव दर्शन कहाँ देखें?", "इसी पेज पर ऊपर से मंदिर चुनें — राम मंदिर अयोध्या, महाकाल उज्जैन, काशी विश्वनाथ, सोमनाथ, ओंकारेश्वर, त्र्यंबकेश्वर, केदारनाथ-बद्रीनाथ, सिद्धिविनायक, वैष्णो देवी, बांके बिहारी, तिरुपति और शिर्डी का आधिकारिक प्रसारण यहीं चलता है।"),
+         ("लाइव प्रसारण न दिखे तो क्या करें?", "मंदिर आरती और विशेष अवसरों पर लाइव आते हैं। उस समय ‘हाल के दर्शन और आरती’ दबाएँ — उसी मंदिर के चैनल के सबसे नए वीडियो चलेंगे।"),
+         ("क्या ये प्रसारण आधिकारिक हैं?", "हाँ। केवल वही YouTube चैनल लिए गए हैं जिन्हें मंदिर की अपनी वेबसाइट दिखाती है या जो मंदिर ट्रस्ट के नाम से चलते हैं। वीडियो और प्रसारण पूरी तरह मंदिरों के हैं; OmKiran Bhakti उन्हें YouTube के प्लेयर से यहाँ दिखाता है।")]
 add("live-darshan.html", "लाइव दर्शन — राम मंदिर, महाकाल, काशी विश्वनाथ, सोमनाथ और 12 मंदिर | OmKiran Bhakti",
-    "राम मंदिर अयोध्या, महाकाल उज्जैन, काशी विश्वनाथ, सोमनाथ, सिद्धिविनायक, वैष्णो देवी, बांके बिहारी, तिरुपति, शिर्डी — 12 मंदिरों के आधिकारिक लाइव दर्शन एक जगह, साथ में आरती।",
-    band("मंदिरों के लाइव दर्शन", "भारत के प्रमुख मंदिरों का <strong>आधिकारिक</strong> लाइव प्रसारण एक जगह। हर प्रसारण मंदिर के अपने YouTube चैनल से है; मंदिर चुनें और दर्शन के साथ आरती भी पढ़ें।", "लाइव दर्शन", *ART["shivaarti"], "लाइव दर्शन") +
-    f'<section><div class="wrap"><ul class="paath">{grid}</ul>'
-    '<p class="note">केवल आधिकारिक चैनल शामिल हैं — जिनसे मंदिर की अपनी वेबसाइट जुड़ी है या जो मंदिर ट्रस्ट के नाम से चलते हैं। प्रसारण का समय मंदिर तय करता है।</p></div></section>' + faq_html(_faqs),
+    "राम मंदिर अयोध्या, महाकाल उज्जैन, काशी विश्वनाथ, सोमनाथ, सिद्धिविनायक, वैष्णो देवी, बांके बिहारी, तिरुपति, शिर्डी — 12 मंदिरों के आधिकारिक लाइव दर्शन एक ही पेज पर, साथ में आरती।",
+    band("मंदिरों के लाइव दर्शन", "भारत के 12 प्रमुख मंदिरों का <strong>आधिकारिक</strong> लाइव प्रसारण एक ही जगह। मंदिर चुनें — दर्शन यहीं चलेगा, और नीचे उसी देवता की आरती साथ में पढ़ें।", "लाइव दर्शन", *ART["shivaarti"], "लाइव दर्शन") +
+    f'<section><div class="wrap"><ul class="ld-picks" role="list">{"".join(_cards)}</ul>'
+    f'<div class="ld-player"><h2 id="ld-name" class="ld-name">{e(_first[1])}, {e(_first[2])}</h2><div class="ld-frame"></div>'
+    '<div class="ld-modes" role="group" aria-label="क्या देखें"><button class="chip" data-mode="live" aria-pressed="false">अभी लाइव</button>'
+    '<button class="chip" data-mode="recent" aria-pressed="false">हाल के दर्शन और आरती</button></div>'
+    '<p class="ld-hint">मंदिर से अभी प्रसारण न हो रहा हो तो ‘हाल के दर्शन और आरती’ दबाएँ।</p><p class="note" id="ld-src"></p></div></div></section>'
+    f'<section class="band"><div class="wrap">{sec_head("दर्शन के साथ आरती पढ़ें")}{"".join(_aartis)}</div></section>'
+    + faq_html(_faqs) + LIVE_ONE_JS,
     crumbs="लाइव दर्शन", ld=[faq_ld(_faqs)], active="aarti-mantra.html")
