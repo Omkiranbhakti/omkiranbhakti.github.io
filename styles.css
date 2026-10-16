@@ -661,3 +661,5 @@ html.paath-on .verse.dhyan .line{color:#F5B83A}
 .hl-grid{margin-block:auto}
 .hl-note{margin:.6rem 0 0;color:var(--cream);opacity:.8;font-size:.88rem}
 @media (max-width:900px){.hl-note{display:none}}
+.hl-grid{min-width:0;max-width:100%}
+.hl-grid a{position:relative}
