@@ -530,6 +530,7 @@ exec(open(os.path.join(os.path.dirname(__file__), "library_section.py"), encodin
 exec(open(os.path.join(os.path.dirname(__file__), "kaal_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "choghadiya_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "calc_section.py"), encoding="utf-8").read())
+exec(open(os.path.join(os.path.dirname(__file__), "live_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "vrat_section.py"), encoding="utf-8").read())
 
 # ---------------- Home ----------------
@@ -550,7 +551,7 @@ _hot = [x for x in _hot if x[0] >= TODAY_D]
 hot_html = ('<section class="hot"><div class="wrap"><h2 class="hot-h">अपने शहर का समय देखें</h2><ul class="hot-list">' +
             "".join(f'<li><a href="{h}"><strong>{e(t)}</strong><span>{hdate_w(d)}</span></a></li>' for d, h, t in _hot) +
             '</ul><p style="text-align:center;margin:1rem 0 0"><a href="tyohar-kab-hai.html">एकादशी, पूर्णिमा, हर त्योहार — सभी ‘कब है’ सवालों के जवाब</a></p></div></section>') if _hot else ""
-_tools = [("aaj-ka-choghadiya.html","आज का चौघड़िया","65 शहरों का शुभ समय"),("janm-tithi-rashi-calculator.html","जन्म तिथि और राशि कैलकुलेटर","नाम अक्षर, नक्षत्र, तिथि वाला जन्मदिन")] + [(h, t, sub) for h, t, sub in KAAL_PAGES if h in ("panchak-kab-hai.html","bhadra-kaal.html","kharmas-kab-hai.html","gandmool-nakshatra.html")]
+_tools = [("live-darshan.html","मंदिरों के लाइव दर्शन","राम मंदिर, महाकाल, काशी, सोमनाथ और 8 मंदिर"),("aaj-ka-choghadiya.html","आज का चौघड़िया","65 शहरों का शुभ समय"),("janm-tithi-rashi-calculator.html","जन्म तिथि और राशि कैलकुलेटर","नाम अक्षर, नक्षत्र, तिथि वाला जन्मदिन")] + [(h, t, sub) for h, t, sub in KAAL_PAGES if h in ("panchak-kab-hai.html","bhadra-kaal.html","kharmas-kab-hai.html","gandmool-nakshatra.html")]
 tools_html = ('<section class="hot"><div class="wrap"><h2 class="hot-h">रोज़ काम आने वाला</h2><ul class="hot-list">' +
               "".join(f'<li><a href="{h}"><strong>{e(t)}</strong><span>{e(sub)}</span></a></li>' for h, t, sub in _tools) + '</ul></div></section>')
 for _fp in ("aaj-ka-panchang.html", "tyohar-calendar.html"):

@@ -583,3 +583,14 @@ html.paath-on .verse.dhyan .line{color:#F5B83A}
 .jout h3{font-size:1.35rem;margin:0 0 .75rem}
 .jt{min-width:0!important}.jt th{text-align:left;width:38%;vertical-align:top}
 .jt mark{background:var(--genda);color:#1C2350;padding:0 .2rem;border-radius:3px}
+
+/* ---- live darshan ---- */
+.ld-player{max-width:56rem;margin:0 auto}
+.ld-frame{position:relative;aspect-ratio:16/9;background:#100E2A;border-radius:var(--r-l);overflow:hidden;box-shadow:0 0 0 2px var(--gold,#C9A24A)}
+.ld-frame img{width:100%;height:100%;object-fit:cover;opacity:.55}
+.ld-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ld-start{position:absolute;inset:0;margin:auto;width:max-content;height:max-content;background:var(--sindoor);color:#FFF8EE;border:0;border-radius:999px;padding:.9rem 1.5rem;font:inherit;font-weight:600;font-size:1.1rem;cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.ld-start:hover{background:var(--sindoor-deep)}
+.ld-modes{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1rem}
+.ld-hint{text-align:center;font-size:.92rem;color:var(--ink-soft);margin:.6rem 0 0}
+.ld-aarti summary{cursor:pointer;font-weight:600;font-size:1.1rem;padding:.4rem 0}
