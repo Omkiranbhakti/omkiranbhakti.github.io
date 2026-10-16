@@ -744,3 +744,7 @@ html.paath-on .verse.dhyan .line{color:#F5B83A}
 #hl-bh{width:200px}
 @media (max-width:480px){.ok-card{flex-wrap:wrap}.ok-yt{width:100%;max-width:260px}}
 @media (max-width:900px){.hl-live.playing .hl-grid{grid-auto-columns:26%}}
+/* header mark + Samarkan-style wordmark */
+.brand img{width:62px;height:auto;border-radius:0;filter:drop-shadow(0 2px 4px rgba(200,80,0,.25))}
+.brand b{font-family:"Samarkan",var(--display);font-size:1.7rem;letter-spacing:.02em;background:linear-gradient(180deg,#e8590c,#b3200e);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media (max-width:420px){.brand img{width:50px}.brand b{font-size:1.4rem}}
