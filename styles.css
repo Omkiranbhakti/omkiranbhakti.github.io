@@ -831,3 +831,8 @@ section{padding:clamp(1.8rem,4vw,3rem) 0}
   .paath strong{font-size:1.02rem}
   .paath span{font-size:.82rem}
 }
+.brand img{width:96px}
+.brand b{font-size:2rem}
+.brand small{font-size:.82rem}
+@media (max-width:760px){.brand img{width:72px}.brand b{font-size:1.55rem}}
+@media (max-width:380px){.brand img{width:60px}.brand b{font-size:1.35rem}}

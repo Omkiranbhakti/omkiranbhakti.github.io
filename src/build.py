@@ -256,7 +256,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og
 <a class="skip" href="#main">सीधे सामग्री पर जाएँ</a>
 <header class="site-head"><div class="toran" aria-hidden="true"></div>
 <div class="wrap head-row">
-<a class="brand" href="index.html"><img src="assets/mark-168.webp" alt="OmKiran Bhakti" width="84" height="57"><span><b>OmKiran Bhakti</b><small>भजन, आरती, चालीसा और मंत्र</small></span></a>
+<a class="brand" href="index.html"><img src="assets/mark-168.webp" alt="OmKiran Bhakti" width="120" height="82"><span><b>OmKiran Bhakti</b><small>भजन, आरती, चालीसा और मंत्र</small></span></a>
 <nav class="nav" aria-label="मुख्य">{navh}</nav>
 <button class="theme-btn" aria-label="रंग बदलें (दिन/रात)">◐</button>
 <button class="menu-btn" aria-label="मेन्यू" aria-expanded="false">☰</button>
