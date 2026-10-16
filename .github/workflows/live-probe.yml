@@ -1,0 +1,24 @@
+name: Verify temple live darshan sources
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Probe official sites and YouTube
+        run: python src/live_probe.py
+      - name: Save result to branch live-probe
+        run: |
+          mkdir -p /tmp/out && cp live_probe.json /tmp/out/
+          git config user.name "github-actions" && git config user.email "actions@github.com"
+          git checkout --orphan live-probe
+          git rm -rf . >/dev/null
+          cp /tmp/out/live_probe.json .
+          git add live_probe.json && git commit -m "probe result"
+          git push -f origin live-probe
