@@ -9,7 +9,7 @@ from lyrics import HANUMAN_CHALISA, OM_JAI_JAGDISH, JAI_GANESH_DEVA, OM_JAI_SHIV
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://omkiranbhakti.github.io/"
 YT = "https://www.youtube.com/@OmKiranBhakti"
-LOGO = "https://yt3.ggpht.com/v-SABQ87EfZPploVIJ9mR6pumFaiUs0RMrncVYcy0IfrZWA4EQ8MA8agzp_m-TLDq1sh00r5ZA=s256-c-k-c0x00ffffff-no-rj"
+LOGO = "https://omkiranbhakti.github.io/assets/logo-512.png"
 TODAY = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=5, minutes=30)).date().isoformat()
 import hashlib
 def ver(f):
@@ -242,7 +242,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None):
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}">
 <meta property="og:url" content="{url}"><meta property="og:image" content="{LOGO}"><meta property="og:locale" content="hi_IN">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v={CSSV}">
@@ -253,7 +253,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None):
 <a class="skip" href="#main">सीधे सामग्री पर जाएँ</a>
 <header class="site-head"><div class="toran" aria-hidden="true"></div>
 <div class="wrap head-row">
-<a class="brand" href="index.html"><img src="{LOGO}" alt="" width="40" height="40"><span><b>OmKiran Bhakti</b><small>भजन, आरती, चालीसा और मंत्र</small></span></a>
+<a class="brand" href="index.html"><img src="assets/logo-96.webp" alt="OmKiran Bhakti" width="40" height="40"><span><b>OmKiran Bhakti</b><small>भजन, आरती, चालीसा और मंत्र</small></span></a>
 <nav class="nav" aria-label="मुख्य">{navh}</nav>
 <button class="theme-btn" aria-label="रंग बदलें (दिन/रात)">◐</button>
 <button class="menu-btn" aria-label="मेन्यू" aria-expanded="false">☰</button>
