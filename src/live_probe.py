@@ -10,40 +10,15 @@ def get(url, timeout=20):
     except urllib.error.HTTPError as e: return e.code, ""
     except Exception as e: return 0, str(e)[:80]
 C = {
- "khatu-shyam": {"sites": ["https://shrishyammandir.com", "https://www.khatushyamji.org", "https://khatushyam.in", "https://www.shrishyammandirkhatu.com"], "handles": ["@ShriShyamMandirKhatuShyamJi", "@khatushyamjisikar", "@ShriShyamDarshan"], "channels": ["UCQHKI4hRBBk6BraL8VGV5fw"]},
- "dwarkadhish": {"sites": ["https://www.dwarkadhish.org", "https://dwarkadhish.org/live-darshan.php", "https://www.dwarkadhishtemple.org"], "handles": ["@shridwarkadhishmandirofficial", "@shreedwarkadhishjagadmandi8285"], "channels": ["UCBAvMHZO3BIfMMhOK9LMOYQ"]},
- "nathdwara": {"sites": ["https://www.nathdwaratemple.org", "https://nathdwaratemple.org/live-darshan"], "handles": ["user/nathdwaratemple", "@SHRIJIDARSHAN_Nathdwara"], "channels": []},
- "dagdusheth": {"sites": ["https://www.dagdushethganpati.com", "https://www.dagdushethganpati.com/live-darshan", "https://www.dagdushethganpati.com/contact"], "handles": ["@DagdushethGanpati", "@dagdushethhalwaiganpati"], "channels": []},
- "mayapur": {"sites": ["https://www.mayapur.com", "https://mayapur.tv"], "handles": ["@mayapurtvofficial", "@MayapurTV"], "channels": ["UCypj9Vvizo4cCERfDFIG3zw"]},
- "iskcon-vrindavan": {"sites": ["https://www.iskconvrindavan.com", "https://iskconvrindavan.com/live"], "handles": ["@ISKCONVrindavan", "@iskconvrindavanofficial"], "channels": []},
- "prem-mandir": {"sites": ["https://www.jkp.org.in", "https://www.jkp.org.in/live"], "handles": ["@JKPOfficial", "@jkpliterature"], "channels": []},
- "salasar": {"sites": ["https://www.salasarbalaji.org", "https://salasarbalajidham.org", "https://www.salasarbalajimandir.com"], "handles": ["@SalasarBalajiDham", "@salasarbalajimandir"], "channels": []},
- "mehandipur": {"sites": ["https://www.mehandipurbalaji.org", "https://mehandipurbalajitrust.org"], "handles": ["@MehandipurBalajiDham"], "channels": []},
- "mahalaxmi-kolhapur": {"sites": ["https://www.mahalaxmikolhapur.com", "https://mahalaxmikolhapur.com/live-darshan"], "handles": ["@ShriMahalaxmiKolhapur"], "channels": []},
- "ambaji": {"sites": ["https://www.ambajitemple.in", "https://ambajitemple.in/live-darshan"], "handles": ["@ambajitemple", "@ShreeArasuriAmbajiMataDevasthanTrust"], "channels": []},
- "kamakhya": {"sites": ["https://www.maakamakhya.org", "https://kamakhyatemple.org"], "handles": ["@KamakhyaTemple"], "channels": []},
- "pashupatinath": {"sites": ["https://pashupatinathtemple.org", "https://www.pashupatiareadevelopmenttrust.org.np"], "handles": ["@PashupatiAreaDevelopmentTrust", "@pashupatinathlive"], "channels": []},
- "srisailam": {"sites": ["https://www.srisailadevasthanam.org", "https://srisailadevasthanam.org/live-darshan"], "handles": ["@SrisailaTVOfficial", "@srisailadevasthanam"], "channels": []},
- "baidyanath": {"sites": ["https://babadham.org", "https://www.babadham.org/live"], "handles": ["@BabaBaidyanathDham"], "channels": []},
- "grishneshwar": {"sites": ["https://www.grishneshwar.org", "https://grishneshwartemple.org"], "handles": [], "channels": []},
- "bhimashankar": {"sites": ["https://www.bhimashankar.org", "https://bhimashankardevasthan.org"], "handles": [], "channels": []},
- "nageshwar": {"sites": ["https://www.nageshwarjyotirlinga.org"], "handles": [], "channels": []},
- "rameshwaram": {"sites": ["https://rameswaramramanathar.hrce.tn.gov.in"], "handles": [], "channels": []},
- "tuljabhavani": {"sites": ["https://www.shrituljabhavani.org", "https://shrituljabhavani.org/live-darshan"], "handles": ["@ShriTuljabhavaniTemple"], "channels": []},
- "shani-shingnapur": {"sites": ["https://www.shanidev.com", "https://shanishingnapur.org", "https://www.shanishinganapur.com"], "handles": ["@ShaniShingnapur"], "channels": []},
- "guruvayur": {"sites": ["https://guruvayurdevaswom.in", "https://www.guruvayurdevaswom.nic.in"], "handles": ["@GuruvayurDevaswomOfficial"], "channels": []},
- "haridwar-ganga-aarti": {"sites": ["https://www.gangasabha.org", "https://shrigangasabha.org", "https://www.shrigangasabhaharidwar.org"], "handles": ["@ShriGangaSabha", "@shrigangasabhaharidwar"], "channels": []},
- "varanasi-ganga-aarti": {"sites": ["https://www.gangasevanidhi.org", "https://gangaaarti.org"], "handles": ["@GangaSevaNidhi", "@gangasevanidhivaranasi"], "channels": []},
- "pavagadh": {"sites": ["https://pavagadhtemple.in", "https://www.pavagadhtemple.org"], "handles": ["@MahakaliMandirPavagadh"], "channels": []},
- "chintpurni": {"sites": ["https://www.chintpurnitemple.org", "https://maachintpurni.org"], "handles": ["@ChintpurniTemple"], "channels": []},
- "naina-devi": {"sites": ["https://www.srinainadevi.com", "https://nainadevi.org"], "handles": [], "channels": []},
- "sanwariya-seth": {"sites": ["https://www.sanwariyaseth.org", "https://sanwaliyaseth.org"], "handles": ["@ShriSanwaliyaSethMandir"], "channels": []},
- "kal-bhairav-ujjain": {"sites": [], "handles": ["@KaalBhairavUjjain"], "channels": []},
- "radha-raman": {"sites": ["https://www.radharamanmandir.com", "https://radharaman.org"], "handles": ["@RadhaRamanMandir"], "channels": []},
- "jagannath-puri": {"sites": ["https://www.shreejagannatha.in", "https://shreejagannatha.in/live"], "handles": ["@ShreeJagannathaTemple"], "channels": []},
- "hanumangarhi": {"sites": ["https://www.hanumangarhi.org"], "handles": [], "channels": []},
- "kainchi-dham": {"sites": [], "handles": ["@KainchiDhamOfficial"], "channels": []},
- "golden-temple": {"sites": ["https://sgpc.net"], "handles": ["@SGPCSriAmritsar"], "channels": []},
+ "srisailam": {"sites": ["https://www.srisailadevasthanam.org/en-in/home"], "handles": ["srisailatv", "c/srisailatv"], "channels": []},
+ "haridwar-ganga-aarti": {"sites": [], "handles": ["c/ShriGangaSabhaRegHaridwar"], "channels": []},
+ "varanasi-ganga-aarti": {"sites": [], "handles": [], "channels": ["UCNDyYxUskLujzM6X3XVtXXw"]},
+ "golden-temple": {"sites": [], "handles": ["c/SGPCAmritsar-official"], "channels": ["UCYn6UEtQ771a_OWSiNBoG8w"]},
+ "dwarkadhish": {"sites": [], "handles": [], "channels": ["UCBAvMHZO3BIfMMhOK9LMOYQ"]},
+ "nathdwara": {"sites": [], "handles": [], "channels": ["UCsXwdvZigny0t_d0TBIeHVA"]},
+ "guruvayur": {"sites": [], "handles": [], "channels": ["UCgYLLt5Drs2Scd-J--JqDzQ"]},
+ "mehandipur": {"sites": [], "handles": [], "channels": ["UCROq4qiZoivt1oZjGFR_EsQ", "UCs3IeKoxt-RFDI2qzp1oGFA"]},
+ "mahakal-old": {"sites": [], "handles": [], "channels": []},
 }
 def site_links(url):
     s, b = get(url)
@@ -70,7 +45,7 @@ def chan(cid):
     lv = re.search(r'<link rel="canonical" href="https://www.youtube.com/watch\?v=([\w-]{11})"', b2)
     return cid, {"status": s, "title": title.group(1) if title else None, "subs": subs.group(1) if subs else None,
                  "streams_found": len(vids), "live_badges": len(live), "live_now": '"isLiveNow":true' in b2, "live_video": lv.group(1) if lv else None,
-                 "recent": [{"id": v, **oembed(v)} for v in vids[:2]]}
+                 "recent": [{"id": v, **oembed(v)} for v in vids[:4]]}
 out = {}
 with ThreadPoolExecutor(12) as ex:
     sites = dict(ex.map(site_links, [u for c in C.values() for u in c["sites"]]))
