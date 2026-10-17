@@ -1,0 +1,32 @@
+== https://api.counterapi.dev/v1/omkiranbhakti-site/visits/
+{"code":"410","deprecated":true,"docs":"https://docs.counterapi.dev/api/endpoints/v2/","message":"This API version (v1) is deprecated and no longer available. Please migrate to v2."}
+HTTP 410
+
+COUNT omkiranbhakti.github.io: 0
+== https://abacus.jasoncameron.dev/info/omkiranbhakti-site/visits
+{"exists":false,"expires_in":-2e-09,"expires_str":"-2ns","full_key":"K:omkiranbhakti-site:visits","is_genuine":true,"value":-1}
+HTTP 200
+
+COUNT omkiranbhakti.github.io: 0
+== https://www.bing.com/search?q=site%3Aomkiranbhakti.github.io&count=50
+<!DOCTYPE html><html dir="ltr" lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:Web="http://schemas.live.com/Web/"><script type="text/javascript" nonce="f/Xb1az+BP3iknny1wOOckAQEe0rrsHQ47qWCS+iRnY=" >"use strict";//<![CDATA[
+window.si_ST=new Date
+//]]></script><head><!--pc--><title>site:omkiranbhakti.github.io - Search</title><meta content="text/html; charset=utf-8" http-equiv="content-type" /><meta name="referrer" content="origin-when-cross-origin" /><meta property="og:description" content="Intelligent search from Bing makes it easier to quickly find what you’re looking for and rewards you." /><meta property="og:site_name" content="Bing" /><meta property="og:title" content="site:omkiranbhakti.github.io - Bing" /><meta property="og:url" content="https://www.bing.com/search?q=site%3Aomkiranbhakti.github.io&amp;count=50" /><meta property="fb:app_id" content="3732605936979161" /><meta property="og:image" content="http://www.bing.com/sa/simg/facebook_sharing_5.png" /><meta property="og:type" content="website" /><meta property="og:image:width" content="600" /><meta property="og:image:height" content="315" /><link rel="alternate"
+                      href="/search?format=rss&amp;q=site%3Aomkiranbhakti.github.io&amp;count=50"title='XML'type='text/xml' /><link rel="alternate"
+                      href="/search?format=rss&amp;q=site%3Aomkiranbhakti.github.io&amp;count=50"title='RSS'type='application/rss+xml' /><link rel="icon"
+                      href="/sa/simg/favicon-trans-bg-blue-mg.ico" /><link rel="preconnect" href="https://r.bing.com" /><link rel="preconnect" href="https://r.bing.com" crossorigin/><link rel="dns-prefetch" href="https://r.bing.com" /><link rel="dns-prefetch" href="https://r.bing.com" crossorigin/><link rel="preconnect" href="https://th.bing.com" /><link rel="preconnect" href="https://th.bing.com" crossorigin/><link rel="dns-prefetch" href="https://th.bing.com" /><link rel="dns-prefetch" href="https://th.bing.com" crossorigin/><script type="text/javascript" nonce="f/Xb1az+BP3iknny1wOOckAQEe0rrsHQ47qWCS+iRnY=">//<![CDATA[
+"use strict";
+window._G={Region:"US",Lang:"en-US",ST:(typeof si_ST!=='undefined'?si_ST:new Date),Mkt:"en-US",RevIpCC:"us",RTL:false,Ver:"42",IG:"032245F72CDA4CE482974B4FFA02D16E",EventID:"6ad373b1dac6453080f6f8e1ab1946d6",MN:"SERP",V:"web",P:"SERP",DA:"MWHE01",CID:"0111D35977A66E610808C4AC76096F68",SUIH:"212MCCCpO-BchXROgzGUKw",adc:"b_ad",EF:{swapphases:1,bmasynctrigger:1,getslctspt:1,clicktodynevent:1,newtabsloppyclick:1,chevroncheckmousemove:1,sharepreview:1,shareoutimage:1,sharefixreadnum:1,clickbackRSAfterOnP1:1,clickbackRSonTopW:1,cbRSHoveronTopW:1,clickbackRSonAdAlgo:1,cbrsmoprssup:1,enableClickbackRSInTab:1,isClickbackRSInTab:1,clickbackAjaxRsFlare:1,cbrspablock:1,cbrspanota:1,cbrspaflare:1,cbRSOnAnswer:1,cbrsAnswerHover:1,cbRSOnAnswerFlare:1,cbrsEndAjaxFlare:1,cbRSInLastMLTA:1,cbRSInLastMLTAFlare:1,cbRSBelowMLTA:1,cbRSInFirstAlgo:1,cbRSInFirstAlgoFlare:1,renderCBRSInFirstAlgo:1,cbr
+COUNT omkiranbhakti.github.io: 0
+== https://duckduckgo.com/html/?q=site%3Aomkiranbhakti.github.io
+<html>
+<head><title>302 Found</title></head>
+<body>
+<center><h1>302 Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+
+HTTP 302
+
+COUNT omkiranbhakti.github.io: 0
