@@ -25,6 +25,8 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [दिवाली 2026 लक्ष्मी पूजा मुहूर्त — आपके शहर का शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/diwali-lakshmi-puja-muhurat.html)
 - [छठ पूजा 2026 अर्घ्य का समय — पटना, दिल्ली और शहरवार | OmKiran Bhakti](https://omkiranbhakti.github.io/chhath-puja-arghya-time.html)
 - [नवरात्रि 2026 अष्टमी-नवमी कब है? क्या एक साथ हैं, संधि पूजा का समय | OmKiran Bhakti](https://omkiranbhakti.github.io/navratri-ashtami-navami-kab-hai.html)
+- [अष्टमी कब है 2026? दुर्गा अष्टमी की तारीख़, कन्या पूजन और संधि पूजा का समय (Durga Ashtami) | OmKiran Bhakti](https://omkiranbhakti.github.io/durga-ashtami-kab-hai.html)
+- [नवमी कब है 2026? महानवमी की तारीख़, कन्या पूजन, हवन और पारण (Maha Navami) | OmKiran Bhakti](https://omkiranbhakti.github.io/maha-navami-kab-hai.html)
 - [दशहरा 2026 विजय मुहूर्त, रावण दहन का समय — शहरवार | OmKiran Bhakti](https://omkiranbhakti.github.io/dussehra-vijay-muhurat-ravan-dahan.html)
 
 ## Live darshan of temples (official YouTube streams, one page)
@@ -217,7 +219,7 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [गणेश चतुर्थी 2027 कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/ganesh-chaturthi-kab-hai.html)
 - [अनंत चतुर्दशी (गणेश विसर्जन) 2027 कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/anant-chaturdashi-kab-hai.html)
 - [शारदीय नवरात्रि (घटस्थापना) 2026 / 2027 कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/sharadiya-navratri-kab-hai.html)
-- [दशहरा (विजयादशमी) 2026 / 2027 कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/dussehra-kab-hai.html)
+- [दशहरा (विजयादशमी) 2026 / 2027 कब है? तारीख़, तिथि और शुभ समय (Dussehra) | OmKiran Bhakti](https://omkiranbhakti.github.io/dussehra-kab-hai.html)
 - [गोवत्स द्वादशी (वसु बारस) 2026 / 2027 कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/govatsa-dwadashi-kab-hai.html)
 - [छठ नहाय-खाय 2026 / 2027 कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/chhath-nahay-khay-kab-hai.html)
 - [छठ खरना 2026 / 2027 कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti](https://omkiranbhakti.github.io/chhath-kharna-kab-hai.html)

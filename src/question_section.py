@@ -71,6 +71,38 @@ if NAVS:
     CITY_PAGES.append(("navratri-ashtami-navami-kab-hai.html", f"नवरात्रि {Y0}: अष्टमी-नवमी कब है?", "durga-ashtami"))
     HOT_DATES["durga-ashtami"] = n0["ad"]
 
+    # ---- exact-match pages: "अष्टमी कब है" / "नवमी कब है"
+    _rel = ('<p class="lede"><a href="navratri-ashtami-navami-kab-hai.html">अष्टमी-नवमी एक साथ?</a> · <a href="navratri-vrat-ke-niyam.html">नवरात्रि के नियम</a> · '
+            '<a href="durga-chalisa.html">दुर्गा चालीसा</a> · <a href="jai-ambe-gauri-aarti.html">जय अम्बे गौरी</a> · <a href="dussehra-kab-hai.html">दशहरा कब है</a></p>')
+    _same = " इस बार अष्टमी और नवमी एक ही दिन हैं।" if n0["same"] else ""
+    a_ans = (f"{n0['label']} {Y0} में दुर्गा अष्टमी (महाअष्टमी) <strong>{hdate_w(n0['ad'])}</strong> को है। अष्टमी तिथि {_tm(n0['ash'][1])} से {_tm(n0['ash'][2])} तक है।"
+             f"{_same} संधि पूजा {_tm(n0['sandhi'][0])} से {ct12(n0['sandhi'][1])} तक होगी (नई दिल्ली)।")
+    a_faq = [(f"अष्टमी {Y0} कब है?", re.sub("<[^>]+>", "", a_ans)),
+             (f"अष्टमी का कन्या पूजन कब करें?", f"{hdate_w(n0['ad'])} की सुबह, अष्टमी तिथि रहते हुए ({ct12(n0['ash'][2])} से पहले)।"),
+             ("महाअष्टमी पर किस देवी की पूजा होती है?", "माँ महागौरी की — नवदुर्गा का आठवाँ रूप। इसी दिन संधि पूजा और कई घरों में हवन होता है।"),
+             ("कन्या पूजन में कितनी कन्याएँ बुलाएँ?", "2 से 10 साल की 9 कन्याएँ और एक बालक (लांगुर/भैरव)। उन्हें पूरी, हलवा और काले चने खिलाकर उपहार दिए जाते हैं।"),
+             (f"Durga Ashtami {Y0} date?", f"Durga Ashtami {Y0}: {n0['ad'].strftime('%d %B %Y')}. Sandhi puja (New Delhi): {ct12(n0['sandhi'][0])}–{ct12(n0['sandhi'][1])}.")]
+    add("durga-ashtami-kab-hai.html", f"अष्टमी कब है {Y0}? दुर्गा अष्टमी की तारीख़, कन्या पूजन और संधि पूजा का समय (Durga Ashtami) | OmKiran Bhakti",
+        f"दुर्गा अष्टमी {Y0}: {hdate(n0['ad'])}। अष्टमी तिथि का समय, कन्या पूजन मुहूर्त, संधि पूजा का समय और महागौरी पूजा।"[:160],
+        band(f"अष्टमी कब है? दुर्गा अष्टमी {Y0}", a_ans, "अष्टमी कब है", *ART["navdurga"], "दुर्गा अष्टमी", extra=_rel)
+        + f'<section><div class="wrap">{sec_head("महाअष्टमी पर क्या करें")}<ol class="steps"><li>सुबह स्नान करके माँ महागौरी की पूजा करें, लाल चुनरी और नारियल चढ़ाएँ।</li><li>अष्टमी तिथि रहते हुए कन्या पूजन करें: 9 कन्याओं और एक बालक के पैर धोकर, तिलक लगाकर पूरी-हलवा-चने का भोग।</li><li>संधि काल में 108 दीपक और 108 कमल (या फूल) से संधि पूजा करें।</li><li>दुर्गा सप्तशती या दुर्गा चालीसा का पाठ और जय अम्बे गौरी की आरती करें।</li></ol></div></section>'
+        + faq_html(a_faq), crumbs="अष्टमी कब है", ld=[faq_ld(a_faq)], active="tyohar-calendar.html")
+    n_ans = (f"{n0['label']} {Y0} में महानवमी <strong>{hdate_w(n0['nd'])}</strong> को है। नवमी तिथि {_tm(n0['nav'][1])} से {_tm(n0['nav'][2])} तक है।{_same}"
+             f" अगले दिन दशहरा (विजयादशमी) है।")
+    n_faq = [(f"नवमी {Y0} कब है?", re.sub("<[^>]+>", "", n_ans)),
+             ("नवमी का कन्या पूजन कब करें?", f"नवमी तिथि में, {ct12(n0['nav'][1])} के बाद" + (f"; कई परिवार अगले दिन सुबह भी नवमी का कन्या पूजन करते हैं क्योंकि नवमी तिथि {_tm(n0['nav'][2])} तक है।" if n0["same"] else "।")),
+             ("महानवमी पर किस देवी की पूजा होती है?", "माँ सिद्धिदात्री की — नवदुर्गा का नौवाँ रूप। इसी दिन हवन करके नवरात्रि का समापन होता है।"),
+             ("नवरात्रि का व्रत कब खोलें (पारण)?", "जो पूरे नौ दिन व्रत रखते हैं, वे नवमी तिथि समाप्त होने के बाद या दशमी (दशहरे) की सुबह पारण करते हैं; कई परिवार नवमी के हवन और कन्या पूजन के बाद व्रत खोलते हैं।"),
+             (f"Maha Navami {Y0} date?", f"Maha Navami {Y0}: {n0['nd'].strftime('%d %B %Y')}. Navami tithi: {_tm(n0['nav'][1])} to {_tm(n0['nav'][2])}.")]
+    add("maha-navami-kab-hai.html", f"नवमी कब है {Y0}? महानवमी की तारीख़, कन्या पूजन, हवन और पारण (Maha Navami) | OmKiran Bhakti",
+        f"महानवमी {Y0}: {hdate(n0['nd'])}। नवमी तिथि का समय, कन्या पूजन, हवन, सिद्धिदात्री पूजा और नवरात्रि व्रत का पारण।"[:160],
+        band(f"नवमी कब है? महानवमी {Y0}", n_ans, "नवमी कब है", *ART["navdurga"], "महानवमी", extra=_rel)
+        + f'<section><div class="wrap">{sec_head("महानवमी पर क्या करें")}<ol class="steps"><li>माँ सिद्धिदात्री की पूजा करें, तिल और मौसमी फल चढ़ाएँ।</li><li>नवमी तिथि में कन्या पूजन करें, अगर अष्टमी को नहीं किया है।</li><li>हवन करके नवरात्रि का समापन करें: दुर्गा सप्तशती के मंत्रों या ‘ॐ दुं दुर्गायै नमः’ से आहुति दें।</li><li>जौ (खेतरी) और कलश को अगले दिन दशहरे पर सम्मान से विसर्जित करें।</li></ol></div></section>'
+        + faq_html(n_faq), crumbs="नवमी कब है", ld=[faq_ld(n_faq)], active="tyohar-calendar.html")
+    CITY_PAGES.append(("durga-ashtami-kab-hai.html", f"अष्टमी कब है {Y0}?", "durga-ashtami"))
+    CITY_PAGES.append(("maha-navami-kab-hai.html", f"नवमी कब है {Y0}?", "maha-navami"))
+    HOT_DATES["maha-navami"] = n0["nd"]
+
 # ---------- Dussehra: city-wise Vijay muhurat & Ravan dahan ----------
 ds = nxt_fest("dussehra")
 if ds:
