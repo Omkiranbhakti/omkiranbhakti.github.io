@@ -848,3 +848,8 @@ section{padding:clamp(1.8rem,4vw,3rem) 0}
 @media (max-width:380px){.brand img{width:52px}.brand b{font-size:1.2rem}}
 .okb-count{flex-basis:100%;margin:0 0 .3rem;font-size:1.02rem;color:var(--gold-hi,#f6d27a)}
 .okb-count b{font-size:1.15rem;color:#ffd54a}
+.kw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:.8rem}
+.kw-card{background:var(--paper);border:1px solid var(--chandan);border-radius:var(--r-m);padding:.75rem .9rem}
+.kw-card h3{font-size:1.02rem;margin:0 0 .35rem}
+.kw-card p{margin:0;font-size:.88rem;line-height:1.7;color:var(--ink-soft)}
+.kw-card p a{color:inherit}

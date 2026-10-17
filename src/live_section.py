@@ -136,11 +136,16 @@ picks.forEach(function(b){b.addEventListener("click",function(){pick(b,true);doc
 [].forEach.call(document.querySelectorAll("[data-mode]"),function(b){b.addEventListener("click",function(){play(b.dataset.mode)})});
 var h=(location.hash||"").slice(1),hit=picks.filter(function(p){return p.dataset.slug===h})[0],first=hit||picks[0];pick(first,!!hit);if(hit)document.querySelector(".ld-player").scrollIntoView({block:"start"});
 });</script>"""
+_KWFAQ = [("आज के राम मंदिर अयोध्या दर्शन कहाँ देखें?", "इसी पेज पर ‘श्री राम जन्मभूमि मंदिर’ चुनें — श्री राम जन्मभूमि तीर्थ क्षेत्र ट्रस्ट के आधिकारिक चैनल से राम लला के आज के दर्शन और आरती यहीं चलते हैं।"),
+ ("महाकाल भस्म आरती लाइव कहाँ देखें?", "‘श्री महाकालेश्वर ज्योतिर्लिंग’ चुनें। भस्म आरती सुबह लगभग 4 बजे होती है; उस समय मंदिर का प्रसारण ‘अभी लाइव देखें’ से देखें, बाकी समय हाल की भस्म आरती और श्रृंगार दर्शन चलते हैं।"),
+ ("शिरडी साईं बाबा लाइव दर्शन कहाँ देखें?", "‘श्री साईबाबा समाधि मंदिर’ चुनें — श्री साईबाबा संस्थान ट्रस्ट के आधिकारिक चैनल से काकड़ आरती, मध्याह्न आरती और शेज आरती के दर्शन यहीं होते हैं।"),
+ ("खाटू श्याम जी के आज के दर्शन कहाँ देखें?", "‘श्री खाटू श्याम जी’ चुनें — श्री श्याम मंदिर की वेबसाइट से जुड़े चैनल पर रोज़ की श्रृंगार आरती और संध्या आरती आती है।"),
+ ("वैष्णो देवी अटका आरती लाइव कहाँ देखें?", "‘माता वैष्णो देवी’ चुनें — श्राइन बोर्ड के आधिकारिक चैनल से सुबह-शाम की अटका आरती का प्रसारण यहीं चलता है।")]
 _faqs = [("मंदिरों के लाइव दर्शन कहाँ देखें?", "इसी पेज पर ऊपर से मंदिर चुनें — राम मंदिर अयोध्या, महाकाल उज्जैन, काशी विश्वनाथ, सोमनाथ, ओंकारेश्वर, त्र्यंबकेश्वर, केदारनाथ-बद्रीनाथ, सिद्धिविनायक, वैष्णो देवी, बांके बिहारी, तिरुपति, शिर्डी, खाटू श्याम, दगडूशेठ गणपति, इस्कॉन वृंदावन, इस्कॉन मायापुर, अम्बाजी, नैना देवी, पावागढ़ महाकाली, श्रीशैलम मल्लिकार्जुन, हरिद्वार और काशी की गंगा आरती तथा स्वर्ण मंदिर अमृतसर का आधिकारिक प्रसारण यहीं चलता है।"),
          ("लाइव प्रसारण न दिखे तो क्या करें?", "मंदिर आरती और विशेष अवसरों पर लाइव आते हैं। इसलिए पेज खुलते ही उसी मंदिर के चैनल के सबसे नए दर्शन-आरती वीडियो चलते हैं; प्रसारण चल रहा हो तो ‘अभी लाइव देखें’ दबाएँ।"),
          ("क्या ये प्रसारण आधिकारिक हैं?", "हाँ। केवल वही YouTube चैनल लिए गए हैं जिन्हें मंदिर की अपनी वेबसाइट दिखाती है या जो मंदिर ट्रस्ट के नाम से चलते हैं। वीडियो और प्रसारण पूरी तरह मंदिरों के हैं; OmKiran Bhakti उन्हें YouTube के प्लेयर से यहाँ दिखाता है।")]
 add("live-darshan.html", f"लाइव दर्शन — राम मंदिर, महाकाल, खाटू श्याम समेत {len(LIVE)} मंदिर | OmKiran Bhakti",
-    f"राम मंदिर, महाकाल, काशी विश्वनाथ, खाटू श्याम, दगडूशेठ, वैष्णो देवी, बांके बिहारी, इस्कॉन वृंदावन, तिरुपति — {len(LIVE)} मंदिरों के आधिकारिक लाइव दर्शन एक ही पेज पर, साथ में आरती।",
+    f"आज के राम मंदिर अयोध्या दर्शन, महाकाल भस्म आरती लाइव, शिरडी साईं बाबा, खाटू श्याम, वैष्णो देवी, काशी विश्वनाथ, बांके बिहारी — {len(LIVE)} मंदिरों के आधिकारिक लाइव दर्शन एक पेज पर।",
     band("मंदिरों के लाइव दर्शन", f"भारत के {len(LIVE)} प्रमुख मंदिरों का <strong>आधिकारिक</strong> लाइव प्रसारण एक ही जगह। मंदिर चुनें — दर्शन यहीं चलेगा, साथ में आरती पढ़ें और भजन सुनें।", "लाइव दर्शन", "@live-hero", 50, "राम लला, अयोध्या — लाइव दर्शन") +
     f'<section><div class="wrap"><ul class="ld-picks" role="list">{"".join(_cards)}</ul>'
     f'<div class="ld-player"><h2 id="ld-name" class="ld-name">{e(_first[1])}, {e(_first[2])}</h2><div class="ld-frame"></div>'
@@ -150,5 +155,9 @@ add("live-darshan.html", f"लाइव दर्शन — राम मंद�
     '<div class="ok-card"><div class="ok-yt" id="ld-bh"></div><div class="ok-msg"><b>🙏 OmKiran Bhakti में आपका स्वागत है</b><p>दर्शन के साथ हमारे भजन सुनिए। रोज़ नए भजन, आरती और मंत्र के लिए चैनल से जुड़िए।</p><a class="ok-sub" href="https://www.youtube.com/@OmKiranBhakti?sub_confirmation=1" target="_blank" rel="noopener">▶ Subscribe करें</a> <a class="ok-wa" href="https://whatsapp.com/channel/0029Vb8NYJMCXC3MDVIhkB3p" target="_blank" rel="noopener">WhatsApp चैनल</a></div></div>'
     '<div class="bh-aud" id="ld-aud"></div>'
     '<p class="note" id="ld-src"></p></div></div></section>'
-    + faq_html(_faqs) + LIVE_ONE_JS,
-    crumbs="लाइव दर्शन", ld=[faq_ld(_faqs)], active="live-darshan.html", og=SITE + "assets/og-live.jpg")
+    + f'<section class="band"><div class="wrap">{sec_head("लोग ये भी खोजते हैं", "हर मंदिर के आज के दर्शन और आरती — नाम पर दबाएँ, दर्शन यहीं शुरू होगा")}<div class="kw-grid">'
+    + "".join(f'<div class="kw-card"><h3><a href="#{x[0]}" class="kw-go" data-go="{x[0]}">{e(x[1])}</a></h3><p>' + " · ".join(f'<a href="#{x[0]}" class="kw-go" data-go="{x[0]}">{e(k)}</a>' for k in LIVE_KW.get(x[0], [])) + '</p></div>' for x in LIVE)
+    + '</div></div></section>'
+    + faq_html(_faqs + _KWFAQ) + LIVE_ONE_JS
+    + '<script>document.addEventListener("click",function(ev){var a=ev.target.closest(".kw-go");if(!a)return;ev.preventDefault();var b=document.querySelector(\'.ld-pick[data-slug="\'+a.dataset.go+\'"]\');if(b)b.click();});</script>',
+    crumbs="लाइव दर्शन", ld=[faq_ld(_faqs + _KWFAQ)], active="live-darshan.html", og=SITE + "assets/og-live.jpg")

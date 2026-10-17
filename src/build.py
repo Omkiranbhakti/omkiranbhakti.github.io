@@ -554,6 +554,7 @@ exec(open(os.path.join(os.path.dirname(__file__), "library_section.py"), encodin
 exec(open(os.path.join(os.path.dirname(__file__), "kaal_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "choghadiya_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "calc_section.py"), encoding="utf-8").read())
+exec(open(os.path.join(os.path.dirname(__file__), "live_keywords.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "live_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "vrat_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "whatsapp_section.py"), encoding="utf-8").read())
@@ -664,6 +665,9 @@ llms = ["# OmKiran Bhakti","",
  "Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi, purnimanta months; festivals follow their traditional kaal rule (sunrise, pradosh, moonrise, nishita).","",
  "## Upcoming festivals (dates for New Delhi)",*[f"- {html.unescape(n)}: {d.isoformat()} — {SITE}{u}" for d,n,u,w in _up],"",
  "## City-wise festival timings and quick answers",f"- [{html.unescape(titles['tyohar-kab-hai.html'])}]({SITE}tyohar-kab-hai.html)",*[f"- [{html.unescape(titles[h])}]({SITE}{h})" for h,_,_ in CITY_PAGES],"",
+ "## Live darshan of temples (official YouTube streams, one page)",
+ f"- [मंदिरों के लाइव दर्शन — {len(LIVE)} मंदिर]({SITE}live-darshan.html): official live streams and latest aarti of major Indian temples, with aarti lyrics and bhajans",
+ *[f"- [{x[1]}, {x[2]} — लाइव दर्शन]({SITE}live-darshan.html#{x[0]}): " + "; ".join(LIVE_KW.get(x[0], [])) for x in LIVE],"",
  "## Daily tools (updated every day)",f"- [{html.unescape(titles['aaj-ka-choghadiya.html'])}]({SITE}aaj-ka-choghadiya.html): choghadiya, Rahu kaal, Abhijit for 65 Indian cities",
  f"- [{html.unescape(titles['janm-tithi-rashi-calculator.html'])}]({SITE}janm-tithi-rashi-calculator.html): birth tithi, nakshatra, moon sign, naam akshar and next tithi-birthday from a birth date (runs in the browser)",
  *[f"- [{html.unescape(titles[h])}]({SITE}{h})" for h,_,_ in KAAL_PAGES],"",

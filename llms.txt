@@ -27,6 +27,32 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [नवरात्रि 2026 अष्टमी-नवमी कब है? क्या एक साथ हैं, संधि पूजा का समय | OmKiran Bhakti](https://omkiranbhakti.github.io/navratri-ashtami-navami-kab-hai.html)
 - [दशहरा 2026 विजय मुहूर्त, रावण दहन का समय — शहरवार | OmKiran Bhakti](https://omkiranbhakti.github.io/dussehra-vijay-muhurat-ravan-dahan.html)
 
+## Live darshan of temples (official YouTube streams, one page)
+- [मंदिरों के लाइव दर्शन — 23 मंदिर](https://omkiranbhakti.github.io/live-darshan.html): official live streams and latest aarti of major Indian temples, with aarti lyrics and bhajans
+- [श्री राम जन्मभूमि मंदिर, अयोध्या — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#ram-mandir-ayodhya): आज के राम मंदिर अयोध्या दर्शन; राम लला लाइव दर्शन; राम लला आरती लाइव; Ram Mandir Ayodhya live darshan today; Ram Lalla live darshan; Ayodhya live aarti
+- [श्री महाकालेश्वर ज्योतिर्लिंग, उज्जैन — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#mahakaleshwar-ujjain): महाकाल भस्म आरती लाइव; आज के महाकाल दर्शन; महाकाल उज्जैन लाइव दर्शन; Mahakal bhasma aarti live today; Mahakaleshwar Ujjain live darshan; Mahakal shringar darshan today
+- [श्री काशी विश्वनाथ धाम, वाराणसी — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#kashi-vishwanath-varanasi): काशी विश्वनाथ लाइव दर्शन; बाबा विश्वनाथ मंगला आरती लाइव; Kashi Vishwanath live darshan today; Kashi Vishwanath mangla aarti live
+- [श्री सोमनाथ ज्योतिर्लिंग, गिर सोमनाथ, गुजरात — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#somnath): सोमनाथ लाइव दर्शन; सोमनाथ आरती लाइव; Somnath live darshan today; Somnath temple live aarti
+- [श्री ओंकारेश्वर ज्योतिर्लिंग, खंडवा, मध्य प्रदेश — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#omkareshwar): ओंकारेश्वर लाइव दर्शन; Omkareshwar live darshan today; Omkareshwar jyotirlinga live aarti
+- [श्री त्र्यंबकेश्वर ज्योतिर्लिंग, नासिक, महाराष्ट्र — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#trimbakeshwar): त्र्यंबकेश्वर लाइव दर्शन; Trimbakeshwar live darshan today; Trimbakeshwar jyotirlinga live
+- [श्री केदारनाथ और बद्रीनाथ धाम, उत्तराखंड — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#kedarnath-badrinath): केदारनाथ लाइव दर्शन; बद्रीनाथ लाइव दर्शन; Kedarnath live darshan today; Badrinath live darshan; Kedarnath aarti live
+- [श्री सिद्धिविनायक मंदिर, मुंबई — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#siddhivinayak-mumbai): सिद्धिविनायक लाइव दर्शन; Siddhivinayak live darshan today; Siddhivinayak aarti live Mumbai
+- [माता वैष्णो देवी, कटरा, जम्मू-कश्मीर — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#vaishno-devi): वैष्णो देवी लाइव दर्शन; माता वैष्णो देवी अटका आरती लाइव; Vaishno Devi live darshan today; Vaishno Devi atka aarti live; Mata Vaishno Devi live bhawan
+- [श्री बांके बिहारी मंदिर, वृंदावन — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#banke-bihari-vrindavan): बांके बिहारी लाइव दर्शन; आज के बांके बिहारी दर्शन; Banke Bihari live darshan today; Banke Bihari ji ke aaj ke darshan
+- [श्री वेंकटेश्वर (तिरुपति बालाजी), तिरुमला, आंध्र प्रदेश — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#tirupati-balaji): तिरुपति बालाजी लाइव दर्शन; Tirupati Balaji live darshan; Tirumala live darshan today; SVBC live
+- [श्री साईबाबा समाधि मंदिर, शिर्डी — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#shirdi-sai-baba): शिरडी साईं बाबा लाइव दर्शन; साईं धाम लाइव; शिरडी काकड़ आरती लाइव; Shirdi live darshan today; Sai Baba live darshan; Shirdi Sai Baba live aarti
+- [श्री खाटू श्याम जी, खाटू, सीकर (राजस्थान) — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#khatu-shyam): खाटू श्याम लाइव दर्शन; आज के खाटू श्याम दर्शन; खाटू श्याम श्रृंगार आरती लाइव; Khatu Shyam live darshan today; Khatu Shyam ji aaj ke darshan
+- [श्रीमंत दगडूशेठ हलवाई गणपति, पुणे — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#dagdusheth-ganpati-pune): दगडूशेठ गणपति लाइव दर्शन; Dagdusheth Ganpati live darshan; Dagdusheth live aarti Pune
+- [इस्कॉन श्री कृष्ण बलराम मंदिर, वृंदावन — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#iskcon-vrindavan): इस्कॉन वृंदावन लाइव दर्शन; ISKCON Vrindavan live darshan today; Krishna Balaram mandir live
+- [इस्कॉन मायापुर (श्री राधा माधव), मायापुर, पश्चिम बंगाल — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#iskcon-mayapur): इस्कॉन मायापुर लाइव दर्शन; Mayapur live darshan; ISKCON Mayapur live aarti
+- [अम्बाजी माता मंदिर, बनासकांठा, गुजरात — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#ambaji-mata): अम्बाजी लाइव दर्शन; Ambaji temple live darshan today; Ambaji live aarti
+- [माता श्री नैना देवी जी, बिलासपुर, हिमाचल प्रदेश — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#naina-devi): नैना देवी लाइव दर्शन; Naina Devi live darshan today; Naina Devi temple live
+- [महाकाली माता मंदिर, पावागढ़, पंचमहाल, गुजरात — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#pavagadh-mahakali): पावागढ़ महाकाली लाइव दर्शन; Pavagadh live darshan today; Pavagadh Mahakali live
+- [श्री मल्लिकार्जुन ज्योतिर्लिंग, श्रीशैलम, आंध्र प्रदेश — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#srisailam-mallikarjuna): मल्लिकार्जुन ज्योतिर्लिंग लाइव दर्शन; Srisailam live darshan today; Mallikarjuna live darshan
+- [हर की पौड़ी गंगा आरती, हरिद्वार — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#haridwar-ganga-aarti): हर की पौड़ी गंगा आरती लाइव; हरिद्वार गंगा आरती लाइव; Haridwar Ganga aarti live today; Har ki Pauri live aarti
+- [दशाश्वमेध घाट गंगा आरती, वाराणसी — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#varanasi-ganga-aarti): काशी गंगा आरती लाइव; दशाश्वमेध घाट गंगा आरती लाइव; Varanasi Ganga aarti live today; Dashashwamedh ghat aarti live
+- [श्री हरमंदिर साहिब (स्वर्ण मंदिर), अमृतसर — लाइव दर्शन](https://omkiranbhakti.github.io/live-darshan.html#golden-temple-amritsar): स्वर्ण मंदिर लाइव; हरमंदिर साहिब लाइव कीर्तन; Golden Temple live today; Harmandir Sahib live gurbani
+
 ## Daily tools (updated every day)
 - [आज का चौघड़िया — 17 अक्टूबर 2026 शुभ मुहूर्त, राहु काल (65 शहर) | OmKiran Bhakti](https://omkiranbhakti.github.io/aaj-ka-choghadiya.html): choghadiya, Rahu kaal, Abhijit for 65 Indian cities
 - [जन्म तिथि, राशि और नाम अक्षर कैलकुलेटर — जन्म तारीख़ से हिंदू तिथि जानें | OmKiran Bhakti](https://omkiranbhakti.github.io/janm-tithi-rashi-calculator.html): birth tithi, nakshatra, moon sign, naam akshar and next tithi-birthday from a birth date (runs in the browser)
