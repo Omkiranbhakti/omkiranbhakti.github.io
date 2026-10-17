@@ -348,7 +348,7 @@ def hero_card(p):
     fhtml = "".join(f'<li><a href="{u}">{e(n)}</a> <span>{e(w)}</span></li>' for n, w, u in fest) or '<li class="muted">आज कोई बड़ा त्योहार नहीं है</li>'
     adhik = " (अधिक मास)" if p["adhik"] else ""
     return f'''<div class="pcard hero-pc" id="pcard" data-date="{p['date']}">
-<div class="pc-head"><div><h1 class="pc-h1">आज का पंचांग</h1><p class="pc-date"><span data-k="gdate">{hdate_w(day)}</span></p></div>
+<div class="pc-head"><div><h2 class="pc-h1">आज का पंचांग</h2><p class="pc-date"><span data-k="gdate">{hdate_w(day)}</span></p></div>
 <button class="chip share" type="button" data-share>WhatsApp पर भेजें</button></div>
 <p class="pc-tithi"><span data-k="tithi">{p['paksha']} पक्ष {p['tithi']}</span></p>
 <p class="pc-sub"><span data-k="month">{p['month_purnimanta']} मास{adhik}</span>, विक्रम संवत <span data-k="vs">{p['vs']}</span> · <span data-k="tend">{tithi_end_txt(p)}</span></p>
