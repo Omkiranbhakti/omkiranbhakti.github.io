@@ -846,3 +846,5 @@ section{padding:clamp(1.8rem,4vw,3rem) 0}
 .brand b{white-space:nowrap}
 @media (max-width:760px){.brand{gap:.45rem}.brand img{width:62px}.brand b{font-size:1.38rem}.brand small{font-size:.72rem}}
 @media (max-width:380px){.brand img{width:52px}.brand b{font-size:1.2rem}}
+.okb-count{flex-basis:100%;margin:0 0 .3rem;font-size:1.02rem;color:var(--gold-hi,#f6d27a)}
+.okb-count b{font-size:1.15rem;color:#ffd54a}

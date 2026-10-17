@@ -1,6 +1,6 @@
 # OmKiran Bhakti
 
-> Hindi devotional website of the OmKiran Bhakti YouTube channel: 86 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
+> Hindi devotional website of the OmKiran Bhakti YouTube channel: 91 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
 
 Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
 Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi, purnimanta months; festivals follow their traditional kaal rule (sunrise, pradosh, moonrise, nishita).
@@ -28,7 +28,7 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [दशहरा 2026 विजय मुहूर्त, रावण दहन का समय — शहरवार | OmKiran Bhakti](https://omkiranbhakti.github.io/dussehra-vijay-muhurat-ravan-dahan.html)
 
 ## Daily tools (updated every day)
-- [आज का चौघड़िया — 16 अक्टूबर 2026 शुभ मुहूर्त, राहु काल (65 शहर) | OmKiran Bhakti](https://omkiranbhakti.github.io/aaj-ka-choghadiya.html): choghadiya, Rahu kaal, Abhijit for 65 Indian cities
+- [आज का चौघड़िया — 17 अक्टूबर 2026 शुभ मुहूर्त, राहु काल (65 शहर) | OmKiran Bhakti](https://omkiranbhakti.github.io/aaj-ka-choghadiya.html): choghadiya, Rahu kaal, Abhijit for 65 Indian cities
 - [जन्म तिथि, राशि और नाम अक्षर कैलकुलेटर — जन्म तारीख़ से हिंदू तिथि जानें | OmKiran Bhakti](https://omkiranbhakti.github.io/janm-tithi-rashi-calculator.html): birth tithi, nakshatra, moon sign, naam akshar and next tithi-birthday from a birth date (runs in the browser)
 - [पंचक कब है? 2026–2027 पंचक की पूरी लिस्ट, प्रकार और समय | OmKiran Bhakti](https://omkiranbhakti.github.io/panchak-kab-hai.html)
 - [भद्रा कब है? आज की भद्रा, भद्रा का वास और पूरी लिस्ट | OmKiran Bhakti](https://omkiranbhakti.github.io/bhadra-kaal.html)
@@ -120,6 +120,11 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [दशावतार स्तोत्र (प्रलय पयोधि जले) — पूरा पाठ और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/dashavatar-stotram.html)
 - [ऋणमोचन मंगल स्तोत्र — पूरा पाठ और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/rin-mochan-mangal-stotra.html)
 - [दारिद्र्य दहन शिव स्तोत्र — पूरा पाठ और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/daridrya-dahan-shiv-stotra.html)
+- [भवानी अष्टकम् — पूरा पाठ और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/bhavani-ashtakam.html)
+- [श्री हनुमान स्तवन (हनुमन्नमस्कार) — पूरा पाठ और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/hanuman-stavan.html)
+- [विन्ध्येश्वरी माता की आरती — सुन मेरी देवी पर्वतवासनी, बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/vindhyeshwari-aarti.html)
+- [अम्बे तू है जगदम्बे काली — आरती — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/ambe-tu-hai-jagdambe-kali-aarti.html)
+- [शेंदुर लाल चढ़ायो — गणेश आरती — बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/ganesh-aarti-shendur-lal.html)
 - [करवा चौथ व्रत कथा — वीरावती की कहानी, पूजा विधि और चाँद का समय | OmKiran Bhakti](https://omkiranbhakti.github.io/karwa-chauth-vrat-katha.html)
 - [अहोई अष्टमी व्रत कथा — साहूकारनी और स्याहू की कहानी, पूजा विधि | OmKiran Bhakti](https://omkiranbhakti.github.io/ahoi-ashtami-vrat-katha.html)
 - [सोमवार व्रत कथा — शिव जी की कथा, पूजा विधि और नियम | OmKiran Bhakti](https://omkiranbhakti.github.io/somvar-vrat-katha.html)

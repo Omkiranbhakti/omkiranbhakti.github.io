@@ -235,3 +235,17 @@ window.okbAudio=function(box,list){
   setTimeout(function(){w.classList.add('out')},4200);
   setTimeout(function(){box.remove();w.remove()},7600);
 })();
+
+/* Visitor counter (free: abacus.jasoncameron.dev). Counts once per browser session; shows total + today. Hidden if the service is unreachable. */
+(function(){
+  var box=document.getElementById('okb-count');if(!box||!window.fetch)return;
+  var NS='omkiranbhakti-site',d=new Date(Date.now()+(new Date().getTimezoneOffset()+330)*60000);
+  var day='d'+d.getFullYear()+('0'+(d.getMonth()+1)).slice(-2)+('0'+d.getDate()).slice(-2);
+  var seen=false;try{seen=!!sessionStorage.getItem('okbC');sessionStorage.setItem('okbC','1');}catch(e){}
+  var act=seen?'get':'hit',base='https://abacus.jasoncameron.dev/';
+  function g(k){return fetch(base+act+'/'+NS+'/'+k).then(function(r){return r.ok?r.json():{value:0}}).then(function(j){return j.value>0?j.value:0}).catch(function(){return 0})}
+  Promise.all([g('visits'),g(day)]).then(function(v){
+    if(!v[0])return;
+    var f=function(n){return n.toLocaleString('en-IN')};
+    box.innerHTML='🙏 अब तक <b>'+f(v[0])+'</b> भक्त पधारे · आज <b>'+f(v[1])+'</b>';box.hidden=false;});
+})();
