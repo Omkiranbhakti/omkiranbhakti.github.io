@@ -269,8 +269,9 @@ for key, name, month, paksha, n, kaal, off, meaning in RULES:
                  f"<td>{kaal_window(obs_day, kaal) if not off else 'होलिका दहन के अगले दिन'}</td></tr>")
     pk = "शुक्ल" if paksha == "S" else "कृष्ण"
     tname = "पूर्णिमा" if n == 15 else "अमावस्या" if n == 30 else TITHI_HI[n-1]
+    _ek = next((x for x in EKA if x.get("key") == key and x["date"] == nxt["date"]), None)
     ans = (f"{base} {nxt['date'].year} में <strong>{hdate_w(nxt['date'])}</strong> को है"
-           + (f" ({e(nxt['note'])})" if nxt['note'] else "") + f"। यह {month} मास के {pk} पक्ष की {tname} तिथि को {WHEN_S[kaal]} मनाया जाता है।")
+           + (f" ({e(nxt['note'])})" if nxt['note'] else "") + (f"। यह {month} मास के {pk} पक्ष की एकादशी है। व्रत का पारण {(nxt['date']+dt.timedelta(days=1)).day} {MONTHS_HI[(nxt['date']+dt.timedelta(days=1)).month]} को {t12(_ek['parana_from'])} के बाद करें।" if _ek else f"। यह {month} मास के {pk} पक्ष की {tname} तिथि को {WHEN_S[kaal]} मनाया जाता है।"))
     why = {"sunrise":"जिस दिन सूर्योदय के समय यह तिथि हो, उसी दिन त्योहार मनाया जाता है।",
            "pradosh":"इसकी पूजा प्रदोष काल (सूर्यास्त के बाद) में होती है, इसलिए वह दिन लिया जाता है जिस शाम यह तिथि हो।",
            "night":"इसमें चंद्रमा का महत्व है, इसलिए वह दिन लिया जाता है जिस रात चंद्रोदय के समय यह तिथि हो।",
