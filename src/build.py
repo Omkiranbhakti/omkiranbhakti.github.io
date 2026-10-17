@@ -235,6 +235,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og
 <html lang="hi">
 <head>
 <meta charset="utf-8">
+<meta name="msvalidate.01" content="B99325F294693C0D9A94A6EE70C85AFF">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
