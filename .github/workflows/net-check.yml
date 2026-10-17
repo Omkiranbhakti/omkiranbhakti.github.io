@@ -1,0 +1,14 @@
+name: net-check
+on: workflow_dispatch
+permissions: {contents: write}
+jobs:
+  c:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          mkdir o; cd o
+          for u in "https://api.counterapi.dev/v1/omkiranbhakti-site/visits/" "https://abacus.jasoncameron.dev/info/omkiranbhakti-site/visits" "https://www.bing.com/search?q=site%3Aomkiranbhakti.github.io&count=50" "https://duckduckgo.com/html/?q=site%3Aomkiranbhakti.github.io"; do
+            echo "== $u" >> r.txt; curl -sS -m 20 -A "Mozilla/5.0" "$u" -w "\nHTTP %{http_code}\n" 2>&1 | head -c 3000 >> r.txt; echo >> r.txt
+            echo "COUNT omkiranbhakti.github.io: $(curl -sS -m 20 -A 'Mozilla/5.0' "$u" | grep -o 'omkiranbhakti.github.io/[a-z0-9-]*\.html' | sort -u | wc -l)" >> r.txt
+          done
+          git init -q && git checkout -q -b net-check && git add r.txt && git -c user.name=b -c user.email=b@x commit -qm r && git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" net-check
