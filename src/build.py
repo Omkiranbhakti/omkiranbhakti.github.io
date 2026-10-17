@@ -562,10 +562,10 @@ exec(open(os.path.join(os.path.dirname(__file__), "whatsapp_section.py"), encodi
 
 # ---------------- Home ----------------
 ORG = {"@type":"Organization","@id":SITE+"#organization","name":"OmKiran Bhakti","alternateName":["Om Kiran Bhakti","ओमकिरण भक्ति"],"url":SITE,
-       "logo":{"@type":"ImageObject","url":LOGO},"sameAs":[YT,"https://www.facebook.com/omkiranbhakti/","https://www.instagram.com/omkiranbhakti/"],
+       "logo":{"@type":"ImageObject","url":LOGO},"sameAs":[YT,"https://www.youtube.com/channel/UCdSwy5gEveSLf5mfVsQ5luw","https://music.youtube.com/channel/UCdSwy5gEveSLf5mfVsQ5luw","https://www.facebook.com/omkiranbhakti/","https://www.instagram.com/omkiranbhakti/","https://whatsapp.com/channel/0029Vb8NYJMCXC3MDVIhkB3p"],
        "description":"OmKiran Bhakti is a Hindi devotional music channel: bhajans, aartis, chalisas, 108-times mantra jaap and devotional EDM.",
        "knowsAbout":["Hindi bhajan","Aarti","Chalisa","Mantra jaap","Navratri","Hanuman Chalisa"]}
-WEBSITE = {"@type":"WebSite","@id":SITE+"#website","url":SITE,"name":"OmKiran Bhakti","inLanguage":"hi-IN","publisher":{"@id":SITE+"#organization"}}
+WEBSITE = {"@type":"WebSite","@id":SITE+"#website","url":SITE,"name":"OmKiran Bhakti","alternateName":["Om Kiran Bhakti","ओमकिरण भक्ति","OmKiran Bhakti — भजन, आरती, पंचांग"],"inLanguage":"hi-IN","publisher":{"@id":SITE+"#organization"}}
 home_latest = ["Q5_3JBKLNpg","9hzay6Ebzas","fhm1dqyttu0","2yVR5zSaKpc","G99-49Pfs6U","NuWOBRQ9B3Q"]
 home_popular = ["ZswQ9qUMDTs","707iS1Iyv-E","lMHZDM-RRb4","eA6tcqEncoE","woNhYRu376g","rxeMNQ48yWU"]
 deities = [("mata-rani-bhajan.html","माता रानी","शेरावाली, दुर्गा, नवदुर्गा"),("shiv-bhajan.html","शिव","भोलेनाथ, महाकाल"),
