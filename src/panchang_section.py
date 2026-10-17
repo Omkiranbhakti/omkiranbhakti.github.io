@@ -30,8 +30,10 @@ while d <= R_END:
 FEST = find_dates(R_START, R_END)
 SPANS = tithi_spans(R_START - dt.timedelta(days=2), R_END + dt.timedelta(days=3))
 
-WHEN = {"sunrise":"सुबह से (उदया तिथि)","madhyahna":"दोपहर (मध्याह्न) में","aparahna":"दोपहर बाद (अपराह्न) में",
-        "pradosh":"शाम को (प्रदोष काल में)","night":"रात को (चंद्रोदय पर)","nishita":"आधी रात (निशीथ काल) में"}
+WHEN = {"sunrise":"पूरे दिन — सुबह से","madhyahna":"पूजा: दोपहर में","aparahna":"पूजा: दोपहर बाद",
+        "pradosh":"पूजा: शाम को","night":"पूजा: रात में, चाँद निकलने पर","nishita":"पूजा: आधी रात को"}
+
+WHEN_S = {"sunrise":"सुबह से","madhyahna":"दोपहर में","aparahna":"दोपहर बाद","pradosh":"शाम को","night":"रात को चंद्रोदय पर","nishita":"आधी रात को"}
 
 def kaal_window(day, kaal):
     p = DAYS.get(day) or day_panchang(day)
@@ -154,9 +156,10 @@ def upcoming(n=10, from_day=TODAY_D, majors_only=True):
     items.sort()
     return items[:n]
 
+MON_SHORT = {1:"जन",2:"फ़र",3:"मार्च",4:"अप्रै",5:"मई",6:"जून",7:"जुला",8:"अग",9:"सितं",10:"अक्टू",11:"नवं",12:"दिसं"}
 def up_list(items):
     return '<ul class="ulist">' + "".join(
-        f'<li><time datetime="{dd.isoformat()}"><b>{dd.day}</b><span>{MONTHS_HI[dd.month][:3]}</span></time><a href="{u}"><strong>{e(n)}</strong><span>{WD[dd.weekday()]} · {w}</span></a></li>'
+        f'<li><time datetime="{dd.isoformat()}"><b>{dd.day}</b><span>{MON_SHORT[dd.month]}</span></time><a href="{u}"><strong>{e(n)}</strong><span>{WD[dd.weekday()]} · {w}</span></a></li>'
         for dd, n, u, w in items) + '</ul>'
 
 # ---------- Aaj ka panchang page ----------
@@ -250,7 +253,7 @@ for key, name, month, paksha, n, kaal, off, meaning in RULES:
     pk = "शुक्ल" if paksha == "S" else "कृष्ण"
     tname = "पूर्णिमा" if n == 15 else "अमावस्या" if n == 30 else TITHI_HI[n-1]
     ans = (f"{base} {nxt['date'].year} में <strong>{hdate_w(nxt['date'])}</strong> को है"
-           + (f" ({e(nxt['note'])})" if nxt['note'] else "") + f"। यह {month} मास के {pk} पक्ष की {tname} तिथि को {WHEN[kaal]} मनाया जाता है।")
+           + (f" ({e(nxt['note'])})" if nxt['note'] else "") + f"। यह {month} मास के {pk} पक्ष की {tname} तिथि को {WHEN_S[kaal]} मनाया जाता है।")
     why = {"sunrise":"जिस दिन सूर्योदय के समय यह तिथि हो, उसी दिन त्योहार मनाया जाता है।",
            "pradosh":"इसकी पूजा प्रदोष काल (सूर्यास्त के बाद) में होती है, इसलिए वह दिन लिया जाता है जिस शाम यह तिथि हो।",
            "night":"इसमें चंद्रमा का महत्व है, इसलिए वह दिन लिया जाता है जिस रात चंद्रोदय के समय यह तिथि हो।",
@@ -266,7 +269,7 @@ for key, name, month, paksha, n, kaal, off, meaning in RULES:
     if _t and len(_t) > 95: _t = f"{base} ({alias}) {yrs} कब है? तारीख़ और तिथि | OmKiran Bhakti"
     if not _t or len(_t) > 95: _t = f"{base} {yrs} कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti"
     add(f"{key}-kab-hai.html", _t,
-        f"{base} {nxt['date'].year}: {hdate_w(nxt['date'])}। {month} {pk} {tname} — तिथि शुरू और समाप्त होने का समय, {WHEN[kaal]} पूजा का समय (दिल्ली) और महत्व।"[:160],
+        f"{base} {nxt['date'].year}: {hdate_w(nxt['date'])}। {month} {pk} {tname} — तिथि शुरू और समाप्त होने का समय, पूजा का समय (दिल्ली) और महत्व।"[:160],
         f'''{band(f"{base} कब है?", ans, base, *fart, base)}
 <section><div class="wrap">{sec_head(f"{base}: तारीख़ और समय")}<div class="tbl"><table class="ptable"><thead><tr><th>साल</th><th>तारीख़</th><th>तिथि ({pk} {tname})</th><th>पूजा का समय (नई दिल्ली)</th></tr></thead><tbody>{rows}</tbody></table></div>
 <p class="answer" style="margin-top:1.5rem">{e(meaning)}। {why}</p></div></section>
