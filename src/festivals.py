@@ -92,6 +92,8 @@ MINOR_RULES = [
  ("pitru-paksha","पितृ पक्ष आरंभ (पूर्णिमा श्राद्ध)","भाद्रपद","S",15,"aparahna",0,"श्राद्ध पक्ष की शुरुआत"),
  ("sarva-pitru-amavasya","सर्वपितृ अमावस्या","आश्विन","K",30,"aparahna",0,"सभी पितरों के श्राद्ध का अंतिम दिन"),
 ]
+from fest_info import REGIONAL_RULES
+MINOR_RULES = MINOR_RULES + REGIONAL_RULES
 MINOR_KEYS = {r[0] for r in MINOR_RULES}
 RULES = RULES + MINOR_RULES
 

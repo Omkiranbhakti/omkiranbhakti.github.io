@@ -865,3 +865,8 @@ section{padding:clamp(1.8rem,4vw,3rem) 0}
 .qi a:hover .qi-ring,.qi a:focus-visible .qi-ring{transform:translateY(-3px) scale(1.05)}
 @media (max-width:900px){.qi{grid-template-columns:repeat(6,minmax(0,1fr));gap:.9rem .5rem}}
 @media (max-width:480px){.qi{grid-template-columns:repeat(4,minmax(0,1fr))}.qi b{font-size:.78rem}.qi-ring{max-width:68px}}
+/* festival info: puja vidhi steps */
+.steps{max-width:var(--measure);margin:.5rem 0 0;padding:0;list-style:none;counter-reset:st}
+.steps li{counter-increment:st;position:relative;padding:.55rem 0 .55rem 2.6rem;border-bottom:1px dashed rgba(0,0,0,.08);line-height:1.6}
+.steps li::before{content:counter(st);position:absolute;left:0;top:.5rem;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--genda);color:#fff;font-weight:600;display:grid;place-items:center;font-size:.9rem}
+.answer+.answer{margin-top:.9rem}

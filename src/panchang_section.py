@@ -1,6 +1,7 @@
 # Panchang + festival pages. Executed inside build.py's namespace (uses page, add, band, sec_head, video_cards, V, e, SITE ...).
 import datetime as dt, json, os
 from panchang import day_panchang, tithi_spans, tithi_name, lunar_month, moonrise, sunrise_sunset, to_ist, from_ist, EKADASHI_NAME, tithi_index
+from fest_info import INFO, EKA_RULES
 from festivals import find_dates, MONTHS_HI, RULES, tithi_at, MINOR_KEYS
 
 IST_NOW = dt.datetime.now(dt.timezone.utc).replace(tzinfo=None) + dt.timedelta(hours=5, minutes=30)
@@ -78,6 +79,12 @@ for tgt, pk in ((10, "S"), (25, "K")):
         nx = pick + dt.timedelta(days=1)
         EKA.append({"date": pick, "name": f"{name} एकादशी", "month": pu, "paksha": "शुक्ल" if pk=="S" else "कृष्ण",
                     "start": s0, "end": e0, "parana_from": DAYS.get(nx, day_panchang(nx))["sunrise"]})
+EKA_KEY = {(m, pk): k for k, nm, m, pk, n, kl, off, mean in EKA_RULES}
+EKA_KEY.update({("मार्गशीर्ष","S"): "gita-jayanti", ("कार्तिक","S"): "dev-uthani-ekadashi"})
+EKA_RULE = {r[0]: r for r in EKA_RULES}
+for x in EKA:
+    x["key"] = EKA_KEY.get((x["month"], "S" if x["paksha"] == "शुक्ल" else "K")) if x["name"] not in ("पद्मिनी एकादशी", "परमा एकादशी") else None
+    if x["key"] in EKA_RULE: x["name"] = EKA_RULE[x["key"]][1].split(" (")[0]
 EKA.sort(key=lambda x: x["date"])
 # Parana should end with dwadashi
 for x in EKA:
@@ -92,7 +99,7 @@ def addf(day, name, when, url):
     DAYFEST.setdefault(day, []).append((name, when, url))
 for key, occ in FEST.items():
     for x in occ: addf(x["date"], x["name"], WHEN[x["kaal"]], f"{key}-kab-hai.html")
-for x in EKA: addf(x["date"], x["name"], "सुबह से (व्रत)", "ekadashi-2026-2027.html")
+for x in EKA: addf(x["date"], x["name"], "सुबह से (व्रत)", f"{x['key']}-kab-hai.html" if x.get("key") else "ekadashi-2026-2027.html")
 for p, s0, e0, pu in PURNIMA: addf(p, f"{pu} पूर्णिमा", "दिन भर", "purnima-amavasya-2026-2027.html")
 for p, s0, e0, pu in AMAVASYA: addf(p, f"{pu} अमावस्या", "दिन भर", "purnima-amavasya-2026-2027.html")
 for i, (yd, dd, nn, gg, vv) in enumerate(NDAYS):
@@ -152,7 +159,7 @@ def upcoming(n=10, from_day=TODAY_D, majors_only=True):
             if x["date"] >= from_day: items.append((x["date"], x["name"], f"{key}-kab-hai.html", WHEN[x["kaal"]]))
     if not majors_only:
         for x in EKA:
-            if x["date"] >= from_day: items.append((x["date"], x["name"], "ekadashi-2026-2027.html", "सुबह से (व्रत)"))
+            if x["date"] >= from_day: items.append((x["date"], x["name"], f"{x['key']}-kab-hai.html" if x.get("key") else "ekadashi-2026-2027.html", "सुबह से (व्रत)"))
     items.sort()
     return items[:n]
 
@@ -217,6 +224,16 @@ for idx, m in enumerate(months):
 <p class="pc-note">तिथि सूर्योदय के समय की है (उदया तिथि), नई दिल्ली के अनुसार।</p></div></section>''',
         crumbs=f"{mname} पंचांग", active="aaj-ka-panchang.html")
 
+def info_html(key, base):
+    inf = INFO.get(key)
+    if not inf: return ""
+    out = '<section><div class="wrap">' + sec_head(f"{base} का महत्व")
+    if inf.get("region"): out += f'<p class="lede"><strong>कहाँ मनाया जाता है:</strong> {e(inf["region"])}</p>'
+    out += "".join(f'<p class="answer">{e(t)}</p>' for t in inf.get("mahatva", []))
+    if inf.get("vidhi"):
+        out += sec_head(f"{base} की पूजा विधि") + '<ol class="steps">' + "".join(f"<li>{e(v)}</li>" for v in inf["vidhi"]) + "</ol>"
+    return out + "</div></section>"
+
 # ---------- Festival 'kab hai' pages ----------
 FVID = {"karwa-chauth":["oQl6-dRDfWU","w8pxctA2998"],"diwali":["F95csn49Rq0","KPZbsWemcIg"],"dhanteras":["F95csn49Rq0"],
  "ganesh-chaturthi":["ZswQ9qUMDTs","NGI-JiRiwSc","Qpe4rrfzWhk"],"anant-chaturdashi":["lMHZDM-RRb4","5WeumLCpi5w"],
@@ -263,16 +280,20 @@ for key, name, month, paksha, n, kaal, off, meaning in RULES:
     vids = [v for v in FVID.get(key, []) if v in V]
     ffaq = [(f"{base} {nxt['date'].year} कब है?", re.sub('<[^>]+>','',ans)),
             (f"{base} किस तिथि को मनाया जाता है?", f"{month} मास, {pk} पक्ष, {tname}। {why}"),
-            (f"{base} का महत्व क्या है?", meaning + "।")]
+            (f"{base} का महत्व क्या है?", meaning + "।")] + list(INFO.get(key, {}).get("faq", []))
+    _en = INFO.get(key, {}).get("en", "")
+    if _en: ffaq.append((f"{_en.split(' / ')[0]} {nxt['date'].year} date?", f"{_en.split(' / ')[0]} {nxt['date'].year}: {nxt['date'].strftime('%d %B %Y')} ({hdate_w(nxt['date'])})."))
     fart = FART.get(key) or FART_MINOR.get(key, ART["vishnu"])
     _t = f"{base} ({alias}) {yrs} कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti" if alias else ""
     if _t and len(_t) > 95: _t = f"{base} ({alias}) {yrs} कब है? तारीख़ और तिथि | OmKiran Bhakti"
     if not _t or len(_t) > 95: _t = f"{base} {yrs} कब है? तारीख़, तिथि और शुभ समय | OmKiran Bhakti"
+    if _en and len(_t) + len(_en.split(" / ")[0]) < 105: _t = _t.replace(" | OmKiran", f" ({_en.split(' / ')[0]}) | OmKiran")
     add(f"{key}-kab-hai.html", _t,
         f"{base} {nxt['date'].year}: {hdate_w(nxt['date'])}। {month} {pk} {tname} — तिथि शुरू और समाप्त होने का समय, पूजा का समय (दिल्ली) और महत्व।"[:160],
         f'''{band(f"{base} कब है?", ans, base, *fart, base)}
 <section><div class="wrap">{sec_head(f"{base}: तारीख़ और समय")}<div class="tbl"><table class="ptable"><thead><tr><th>साल</th><th>तारीख़</th><th>तिथि ({pk} {tname})</th><th>पूजा का समय (नई दिल्ली)</th></tr></thead><tbody>{rows}</tbody></table></div>
 <p class="answer" style="margin-top:1.5rem">{e(meaning)}। {why}</p></div></section>
+{info_html(key, base)}
 {('<section class="band"><div class="wrap">' + sec_head("सुनें और साथ गाएँ") + video_cards(vids) + '</div></section>') if vids else ''}
 <section><div class="wrap">{sec_head("और त्योहार")}{up_list([u for u in upcoming(7) if u[2] != f"{key}-kab-hai.html"][:6])}</div></section>
 {faq_html(ffaq)}''', crumbs=f"{base} कब है", active="tyohar-calendar.html",
@@ -306,7 +327,7 @@ for x in EKA:
     dw = x.get("dwadashi_end")
     nx = x["date"] + dt.timedelta(days=1)
     par = f"{nx.day} {MONTHS_HI[nx.month]}: {t12(x['parana_from'])} के बाद" + (f", {hhmm(dw)} से पहले" if dw and dw.date() == nx else "")
-    erows += (f"<tr><th scope=\"row\">{hdate_w(x['date'])}</th><td><strong>{e(x['name'])}</strong><small>{x['month']} {x['paksha']} पक्ष</small></td>"
+    erows += (f"<tr><th scope=\"row\">{hdate_w(x['date'])}</th><td><strong>{('<a href="'+x['key']+'-kab-hai.html">'+e(x['name'])+'</a>') if x.get('key') else e(x['name'])}</strong><small>{x['month']} {x['paksha']} पक्ष</small></td>"
               f"<td>{hhmm(x['start'])}, {x['start'].day} {MONTHS_HI[x['start'].month]} से {hhmm(x['end'])}, {x['end'].day} {MONTHS_HI[x['end'].month]} तक</td><td>{par}</td></tr>")
 nek = next((x for x in EKA if x["date"] >= TODAY_D), EKA[-1])
 efaq = [("अगली एकादशी कब है?", f"अगली एकादशी {nek['name']} है, जो {hdate_w(nek['date'])} को है।"),
@@ -319,6 +340,43 @@ add("ekadashi-2026-2027.html", "एकादशी 2026–2027 — सभी ए
 <p class="pc-note">उदया तिथि के नियम से, नई दिल्ली के अनुसार। वैष्णव (इस्कॉन) परंपरा में कभी-कभी एकादशी अगले दिन मानी जाती है।</p></div></section>
 <section class="band"><div class="wrap">{sec_head("एकादशी के भजन")}{video_cards([v for v in ["EE2zjTPyHaI","A-vFduFpIHg","GtRRHlLc5gQ","uCUR842niAU"] if v in V])}</div></section>
 {faq_html(efaq)}''', crumbs="एकादशी", active="tyohar-calendar.html", ld=[faq_ld(efaq)])
+
+# ---------- One page per named Ekadashi ----------
+for key, name, month, paksha, n, kaal, off, meaning in EKA_RULES:
+    occ = [x for x in EKA if x.get("key") == key]
+    if not occ: continue
+    base = name.split(" (")[0]; alias = name.split(" (")[1].rstrip(")") if " (" in name else ""
+    nxt = next((x for x in occ if x["date"] >= TODAY_D), occ[-1])
+    yrs = " / ".join(str(y) for y in sorted({x["date"].year for x in occ}))
+    pk = "शुक्ल" if paksha == "S" else "कृष्ण"
+    def _par(x):
+        dw = x.get("dwadashi_end"); nx = x["date"] + dt.timedelta(days=1)
+        return f"{nx.day} {MONTHS_HI[nx.month]}: {t12(x['parana_from'])} के बाद" + (f", {hhmm(dw)} से पहले" if dw and dw.date() == nx else "")
+    rows = "".join(f"<tr><th scope=\"row\">{x['date'].year}</th><td><strong>{hdate_w(x['date'])}</strong></td>"
+                   f"<td>{hhmm(x['start'])}, {x['start'].day} {MONTHS_HI[x['start'].month]} से<br>{hhmm(x['end'])}, {x['end'].day} {MONTHS_HI[x['end'].month]} तक</td><td>{_par(x)}</td></tr>" for x in occ)
+    ans = (f"{base} {nxt['date'].year} में <strong>{hdate_w(nxt['date'])}</strong> को है। यह {month} मास के {pk} पक्ष की एकादशी है"
+           + (f", जिसे {alias} भी कहते हैं" if alias else "") + f"। व्रत का पारण {_par(nxt)} करें।")
+    inf = INFO.get(key, {}); en = inf.get("en", "").split(" / ")[0]
+    others = [x for x in EKA if x["date"] >= TODAY_D and x.get("key") and x["key"] != key][:6]
+    ffaq = [(f"{base} {nxt['date'].year} कब है?", re.sub("<[^>]+>", "", ans)),
+            (f"{base} का पारण कब है?", f"{_par(nxt)} (नई दिल्ली)।"),
+            (f"{base} का महत्व क्या है?", meaning + "। " + (inf.get("mahatva") or [""])[0])] + list(inf.get("faq", []))
+    if en: ffaq.append((f"{en} {nxt['date'].year} date and parana time?", f"{en} {nxt['date'].year}: {nxt['date'].strftime('%d %B %Y')}. Parana (vrat kholna): {_par(nxt)} (New Delhi)."))
+    _t = f"{base} {yrs} कब है? तारीख़, पारण समय और व्रत विधि ({en}) | OmKiran Bhakti"
+    if len(_t) > 105: _t = f"{base} {yrs} कब है? तारीख़ और पारण समय ({en}) | OmKiran Bhakti"
+    add(f"{key}-kab-hai.html", _t,
+        f"{base} {nxt['date'].year}: {hdate_w(nxt['date'])}। पारण {_par(nxt)}। {meaning}, व्रत विधि, कथा और नियम।"[:160],
+        f'''{band(f"{base} कब है?", ans, base, *ART["vishnu"], base)}
+<section><div class="wrap">{sec_head(f"{base}: तारीख़ और पारण समय")}<div class="tbl"><table class="ptable"><thead><tr><th>साल</th><th>तारीख़</th><th>एकादशी तिथि</th><th>पारण (व्रत खोलना)</th></tr></thead><tbody>{rows}</tbody></table></div>
+<p class="pc-note">उदया तिथि के नियम से, नई दिल्ली के अनुसार।</p></div></section>
+{info_html(key, base)}
+<section class="band"><div class="wrap">{sec_head("आगे आने वाली एकादशी")}{up_list([(x["date"], x["name"], x["key"] + "-kab-hai.html", "सुबह से (व्रत)") for x in others])}
+<p style="text-align:center;margin-top:1rem"><a class="btn ghost" href="ekadashi-2026-2027.html">सभी एकादशी की सूची</a> <a class="btn ghost" href="vishnu-chalisa.html">विष्णु चालीसा</a> <a class="btn ghost" href="om-jai-jagdish-hare-aarti.html">ॐ जय जगदीश हरे</a></p></div></section>
+{faq_html(ffaq)}''', crumbs=f"{base} कब है", active="tyohar-calendar.html",
+        ld=[{"@type":"Event","name":f"{base} {x['date'].year}","startDate":x["date"].isoformat(),"endDate":x["date"].isoformat(),
+             "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled",
+             "location":{"@type":"Place","name":"भारत","address":{"@type":"PostalAddress","addressCountry":"IN"}},
+             "description":meaning,"organizer":{"@id":SITE+"#organization"}} for x in occ] + [faq_ld(ffaq)])
 
 # ---------- Purnima / Amavasya ----------
 def pa_rows(lst):

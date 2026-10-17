@@ -688,6 +688,7 @@ llms = ["# OmKiran Bhakti","",
  f"- [{html.unescape(titles['ekadashi-2026-2027.html'])}]({SITE}ekadashi-2026-2027.html)",
  f"- [{html.unescape(titles['purnima-amavasya-2026-2027.html'])}]({SITE}purnima-amavasya-2026-2027.html)",
  *[f"- [{html.unescape(titles[k+'-kab-hai.html'])}]({SITE}{k}-kab-hai.html)" for k in FEST if k+'-kab-hai.html' in titles],
+ *[f"- [{html.unescape(titles[r[0]+'-kab-hai.html'])}]({SITE}{r[0]}-kab-hai.html)" for r in __import__('fest_info').EKA_RULES if r[0]+'-kab-hai.html' in titles],
  f"- [{html.unescape(titles['navratri-2026.html'])}]({SITE}navratri-2026.html)",f"- [{html.unescape(titles['jaap-mala.html'])}]({SITE}jaap-mala.html)",
  f"- [{html.unescape(titles['aarti-mantra.html'])}]({SITE}aarti-mantra.html)",f"- [{html.unescape(titles['about.html'])}]({SITE}about.html)",""]
 open(os.path.join(ROOT,"llms.txt"),"w",encoding="utf-8").write("\n".join(llms))
