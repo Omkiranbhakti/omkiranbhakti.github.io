@@ -1,6 +1,6 @@
 # OmKiran Bhakti
 
-> Hindi devotional website of the OmKiran Bhakti YouTube channel: 91 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
+> Hindi devotional website of the OmKiran Bhakti YouTube channel: 93 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
 
 Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
 Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi, purnimanta months; festivals follow their traditional kaal rule (sunrise, pradosh, moonrise, nishita).
@@ -147,6 +147,8 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [ऋणमोचन मंगल स्तोत्र — पूरा पाठ और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/rin-mochan-mangal-stotra.html)
 - [दारिद्र्य दहन शिव स्तोत्र — पूरा पाठ और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/daridrya-dahan-shiv-stotra.html)
 - [भवानी अष्टकम् — पूरा पाठ और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/bhavani-ashtakam.html)
+- [बजरंग बाण — पूरे बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/bajrang-baan.html)
+- [हनुमान मंत्र — गायत्री, मनोजवं और बीज मंत्र अर्थ सहित | OmKiran Bhakti](https://omkiranbhakti.github.io/hanuman-mantra.html)
 - [श्री हनुमान स्तवन (हनुमन्नमस्कार) — पूरा पाठ और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/hanuman-stavan.html)
 - [विन्ध्येश्वरी माता की आरती — सुन मेरी देवी पर्वतवासनी, बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/vindhyeshwari-aarti.html)
 - [अम्बे तू है जगदम्बे काली — आरती — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/ambe-tu-hai-jagdambe-kali-aarti.html)
