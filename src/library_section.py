@@ -544,6 +544,7 @@ add("aarti-mantra.html", "आरती, चालीसा, मंत्र औ�
     f"{NPAATH} पाठ अर्थ सहित: हनुमान, दुर्गा, शिव, लक्ष्मी, शनि चालीसा; जय अम्बे गौरी, सत्यनारायण आरती; शिव तांडव, अयि गिरिनन्दिनि; गायत्री मंत्र; व्रत कथाएँ।"[:160],
     f'''{band("पाठ संग्रह", f"{NPAATH} पाठ — हर पंक्ति के सरल हिंदी अर्थ के साथ। पूजा के समय फ़ोन पर बड़े अक्षरों में पढ़ें या प्रिंट करें। हर हफ़्ते नए पाठ जुड़ते हैं।", "पाठ संग्रह", *ART["navdurga"], "पाठ संग्रह")}
 <section style="padding-bottom:0"><div class="wrap"><div class="lib-search no-print"><label for="lib-q" class="sr">पाठ खोजें</label><input type="search" id="lib-q" placeholder="पाठ खोजें — जैसे हनुमान, शिव, आरती, मंत्र…" autocomplete="off"><p class="lib-count" id="lib-count" aria-live="polite"></p></div><nav class="lib-cats" aria-label="श्रेणियाँ">{cats_nav}</nav>{deity_bar()}</div></section>
+<section><div class="wrap">{sec_head("कथा, नियम और पूजा सामग्री")}<ul class="library"><li><a href="vrat-katha.html"><strong>व्रत कथा संग्रह</strong><span>तीज, गणगौर, राखी, एकादशी, छठ…</span></a></li><li><a href="puja-niyam.html"><strong>पूजा के नियम</strong><span>क्या करें, क्या न करें</span></a></li><li><a href="puja-samagri.html"><strong>पूजा सामग्री लिस्ट</strong><span>दिवाली, छठ, करवा चौथ, नवरात्रि</span></a></li><li><a href="lok-parv.html"><strong>लोक पर्व</strong><span>राज्य के अनुसार त्योहार</span></a></li></ul></div></section>
 {cat_sections}
 <section><div class="wrap">{sec_head("मंत्र जाप — 108 बार","एक माला के बराबर जाप, ध्यान के साथ सुनें")}{video_cards(mantra_ids)}</div></section>
 {faq_html(AARTI_FAQ)}''',

@@ -558,6 +558,7 @@ exec(open(os.path.join(os.path.dirname(__file__), "calc_section.py"), encoding="
 exec(open(os.path.join(os.path.dirname(__file__), "live_keywords.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "live_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "vrat_section.py"), encoding="utf-8").read())
+exec(open(os.path.join(os.path.dirname(__file__), "gaps_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "whatsapp_section.py"), encoding="utf-8").read())
 
 # ---------------- Home ----------------
@@ -690,6 +691,7 @@ llms = ["# OmKiran Bhakti","",
  *[f"- [{html.unescape(titles[k+'-kab-hai.html'])}]({SITE}{k}-kab-hai.html)" for k in FEST if k+'-kab-hai.html' in titles],
  *[f"- [{html.unescape(titles[r[0]+'-kab-hai.html'])}]({SITE}{r[0]}-kab-hai.html)" for r in __import__('fest_info').EKA_RULES if r[0]+'-kab-hai.html' in titles],
  f"- [{html.unescape(titles['navratri-2026.html'])}]({SITE}navratri-2026.html)",f"- [{html.unescape(titles['jaap-mala.html'])}]({SITE}jaap-mala.html)",
- f"- [{html.unescape(titles['aarti-mantra.html'])}]({SITE}aarti-mantra.html)",f"- [{html.unescape(titles['about.html'])}]({SITE}about.html)",""]
+ f"- [{html.unescape(titles['aarti-mantra.html'])}]({SITE}aarti-mantra.html)",
+ *[f"- [{html.unescape(titles[h])}]({SITE}{h})" for h in ["vrat-katha.html","puja-niyam.html","puja-samagri.html","lok-parv.html"] + [n["slug"] for n in NIYAM] + [x["slug"] for x in SAMAGRI] + [k["slug"] for k in __import__('kathas2').KATHAS2] if h in titles],f"- [{html.unescape(titles['about.html'])}]({SITE}about.html)",""]
 open(os.path.join(ROOT,"llms.txt"),"w",encoding="utf-8").write("\n".join(llms))
 print(f"built {len(PAGES)} pages, sitemap {len(urls)} urls")

@@ -870,3 +870,19 @@ section{padding:clamp(1.8rem,4vw,3rem) 0}
 .steps li{counter-increment:st;position:relative;padding:.55rem 0 .55rem 2.6rem;border-bottom:1px dashed rgba(0,0,0,.08);line-height:1.6}
 .steps li::before{content:counter(st);position:absolute;left:0;top:.5rem;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--genda);color:#fff;font-weight:600;display:grid;place-items:center;font-size:.9rem}
 .answer+.answer{margin-top:.9rem}
+/* do / don't + checklists */
+.dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+@media (max-width:760px){.dd-grid{grid-template-columns:1fr}}
+.dd{border-radius:14px;padding:1rem 1.25rem;border:1px solid rgba(0,0,0,.08);background:#fff}
+.dd.do{border-top:4px solid #2e8b57}.dd.dont{border-top:4px solid #c0392b}
+.dd h2{font-size:1.2rem;margin:.2rem 0 .6rem}
+.chk{list-style:none;margin:0;padding:0}
+.chk li{position:relative;padding:.45rem 0 .45rem 1.6rem;border-bottom:1px dashed rgba(0,0,0,.08);line-height:1.55}
+.chk li:last-child{border-bottom:0}
+.dd.do .chk li::before{content:"✓";position:absolute;left:0;color:#2e8b57;font-weight:700}
+.dd.dont .chk li::before{content:"✕";position:absolute;left:0;color:#c0392b;font-weight:700}
+.chk.tick li::before{content:"☐";position:absolute;left:0;color:var(--genda)}
+.sg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.sg{background:#fff;border-radius:14px;padding:1rem 1.15rem;border:1px solid rgba(0,0,0,.08)}
+.sg h3{margin:.1rem 0 .4rem;font-size:1.05rem;color:var(--sindoor,#a3271f)}
+@media print{.sg-grid{grid-template-columns:1fr 1fr}.sg{break-inside:avoid;border:1px solid #999}}

@@ -195,3 +195,5 @@ INFO.update({
 KATHA_FOR = {"karwa-chauth":"karwa-chauth-vrat-katha.html","ahoi-ashtami":"ahoi-ashtami-vrat-katha.html","rama-ekadashi":"rama-ekadashi-vrat-katha.html",
  "papankusha-ekadashi":"papankusha-ekadashi-vrat-katha.html","dhanteras":"dhanteras-katha.html","diwali":"diwali-lakshmi-puja-katha.html",
  "govardhan-puja":"govardhan-puja-katha.html","bhai-dooj":"bhai-dooj-katha.html","chhath-puja":"chhath-puja-katha.html","tulsi-vivah":"tulsi-vivah-katha.html"}
+KATHA_FOR.update({"hariyali-teej":"hariyali-teej-katha.html","hartalika-teej":"hartalika-teej-katha.html","kajari-teej":"kajari-teej-katha.html",
+ "gangaur":"gangaur-katha.html","raksha-bandhan":"raksha-bandhan-katha.html","jitiya-vrat":"jitiya-vrat-katha.html","hal-shashthi":"hal-shashthi-katha.html","bahula-chauth":"bahula-chauth-katha.html"})

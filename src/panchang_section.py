@@ -226,7 +226,8 @@ for idx, m in enumerate(months):
 
 def info_html(key, base):
     inf = INFO.get(key)
-    if not inf: return ""
+    if not inf:
+        return (f'<section><div class="wrap"><p class="lede">📖 <a href="{KATHA_FOR[key]}"><strong>{base} की कथा पढ़ें</strong></a> — सरल हिंदी में</p></div></section>') if key in KATHA_FOR else ""
     out = '<section><div class="wrap">' + sec_head(f"{base} का महत्व")
     if key in KATHA_FOR: out += f'<p class="lede">📖 <a href="{KATHA_FOR[key]}"><strong>{base} की कथा पढ़ें</strong></a> — सरल हिंदी में</p>'
     if inf.get("region"): out += f'<p class="lede"><strong>कहाँ मनाया जाता है:</strong> {e(inf["region"])}</p>'
@@ -319,7 +320,7 @@ cal += "</ul>"
 add("tyohar-calendar.html", "हिंदू त्योहार कैलेंडर 2026–2027 — व्रत और त्योहारों की तारीख़ें | OmKiran Bhakti",
     "2026 और 2027 के सभी बड़े हिंदू व्रत-त्योहारों की तारीख़ें: दिवाली, करवा चौथ, छठ, होली, महाशिवरात्रि, रामनवमी, जन्माष्टमी, गणेश चतुर्थी, नवरात्रि और दशहरा।",
     f'''{band("त्योहार कैलेंडर 2026–2027","हर बड़े व्रत-त्योहार की तारीख़, और वह सुबह से मनाया जाएगा या शाम/रात को। हर त्योहार पर क्लिक करके तिथि का समय और पूजा मुहूर्त देखें।","त्योहार कैलेंडर",*ART["navdurga"],"त्योहार")}
-<section><div class="wrap"><p style="text-align:center"><a class="btn ghost" href="ekadashi-2026-2027.html">सभी एकादशी</a> <a class="btn ghost" href="purnima-amavasya-2026-2027.html">पूर्णिमा और अमावस्या</a></p>{cal}</div></section>''',
+<section><div class="wrap"><p style="text-align:center"><a class="btn ghost" href="ekadashi-2026-2027.html">सभी एकादशी</a> <a class="btn ghost" href="purnima-amavasya-2026-2027.html">पूर्णिमा और अमावस्या</a> <a class="btn ghost" href="lok-parv.html">राज्य के अनुसार लोक पर्व</a> <a class="btn ghost" href="vrat-katha.html">व्रत कथाएँ</a></p>{cal}</div></section>''',
     crumbs="त्योहार कैलेंडर", active="tyohar-calendar.html",
     ld=[{"@type":"ItemList","name":"हिंदू त्योहार 2026–2027","itemListElement":[{"@type":"ListItem","position":i+1,"url":SITE+u,"name":f"{n} — {dd.isoformat()}"} for i,(dd,n,u,w) in enumerate(allf)]}])
 
