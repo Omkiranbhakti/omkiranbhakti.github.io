@@ -1,0 +1,12 @@
+name: fetch-url
+on:
+  workflow_dispatch:
+    inputs: {url: {required: true}, name: {required: true}}
+permissions: {contents: write}
+jobs:
+  f:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          mkdir o && cd o && curl -sSL -A "Mozilla/5.0" -o "${{ github.event.inputs.name }}" "${{ github.event.inputs.url }}" && ls -la
+          git init -q && git checkout -q -b fetched && git add . && git -c user.name=b -c user.email=b@x commit -qm f && git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" fetched
