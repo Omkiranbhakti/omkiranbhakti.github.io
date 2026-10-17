@@ -224,7 +224,7 @@ def faq_ld(faqs):
 def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og=None):
     url = SITE if slug=="index.html" else SITE+slug
     graph = [{"@type":"WebPage","@id":url+"#page","url":url,"name":title,"description":desc,"inLanguage":"hi-IN",
-              "isPartOf":{"@id":SITE+"#website"},"publisher":{"@id":SITE+"#organization"},"dateModified":TODAY}]
+              "isPartOf":{"@id":SITE+"#website"},"publisher":{"@id":SITE+"#organization"}}]
     if crumbs:
         graph.append({"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":SITE}]+
             [{"@type":"ListItem","position":2,"name":crumbs,"item":url}]})
@@ -607,6 +607,7 @@ document.getElementById("hl-close").addEventListener("click",function(){fr.inner
 add("index.html", "OmKiran Bhakti — आरती, चालीसा, मंत्र और भजन (बोल व अर्थ सहित)",
  "हनुमान चालीसा, आरती और मंत्रों के पूरे बोल सरल अर्थ के साथ; माता रानी, शिव, गणेश, कृष्ण और राम के भजन; नवरात्रि 2026 और ऑनलाइन जाप माला।",
  f'''<section class="night scallop to-band hero3 hero4"><div class="wrap">
+<div class="home-intro"><h1 class="gold-type">भजन, आरती, चालीसा और मंत्र</h1><p class="answer">पूरे बोल, सरल हिंदी अर्थ, पूजा के लिए पाठ मोड, ऑनलाइन जाप माला और OmKiran Bhakti के भजन — एक जगह।</p></div>
 {hero_card(TODAY_P).replace('class="pcard hero-pc"','class="pcard hero-pc mini"')}
 {home_live}{HOME_LIVE_JS}
 <div class="aaj-panel slim" id="today" aria-live="polite">
@@ -650,7 +651,7 @@ urls = [s for s in PAGES if s not in ("404.html", "whatsapp-sandesh.html")]
 prio = {"index.html":"1.0","hanuman-chalisa.html":"0.9","navratri-2026.html":"0.9"}
 sm = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 for s in urls:
-    sm.append(f'  <url><loc>{SITE if s=="index.html" else SITE+s}</loc><lastmod>{TODAY}</lastmod></url>')
+    sm.append(f'  <url><loc>{SITE if s=="index.html" else SITE+s}</loc></url>')
 sm.append('</urlset>')
 open(os.path.join(ROOT,"sitemap.xml"),"w").write("\n".join(sm)+"\n")
 open(os.path.join(ROOT,"robots.txt"),"w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}sitemap.xml\n")
