@@ -582,6 +582,15 @@ tools_html = ('<section class="hot"><div class="wrap"><h2 class="hot-h">रो�
               "".join(f'<li><a href="{h}"><strong>{e(t)}</strong><span>{e(sub)}</span></a></li>' for h, t, sub in _tools) + '</ul></div></section>')
 for _fp in ("aaj-ka-panchang.html", "tyohar-calendar.html"):
     if _fp in PAGES: PAGES[_fp] = PAGES[_fp].replace('<section class="hot">', tools_html + '<section class="hot">', 1)
+QUICK_ICONS = [("live-darshan.html","लाइव दर्शन","img/live/sm/ram-mandir-ayodhya.webp",1),("aaj-ka-panchang.html","आज का पंचांग","img/art/sharad-purnima.webp",0),
+ ("aarti-mantra.html#aarti","आरती","img/art/shiv-aarti.webp",0),("aarti-mantra.html#chalisa","चालीसा","img/art/hanuman.webp",0),
+ ("aarti-mantra.html#mantra","मंत्र","img/art/surya.webp",0),("aarti-mantra.html#stotra","स्तोत्र","img/art/vishnu.webp",0),
+ ("mata-rani-bhajan.html","भजन","img/art/krishna.webp",0),("aarti-mantra.html#katha","व्रत कथा","img/art/karwa-chauth.webp",0),
+ ("tyohar-calendar.html","त्योहार","img/art/lakshmi.webp",0),("aaj-ka-choghadiya.html","चौघड़िया","img/art/shani.webp",0),
+ ("jaap-mala.html","जाप माला","img/art/navdurga.webp",0),("janm-tithi-rashi-calculator.html","जन्म राशि","img/art/saraswati.webp",0)]
+quick_html = ('<section class="qi-sec"><div class="wrap"><ul class="qi">' + "".join(
+  f'<li><a href="{h}"><span class="qi-ring{" qi-live" if lv else ""}"><img src="{im}" alt="" width="96" height="96" loading="lazy" decoding="async"></span><b>{t}</b></a></li>'
+  for h, t, im, lv in QUICK_ICONS) + '</ul></div></section>')
 HL_SHORT = {"srisailam-mallikarjuna":"मल्लिकार्जुन","haridwar-ganga-aarti":"हरिद्वार गंगा आरती","varanasi-ganga-aarti":"काशी गंगा आरती","golden-temple-amritsar":"स्वर्ण मंदिर","khatu-shyam":"खाटू श्याम","dagdusheth-ganpati-pune":"दगडूशेठ गणपति","iskcon-vrindavan":"इस्कॉन वृंदावन","iskcon-mayapur":"इस्कॉन मायापुर","ambaji-mata":"अम्बाजी","naina-devi":"नैना देवी","pavagadh-mahakali":"पावागढ़ महाकाली",'ram-mandir-ayodhya': 'राम मंदिर', 'mahakaleshwar-ujjain': 'महाकाल', 'kashi-vishwanath-varanasi': 'काशी विश्वनाथ', 'somnath': 'सोमनाथ', 'omkareshwar': 'ओंकारेश्वर', 'trimbakeshwar': 'त्र्यंबकेश्वर', 'kedarnath-badrinath': 'केदारनाथ', 'siddhivinayak-mumbai': 'सिद्धिविनायक', 'vaishno-devi': 'वैष्णो देवी', 'banke-bihari-vrindavan': 'बांके बिहारी', 'tirupati-balaji': 'तिरुपति बालाजी', 'shirdi-sai-baba': 'साईं बाबा'}
 home_live = ('<div class="hl-live"><div class="hl-head"><h2><span class="hl-dot" aria-hidden="true"></span>मंदिरों के लाइव दर्शन</h2>'
   f'<a href="live-darshan.html">सभी {len(LIVE)} मंदिर →</a></div><ul class="hl-grid">' +
@@ -617,7 +626,7 @@ add("index.html", "OmKiran Bhakti — आरती, चालीसा, मं�
 <div class="actions"><a class="btn gold go" href="hanuman-chalisa.html">पाठ खोलें</a><a class="btn ghost" href="jaap-mala.html">जाप माला</a></div>
 </div>
 </div></section>
-{hot_html}{tools_html}<section class="band"><div class="wrap">{sec_head("आने वाले त्योहार","तारीख़, और त्योहार सुबह से है या शाम-रात को")}{up_list(upcoming(8))}
+{quick_html}{hot_html}{tools_html}<section class="band"><div class="wrap">{sec_head("आने वाले त्योहार","तारीख़, और त्योहार सुबह से है या शाम-रात को")}{up_list(upcoming(8))}
 <p style="text-align:center;margin-top:1.5rem"><a class="btn" href="tyohar-calendar.html">पूरा त्योहार कैलेंडर</a> <a class="btn ghost" href="ekadashi-2026-2027.html">सभी एकादशी</a></p></div></section>
 <section><div class="wrap">{sec_head("अपने आराध्य चुनें","हर देवता के भजन, आरती और मंत्र एक जगह")}<ul class="devta devta-light">{dlist}</ul></div></section>
 <section class="band"><div class="wrap">{sec_head("बोल और अर्थ","पूजा के समय फ़ोन पर बड़े अक्षरों में पढ़ें, या प्रिंट करके रखें")}{paath_html}</div></section>
