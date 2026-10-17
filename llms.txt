@@ -1,6 +1,6 @@
 # OmKiran Bhakti
 
-> Hindi devotional website of the OmKiran Bhakti YouTube channel: 101 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
+> Hindi devotional website of the OmKiran Bhakti YouTube channel: 104 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
 
 Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
 Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi, purnimanta months; festivals follow their traditional kaal rule (sunrise, pradosh, moonrise, nishita).
@@ -153,6 +153,9 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [विन्ध्येश्वरी माता की आरती — सुन मेरी देवी पर्वतवासनी, बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/vindhyeshwari-aarti.html)
 - [अम्बे तू है जगदम्बे काली — आरती — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/ambe-tu-hai-jagdambe-kali-aarti.html)
 - [शेंदुर लाल चढ़ायो — गणेश आरती — बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/ganesh-aarti-shendur-lal.html)
+- [मंगल की सेवा सुन मेरी देवा — काली माता आरती — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/mangal-ki-seva-kali-aarti.html)
+- [श्री गोवर्धन महाराज — गोवर्धन आरती — बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/govardhan-aarti.html)
+- [ॐ जय श्री श्याम हरे — खाटू श्याम आरती — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/khatu-shyam-aarti.html)
 - [करवा चौथ व्रत कथा — वीरावती की कहानी, पूजा विधि और चाँद का समय | OmKiran Bhakti](https://omkiranbhakti.github.io/karwa-chauth-vrat-katha.html)
 - [अहोई अष्टमी व्रत कथा — साहूकारनी और स्याहू की कहानी, पूजा विधि | OmKiran Bhakti](https://omkiranbhakti.github.io/ahoi-ashtami-vrat-katha.html)
 - [सोमवार व्रत कथा — शिव जी की कथा, पूजा विधि और नियम | OmKiran Bhakti](https://omkiranbhakti.github.io/somvar-vrat-katha.html)

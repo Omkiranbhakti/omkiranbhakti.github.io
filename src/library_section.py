@@ -465,6 +465,29 @@ SLUG_ART = {"saraswati-chalisa.html":"@saraswati","saraswati-aarti.html":"@saras
  "daridrya-dahan-shiv-stotra.html":"@shiv-aarti","parvati-chalisa.html":"@mahagauri","parvati-aarti.html":"@mahagauri","annapurna-chalisa.html":"@siddhidatri",
  "annapurna-aarti.html":"@siddhidatri","gayatri-chalisa.html":"@saraswati","durga-mantra.html":"@navdurga","argala-stotram.html":"@navdurga","devi-kshama-prarthana.html":"@mata",
  "krishnashtakam.html":"@krishna","damodarashtakam.html":"@krishna","hare-krishna-mahamantra.html":"@krishna"}
+import library10 as L10
+ENTRIES += [
+ E("mangal-ki-seva-kali-aarti.html","aarti","मंगल की सेवा सुन मेरी देवा","काली माता की आरती, अर्थ सहित",ART["mata"],L10.MANGAL_KI_SEVA,"मंगल की सेवा सुन मेरी देवा — काली माता आरती","पूरे बोल और हिंदी अर्थ",
+   "माँ काली की आरती ‘मंगल की सेवा सुन मेरी देवा, हाथ जोड़ तेरे द्वार खड़े’ के पूरे बोल — ‘संतन प्रतिपाली सदा खुशहाली, मैया जय काली कल्याण करे’ — हर पद के सरल हिंदी अर्थ के साथ।",
+   "‘मंगल की सेवा सुन मेरी देवा’ माँ काली (महाकाली) की पारंपरिक आरती है, जो नवरात्रि, माता की चौकी और जागरण में गाई जाती है। इसकी टेक है ‘संतन प्रतिपाली सदा खुशहाली, मैया जय काली कल्याण करे’। इसमें माँ के रक्तबीज, शुम्भ-निशुम्भ और महिषासुर वध का वर्णन है।",
+   '<p class="lede">नवरात्रि, अष्टमी, काली पूजा और माता की चौकी में — साथ में <a href="ambe-tu-hai-jagdambe-kali-aarti.html">अम्बे तू है जगदम्बे काली</a> और <a href="jai-ambe-gauri-aarti.html">जय अम्बे गौरी</a>। अलग-अलग क्षेत्रों में कुछ शब्दों में थोड़ा अंतर मिलता है।</p>',
+   _vids("durga-chalisa.html")[:3],[("‘मंगल की सेवा सुन मेरी देवा’ किस देवी की आरती है?","माँ काली (महाकाली) की। इसकी टेक में ‘मैया जय काली कल्याण करे’ आता है।"),
+    ("मंगल की सेवा आरती कब गाई जाती है?","नवरात्रि के दिनों में, दुर्गा अष्टमी, काली पूजा (दिवाली की रात), माता की चौकी और जागरण में।"),
+    ("‘संतन प्रतिपाली सदा खुशहाली’ का अर्थ क्या है?","संतों (भक्तों) की रक्षा करने वाली और सदा खुशहाली देने वाली माँ।")]),
+ E("govardhan-aarti.html","aarti","श्री गोवर्धन महाराज","गिरिराज जी की आरती, अर्थ सहित",ART["krishna"],L10.GOVARDHAN_AARTI,"श्री गोवर्धन महाराज — गोवर्धन आरती","बोल और हिंदी अर्थ",
+   "गोवर्धन पूजा की आरती ‘श्री गोवर्धन महाराज, ओ महाराज, तेरे माथे मुकुट विराज रह्यो’ के पूरे बोल और अर्थ। गोवर्धन पूजा और अन्नकूट के दिन गाई जाने वाली गिरिराज जी की आरती।",
+   "‘श्री गोवर्धन महाराज, तेरे माथे मुकुट विराज रह्यो’ गोवर्धन पूजा (अन्नकूट) के दिन गाई जाने वाली गिरिराज जी की ब्रज भाषा की पारंपरिक आरती है। इसमें गोवर्धन की सात कोस की परिक्रमा और श्रृंगार का वर्णन है।",
+   '<p class="lede">दिवाली के अगले दिन गोवर्धन पूजा पर — <a href="govardhan-puja-katha.html">गोवर्धन पूजा की कथा</a> और <a href="govardhan-puja-kab-hai.html">गोवर्धन पूजा कब है</a>।</p>',
+   ["TVdX5XbbjHs"],[("गोवर्धन पूजा में कौन सी आरती गाते हैं?","‘श्री गोवर्धन महाराज, ओ महाराज, तेरे माथे मुकुट विराज रह्यो’ — गिरिराज जी की यह आरती, और साथ में आरती कुंजबिहारी की।"),
+    ("गोवर्धन परिक्रमा कितने कोस की है?","सात कोस, यानी लगभग 21 किलोमीटर।")]),
+ E("khatu-shyam-aarti.html","aarti","ॐ जय श्री श्याम हरे","खाटू श्याम जी की आरती, अर्थ सहित",ART["krishna"],L10.SHYAM_AARTI,"ॐ जय श्री श्याम हरे — खाटू श्याम आरती","पूरे बोल और हिंदी अर्थ",
+   "खाटू श्याम जी की आरती ‘ॐ जय श्री श्याम हरे, बाबा जय श्री श्याम हरे, खाटू धाम विराजत’ के पूरे बोल और हर पद का अर्थ। साथ में खाटू श्याम मंदिर के लाइव दर्शन।",
+   "‘ॐ जय श्री श्याम हरे, बाबा जय श्री श्याम हरे’ राजस्थान के खाटू धाम में विराजमान श्री श्याम बाबा (बर्बरीक) की आरती है। इसमें बाबा के श्रृंगार, भोग (खीर, चूरमा) और आरती की महिमा का वर्णन है।",
+   '<p class="lede">एकादशी और फाल्गुन मेले में ख़ास — <a href="live-darshan.html#khatu-shyam">खाटू श्याम जी के लाइव दर्शन</a>।</p>',
+   [],[("खाटू श्याम जी कौन हैं?","महाभारत के वीर बर्बरीक, भीम के पोते। श्रीकृष्ण ने उन्हें कलियुग में अपने नाम ‘श्याम’ से पूजे जाने का वरदान दिया।"),
+    ("खाटू श्याम मंदिर कहाँ है?","राजस्थान के सीकर ज़िले के खाटू गाँव में।"),
+    ("खाटू श्याम जी की आरती कब होती है?","मंदिर में दिन में पाँच बार आरती होती है — मंगला, श्रृंगार, भोग, संध्या और शयन आरती।")]),
+]
 ENTRIES = [x[:4] + ((SLUG_ART[x[0]], 50),) + x[5:] if x[0] in SLUG_ART and art_src(SLUG_ART[x[0]]) else x for x in ENTRIES]
 for (slug, cat, ltitle, sub, art, verses, h1, title, desc, answer, intro, vids, faqs, author, work) in ENTRIES:
     vids = [v for v in vids if v in V]
@@ -503,6 +526,18 @@ def deity_bar():
             '<p class="dv-today" id="dv-today" hidden></p>'
             f'<div class="dv-row" role="group" aria-label="देवता चुनें">{meds}</div></div>')
 
+
+def _a(h, t): return f'<a href="{h}">{t}</a>'
+AARTI_FAQ = [
+ ("गणेश जी की कौन-कौन सी आरती हैं?", "गणेश जी की तीन सबसे प्रसिद्ध आरतियाँ हैं: " + _a("ganesh-aarti-jai-ganesh-deva.html","‘जय गणेश जय गणेश देवा’") + " (पूरे उत्तर भारत में), " + _a("sukhkarta-dukhharta-aarti.html","‘सुखकर्ता दुखहर्ता वार्ता विघ्नाची’") + " (महाराष्ट्र की मराठी आरती, समर्थ रामदास कृत) और " + _a("ganesh-aarti-shendur-lal.html","‘शेंदुर लाल चढ़ायो’") + " (महाराष्ट्र)।"),
+ ("माता रानी (दुर्गा माँ) की कौन-कौन सी आरती हैं?", _a("jai-ambe-gauri-aarti.html","‘जय अम्बे गौरी’") + " (हर घर और मंदिर में), " + _a("ambe-tu-hai-jagdambe-kali-aarti.html","‘अम्बे तू है जगदम्बे काली’") + " (नवरात्रि और चौकी में), " + _a("mangal-ki-seva-kali-aarti.html","‘मंगल की सेवा सुन मेरी देवा’") + " (माँ काली की), " + _a("vaishno-mata-aarti.html","‘जय वैष्णवी माता’") + " (जम्मू, पंजाब, हिमाचल) और " + _a("vindhyeshwari-aarti.html","‘सुन मेरी देवी पर्वतवासनी’") + " (विंध्याचल, उत्तर प्रदेश)।"),
+ ("नवरात्रि में कौन सी आरती गाते हैं?", "सुबह-शाम " + _a("jai-ambe-gauri-aarti.html","जय अम्बे गौरी") + ", और चौकी-जागरण में " + _a("ambe-tu-hai-jagdambe-kali-aarti.html","अम्बे तू है जगदम्बे काली") + " तथा " + _a("mangal-ki-seva-kali-aarti.html","मंगल की सेवा") + "। साथ में " + _a("durga-chalisa.html","दुर्गा चालीसा") + " का पाठ होता है।"),
+ ("शिव जी की कौन-कौन सी आरती हैं?", _a("shiv-aarti-om-jai-shiv-omkara.html","‘ॐ जय शिव ओंकारा’") + " (सबसे प्रचलित) और " + _a("om-jai-gangadhar-shiv-aarti.html","‘ॐ जय गंगाधर’") + "। सावन और महाशिवरात्रि पर " + _a("shiv-chalisa.html","शिव चालीसा") + " के साथ गाई जाती हैं।"),
+ ("कृष्ण जी की कौन-कौन सी आरती हैं?", _a("aarti-kunj-bihari-ki.html","‘आरती कुंजबिहारी की’") + " (जन्माष्टमी और रोज़ की पूजा), " + _a("govardhan-aarti.html","‘श्री गोवर्धन महाराज’") + " (गोवर्धन पूजा) और " + _a("khatu-shyam-aarti.html","‘ॐ जय श्री श्याम हरे’") + " (खाटू श्याम जी, राजस्थान)।"),
+ ("लक्ष्मी पूजा और दिवाली पर कौन सी आरती गाएँ?", _a("lakshmi-aarti.html","‘ॐ जय लक्ष्मी माता’") + ", " + _a("ganesh-aarti-jai-ganesh-deva.html","‘जय गणेश देवा’") + " और अंत में " + _a("om-jai-jagdish-hare-aarti.html","‘ॐ जय जगदीश हरे’") + "।"),
+ ("हर पूजा के अंत में कौन सी आरती गाई जाती है?", _a("om-jai-jagdish-hare-aarti.html","‘ॐ जय जगदीश हरे’") + " — भगवान विष्णु की यह आरती लगभग हर पूजा के अंत में गाई जाती है।"),
+ ("हनुमान जी और शनि देव की आरती कौन सी है?", "हनुमान जी: " + _a("hanuman-aarti.html","‘आरती कीजै हनुमान लला की’") + "; शनि देव: " + _a("shani-dev-aarti.html","‘जय जय श्री शनिदेव’") + "। मंगलवार-शनिवार को गाई जाती हैं।"),
+]
 cats_nav = "".join(f'<a class="chip" href="#{k}">{n} ({sum(1 for c in CATALOG if c[1]==k)})</a>' for k, n in CATS)
 cat_sections = "".join(f'<section id="{k}"{" class=\"band\"" if i % 2 else ""}><div class="wrap">{sec_head(n)}{cat_cards(k)}</div></section>' for i, (k, n) in enumerate(CATS))
 add("aarti-mantra.html", "आरती, चालीसा, मंत्र और स्तोत्र — पूरे बोल अर्थ सहित | OmKiran Bhakti",
@@ -510,10 +545,11 @@ add("aarti-mantra.html", "आरती, चालीसा, मंत्र औ�
     f'''{band("पाठ संग्रह", f"{NPAATH} पाठ — हर पंक्ति के सरल हिंदी अर्थ के साथ। पूजा के समय फ़ोन पर बड़े अक्षरों में पढ़ें या प्रिंट करें। हर हफ़्ते नए पाठ जुड़ते हैं।", "पाठ संग्रह", *ART["navdurga"], "पाठ संग्रह")}
 <section style="padding-bottom:0"><div class="wrap"><div class="lib-search no-print"><label for="lib-q" class="sr">पाठ खोजें</label><input type="search" id="lib-q" placeholder="पाठ खोजें — जैसे हनुमान, शिव, आरती, मंत्र…" autocomplete="off"><p class="lib-count" id="lib-count" aria-live="polite"></p></div><nav class="lib-cats" aria-label="श्रेणियाँ">{cats_nav}</nav>{deity_bar()}</div></section>
 {cat_sections}
-<section><div class="wrap">{sec_head("मंत्र जाप — 108 बार","एक माला के बराबर जाप, ध्यान के साथ सुनें")}{video_cards(mantra_ids)}</div></section>''',
+<section><div class="wrap">{sec_head("मंत्र जाप — 108 बार","एक माला के बराबर जाप, ध्यान के साथ सुनें")}{video_cards(mantra_ids)}</div></section>
+{faq_html(AARTI_FAQ)}''',
     crumbs="पाठ संग्रह", active="aarti-mantra.html",
     ld=[{"@type":"ItemList","name":"OmKiran Bhakti पाठ संग्रह","numberOfItems":NPAATH,
-         "itemListElement":[{"@type":"ListItem","position":i+1,"url":SITE+h,"name":t} for i,(h,c,t,s,a) in enumerate(CATALOG)]}])
+         "itemListElement":[{"@type":"ListItem","position":i+1,"url":SITE+h,"name":t} for i,(h,c,t,s,a) in enumerate(CATALOG)]}, faq_ld(AARTI_FAQ)])
 
 # home: popular six + link to all
 PAATH_HOME = ["hanuman-chalisa.html","durga-chalisa.html","shiv-tandav-stotram.html","mahishasura-mardini-stotram.html","lakshmi-chalisa.html","karwa-chauth-vrat-katha.html"]
