@@ -191,3 +191,7 @@ INFO.update({
    mahatva=["इस दिन गंगा स्नान और दीपदान का बहुत महत्व है। वाराणसी में घाटों पर लाखों दीयों से देव दीपावली मनाई जाती है। इसी दिन गुरु नानक देव जी का प्रकाश पर्व भी होता है।"],
    vidhi=["सुबह गंगा या पवित्र नदी में स्नान करें।","दान-पुण्य करें।","शाम को घर, मंदिर और नदी किनारे दीपदान करें।"], faq=[]),
 })
+
+KATHA_FOR = {"karwa-chauth":"karwa-chauth-vrat-katha.html","ahoi-ashtami":"ahoi-ashtami-vrat-katha.html","rama-ekadashi":"rama-ekadashi-vrat-katha.html",
+ "papankusha-ekadashi":"papankusha-ekadashi-vrat-katha.html","dhanteras":"dhanteras-katha.html","diwali":"diwali-lakshmi-puja-katha.html",
+ "govardhan-puja":"govardhan-puja-katha.html","bhai-dooj":"bhai-dooj-katha.html","chhath-puja":"chhath-puja-katha.html","tulsi-vivah":"tulsi-vivah-katha.html"}

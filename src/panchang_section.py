@@ -1,7 +1,7 @@
 # Panchang + festival pages. Executed inside build.py's namespace (uses page, add, band, sec_head, video_cards, V, e, SITE ...).
 import datetime as dt, json, os
 from panchang import day_panchang, tithi_spans, tithi_name, lunar_month, moonrise, sunrise_sunset, to_ist, from_ist, EKADASHI_NAME, tithi_index
-from fest_info import INFO, EKA_RULES
+from fest_info import INFO, EKA_RULES, KATHA_FOR
 from festivals import find_dates, MONTHS_HI, RULES, tithi_at, MINOR_KEYS
 
 IST_NOW = dt.datetime.now(dt.timezone.utc).replace(tzinfo=None) + dt.timedelta(hours=5, minutes=30)
@@ -228,6 +228,7 @@ def info_html(key, base):
     inf = INFO.get(key)
     if not inf: return ""
     out = '<section><div class="wrap">' + sec_head(f"{base} का महत्व")
+    if key in KATHA_FOR: out += f'<p class="lede">📖 <a href="{KATHA_FOR[key]}"><strong>{base} की कथा पढ़ें</strong></a> — सरल हिंदी में</p>'
     if inf.get("region"): out += f'<p class="lede"><strong>कहाँ मनाया जाता है:</strong> {e(inf["region"])}</p>'
     out += "".join(f'<p class="answer">{e(t)}</p>' for t in inf.get("mahatva", []))
     if inf.get("vidhi"):

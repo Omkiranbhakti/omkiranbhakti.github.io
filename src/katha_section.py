@@ -6,11 +6,14 @@ _REL = {
  "somvar-vrat-katha.html":[("shiv-aarti-om-jai-shiv-omkara.html","शिव आरती","ॐ जय शिव ओंकारा"),("shiv-chalisa.html","शिव चालीसा","अर्थ सहित"),("om-namah-shivaya.html","ॐ नमः शिवाय","जाप विधि")],
  "satyanarayan-vrat-katha.html":[("satyanarayan-aarti.html","सत्यनारायण आरती","ॐ जय लक्ष्मी रमणा"),("purnima-amavasya-2026-2027.html","पूर्णिमा 2026–27","कथा का शुभ दिन")],
 }
+from kathas2 import KATHAS2, REL2
+_REL.update(REL2)
 NOTE = "यह कथा पारंपरिक कथा का OmKiran Bhakti द्वारा सरल हिंदी में किया गया पुनर्कथन है; अलग-अलग क्षेत्रों में कथा के विवरण में थोड़ा अंतर मिलता है।"
-for k in KATHAS:
+for k in KATHAS + KATHAS2:
     dline = ""
-    if k["fest"] and FEST.get(k["fest"]):
-        nxt = next((x for x in FEST[k["fest"]] if x["date"] >= TODAY_D), FEST[k["fest"]][-1])
+    _occ = FEST.get(k["fest"]) or [x for x in EKA if x.get("key") == k["fest"]]
+    if k["fest"] and _occ:
+        nxt = next((x for x in _occ if x["date"] >= TODAY_D), _occ[-1])
         dline = ('<p class="lede">' + e(nxt["name"]) + " " + str(nxt["date"].year) + ": <strong>" + hdate_w(nxt["date"]) +
                  '</strong> — <a href="' + k["fest"] + '-kab-hai.html">तिथि और पूजा का समय देखें</a></p>')
     secs = "".join('<h2 class="k-h">' + e(h) + "</h2>" + "".join("<p>" + e(par) + "</p>" for par in paras) for h, paras in k["sections"])

@@ -1,6 +1,6 @@
 # OmKiran Bhakti
 
-> Hindi devotional website of the OmKiran Bhakti YouTube channel: 93 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
+> Hindi devotional website of the OmKiran Bhakti YouTube channel: 101 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
 
 Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
 Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi, purnimanta months; festivals follow their traditional kaal rule (sunrise, pradosh, moonrise, nishita).
@@ -157,6 +157,14 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [अहोई अष्टमी व्रत कथा — साहूकारनी और स्याहू की कहानी, पूजा विधि | OmKiran Bhakti](https://omkiranbhakti.github.io/ahoi-ashtami-vrat-katha.html)
 - [सोमवार व्रत कथा — शिव जी की कथा, पूजा विधि और नियम | OmKiran Bhakti](https://omkiranbhakti.github.io/somvar-vrat-katha.html)
 - [सत्यनारायण व्रत कथा — पाँचों अध्याय सरल हिंदी में, पूजा विधि | OmKiran Bhakti](https://omkiranbhakti.github.io/satyanarayan-vrat-katha.html)
+- [रमा एकादशी व्रत कथा — शोभन और चंद्रभागा की कहानी, सरल हिंदी में | OmKiran Bhakti](https://omkiranbhakti.github.io/rama-ekadashi-vrat-katha.html)
+- [पापांकुशा एकादशी व्रत कथा — क्रोधन बहेलिये की कहानी | OmKiran Bhakti](https://omkiranbhakti.github.io/papankusha-ekadashi-vrat-katha.html)
+- [धनतेरस की कथा — राजा हिम के पुत्र और यम दीपक की कहानी | OmKiran Bhakti](https://omkiranbhakti.github.io/dhanteras-katha.html)
+- [दिवाली लक्ष्मी पूजा की कथा — साहूकार की बेटी और माँ लक्ष्मी | OmKiran Bhakti](https://omkiranbhakti.github.io/diwali-lakshmi-puja-katha.html)
+- [गोवर्धन पूजा की कथा — श्रीकृष्ण ने गोवर्धन पर्वत क्यों उठाया | OmKiran Bhakti](https://omkiranbhakti.github.io/govardhan-puja-katha.html)
+- [भाई दूज की कथा — यमराज और यमुना की कहानी | OmKiran Bhakti](https://omkiranbhakti.github.io/bhai-dooj-katha.html)
+- [छठ पूजा की कथा — छठी मैया कौन हैं और छठ क्यों मनाते हैं | OmKiran Bhakti](https://omkiranbhakti.github.io/chhath-puja-katha.html)
+- [तुलसी विवाह की कथा — वृंदा, जालंधर और शालिग्राम की कहानी | OmKiran Bhakti](https://omkiranbhakti.github.io/tulsi-vivah-katha.html)
 
 ## Bhajans by deity
 - [माता रानी भजन — देवी गीत, दुर्गा चालीसा और नवरात्रि भजन | OmKiran Bhakti](https://omkiranbhakti.github.io/mata-rani-bhajan.html)
