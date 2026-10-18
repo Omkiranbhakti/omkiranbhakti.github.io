@@ -340,7 +340,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og
 <div><h2>OmKiran Bhakti</h2><p>हिंदी भक्ति संगीत का घर — आरती, चालीसा, मंत्र और भजन, बोल और अर्थ के साथ। हमारे सभी वीडियो <a href="{YT}">YouTube चैनल</a> पर हैं।</p></div>
 <div><h2>पाठ</h2><ul><li><a href="hanuman-chalisa.html">हनुमान चालीसा</a></li><li><a href="om-jai-jagdish-hare-aarti.html">ॐ जय जगदीश हरे</a></li><li><a href="ganesh-aarti-jai-ganesh-deva.html">गणेश आरती</a></li><li><a href="shiv-aarti-om-jai-shiv-omkara.html">शिव आरती</a></li><li><a href="jaap-mala.html">ऑनलाइन जाप माला</a></li><li><a href="aaj-ka-panchang.html">आज का पंचांग</a></li><li><a href="tyohar-calendar.html">त्योहार कैलेंडर</a></li><li><a href="about.html">परिचय</a></li></ul></div>
 <div><h2>भजन</h2><ul><li><a href="mata-rani-bhajan.html">माता रानी</a></li><li><a href="shiv-bhajan.html">शिव</a></li><li><a href="ganesh-bhajan.html">गणेश</a></li><li><a href="krishna-bhajan.html">कृष्ण</a></li><li><a href="ram-bhajan.html">राम</a></li><li><a href="devotional-edm-bhajans.html">भक्ति EDM</a></li><li><a href="sant-bhajan.html">संत भजन (बोल)</a></li></ul></div>
-</div><div class="wrap join-strip"><p class="okb-count" id="okb-count" hidden aria-live="polite"></p><span>🙏 रोज़ का पंचांग, त्योहार और नए भजन सीधे फ़ोन पर पाएँ</span><a class="wa-join" href="{WA_CH}" target="_blank" rel="noopener">{WA_ICON} WhatsApp चैनल से जुड़ें</a><a class="yt-join" href="https://www.youtube.com/@OmKiranBhakti?sub_confirmation=1" target="_blank" rel="noopener">▶ YouTube Subscribe</a></div><div class="wrap fine">© {datetime.date.today().year} OmKiran Bhakti. पारंपरिक पाठ सार्वजनिक धरोहर हैं; अर्थ और संगीत OmKiran Bhakti के हैं।</div></footer>
+</div><div class="wrap join-strip"><p class="okb-count" id="okb-count" hidden aria-live="polite"></p><span>🙏 रोज़ का पंचांग, त्योहार और नए भजन सीधे फ़ोन पर पाएँ</span><a class="wa-join" href="{WA_CH}" target="_blank" rel="noopener">{WA_ICON} WhatsApp चैनल से जुड़ें</a><a class="yt-join" href="https://www.youtube.com/@OmKiranBhakti?sub_confirmation=1" target="_blank" rel="noopener">▶ YouTube Subscribe</a></div><div class="wrap fine"><nav class="foot-legal" aria-label="जानकारी"><a href="about.html">परिचय</a> · <a href="contact.html">संपर्क करें</a> · <a href="privacy-policy.html">गोपनीयता नीति</a> · <a href="disclaimer.html">अस्वीकरण / Affiliate जानकारी</a></nav>© {datetime.date.today().year} OmKiran Bhakti. पारंपरिक पाठ सार्वजनिक धरोहर हैं; अर्थ और संगीत OmKiran Bhakti के हैं। Amazon Associate के रूप में हम योग्य ख़रीदारी पर कमीशन कमाते हैं।</div></footer>
 <a class="wa-float" href="{WA_CH}" target="_blank" rel="noopener" aria-label="OmKiran Bhakti WhatsApp चैनल से जुड़ें">{WA_ICON}<span>चैनल से जुड़ें</span></a>
 <script src="script.js?v={JSV}" defer></script>
 </body></html>'''
@@ -631,6 +631,81 @@ add("about.html", "OmKiran Bhakti के बारे में — हिंद
 <h2>सबसे ज़्यादा सुने गए</h2>{video_cards(["ZswQ9qUMDTs","707iS1Iyv-E","lMHZDM-RRb4"])}</div></section>''',
  crumbs="परिचय", active="about.html",
  ld=[{"@type":"AboutPage","url":SITE+"about.html","about":{"@id":SITE+"#organization"}}])
+
+# ---------------- Policy pages (AdSense / Amazon Associates requirements) ----------------
+CONTACT_EMAIL = "omkiranbhakti@gmail.com"
+POLICY_DATE = "18 अक्टूबर 2026"
+
+add("contact.html", "संपर्क करें — OmKiran Bhakti",
+ "OmKiran Bhakti से संपर्क करें — सुझाव, बोल या तारीख़ में ग़लती की सूचना, सहयोग या किसी और बात के लिए ईमेल, YouTube या Instagram पर लिखें।",
+ f'''{band("संपर्क करें",f"सुझाव, किसी आरती-चालीसा के बोल या त्योहार की तारीख़ में ग़लती की सूचना, या सहयोग के लिए हमें ईमेल करें: <a href=mailto:{CONTACT_EMAIL}>{CONTACT_EMAIL}</a>। हम आमतौर पर 2–3 दिन में जवाब देते हैं।","संपर्क",*ART["ganesh"],"OmKiran Bhakti")}
+<section><div class="wrap prose">
+<h2>ईमेल</h2>
+<p><a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a> — सबसे भरोसेमंद तरीक़ा। ग़लती बताते समय पेज का लिंक और सही बोल/तारीख़ ज़रूर लिखें, ताकि हम जल्दी सुधार सकें।</p>
+<h2>सोशल मीडिया</h2>
+<ul><li><a href="{YT}">YouTube: @OmKiranBhakti</a> — वीडियो पर कमेंट करें</li><li><a href="https://www.instagram.com/omkiranbhakti/">Instagram: @omkiranbhakti</a> — DM भेजें</li><li><a href="https://www.facebook.com/omkiranbhakti/">Facebook</a></li><li><a href="{WA_CH}">WhatsApp चैनल</a> — रोज़ का पंचांग और नए भजन (यह चैनल सिर्फ़ सूचना के लिए है, इस पर संदेश नहीं भेजे जा सकते)</li></ul>
+<h2>किन बातों के लिए लिखें</h2>
+<ul><li>बोल, अर्थ या त्योहार की तारीख़ में कोई ग़लती</li><li>किसी नए पाठ, कथा या त्योहार को जोड़ने का सुझाव</li><li>भजन, संगीत या प्रचार के लिए सहयोग</li><li>कॉपीराइट से जुड़ी कोई शिकायत — हम उसे तुरंत देखते हैं</li></ul>
+<p>यह भी पढ़ें: <a href="privacy-policy.html">गोपनीयता नीति</a> · <a href="disclaimer.html">अस्वीकरण और affiliate जानकारी</a></p>
+</div></section>''',
+ crumbs="संपर्क", active="contact.html",
+ ld=[{"@type":"ContactPage","url":SITE+"contact.html","about":{"@id":SITE+"#organization"}}])
+
+add("privacy-policy.html", "गोपनीयता नीति (Privacy Policy) — OmKiran Bhakti",
+ "OmKiran Bhakti वेबसाइट की गोपनीयता नीति — कौन-सी जानकारी ली जाती है, Google AdSense विज्ञापन और कुकीज़, Amazon affiliate links, YouTube वीडियो और आपके विकल्प।",
+ f'''{band("गोपनीयता नीति","omkiranbhakti.com पर आपसे कोई खाता, नाम या फ़ोन नंबर नहीं माँगा जाता। साइट पर Google AdSense के विज्ञापन और Amazon के affiliate links हैं, जो कुकीज़ का इस्तेमाल कर सकते हैं — नीचे पूरी जानकारी है।","गोपनीयता नीति",*ART["ganesh"],"OmKiran Bhakti")}
+<section><div class="wrap prose">
+<p><b>अंतिम अपडेट:</b> {POLICY_DATE}</p>
+<p>यह नीति OmKiran Bhakti की वेबसाइट <a href="{SITE}">omkiranbhakti.com</a> पर लागू होती है। साइट का इस्तेमाल करके आप इस नीति से सहमत होते हैं।</p>
+<h2>हम कौन-सी जानकारी लेते हैं</h2>
+<ul><li><b>आप ख़ुद जो भेजें:</b> अगर आप हमें ईमेल करते हैं, तो आपका ईमेल पता और संदेश सिर्फ़ जवाब देने के लिए रखा जाता है। इसे बेचा या किसी और को नहीं दिया जाता।</li>
+<li><b>आपके ब्राउज़र में:</b> जाप माला की गिनती, दिन/रात रंग और भाषा जैसी सुविधाएँ आपके अपने ब्राउज़र (localStorage) में सहेजी जाती हैं। यह जानकारी हमारे पास नहीं आती।</li>
+<li><b>गिनती:</b> कुछ पेजों पर कुल जाप/पाठ की गुमनाम गिनती दिखाने के लिए एक सरल काउंटर सेवा का इस्तेमाल होता है। इसमें आपकी पहचान नहीं ली जाती।</li></ul>
+<h2>Google AdSense विज्ञापन और कुकीज़</h2>
+<p>इस साइट पर Google AdSense के विज्ञापन दिखाए जाते हैं। Google जैसे तीसरे पक्ष के विक्रेता कुकीज़ का इस्तेमाल करके आपकी इस साइट और दूसरी साइटों की पिछली विज़िट के आधार पर विज्ञापन दिखाते हैं। Google की विज्ञापन कुकीज़ उसे और उसके साझेदारों को ऐसे विज्ञापन दिखाने देती हैं।</p>
+<ul><li>आप <a href="https://adssettings.google.com/" rel="nofollow noopener" target="_blank">Google विज्ञापन सेटिंग</a> में जाकर व्यक्तिगत विज्ञापन बंद कर सकते हैं।</li>
+<li>दूसरे विक्रेताओं की व्यक्तिगत विज्ञापन कुकीज़ बंद करने के लिए <a href="https://www.aboutads.info/choices/" rel="nofollow noopener" target="_blank">aboutads.info</a> पर जाएँ।</li>
+<li>Google जानकारी कैसे इस्तेमाल करता है: <a href="https://policies.google.com/technologies/partner-sites" rel="nofollow noopener" target="_blank">Google की साझेदार साइट नीति</a>।</li></ul>
+<h2>Amazon affiliate links</h2>
+<p>OmKiran Bhakti, Amazon Associates प्रोग्राम का सदस्य है। पूजा सामग्री के कुछ लिंक Amazon.in के affiliate links हैं। इन पर क्लिक करने पर Amazon अपनी कुकी लगा सकता है, ताकि ख़रीदारी होने पर हमें छोटा-सा कमीशन मिल सके। आपके लिए दाम वही रहता है। Amazon पर आपकी जानकारी <a href="https://www.amazon.in/gp/help/customer/display.html?nodeId=200534380" rel="nofollow noopener" target="_blank">Amazon की गोपनीयता सूचना</a> के अनुसार संभाली जाती है।</p>
+<h2>YouTube वीडियो</h2>
+<p>भजन के वीडियो YouTube के privacy-enhanced मोड (youtube-nocookie.com) से चलते हैं और सिर्फ़ तब लोड होते हैं जब आप ▶ दबाते हैं। वीडियो चलने पर <a href="https://policies.google.com/privacy" rel="nofollow noopener" target="_blank">Google की गोपनीयता नीति</a> लागू होती है।</p>
+<h2>कुकीज़ कैसे बंद करें</h2>
+<p>आप अपने ब्राउज़र की सेटिंग में जाकर कुकीज़ हटा या बंद कर सकते हैं। ऐसा करने पर भी साइट पढ़ी जा सकेगी, बस कुछ सुविधाएँ (जैसे जाप की सहेजी गिनती) रीसेट हो सकती हैं।</p>
+<h2>बच्चों की जानकारी</h2>
+<p>हम जान-बूझकर 13 वर्ष से कम उम्र के बच्चों की कोई निजी जानकारी नहीं लेते।</p>
+<h2>बाहरी लिंक</h2>
+<p>साइट पर दूसरी वेबसाइटों के लिंक हैं। उनकी गोपनीयता नीति के लिए हम ज़िम्मेदार नहीं हैं।</p>
+<h2>बदलाव और संपर्क</h2>
+<p>इस नीति में बदलाव होने पर इसी पेज पर नई तारीख़ के साथ अपडेट किया जाएगा। कोई सवाल हो तो लिखें: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a> या <a href="contact.html">संपर्क पेज</a> देखें।</p>
+</div></section>''',
+ crumbs="गोपनीयता नीति", active="privacy-policy.html",
+ ld=[{"@type":"WebPage","name":"गोपनीयता नीति","url":SITE+"privacy-policy.html","inLanguage":"hi"}])
+
+add("disclaimer.html", "अस्वीकरण और Affiliate जानकारी — OmKiran Bhakti",
+ "OmKiran Bhakti का अस्वीकरण — पाठ और अर्थ, त्योहार की तारीख़ें और मुहूर्त, Amazon affiliate links और विज्ञापनों से जुड़ी साफ़ जानकारी।",
+ f'''{band("अस्वीकरण और Affiliate जानकारी","यह साइट भक्ति और जानकारी के लिए है। त्योहार की तारीख़ें और मुहूर्त जाँचकर लिखे जाते हैं, फिर भी स्थान के अनुसार बदल सकते हैं। पूजा सामग्री के कुछ लिंक Amazon affiliate links हैं, जिनसे हमें छोटा कमीशन मिलता है।","अस्वीकरण",*ART["ganesh"],"OmKiran Bhakti")}
+<section><div class="wrap prose">
+<p><b>अंतिम अपडेट:</b> {POLICY_DATE}</p>
+<h2>Affiliate जानकारी (Amazon Associates)</h2>
+<p>OmKiran Bhakti, Amazon Associates प्रोग्राम का सदस्य है। Amazon Associate के रूप में हम योग्य ख़रीदारी पर कमीशन कमाते हैं। जिन लिंक पर “Amazon” या “पूजा सामग्री” लिखा है, उनसे ख़रीदारी करने पर आपके लिए दाम नहीं बढ़ता — बस इस साइट और चैनल को चलाने में मदद मिलती है।</p>
+<p lang="en"><i>As an Amazon Associate, OmKiran Bhakti earns from qualifying purchases.</i></p>
+<p>हम किसी ख़ास दुकान या ब्रांड की गारंटी नहीं देते। सामान की क़ीमत, गुणवत्ता, डिलीवरी और वापसी Amazon और विक्रेता की नीति के अनुसार होती है। ख़रीदने से पहले विवरण और रिव्यू ज़रूर देखें।</p>
+<h2>विज्ञापन</h2>
+<p>साइट पर Google AdSense के विज्ञापन दिखते हैं। विज्ञापन Google चुनता है; उनमें दिखाई गई चीज़ों या सेवाओं का हम समर्थन नहीं करते। ज़्यादा जानकारी के लिए <a href="privacy-policy.html">गोपनीयता नीति</a> पढ़ें।</p>
+<h2>पाठ, बोल और अर्थ</h2>
+<p>आरती, चालीसा, मंत्र, स्तोत्र और लोक भजन पारंपरिक हैं और सार्वजनिक धरोहर माने जाते हैं। अलग-अलग परंपराओं में इनके बोल थोड़े अलग हो सकते हैं। अर्थ और व्याख्या OmKiran Bhakti की अपनी सरल हिंदी में लिखी गई है — यह किसी शास्त्रीय टीका का विकल्प नहीं है।</p>
+<h2>तारीख़ें, मुहूर्त और पंचांग</h2>
+<p>त्योहार की तारीख़ें, मुहूर्त, चौघड़िया और पंचांग गणना और पंचांगों से मिलाकर दिए जाते हैं। सूर्योदय, शहर और परंपरा के अनुसार इनमें अंतर हो सकता है। किसी बड़े संस्कार, विवाह या मुहूर्त के लिए अपने पुरोहित या स्थानीय पंचांग से पुष्टि ज़रूर करें।</p>
+<h2>स्वास्थ्य और व्रत</h2>
+<p>व्रत और नियमों की जानकारी धार्मिक परंपरा के रूप में दी गई है। गर्भावस्था, बीमारी या दवा चल रही हो तो व्रत रखने से पहले डॉक्टर की सलाह लें।</p>
+<h2>कॉपीराइट</h2>
+<p>साइट के अर्थ, लेख, संगीत और वीडियो OmKiran Bhakti के हैं; बिना अनुमति इन्हें कॉपी करके दोबारा प्रकाशित न करें। अगर आपको लगता है कि यहाँ आपकी किसी रचना का ग़लत इस्तेमाल हुआ है, तो <a href="contact.html">संपर्क करें</a> — हम तुरंत जाँच करके हटा देंगे।</p>
+<h2>संपर्क</h2>
+<p>सवाल या सुधार के लिए: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></p>
+</div></section>''',
+ crumbs="अस्वीकरण", active="disclaimer.html",
+ ld=[{"@type":"WebPage","name":"अस्वीकरण और Affiliate जानकारी","url":SITE+"disclaimer.html","inLanguage":"hi"}])
 
 # ---------------- Panchang & festivals ----------------
 from panchang import TITHI as TITHI_HI

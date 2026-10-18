@@ -187,6 +187,8 @@ select,input[type=text]{font:inherit;padding:.55rem .8rem;border-radius:var(--r-
 .site-foot ul{list-style:none;padding:0;margin:0}
 .site-foot li{padding:.15rem 0}
 .site-foot .fine{margin-top:2rem;font-size:.88rem;opacity:.75}
+.site-foot .foot-legal{display:flex;flex-wrap:wrap;gap:.25rem .4rem;margin-bottom:.6rem;font-size:.92rem}
+.site-foot .foot-legal a{color:inherit}
 @media (max-width:760px){.foot-grid{grid-template-columns:1fr}}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
