@@ -743,6 +743,16 @@ def _rel_html(slug):
     return f'<div class="rail-rel"><h2>इनका भी पाठ करें</h2><ul>{lis}</ul></div>'
 for _s in list(PAGES):
     PAGES[_s] = _re.sub(r"<!--REL:([^>]+?)-->", lambda m: _rel_html(m.group(1)), PAGES[_s])
+# Amazon: festival samagri boxes + shop page
+if MON.AMAZON_TAG:
+    add("puja-samagri-kharidein.html", "पूजा सामग्री ख़रीदें — मूर्तियाँ, दीये, माला, यंत्र और गीता प्रेस किताबें | OmKiran Bhakti",
+        "घर की पूजा के लिए मूर्तियाँ, पूजा थाली, दीये, कलश, रुद्राक्ष-तुलसी माला, श्री यंत्र और गीता प्रेस की धार्मिक किताबें — एक जगह, Amazon पर।",
+        band("पूजा सामग्री — मूर्तियाँ, माला और किताबें", "घर की पूजा के लिए ज़रूरी सामान एक जगह: मूर्तियाँ, पूजा का सामान, माला-यंत्र, गीता प्रेस की किताबें और घर का मंदिर। हर नाम पर क्लिक करके Amazon पर देखें।", "पूजा सामग्री ख़रीदें") + MON.shop_body(),
+        crumbs="पूजा सामग्री ख़रीदें")
+    for _s in list(PAGES):
+        _b = MON.festival_box(_s)
+        if _b and "samagri-box" not in PAGES[_s]:
+            PAGES[_s] = PAGES[_s].replace('<section class="xplore no-print">', _b + '<section class="xplore no-print">', 1)
 for slug, content in PAGES.items():
     with open(os.path.join(ROOT, slug), "w", encoding="utf-8") as f: f.write(content)
 en_index()
