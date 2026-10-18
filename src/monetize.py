@@ -1,6 +1,6 @@
 # Monetisation switches. Both stay OFF (nothing is shown) until the IDs are filled in.
 AMAZON_TAG = ""      # Amazon Associates India store ID, e.g. "omkiran-21"
-ADSENSE_PUB = ""     # AdSense publisher ID, e.g. "ca-pub-1234567890123456"
+ADSENSE_PUB = "ca-pub-2329005702942940"     # AdSense publisher ID, e.g. "ca-pub-1234567890123456"
 
 # Puja items per deity: (label shown in Hindi, Amazon.in search words). Links are plain Amazon searches with our tag —
 # no prices are shown (Amazon rule), and every box carries an affiliate disclosure.

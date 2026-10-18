@@ -20,7 +20,7 @@ def en_head(title, desc, url, hi_url, ld):
 <link rel="icon" href="../assets/favicon-48.png" type="image/png" sizes="48x48"><link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v={CSSV}">
+<link rel="stylesheet" href="../styles.css?v={CSSV}">{MON.adsense_head()}
 <script>try{{var t=localStorage.getItem('okb-theme');if(t)document.documentElement.setAttribute('data-theme',t)}}catch(e){{}}</script>
 <script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@graph":ld},ensure_ascii=False)}</script>
 </head>
