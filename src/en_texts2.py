@@ -157,3 +157,90 @@ EN["ganesh-chalisa.html"] = dict(
  "On the day of Rishi Panchami this chalisa of auspicious Ganesh was completed."],
  faqs=[("What story does the Ganesh Chalisa tell?","How Ganesh was born from Mother Parvati's austerities, lost his head to Shani's gaze, received an elephant's head, and became the first to be worshipped by circling his parents."),
        ("When is the Ganesh Chalisa recited?","On Wednesdays, on Sankashti Chaturthi and during the ten days of Ganesh Chaturthi.")])
+
+EN["aarti-kunj-bihari-ki.html"] = dict(
+ name="Aarti Kunj Bihari Ki", sub="Krishna aarti, with English meaning",
+ title="Aarti Kunj Bihari Ki — Lyrics in English with Meaning | OmKiran Bhakti",
+ desc="Aarti Kunj Bihari Ki (Shri Krishna aarti) lyrics in English letters and Hindi, with the meaning of every verse in simple English. Sung on Janmashtami, Ekadashi and in daily Krishna puja.",
+ answer="'Aarti Kunj Bihari Ki' is the most popular aarti of Shri Krishna. It paints Vrindavan, the flute, the beauty of Radha and Krishna, and the Ganga flowing from Krishna's feet. The aarti is given below in English letters and Devanagari, with the meaning of each verse in English.",
+ intro="It is sung on Janmashtami, on Ekadashi and in the evening aarti of daily Krishna worship.",
+ m=["The aarti of Kunj Bihari — Krishna who roams the groves — Murari who lifted Govardhan.",
+    "A vaijayanti garland at his neck, a sweet flute at his lips, earrings glinting in his ears — the darling of Nand. Dark as the sky, with radiant Radha beside him; curls like black bees, a musk tilak and a moon-like glow — the beautiful sight of Radha and Shyam.",
+    "His golden peacock crown shines and the gods long for his darshan; flowers rain from the sky, the murchang and mridang play, and the gopis are lost in love.",
+    "From his feet came forth the Ganga who captivates every heart and lives in Shiva's matted hair — such is the glory of Shri Banwari's feet.",
+    "The sand of the Yamuna bank sparkles, the flute plays in Vrindavan, gopis, cowherds and cows are all around. His gentle smile and the moonlight cut the bonds of the world — O Lord, hear the cry of this humble one."],
+ faqs=[("When is Aarti Kunj Bihari Ki sung?","On Janmashtami, on Ekadashi, and in the daily worship of Shri Krishna, especially at the evening aarti.")])
+
+EN["hanuman-aarti.html"] = dict(
+ name="Aarti Kije Hanuman Lala Ki", sub="Hanuman aarti, with English meaning",
+ title="Aarti Kije Hanuman Lala Ki — Lyrics in English with Meaning | OmKiran Bhakti",
+ desc="Aarti Kije Hanuman Lala Ki lyrics in English letters and Hindi with a simple English meaning of every verse. Sung after the Hanuman Chalisa on Tuesdays and Saturdays.",
+ answer="'Aarti Kije Hanuman Lala Ki' is the most widely sung aarti of Lord Hanuman, usually sung right after the Hanuman Chalisa. It recalls the burning of Lanka, the Sanjeevani herb and the slaying of Ahiravan. The aarti is given below in English letters and Devanagari, with the meaning of each verse in English.",
+ intro="Sing it on Tuesdays and Saturdays, after reciting the Hanuman Chalisa or the Sundarkand.",
+ m=["Perform the aarti of dear Hanuman, destroyer of the wicked and the very power of Shri Ram.",
+    "By his strength mountains tremble, and disease and misfortune dare not come near.",
+    "The son of Anjani is mighty and always helps the saints.",
+    "Shri Ram sent him with a betel-leaf token; he burned Lanka and brought back news of Sita.",
+    "Lanka was a fortress with a moat as wide as the sea, yet the son of the Wind crossed it in no time.",
+    "He burned Lanka, destroyed the demons and accomplished the work of Sita and Ram.",
+    "When Lakshman lay unconscious, he brought the Sanjeevani herb and saved his life.",
+    "He entered the underworld, broke the bonds and tore off Ahiravan's arms.",
+    "With his left arm he struck down the demon army; with his right he carried the saints across.",
+    "Gods, humans and sages perform his aarti, crying victory, victory, victory to Hanuman!",
+    "Camphor flames glow on a golden plate as Mother Anjana performs his aarti.",
+    "Whoever sings this aarti of Hanuman goes to Vaikunth and attains the highest state."],
+ faqs=[("When should Hanuman aarti be done?","On Tuesdays and Saturdays, after the Hanuman Chalisa or the Sundarkand.")])
+
+EN["lakshmi-aarti.html"] = dict(
+ name="Om Jai Lakshmi Mata", sub="Lakshmi aarti, with English meaning",
+ title="Om Jai Lakshmi Mata Aarti — Lyrics in English with Meaning | OmKiran Bhakti",
+ desc="Om Jai Lakshmi Mata aarti lyrics in English letters and Hindi, with a simple English meaning of every verse. For Diwali Lakshmi puja, Dhanteras and Fridays.",
+ answer="'Om Jai Lakshmi Mata' is the aarti of Goddess Lakshmi, sung at the Diwali Lakshmi puja, on Dhanteras and on Fridays. The aarti is given below in English letters and Devanagari, with the meaning of each verse in English.",
+ intro="Sing it on Diwali night after Lakshmi puja, on Dhanteras and every Friday evening.",
+ m=["Victory to you, Mother Lakshmi! Vishnu and Brahma serve you day and night.",
+    "You are Uma, Rama and Brahmani — the mother of the world; the sun and moon meditate on you and the sage Narad sings your praise.",
+    "You are the pure form of Durga, giver of happiness and wealth; whoever meditates on you gains prosperity, success and riches.",
+    "You dwell even in the netherworld, you grant all good, you reveal the fruit of our actions and carry us across the ocean of life.",
+    "In the home where you live every virtue arrives; everything becomes possible and the mind is free of worry.",
+    "Without you no sacred ritual could happen and no one would have clothes; all the abundance of food and drink comes from you.",
+    "You are a beautiful temple of good qualities, born from the ocean of milk; without you no one obtains the fourteen jewels.",
+    "Whoever sings this aarti of Mahalakshmi is filled with joy in the heart, and their sins fall away."],
+ faqs=[("When should Lakshmi aarti be done?","On Diwali night after Lakshmi puja, on Dhanteras and on Friday evenings.")])
+
+EN["gayatri-mantra.html"] = dict(
+ name="Gayatri Mantra", sub="Meaning and how to chant",
+ title="Gayatri Mantra — Lyrics in English with Meaning | OmKiran Bhakti",
+ desc="The Gayatri Mantra (Om Bhur Bhuva Swaha) in English letters and Sanskrit, with its meaning in simple English and how many times to chant it.",
+ answer="The Gayatri Mantra comes from the Rig Veda (3.62.10) and its seer is the sage Vishwamitra. It is a prayer to the Supreme in the form of the radiant sun (Savitr), asking that our intellect be guided in the right direction.",
+ intro="Traditionally it is chanted 108 times (one mala), at sunrise or sunset; 11 or 21 times is also fine when time is short.",
+ m=["We meditate on the most excellent, radiant, sin-destroying divine light of the Supreme — the source of life, remover of suffering and embodiment of bliss. May it inspire and guide our intellect on the right path."],
+ faqs=[("What is the meaning of the Gayatri Mantra?","'We meditate on the radiant, purifying divine light of the Supreme; may it guide our intellect on the right path.'"),
+       ("How many times should the Gayatri Mantra be chanted?","Traditionally 108 times (one mala); 11 or 21 times when time is short.")])
+
+EN["mahamrityunjay-mantra.html"] = dict(
+ name="Mahamrityunjay Mantra", sub="Meaning and 108 chants",
+ title="Mahamrityunjay Mantra — Lyrics in English with Meaning | OmKiran Bhakti",
+ desc="The Mahamrityunjay Mantra (Om Tryambakam Yajamahe) in English letters and Sanskrit, with its meaning in simple English and how to chant it 108 times.",
+ answer="The Mahamrityunjay Mantra is from the Rig Veda (7.59.12). It is a prayer to three-eyed Shiva for freedom from the bondage of death and for immortality, and is believed to remove illness, fear and danger.",
+ intro="Chant it 108 times (one mala), ideally in the morning.",
+ m=["We worship the three-eyed Lord Shiva, who is fragrant and nourishes all beings. As a ripe cucumber falls free from its vine on its own, may he free us from the bondage of death — and not from immortality (liberation)."],
+ faqs=[("What does the Mahamrityunjay Mantra mean?","'We worship three-eyed Shiva. As a ripe cucumber falls free from its vine, may he free us from the bondage of death.'"),
+       ("How many times should it be chanted?","One mala, that is 108 times.")])
+
+EN["mantra-sangrah.html"] = dict(
+ name="10 Essential Hindu Mantras", sub="Ganesh, Shiva, Vishnu, Durga and more",
+ title="10 Essential Hindu Mantras — Lyrics in English with Meaning | OmKiran Bhakti",
+ desc="Ten everyday Hindu mantras — Vakratunda Mahakaya, Om Namah Shivaya, Shantakaram, Vasudeva Sutam, Manojavam, Ya Devi Sarvabhuteshu, Saraswati Vandana and the Shanti Mantra — in English letters with meaning.",
+ answer="A puja begins with the Ganesh mantra and ends with a peace (shanti) mantra. Here is one simple, widely used mantra for each major deity, with its meaning in plain English.",
+ intro="Each mantra can be chanted on its own, or in this order as a short daily prayer.",
+ m=["O Lord with the curved trunk and mighty body, radiant as ten million suns — always make all my work free of obstacles. (Said at the start of any task.)",
+    "I bow to Shiva. Shiva's simplest and most powerful mantra, often chanted 108 times.",
+    "I bow to Vishnu — peaceful in form, resting on the serpent, with a lotus at his navel, lord of the gods, support of the universe, vast as the sky, dark as a rain cloud; husband of Lakshmi, lotus-eyed, reached by yogis in meditation, who removes the fear of worldly life.",
+    "I bow to Shri Krishna, son of Vasudev, destroyer of Kansa and Chanur, the supreme joy of Devaki, teacher of the world.",
+    "Victory to Shri Ram — this thirteen-syllable 'taraka' mantra is the simplest way to chant Ram's name.",
+    "I take refuge in the messenger of Shri Ram — swift as the mind, fast as the wind, master of the senses, foremost among the wise, son of the Wind and leader of the monkey army.",
+    "To the Goddess who dwells in all beings in the form of power — salutations to her, again and again.",
+    "May Goddess Saraswati protect me — white as the jasmine, the moon and snow, dressed in white, holding the veena, seated on a white lotus, ever worshipped by Brahma, Vishnu and Shiva, she who removes all dullness.",
+    "Salutations to Mahalakshmi. A seed mantra chanted for wealth, happiness and prosperity.",
+    "May all be happy, may all be free of illness, may all see what is good, and may no one suffer. Om peace, peace, peace."],
+ faqs=[("Which mantra is said first in a puja?","The Ganesh mantra 'Vakratunda Mahakaya Suryakoti Samaprabha' — every puja and auspicious task begins with it.")])
