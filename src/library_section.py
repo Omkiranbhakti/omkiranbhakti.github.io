@@ -612,12 +612,14 @@ AARTI_FAQ = [
  ("हर पूजा के अंत में कौन सी आरती गाई जाती है?", _a("om-jai-jagdish-hare-aarti.html","‘ॐ जय जगदीश हरे’") + " — भगवान विष्णु की यह आरती लगभग हर पूजा के अंत में गाई जाती है।"),
  ("हनुमान जी और शनि देव की आरती कौन सी है?", "हनुमान जी: " + _a("hanuman-aarti.html","‘आरती कीजै हनुमान लला की’") + "; शनि देव: " + _a("shani-dev-aarti.html","‘जय जय श्री शनिदेव’") + "। मंगलवार-शनिवार को गाई जाती हैं।"),
 ]
-cats_nav = "".join(f'<a class="chip" href="#{k}">{n} ({sum(1 for c in CATALOG if c[1]==k)})</a>' for k, n in CATS)
+_CI = {"chalisa":("book","h4"),"aarti":("diya","h3"),"mantra":("om","h5"),"stotra":("shankh","h6"),"katha":("kalash","h7"),"bhajan":("lotus","h8")}
+cats_nav = explore_grid([(f"#{k}", _CI.get(k,("book","h1"))[0], n, _CI.get(k,("book","h1"))[1], f"{sum(1 for c in CATALOG if c[1]==k)} पाठ") for k, n in CATS]
+                        + [("puja-niyam.html","niyam","पूजा नियम","h2"),("puja-samagri.html","thali","पूजा सामग्री","h1")])
 cat_sections = "".join(f'<section id="{k}"{" class=\"band\"" if i % 2 else ""}><div class="wrap">{sec_head(n)}{cat_cards(k)}</div></section>' for i, (k, n) in enumerate(CATS))
 add("aarti-mantra.html", "आरती, चालीसा, मंत्र और स्तोत्र — पूरे बोल अर्थ सहित | OmKiran Bhakti",
     f"{NPAATH} पाठ अर्थ सहित: हनुमान, दुर्गा, शिव, लक्ष्मी, शनि चालीसा; जय अम्बे गौरी, सत्यनारायण आरती; शिव तांडव, अयि गिरिनन्दिनि; गायत्री मंत्र; व्रत कथाएँ।"[:160],
     f'''{band("पाठ संग्रह", f"{NPAATH} पाठ — हर पंक्ति के सरल हिंदी अर्थ के साथ। पूजा के समय फ़ोन पर बड़े अक्षरों में पढ़ें या प्रिंट करें। हर हफ़्ते नए पाठ जुड़ते हैं।", "पाठ संग्रह", *ART["navdurga"], "पाठ संग्रह")}
-<section style="padding-bottom:0"><div class="wrap"><div class="lib-search no-print"><label for="lib-q" class="sr">पाठ खोजें</label><input type="search" id="lib-q" placeholder="पाठ खोजें — जैसे हनुमान, शिव, आरती, मंत्र…" autocomplete="off"><p class="lib-count" id="lib-count" aria-live="polite"></p></div><nav class="lib-cats" aria-label="श्रेणियाँ">{cats_nav}</nav>{deity_bar()}</div></section>
+<section style="padding-bottom:0"><div class="wrap"><div class="lib-search no-print"><label for="lib-q" class="sr">पाठ खोजें</label><input type="search" id="lib-q" placeholder="पाठ खोजें — जैसे हनुमान, शिव, आरती, मंत्र…" autocomplete="off"><p class="lib-count" id="lib-count" aria-live="polite"></p></div><div class="lib-cats">{cats_nav}</div>{deity_bar()}</div></section>
 <section><div class="wrap">{sec_head("कथा, नियम और पूजा सामग्री")}<ul class="library"><li><a href="vrat-katha.html"><strong>व्रत कथा संग्रह</strong><span>तीज, गणगौर, राखी, एकादशी, छठ…</span></a></li><li><a href="puja-niyam.html"><strong>पूजा के नियम</strong><span>क्या करें, क्या न करें</span></a></li><li><a href="puja-samagri.html"><strong>पूजा सामग्री लिस्ट</strong><span>दिवाली, छठ, करवा चौथ, नवरात्रि</span></a></li><li><a href="lok-parv.html"><strong>लोक पर्व</strong><span>राज्य के अनुसार त्योहार</span></a></li><li><a href="sant-bhajan.html"><strong>संत भजन</strong><span>मीरा, सूर, तुलसी, रैदास — बोल और अर्थ</span></a></li></ul></div></section>
 {cat_sections}
 <section><div class="wrap">{sec_head("मंत्र जाप — 108 बार","एक माला के बराबर जाप, ध्यान के साथ सुनें")}{video_cards(mantra_ids)}</div></section>

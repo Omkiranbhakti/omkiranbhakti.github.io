@@ -221,6 +221,55 @@ def faq_ld(faqs):
     import re
     return {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":re.sub("<[^>]+>","",a)}} for q,a in faqs]}
 
+def ico(name, cls="ic"):
+    return f'<svg class="{cls}" aria-hidden="true" focusable="false"><use href="assets/icons.svg#i-{name}"></use></svg>'
+
+# Grouped main navigation (URLs unchanged; only the menu is reorganised)
+NAVG = [
+ ("आज", "sun", [("aaj-ka-panchang.html","आज का पंचांग","तिथि, नक्षत्र, राहुकाल"),("aaj-ka-choghadiya.html","चौघड़िया","आपके शहर का शुभ समय"),
+                ("bhadra-kaal.html","भद्रा काल","कब है, कब तक"),("panchak-kab-hai.html","पंचक","तारीख़ें और नियम")]),
+ ("त्योहार", "calendar", [("tyohar-calendar.html","त्योहार कैलेंडर","2026–27 सभी त्योहार"),("tyohar-kab-hai.html","कौन सा त्योहार कब है","हर सवाल का जवाब"),
+                ("ekadashi-2026-2027.html","एकादशी","तारीख़ और पारण"),("purnima-amavasya-2026-2027.html","पूर्णिमा-अमावस्या","पूरी सूची"),
+                ("lok-parv.html","लोक पर्व","राज्य के अनुसार"),("navratri-2026.html","नवरात्रि","नौ दिन, नौ देवियाँ")]),
+ ("पाठ", "book", [("aarti-mantra.html#aarti","आरती","जय अम्बे गौरी, जगदीश हरे…"),("aarti-mantra.html#chalisa","चालीसा","हनुमान, दुर्गा, शिव…"),
+                ("aarti-mantra.html#mantra","मंत्र","गायत्री, महामृत्युंजय…"),("aarti-mantra.html#stotra","स्तोत्र","शिव तांडव, बजरंग बाण…"),
+                ("sant-bhajan.html","संत भजन","मीरा, सूर, तुलसी, कबीर")]),
+ ("कथा-पूजा", "kalash", [("vrat-katha.html","व्रत कथा","करवा चौथ, तीज, एकादशी…"),("puja-niyam.html","पूजा के नियम","क्या करें, क्या न करें"),
+                ("puja-samagri.html","पूजा सामग्री","प्रिंट करने लायक लिस्ट")]),
+ ("लाइव दर्शन", "temple", [("live-darshan.html","लाइव दर्शन","")]),
+ ("भजन", "music", [("mata-rani-bhajan.html","माता रानी","देवी भजन"),("shiv-bhajan.html","शिव","शिव भजन और मंत्र"),("ganesh-bhajan.html","गणेश","गणपति भजन"),
+                ("krishna-bhajan.html","कृष्ण","राधा-कृष्ण भजन"),("ram-bhajan.html","राम","राम भजन"),("devotional-edm-bhajans.html","भक्ति EDM","नए अंदाज़ में")]),
+ ("टूल्स", "mala", [("jaap-mala.html","जाप माला","108 बार गिनती"),("janm-tithi-rashi-calculator.html","जन्म राशि","नाम अक्षर, नक्षत्र"),
+                ("aaj-ka-choghadiya.html","शुभ समय","चौघड़िया")]),
+]
+def nav_html(cur):
+    out = []
+    for g, ic, items in NAVG:
+        on = any(cur == h.split("#")[0] for h, _, _ in items)
+        if len(items) == 1:
+            h = items[0][0]
+            out.append(f'<div class="ng solo{" on" if on else ""}"><a class="ng-h" href="{h}"{" aria-current=\"page\"" if on else ""}>{ico(ic)}<span>{g}</span></a></div>')
+            continue
+        lis = "".join(f'<li><a href="{h}"{" aria-current=\"page\"" if cur == h else ""}><b>{t}</b>{f"<small>{sub}</small>" if sub else ""}</a></li>' for h, t, sub in items)
+        out.append(f'<div class="ng{" on" if on else ""}"><a class="ng-h" href="{items[0][0]}">{ico(ic)}<span>{g}</span>{ico("chevron","ic-chev")}</a>'
+                   f'<div class="ng-p"><p class="ng-t">{ico(ic)}{g}</p><ul>{lis}</ul></div></div>')
+    return "".join(out)
+
+# Icon tiles: what is on the site, two taps from anywhere
+EXPLORE = [("aaj-ka-panchang.html","sun","आज का पंचांग","h1"),("live-darshan.html","temple","लाइव दर्शन","h2"),
+ ("aarti-mantra.html#aarti","diya","आरती","h3"),("aarti-mantra.html#chalisa","book","चालीसा","h4"),
+ ("aarti-mantra.html#mantra","om","मंत्र","h5"),("aarti-mantra.html#stotra","shankh","स्तोत्र","h6"),
+ ("vrat-katha.html","kalash","व्रत कथा","h7"),("sant-bhajan.html","lotus","संत भजन","h8"),
+ ("tyohar-calendar.html","calendar","त्योहार","h1"),("puja-niyam.html","niyam","पूजा नियम","h3"),
+ ("puja-samagri.html","thali","पूजा सामग्री","h7"),("lok-parv.html","map","लोक पर्व","h4"),
+ ("mata-rani-bhajan.html","music","भजन","h6"),("jaap-mala.html","mala","जाप माला","h5"),
+ ("aaj-ka-choghadiya.html","clock","शुभ समय","h2"),("janm-tithi-rashi-calculator.html","stars","जन्म राशि","h8")]
+def explore_grid(items=None, title=None):
+    items = items or EXPLORE
+    tiles = "".join(f'<li><a href="{x[0]}" class="xt {x[3]}"><span class="xi">{ico(x[1])}</span><b>{x[2]}</b>{f"<span class=cnt>{x[4]}</span>" if len(x) > 4 else ""}</a></li>' for x in items)
+    head = f'<h2 class="x-h">{title}</h2>' if title else ""
+    return f'<nav class="xg-wrap" aria-label="साइट के हिस्से">{head}<ul class="xg">{tiles}</ul></nav>'
+
 def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og=None):
     url = SITE if slug=="index.html" else SITE+slug
     graph = [{"@type":"WebPage","@id":url+"#page","url":url,"name":title,"description":desc,"inLanguage":"hi-IN",
@@ -229,7 +278,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og
         graph.append({"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":SITE}]+
             [{"@type":"ListItem","position":2,"name":crumbs,"item":url}]})
     graph += (ld or [])
-    navh = "".join(f'<a href="{h}"{" aria-current=\"page\"" if h==(active or slug) else ""}>{t}</a>' for h,t in NAV)
+    navh = nav_html(active or slug)
     crumb_html = f'<nav class="crumbs wrap" aria-label="breadcrumb"><a href="index.html">होम</a> / {e(crumbs)}</nav>' if (crumbs and 'crumbs-in' not in body) else ""
     return f'''<!doctype html>
 <html lang="hi">
@@ -265,6 +314,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og
 {crumb_html}
 <main id="main">
 {body}
+{"" if slug == "index.html" else '<section class="xplore no-print"><div class="wrap">' + explore_grid(title="और क्या देखें") + '</div></section>'}
 </main>
 <footer class="site-foot"><div class="wrap foot-grid">
 <div><h2>OmKiran Bhakti</h2><p>हिंदी भक्ति संगीत का घर — आरती, चालीसा, मंत्र और भजन, बोल और अर्थ के साथ। हमारे सभी वीडियो <a href="{YT}">YouTube चैनल</a> पर हैं।</p></div>
