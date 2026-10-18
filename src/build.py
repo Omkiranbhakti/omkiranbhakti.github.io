@@ -13,7 +13,7 @@ WA_CH = "https://whatsapp.com/channel/0029Vb8NYJMCXC3MDVIhkB3p"
 WA_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>'
 YT = "https://www.youtube.com/@OmKiranBhakti"
 LOGO = "https://omkiranbhakti.com/assets/logo-512.png"
-TODAY = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=5, minutes=30)).date().isoformat()
+TODAY = os.environ.get("OKB_TODAY") or (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=5, minutes=30)).date().isoformat()
 import hashlib
 from roman import roman as _roman, roman_line as _roman_line
 import monetize as MON
@@ -828,9 +828,36 @@ if MON.AMAZON_TAG:
         _b = MON.festival_box(_s)
         if _b and "samagri-box" not in PAGES[_s]:
             PAGES[_s] = PAGES[_s].replace('<section class="xplore no-print">', _b + '<section class="xplore no-print">', 1)
+# ---------------- English edition of every page (src/en_auto.py + src/en_tr/*.json) ----------------
+import en_auto as _EA
+_conv = _EA.Converter(_EA.load_table(), _roman, set(), SITE)
+_soups = {}
+for _s, _h in PAGES.items():
+    if _s in EN or _s in ("404.html", "whatsapp-sandesh.html"): continue
+    _r = _conv.convert(_s, _h, SITE + "en/" + _s)
+    if _r is not None: _soups[_s] = _r
+EN_READY = set(_soups) | set(EN)
+for _s, _soup in _soups.items():
+    EN_OUT[_s] = _EA.finish(_soup, _s, _conv, EN_READY, SITE, SITE + ("" if _s == "index.html" else _s), SITE + "en/" + ("" if _s == "index.html" else _s))
+for _s in EN_READY:   # Hindi page: point EN button + hreflang at the real English page
+    if _s not in PAGES or _s in EN_PAGES: continue
+    _h = PAGES[_s]
+    _h = _h.replace(f'href="{en_href(_s)}" lang="en" hreflang="en" rel=nofollow', f'href="en/{"" if _s == "index.html" else _s}" lang="en" hreflang="en"')
+    _hi = SITE + ("" if _s == "index.html" else _s); _en = SITE + "en/" + ("" if _s == "index.html" else _s)
+    _h = _h.replace(f'<link rel="canonical" href="{_hi}">', f'<link rel="canonical" href="{_hi}"><link rel="alternate" hreflang="hi" href="{_hi}"><link rel="alternate" hreflang="en" href="{_en}"><link rel="alternate" hreflang="x-default" href="{_hi}">', 1)
+    PAGES[_s] = _h
+with open(os.path.join(os.path.dirname(__file__), "en_missing.tsv"), "w", encoding="utf-8") as _f:
+    for _k, _v in sorted(_conv.missing.items(), key=lambda kv: -len(kv[1])):
+        _f.write(f"{_EA.hid(_k)}\t{len(_v)}\t{sorted(_v)[0]}\t{_k}\n")
+json.dump([[_EA.hid(_k), _k, sorted(_v)] for _k, _v in _conv.missing.items()], open(os.path.join(os.path.dirname(__file__), "en_missing.json"), "w", encoding="utf-8"), ensure_ascii=False)
+with open(os.path.join(os.path.dirname(__file__), "en_ro.tsv"), "w", encoding="utf-8") as _f:
+    for _k, _v in sorted(_conv.ro_seen.items(), key=lambda kv: -len(kv[1])):
+        _f.write(f"{_EA.hid(_k)}\t{len(_v)}\t{sorted(_v)[0]}\t{_k}\t{_roman(_k)}\n")
+print(f"English: {len(EN_READY)} pages ready, {len(_conv.missing)} texts still to translate")
+
 for slug, content in PAGES.items():
     with open(os.path.join(ROOT, slug), "w", encoding="utf-8") as f: f.write(content)
-en_index()
+if "index.html" not in EN_OUT: en_index()
 os.makedirs(os.path.join(ROOT, "en"), exist_ok=True)
 for slug, content in EN_OUT.items():
     with open(os.path.join(ROOT, "en", slug), "w", encoding="utf-8") as f: f.write(content)

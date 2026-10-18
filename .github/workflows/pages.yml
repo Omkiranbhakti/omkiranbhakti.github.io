@@ -33,7 +33,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install panchang library
-        run: pip install ephem==4.2.1 tzdata aksharamukha==2.3
+        run: pip install ephem==4.2.1 tzdata aksharamukha==2.3 beautifulsoup4==4.12.3
       - name: Build site (today's panchang)
         run: python src/build.py
       - name: Configure GitHub Pages

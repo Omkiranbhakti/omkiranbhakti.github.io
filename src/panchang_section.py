@@ -4,7 +4,7 @@ from panchang import day_panchang, tithi_spans, tithi_name, lunar_month, moonris
 from fest_info import INFO, EKA_RULES, KATHA_FOR
 from festivals import find_dates, MONTHS_HI, RULES, tithi_at, MINOR_KEYS
 
-IST_NOW = dt.datetime.now(dt.timezone.utc).replace(tzinfo=None) + dt.timedelta(hours=5, minutes=30)
+IST_NOW = (dt.datetime.fromisoformat(os.environ["OKB_TODAY"] + "T06:00") if os.environ.get("OKB_TODAY") else dt.datetime.now(dt.timezone.utc).replace(tzinfo=None) + dt.timedelta(hours=5, minutes=30))
 TODAY_D = IST_NOW.date()
 R_START, R_END = dt.date(2026, 10, 1), dt.date(2027, 12, 31)
 if TODAY_D < R_START: TODAY_D = R_START
