@@ -328,6 +328,15 @@ def paath_rail(slug, verses):
             f'<p class="rail-hint">पूजा के समय: बड़े अक्षर, दीपक की रोशनी जैसा अँधेरा पन्ना, और स्क्रीन अपने-आप बंद नहीं होगी।</p></div>'
             f'<!--REL:{slug}--></aside>')
 
+from roman import roman as _roman, roman_line as _roman_line
+def roman_section(name, verses):
+    base = name.split(" — ")[0]
+    en = _roman_line(base).rstrip(" ।॥").title()
+    body = "".join(f'<p class="ro-line">{e(_roman(t)).replace(chr(10), "<br>")}</p>' for k, t, m in verses if k not in ("mantra", "dhyan"))
+    if not body: return ""
+    return (f'<section class="band ro-sec"><div class="wrap"><details class="ro"><summary><h2 lang="en">{e(en)} — Lyrics in English</h2>'
+            f'<span>अंग्रेज़ी अक्षरों (Roman Hindi) में पढ़ें</span></summary><div class="ro-body" lang="hi-Latn">{body}</div></details></div></section>')
+
 def lyrics_page(slug, title, desc, h1, answer, verses, intro_html, vid_ids, faqs, crumb, extra="", work_name=None, author=None, art=None):
     akey = {"hanuman-chalisa.html":"hanuman","om-jai-jagdish-hare-aarti.html":"vishnu",
             "ganesh-aarti-jai-ganesh-deva.html":"ganesh","shiv-aarti-om-jai-shiv-omkara.html":"shivaarti"}.get(slug)
@@ -343,6 +352,7 @@ def lyrics_page(slug, title, desc, h1, answer, verses, intro_html, vid_ids, faqs
 {paath_rail(slug, verses)}
 </div></section></article>
 {('<section class="no-print"><div class="wrap"><h2>साथ में गाएँ — वीडियो</h2>' + video_cards(vid_ids) + '</div></section>') if vid_ids else ''}
+{roman_section(work_name or h1, verses)}
 {extra}
 {faq_html(faqs)}'''
     ld = [{"@type":"CreativeWork","name":work_name or h1,"inLanguage":"hi","text":"\n".join(v[1] for v in verses),

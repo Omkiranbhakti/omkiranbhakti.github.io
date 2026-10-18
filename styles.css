@@ -886,3 +886,12 @@ section{padding:clamp(1.8rem,4vw,3rem) 0}
 .sg{background:#fff;border-radius:14px;padding:1rem 1.15rem;border:1px solid rgba(0,0,0,.08)}
 .sg h3{margin:.1rem 0 .4rem;font-size:1.05rem;color:var(--sindoor,#a3271f)}
 @media print{.sg-grid{grid-template-columns:1fr 1fr}.sg{break-inside:avoid;border:1px solid #999}}
+/* Roman (English letters) lyrics */
+.ro summary{cursor:pointer;list-style:none;display:flex;flex-direction:column;gap:.2rem}
+.ro summary::-webkit-details-marker{display:none}
+.ro summary h2{margin:0;font-size:1.25rem}
+.ro summary h2::after{content:" ▾";color:var(--genda)}
+.ro[open] summary h2::after{content:" ▴"}
+.ro summary span{color:var(--muted,#6b5a4a);font-size:.95rem}
+.ro-body{margin-top:1rem;max-width:var(--measure)}
+.ro-line{margin:.1rem 0 .9rem;line-height:1.7;font-size:1.05rem}
