@@ -830,6 +830,7 @@ if MON.AMAZON_TAG:
             PAGES[_s] = PAGES[_s].replace('<section class="xplore no-print">', _b + '<section class="xplore no-print">', 1)
 # ---------------- English edition of every page (src/en_auto.py + src/en_tr/*.json) ----------------
 import en_auto as _EA
+_EA.add_entities("S", {html.unescape(c[2]): _roman_line(html.unescape(c[2])).rstrip(" ।॥").title() for c in CATALOG})
 _conv = _EA.Converter(_EA.load_table(), _roman, set(), SITE)
 _soups = {}
 for _s, _h in PAGES.items():
@@ -849,6 +850,13 @@ for _s in EN_READY:   # Hindi page: point EN button + hreflang at the real Engli
 with open(os.path.join(os.path.dirname(__file__), "en_missing.tsv"), "w", encoding="utf-8") as _f:
     for _k, _v in sorted(_conv.missing.items(), key=lambda kv: -len(kv[1])):
         _f.write(f"{_EA.hid(_k)}\t{len(_v)}\t{sorted(_v)[0]}\t{_k}\n")
+if os.environ.get("OKB_EN_AUTOFILL"):   # local tool run: save translations of shortened texts for next time
+    _af = _EA.shorten_missing(_conv)
+    if _af:
+        _p = os.path.join(os.path.dirname(__file__), "en_tr", "zz_short.json")
+        _old = json.load(open(_p, encoding="utf-8")) if os.path.exists(_p) else {}
+        _old.update(_af); json.dump(_old, open(_p, "w", encoding="utf-8"), ensure_ascii=False, indent=0)
+        print(f"English: {len(_af)} shortened texts filled from full translations")
 json.dump([[_EA.hid(_k), _k, sorted(_v)] for _k, _v in _conv.missing.items()], open(os.path.join(os.path.dirname(__file__), "en_missing.json"), "w", encoding="utf-8"), ensure_ascii=False)
 with open(os.path.join(os.path.dirname(__file__), "en_ro.tsv"), "w", encoding="utf-8") as _f:
     for _k, _v in sorted(_conv.ro_seen.items(), key=lambda kv: -len(kv[1])):

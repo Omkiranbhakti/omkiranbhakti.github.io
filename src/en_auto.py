@@ -30,6 +30,16 @@ def norm_space(s): return re.sub(r"\s+", " ", s).strip()
 from en_entities import ENT
 _ENT_ALL = sorted(((h, c) for c, d in ENT.items() for h in d), key=lambda x: -len(x[0]))
 _ALT = "|".join(re.escape(h) for h, _ in _ENT_ALL)
+def add_entities(cls, mapping):
+    """Add a placeholder class at build time (e.g. S = page titles) and rebuild the matchers."""
+    global _ENT_ALL, _ENT_CLS, ENT_RE, ENT_RE_OLD
+    ENT[cls] = {k: v for k, v in mapping.items() if k and len(k) >= 6}
+    _ENT_ALL = sorted(((h, c) for c, d in ENT.items() for h in d), key=lambda x: -len(x[0]))
+    _ENT_CLS = {h: c for h, c in _ENT_ALL}
+    alt = "|".join(re.escape(h) for h, _ in _ENT_ALL)
+    ENT_RE = re.compile(r"(?<![\u0900-\u0963\u0970-\u097F])(" + alt + r")(?![\u0900-\u0963\u0970-\u097F])")
+    old = "|".join(re.escape(h) for h, c in _ENT_ALL if c not in ("F", "S"))
+    ENT_RE_OLD = re.compile(r"(?<![\u0900-\u097F])(" + old + r")(?![\u0900-\u097F])")
 ENT_RE = re.compile(r"(?<![\u0900-\u0963\u0970-\u097F])(" + _ALT + r")(?![\u0900-\u0963\u0970-\u097F])")
 _ALT_OLD = "|".join(re.escape(h) for h, c in _ENT_ALL if c != "F")
 ENT_RE_OLD = re.compile(r"(?<![\u0900-\u097F])(" + _ALT_OLD + r")(?![\u0900-\u097F])")   # first table batches were keyed with this
@@ -120,17 +130,24 @@ class Missing(Exception): pass
 DERIVE = [(re.compile(r"^(.+) — वीडियो$"), "{} — video"),
           (re.compile(r"^यहीं चलाएँ: (.+)$"), "Play here: {}"),
           (re.compile(r"^<1>(.+)</1>$"), "<1>{}</1>"),
-          (re.compile(r"^<1><2>(.+)</2></1>$"), "<1><2>{}</2></1>")]
+          (re.compile(r"^<1><2>(.+)</2></1>$"), "<1><2>{}</2></1>"),
+          (re.compile(r"^भावार्थ: (.+)$"), "Bhavarth (meaning): {}")]
+# Fixed rewrites needing no inner translation
+SUBS = [(re.compile(r"^<1>([^<]+) — Lyrics in English</1><2>अंग्रेज़ी अक्षरों \(Roman Hindi\) में पढ़ें</2>$"),
+         r"<1>\1 — Lyrics in English</1><2>Read in English letters (Roman Hindi)</2>")]
 
 class Converter:
     def __init__(self, table, roman, en_slugs, site):
         self.t, self.roman, self.en, self.site = table, roman, en_slugs, site
         self.missing = {}   # key -> set(slugs)
+        self.all_seen = []
         self.ro_seen = {}   # Roman-only headings that could get an English override
 
     def look(self, key, depth=0):
         v = self.t.get(hid(key))
         if v is not None: return v
+        for rx, rep in SUBS:
+            if rx.match(key): return rx.sub(rep, key)
         if depth == 0:
             v = self.look_parts(key)
             if v is not None: return v
@@ -166,8 +183,10 @@ class Converter:
         if not ps: return None
         res = []
         for np_, back in ps:
-            v = self.look(np_, 9)
+            v = self.look(np_, 1)
             if v is None: return None
+            if "{" not in np_:
+                self.all_seen.append((np_, v)); getattr(self, "page_seen", []).append((np_, v))
             res.append(re.sub(r"\{[A-Z]?\d+\}", lambda m: back.get(m.group(0), m.group(0)), v))
         return " ".join(res)
 
@@ -175,7 +194,7 @@ class Converter:
         ps = self.parts(key)
         if ps:
             for np_, _ in ps:
-                if self.look(np_, 9) is None: self.missing.setdefault(self.base(np_), set()).add(slug)
+                if self.look(np_, 1) is None: self.missing.setdefault(self.base(np_), set()).add(slug)
         else:
             self.missing.setdefault(self.base(key), set()).add(slug)
 
@@ -199,6 +218,14 @@ class Converter:
             if k2 != key:
                 v = self.look(k2)
                 if v is not None: nums = n2
+        if v is None and key.endswith("…"):
+            # a shortened copy of a text on the same page (meta description): shorten its translation
+            pre = key[:-1].rstrip(" ,;")
+            for k3, v3 in self.page_seen:
+                if k3.startswith(pre):
+                    cut = max(20, int(len(v3) * len(pre) / max(len(k3), 1)))
+                    v = (v3[:cut].rsplit(" ", 1)[0] + "…") if cut < len(v3) else v3
+                    break
         if v is None:
             self.record(key, slug); self.n_miss += 1; return None
         return fill(v, nums)
@@ -216,6 +243,7 @@ class Converter:
                 if v is not None: nums = n2
         if v is None:
             self.record(key, slug); self.n_miss += 1; return False
+        if "<" not in key: self.page_seen.append((key, v)); self.all_seen.append((key, v))
         html = fill(v, nums)
         def rebuild(m):
             close, n, selfc = m.group(1), int(m.group(2)), m.group(3)
@@ -233,6 +261,7 @@ class Converter:
     def convert(self, slug, hindi_html, page_url):
         soup = BeautifulSoup(hindi_html, "html.parser")
         self.n_tot = self.n_miss = 0
+        self.page_seen = []
         ok = True
         # 1. lyrics / holy names in Roman
         for t in soup.find_all(attrs={"translate": "no"}):
@@ -342,3 +371,19 @@ def finish(soup, slug, conv, en_slugs, site, hi_url, en_url):
     b = soup.body
     if b: b["class"] = (b.get("class") or []) + ["en"]
     return str(soup)
+
+
+def shorten_missing(conv):
+    """For shortened texts ('…') still missing, build their translation from the full text seen on any page."""
+    out = {}
+    for key in list(conv.missing):
+        if not key.endswith("…"): continue
+        pre = key[:-1].rstrip(" ,;")
+        if len(pre) < 8: continue
+        for k3, v3 in conv.all_seen:
+            if k3.startswith("भावार्थ: "): k3, v3 = k3[len("भावार्थ: "):], v3.replace("Bhavarth (meaning): ", "", 1)
+            if k3.startswith(pre):
+                cut = max(20, int(len(v3) * len(pre) / max(len(k3), 1)))
+                out[hid(key)] = (v3[:cut].rsplit(" ", 1)[0] + "…") if cut < len(v3) else v3
+                break
+    return out
