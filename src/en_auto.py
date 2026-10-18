@@ -58,7 +58,7 @@ def _qnames():
 _Q = _qnames()
 Q_RE = re.compile(r"^(" + "|".join(re.escape(x) for x in _Q) + r")(?= \{)") if _Q else re.compile(r"$^")
 CHOG = {"अमृत":"Amrit","शुभ":"Shubh","लाभ":"Labh","चर":"Char","रोग":"Rog","काल":"Kaal","उद्वेग":"Udveg"}
-CHOG_RE = re.compile(r"(?<![\u0900-\u097F])(?:(" + "|".join(k for k in CHOG if k != "काल") + r")(?= \(\{| \{\d)|(काल)(?= \(\{))")
+CHOG_RE = re.compile(r"(?<![\u0900-\u097F])(?:(" + "|".join(k for k in CHOG if k != "काल") + r")(?= \(\{| \{\d)|(?<!राहु )(?<!गुलिक )(काल)(?= \(\{))")
 _LAT = sorted(set(ENT["C"].values()), key=len, reverse=True)
 LAT_RE = re.compile(r"(?:(?<=\()|(?<=>))(" + "|".join(re.escape(x) for x in _LAT) + r")(?=\)|<)")
 
@@ -185,8 +185,7 @@ class Converter:
         for np_, back in ps:
             v = self.look(np_, 1)
             if v is None: return None
-            if "{" not in np_:
-                self.all_seen.append((np_, v)); getattr(self, "page_seen", []).append((np_, v))
+            self.all_seen.append((np_, v)); getattr(self, "page_seen", []).append((np_, v))
             res.append(re.sub(r"\{[A-Z]?\d+\}", lambda m: back.get(m.group(0), m.group(0)), v))
         return " ".join(res)
 
@@ -377,12 +376,13 @@ def shorten_missing(conv):
     """For shortened texts ('…') still missing, build their translation from the full text seen on any page."""
     out = {}
     for key in list(conv.missing):
-        if not key.endswith("…"): continue
-        pre = key[:-1].rstrip(" ,;")
+        if key.endswith("…"): pre = key[:-1].rstrip(" ,;")
+        elif not re.search(r"[।?!.)]$", key) and len(key) >= 12 and "<" not in key: pre = key
+        else: continue
         if len(pre) < 8: continue
         for k3, v3 in conv.all_seen:
             if k3.startswith("भावार्थ: "): k3, v3 = k3[len("भावार्थ: "):], v3.replace("Bhavarth (meaning): ", "", 1)
-            if k3.startswith(pre):
+            if k3.startswith(pre) and len(k3) > len(pre):
                 cut = max(20, int(len(v3) * len(pre) / max(len(k3), 1)))
                 out[hid(key)] = (v3[:cut].rsplit(" ", 1)[0] + "…") if cut < len(v3) else v3
                 break
