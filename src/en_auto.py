@@ -29,16 +29,33 @@ def norm_space(s): return re.sub(r"\s+", " ", s).strip()
 
 from en_entities import ENT
 _ENT_ALL = sorted(((h, c) for c, d in ENT.items() for h in d), key=lambda x: -len(x[0]))
-ENT_RE = re.compile(r"(?<![\u0900-\u097F])(" + "|".join(re.escape(h) for h, _ in _ENT_ALL) + r")(?![\u0900-\u097F])")
+_ALT = "|".join(re.escape(h) for h, _ in _ENT_ALL)
+ENT_RE = re.compile(r"(?<![\u0900-\u0963\u0970-\u097F])(" + _ALT + r")(?![\u0900-\u0963\u0970-\u097F])")
+_ALT_OLD = "|".join(re.escape(h) for h, c in _ENT_ALL if c != "F")
+ENT_RE_OLD = re.compile(r"(?<![\u0900-\u097F])(" + _ALT_OLD + r")(?![\u0900-\u097F])")   # first table batches were keyed with this
 _ENT_CLS = {h: c for h, c in _ENT_ALL}
+ENMON_RE = re.compile(r"(?<![A-Za-z])(January|February|March|April|May|June|July|August|September|October|November|December)(?![A-Za-z])")
+def _qnames():
+    names = set(ENT.get("F", {}).values())
+    try:
+        import fest_info as _I
+        for v in _I.INFO.values():
+            for p in (v.get("en") or "").split(" / "):
+                if p.strip(): names.add(p.strip())
+    except Exception: pass
+    names |= {"Diwali Lakshmi Puja"}
+    return sorted((n for n in names if re.fullmatch(r"[A-Za-z][A-Za-z \-]+", n)), key=len, reverse=True)
+_Q = _qnames()
+Q_RE = re.compile(r"^(" + "|".join(re.escape(x) for x in _Q) + r")(?= \{)") if _Q else re.compile(r"$^")
 CHOG = {"अमृत":"Amrit","शुभ":"Shubh","लाभ":"Labh","चर":"Char","रोग":"Rog","काल":"Kaal","उद्वेग":"Udveg"}
-CHOG_RE = re.compile(r"(?<![\u0900-\u097F])(" + "|".join(CHOG) + r")(?= \(\{)")
+CHOG_RE = re.compile(r"(?<![\u0900-\u097F])(?:(" + "|".join(k for k in CHOG if k != "काल") + r")(?= \(\{| \{\d)|(काल)(?= \(\{))")
 _LAT = sorted(set(ENT["C"].values()), key=len, reverse=True)
 LAT_RE = re.compile(r"(?:(?<=\()|(?<=>))(" + "|".join(re.escape(x) for x in _LAT) + r")(?=\)|<)")
 
-def num_key(s):
+def num_key(s, old=False):
     """Replace numbers with {0},{1}.. and known names with {D0},{C0}..; return key and values."""
     s = s.translate(DEV_DIGITS)
+    _has_dev = bool(DEV.search(s))
     nums, ents = [], []
     def rep(m):
         nums.append(m.group(0)); return "{%d}" % (len(nums) - 1)
@@ -52,11 +69,18 @@ def num_key(s):
     def rep_e(m):
         c = _ENT_CLS[m.group(1)]; i = cnt.get(c, 0); cnt[c] = i + 1
         ents.append((c, i, ENT[c][m.group(1)])); return "{%s%d}" % (c, i)
-    s = ENT_RE.sub(rep_e, s)
+    s = (ENT_RE_OLD if old else ENT_RE).sub(rep_e, s)
     def rep_g(m):
         i = cnt.get("G", 0); cnt["G"] = i + 1
-        ents.append(("G", i, CHOG[m.group(1)])); return "{G%d}" % i
+        ents.append(("G", i, CHOG[m.group(1) or m.group(2)])); return "{G%d}" % i
     s = CHOG_RE.sub(rep_g, s)
+    def rep_en(m):
+        i = cnt.get("E", 0); cnt["E"] = i + 1
+        ents.append(("E", i, m.group(1))); return "{E%d}" % i
+    if _has_dev: s = ENMON_RE.sub(rep_en, s)
+    def rep_q(m):
+        ents.append(("Q", 0, m.group(1))); return "{Q0}"
+    if _has_dev: s = Q_RE.sub(rep_q, s, count=1)
     def rep_l(m):
         i = cnt.get("L", 0); cnt["L"] = i + 1
         ents.append(("L", i, m.group(1))); return "{L%d}" % i
@@ -106,13 +130,54 @@ class Converter:
 
     def look(self, key, depth=0):
         v = self.t.get(hid(key))
-        if v is not None or depth > 2: return v
+        if v is not None: return v
+        if depth == 0:
+            v = self.look_parts(key)
+            if v is not None: return v
+        if depth > 2: return None
         for rx, fmt in DERIVE:
             m = rx.match(key)
             if m and "<" not in m.group(1).replace("<br>", ""):
                 inner = self.look(m.group(1), depth + 1)
                 if inner is not None: return fmt.format(inner)
         return None
+
+    @staticmethod
+    def parts(key):
+        """Sentences of a tag-free text, each renumbered from {0}; with maps back to the original numbers."""
+        if "<" in key: return None
+        ps = [p for p in re.split(r"(?<=[।?!])\s+", key) if p]
+        if len(ps) < 2: return None
+        out = []
+        for p in ps:
+            cnt, fwd = {}, {}
+            def rn(m):
+                c = m.group(1)
+                if m.group(0) not in fwd:
+                    i = cnt.get(c, 0); cnt[c] = i + 1; fwd[m.group(0)] = "{%s%d}" % (c, i)
+                return fwd[m.group(0)]
+            np_ = re.sub(r"\{([A-Z]?)\d+\}", rn, p)
+            back = {v: k for k, v in fwd.items()}
+            out.append((np_, back))
+        return out
+
+    def look_parts(self, key):
+        ps = self.parts(key)
+        if not ps: return None
+        res = []
+        for np_, back in ps:
+            v = self.look(np_, 9)
+            if v is None: return None
+            res.append(re.sub(r"\{[A-Z]?\d+\}", lambda m: back.get(m.group(0), m.group(0)), v))
+        return " ".join(res)
+
+    def record(self, key, slug):
+        ps = self.parts(key)
+        if ps:
+            for np_, _ in ps:
+                if self.look(np_, 9) is None: self.missing.setdefault(self.base(np_), set()).add(slug)
+        else:
+            self.missing.setdefault(self.base(key), set()).add(slug)
 
     def base(self, key):
         for _ in range(3):
@@ -130,7 +195,12 @@ class Converter:
         self.n_tot += 1
         v = self.look(key)
         if v is None:
-            self.missing.setdefault(self.base(key), set()).add(slug); self.n_miss += 1; return None
+            k2, n2 = num_key(norm_space(text), old=True)
+            if k2 != key:
+                v = self.look(k2)
+                if v is not None: nums = n2
+        if v is None:
+            self.record(key, slug); self.n_miss += 1; return None
         return fill(v, nums)
 
     def unit(self, tag, slug):
@@ -140,7 +210,12 @@ class Converter:
         self.n_tot += 1
         v = self.look(key)
         if v is None:
-            self.missing.setdefault(self.base(key), set()).add(slug); self.n_miss += 1; return False
+            k2, n2 = num_key(norm_space(inner), old=True)
+            if k2 != key:
+                v = self.look(k2)
+                if v is not None: nums = n2
+        if v is None:
+            self.record(key, slug); self.n_miss += 1; return False
         html = fill(v, nums)
         def rebuild(m):
             close, n, selfc = m.group(1), int(m.group(2)), m.group(3)
