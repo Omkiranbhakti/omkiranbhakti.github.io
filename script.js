@@ -20,6 +20,10 @@
     var onProxy=/\.translate\.goog$/.test(location.hostname);
     var path=location.pathname.replace(/^\/en\//,'/');
     var hiURL='https://omkiranbhakti.com'+path+'?lang=hi';
+    if(onProxy){  // Google-translated view: lyrics and holy names stay untranslated, shown in Roman letters
+      document.querySelectorAll('[data-ro]').forEach(function(el){ el.textContent=el.getAttribute('data-ro'); });
+      var ro=document.querySelector('.section.ro-sec'); if(ro) ro.style.display='none';
+    }
     if(onProxy||/^\/en\//.test(location.pathname)){           // we are on an English view
       hiA.classList.remove('on'); hiA.removeAttribute('aria-current'); hiA.href=hiURL;
       enA.classList.add('on'); enA.setAttribute('aria-current','true'); enA.removeAttribute('href');

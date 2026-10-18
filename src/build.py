@@ -15,6 +15,7 @@ YT = "https://www.youtube.com/@OmKiranBhakti"
 LOGO = "https://omkiranbhakti.com/assets/logo-512.png"
 TODAY = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=5, minutes=30)).date().isoformat()
 import hashlib
+from roman import roman as _roman, roman_line as _roman_line
 def ver(f):
     return hashlib.md5(open(os.path.join(ROOT,f),"rb").read()).hexdigest()[:8]
 CSSV, JSV = ver("styles.css"), ver("script.js")
@@ -188,11 +189,15 @@ LOTUS = ('<div class="lotus" aria-hidden="true"><svg viewBox="0 0 34 20"><g fill
 def sec_head(title, sub=""):
     return f'<div class="sec-head">{LOTUS}<h2>{title}</h2>{f"<p>{sub}</p>" if sub else ""}</div>'
 
+def nt(text):
+    """A holy name / lyric that must never be machine-translated: keep it, and give the Roman form for English views."""
+    return f'<span translate="no" data-ro="{e(_roman_line(text).rstrip(" ।॥").title())}">{e(text)}</span>'
+
 def band(h1, answer, crumb, vid=None, pos=50, alt="", extra="", gold=True, to_band=False):
     art = arch(vid, pos, alt, eager=True) if vid else ""
     return (f'<section class="night scallop page-band{" to-band" if to_band else ""}"><div class="wrap"><div>'
             f'<nav class="crumbs-in" aria-label="breadcrumb"><a href="index.html">होम</a> / {e(crumb)}</nav>'
-            f'<h1{" class=\"gold-type\"" if gold else ""}>{e(h1)}</h1><p class="answer">{answer}</p>{extra}</div>{art}</div></section>')
+            f'<h1{" class=\"gold-type\"" if gold else ""}>{(nt(h1.split(" — ",1)[0]) + " — " + e(h1.split(" — ",1)[1])) if " — " in h1 else e(h1)}</h1><p class="answer">{answer}</p>{extra}</div>{art}</div></section>')
 
 NAV = [("index.html","होम"),("aaj-ka-panchang.html","आज का पंचांग"),("tyohar-calendar.html","त्योहार"),
        ("live-darshan.html","लाइव दर्शन"),("aarti-mantra.html","आरती-चालीसा"),("jaap-mala.html","जाप माला"),("mata-rani-bhajan.html","भजन")]
@@ -341,6 +346,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og
 
 PAGES = {}
 from en_texts import EN
+import en_texts2  # noqa: adds more pages to EN
 EN_PAGES = set(EN)  # slugs that have a real English page at en/<slug>
 EN_OUT = {}
 def add(slug, *a, **k): PAGES[slug] = page(slug, *a, **k)
@@ -358,9 +364,9 @@ def lyrics_body(verses, label_map=True):
         else: no = ""
         if kind in ("mantra", "dhyan"):
             head, body = text.split("\n", 1)
-            out.append(f'<div class="verse mantra{" dhyan" if kind == "dhyan" else ""}"><h3 class="m-name">{e(head)}</h3><p class="line">{e(body)}</p><p class="mean">{e(mean)}</p></div>')
+            out.append(f'<div class="verse mantra{" dhyan" if kind == "dhyan" else ""}"><h3 class="m-name">{nt(head)}</h3><p class="line" translate="no" data-ro="{e(_roman(body))}">{e(body)}</p><p class="mean">{e(mean)}</p></div>')
             continue
-        out.append(f'<div class="verse {kind}"><span class="no">{no}</span><p class="line">{e(text)}</p><p class="mean">{e(mean)}</p></div>')
+        out.append(f'<div class="verse {kind}"><span class="no">{no}</span><p class="line" translate="no" data-ro="{e(_roman(text))}">{e(text)}</p><p class="mean">{e(mean)}</p></div>')
     return "\n".join(out)
 
 def reader_tools():
@@ -399,7 +405,7 @@ from roman import roman as _roman, roman_line as _roman_line
 def roman_section(name, verses):
     base = name.split(" — ")[0]
     en = _roman_line(base).rstrip(" ।॥").title()
-    body = "".join(f'<p class="ro-line">{e(_roman(t)).replace(chr(10), "<br>")}</p>' for k, t, m in verses if k not in ("mantra", "dhyan"))
+    body = "".join(f'<p class="ro-line" translate="no">{e(_roman(t)).replace(chr(10), "<br>")}</p>' for k, t, m in verses if k not in ("mantra", "dhyan"))
     if not body: return ""
     return (f'<section class="band ro-sec"><div class="wrap"><details class="ro"><summary><h2 lang="en">{e(en)} — Lyrics in English</h2>'
             f'<span>अंग्रेज़ी अक्षरों (Roman Hindi) में पढ़ें</span></summary><div class="ro-body" lang="hi-Latn">{body}</div></details></div></section>')

@@ -593,7 +593,7 @@ def deity_of(slug, art):
     return AT.get(art[0]) or DEITY_OF.get(art[0], "")
 def cat_cards(cat):
     items = [c for c in CATALOG if c[1] == cat]
-    return '<ul class="paath">' + "".join(f'<li data-deity="{deity_of(h,a)}"><a href="{h}">{arch(*a, alt="")}<div><strong>{e(t)}</strong><span>{e(s)}</span></div></a></li>' for h, c, t, s, a in items) + '</ul>'
+    return '<ul class="paath">' + "".join(f'<li data-deity="{deity_of(h,a)}"><a href="{h}">{arch(*a, alt="")}<div><strong>{nt(t)}</strong><span>{e(s)}</span></div></a></li>' for h, c, t, s, a in items) + '</ul>'
 def deity_bar():
     meds = "".join(f'<button type="button" class="dv" data-dv="{k}" aria-pressed="false"><span class="dv-img">{(f'<img src="{art_src(a[0])}" style="object-position:50% 18%" alt="" loading="lazy" width="120" height="90">') if art_src(a[0]) else (f'<img src="https://i.ytimg.com/vi/{a[0]}/maxresdefault.jpg" onerror="this.onerror=null;this.src=&#39;https://i.ytimg.com/vi/{a[0]}/hqdefault.jpg&#39;" style="object-position:{a[1]}% 25%" alt="" loading="lazy" width="120" height="90">')}</span><span class="dv-n">{n}</span></button>' for k,n,a in DEITIES)
     return ('<div class="dv-wrap no-print"><h2 class="dv-h">किसका पाठ करना है?</h2>'

@@ -54,12 +54,12 @@ def en_lyrics_page(slug, verses, vid_ids):
             out.append(f'<p class="section-label">{EN_KIND[kind]}</p>'); last = kind
         if kind in ("mantra", "dhyan"):
             head, body = text.split("\n", 1)
-            out.append(f'<div class="verse mantra"><h3 class="m-name">{e(_roman(head))}</h3><p class="line ro" lang="hi-Latn">{e(_roman(body)).replace(chr(10),"<br>")}</p>'
-                       f'<p class="line-dev" lang="hi">{e(body)}</p><p class="mean">{e(mean)}</p></div>'); continue
+            out.append(f'<div class="verse mantra"><h3 class="m-name">{e(_roman(head))}</h3><p class="line ro" lang="hi-Latn" translate="no">{e(_roman(body)).replace(chr(10),"<br>")}</p>'
+                       f'<p class="line-dev" lang="hi" translate="no">{e(body)}</p><p class="mean">{e(mean)}</p></div>'); continue
         no = ""
         if kind in ("chaupai", "shloka"): n += 1; no = str(n)
-        out.append(f'<div class="verse {kind}"><span class="no">{no}</span><p class="line ro" lang="hi-Latn">{e(_roman(text)).replace(chr(10),"<br>")}</p>'
-                   f'<p class="line-dev" lang="hi">{e(text)}</p><p class="mean">{e(mean)}</p></div>')
+        out.append(f'<div class="verse {kind}"><span class="no">{no}</span><p class="line ro" lang="hi-Latn" translate="no">{e(_roman(text)).replace(chr(10),"<br>")}</p>'
+                   f'<p class="line-dev" lang="hi" translate="no">{e(text)}</p><p class="mean">{e(mean)}</p></div>')
     faqs = d.get("faqs", [])
     faq = ("<section><div class=\"wrap\"><h2>Frequently asked questions</h2>" +
            "".join(f"<details class=\"faq\"><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in faqs) + "</div></section>") if faqs else ""
