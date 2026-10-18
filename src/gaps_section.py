@@ -159,14 +159,31 @@ SAMAGRI = [
   vidhi=["शुभ मुहूर्त में स्नान करके पूजा स्थान साफ़ करें।","मिट्टी के पात्र में जौ बोएँ और उसके बीच कलश रखें।","कलश में गंगाजल, सिक्का, सुपारी डालें, आम के पत्ते रखकर नारियल स्थापित करें।","माँ दुर्गा का आवाहन करके अखंड ज्योति जलाएँ।","नौ दिन रोज़ पूजा, पाठ और आरती करें।"],
   rel=[("navratri-2026.html","नवरात्रि 2026","नौ दिन, नौ देवियाँ"),("navratri-vrat-ke-niyam.html","नवरात्रि व्रत के नियम","क्या करें, क्या न करें"),("durga-chalisa.html","दुर्गा चालीसा","अर्थ सहित")]),
 ]
+_SMICO = [("मूर्ति","🛕"),("मंडप","🛕"),("माँ की पूजा","🌺"),("थाली","🍽️"),("पूजा का सामान","🌺"),("पूजा सामग्री","🌺"),("कलश","🏺"),
+          ("ज्योति","🪔"),("दीपक","🪔"),("फूल","🌼"),("पंचामृत","🥛"),("प्रसाद","🍯"),("भोग","🍯"),("फल","🍌"),("टोकरी","🧺"),
+          ("सरगी","🌙"),("शृंगार","💍"),("बायना","🎁"),("जौ","🌾"),("कन्या","🌸")]
+def _smcard(g, items, slug, gi):
+    ico = next((v for k, v in _SMICO if k in g), "✨")
+    lis = "".join(f'<li><label><input type="checkbox" data-k="{gi}-{ii}"><span class="sm-box" aria-hidden="true"></span>'
+                  f'<span class="sm-txt">{e(x)}</span></label></li>' for ii, x in enumerate(items))
+    return (f'<article class="sm-card"><header class="sm-head"><span class="sm-ico" aria-hidden="true">{ico}</span>'
+            f'<h3>{e(g)}</h3><span class="sm-cnt">{len(items)}</span></header><ul class="sm-list">{lis}</ul></article>')
 for s in SAMAGRI:
     dline = ""
     if s["fest"] and FEST.get(s["fest"]):
         nx = next((x for x in FEST[s["fest"]] if x["date"] >= TODAY_D), FEST[s["fest"]][-1])
         dline = f'<p class="lede">{e(nx["name"])} {nx["date"].year}: <strong>{hdate_w(nx["date"])}</strong> — <a href="{s["fest"]}-kab-hai.html">पूजा का समय देखें</a></p>'
-    grp = "".join(f'<div class="sg"><h3>{e(g)}</h3>{_lst(items, "chk tick")}</div>' for g, items in s["groups"])
+    total = sum(len(i) for g, i in s["groups"])
+    grp = "".join(_smcard(g, items, s["slug"], gi) for gi, (g, items) in enumerate(s["groups"]))
     body = (band(s["h1"], s["answer"], s["h1"], *ART["vishnu"], s["h1"], extra=dline) +
-            f'<section><div class="wrap"><p class="no-print" style="text-align:right"><button type="button" class="btn ghost" onclick="window.print()">🖨️ लिस्ट प्रिंट करें</button></p><div class="sg-grid">{grp}</div></div></section>'
+            f'<section class="sm-sec"><div class="wrap"><div class="sm-app" data-sm="{s["slug"]}" data-total="{total}">'
+            f'<div class="sm-bar no-print"><div class="sm-prog"><p class="sm-prog-t"><span class="sm-diya" aria-hidden="true">🪔</span>'
+            f'<span><b data-sm-done>0</b> / {total} सामान जुट गया</span></p><div class="sm-track" aria-hidden="true"><span data-sm-fill></span></div></div>'
+            f'<div class="sm-acts"><button type="button" class="sm-btn" data-sm-reset>↺ नई लिस्ट</button>'
+            f'<button type="button" class="sm-btn sm-pr" onclick="window.print()">🖨️ प्रिंट</button></div></div>'
+            f'<p class="sm-hint no-print">🙏 बाज़ार में जो सामान ले लें, उस पर टैप करके ✓ लगाते जाएँ — आपकी लिस्ट इसी फ़ोन में सेव रहेगी।</p>'
+            f'<p class="sm-done-msg no-print" data-sm-msg hidden>🌼 जय हो! पूजा की सारी सामग्री तैयार है — शुभ पूजा हो।</p>'
+            f'<div class="sm-grid">{grp}</div></div></div></section>'
             f'<section class="band"><div class="wrap">{sec_head("पूजा विधि — संक्षेप में")}<ol class="steps">' + "".join(f"<li>{e(v)}</li>" for v in s["vidhi"]) + "</ol></div></section>"
             f'<section class="no-print"><div class="wrap">{sec_head("साथ में पढ़ें")}{_ul(s["rel"] + [("puja-samagri.html","सभी पूजा सामग्री लिस्ट","दिवाली, छठ, नवरात्रि…")])}</div></section>')
     sf = [(f'{s["h1"].replace(" लिस्ट","")} में क्या-क्या चाहिए?', s["answer"])]

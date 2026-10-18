@@ -323,3 +323,26 @@ window.okbAudio=function(box,list){
       box.hidden=false;});
   });
 })();
+
+/* Puja samagri checklist: tap to tick, progress, saved on this device */
+(function(){
+  var apps=document.querySelectorAll('.sm-app');
+  Array.prototype.forEach.call(apps,function(app){
+    var key='sm:'+app.getAttribute('data-sm'),boxes=app.querySelectorAll('.sm-list input'),
+        done=app.querySelector('[data-sm-done]'),fill=app.querySelector('[data-sm-fill]'),msg=app.querySelector('[data-sm-msg]'),
+        saved={};
+    try{saved=JSON.parse(localStorage.getItem(key)||'{}')||{}}catch(e){saved={}}
+    function paint(save){
+      var n=0,st={};
+      Array.prototype.forEach.call(boxes,function(b){if(b.checked){n++;st[b.getAttribute('data-k')]=1}});
+      if(done)done.textContent=n.toLocaleString('hi-IN');
+      if(fill)fill.style.width=(boxes.length?Math.round(n/boxes.length*100):0)+'%';
+      var all=boxes.length&&n===boxes.length;app.classList.toggle('is-done',!!all);if(msg)msg.hidden=!all;
+      if(save){try{n?localStorage.setItem(key,JSON.stringify(st)):localStorage.removeItem(key)}catch(e){}}
+    }
+    Array.prototype.forEach.call(boxes,function(b){if(saved[b.getAttribute('data-k')])b.checked=true;b.addEventListener('change',function(){paint(true)})});
+    var r=app.querySelector('[data-sm-reset]');
+    if(r)r.addEventListener('click',function(){Array.prototype.forEach.call(boxes,function(b){b.checked=false});paint(true)});
+    paint(false);
+  });
+})();
