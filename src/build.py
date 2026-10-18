@@ -358,7 +358,7 @@ def lyrics_body(verses, label_map=True):
     for kind, text, mean in verses:
         if label_map and kind != last:
             lab = {"doha":"दोहा","chaupai":"चौपाई"}.get(kind)
-            if lab: out.append(f'<p class="section-label">{lab}</p>')
+            if lab: out.append(f'<p class="section-label" translate="no" data-ro="{ {"doha":"Doha","chaupai":"Chaupai"}[kind] }">{lab}</p>')
             last = kind
         if kind in ("chaupai", "shloka"): n += 1; no = str(n).translate(DEVNUM)
         else: no = ""
@@ -396,7 +396,7 @@ def paath_end(slug, name):
 
 def paath_rail(slug, verses):
     return (f'<aside class="paath-rail no-print" aria-label="इस पाठ के बारे में"><div class="rail-card">'
-            f'<p class="rail-count">{verse_count(verses)}</p>'
+            f'<p class="rail-count" translate="no" data-ro="{e(verse_count(verses).replace("चौपाई","Chaupai").replace("श्लोक","Shlok").replace("पद","Pad").replace("मंत्र","Mantra").replace("दोहे","Dohe"))}">{verse_count(verses)}</p>'
             f'<button class="btn rail-btn" data-paath>पाठ मोड में पढ़ें</button>'
             f'<p class="rail-hint">पूजा के समय: बड़े अक्षर, दीपक की रोशनी जैसा अँधेरा पन्ना, और स्क्रीन अपने-आप बंद नहीं होगी।</p></div>'
             f'<!--REL:{slug}--></aside>')
