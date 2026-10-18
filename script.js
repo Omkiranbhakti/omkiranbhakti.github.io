@@ -12,6 +12,42 @@
     var next=dark?'light':'dark'; root.setAttribute('data-theme',next); store.set('okb-theme',next);
   });
 
+  // Language: Hindi by default. English only if the visitor chooses it (remembered),
+  // or — as a one-tap suggestion, never a forced switch — when the browser is a non-Indian English one.
+  (function(){
+    var sw=document.querySelector('.lang-sw'); if(!sw) return;
+    var hiA=sw.querySelector('[lang="hi"]'), enA=sw.querySelector('[data-lang="en"]');
+    var onProxy=/\.translate\.goog$/.test(location.hostname);
+    var path=location.pathname.replace(/^\/en\//,'/');
+    var hiURL='https://omkiranbhakti.com'+path+'?lang=hi';
+    if(onProxy||/^\/en\//.test(location.pathname)){           // we are on an English view
+      hiA.classList.remove('on'); hiA.removeAttribute('aria-current'); hiA.href=hiURL;
+      enA.classList.add('on'); enA.setAttribute('aria-current','true'); enA.removeAttribute('href');
+      return;
+    }
+    var q=new URLSearchParams(location.search);
+    if(q.get('lang')==='hi'){ store.set('okb-lang','hi'); history.replaceState(null,'',location.pathname+location.hash); }
+    enA.addEventListener('click',function(){ store.set('okb-lang','en'); });
+    hiA.addEventListener('click',function(e){ e.preventDefault(); store.set('okb-lang','hi'); });
+    var pref=store.get('okb-lang');
+    if(pref==='en'){ location.replace(enA.href); return; }
+    if(pref) return;
+    var bot=/bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent)||navigator.webdriver;
+    var langs=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'']).map(function(l){return (l||'').toLowerCase()});
+    var indian=langs.some(function(l){return l.indexOf('hi')===0||/-in$/.test(l)});
+    if(bot||indian||langs[0].indexOf('en')!==0) return;
+    if(enA.href.indexOf('translate.goog')<0){ store.set('okb-lang','en'); location.replace(enA.href); return; }  // real English page exists: switch automatically
+    var b=document.createElement('div'); b.className='lang-tip no-print'; b.setAttribute('role','dialog'); b.setAttribute('aria-label','Language');
+    b.innerHTML='<span lang="en">Prefer to read this page in English?</span><a class="btn" lang="en" href="'+enA.href+'">Read in English</a><button type="button" class="btn ghost">हिंदी में ही पढ़ें</button>';
+    b.querySelector('a').addEventListener('click',function(){ store.set('okb-lang','en'); });
+    b.querySelector('button').addEventListener('click',function(){ store.set('okb-lang','hi'); b.remove(); });
+    document.body.appendChild(b);
+  })();
+
+  // English pages: show/hide the Devanagari line
+  document.querySelectorAll('[data-dev]').forEach(function(b){b.addEventListener('click',function(){
+    var on=document.body.classList.toggle('no-dev'); b.setAttribute('aria-pressed',!on);});});
+
   // Mobile menu
   var mb=document.querySelector('.menu-btn'), nav=document.querySelector('.nav');
   if(mb&&nav) mb.addEventListener('click',function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o)});

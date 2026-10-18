@@ -270,6 +270,18 @@ def explore_grid(items=None, title=None):
     head = f'<h2 class="x-h">{title}</h2>' if title else ""
     return f'<nav class="xg-wrap" aria-label="साइट के हिस्से">{head}<ul class="xg">{tiles}</ul></nav>'
 
+def en_href(slug):
+    """Real English page when we have one; otherwise Google's free translation proxy of this page."""
+    if slug in EN_PAGES: return "en/" + slug
+    path = "" if slug == "index.html" else slug
+    return f"https://omkiranbhakti-com.translate.goog/{path}?_x_tr_sl=hi&_x_tr_tl=en&_x_tr_hl=en"
+
+def hreflang(slug):
+    if slug not in EN_PAGES: return ""
+    hi = SITE if slug == "index.html" else SITE + slug
+    return (f'<link rel="alternate" hreflang="hi" href="{hi}"><link rel="alternate" hreflang="en" href="{SITE}en/{slug}">'
+            f'<link rel="alternate" hreflang="x-default" href="{hi}">')
+
 def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og=None):
     url = SITE if slug=="index.html" else SITE+slug
     graph = [{"@type":"WebPage","@id":url+"#page","url":url,"name":title,"description":desc,"inLanguage":"hi-IN",
@@ -279,6 +291,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og
             [{"@type":"ListItem","position":2,"name":crumbs,"item":url}]})
     graph += (ld or [])
     navh = nav_html(active or slug)
+    slug_href = "./" if slug == "index.html" else slug
     crumb_html = f'<nav class="crumbs wrap" aria-label="breadcrumb"><a href="index.html">होम</a> / {e(crumbs)}</nav>' if (crumbs and 'crumbs-in' not in body) else ""
     return f'''<!doctype html>
 <html lang="hi">
@@ -288,7 +301,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
-<link rel="canonical" href="{url}">
+<link rel="canonical" href="{url}">{hreflang(slug)}
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#1C2350">
 <meta property="og:type" content="website"><meta property="og:site_name" content="OmKiran Bhakti">
@@ -308,6 +321,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og
 <div class="wrap head-row">
 <a class="brand" href="index.html"><img src="assets/mark-168.webp" alt="OmKiran Bhakti" width="120" height="82"><span><b>OmKiran Bhakti</b><small>भजन, आरती, चालीसा और मंत्र</small></span></a>
 <nav class="nav" aria-label="मुख्य">{navh}</nav>
+<div class="lang-sw" role="group" aria-label="भाषा / Language"><a class="on" href="{slug_href}" lang="hi" aria-current="true">हिंदी</a><a href="{en_href(slug)}" lang="en" hreflang="en"{"" if slug in EN_PAGES else " rel=nofollow"} data-lang="en">EN</a></div>
 <button class="theme-btn" aria-label="रंग बदलें (दिन/रात)">◐</button>
 <button class="menu-btn" aria-label="मेन्यू" aria-expanded="false">☰</button>
 </div></header>
@@ -326,6 +340,9 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og
 </body></html>'''
 
 PAGES = {}
+from en_texts import EN
+EN_PAGES = set(EN)  # slugs that have a real English page at en/<slug>
+EN_OUT = {}
 def add(slug, *a, **k): PAGES[slug] = page(slug, *a, **k)
 
 DEVNUM = str.maketrans("0123456789","०१२३४५६७८९")
@@ -410,7 +427,9 @@ def lyrics_page(slug, title, desc, h1, answer, verses, intro_html, vid_ids, faqs
            "isAccessibleForFree":True,"publisher":{"@id":SITE+"#organization"}},
           ] + ([itemlist(vid_ids, h1+" — वीडियो")] if vid_ids else []) + ([faq_ld(faqs)] if faqs else [])
     add(slug, title, desc, body, crumbs=crumb, ld=ld, active="aarti-mantra.html")
+    if slug in EN: en_lyrics_page(slug, verses, vid_ids)
 
+exec(open(os.path.join(os.path.dirname(__file__), "en_render.py"), encoding="utf-8").read())
 # ---------------- Lyrics pages ----------------
 lyrics_page("hanuman-chalisa.html",
  "हनुमान चालीसा — पूरे बोल, सरल हिंदी अर्थ और वीडियो | OmKiran Bhakti",
@@ -718,12 +737,18 @@ for _s in list(PAGES):
     PAGES[_s] = _re.sub(r"<!--REL:([^>]+?)-->", lambda m: _rel_html(m.group(1)), PAGES[_s])
 for slug, content in PAGES.items():
     with open(os.path.join(ROOT, slug), "w", encoding="utf-8") as f: f.write(content)
+en_index()
+os.makedirs(os.path.join(ROOT, "en"), exist_ok=True)
+for slug, content in EN_OUT.items():
+    with open(os.path.join(ROOT, "en", slug), "w", encoding="utf-8") as f: f.write(content)
 
 urls = [s for s in PAGES if s not in ("404.html", "whatsapp-sandesh.html")]
 prio = {"index.html":"1.0","hanuman-chalisa.html":"0.9","navratri-2026.html":"0.9"}
 sm = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 for s in urls:
     sm.append(f'  <url><loc>{SITE if s=="index.html" else SITE+s}</loc></url>')
+for s in EN_OUT:
+    sm.append(f'  <url><loc>{SITE}en/{"" if s=="index.html" else s}</loc></url>')
 sm.append('</urlset>')
 open(os.path.join(ROOT,"sitemap.xml"),"w").write("\n".join(sm)+"\n")
 open(os.path.join(ROOT,"robots.txt"),"w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}sitemap.xml\n")

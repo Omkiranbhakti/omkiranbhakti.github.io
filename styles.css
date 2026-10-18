@@ -61,6 +61,11 @@ a:hover{color:var(--sindoor)}
 .nav a:hover,.nav a[aria-current="page"]{border-color:var(--sindoor)}
 .theme-btn,.menu-btn{background:none;border:1px solid var(--chandan);color:var(--ink);border-radius:999px;width:40px;height:40px;font-size:1.1rem;cursor:pointer}
 .menu-btn{display:none}
+.lang-sw{display:inline-flex;border:1px solid var(--chandan);border-radius:999px;overflow:hidden;font-size:.85rem;font-weight:600;flex:none}
+.lang-sw a{padding:.45rem .7rem;color:var(--ink);text-decoration:none;line-height:1}
+.lang-sw a.on{background:var(--sindoor);color:#fff}
+.lang-tip{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;background:var(--paper);color:var(--ink);border:1px solid var(--chandan);border-radius:14px;padding:.75rem 1rem;box-shadow:0 8px 28px rgba(0,0,0,.18);max-width:calc(100% - 32px)}
+.lang-tip .btn{padding:.45rem .9rem;font-size:.9rem}
 @media (max-width:860px){
   .menu-btn{display:inline-block}
   .nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--chandan);padding:.5rem 16px 1rem;z-index:5}
@@ -953,3 +958,8 @@ section{padding:clamp(1.8rem,4vw,3rem) 0}
 .xplore{background:var(--paper-2);border-top:1px solid var(--chandan)}
 .xt .cnt{font-size:.78rem;color:var(--ink-soft)}
 @media (prefers-reduced-motion:reduce){.xi{transition:none}}
+
+/* English edition */
+.en-lyrics .line.ro{font-family:var(--body,inherit);font-size:1.15em;font-weight:500}
+.en-lyrics .line-dev{white-space:pre-line;font-family:'Tiro Devanagari Hindi',serif;color:var(--ink-soft);font-size:.95em;margin:.2rem 0 0}
+body.no-dev .line-dev{display:none}
