@@ -276,16 +276,50 @@ window.okbAudio=function(box,list){
   setTimeout(function(){box.remove();w.remove()},7600);
 })();
 
-/* Visitor counter (free: abacus.jasoncameron.dev). Counts once per browser session; shows total + today. Hidden if the service is unreachable. */
+/* Visitor counter (free: abacus.jasoncameron.dev).
+   Per page load: pv. Per browser session (first page): visits, day visits, source, device.
+   First visit ever from this browser: uniq + day-unique. Footer shows real numbers; hidden if service unreachable. */
 (function(){
   var box=document.getElementById('okb-count');if(!box||!window.fetch)return;
-  var NS='omkiranbhakti-site',d=new Date(Date.now()+(new Date().getTimezoneOffset()+330)*60000);
-  var day='d'+d.getFullYear()+('0'+(d.getMonth()+1)).slice(-2)+('0'+d.getDate()).slice(-2);
-  var seen=false;try{seen=!!sessionStorage.getItem('okbC');sessionStorage.setItem('okbC','1');}catch(e){}
-  var act=seen?'get':'hit',base='https://abacus.jasoncameron.dev/';
-  function g(k){return fetch(base+act+'/'+NS+'/'+k).then(function(r){return r.ok?r.json():{value:0}}).then(function(j){return j.value>0?j.value:0}).catch(function(){return 0})}
-  Promise.all([g('visits'),g(day)]).then(function(v){
-    if(!v[0])return;
-    var f=function(n){return n.toLocaleString('en-IN')};
-    box.innerHTML='🙏 अब तक <b>'+f(v[0])+'</b> भक्त पधारे · आज <b>'+f(v[1])+'</b>';box.hidden=false;});
+  var NS='omkiranbhakti-site',base='https://abacus.jasoncameron.dev/';
+  function dkey(off){var d=new Date(Date.now()+(new Date().getTimezoneOffset()+330)*60000-off*864e5);return d.getFullYear()+('0'+(d.getMonth()+1)).slice(-2)+('0'+d.getDate()).slice(-2)}
+  var today=dkey(0),ss=null,ls=null;try{ss=sessionStorage;ls=localStorage}catch(e){}
+  var newSess=false,newUser=false;
+  try{newSess=!ss.getItem('okbC');ss.setItem('okbC','1')}catch(e){}
+  try{newUser=!ls.getItem('okbU');if(newUser)ls.setItem('okbU',today)}catch(e){}
+  function call(act,k){return fetch(base+act+'/'+NS+'/'+k).then(function(r){return r.ok?r.json():{value:0}}).then(function(j){return j.value>0?j.value:0}).catch(function(){return 0})}
+  function src(){
+    var q=new URLSearchParams(location.search),u=(q.get('utm_source')||'').toLowerCase(),r='';
+    try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}
+    if(u)r=u; if(r.indexOf('omkiranbhakti')>-1)return '';
+    var m=[['google','google'],['bing','bing'],['youtube','youtube'],['youtu.be','youtube'],['whatsapp','whatsapp'],['wa.me','whatsapp'],['facebook','facebook'],['fb.','facebook'],['instagram','instagram'],['t.co','twitter'],['twitter','twitter'],['x.com','twitter'],['chatgpt','ai'],['openai','ai'],['perplexity','ai'],['gemini','ai'],['claude','ai'],['copilot','ai'],['duckduckgo','other-search'],['yahoo','other-search'],['yandex','other-search'],['translate.goog','google']];
+    if(!r)return 'direct';
+    for(var i=0;i<m.length;i++)if(r.indexOf(m[i][0])>-1)return m[i][1];
+    return 'other';
+  }
+  var jobs=[call('hit','pv')];
+  if(newSess){var s=src();jobs.push(call('hit','visits'),call('hit','d'+today));
+    if(s)jobs.push(call('hit','src-'+s));
+    jobs.push(call('hit','dev-'+(/Mobi|Android|iPhone/i.test(navigator.userAgent)?'mobile':'desktop')));
+    var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+    jobs.push(call('hit','geo-'+(/Kolkata|Calcutta/.test(tz)?'india':'abroad')));
+  }else{jobs.push(call('get','visits'),call('get','d'+today))}
+  jobs.push(newUser?call('hit','uniq'):call('get','uniq'));
+  if(newUser)call('hit','u'+today);
+  var week=[];for(var i=6;i>=1;i--)week.push(call('get','d'+dkey(i)));
+  Promise.all(jobs).then(function(v){
+    var pv=v[0],visits=newSess?v[1]:v[1],day=v[2],uniq=v[v.length-1];
+    if(!visits)return;
+    Promise.all(week).then(function(w){
+      w.push(day);var mx=Math.max.apply(null,w)||1;
+      var f=function(n){return n.toLocaleString('en-IN')};
+      var bars=w.map(function(n,i){return '<i style="height:'+Math.max(8,Math.round(n/mx*100))+'%" title="'+f(n)+'"'+(i==6?' class="t"':'')+'></i>'}).join('');
+      box.innerHTML='<span class="oc-live"><span class="dot"></span>भक्त-गणना</span>'+
+        '<span class="oc-t"><b>'+f(visits)+'</b><small>कुल दर्शन</small></span>'+
+        (uniq?'<span class="oc-t"><b>'+f(uniq)+'</b><small>यूनिक भक्त*</small></span>':'')+
+        '<span class="oc-t"><b>'+f(day)+'</b><small>आज</small></span>'+
+        '<span class="oc-w" aria-label="पिछले 7 दिन">'+bars+'<small>पिछले 7 दिन</small></span>'+
+        (uniq?'<span class="oc-note">*यूनिक गिनती 18 अक्टूबर 2026 से</span>':'');
+      box.hidden=false;});
+  });
 })();

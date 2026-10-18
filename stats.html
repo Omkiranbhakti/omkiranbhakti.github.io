@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ट्रैफ़िक रिपोर्ट | OmKiran Bhakti</title>
+<link rel="icon" href="favicon.ico">
+<style>
+:root{--bg:#1D0C09;--card:#2B120C;--line:rgba(246,210,122,.25);--gold:#FFD54A;--soft:#E9D9BC;--mute:#BFAF92;--bar:#E8590C;--bar2:#F6D27A}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#F7EBD3;font:16px/1.5 system-ui,-apple-system,"Noto Sans Devanagari",sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:1.6rem;margin:0 0 4px;color:var(--gold)}
+h2{font-size:1.1rem;margin:0 0 12px;color:var(--bar2)}
+p.sub{margin:0 0 20px;color:var(--mute);font-size:.9rem}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:16px}
+.tile,.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.tile b{display:block;font-size:1.8rem;color:var(--gold);font-variant-numeric:tabular-nums}
+.tile span{font-size:.85rem;color:var(--soft)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:12px}
+.card{margin-bottom:12px}
+.chart{display:flex;align-items:flex-end;gap:3px;height:160px;border-bottom:1px solid var(--line);padding-top:8px}
+.chart div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;height:100%}
+.chart i{display:block;border-radius:3px 3px 0 0;background:var(--bar);min-height:1px}
+.chart i.u{background:var(--bar2);border-radius:0}
+.axis{display:flex;justify-content:space-between;font-size:.72rem;color:var(--mute);margin-top:4px}
+.legend{font-size:.8rem;color:var(--soft);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin:0 4px 0 10px;vertical-align:middle}
+.row{display:grid;grid-template-columns:7.5rem 1fr 4rem;gap:10px;align-items:center;margin:8px 0;font-size:.92rem}
+.row .b{height:12px;border-radius:6px;background:rgba(246,210,122,.12);overflow:hidden}
+.row .b i{display:block;height:100%;background:linear-gradient(90deg,var(--bar),var(--gold));border-radius:6px}
+.row em{font-style:normal;text-align:right;color:var(--gold);font-variant-numeric:tabular-nums}
+a{color:var(--gold)}
+.links a{display:inline-block;margin:4px 8px 4px 0;padding:8px 14px;border:1px solid var(--line);border-radius:999px;text-decoration:none}
+.note{font-size:.8rem;color:var(--mute)}
+#err{display:none;color:#ff9a7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>📊 OmKiran Bhakti — ट्रैफ़िक रिपोर्ट</h1>
+<p class="sub">यह पेज सर्च इंजन में नहीं दिखता (noindex) और साइट पर कहीं लिंक नहीं है। गिनती 18 अक्टूबर 2026 से (कुल दर्शन इससे पहले से)।</p>
+<p id="err">काउंटर सर्विस से डेटा नहीं मिला — थोड़ी देर बाद रीफ़्रेश करें।</p>
+
+<div class="tiles">
+  <div class="tile"><b id="t-visits">—</b><span>कुल दर्शन (सेशन)</span></div>
+  <div class="tile"><b id="t-uniq">—</b><span>यूनिक भक्त</span></div>
+  <div class="tile"><b id="t-pv">—</b><span>पेज व्यूज़</span></div>
+  <div class="tile"><b id="t-today">—</b><span>आज के दर्शन</span></div>
+  <div class="tile"><b id="t-utoday">—</b><span>आज के नए भक्त</span></div>
+</div>
+
+<div class="card">
+  <h2>पिछले 30 दिन</h2>
+  <div class="chart" id="chart"></div>
+  <div class="axis"><span id="ax0"></span><span>आज</span></div>
+  <div class="legend"><i style="background:var(--bar)"></i>दर्शन (सेशन)<i style="background:var(--bar2)"></i>नए यूनिक भक्त</div>
+</div>
+
+<div class="grid2">
+  <div class="card"><h2>भक्त कहाँ से आए</h2><div id="src"></div></div>
+  <div class="card"><h2>डिवाइस</h2><div id="dev"></div><h2 style="margin-top:18px">देश</h2><div id="geo"></div></div>
+</div>
+
+<div class="card">
+  <h2>और गहरी रिपोर्ट</h2>
+  <div class="links">
+    <a href="https://analytics.google.com/" target="_blank" rel="noopener">Google Analytics</a>
+    <a href="https://search.google.com/search-console?resource_id=sc-domain%3Aomkiranbhakti.com" target="_blank" rel="noopener">Search Console</a>
+    <a href="https://www.bing.com/webmasters/" target="_blank" rel="noopener">Bing Webmaster</a>
+  </div>
+  <p class="note">“कहाँ से आए” हर नए सेशन के पहले पेज से गिना जाता है। “direct” = लिंक टाइप करके, बुकमार्क से, या ऐप के अंदर से (कई ऐप referrer नहीं भेजते)। देश का अंदाज़ा ब्राउज़र के टाइम-ज़ोन से है।</p>
+</div>
+</div>
+<script>
+(function(){
+  var NS='omkiranbhakti-site',base='https://abacus.jasoncameron.dev/get/'+NS+'/';
+  function g(k){return fetch(base+k).then(function(r){return r.ok?r.json():{value:0}}).then(function(j){return j.value||0}).catch(function(){return 0})}
+  function dkey(off){var d=new Date(Date.now()+(new Date().getTimezoneOffset()+330)*60000-off*864e5);return d.getFullYear()+('0'+(d.getMonth()+1)).slice(-2)+('0'+d.getDate()).slice(-2)}
+  function f(n){return n.toLocaleString('en-IN')}
+  function rows(el,list){var t=list.reduce(function(a,x){return a+x[1]},0)||1,mx=Math.max.apply(null,list.map(function(x){return x[1]}))||1;
+    list.sort(function(a,b){return b[1]-a[1]});
+    document.getElementById(el).innerHTML=list.map(function(x){return '<div class="row"><span>'+x[0]+'</span><span class="b"><i style="width:'+(x[1]/mx*100)+'%"></i></span><em>'+f(x[1])+' · '+Math.round(x[1]/t*100)+'%</em></div>'}).join('')}
+  var SRC=[['Google','google'],['YouTube','youtube'],['WhatsApp','whatsapp'],['Bing','bing'],['Facebook','facebook'],['Instagram','instagram'],['Twitter / X','twitter'],['AI (ChatGPT आदि)','ai'],['दूसरे सर्च इंजन','other-search'],['दूसरी वेबसाइट','other'],['Direct','direct']];
+  var days=[];for(var i=29;i>=0;i--)days.push(dkey(i));
+  var a=d=>new Date(+d.slice(0,4),+d.slice(4,6)-1,+d.slice(6)).toLocaleDateString('hi-IN',{day:'numeric',month:'short'});
+  document.getElementById('ax0').textContent=a(days[0]);
+  Promise.all([g('visits'),g('uniq'),g('pv')].concat(days.map(function(d){return g('d'+d)})).concat(days.map(function(d){return g('u'+d)}))
+    .concat(SRC.map(function(s){return g('src-'+s[1])})).concat([g('dev-mobile'),g('dev-desktop'),g('geo-india'),g('geo-abroad')])).then(function(v){
+    if(!v[0]){document.getElementById('err').style.display='block'}
+    document.getElementById('t-visits').textContent=f(v[0]);document.getElementById('t-uniq').textContent=f(v[1]);document.getElementById('t-pv').textContent=f(v[2]);
+    var dv=v.slice(3,33),uv=v.slice(33,63);
+    document.getElementById('t-today').textContent=f(dv[29]);document.getElementById('t-utoday').textContent=f(uv[29]);
+    var mx=Math.max.apply(null,dv.concat(uv))||1;
+    document.getElementById('chart').innerHTML=dv.map(function(n,i){var u=Math.min(uv[i],n);return '<div title="'+a(days[i])+': '+f(n)+' दर्शन, '+f(uv[i])+' नए"><i style="height:'+((n-u)/mx*100)+'%"></i><i class="u" style="height:'+(u/mx*100)+'%"></i></div>'}).join('');
+    var sv=v.slice(63,63+SRC.length);rows('src',SRC.map(function(s,i){return [s[0],sv[i]]}).filter(function(x){return x[1]>0}));
+    var r=v.slice(63+SRC.length);rows('dev',[['📱 मोबाइल',r[0]],['💻 कंप्यूटर',r[1]]]);rows('geo',[['🇮🇳 भारत',r[2]],['🌍 विदेश',r[3]]]);
+  });
+})();
+</script>
+</body>
+</html>

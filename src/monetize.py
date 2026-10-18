@@ -38,9 +38,16 @@ def samagri_box(slug, esc):
     return (f'<aside class="samagri-box no-print" aria-label="इस पूजा की सामग्री"><h2>इस पूजा की सामग्री</h2><ul>{lis}</ul>'
             f'<p class="aff-note">ये Amazon के affiliate links हैं — इनसे ख़रीदारी पर OmKiran Bhakti को छोटा-सा कमीशन मिलता है, आपके लिए दाम वही रहता है।</p></aside>')
 
+GA_ID = ""  # Google Analytics 4 measurement ID (G-XXXXXXX); empty = off
+
+def ga_head():
+    if not GA_ID: return ""
+    return (f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>'
+            f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_ID}');</script>")
+
 def adsense_head():
-    if not ADSENSE_PUB: return ""
-    return f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_PUB}" crossorigin="anonymous"></script>'
+    if not ADSENSE_PUB: return ga_head()
+    return ga_head() + f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_PUB}" crossorigin="anonymous"></script>'
 
 def ads_txt():
     return f"google.com, {ADSENSE_PUB.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n" if ADSENSE_PUB else ""
