@@ -16,6 +16,7 @@ LOGO = "https://omkiranbhakti.com/assets/logo-512.png"
 TODAY = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=5, minutes=30)).date().isoformat()
 import hashlib
 from roman import roman as _roman, roman_line as _roman_line
+import monetize as MON
 def ver(f):
     return hashlib.md5(open(os.path.join(ROOT,f),"rb").read()).hexdigest()[:8]
 CSSV, JSV = ver("styles.css"), ver("script.js")
@@ -316,7 +317,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og
 <link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v={CSSV}">
+<link rel="stylesheet" href="styles.css?v={CSSV}">{MON.adsense_head()}
 <script>try{{var t=localStorage.getItem('okb-theme');if(t)document.documentElement.setAttribute('data-theme',t)}}catch(e){{}}</script>
 <script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@graph":graph},ensure_ascii=False)}</script>
 </head>
@@ -420,6 +421,7 @@ def lyrics_page(slug, title, desc, h1, answer, verses, intro_html, vid_ids, faqs
 {reader_tools()}
 <div class="lyrics">{lyrics_body(verses)}</div>
 {paath_end(slug, work_name or h1)}
+{MON.samagri_box(slug, e)}
 <p class="note no-print">पाठ पारंपरिक है और अलग-अलग क्षेत्रों में शब्दों में थोड़ा अंतर मिलता है। अर्थ सरल हिंदी में OmKiran Bhakti ने लिखा है। कोई त्रुटि दिखे तो <a href="{YT}">YouTube पर कमेंट</a> करके बताएँ।</p>
 </div>
 {paath_rail(slug, verses)}
@@ -757,6 +759,7 @@ for s in EN_OUT:
     sm.append(f'  <url><loc>{SITE}en/{"" if s=="index.html" else s}</loc></url>')
 sm.append('</urlset>')
 open(os.path.join(ROOT,"sitemap.xml"),"w").write("\n".join(sm)+"\n")
+if MON.ads_txt(): open(os.path.join(ROOT,"ads.txt"),"w").write(MON.ads_txt())
 open(os.path.join(ROOT,"robots.txt"),"w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}sitemap.xml\n")
 
 titles = {s: PAGES[s].split("<title>")[1].split("</title>")[0] for s in urls}

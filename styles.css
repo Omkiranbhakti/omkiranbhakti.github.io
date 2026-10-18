@@ -963,3 +963,12 @@ section{padding:clamp(1.8rem,4vw,3rem) 0}
 .en-lyrics .line.ro{font-family:var(--body,inherit);font-size:1.15em;font-weight:500}
 .en-lyrics .line-dev{white-space:pre-line;font-family:'Tiro Devanagari Hindi',serif;color:var(--ink-soft);font-size:.95em;margin:.2rem 0 0 3rem}
 body.no-dev .line-dev{display:none}
+
+/* Puja samagri (affiliate) box */
+.samagri-box{margin:2rem 0 0 3rem;max-width:40rem;border:1px solid var(--chandan);border-radius:14px;padding:1rem 1.2rem;background:var(--paper)}
+.samagri-box h2{font-size:1.15rem;margin:0 0 .6rem}
+.samagri-box ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.samagri-box li a{display:inline-block;padding:.45rem .8rem;border:1px solid var(--chandan);border-radius:999px;text-decoration:none;color:var(--ink);font-size:.95rem}
+.samagri-box li a:hover{border-color:var(--sindoor)}
+.samagri-box .aff-note{font-size:.8rem;color:var(--ink-soft);margin:.7rem 0 0}
+@media (max-width:600px){.samagri-box{margin-left:0}}
