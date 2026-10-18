@@ -1,0 +1,32 @@
+name: sargam-transcribe
+on:
+  workflow_dispatch:
+    inputs:
+      files:
+        description: "space-separated: name=audio/file.mp3:start:dur"
+        required: true
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install -q torch torchaudio --index-url https://download.pytorch.org/whl/cpu && pip install -q demucs librosa soundfile scipy
+      - name: transcribe
+        run: |
+          mkdir -p out
+          for spec in ${{ github.event.inputs.files }}; do
+            name="${spec%%=*}"; rest="${spec#*=}"; f="${rest%%:*}"; rest2="${rest#*:}"; st="${rest2%%:*}"; du="${rest2#*:}"
+            python tools/sargam.py "$f" "out/$name.json" "$st" "$du" > "out/$name.log" 2>&1 || echo FAIL >> "out/$name.log"
+            cp "out/$name.json.work/htdemucs/clip/vocals.wav" "out/$name-vocals.wav" 2>/dev/null || true
+            ffmpeg -y -loglevel error -i "out/$name-vocals.wav" -b:a 64k "out/$name-vocals.mp3" 2>/dev/null || true
+            rm -rf "out/$name.json.work" "out/$name-vocals.wav"
+          done
+      - name: publish to branch
+        run: |
+          cd out && git init -q && git checkout -q -b sargam-data && git add . && git -c user.name=bot -c user.email=bot@x commit -qm "sargam $(date -u +%F)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" sargam-data
