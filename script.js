@@ -38,9 +38,9 @@
     if(pref) return;
     var bot=/bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent)||navigator.webdriver;
     var langs=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'']).map(function(l){return (l||'').toLowerCase()});
-    var indian=langs.some(function(l){return l.indexOf('hi')===0||/-in$/.test(l)});
+    var tz=''; try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+    var indian=/Calcutta|Kolkata/.test(tz)||langs.some(function(l){return l.indexOf('hi')===0||/-in$/.test(l)});
     if(bot||indian||langs[0].indexOf('en')!==0) return;
-    if(enA.href.indexOf('translate.goog')<0){ store.set('okb-lang','en'); location.replace(enA.href); return; }  // real English page exists: switch automatically
     var b=document.createElement('div'); b.className='lang-tip no-print'; b.setAttribute('role','dialog'); b.setAttribute('aria-label','Language');
     b.innerHTML='<span lang="en">Prefer to read this page in English?</span><a class="btn" lang="en" href="'+enA.href+'">Read in English</a><button type="button" class="btn ghost">हिंदी में ही पढ़ें</button>';
     b.querySelector('a').addEventListener('click',function(){ store.set('okb-lang','en'); });
