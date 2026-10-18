@@ -1,6 +1,6 @@
 # OmKiran Bhakti
 
-> Hindi devotional website of the OmKiran Bhakti YouTube channel: 122 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
+> Hindi devotional website of the OmKiran Bhakti YouTube channel: 154 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
 
 Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
 Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi, purnimanta months; festivals follow their traditional kaal rule (sunrise, pradosh, moonrise, nishita).
@@ -168,6 +168,38 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [प्रभु जी तुम चंदन हम पानी — संत रैदास — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/prabhu-ji-tum-chandan-hum-pani.html)
 - [वैष्णव जन तो तेने कहिये — नरसी मेहता — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/vaishnav-jan-to-tene-kahiye.html)
 - [रघुपति राघव राजाराम — मूल पाठ — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/raghupati-raghav-raja-ram.html)
+- [मैं तो साँवरे के रंग राची — मीराबाई — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/main-to-sanware-ke-rang-rachi.html)
+- [पग घुँघरू बाँधि मीरां नाची — मीराबाई — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/pag-ghungroo-bandh-meera-nachi-re.html)
+- [स्याम म्हाने चाकर राखो जी — मीराबाई — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/shyam-mhane-chakar-rakho-ji.html)
+- [माई री मैं तो लियो गोविंदो मोल — मीराबाई — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/mai-ri-main-to-liyo-govindo-mol.html)
+- [मन रे परसि हरि के चरण — मीराबाई — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/man-re-parasi-hari-ke-charan.html)
+- [प्रभु मोरे अवगुन चित न धरो — सूरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/prabhu-more-avgun-chit-na-dharo.html)
+- [मैया मोहिं दाऊ बहुत खिझायो — सूरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/maiya-mohi-dau-bahut-khijhayo.html)
+- [मैया — सूरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/maiya-kabahi-badhegi-choti.html)
+- [जसोदा हरि पालनैं झुलावै — सूरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/jasoda-hari-palne-jhulave.html)
+- [ऊधौ — सूरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/udho-man-na-bhaye-das-bees.html)
+- [निसिदिन बरसत नैन हमारे — सूरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/nisidin-barsat-nain-hamare.html)
+- [चरन कमल बंदौं हरि राई — सूरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/charan-kamal-bandau-hari-rai.html)
+- [मो सम कौन कुटिल खल कामी — सूरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/mo-sam-kaun-kutil-khal-kami.html)
+- [अबिगत-गति कछु कहत न आवै — सूरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/abigat-gati-kachhu-kahat-na-aave.html)
+- [जाऊँ कहाँ तजि चरन तुम्हारे — तुलसीदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/jaun-kahan-taji-charan-tumhare.html)
+- [अब लौं नसानी — तुलसीदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/ab-lau-nasani-ab-na-nasaihon.html)
+- [ऐसो को उदार जग माहीं — तुलसीदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/aiso-ko-udar-jag-mahi.html)
+- [केसव — तुलसीदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/kesav-kahi-na-jai-ka-kahiye.html)
+- [मन पछितैहै अवसर बीते — तुलसीदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/man-pachhitaihai-avsar-beete.html)
+- [कबहुँक हौं यहि रहनि रहौंगो — तुलसीदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/kabahunk-haun-yahi-rahani-rahaungo.html)
+- [मोको कहाँ ढूँढे रे बंदे — कबीरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/moko-kahan-dhoondhe-re-bande.html)
+- [झीनी झीनी बीनी चदरिया — कबीरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/jheeni-jheeni-beeni-chadariya.html)
+- [मन लागो मेरो यार फकीरी में — कबीरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/man-lago-mero-yaar-fakiri-mein.html)
+- [रहना नहिं देस बिराना है — कबीरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/rahna-nahi-des-birana-hai.html)
+- [साधो — कबीरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/santo-dekho-jag-baurana.html)
+- [घूँघट का पट खोल रे — कबीरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/ghunghat-ka-pat-khol-re.html)
+- [माया महा ठगिनी हम जानी — कबीरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/maya-maha-thagini-hum-jani.html)
+- [भजो रे भैया राम गोविंद हरी — कबीरदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/bhajo-re-bhaiya-ram-govind-hari.html)
+- [ऐसी लाल तुझ बिनु कउनु करै — संत रैदास — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/aisi-lal-tujh-binu-kaun-kare.html)
+- [मानुस हौं तो वही रसखानि — रसखान — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/manus-haun-to-wahi-raskhan.html)
+- [या लकुटी अरु कामरिया पर — रसखान — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/ya-lakuti-aru-kamariya-par.html)
+- [सेस गनेस महेस दिनेस — रसखान — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/ses-ganes-mahes-dines.html)
 - [करवा चौथ व्रत कथा — वीरावती की कहानी, पूजा विधि और चाँद का समय | OmKiran Bhakti](https://omkiranbhakti.github.io/karwa-chauth-vrat-katha.html)
 - [अहोई अष्टमी व्रत कथा — साहूकारनी और स्याहू की कहानी, पूजा विधि | OmKiran Bhakti](https://omkiranbhakti.github.io/ahoi-ashtami-vrat-katha.html)
 - [सोमवार व्रत कथा — शिव जी की कथा, पूजा विधि और नियम | OmKiran Bhakti](https://omkiranbhakti.github.io/somvar-vrat-katha.html)

@@ -542,6 +542,15 @@ ENTRIES += [
    '<p class="lede">पारंपरिक राम धुन; लेखक के बारे में मतभेद हैं। <a href="sant-bhajan.html">सभी संत भजन</a>।</p><p class="pc-note">पाठभेद: अलग-अलग पुस्तकों और गायकों में कुछ शब्द अलग मिलते हैं; यहाँ प्रचलित/मानक पाठ दिया है।</p>',
    [],[("‘रघुपति राघव राजाराम’ किसने लिखा?","मूल धुन श्री लक्ष्मणाचार्य के ‘नाम रामायण’ से जुड़ी मानी जाती है; कुछ इसे तुलसीदास या रामदास से जोड़ते हैं। गांधी जी ने इसका एक रूप लोकप्रिय बनाया।")],"पारंपरिक"),
 ]
+import library12 as L12
+for _b in L12.BH12:
+    _n = _b["first"]
+    ENTRIES.append(E(_b["slug"], "bhajan", _n, f'{_b["author"]} का भजन, अर्थ सहित', ART[_b["art"]],
+        [("pad", _b["text"], "भावार्थ: " + _b["bh"])], f'{_n} — {_b["author"]}', "पूरे बोल और भावार्थ",
+        f'{_b["author"]} का भजन ‘{_n}’ के पूरे बोल और सरल हिंदी में भावार्थ। {_b["bh"][:90]}…',
+        f'‘{_n}’ {_b["author"]} की रचना है। {_b["bh"]}',
+        '<p class="lede">' + _b["author"] + ' की रचना। <a href="sant-bhajan.html">सभी संत भजन</a>।</p><p class="pc-note">पाठभेद: यह पाठ प्रचलित संस्करणों से लिया गया है; अलग-अलग पुस्तकों और गायकों में कुछ शब्द अलग मिलते हैं। हम इसे मुद्रित संस्करण से मिलान कर रहे हैं।</p>',
+        [], [(f"‘{_n}’ किसने लिखा?", f"{_b['author']} ने।"), (f"‘{_n}’ का अर्थ क्या है?", _b["bh"])], _b["author"]))
 ENTRIES = [x[:4] + ((SLUG_ART[x[0]], 50),) + x[5:] if x[0] in SLUG_ART and art_src(SLUG_ART[x[0]]) else x for x in ENTRIES]
 for (slug, cat, ltitle, sub, art, verses, h1, title, desc, answer, intro, vids, faqs, author, work) in ENTRIES:
     vids = [v for v in vids if v in V]

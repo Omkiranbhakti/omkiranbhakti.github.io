@@ -209,6 +209,7 @@ _sbfaq = [("मीराबाई के प्रसिद्ध भजन क�
 add("sant-bhajan.html", "संत भजन — मीरा, सूरदास, तुलसीदास, रैदास, नरसी मेहता के भजन बोल और अर्थ | OmKiran Bhakti",
     "मीराबाई, सूरदास, तुलसीदास, संत रैदास और नरसी मेहता के प्रसिद्ध भजनों के पूरे बोल और हर पंक्ति का सरल हिंदी अर्थ — पायो जी मैंने, मैया मोरी, वैष्णव जन।",
     band("संत भजन", "भक्ति काल के संत कवियों के भजन — मीराबाई, सूरदास, तुलसीदास, रैदास और नरसी मेहता — पूरे बोल और हर पंक्ति के सरल हिंदी अर्थ के साथ।", "संत भजन", *ART["krishna"], "संत भजन")
-    + f'<section><div class="wrap">{_ul([(x[0], x[2], x[3]) for x in _SB])}</div></section>' + faq_html(_sbfaq),
+    + "".join(f'<section{" class=\"band\"" if i % 2 else ""}><div class="wrap">{sec_head("पारंपरिक धुन" if a == "पारंपरिक" else a + " के भजन")}{_ul([(x[0], x[2], x[3]) for x in _SB if (x[13] or "पारंपरिक") == a])}</div></section>'
+              for i, a in enumerate(dict.fromkeys((x[13] or "पारंपरिक") for x in _SB))) + faq_html(_sbfaq),
     crumbs="संत भजन", active="aarti-mantra.html",
     ld=[{"@type":"ItemList","name":"संत भजन","itemListElement":[{"@type":"ListItem","position":i+1,"url":SITE+x[0],"name":x[2]} for i,x in enumerate(_SB)]}, faq_ld(_sbfaq)])
