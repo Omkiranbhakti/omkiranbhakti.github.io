@@ -269,7 +269,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og
 <footer class="site-foot"><div class="wrap foot-grid">
 <div><h2>OmKiran Bhakti</h2><p>हिंदी भक्ति संगीत का घर — आरती, चालीसा, मंत्र और भजन, बोल और अर्थ के साथ। हमारे सभी वीडियो <a href="{YT}">YouTube चैनल</a> पर हैं।</p></div>
 <div><h2>पाठ</h2><ul><li><a href="hanuman-chalisa.html">हनुमान चालीसा</a></li><li><a href="om-jai-jagdish-hare-aarti.html">ॐ जय जगदीश हरे</a></li><li><a href="ganesh-aarti-jai-ganesh-deva.html">गणेश आरती</a></li><li><a href="shiv-aarti-om-jai-shiv-omkara.html">शिव आरती</a></li><li><a href="jaap-mala.html">ऑनलाइन जाप माला</a></li><li><a href="aaj-ka-panchang.html">आज का पंचांग</a></li><li><a href="tyohar-calendar.html">त्योहार कैलेंडर</a></li><li><a href="about.html">परिचय</a></li></ul></div>
-<div><h2>भजन</h2><ul><li><a href="mata-rani-bhajan.html">माता रानी</a></li><li><a href="shiv-bhajan.html">शिव</a></li><li><a href="ganesh-bhajan.html">गणेश</a></li><li><a href="krishna-bhajan.html">कृष्ण</a></li><li><a href="ram-bhajan.html">राम</a></li><li><a href="devotional-edm-bhajans.html">भक्ति EDM</a></li></ul></div>
+<div><h2>भजन</h2><ul><li><a href="mata-rani-bhajan.html">माता रानी</a></li><li><a href="shiv-bhajan.html">शिव</a></li><li><a href="ganesh-bhajan.html">गणेश</a></li><li><a href="krishna-bhajan.html">कृष्ण</a></li><li><a href="ram-bhajan.html">राम</a></li><li><a href="devotional-edm-bhajans.html">भक्ति EDM</a></li><li><a href="sant-bhajan.html">संत भजन (बोल)</a></li></ul></div>
 </div><div class="wrap join-strip"><p class="okb-count" id="okb-count" hidden aria-live="polite"></p><span>🙏 रोज़ का पंचांग, त्योहार और नए भजन सीधे फ़ोन पर पाएँ</span><a class="wa-join" href="{WA_CH}" target="_blank" rel="noopener">{WA_ICON} WhatsApp चैनल से जुड़ें</a><a class="yt-join" href="https://www.youtube.com/@OmKiranBhakti?sub_confirmation=1" target="_blank" rel="noopener">▶ YouTube Subscribe</a></div><div class="wrap fine">© {datetime.date.today().year} OmKiran Bhakti. पारंपरिक पाठ सार्वजनिक धरोहर हैं; अर्थ और संगीत OmKiran Bhakti के हैं।</div></footer>
 <a class="wa-float" href="{WA_CH}" target="_blank" rel="noopener" aria-label="OmKiran Bhakti WhatsApp चैनल से जुड़ें">{WA_ICON}<span>चैनल से जुड़ें</span></a>
 <script src="script.js?v={JSV}" defer></script>
@@ -431,14 +431,14 @@ DEITY = [
   "कृष्ण भजन और राधा-कृष्ण के गीत",
   "श्रीकृष्ण और राधा रानी के भजन — जन्माष्टमी के बधाई और सोहर गीत, कृष्ण चालीसा, हरे कृष्ण कीर्तन, राधा प्रणाम मंत्र और ब्रज की होली।",
   ["vy6ucthmxmk","P9N1XQzw8CI","TVdX5XbbjHs","ZQ_OBR-596M","ZIhDdYk6Gus","3ChBJC1Vigk","_8yw36Jn7iM","GtRRHlLc5gQ","uCUR842niAU","R1PiCmntXIM"],
-  [("om-jai-jagdish-hare-aarti.html","ॐ जय जगदीश हरे","श्रीहरि की आरती")],
+  [("om-jai-jagdish-hare-aarti.html","ॐ जय जगदीश हरे","श्रीहरि की आरती"),("maiya-mori-main-nahi-makhan-khayo.html","मैया मोरी मैं नहिं माखन खायो","सूरदास — बोल और अर्थ"),("mere-to-girdhar-gopal.html","मेरे तो गिरधर गोपाल","मीराबाई — बोल और अर्थ"),("sant-bhajan.html","सभी संत भजन","मीरा, सूर, तुलसी, रैदास")],
   [("जन्माष्टमी पर कौन-से भजन गाए जाते हैं?","कृष्ण जन्म के बधाई और सोहर गीत, जैसे ‘अंगना झूले कृष्ण कन्हैया’ और ‘जन्मे हैं कृष्ण कन्हैया’।")]),
  ("ram-bhajan.html","ram","राम भजन, श्री राम चालीसा और राम स्तुति | OmKiran Bhakti",
   "श्री राम के भजन, राम चालीसा, श्री रामचंद्र कृपालु स्तुति, निर्गुण राम भजन और 108 बार राम गायत्री मंत्र — OmKiran Bhakti के असली वीडियो।",
   "राम भजन और राम स्तुति",
   "मर्यादा पुरुषोत्तम श्रीराम के भजन, ‘श्री रामचंद्र कृपालु भजमन’ स्तुति, राम चालीसा, निर्गुण भजन और राम गायत्री मंत्र। हनुमान चालीसा के साथ सुबह सुनने के लिए उत्तम।",
   ["pCixItfj5Vo","sLQF1nm_RqU","ZqOnkb7zElU","l9z2J0I6Kao","lBRP9bTTLek","kHM8fGmqoLw","SMyoiGPuKGA","fmbCXi2K9tw"],
-  [("hanuman-chalisa.html","हनुमान चालीसा","पूरे बोल और अर्थ")],
+  [("hanuman-chalisa.html","हनुमान चालीसा","पूरे बोल और अर्थ"),("thumak-chalat-ramchandra.html","ठुमक चलत रामचंद्र","तुलसीदास — बोल और अर्थ"),("payo-ji-maine-ram-ratan-dhan-payo.html","पायो जी मैंने राम रतन धन पायो","मीराबाई — बोल और अर्थ"),("raghupati-raghav-raja-ram.html","रघुपति राघव राजाराम","मूल पाठ और अर्थ")],
   [("‘श्री रामचंद्र कृपालु भजमन’ किसने लिखा?","यह स्तुति गोस्वामी तुलसीदास जी की ‘विनय पत्रिका’ से है।")]),
  ("devotional-edm-bhajans.html","edm","भक्ति EDM — शिव तांडव, हनुमान तांडव और अयि गिरिनन्दिनि मिक्स | OmKiran Bhakti",
   "OmKiran Bhakti के भक्ति EDM ट्रैक — भज भज भूतेशम्, हनुमान तांडव पावर मिक्स और अयि गिरिनन्दिनि EDM। जिम, ड्राइव और जगराते के लिए ऊर्जा भरा संगीत।",

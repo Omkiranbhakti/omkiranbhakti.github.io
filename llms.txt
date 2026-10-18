@@ -1,6 +1,6 @@
 # OmKiran Bhakti
 
-> Hindi devotional website of the OmKiran Bhakti YouTube channel: 112 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
+> Hindi devotional website of the OmKiran Bhakti YouTube channel: 122 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
 
 Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
 Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi, purnimanta months; festivals follow their traditional kaal rule (sunrise, pradosh, moonrise, nishita).
@@ -158,6 +158,16 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [मंगल की सेवा सुन मेरी देवा — काली माता आरती — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/mangal-ki-seva-kali-aarti.html)
 - [श्री गोवर्धन महाराज — गोवर्धन आरती — बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/govardhan-aarti.html)
 - [ॐ जय श्री श्याम हरे — खाटू श्याम आरती — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/khatu-shyam-aarti.html)
+- [पायो जी मैंने राम रतन धन पायो — मीराबाई — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/payo-ji-maine-ram-ratan-dhan-payo.html)
+- [मेरे तो गिरधर गोपाल, दूसरो न कोई — मीराबाई — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/mere-to-girdhar-gopal.html)
+- [हरि तुम हरो जन की भीर — मीराबाई — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/hari-tum-haro-jan-ki-bheer.html)
+- [बसो मेरे नैनन में नंदलाल — मीराबाई — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/baso-mere-nainan-mein-nandlal.html)
+- [मैया मोरी मैं नहिं माखन खायो — सूरदास — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/maiya-mori-main-nahi-makhan-khayo.html)
+- [सबसे ऊँची प्रेम सगाई — सूरदास — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/sabse-unchi-prem-sagai.html)
+- [ठुमक चलत रामचंद्र, बाजत पैंजनियाँ — तुलसीदास — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/thumak-chalat-ramchandra.html)
+- [प्रभु जी तुम चंदन हम पानी — संत रैदास — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/prabhu-ji-tum-chandan-hum-pani.html)
+- [वैष्णव जन तो तेने कहिये — नरसी मेहता — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/vaishnav-jan-to-tene-kahiye.html)
+- [रघुपति राघव राजाराम — मूल पाठ — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.github.io/raghupati-raghav-raja-ram.html)
 - [करवा चौथ व्रत कथा — वीरावती की कहानी, पूजा विधि और चाँद का समय | OmKiran Bhakti](https://omkiranbhakti.github.io/karwa-chauth-vrat-katha.html)
 - [अहोई अष्टमी व्रत कथा — साहूकारनी और स्याहू की कहानी, पूजा विधि | OmKiran Bhakti](https://omkiranbhakti.github.io/ahoi-ashtami-vrat-katha.html)
 - [सोमवार व्रत कथा — शिव जी की कथा, पूजा विधि और नियम | OmKiran Bhakti](https://omkiranbhakti.github.io/somvar-vrat-katha.html)
