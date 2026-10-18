@@ -100,9 +100,41 @@ SHOP = [
  ("घर का मंदिर", [("लकड़ी का मंदिर", "wooden mandir for home"), ("मंदिर की लाइट / दीपमाला", "mandir light"), ("भगवान की पोशाक", "god dress for murti"), ("पूजा के फूल-माला (कृत्रिम)", "artificial flower garland for puja")]),
 ]
 
+ICON = {"लक्ष्मी":"🪷","गणेश":"🐘","शिवलिंग":"🔱","लड्डू":"🦚","हनुमान":"🚩","दुर्गा":"🦁","राम दरबार":"🏹","सरस्वती":"🎶",
+ "थाली":"🍽️","दीया":"🪔","कलश":"🏺","घंटी":"🔔","चौकी":"🪑","आसन":"🧘","कपूर":"🔥","अगरबत्ती":"🌫️","रोली":"🔴","कलावा":"🧶",
+ "रुद्राक्ष":"📿","तुलसी":"🌿","कमल":"🪷","स्फटिक":"💎","श्री यंत्र":"🔺","कुबेर":"💰",
+ "गीता":"📖","रामचरितमानस":"📕","सुंदरकांड":"📗","सप्तशती":"📘","चालीसा":"📙","व्रत कथा":"📚","नित्य":"📜",
+ "मंदिर":"🛕","लाइट":"✨","पोशाक":"👘","फूल":"🌼"}
+CAT = {"मूर्तियाँ":("🕉️","घर के मंदिर के लिए सुंदर मूर्तियाँ"),"पूजा का सामान":("🪔","रोज़ की पूजा का ज़रूरी सामान"),
+       "माला और यंत्र":("📿","जाप के लिए माला, सिद्ध यंत्र"),"धार्मिक पुस्तकें (गीता प्रेस)":("📚","गीता प्रेस की असली किताबें"),
+       "घर का मंदिर":("🛕","मंदिर, रोशनी और सजावट")}
+
+def _ico(n):
+    return next((v for k, v in ICON.items() if k in n), "🙏")
+
+def _url(q):
+    from urllib.parse import quote_plus
+    return f"https://www.amazon.in/s?k={quote_plus(q)}&amp;tag={AMAZON_TAG}"
+
+def _card(n, q):
+    return (f'<li><a href="{_url(q)}" target="_blank" rel="sponsored noopener"><span class="pc-ico" aria-hidden="true">{_ico(n)}</span>'
+            f'<span class="pc-nm">{n}</span><span class="pc-cta">Amazon पर देखें</span></a></li>')
+
 def shop_body():
-    secs = "".join(f'<section{" class=band" if i % 2 else ""}><div class="wrap"><h2>{t}</h2><aside class="samagri-box shop"><ul>{"".join(_link(n, q) for n, q in items)}</ul></aside></div></section>'
+    nav = '<nav class="shop-nav" aria-label="श्रेणियाँ">' + "".join(f'<a href="#c{i}">{CAT[t][0]} {t.split(" (")[0]}</a>' for i, (t, _) in enumerate(SHOP)) + '</nav>'
+    secs = "".join(f'<section id="c{i}" class="shop-sec{" alt" if i % 2 else ""}"><div class="wrap"><div class="shop-head"><span class="sh-ico" aria-hidden="true">{CAT[t][0]}</span>'
+                   f'<div><h2>{t}</h2><p>{CAT[t][1]}</p></div></div><ul class="pc-grid">{"".join(_card(n, q) for n, q in items)}</ul></div></section>'
                    for i, (t, items) in enumerate(SHOP))
-    fest = "".join(f'<li><a href="{s}">{h}</a></li>' for s, h in [("diwali-puja-samagri-list.html","दिवाली पूजा सामग्री"),("chhath-puja-samagri-list.html","छठ पूजा सामग्री"),
-                   ("karwa-chauth-puja-samagri-list.html","करवा चौथ सामग्री"),("navratri-kalash-sthapana-samagri-list.html","नवरात्रि कलश स्थापना"),("puja-samagri.html","प्रिंट करने लायक सभी लिस्ट")])
-    return secs + f'<section><div class="wrap"><h2>त्योहार के हिसाब से लिस्ट</h2><ul class="library">{fest}</ul>{NOTE}</div></section>'
+    fest = "".join(f'<li><a href="{s}"><span class="fc-ico" aria-hidden="true">{ic}</span><strong>{h}</strong><span class="fc-go">लिस्ट देखें →</span></a></li>' for s, h, ic in [
+        ("diwali-puja-samagri-list.html","दिवाली पूजा सामग्री","🪔"),("chhath-puja-samagri-list.html","छठ पूजा सामग्री","🌅"),
+        ("karwa-chauth-puja-samagri-list.html","करवा चौथ सामग्री","🌕"),("navratri-kalash-sthapana-samagri-list.html","नवरात्रि कलश स्थापना","🏺"),
+        ("puja-samagri.html","सभी लिस्ट (प्रिंट करें)","🖨️")])
+    return (f'<section class="shop-sec"><div class="wrap">{nav}</div></section>' + secs +
+            f'<section class="shop-sec"><div class="wrap"><div class="shop-head"><span class="sh-ico" aria-hidden="true">🎉</span><div><h2>त्योहार के हिसाब से लिस्ट</h2><p>बाज़ार जाने से पहले पूरी लिस्ट देख लें</p></div></div><ul class="fest-cards">{fest}</ul>{NOTE}</div></section>')
+
+def shop_teaser():
+    pick = [("गणेश मूर्ति","ganesh murti for home"),("पूजा थाली सेट","puja thali set"),("पीतल का दीया","brass diya for puja"),("कलश","brass kalash for puja"),
+            ("रुद्राक्ष माला","rudraksha mala 108"),("श्री यंत्र","shri yantra"),("श्रीमद्भगवद्गीता","bhagavad gita gita press hindi"),("लकड़ी का मंदिर","wooden mandir for home")]
+    return (f'<section class="shop-sec alt no-print"><div class="wrap"><div class="shop-head"><span class="sh-ico" aria-hidden="true">🛍️</span><div><h2>घर बैठे मँगाएँ</h2>'
+            f'<p>पूजा का सामान, मूर्तियाँ, माला और गीता प्रेस की किताबें — Amazon पर</p></div></div><ul class="pc-grid">{"".join(_card(n, q) for n, q in pick)}</ul>'
+            f'<p class="shop-more"><a class="btn" href="puja-samagri-kharidein.html">पूरी पूजा सामग्री देखें →</a></p>{NOTE}</div></section>')

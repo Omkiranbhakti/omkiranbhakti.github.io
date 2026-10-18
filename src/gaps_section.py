@@ -174,10 +174,22 @@ for s in SAMAGRI:
         crumbs=s["h1"], active="aarti-mantra.html",
         ld=[{"@type":"HowTo","name":s["h1"].replace(" लिस्ट","") + " और विधि","inLanguage":"hi","supply":[{"@type":"HowToSupply","name":x} for g, items in s["groups"] for x in items],
              "step":[{"@type":"HowToStep","text":v} for v in s["vidhi"]]}, faq_ld(sf)])
+_FICON = {"diwali":"🪔","chhath":"🌅","karwa":"🌕","satyanarayan":"🙏","navratri":"🏺"}
+def _fcard(x):
+    ico = next((v for k, v in _FICON.items() if k in x["slug"]), "🛕")
+    n = sum(len(i) for g, i in x["groups"])
+    dl = ""
+    if x["fest"] and FEST.get(x["fest"]):
+        nx = next((y for y in FEST[x["fest"]] if y["date"] >= TODAY_D), None)
+        if nx: dl = f'<span class="fc-date">📅 {hdate_w(nx["date"])}</span>'
+    short = x["answer"].split("।")[0][:90]
+    return (f'<li><a href="{x["slug"]}"><span class="fc-ico" aria-hidden="true">{ico}</span><strong>{e(x["h1"].replace(" लिस्ट",""))}</strong>{dl}'
+            f'<span class="fc-txt">{e(short)}…</span><span class="fc-go">{n} चीज़ें · लिस्ट देखें →</span></a></li>')
 add("puja-samagri.html", "पूजा सामग्री लिस्ट — दिवाली, छठ, करवा चौथ, नवरात्रि, सत्यनारायण | OmKiran Bhakti",
     "हर बड़ी पूजा की पूरी सामग्री लिस्ट, प्रिंट करने लायक — दिवाली लक्ष्मी पूजा, छठ पूजा, करवा चौथ, नवरात्रि कलश स्थापना और सत्यनारायण कथा, साथ में संक्षिप्त विधि।",
     band("पूजा सामग्री लिस्ट", "बाज़ार जाने से पहले लिस्ट प्रिंट कर लें — हर बड़ी पूजा की पूरी सामग्री और संक्षिप्त विधि।", "पूजा सामग्री", *ART["vishnu"], "पूजा सामग्री")
-    + f'<section><div class="wrap">{_ul([(s["slug"], s["h1"], s["answer"][:60] + "…") for s in SAMAGRI])}</div></section>',
+    + f'<section><div class="wrap">{sec_head("त्योहार चुनें — पूरी लिस्ट खोलें")}<ul class="fest-cards">' + "".join(_fcard(x) for x in SAMAGRI) + '</ul></div></section>'
+    + (MON.shop_teaser() if MON.AMAZON_TAG else ""),
     crumbs="पूजा सामग्री", active="aarti-mantra.html")
 
 # ---------- 4. Lok parv (regional festivals by state) ----------
