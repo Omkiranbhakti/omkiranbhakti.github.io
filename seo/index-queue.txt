@@ -1,0 +1,27 @@
+# Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
+# The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
+durga-ashtami-kab-hai.html
+maha-navami-kab-hai.html
+dussehra-kab-hai.html
+karwa-chauth-kab-hai.html
+chhath-puja-samagri-list.html
+rama-ekadashi-kab-hai.html
+dhanteras-kab-hai.html
+vrat-katha.html
+karwa-chauth-puja-samagri-list.html
+mangal-ki-seva-kali-aarti.html
+puja-niyam.html
+sant-bhajan.html
+chhath-puja-kab-hai.html
+govardhan-puja-kab-hai.html
+bhai-dooj-kab-hai.html
+ahoi-ashtami-kab-hai.html
+diwali-par-kya-kare-kya-na-kare.html
+lok-parv.html
+puja-samagri.html
+papankusha-ekadashi-kab-hai.html
+dev-uthani-ekadashi-kab-hai.html
+tulsi-vivah-kab-hai.html
+payo-ji-maine-ram-ratan-dhan-payo.html
+maiya-mori-main-nahi-makhan-khayo.html
+vaishnav-jan-to-tene-kahiye.html
