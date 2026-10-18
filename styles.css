@@ -306,7 +306,7 @@ select,input[type=text]{font:inherit;padding:.55rem .8rem;border-radius:var(--r-
 .verse .no{width:2rem;height:2rem;float:left;display:grid;place-items:center;padding:0;margin-top:.55rem;border-radius:50%;
   border:1px solid var(--gold);color:var(--genda-deep);font-size:.85rem}
 .verse .no:empty{border:0}
-.verse .line,.verse .mean{margin-left:3rem}
+.verse .line,.verse .mean,.verse .line-dev{margin-left:3rem}
 .verse.doha{background:linear-gradient(90deg,rgba(232,163,23,.10),transparent 70%);border-radius:var(--r-s);padding-left:.5rem}
 
 /* ---------- Navratri day arches ---------- */
@@ -961,5 +961,5 @@ section{padding:clamp(1.8rem,4vw,3rem) 0}
 
 /* English edition */
 .en-lyrics .line.ro{font-family:var(--body,inherit);font-size:1.15em;font-weight:500}
-.en-lyrics .line-dev{white-space:pre-line;font-family:'Tiro Devanagari Hindi',serif;color:var(--ink-soft);font-size:.95em;margin:.2rem 0 0}
+.en-lyrics .line-dev{white-space:pre-line;font-family:'Tiro Devanagari Hindi',serif;color:var(--ink-soft);font-size:.95em;margin:.2rem 0 0 3rem}
 body.no-dev .line-dev{display:none}
