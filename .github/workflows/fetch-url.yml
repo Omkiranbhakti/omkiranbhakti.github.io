@@ -5,7 +5,7 @@ on:
 permissions: {contents: write}
 jobs:
   f:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - run: |
           mkdir o && cd o && curl -sSL -A "Mozilla/5.0" -o "${{ github.event.inputs.name }}" "${{ github.event.inputs.url }}" && ls -la
