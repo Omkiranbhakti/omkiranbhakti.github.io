@@ -838,8 +838,20 @@ for _s, _h in PAGES.items():
     _r = _conv.convert(_s, _h, SITE + "en/" + _s)
     if _r is not None: _soups[_s] = _r
 EN_READY = set(_soups) | set(EN)
+# hand-made English pages: video titles, alt and aria text still come from the Hindi video list
+def _en_fix_text(_t):
+    _v = _conv.tr(html.unescape(_t), "en-handmade")
+    if _v is None or _DEVX.search(_v): _v = _roman_line(html.unescape(_t)).rstrip(" ।॥").title()
+    return html.escape(_v, quote=False)
+_DEVX = re.compile(r"[\u0900-\u097F]")
+for _s in list(EN_OUT):
+    _h = EN_OUT[_s]
+    _h = re.sub(r'(<a [^>]*>)([^<]*[\u0900-\u097F][^<]*)(</a>)', lambda m: m.group(1) + _en_fix_text(m.group(2)) + m.group(3), _h)
+    _h = re.sub(r'((?:alt|aria-label|title)=")([^"]*[\u0900-\u097F][^"]*)(")', lambda m: m.group(1) + _en_fix_text(m.group(2)).replace('"', "&quot;") + m.group(3), _h)
+    EN_OUT[_s] = _h
 for _s, _soup in _soups.items():
     EN_OUT[_s] = _EA.finish(_soup, _s, _conv, EN_READY, SITE, SITE + ("" if _s == "index.html" else _s), SITE + "en/" + ("" if _s == "index.html" else _s))
+if "index.html" not in _soups: EN_READY.add("index.html")   # hand-made English home (en_index) is always written
 for _s in EN_READY:   # Hindi page: point EN button + hreflang at the real English page
     if _s not in PAGES or _s in EN_PAGES: continue
     _h = PAGES[_s]
