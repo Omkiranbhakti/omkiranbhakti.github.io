@@ -779,7 +779,7 @@ tiles.forEach(function(a){a.addEventListener("click",function(ev){ev.preventDefa
 document.getElementById("hl-close").addEventListener("click",function(){fr.innerHTML="";var au=document.getElementById("hl-aud");if(au._a)au._a.pause();au.innerHTML="";bh.innerHTML="";st.hidden=true;L.classList.remove("playing");tiles.forEach(function(t){t.classList.remove("on")})});
 })();</script>'''
 add("index.html", "OmKiran Bhakti — आरती, चालीसा, मंत्र और भजन (बोल व अर्थ सहित)",
- "हनुमान चालीसा, आरती और मंत्रों के पूरे बोल सरल अर्थ के साथ; माता रानी, शिव, गणेश, कृष्ण और राम के भजन; नवरात्रि 2026 और ऑनलाइन जाप माला।",
+ "हनुमान चालीसा, आरती, चालीसा और मंत्रों के पूरे बोल सरल हिंदी अर्थ सहित। शिव, राम, कृष्ण और माता रानी के भजन, मंदिरों के लाइव दर्शन, दैनिक पंचांग और ऑनलाइन जाप माला।",
  f'''<section class="night scallop to-band hero3 hero4"><div class="wrap">
 <div class="home-intro"><h1 class="gold-type">भजन, आरती, चालीसा और मंत्र</h1><p class="answer">पूरे बोल, सरल हिंदी अर्थ, पूजा के लिए पाठ मोड, ऑनलाइन जाप माला और OmKiran Bhakti के भजन — एक जगह।</p></div>
 {hero_card(TODAY_P).replace('class="pcard hero-pc"','class="pcard hero-pc mini"')}
