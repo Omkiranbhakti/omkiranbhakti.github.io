@@ -1,13 +1,18 @@
 # Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
 # --- backlog added 2026-10-18 (all other sitemap pages not yet requested) ---
+diwali-kab-hai.html
 dhanteras-kab-hai.html
+diwali-lakshmi-puja-muhurat.html
+hanuman-chalisa.html
 chhath-puja-kab-hai.html
 govardhan-puja-kab-hai.html
 bhai-dooj-kab-hai.html
 narak-chaturdashi-kab-hai.html
 chhath-puja-arghya-time.html
 diwali-calendar.html
+aaj-ka-panchang.html
+diwali-puja-samagri-list.html
 dev-uthani-ekadashi-kab-hai.html
 tulsi-vivah-kab-hai.html
 chhath-puja-calendar.html
@@ -19,12 +24,15 @@ durga-chalisa.html
 ganesh-aarti-jai-ganesh-deva.html
 kartik-purnima-kab-hai.html
 aaj-ka-choghadiya.html
+tyohar-kab-hai.html
 choghadiya-delhi.html
 choghadiya-noida.html
 chhath-puja-katha.html
 gayatri-mantra.html
 mahamrityunjay-mantra.html
 shiv-tandav-stotram.html
+bajrang-baan.html
+live-darshan.html
 ekadashi-2026-2027.html
 dussehra-kab-hai.html
 karwa-chauth-kab-hai.html

@@ -1,3 +1,4 @@
+# Lines up to 2026-10-19 were requested on the OLD property https://omkiranbhakti.github.io/ (now a redirect) — re-queued for omkiranbhakti.com.
 # Requested in Google Search Console
 2026-10-17 index.html
 2026-10-17 live-darshan.html
