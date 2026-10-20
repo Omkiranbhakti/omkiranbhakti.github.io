@@ -357,6 +357,13 @@ def lyrics_body(verses, label_map=True):
     out, n = [], 0
     last = None
     for kind, text, mean in verses:
+        if kind.startswith("geet:"):
+            if kind != last:
+                lab = kind[5:]
+                out.append(f'<p class="section-label" translate="no" data-ro="{e(_roman(lab))}">{e(lab)}</p>')
+                last = kind
+            out.append(f'<div class="verse pad"><span class="no"></span><p class="line" translate="no" data-ro="{e(_roman(text))}">{e(text)}</p><p class="mean">{e(mean)}</p></div>')
+            continue
         if label_map and kind != last:
             lab = {"doha":"दोहा","chaupai":"चौपाई"}.get(kind)
             if lab: out.append(f'<p class="section-label" translate="no" data-ro="{ {"doha":"Doha","chaupai":"Chaupai"}[kind] }">{lab}</p>')
@@ -382,6 +389,9 @@ def reader_tools():
 def verse_count(verses):
     from collections import Counter
     c = Counter(k for k,_,_ in verses)
+    if any(k.startswith("geet:") for k in c):
+        na = len({k for k in c if k.startswith("geet:अंतरा")})
+        return f"मुखड़ा + {na} अंतरा"
     names = [("chaupai","चौपाई"),("shloka","श्लोक"),("pad","पद"),("mantra","मंत्र"),("doha","दोहे")]
     parts = [f"{c[k]} {n}" for k,n in names if c.get(k)]
     other = sum(v for k,v in c.items() if k not in dict(names))
@@ -411,6 +421,15 @@ def roman_section(name, verses):
     return (f'<section class="band ro-sec"><div class="wrap"><details class="ro"><summary><h2 lang="en">{e(en)} — Lyrics in English</h2>'
             f'<span>अंग्रेज़ी अक्षरों (Roman Hindi) में पढ़ें</span></summary><div class="ro-body" lang="hi-Latn">{body}</div></details></div></section>')
 
+from library13 import OWN_SONGS
+def own_credit_box(slug):
+    lyr, cr = OWN_SONGS[slug]
+    return (f'<div class="credits"><p class="cr-h">क्रेडिट</p><dl>'
+            f'<dt>मूल बोल (Original Lyrics)</dt><dd>{e(lyr)}</dd>'
+            f'<dt>कॉपीराइट (Copyright)</dt><dd>© {e(cr)}</dd></dl>'
+            f'<p class="cr-note no-print">यह OmKiran Bhakti का मौलिक गीत है। बोल का अर्थ OmKiran Bhakti ने सरल हिंदी में लिखा है। '
+            f'बिना अनुमति बोल को कहीं और छापना या व्यावसायिक उपयोग करना मना है; शेयर करने के लिए इस पेज का लिंक भेजें।</p></div>')
+
 def lyrics_page(slug, title, desc, h1, answer, verses, intro_html, vid_ids, faqs, crumb, extra="", work_name=None, author=None, art=None):
     akey = {"hanuman-chalisa.html":"hanuman","om-jai-jagdish-hare-aarti.html":"vishnu",
             "ganesh-aarti-jai-ganesh-deva.html":"ganesh","shiv-aarti-om-jai-shiv-omkara.html":"shivaarti"}.get(slug)
@@ -422,7 +441,7 @@ def lyrics_page(slug, title, desc, h1, answer, verses, intro_html, vid_ids, faqs
 <div class="lyrics">{lyrics_body(verses)}</div>
 {paath_end(slug, work_name or h1)}
 {MON.samagri_box(slug, e)}
-<p class="note no-print">पाठ पारंपरिक है और अलग-अलग क्षेत्रों में शब्दों में थोड़ा अंतर मिलता है। अर्थ सरल हिंदी में OmKiran Bhakti ने लिखा है। कोई त्रुटि दिखे तो <a href="{YT}">YouTube पर कमेंट</a> करके बताएँ।</p>
+{own_credit_box(slug) if slug in OWN_SONGS else ""}<p class="note no-print"{" hidden" if slug in OWN_SONGS else ""}>पाठ पारंपरिक है और अलग-अलग क्षेत्रों में शब्दों में थोड़ा अंतर मिलता है। अर्थ सरल हिंदी में OmKiran Bhakti ने लिखा है। कोई त्रुटि दिखे तो <a href="{YT}">YouTube पर कमेंट</a> करके बताएँ।</p>
 </div>
 {paath_rail(slug, verses)}
 </div></section></article>
@@ -432,6 +451,8 @@ def lyrics_page(slug, title, desc, h1, answer, verses, intro_html, vid_ids, faqs
 {faq_html(faqs)}'''
     ld = [{"@type":"CreativeWork","name":work_name or h1,"inLanguage":"hi","text":"\n".join(v[1] for v in verses),
            **({"author":{"@type":"Person","name":author}} if author else {}),
+           **({"lyricist":{"@type":"Person","name":OWN_SONGS[slug][0]},"copyrightHolder":{"@id":SITE+"#organization"},
+               "copyrightNotice":f"© {OWN_SONGS[slug][1]}"} if slug in OWN_SONGS else {}),
            "isAccessibleForFree":True,"publisher":{"@id":SITE+"#organization"}},
           ] + ([itemlist(vid_ids, h1+" — वीडियो")] if vid_ids else []) + ([faq_ld(faqs)] if faqs else [])
     add(slug, title, desc, body, crumbs=crumb, ld=ld, active="aarti-mantra.html")

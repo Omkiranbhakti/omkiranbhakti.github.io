@@ -1,6 +1,6 @@
 # OmKiran Bhakti
 
-> Hindi devotional website of the OmKiran Bhakti YouTube channel: 156 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
+> Hindi devotional website of the OmKiran Bhakti YouTube channel: 157 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
 
 Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
 Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi, purnimanta months; festivals follow their traditional kaal rule (sunrise, pradosh, moonrise, nishita).
@@ -24,9 +24,9 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [करवा चौथ 2026 चाँद कब निकलेगा? शहरवार चंद्रोदय समय | OmKiran Bhakti](https://omkiranbhakti.com/karwa-chauth-chand-kab-niklega.html)
 - [दिवाली 2026 लक्ष्मी पूजा मुहूर्त — आपके शहर का शुभ समय | OmKiran Bhakti](https://omkiranbhakti.com/diwali-lakshmi-puja-muhurat.html)
 - [छठ पूजा 2026 अर्घ्य का समय — पटना, दिल्ली और शहरवार | OmKiran Bhakti](https://omkiranbhakti.com/chhath-puja-arghya-time.html)
-- [नवरात्रि 2026 अष्टमी-नवमी कब है? क्या एक साथ हैं, संधि पूजा का समय | OmKiran Bhakti](https://omkiranbhakti.com/navratri-ashtami-navami-kab-hai.html)
-- [अष्टमी कब है 2026? दुर्गा अष्टमी की तारीख़, कन्या पूजन और संधि पूजा का समय (Durga Ashtami) | OmKiran Bhakti](https://omkiranbhakti.com/durga-ashtami-kab-hai.html)
-- [नवमी कब है 2026? महानवमी की तारीख़, कन्या पूजन, हवन और पारण (Maha Navami) | OmKiran Bhakti](https://omkiranbhakti.com/maha-navami-kab-hai.html)
+- [नवरात्रि 2027 अष्टमी-नवमी कब है? क्या एक साथ हैं, संधि पूजा का समय | OmKiran Bhakti](https://omkiranbhakti.com/navratri-ashtami-navami-kab-hai.html)
+- [अष्टमी कब है 2027? दुर्गा अष्टमी की तारीख़, कन्या पूजन और संधि पूजा का समय (Durga Ashtami) | OmKiran Bhakti](https://omkiranbhakti.com/durga-ashtami-kab-hai.html)
+- [नवमी कब है 2027? महानवमी की तारीख़, कन्या पूजन, हवन और पारण (Maha Navami) | OmKiran Bhakti](https://omkiranbhakti.com/maha-navami-kab-hai.html)
 - [दशहरा 2026 विजय मुहूर्त, रावण दहन का समय — शहरवार | OmKiran Bhakti](https://omkiranbhakti.com/dussehra-vijay-muhurat-ravan-dahan.html)
 
 ## Live darshan of temples (official YouTube streams, one page)
@@ -56,7 +56,7 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [श्री हरमंदिर साहिब (स्वर्ण मंदिर), अमृतसर — लाइव दर्शन](https://omkiranbhakti.com/live-darshan.html#golden-temple-amritsar): स्वर्ण मंदिर लाइव; हरमंदिर साहिब लाइव कीर्तन; Golden Temple live today; Harmandir Sahib live gurbani
 
 ## Daily tools (updated every day)
-- [आज का चौघड़िया — 19 अक्टूबर 2026 शुभ मुहूर्त, राहु काल (65 शहर) | OmKiran Bhakti](https://omkiranbhakti.com/aaj-ka-choghadiya.html): choghadiya, Rahu kaal, Abhijit for 65 Indian cities
+- [आज का चौघड़िया — 20 अक्टूबर 2026 शुभ मुहूर्त, राहु काल (65 शहर) | OmKiran Bhakti](https://omkiranbhakti.com/aaj-ka-choghadiya.html): choghadiya, Rahu kaal, Abhijit for 65 Indian cities
 - [जन्म तिथि, राशि और नाम अक्षर कैलकुलेटर — जन्म तारीख़ से हिंदू तिथि जानें | OmKiran Bhakti](https://omkiranbhakti.com/janm-tithi-rashi-calculator.html): birth tithi, nakshatra, moon sign, naam akshar and next tithi-birthday from a birth date (runs in the browser)
 - [पंचक कब है? 2026–2027 पंचक की पूरी लिस्ट, प्रकार और समय | OmKiran Bhakti](https://omkiranbhakti.com/panchak-kab-hai.html)
 - [भद्रा कब है? आज की भद्रा, भद्रा का वास और पूरी लिस्ट | OmKiran Bhakti](https://omkiranbhakti.com/bhadra-kaal.html)
@@ -202,6 +202,7 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [मानुस हौं तो वही रसखानि — रसखान — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.com/manus-haun-to-wahi-raskhan.html)
 - [या लकुटी अरु कामरिया पर — रसखान — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.com/ya-lakuti-aru-kamariya-par.html)
 - [सेस गनेस महेस दिनेस — रसखान — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.com/ses-ganes-mahes-dines.html)
+- [मइया चलली कैलाश — माँ दुर्गा बिदाई गीत — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.com/maiya-challi-kailash.html)
 - [करवा चौथ व्रत कथा — वीरावती की कहानी, पूजा विधि और चाँद का समय | OmKiran Bhakti](https://omkiranbhakti.com/karwa-chauth-vrat-katha.html)
 - [अहोई अष्टमी व्रत कथा — साहूकारनी और स्याहू की कहानी, पूजा विधि | OmKiran Bhakti](https://omkiranbhakti.com/ahoi-ashtami-vrat-katha.html)
 - [सोमवार व्रत कथा — शिव जी की कथा, पूजा विधि और नियम | OmKiran Bhakti](https://omkiranbhakti.com/somvar-vrat-katha.html)

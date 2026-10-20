@@ -275,6 +275,7 @@
   <url><loc>https://omkiranbhakti.com/manus-haun-to-wahi-raskhan.html</loc></url>
   <url><loc>https://omkiranbhakti.com/ya-lakuti-aru-kamariya-par.html</loc></url>
   <url><loc>https://omkiranbhakti.com/ses-ganes-mahes-dines.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/maiya-challi-kailash.html</loc></url>
   <url><loc>https://omkiranbhakti.com/karwa-chauth-vrat-katha.html</loc></url>
   <url><loc>https://omkiranbhakti.com/ahoi-ashtami-vrat-katha.html</loc></url>
   <url><loc>https://omkiranbhakti.com/somvar-vrat-katha.html</loc></url>
@@ -414,10 +415,14 @@
   <url><loc>https://omkiranbhakti.com/en/gayatri-mantra.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/mahamrityunjay-mantra.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/mantra-sangrah.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/mata-rani-bhajan.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/shiv-bhajan.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/ganesh-bhajan.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/krishna-bhajan.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/ram-bhajan.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/devotional-edm-bhajans.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/about.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/contact.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/panchang-2026-10.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/panchang-2026-11.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/panchang-2026-12.html</loc></url>
@@ -511,6 +516,7 @@
   <url><loc>https://omkiranbhakti.com/en/holashtak-kab-hai.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/chaiti-chhath-kab-hai.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/santan-saptami-kab-hai.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/ekadashi-2026-2027.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/papmochani-ekadashi-kab-hai.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/kamada-ekadashi-kab-hai.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/varuthini-ekadashi-kab-hai.html</loc></url>
@@ -534,23 +540,75 @@
   <url><loc>https://omkiranbhakti.com/en/vijaya-ekadashi-kab-hai.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/amalaki-ekadashi-kab-hai.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/purnima-amavasya-2026-2027.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/diwali-lakshmi-puja-muhurat.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/chhath-puja-arghya-time.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/navratri-ashtami-navami-kab-hai.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/durga-ashtami-kab-hai.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/maha-navami-kab-hai.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/dussehra-vijay-muhurat-ravan-dahan.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/rudrashtakam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/nirvana-shatakam.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/shri-ramchandra-kripalu.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/shani-dev-aarti.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/satyanarayan-aarti.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/ganga-aarti.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/saraswati-aarti.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/ramayan-ji-ki-aarti.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/tulsi-mata-aarti.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/surya-dev-aarti.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/bhairav-aarti.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/parvati-aarti.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/annapurna-aarti.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/om-jai-gangadhar-shiv-aarti.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/ahoi-mata-aarti.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/ekadashi-mata-aarti.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/vaishno-mata-aarti.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/brihaspati-dev-aarti.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/shiv-panchakshar-stotram.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/lingashtakam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/madhurashtakam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/sankatmochan-hanumanashtak.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/sankatnashan-ganesh-stotra.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/shri-hari-stotram.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/dashrath-krit-shani-stotra.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/mahalakshmi-ashtakam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/saptashloki-durga.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/dwadash-jyotirlinga-stotram.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/krishnashtakam.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/hanuman-12-naam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/om-namah-shivaya.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/subah-ke-mantra.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/gayatri-mantra-sangrah.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/navgrah-mantra.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/surya-12-naam-mantra.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/bhojan-mantra.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/hare-krishna-mahamantra.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/durga-mantra.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/shanti-mantra.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/radha-kripa-kataksh-stotra.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/damodarashtakam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/shivashtakam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/ganesh-pancharatnam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/dashavatar-stotram.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/rin-mochan-mangal-stotra.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/daridrya-dahan-shiv-stotra.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/bhavani-ashtakam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/hanuman-mantra.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/hanuman-stavan.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/vindhyeshwari-aarti.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/ambe-tu-hai-jagdambe-kali-aarti.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/ganesh-aarti-shendur-lal.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/govardhan-aarti.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/payo-ji-maine-ram-ratan-dhan-payo.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/mere-to-girdhar-gopal.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/hari-tum-haro-jan-ki-bheer.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/baso-mere-nainan-mein-nandlal.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/maiya-mori-main-nahi-makhan-khayo.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/sabse-unchi-prem-sagai.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/thumak-chalat-ramchandra.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/prabhu-ji-tum-chandan-hum-pani.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/vaishnav-jan-to-tene-kahiye.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/raghupati-raghav-raja-ram.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/main-to-sanware-ke-rang-rachi.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/pag-ghungroo-bandh-meera-nachi-re.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/shyam-mhane-chakar-rakho-ji.html</loc></url>
@@ -583,10 +641,26 @@
   <url><loc>https://omkiranbhakti.com/en/manus-haun-to-wahi-raskhan.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/ya-lakuti-aru-kamariya-par.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/ses-ganes-mahes-dines.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/ahoi-ashtami-vrat-katha.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/papankusha-ekadashi-vrat-katha.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/dhanteras-katha.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/diwali-lakshmi-puja-katha.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/govardhan-puja-katha.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/bhai-dooj-katha.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/chhath-puja-katha.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/tulsi-vivah-katha.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/hariyali-teej-katha.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/hartalika-teej-katha.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/kajari-teej-katha.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/gangaur-katha.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/hal-shashthi-katha.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/bahula-chauth-katha.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/panchak-kab-hai.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/bhadra-kaal.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/kharmas-kab-hai.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/makar-sankranti-kab-hai.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/baisakhi-kab-hai.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/gandmool-nakshatra.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/choghadiya-delhi.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/choghadiya-noida.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/choghadiya-gurugram.html</loc></url>
@@ -653,9 +727,25 @@
   <url><loc>https://omkiranbhakti.com/en/choghadiya-chennai.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/choghadiya-kochi.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/choghadiya-goa.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/aaj-ka-choghadiya.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/sankashti-chaturthi-list.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/vinayaka-chaturthi-list.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/masik-shivratri-list.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/diwali-calendar.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/chhath-puja-calendar.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/sawan-somvar.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/tyohar-kab-hai.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/ekadashi-vrat-ke-niyam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/shivling-par-kya-chadhaye.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/tulsi-ke-niyam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/pitru-paksha-niyam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/navratri-vrat-ke-niyam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/sawan-somvar-vrat-niyam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/karwa-chauth-vrat-niyam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/diwali-par-kya-kare-kya-na-kare.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/shani-dev-puja-niyam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/grahan-ke-niyam.html</loc></url>
+  <url><loc>https://omkiranbhakti.com/en/puja-niyam.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/puja-samagri.html</loc></url>
   <url><loc>https://omkiranbhakti.com/en/</loc></url>
 </urlset>

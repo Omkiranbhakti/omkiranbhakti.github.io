@@ -145,6 +145,12 @@ section{padding:clamp(2.5rem,6vw,4.5rem) 0}
 .verse.doha .line{color:var(--sindoor-deep)}
 .lyrics.no-meaning .mean{display:none}
 .section-label{font-family:var(--display);color:var(--sindoor);font-size:1.15rem;margin:1.75rem 0 0}
+.credits{border:1px solid var(--chandan);border-left:4px solid var(--sindoor);border-radius:var(--r-m);padding:1rem 1.2rem;max-width:var(--measure);margin-top:2rem;background:color-mix(in srgb,var(--chandan) 14%,transparent)}
+.credits .cr-h{font-family:var(--display);color:var(--sindoor);font-size:1.1rem;margin:0 0 .5rem}
+.credits dl{display:grid;grid-template-columns:auto 1fr;gap:.35rem 1rem;margin:0}
+.credits dt{color:var(--ink-soft)}
+.credits dd{margin:0;font-weight:600}
+.credits .cr-note{font-size:.9rem;color:var(--ink-soft);margin:.75rem 0 0}
 .note{font-size:.95rem;color:var(--ink-soft);border:1px solid var(--chandan);border-radius:var(--r-m);padding:1rem 1.2rem;max-width:var(--measure);margin-top:2rem}
 
 /* ---------- FAQ ---------- */
