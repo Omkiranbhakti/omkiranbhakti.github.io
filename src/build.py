@@ -563,7 +563,7 @@ add("aarti-mantra.html", "आरती, चालीसा और मंत्�
  "हनुमान चालीसा, ॐ जय जगदीश हरे, गणेश आरती और शिव आरती के पूरे बोल और अर्थ; साथ में चालीसा, आरती और 108 बार मंत्र जाप के वीडियो।",
  f'''{band("आरती, चालीसा और मंत्र","पूजा के समय पढ़ने के लिए पूरे बोल, हर पंक्ति के सरल हिंदी अर्थ के साथ — बड़े अक्षरों में पढ़ें या प्रिंट करें। नीचे हर पाठ का गाने वाला वीडियो भी है।","आरती, चालीसा और मंत्र",*ART["navdurga"],"नवदुर्गा आरती")}
 <section><div class="wrap">{sec_head("बोल और अर्थ","हर पंक्ति के साथ उसका सरल हिंदी अर्थ")}{paath_html}
-<p class="note">हर हफ़्ते नए पाठ जुड़ते हैं — दुर्गा चालीसा, शिव चालीसा, आरती कुंजबिहारी की और व्रत कथाएँ जल्द आ रही हैं।</p></div></section>
+<nav class="note related-paath" aria-label="संबंधित पाठ"><strong>संबंधित पाठ:</strong> <a href="hanuman-chalisa.html">हनुमान चालीसा</a> · <a href="durga-chalisa.html">दुर्गा चालीसा</a> · <a href="shiv-chalisa.html">शिव चालीसा</a> · <a href="aarti-kunj-bihari-ki.html">आरती कुंज बिहारी की</a> · <a href="vrat-katha.html">व्रत कथाएँ</a> · <a href="jaap-mala.html">ऑनलाइन जाप माला</a>।</nav></div></section>
 <section class="band"><div class="wrap">{sec_head("चालीसा — 4 मिनट में","रोज़ के पाठ के लिए तेज़ लय में")}{video_cards(chalisa_ids)}</div></section>
 <section><div class="wrap">{sec_head("आरती")}{video_cards(aarti_ids)}</div></section>
 <section class="band"><div class="wrap">{sec_head("मंत्र जाप — 108 बार","एक माला के बराबर जाप, ध्यान के साथ सुनें")}{video_cards(mantra_ids)}
