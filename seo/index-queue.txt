@@ -1,5 +1,31 @@
 # Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
+# --- backlog added 2026-10-18 (all other sitemap pages not yet requested) ---
+dhanteras-kab-hai.html
+chhath-puja-kab-hai.html
+govardhan-puja-kab-hai.html
+bhai-dooj-kab-hai.html
+narak-chaturdashi-kab-hai.html
+chhath-puja-arghya-time.html
+diwali-calendar.html
+dev-uthani-ekadashi-kab-hai.html
+tulsi-vivah-kab-hai.html
+chhath-puja-calendar.html
+diwali-lakshmi-puja-katha.html
+lakshmi-aarti.html
+om-jai-jagdish-hare-aarti.html
+shiv-chalisa.html
+durga-chalisa.html
+ganesh-aarti-jai-ganesh-deva.html
+kartik-purnima-kab-hai.html
+aaj-ka-choghadiya.html
+choghadiya-delhi.html
+choghadiya-noida.html
+chhath-puja-katha.html
+gayatri-mantra.html
+mahamrityunjay-mantra.html
+shiv-tandav-stotram.html
+ekadashi-2026-2027.html
 dussehra-kab-hai.html
 karwa-chauth-kab-hai.html
 dussehra-vijay-muhurat-ravan-dahan.html
@@ -12,10 +38,6 @@ ahoi-mata-aarti.html
 rama-ekadashi-vrat-katha.html
 govatsa-dwadashi-kab-hai.html
 dhanteras-katha.html
-narak-chaturdashi-kab-hai.html
-diwali-lakshmi-puja-katha.html
-diwali-calendar.html
-lakshmi-aarti.html
 kali-puja-kab-hai.html
 govardhan-puja-katha.html
 govardhan-aarti.html
@@ -24,22 +46,16 @@ chitragupt-puja-kab-hai.html
 panchang-2026-11.html
 chhath-puja-samagri-list.html
 rama-ekadashi-kab-hai.html
-dhanteras-kab-hai.html
 vrat-katha.html
 karwa-chauth-puja-samagri-list.html
 mangal-ki-seva-kali-aarti.html
 puja-niyam.html
 sant-bhajan.html
-chhath-puja-kab-hai.html
-govardhan-puja-kab-hai.html
-bhai-dooj-kab-hai.html
 ahoi-ashtami-kab-hai.html
 diwali-par-kya-kare-kya-na-kare.html
 lok-parv.html
 puja-samagri.html
 papankusha-ekadashi-kab-hai.html
-dev-uthani-ekadashi-kab-hai.html
-tulsi-vivah-kab-hai.html
 payo-ji-maine-ram-ratan-dhan-payo.html
 maiya-mori-main-nahi-makhan-khayo.html
 vaishnav-jan-to-tene-kahiye.html
@@ -47,9 +63,6 @@ main-to-sanware-ke-rang-rachi.html
 moko-kahan-dhoondhe-re-bande.html
 prabhu-more-avgun-chit-na-dharo.html
 jheeni-jheeni-beeni-chadariya.html
-# --- backlog added 2026-10-18 (all other sitemap pages not yet requested) ---
-om-jai-jagdish-hare-aarti.html
-ganesh-aarti-jai-ganesh-deva.html
 shiv-aarti-om-jai-shiv-omkara.html
 mata-rani-bhajan.html
 shiv-bhajan.html
@@ -76,7 +89,6 @@ panchang-2027-10.html
 panchang-2027-11.html
 panchang-2027-12.html
 sharad-purnima-kab-hai.html
-kartik-purnima-kab-hai.html
 vivah-panchami-kab-hai.html
 gita-jayanti-kab-hai.html
 vasant-panchami-kab-hai.html
@@ -140,7 +152,6 @@ holashtak-kab-hai.html
 chaiti-chhath-kab-hai.html
 santan-saptami-kab-hai.html
 tyohar-calendar.html
-ekadashi-2026-2027.html
 papmochani-ekadashi-kab-hai.html
 kamada-ekadashi-kab-hai.html
 varuthini-ekadashi-kab-hai.html
@@ -162,15 +173,10 @@ jaya-ekadashi-kab-hai.html
 vijaya-ekadashi-kab-hai.html
 amalaki-ekadashi-kab-hai.html
 purnima-amavasya-2026-2027.html
-chhath-puja-arghya-time.html
-durga-chalisa.html
-shiv-chalisa.html
 ganesh-chalisa.html
 jai-ambe-gauri-aarti.html
 aarti-kunj-bihari-ki.html
 hanuman-aarti.html
-gayatri-mantra.html
-mahamrityunjay-mantra.html
 mantra-sangrah.html
 rudrashtakam.html
 nirvana-shatakam.html
@@ -196,7 +202,6 @@ om-jai-gangadhar-shiv-aarti.html
 ekadashi-mata-aarti.html
 vaishno-mata-aarti.html
 brihaspati-dev-aarti.html
-shiv-tandav-stotram.html
 shiv-panchakshar-stotram.html
 lingashtakam.html
 mahishasura-mardini-stotram.html
@@ -283,7 +288,6 @@ ya-lakuti-aru-kamariya-par.html
 ses-ganes-mahes-dines.html
 somvar-vrat-katha.html
 satyanarayan-vrat-katha.html
-chhath-puja-katha.html
 tulsi-vivah-katha.html
 hariyali-teej-katha.html
 hartalika-teej-katha.html
@@ -299,13 +303,11 @@ kharmas-kab-hai.html
 makar-sankranti-kab-hai.html
 baisakhi-kab-hai.html
 gandmool-nakshatra.html
-aaj-ka-choghadiya.html
 janm-tithi-rashi-calculator.html
 pradosh-vrat-list.html
 sankashti-chaturthi-list.html
 vinayaka-chaturthi-list.html
 masik-shivratri-list.html
-chhath-puja-calendar.html
 sawan-somvar.html
 ekadashi-vrat-ke-niyam.html
 shivling-par-kya-chadhaye.html
@@ -317,8 +319,6 @@ shani-dev-puja-niyam.html
 grahan-ke-niyam.html
 satyanarayan-puja-samagri-list.html
 navratri-kalash-sthapana-samagri-list.html
-choghadiya-delhi.html
-choghadiya-noida.html
 choghadiya-gurugram.html
 choghadiya-ghaziabad.html
 choghadiya-faridabad.html
