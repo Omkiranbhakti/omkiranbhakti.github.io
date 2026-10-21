@@ -1,7 +1,7 @@
 # Vrat katha pages. Executed inside build.py after library_section (uses band, add, FEST, TODAY_D, hdate_w...).
 KATHA_CAT = []
 _REL = {
- "karwa-chauth-vrat-katha.html":[("karwa-chauth-kab-hai.html","करवा चौथ 2026 कब है","चंद्रोदय का समय"),("aarti-mantra.html","आरती संग्रह","सभी आरतियाँ")],
+ "karwa-chauth-vrat-katha.html":[("karwa-mata-aarti.html","करवा माता की आरती","ॐ जय करवा मैया"),("karwa-chauth-chand-kab-niklega.html","चाँद कब निकलेगा","65 शहरों का समय"),("karwa-chauth-puja-samagri-list.html","करवा चौथ पूजा सामग्री","पूरी लिस्ट"),("karwa-chauth-vrat-niyam.html","करवा चौथ व्रत के नियम","क्या करें, क्या न करें"),("karwa-chauth-kab-hai.html","करवा चौथ 2026 कब है","तिथि और समय")],
  "ahoi-ashtami-vrat-katha.html":[("ahoi-mata-aarti.html","अहोई माता की आरती","जय अहोई माता"),("ahoi-ashtami-kab-hai.html","अहोई अष्टमी 2026 कब है","तारीख़ और समय")],
  "somvar-vrat-katha.html":[("shiv-aarti-om-jai-shiv-omkara.html","शिव आरती","ॐ जय शिव ओंकारा"),("shiv-chalisa.html","शिव चालीसा","अर्थ सहित"),("om-namah-shivaya.html","ॐ नमः शिवाय","जाप विधि")],
  "satyanarayan-vrat-katha.html":[("satyanarayan-aarti.html","सत्यनारायण आरती","ॐ जय लक्ष्मी रमणा"),("purnima-amavasya-2026-2027.html","पूर्णिमा 2026–27","कथा का शुभ दिन")],

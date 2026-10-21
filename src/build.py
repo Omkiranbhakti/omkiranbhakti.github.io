@@ -277,10 +277,9 @@ def explore_grid(items=None, title=None):
     return f'<nav class="xg-wrap" aria-label="साइट के हिस्से">{head}<ul class="xg">{tiles}</ul></nav>'
 
 def en_href(slug):
-    """Real English page when we have one; otherwise Google's free translation proxy of this page."""
+    """Real English page when we have one; otherwise our English home (never an external proxy)."""
     if slug in EN_PAGES: return "en/" + slug
-    path = "" if slug == "index.html" else slug
-    return f"https://omkiranbhakti-com.translate.goog/{path}?_x_tr_sl=hi&_x_tr_tl=en&_x_tr_hl=en"
+    return "en/"
 
 def hreflang(slug):
     if slug not in EN_PAGES: return ""

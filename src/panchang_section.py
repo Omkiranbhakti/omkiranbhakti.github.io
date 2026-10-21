@@ -1,7 +1,7 @@
 # Panchang + festival pages. Executed inside build.py's namespace (uses page, add, band, sec_head, video_cards, V, e, SITE ...).
 import datetime as dt, json, os
 from panchang import day_panchang, tithi_spans, tithi_name, lunar_month, moonrise, sunrise_sunset, to_ist, from_ist, EKADASHI_NAME, tithi_index
-from fest_info import INFO, EKA_RULES, KATHA_FOR
+from fest_info import INFO, EKA_RULES, KATHA_FOR, AARTI_FOR
 from festivals import find_dates, MONTHS_HI, RULES, tithi_at, MINOR_KEYS
 
 IST_NOW = (dt.datetime.fromisoformat(os.environ["OKB_TODAY"] + "T06:00") if os.environ.get("OKB_TODAY") else dt.datetime.now(dt.timezone.utc).replace(tzinfo=None) + dt.timedelta(hours=5, minutes=30))
@@ -226,10 +226,13 @@ for idx, m in enumerate(months):
 
 def info_html(key, base):
     inf = INFO.get(key)
+    aar = (f'<p class="lede">🪔 <a href="{AARTI_FOR[key][0]}"><strong>{AARTI_FOR[key][1]}</strong></a> — पूरे बोल और अर्थ</p>') if key in AARTI_FOR else ""
     if not inf:
-        return (f'<section><div class="wrap"><p class="lede">📖 <a href="{KATHA_FOR[key]}"><strong>{base} की कथा पढ़ें</strong></a> — सरल हिंदी में</p></div></section>') if key in KATHA_FOR else ""
+        kat = (f'<p class="lede">📖 <a href="{KATHA_FOR[key]}"><strong>{base} की कथा पढ़ें</strong></a> — सरल हिंदी में</p>') if key in KATHA_FOR else ""
+        return f'<section><div class="wrap">{kat}{aar}</div></section>' if (kat or aar) else ""
     out = '<section><div class="wrap">' + sec_head(f"{base} का महत्व")
     if key in KATHA_FOR: out += f'<p class="lede">📖 <a href="{KATHA_FOR[key]}"><strong>{base} की कथा पढ़ें</strong></a> — सरल हिंदी में</p>'
+    out += aar
     if inf.get("region"): out += f'<p class="lede"><strong>कहाँ मनाया जाता है:</strong> {e(inf["region"])}</p>'
     out += "".join(f'<p class="answer">{e(t)}</p>' for t in inf.get("mahatva", []))
     if inf.get("vidhi"):

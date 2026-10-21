@@ -196,7 +196,7 @@ KATHA_FOR = {"karwa-chauth":"karwa-chauth-vrat-katha.html","ahoi-ashtami":"ahoi-
  "papankusha-ekadashi":"papankusha-ekadashi-vrat-katha.html","dhanteras":"dhanteras-katha.html","diwali":"diwali-lakshmi-puja-katha.html",
  "govardhan-puja":"govardhan-puja-katha.html","bhai-dooj":"bhai-dooj-katha.html","chhath-puja":"chhath-puja-katha.html","tulsi-vivah":"tulsi-vivah-katha.html"}
 KATHA_FOR.update({"hariyali-teej":"hariyali-teej-katha.html","hartalika-teej":"hartalika-teej-katha.html","kajari-teej":"kajari-teej-katha.html",
- "gangaur":"gangaur-katha.html","raksha-bandhan":"raksha-bandhan-katha.html","jitiya-vrat":"jitiya-vrat-katha.html","hal-shashthi":"hal-shashthi-katha.html","bahula-chauth":"bahula-chauth-katha.html"})
+ "gangaur":"gangaur-katha.html","raksha-bandhan":"raksha-bandhan-katha.html","jitiya-vrat":"jitiya-vrat-katha.html","hal-shashthi":"hal-shashthi-katha.html","bahula-chauth":"bahula-chauth-katha.html","sharad-purnima":"sharad-purnima-vrat-katha.html"})
 
 INFO.update({
  "dussehra": dict(en="Dussehra / Vijayadashami", region="पूरे भारत में; कुल्लू, मैसूर और कोटा का दशहरा प्रसिद्ध है, बंगाल में इसी दिन दुर्गा विसर्जन",
@@ -207,3 +207,8 @@ INFO.update({
         ("दशहरे पर शमी के पत्ते क्यों बाँटते हैं?","मान्यता है कि पांडवों ने अज्ञातवास में अपने शस्त्र शमी के पेड़ में छिपाए थे; शमी के पत्ते सोने का प्रतीक मानकर शुभकामना के साथ दिए जाते हैं।"),
         ("रावण दहन कितने बजे होगा?","रावण दहन सूर्यास्त के बाद प्रदोष काल में होता है। अपने शहर का विजय मुहूर्त और रावण दहन का समय ‘दशहरा मुहूर्त’ पेज पर देखें।")]),
 })
+
+# festival -> (aarti page, label) shown on its "kab hai" page next to the katha link
+AARTI_FOR = {"karwa-chauth":("karwa-mata-aarti.html","करवा माता की आरती"),"ahoi-ashtami":("ahoi-mata-aarti.html","अहोई माता की आरती"),
+ "sharad-purnima":("lakshmi-aarti.html","लक्ष्मी जी की आरती"),"dhanteras":("lakshmi-aarti.html","लक्ष्मी जी की आरती"),
+ "diwali":("lakshmi-aarti.html","लक्ष्मी जी की आरती"),"govardhan-puja":("govardhan-aarti.html","गोवर्धन महाराज की आरती")}
