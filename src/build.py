@@ -741,6 +741,7 @@ exec(open(os.path.join(os.path.dirname(__file__), "live_keywords.py"), encoding=
 exec(open(os.path.join(os.path.dirname(__file__), "live_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "vrat_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "gaps_section.py"), encoding="utf-8").read())
+exec(open(os.path.join(os.path.dirname(__file__), "guides_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "whatsapp_section.py"), encoding="utf-8").read())
 
 # ---------------- Home ----------------

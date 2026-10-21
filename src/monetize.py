@@ -22,7 +22,7 @@ KEYS = [("hanuman","hanuman"),("bajrang","hanuman"),("sankatmochan","hanuman"),(
         ("ram","vishnu"),("vishnu","vishnu"),("jagdish","vishnu"),("hari","vishnu"),("satyanarayan","vishnu"),("dashavatar","vishnu"),("ekadashi","vishnu"),
         ("shani","shani"),("surya","surya"),("aditya","surya"),
         ("durga","devi"),("ambe","devi"),("kali","devi"),("mata","devi"),("devi","devi"),("bhavani","devi"),("argala","devi"),("mahishasura","devi"),
-        ("saraswati","devi"),("parvati","devi"),("santoshi","devi"),("vindhy","devi"),("gayatri","devi"),("ganga","devi"),("annapurna","devi"),("ahoi","devi")]
+        ("saraswati","devi"),("parvati","devi"),("santoshi","devi"),("vindhy","devi"),("gayatri","devi"),("ganga","devi"),("annapurna","devi"),("ahoi","devi"),("kuber","lakshmi"),("diwali","lakshmi"),("yam-deepdaan","lakshmi"),("dhanvantari","vishnu"),("narak","krishna")]
 
 def deity(slug):
     for k, d in KEYS:

@@ -1,6 +1,6 @@
 # OmKiran Bhakti
 
-> Hindi devotional website of the OmKiran Bhakti YouTube channel: 159 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
+> Hindi devotional website of the OmKiran Bhakti YouTube channel: 165 traditional aartis, chalisas, stotras, mantras and vrat kathas with line-by-line plain-Hindi meanings; a daily Hindu panchang (New Delhi); festival dates computed from tithi rules; city-wise festival timings for 65+ Indian cities and the diaspora; and a free online jaap mala.
 
 Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
 Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi, purnimanta months; festivals follow their traditional kaal rule (sunrise, pradosh, moonrise, nishita).
@@ -204,6 +204,11 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [सेस गनेस महेस दिनेस — रसखान — पूरे बोल और भावार्थ | OmKiran Bhakti](https://omkiranbhakti.com/ses-ganes-mahes-dines.html)
 - [मइया चलली कैलाश — माँ दुर्गा बिदाई गीत — पूरे बोल और हिंदी अर्थ | OmKiran Bhakti](https://omkiranbhakti.com/maiya-challi-kailash.html)
 - [करवा माता की आरती — ॐ जय करवा मैया, बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.com/karwa-mata-aarti.html)
+- [कुबेर जी की आरती — ॐ जय यक्ष कुबेर हरे, बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.com/kuber-aarti.html)
+- [कुबेर मंत्र — अर्थ और जाप विधि | OmKiran Bhakti](https://omkiranbhakti.com/kuber-mantra.html)
+- [भगवान धन्वंतरि की आरती — जय धन्वंतरि देवा, बोल और अर्थ | OmKiran Bhakti](https://omkiranbhakti.com/dhanvantari-aarti.html)
+- [धन्वंतरि मंत्र — अर्थ और जाप विधि | OmKiran Bhakti](https://omkiranbhakti.com/dhanvantari-mantra.html)
+- [यम दीपदान मंत्र — धनतेरस पर यम का दीपक कैसे जलाएँ | OmKiran Bhakti](https://omkiranbhakti.com/yam-deepdaan-mantra.html)
 - [करवा चौथ व्रत कथा — वीरावती की कहानी, पूजा विधि और चाँद का समय | OmKiran Bhakti](https://omkiranbhakti.com/karwa-chauth-vrat-katha.html)
 - [अहोई अष्टमी व्रत कथा — साहूकारनी और स्याहू की कहानी, पूजा विधि | OmKiran Bhakti](https://omkiranbhakti.com/ahoi-ashtami-vrat-katha.html)
 - [सोमवार व्रत कथा — शिव जी की कथा, पूजा विधि और नियम | OmKiran Bhakti](https://omkiranbhakti.com/somvar-vrat-katha.html)
@@ -225,6 +230,7 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [हलषष्ठी (ललही छठ) व्रत कथा — ग्वालिन की कहानी | OmKiran Bhakti](https://omkiranbhakti.com/hal-shashthi-katha.html)
 - [बहुला चौथ व्रत कथा — बहुला गाय और शेर की कहानी | OmKiran Bhakti](https://omkiranbhakti.com/bahula-chauth-katha.html)
 - [शरद पूर्णिमा व्रत कथा — साहूकार की दो बेटियों की कहानी, खीर और कोजागरी पूजा | OmKiran Bhakti](https://omkiranbhakti.com/sharad-purnima-vrat-katha.html)
+- [नरक चतुर्दशी की कथा — नरकासुर वध और राजा रंतिदेव की कहानी | OmKiran Bhakti](https://omkiranbhakti.com/narak-chaturdashi-katha.html)
 
 ## Bhajans by deity
 - [माता रानी भजन — देवी गीत, दुर्गा चालीसा और नवरात्रि भजन | OmKiran Bhakti](https://omkiranbhakti.com/mata-rani-bhajan.html)
@@ -342,7 +348,7 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [नवरात्रि 2026 — तिथियाँ, नौ देवियाँ और हर दिन की आरती | OmKiran Bhakti](https://omkiranbhakti.com/navratri-2026.html)
 - [ऑनलाइन जाप माला — 108 नाम जाप काउंटर | OmKiran Bhakti](https://omkiranbhakti.com/jaap-mala.html)
 - [आरती, चालीसा, मंत्र और स्तोत्र — पूरे बोल अर्थ सहित | OmKiran Bhakti](https://omkiranbhakti.com/aarti-mantra.html)
-- [व्रत कथा संग्रह — 21 व्रत और त्योहारों की कथाएँ सरल हिंदी में | OmKiran Bhakti](https://omkiranbhakti.com/vrat-katha.html)
+- [व्रत कथा संग्रह — 22 व्रत और त्योहारों की कथाएँ सरल हिंदी में | OmKiran Bhakti](https://omkiranbhakti.com/vrat-katha.html)
 - [पूजा के नियम — व्रत, तुलसी, शिवलिंग, श्राद्ध, ग्रहण: क्या करें, क्या न करें | OmKiran Bhakti](https://omkiranbhakti.com/puja-niyam.html)
 - [पूजा सामग्री लिस्ट — दिवाली, छठ, करवा चौथ, नवरात्रि, सत्यनारायण | OmKiran Bhakti](https://omkiranbhakti.com/puja-samagri.html)
 - [लोक पर्व — राज्य के अनुसार व्रत और त्योहार (बिहार, राजस्थान, महाराष्ट्र, बंगाल) | OmKiran Bhakti](https://omkiranbhakti.com/lok-parv.html)
@@ -378,4 +384,5 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [हलषष्ठी (ललही छठ) व्रत कथा — ग्वालिन की कहानी | OmKiran Bhakti](https://omkiranbhakti.com/hal-shashthi-katha.html)
 - [बहुला चौथ व्रत कथा — बहुला गाय और शेर की कहानी | OmKiran Bhakti](https://omkiranbhakti.com/bahula-chauth-katha.html)
 - [शरद पूर्णिमा व्रत कथा — साहूकार की दो बेटियों की कहानी, खीर और कोजागरी पूजा | OmKiran Bhakti](https://omkiranbhakti.com/sharad-purnima-vrat-katha.html)
+- [नरक चतुर्दशी की कथा — नरकासुर वध और राजा रंतिदेव की कहानी | OmKiran Bhakti](https://omkiranbhakti.com/narak-chaturdashi-katha.html)
 - [OmKiran Bhakti के बारे में — हिंदी भक्ति संगीत चैनल](https://omkiranbhakti.com/about.html)

@@ -226,7 +226,7 @@ for idx, m in enumerate(months):
 
 def info_html(key, base):
     inf = INFO.get(key)
-    aar = (f'<p class="lede">🪔 <a href="{AARTI_FOR[key][0]}"><strong>{AARTI_FOR[key][1]}</strong></a> — पूरे बोल और अर्थ</p>') if key in AARTI_FOR else ""
+    aar = "".join(f'<p class="lede">🪔 <a href="{h}"><strong>{t}</strong></a> — {sb}</p>' for h, t, sb in AARTI_FOR.get(key, []))
     if not inf:
         kat = (f'<p class="lede">📖 <a href="{KATHA_FOR[key]}"><strong>{base} की कथा पढ़ें</strong></a> — सरल हिंदी में</p>') if key in KATHA_FOR else ""
         return f'<section><div class="wrap">{kat}{aar}</div></section>' if (kat or aar) else ""

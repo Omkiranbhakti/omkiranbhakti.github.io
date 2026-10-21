@@ -12,7 +12,7 @@ def _lst(items, cls="chk"):
 # ---------- 1. Vrat katha hub ----------
 _groups = [("एकादशी की कथाएँ", lambda k: "ekadashi" in k["slug"]),
            ("सुहाग और संतान के व्रत", lambda k: any(w in k["slug"] for w in ("karwa","teej","gangaur","ahoi","jitiya","hal-shashthi","bahula","chhath"))),
-           ("दिवाली और कार्तिक के पर्व", lambda k: any(w in k["slug"] for w in ("dhanteras","diwali","govardhan","bhai-dooj","tulsi"))),
+           ("दिवाली और कार्तिक के पर्व", lambda k: any(w in k["slug"] for w in ("dhanteras","narak","diwali","govardhan","bhai-dooj","tulsi","sharad"))),
            ("साप्ताहिक और अन्य व्रत", lambda k: True)]
 _seen, _secs = set(), ""
 for gname, fn in _groups:
