@@ -144,6 +144,10 @@ INFO = {
    vidhi=["दोपहर से पहले शिव-पार्वती की पूजा करें।","चाँदी या धागे का कंगन (संतान सप्तमी का डोरा) पूजा करके पहनें।","मीठे पुए का भोग लगाएँ और कथा सुनें।"], faq=[]),
 }
 
+# each ekadashi gets its own katha, special practice and FAQ (src/eka_more.py)
+from eka_more import enrich as _eka_enrich
+_eka_enrich(INFO, EKA_FAQ[:2])
+
 # ---- Rich content for the big Kartik festivals (highest search season) ----
 INFO.update({
  "karwa-chauth": dict(en="Karwa Chauth", region="उत्तर भारत: पंजाब, हरियाणा, दिल्ली, उत्तर प्रदेश, राजस्थान और मध्य प्रदेश",

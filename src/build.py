@@ -896,9 +896,11 @@ with open(os.path.join(os.path.dirname(__file__), "en_ro.tsv"), "w", encoding="u
         _f.write(f"{_EA.hid(_k)}\t{len(_v)}\t{sorted(_v)[0]}\t{_k}\t{_roman(_k)}\n")
 print(f"English: {len(EN_READY)} pages ready, {len(_conv.missing)} texts still to translate")
 
+import seo_index as _SI
+if "index.html" not in EN_OUT: en_index()
+_ni = _SI.apply(PAGES) + _SI.apply(EN_OUT, english=True)
 for slug, content in PAGES.items():
     with open(os.path.join(ROOT, slug), "w", encoding="utf-8") as f: f.write(content)
-if "index.html" not in EN_OUT: en_index()
 os.makedirs(os.path.join(ROOT, "en"), exist_ok=True)
 for slug, content in EN_OUT.items():
     with open(os.path.join(ROOT, "en", slug), "w", encoding="utf-8") as f: f.write(content)
@@ -906,11 +908,16 @@ for slug, content in EN_OUT.items():
 urls = [s for s in PAGES if s not in ("404.html", "whatsapp-sandesh.html")]
 prio = {"index.html":"1.0","hanuman-chalisa.html":"0.9","navratri-2026.html":"0.9"}
 sm = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+_smap = {}
 for s in urls:
-    sm.append(f'  <url><loc>{SITE if s=="index.html" else SITE+s}</loc></url>')
+    if "noindex" not in PAGES[s].split("</head>")[0]: _smap["" if s=="index.html" else s] = PAGES[s]
 for s in EN_OUT:
-    sm.append(f'  <url><loc>{SITE}en/{"" if s=="index.html" else s}</loc></url>')
+    if "noindex" not in EN_OUT[s].split("</head>")[0]: _smap["en/" + ("" if s=="index.html" else s)] = EN_OUT[s]
+_lm = _SI.lastmod_dates(ROOT, _smap, TODAY)
+for k in _smap:
+    sm.append(f'  <url><loc>{SITE}{k}</loc><lastmod>{_lm[k]}</lastmod></url>')
 sm.append('</urlset>')
+print(f"SEO: {_ni} pages set to noindex, sitemap {len(_smap)} urls with lastmod")
 open(os.path.join(ROOT,"sitemap.xml"),"w").write("\n".join(sm)+"\n")
 if MON.ads_txt(): open(os.path.join(ROOT,"ads.txt"),"w").write(MON.ads_txt())
 open(os.path.join(ROOT,"robots.txt"),"w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}sitemap.xml\n")
