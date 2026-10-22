@@ -38,7 +38,7 @@ def samagri_box(slug, esc):
     return (f'<aside class="samagri-box no-print" aria-label="इस पूजा की सामग्री"><h2>इस पूजा की सामग्री</h2><ul>{lis}</ul>'
             f'<p class="aff-note">ये Amazon के affiliate links हैं — इनसे ख़रीदारी पर OmKiran Bhakti को छोटा-सा कमीशन मिलता है, आपके लिए दाम वही रहता है।</p></aside>')
 
-GA_ID = ""  # Google Analytics 4 measurement ID (G-XXXXXXX); empty = off
+GA_ID = "G-XX7FBEWK30"  # Google Analytics 4 measurement ID (G-XXXXXXX); empty = off
 
 CLARITY_ID = ""  # Microsoft Clarity project ID (about 10 letters/numbers); empty = off
 
