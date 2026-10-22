@@ -40,7 +40,7 @@ def samagri_box(slug, esc):
 
 GA_ID = "G-XX7FBEWK30"  # Google Analytics 4 measurement ID (G-XXXXXXX); empty = off
 
-CLARITY_ID = ""  # Microsoft Clarity project ID (about 10 letters/numbers); empty = off
+CLARITY_ID = "z1t6vngvki"  # Microsoft Clarity project ID (about 10 letters/numbers); empty = off
 
 def clarity_head():
     if not CLARITY_ID: return ""
