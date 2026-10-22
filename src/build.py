@@ -671,6 +671,7 @@ add("contact.html", "संपर्क करें — OmKiran Bhakti",
  crumbs="संपर्क", active="contact.html",
  ld=[{"@type":"ContactPage","url":SITE+"contact.html","about":{"@id":SITE+"#organization"}}])
 
+_ANALYTICS_NOTE = ('<h2>विज़िट के आँकड़े (Google Analytics और Microsoft Clarity)</h2>\n<p>साइट को बेहतर बनाने के लिए हम Google Analytics और Microsoft Clarity का इस्तेमाल करते हैं। ये बताते हैं कि कितने लोग आए, कौन-से पेज पढ़े गए और लोग पेज पर कहाँ क्लिक या स्क्रॉल करते हैं। इसमें आपका नाम, फ़ोन या ईमेल नहीं लिया जाता, और हम यह जानकारी किसी को बेचते नहीं। ये सेवाएँ कुकीज़ का इस्तेमाल करती हैं; विवरण के लिए देखें <a href="https://policies.google.com/technologies/partner-sites" rel="nofollow noopener" target="_blank">Google</a> और <a href="https://privacy.microsoft.com/privacystatement" rel="nofollow noopener" target="_blank">Microsoft</a> की गोपनीयता नीति। Google Analytics बंद करने के लिए <a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow noopener" target="_blank">Google का opt-out add-on</a> इस्तेमाल कर सकते हैं।</p>\n' if (MON.GA_ID or MON.CLARITY_ID) else '')
 add("privacy-policy.html", "गोपनीयता नीति (Privacy Policy) — OmKiran Bhakti",
  "OmKiran Bhakti वेबसाइट की गोपनीयता नीति — कौन-सी जानकारी ली जाती है, Google AdSense विज्ञापन और कुकीज़, Amazon affiliate links, YouTube वीडियो और आपके विकल्प।",
  f'''{band("गोपनीयता नीति","omkiranbhakti.com पर आपसे कोई खाता, नाम या फ़ोन नंबर नहीं माँगा जाता। साइट पर Google AdSense के विज्ञापन और Amazon के affiliate links हैं, जो कुकीज़ का इस्तेमाल कर सकते हैं — नीचे पूरी जानकारी है।","गोपनीयता नीति",*ART["ganesh"],"OmKiran Bhakti")}
@@ -690,9 +691,7 @@ add("privacy-policy.html", "गोपनीयता नीति (Privacy Polic
 <p>OmKiran Bhakti, Amazon Associates प्रोग्राम का सदस्य है। पूजा सामग्री के कुछ लिंक Amazon.in के affiliate links हैं। इन पर क्लिक करने पर Amazon अपनी कुकी लगा सकता है, ताकि ख़रीदारी होने पर हमें छोटा-सा कमीशन मिल सके। आपके लिए दाम वही रहता है। Amazon पर आपकी जानकारी <a href="https://www.amazon.in/gp/help/customer/display.html?nodeId=200534380" rel="nofollow noopener" target="_blank">Amazon की गोपनीयता सूचना</a> के अनुसार संभाली जाती है।</p>
 <h2>YouTube वीडियो</h2>
 <p>भजन के वीडियो YouTube के privacy-enhanced मोड (youtube-nocookie.com) से चलते हैं और सिर्फ़ तब लोड होते हैं जब आप ▶ दबाते हैं। वीडियो चलने पर <a href="https://policies.google.com/privacy" rel="nofollow noopener" target="_blank">Google की गोपनीयता नीति</a> लागू होती है।</p>
-<h2>विज़िट के आँकड़े (Google Analytics और Microsoft Clarity)</h2>
-<p>साइट को बेहतर बनाने के लिए हम Google Analytics और Microsoft Clarity का इस्तेमाल करते हैं। ये बताते हैं कि कितने लोग आए, कौन-से पेज पढ़े गए और लोग पेज पर कहाँ क्लिक या स्क्रॉल करते हैं। इसमें आपका नाम, फ़ोन या ईमेल नहीं लिया जाता, और हम यह जानकारी किसी को बेचते नहीं। ये सेवाएँ कुकीज़ का इस्तेमाल करती हैं; विवरण के लिए देखें <a href="https://policies.google.com/technologies/partner-sites" rel="nofollow noopener" target="_blank">Google</a> और <a href="https://privacy.microsoft.com/privacystatement" rel="nofollow noopener" target="_blank">Microsoft</a> की गोपनीयता नीति। Google Analytics बंद करने के लिए <a href="https://tools.google.com/dlpage/gaoptout" rel="nofollow noopener" target="_blank">Google का opt-out add-on</a> इस्तेमाल कर सकते हैं।</p>
-<h2>कुकीज़ कैसे बंद करें</h2>
+{_ANALYTICS_NOTE}<h2>कुकीज़ कैसे बंद करें</h2>
 <p>आप अपने ब्राउज़र की सेटिंग में जाकर कुकीज़ हटा या बंद कर सकते हैं। ऐसा करने पर भी साइट पढ़ी जा सकेगी, बस कुछ सुविधाएँ (जैसे जाप की सहेजी गिनती) रीसेट हो सकती हैं।</p>
 <h2>बच्चों की जानकारी</h2>
 <p>हम जान-बूझकर 13 वर्ष से कम उम्र के बच्चों की कोई निजी जानकारी नहीं लेते।</p>
