@@ -40,9 +40,17 @@ def samagri_box(slug, esc):
 
 GA_ID = ""  # Google Analytics 4 measurement ID (G-XXXXXXX); empty = off
 
+CLARITY_ID = ""  # Microsoft Clarity project ID (about 10 letters/numbers); empty = off
+
+def clarity_head():
+    if not CLARITY_ID: return ""
+    return ('<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};'
+            't=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);'
+            f'}})(window,document,"clarity","script","{CLARITY_ID}");</script>')
+
 def ga_head():
-    if not GA_ID: return ""
-    return (f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>'
+    if not GA_ID: return clarity_head()
+    return clarity_head() + (f'<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>'
             f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA_ID}');</script>")
 
 def adsense_head():
