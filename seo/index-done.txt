@@ -19,3 +19,4 @@
 2026-10-21 hanuman-chalisa.html
 2026-10-21 govardhan-puja-kab-hai.html
 2026-10-21 diwali-lakshmi-puja-muhurat.html already indexed
+2026-10-22 karwa-chauth-chand-kab-niklega.html (crawled same day; Google still picks github.io copy as canonical — domain move in progress)
