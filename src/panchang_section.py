@@ -258,6 +258,75 @@ FART_MINOR = {"govatsa-dwadashi":_K,"gopashtami":_K,"jagannath-rath-yatra":_K,"h
 FART = {"karwa-chauth":("oQl6-dRDfWU",36),"diwali":("F95csn49Rq0",72),"dhanteras":("F95csn49Rq0",72),"sharad-purnima":("F95csn49Rq0",72),"ganesh-chaturthi":ART["ganesh"],"janmashtami":ART["krishna"],
  "holi":("3ChBJC1Vigk",50),"maha-shivratri":ART["shiv"],"ram-navami":ART["ram"],"hanuman-jayanti":ART["hanuman"],"dussehra":ART["ram"],
  "sharadiya-navratri":ART["navdurga"],"chaitra-navratri":ART["navdurga"]}
+
+# ---------- extra blocks on every festival page (why this date, year table, do/don't, wishes, series) ----------
+from fest_extra import DOS, wishes_for, SERIES, YEARS_SKIP
+from festivals import target_index
+import urllib.parse as _up
+try: FYEARS = json.load(open(os.path.join(os.path.dirname(__file__), "fest_years.json")))
+except Exception: FYEARS = {}
+KAAL_W = {"sunrise": "सूर्योदय", "pradosh": "प्रदोष काल (शाम)", "night": "चंद्रोदय (रात)", "nishita": "आधी रात (निशीथ काल)",
+          "madhyahna": "दोपहर (मध्याह्न)", "aparahna": "अपराह्न (दोपहर बाद)"}
+def _dm(t): return f"{t.day} {MONTHS_HI[t.month]}, {hhmm(t)}"
+def why_date_html(key, base, x, kaal, off, paksha, n, tname, rule_txt):
+    if off or x.get("note"): return ""
+    tgt = target_index(paksha, n); s0, e0, D = x["tithi_start"], x["tithi_end"], x["date"]
+    lines = [f"{tname} तिथि {_dm(s0)} से {_dm(e0)} तक है।", rule_txt]
+    day = s0.date(); kw = KAAL_W[kaal]
+    while day <= e0.date():
+        ti, mo = tithi_at(day, kaal); mt = to_ist(mo)
+        if day == D:
+            if ti == tgt: lines.append(f"{hdate_w(D)} को {kw} के समय ({hhmm(mt)}) यही तिथि है — इसलिए {base} इसी दिन है।")
+            else: lines.append(f"इस बार {kw} के समय यह तिथि किसी भी दिन नहीं पड़ती (तिथि का क्षय), इसलिए जिस दिन तिथि शुरू होती है, वही दिन लिया गया है।")
+        elif ti == tgt:
+            lines.append(f"{hdate(day)} को भी {kw} के समय यह तिथि है, लेकिन नियम के अनुसार पहला दिन लिया जाता है।")
+        else:
+            lines.append(f"{hdate(day)} को {kw} के समय ({hhmm(mt)}) यह तिथि " + ("अभी शुरू नहीं हुई होती" if mt < s0 else "खत्म हो चुकी होती है") + "।")
+        day += dt.timedelta(days=1)
+    return (f'<section><div class="wrap">{sec_head(f"{base} {D.year} इसी तारीख़ को क्यों?", "तिथि का नियम, आसान भाषा में")}'
+            + "".join(f'<p class="answer">{e(l)}</p>' for l in lines) + '</div></section>')
+def years_html(key, base):
+    ys = FYEARS.get(key)
+    if not ys or key in YEARS_SKIP: return ""
+    rows = "".join(f'<tr><th scope="row">{d[:4]}</th><td>{hdate_w(dt.date.fromisoformat(d))}</td></tr>' for d in ys)
+    return (f'<section><div class="wrap">{sec_head(f"{base} {ys[0][:4]} से {ys[-1][:4]} तक — हर साल की तारीख़", "नई दिल्ली के पंचांग से निकाली गई")}'
+            f'<div class="tbl"><table class="ptable"><thead><tr><th>साल</th><th>तारीख़</th></tr></thead><tbody>{rows}</tbody></table></div></div></section>')
+def years_faq(key, base, nyear):
+    ys = {int(d[:4]): dt.date.fromisoformat(d) for d in FYEARS.get(key, [])} if key not in YEARS_SKIP else {}
+    out = []
+    if nyear - 1 in ys: out.append((f"{base} {nyear-1} की तारीख़ क्या थी?", f"{hdate_w(ys[nyear-1])}।"))
+    if nyear + 2 in ys: out.append((f"{base} {nyear+2} की तारीख़ क्या है?", f"{hdate_w(ys[nyear+2])}।"))
+    return out
+def dos_html(key, base):
+    if key not in DOS: return ""
+    do, dont = DOS[key]; li = lambda a: '<ul class="chk">' + "".join(f"<li>{e(v)}</li>" for v in a) + "</ul>"
+    return (f'<section data-hi-only><div class="wrap">{sec_head(f"{base} पर क्या करें, क्या न करें")}<div class="dd-grid">'
+            f'<div class="dd do"><h2>✅ क्या करें</h2>{li(do)}</div><div class="dd dont"><h2>❌ क्या न करें</h2>{li(dont)}</div></div></div></section>')
+def wishes_html(key, base, url):
+    cards = ""
+    for w in wishes_for(key, base):
+        wa = "https://wa.me/?text=" + _up.quote(w + "\n\n" + url)
+        cards += (f'<div class="sg wish"><p>{e(w)}</p><p class="wish-b"><button type="button" class="btn ghost wcp" data-t="{e(w)}">📋 कॉपी करें</button> '
+                  f'<a class="btn ghost" href="{wa}" target="_blank" rel="noopener nofollow">WhatsApp पर भेजें</a></p></div>')
+    return (f'<section class="band" data-hi-only><div class="wrap">{sec_head(f"{base} की शुभकामनाएँ", "कॉपी करें या सीधे WhatsApp पर भेजें")}<div class="sg-grid">{cards}</div></div>'
+            '<script>document.addEventListener("click",function(ev){var b=ev.target.closest&&ev.target.closest(".wcp");if(!b)return;'
+            'var t=b.getAttribute("data-t");(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent="✓ कॉपी हो गया"},function(){b.textContent="✕ दोबारा कोशिश करें"});});</script></section>')
+_RNAME = {r[0]: r[1].split(" (")[0] for r in RULES}
+def series_html(key):
+    for title, keys in SERIES:
+        if key not in keys: continue
+        items = []
+        for k in keys:
+            if k.startswith("@"):
+                u, nm = k[1:].split("|"); d = None
+            else:
+                u, nm = f"{k}-kab-hai.html", _RNAME.get(k, k)
+                x = next((y for y in FEST.get(k, []) if y["date"] >= TODAY_D - dt.timedelta(days=3)), None); d = x["date"] if x else None
+            cur = ' aria-current="page" class="cur"' if k == key else ""
+            items.append(f'<li><a href="{u}"{cur}><strong>{e(nm)}</strong>{("<span>" + hdate_w(d) + "</span>") if d else ""}</a></li>')
+        return f'<section><div class="wrap">{sec_head(title)}<ol class="fseries">{"".join(items)}</ol></div></section>'
+    return ""
+
 TODAY_KEYS = []
 for key, name, month, paksha, n, kaal, off, meaning in RULES:
     occ = FEST.get(key, [])
@@ -287,6 +356,7 @@ for key, name, month, paksha, n, kaal, off, meaning in RULES:
     ffaq = [(f"{base} {nxt['date'].year} कब है?", re.sub('<[^>]+>','',ans)),
             (f"{base} किस तिथि को मनाया जाता है?", f"{month} मास, {pk} पक्ष, {tname}। {why}"),
             (f"{base} का महत्व क्या है?", meaning + "।")] + list(INFO.get(key, {}).get("faq", []))
+    ffaq += years_faq(key, base, nxt["date"].year)
     _en = INFO.get(key, {}).get("en", "")
     if _en: ffaq.append((f"{_en.split(' / ')[0]} {nxt['date'].year} date?", f"{_en.split(' / ')[0]} {nxt['date'].year}: {nxt['date'].strftime('%d %B %Y')} ({hdate_w(nxt['date'])})."))
     fart = FART.get(key) or FART_MINOR.get(key, ART["vishnu"])
@@ -299,7 +369,12 @@ for key, name, month, paksha, n, kaal, off, meaning in RULES:
         f'''{band(f"{base} कब है?", ans, base, *fart, base)}
 <section><div class="wrap">{sec_head(f"{base}: तारीख़ और समय")}<div class="tbl"><table class="ptable"><thead><tr><th>साल</th><th>तारीख़</th><th>तिथि ({pk} {tname})</th><th>पूजा का समय (नई दिल्ली)</th></tr></thead><tbody>{rows}</tbody></table></div>
 <p class="answer" style="margin-top:1.5rem">{e(meaning)}। {why}</p></div></section>
+{why_date_html(key, base, nxt, kaal, off, paksha, n, tname, why)}
+{series_html(key)}
 {info_html(key, base)}
+{dos_html(key, base)}
+{wishes_html(key, base, SITE + key + "-kab-hai.html")}
+{years_html(key, base)}
 {('<section class="band"><div class="wrap">' + sec_head("सुनें और साथ गाएँ") + video_cards(vids) + '</div></section>') if vids else ''}
 <section><div class="wrap">{sec_head("और त्योहार")}{up_list([u for u in upcoming(7) if u[2] != f"{key}-kab-hai.html"][:6])}</div></section>
 {faq_html(ffaq)}''', crumbs=f"{base} कब है", active="tyohar-calendar.html",

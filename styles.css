@@ -1096,3 +1096,13 @@ body.no-dev .line-dev{display:none}
   .sm-ico,.sm-cnt{display:none}.sm-list label{padding:.25rem .3rem;min-height:0}.sm-txt{color:#000!important;font-size:.95rem;text-decoration:none!important}
   .sm-box{width:14px;height:14px;border-radius:3px;border:1.5px solid #333;background:none!important}.sm-box::after{display:none}
 }
+/* festival series + wishes */
+.fseries{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.6rem;counter-reset:fs}
+.fseries li{counter-increment:fs}
+.fseries a{display:flex;flex-direction:column;gap:.15rem;min-width:9.5rem;padding:.7rem 1rem;border-radius:12px;border:1px solid rgba(0,0,0,.1);background:#fff;text-decoration:none;color:inherit}
+.fseries a strong::before{content:counter(fs) ". ";color:var(--genda,#e07b00)}
+.fseries a span{font-size:.85rem;opacity:.75}
+.fseries a.cur{border-color:var(--genda,#e07b00);box-shadow:0 0 0 2px rgba(224,123,0,.25)}
+.wish p{margin:.2rem 0 .7rem;line-height:1.6}
+.wish-b{display:flex;flex-wrap:wrap;gap:.5rem}
+.wish-b .btn{font-size:.85rem;padding:.4rem .8rem}

@@ -259,6 +259,7 @@ class Converter:
 
     def convert(self, slug, hindi_html, page_url):
         soup = BeautifulSoup(hindi_html, "html.parser")
+        for _t in soup.find_all(attrs={"data-hi-only": True}): _t.decompose()   # Hindi-only blocks (wishes, do/don't)
         self.n_tot = self.n_miss = 0
         self.page_seen = []
         ok = True
