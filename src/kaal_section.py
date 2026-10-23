@@ -136,6 +136,7 @@ for key, name in (("makar-sankranti", "मकर संक्रांति"), 
 
 # ---------- Gandmool ----------
 _gm = k_gandmool(_now - _dt.timedelta(days=2), _now + _dt.timedelta(days=75))
+_gm = [g for g in _gm if g[1] is not None]  # drop the open-ended tail at the scan edge
 GM = []
 for a, b, n in _gm:
     if GM and abs((GM[-1][1] - a).total_seconds()) < 120: GM[-1] = (GM[-1][0], b, GM[-1][2] + "–" + n)

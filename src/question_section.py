@@ -140,11 +140,122 @@ if ds:
         PAGES[_fp] = PAGES[_fp].replace('<section><div class="wrap">',
             f'<section class="hot"><div class="wrap"><ul class="hot-list"><li><a href="dussehra-vijay-muhurat-ravan-dahan.html"><strong>दशहरा {Y}: विजय मुहूर्त और रावण दहन</strong><span>अपने शहर का समय देखें</span></a></li></ul></div></section><section><div class="wrap">', 1)
 
+# ---------- Viral question: "नरक चतुर्दशी और दिवाली एक ही दिन क्यों?" ----------
+_nc, _dw = nxt_fest("narak-chaturdashi"), nxt_fest("diwali")
+if _nc and _dw:
+    from festivals import find_dates as _fd
+    ND, DD = _nc["date"], _dw["date"]; Y = DD.year; SAME = ND == DD
+    _ch = next((x for x in SPANS if x[0] == 28 and abs((x[2].date() - ND).days) <= 1), None)
+    _am = next((x for x in SPANS if x[0] == 29 and abs((x[1].date() - DD).days) <= 1), None)
+    _srN, _ = _sr(ND); _, _ssD = _sr(DD)
+    _aru = _srN - _dt.timedelta(minutes=96)
+    def _fd1(k):
+        x = nxt_fest(k); return x["date"] if x and abs((x["date"] - DD).days) < 6 else None
+    _dh, _gv, _bd = _fd1("dhanteras"), _fd1("govardhan-puja"), _fd1("bhai-dooj")
+    # same-day years (computed, a few back and ahead)
+    _yrs = []
+    for yy in range(Y - 4, Y + 4):
+        try:
+            r = _fd(_dt.date(yy, 10, 1), _dt.date(yy, 11, 30))
+            a = [x["date"] for x in r.get("narak-chaturdashi", [])]; b = [x["date"] for x in r.get("diwali", [])]
+            if a and b: _yrs.append((yy, a[0], b[0]))
+        except Exception: pass
+    _yr_rows = "".join(f'<tr><td><strong>{yy}</strong></td><td>{hdate(a)}</td><td>{hdate(b)}</td><td>{"हाँ, एक ही दिन" if a == b else "अलग-अलग दिन"}</td></tr>' for yy, a, b in _yrs)
+    _same_yrs = [str(yy) for yy, a, b in _yrs if a == b]
+    _dmu = CITY_ANS.get("diwali", "")
+    if SAME:
+        ans = (f"{Y} में नरक चतुर्दशी (रूप चौदस) और दिवाली दोनों <strong>{hdate_w(DD)}</strong> को हैं। "
+               f"वजह तिथि का समय है: चतुर्दशी तिथि {_tm(_ch[1])} से {_tm(_ch[2])} तक है और उसके बाद अमावस्या {_tm(_am[2])} तक। "
+               f"नरक चतुर्दशी का स्नान <strong>सूर्योदय से पहले</strong> होता है, जब चतुर्दशी हो — यह {hdate(ND)} की सुबह है। "
+               f"दिवाली की लक्ष्मी पूजा <strong>प्रदोष काल (शाम)</strong> में होती है, जब अमावस्या हो — यह भी {hdate(DD)} की शाम है, क्योंकि अगले दिन शाम से पहले अमावस्या खत्म हो जाती है। "
+               "इसलिए सुबह नरक चतुर्दशी और शाम को दिवाली — दोनों एक ही तारीख़ पर।")
+    else:
+        ans = (f"{Y} में नरक चतुर्दशी <strong>{hdate_w(ND)}</strong> को और दिवाली <strong>{hdate_w(DD)}</strong> को है — इस साल दोनों अलग-अलग दिन हैं। "
+               "नीचे बताया गया है कि कुछ सालों में ये दोनों एक ही दिन क्यों पड़ते हैं।")
+    tl = []
+    if _dh: tl.append((_dh, "धनतेरस", "शाम को धन्वंतरि-कुबेर पूजा, ख़रीदारी और यम दीपदान (दक्षिण दिशा में दीया)।", "dhanteras-kab-hai.html"))
+    if SAME and _ch and _ch[1].date() < ND:
+        tl.append((_ch[1].date(), "चतुर्दशी की शाम (छोटी दिवाली के दीये)", f"इस शाम चतुर्दशी तिथि लगी रहती है ({ct12(_ch[1])} से)। जिन घरों में छोटी दिवाली की शाम दीये जलाने का रिवाज़ है, वे इसी शाम जलाते हैं।", None))
+    tl.append((ND, "नरक चतुर्दशी — सुबह", f"सूर्योदय ({ct12(_srN)}) से पहले, अरुणोदय (लगभग {ct12(_aru)}) से तिल के तेल की मालिश, उबटन और अभ्यंग स्नान; यम तर्पण।", "narak-chaturdashi-kab-hai.html"))
+    tl.append((DD, "दिवाली — शाम", f"प्रदोष काल में लक्ष्मी-गणेश पूजा। {_dmu} आधी रात को बंगाल में काली पूजा।", "diwali-lakshmi-puja-muhurat.html"))
+    if SAME and _am and _am[2].date() > DD:
+        tl.append((_am[2].date(), "कार्तिक अमावस्या (खाली दिन)", f"अमावस्या {ct12(_am[2])} तक है — सुबह स्नान-दान का दिन। लक्ष्मी पूजा इस शाम नहीं होती क्योंकि शाम तक अमावस्या खत्म हो जाती है।", None))
+    if _gv: tl.append((_gv, "गोवर्धन पूजा / अन्नकूट", "प्रतिपदा तिथि में गोवर्धन पूजा और अन्नकूट का भोग।", "govardhan-puja-kab-hai.html"))
+    if _bd: tl.append((_bd, "भाई दूज", "बहनें भाई को तिलक लगाती हैं।", "bhai-dooj-kab-hai.html"))
+    tl.sort(key=lambda r: r[0])
+    tl_rows = "".join(f'<tr><td class="big">{hdate_w(d)}</td><td><strong>{(f"<a href={chr(34)}{u}{chr(34)}>{t}</a>" if u else t)}</strong><br>{w}</td></tr>' for d, t, w, u in tl)
+    faqs = [(f"{Y} में नरक चतुर्दशी और दिवाली एक ही दिन क्यों हैं?", re.sub("<[^>]+>", "", ans)),
+            (f"{Y} में छोटी दिवाली कब है?",
+             (f"नरक चतुर्दशी (रूप चौदस) का स्नान {hdate_w(ND)} की सुबह है और उसी शाम बड़ी दिवाली है। "
+              + (f"जो लोग छोटी दिवाली की शाम दीये जलाते हैं, वे {hdate(_ch[1].date())} की शाम जलाते हैं, क्योंकि उस शाम चतुर्दशी तिथि लगी है।" if SAME and _ch and _ch[1].date() < ND else ""))
+             if SAME else f"नरक चतुर्दशी / छोटी दिवाली {hdate_w(ND)} को है।"),
+            ("नरक चतुर्दशी और दिवाली की तारीख़ कैसे तय होती है?", "नरक चतुर्दशी उस दिन मानी जाती है जिस दिन सूर्योदय से पहले (अरुणोदय में) चतुर्दशी तिथि हो, क्योंकि इसका मुख्य काम सुबह का अभ्यंग स्नान है। दिवाली उस दिन मनाई जाती है जिस दिन प्रदोष काल (सूर्यास्त के बाद लगभग ढाई घंटे) में अमावस्या तिथि हो। जब चतुर्दशी सुबह खत्म होकर दोपहर से अमावस्या लग जाती है, तो दोनों एक ही तारीख़ पर आ जाते हैं।"),
+            ("क्या एक ही दिन नरक चतुर्दशी और लक्ष्मी पूजा दोनों कर सकते हैं?", "हाँ। सुबह सूर्योदय से पहले अभ्यंग स्नान और यम तर्पण करें, दिन में घर की सफ़ाई-सजावट, और शाम को शुभ मुहूर्त में लक्ष्मी-गणेश पूजा। दोनों के समय अलग हैं, इसलिए कोई टकराव नहीं।"),
+            ("क्या ऐसा पहली बार हो रहा है?", (f"नहीं। नई दिल्ली के पंचांग के हिसाब से {', '.join(_same_yrs)} में भी दोनों एक ही दिन रहे या रहेंगे। यह तिथियों के घटने-बढ़ने से होता है, कोई दुर्लभ संयोग नहीं।" if _same_yrs else "नहीं, यह तिथियों के घटने-बढ़ने से कई सालों में होता है।")),
+            ("दिवाली के अगले दिन गोवर्धन पूजा क्यों नहीं है?", (f"क्योंकि {hdate(DD)} के बाद वाले दिन सुबह भी अमावस्या है ({ct12(_am[2])} तक)। गोवर्धन पूजा प्रतिपदा तिथि में होती है, इसलिए वह {hdate_w(_gv)} को है। बीच का दिन कार्तिक अमावस्या (स्नान-दान) का है।" if SAME and _am and _gv and _am[2].date() > DD else "गोवर्धन पूजा प्रतिपदा तिथि में होती है; जिस साल दिवाली के अगले दिन सुबह तक अमावस्या रहती है, उस साल बीच में एक दिन का अंतर आ जाता है।")),
+            (f"Why are Narak Chaturdashi and Diwali on the same day in {Y}?", (f"In {Y} Chaturdashi tithi prevails before sunrise on {DD.strftime('%d %B')} (Abhyanga Snan in the morning) and Amavasya prevails during Pradosh that same evening (Lakshmi Puja), so both fall on {DD.strftime('%d %B %Y')}." if SAME else f"In {Y} they fall on different days: Narak Chaturdashi {ND.strftime('%d %B')}, Diwali {DD.strftime('%d %B')}."))]
+    _rel = ('<p class="lede"><a href="diwali-kab-hai.html">दिवाली कब है</a> · <a href="narak-chaturdashi-kab-hai.html">नरक चतुर्दशी कब है</a> · '
+            '<a href="diwali-lakshmi-puja-muhurat.html">शहरवार लक्ष्मी पूजा मुहूर्त</a> · <a href="narak-chaturdashi-katha.html">नरक चतुर्दशी की कथा</a> · <a href="diwali-calendar.html">दिवाली के पाँच दिन</a></p>')
+    body = (band(f"नरक चतुर्दशी और दिवाली एक ही दिन क्यों? ({Y})", ans, "नरक चतुर्दशी और दिवाली एक ही दिन", *FART.get("diwali", ART["navdurga"]), "दिवाली", extra=_rel)
+            + f'<section><div class="wrap">{sec_head(f"दिवाली {Y}: किस दिन क्या करें", "नई दिल्ली के पंचांग के अनुसार")}'
+            f'<div class="tbl"><table class="ptable"><tbody>{tl_rows}</tbody></table></div>'
+            + (f'<table class="ptable"><tbody><tr><th>चतुर्दशी तिथि</th><td>{_tm(_ch[1])} से {_tm(_ch[2])} तक</td></tr><tr><th>अमावस्या तिथि</th><td>{_tm(_am[1])} से {_tm(_am[2])} तक</td></tr>'
+               f'<tr><th>{hdate(ND)} सूर्योदय</th><td>{ct12(_srN)} (नरक चतुर्दशी का स्नान इससे पहले)</td></tr><tr><th>{hdate(DD)} सूर्यास्त</th><td>{ct12(_ssD)} (इसके बाद प्रदोष काल में लक्ष्मी पूजा)</td></tr></tbody></table>' if _ch and _am else "")
+            + '<p class="note">नियम: नरक चतुर्दशी = सूर्योदय से पहले चतुर्दशी तिथि; दिवाली = प्रदोष काल में अमावस्या तिथि। आपके शहर में तिथि का समय कुछ मिनट अलग हो सकता है, लेकिन तारीख़ पूरे भारत में यही रहती है।</p></div></section>'
+            + (f'<section><div class="wrap">{sec_head("किन सालों में दोनों एक ही दिन?", "नई दिल्ली के पंचांग से निकाला गया")}<div class="tbl"><table class="ptable"><thead><tr><th>साल</th><th>नरक चतुर्दशी</th><th>दिवाली</th><th>एक ही दिन?</th></tr></thead><tbody>{_yr_rows}</tbody></table></div></div></section>' if _yr_rows else "")
+            + faq_html(faqs))
+    add("narak-chaturdashi-aur-diwali-ek-hi-din-kyon.html",
+        f"नरक चतुर्दशी और दिवाली एक ही दिन क्यों? {Y} में छोटी दिवाली कब है | OmKiran Bhakti",
+        (f"{Y} में नरक चतुर्दशी और दिवाली दोनों {hdate(DD)} को क्यों हैं? तिथि का समय, सुबह अभ्यंग स्नान और शाम लक्ष्मी पूजा, छोटी दिवाली कब मनाएँ।" if SAME
+         else f"नरक चतुर्दशी {hdate(ND)}, दिवाली {hdate(DD)}। ये दोनों कभी-कभी एक ही दिन क्यों पड़ते हैं — तिथि का नियम आसान भाषा में।")[:160],
+        body, crumbs="नरक चतुर्दशी और दिवाली एक ही दिन", ld=[faq_ld(faqs)], active="tyohar-calendar.html")
+    _hot = (f'<section class="hot"><div class="wrap"><ul class="hot-list"><li><a href="narak-chaturdashi-aur-diwali-ek-hi-din-kyon.html"><strong>नरक चतुर्दशी और दिवाली एक ही दिन क्यों?</strong>'
+            f'<span>{Y} में छोटी दिवाली कब है — आसान जवाब</span></a></li></ul></div></section><section><div class="wrap">')
+    for _fp in ("narak-chaturdashi-kab-hai.html", "diwali-kab-hai.html", "diwali-calendar.html", "diwali-lakshmi-puja-muhurat.html", "narak-chaturdashi-katha.html"):
+        if _fp in PAGES: PAGES[_fp] = PAGES[_fp].replace('<section><div class="wrap">', _hot, 1)
+    HOT_DATES["narak-diwali"] = DD
+
+# ---------- Karwa Chauth: puja muhurat + "भद्रा है क्या?" box on the existing pages ----------
+_kc = nxt_fest("karwa-chauth")
+if _kc and _kc["date"] >= TODAY_D:
+    try:
+        from kaalcalc import bhadra as _bh
+        KD = _kc["date"]; KY = KD.year
+        _ksr, _kss = _sr(KD)
+        _kp0, _kp1 = _kss, _kss + _dt.timedelta(minutes=76)
+        _b = [(a, b) for a, b in _bh(_dt.datetime.combine(KD, _dt.time()) - _dt.timedelta(days=1), _dt.datetime.combine(KD, _dt.time()) + _dt.timedelta(days=2)) if b]
+        _sr_n, _ss_n = _ksr.replace(tzinfo=None), _kss.replace(tzinfo=None)
+        _night_end = _ss_n + _dt.timedelta(hours=5)
+        _bday = [(a, b) for a, b in _b if a < _night_end and b > _sr_n - _dt.timedelta(hours=6)]
+        _bclash = [(a, b) for a, b in _bday if a < _night_end and b > _ss_n]
+        if _bclash:
+            bh_txt = "हाँ — " + "; ".join(f"भद्रा {_tm(a)} से {_tm(b)} तक" for a, b in _bclash) + "। पूजा का समय अपने पंडित जी या स्थानीय पंचांग से पक्का कर लें।"
+        elif _bday:
+            a, b = _bday[0]
+            bh_txt = f"नहीं। भद्रा {_tm(a)} से {_tm(b)} तक है — यानी व्रत के दिन सूर्योदय से पहले ही खत्म हो जाती है। शाम की पूजा और चंद्रोदय के समय भद्रा नहीं है।" if b <= _sr_n else f"भद्रा {_tm(a)} से {_tm(b)} तक है; शाम की पूजा और चंद्रोदय के समय भद्रा नहीं है।"
+        else:
+            bh_txt = "नहीं, करवा चौथ के दिन शाम की पूजा और चंद्रोदय के समय भद्रा नहीं है।"
+        _kca = CITY_ANS.get("karwa-chauth", "")
+        _kbox = (f'<section class="hot"><div class="wrap"><div class="faq">'
+                 f'<details class="qa" open><summary>करवा चौथ {KY} पूजा का शुभ मुहूर्त क्या है?</summary><p><strong>{hdate_w(KD)} — {ct12(_kp0)} से {ct12(_kp1)} तक (नई दिल्ली)।</strong> ज़्यादातर पंचांग सूर्यास्त के बाद का लगभग सवा घंटा करवा माता की पूजा के लिए देते हैं। {("चाँद: " + _kca) if _kca else ""} <a href="karwa-chauth-chand-kab-niklega.html">अपने शहर का चंद्रोदय</a></p></details>'
+                 f'<details class="qa" open><summary>करवा चौथ {KY} पर भद्रा है क्या?</summary><p><strong>{e(bh_txt)}</strong></p></details>'
+                 f'</div></div></section><section><div class="wrap">')
+        for _fp in ("karwa-chauth-kab-hai.html", "karwa-chauth-chand-kab-niklega.html", "karwa-chauth-vrat-katha.html"):
+            if _fp in PAGES: PAGES[_fp] = PAGES[_fp].replace('<section><div class="wrap">', _kbox, 1)
+        KC_QA = [(f"करवा चौथ {KY} पूजा मुहूर्त क्या है?", f"{hdate_w(KD)}, {ct12(_kp0)} से {ct12(_kp1)} तक (नई दिल्ली)।", "karwa-chauth-kab-hai.html"),
+                 (f"करवा चौथ {KY} पर भद्रा है क्या?", bh_txt, "karwa-chauth-kab-hai.html")]
+    except Exception as _ex:
+        print("karwa box skipped:", _ex); KC_QA = []
+else:
+    KC_QA = []
+
 # ---------- Q&A hub: every "कब है" question with a direct answer ----------
-QA = []
+QA = list(KC_QA)
 if NAVS:
     QA.append((f"नवरात्रि {Y0} में अष्टमी-नवमी कब है?", f"दुर्गा अष्टमी {hdate_w(n0['ad'])}, महानवमी {hdate_w(n0['nd'])}।", "navratri-ashtami-navami-kab-hai.html"))
     QA.append((f"क्या {Y0} में अष्टमी और नवमी एक साथ हैं?", "हाँ, दोनों एक ही दिन हैं।" if n0["same"] else "नहीं, दोनों अलग-अलग दिन हैं।", "navratri-ashtami-navami-kab-hai.html"))
+if _nc and _dw and DD >= TODAY_D:
+    QA.append((f"{Y} में नरक चतुर्दशी और दिवाली एक ही दिन क्यों?", (f"सुबह (सूर्योदय से पहले) चतुर्दशी और शाम (प्रदोष) में अमावस्या — दोनों {hdate_w(DD)} को।" if SAME else f"इस साल दोनों अलग दिन हैं: {hdate(ND)} और {hdate(DD)}।"), "narak-chaturdashi-aur-diwali-ek-hi-din-kyon.html"))
 nek = next((x for x in EKA if x["date"] >= TODAY_D), None)
 if nek: QA.append(("अगली एकादशी कब है?", f"{nek['name']} — {hdate_w(nek['date'])}।", "ekadashi-2026-2027.html"))
 npu = next((p for p in PURNIMA if p[0] >= TODAY_D), None); nam = next((p for p in AMAVASYA if p[0] >= TODAY_D), None)
