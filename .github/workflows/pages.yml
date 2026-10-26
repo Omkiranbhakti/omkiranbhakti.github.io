@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -36,6 +36,14 @@ jobs:
         run: pip install ephem==4.2.1 tzdata aksharamukha==2.3 beautifulsoup4==4.12.3
       - name: Build site (today's panchang)
         run: python src/build.py
+      - name: Save built pages to main (the site is served from the main branch)
+        run: |
+          git config user.name "github-actions" && git config user.email "actions@github.com"
+          git add -A . ':!src/__pycache__' || true
+          if ! git diff --cached --quiet; then
+            git commit -qm "Auto-build: publish generated pages"
+            for i in 1 2 3; do git pull -q --rebase -X theirs origin main && git push -q origin HEAD:main && break; sleep 5; done
+          fi
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
         with:
