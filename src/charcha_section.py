@@ -38,6 +38,16 @@ CZ_FACTS = [
  ("☀️", "कर्ण सबसे बड़े पांडव थे", "दुर्वासा के मंत्र से कुंती ने विवाह से पहले सूर्य देव को बुलाया; कवच-कुंडल वाले बालक को उन्होंने नदी में बहा दिया।", "महाभारत, आदि पर्व"),
 ]
 
+# extra one-line facts for the home-page "क्या आप जानते हैं?" corner card (our own wording)
+CZ_POP = [(i, h, p, s) for i, h, p, s in CZ_FACTS] + [
+ ("🇮🇳", "“भारत” नाम किसके नाम पर पड़ा?", "मेनका-विश्वामित्र की बेटी शकुंतला और राजा दुष्यंत के पुत्र भरत के नाम पर।", "महाभारत, आदि पर्व"),
+ ("📜", "ऋग्वेद में एक प्रेम-संवाद भी है", "अप्सरा उर्वशी और राजा पुरूरवा का विरह-संवाद ऋग्वेद के दसवें मंडल (सूक्त 95) में है।", "ऋग्वेद 10.95"),
+ ("🎯", "एकलव्य ने सात बाणों से कुत्ते का मुँह भर दिया था", "कुत्ते को चोट भी नहीं लगी — यही देखकर द्रोण ने गुरुदक्षिणा में अँगूठा माँगा।", "महाभारत, आदि पर्व"),
+ ("🛡️", "भीष्म शिखंडी पर बाण क्यों नहीं चलाते थे", "शिखंडी पिछले जन्म में अंबा थीं; भीष्म का प्रण था कि जो स्त्री रहा हो उस पर शस्त्र नहीं उठाएँगे।", "महाभारत, उद्योग पर्व"),
+ ("🐒", "हनुमान जी के पुत्र मकरध्वज", "लोक-रामकथाओं के अनुसार हनुमान जी के पसीने की बूँद से जन्मे; श्रीराम ने उन्हें पाताल का राजा बनाया।", "आनंद रामायण व लोक परंपरा"),
+ ("🌙", "करवा चौथ पर चाँद छलनी से क्यों देखते हैं", "लोक-कथा में वीरावती के भाइयों ने छलनी के पीछे दीया रखकर नकली चाँद दिखाया था — तब से छलनी की परंपरा मानी जाती है।", "करवा चौथ व्रत कथा"),
+]
+
 def _cz_fill(s):
     s = re.sub(r"\{date:([\w-]+)\}", lambda m: hdate_w(_cz_d(m.group(1))) if _cz_d(m.group(1)) else "जल्द", s)
     return re.sub(r"\{city:([\w-]+)\}", lambda m: CITY_ANS.get(m.group(1), ""), s)
@@ -73,7 +83,7 @@ def build_charcha():
         + (f'<section class="cz-sec cz-dark"><div class="wrap"><h2 class="cz-h">📌 Pinterest पर सेव करें</h2><p class="cz-sub">त्योहार की तारीख़ें और आरती — हमारी पिन्स। पसंद आए तो अपने बोर्ड पर सेव करें या WhatsApp पर भेजें।</p><ul class="cz-pins">{pins}</ul>'
            '<p class="cz-more"><a href="https://in.pinterest.com/omkiranb/" target="_blank" rel="noopener">Pinterest पर OmKiran Bhakti फ़ॉलो करें ↗</a></p></div></section>' if pins else "")
         + f'<section class="cz-sec"><div class="wrap"><h2 class="cz-h">💬 Quora पर चर्चा</h2><ul class="cz-qs">{quora}</ul></div></section>'
-        f'<section class="cz-sec cz-warm"><div class="wrap"><h2 class="cz-h">✨ क्या आप जानते हैं?</h2><ul class="cz-facts">{facts}</ul></div></section>'
+        f'<section class="cz-sec cz-warm" id="facts"><div class="wrap"><h2 class="cz-h">✨ क्या आप जानते हैं?</h2><ul class="cz-facts">{facts}</ul></div></section>'
         + faq_html(faqs)
         + f'<section class="cz-sec"><div class="wrap"><p class="cz-upd">अपडेट: {e(CZ_UPDATED)} · हर हफ़्ते नए ट्रेंड। ट्रेंड Google के खोज-सुझावों और Quora-Pinterest की चर्चा से चुने जाते हैं; सारी जानकारी और तस्वीरें OmKiran Bhakti की अपनी हैं।</p></div></section>'
     )
@@ -87,6 +97,24 @@ def cz_home_strip():
                  '<span class="cz-strip-t">' + " · ".join(e(q) for q, *_ in CZ_TRENDS[:4]) + '</span><em>देखें →</em></a></div></section>')
         h = PAGES["index.html"]
         m = re.search(r"<main[^>]*>", h)
-        if m: PAGES["index.html"] = h[:m.end()] + strip + h[m.end():]
+        if m: h = h[:m.end()] + strip + h[m.end():]
+        import json as _j
+        data = _j.dumps([[i, t, p, s] for i, t, p, s in CZ_POP], ensure_ascii=False).replace("</", "<\\/")
+        pop = ('<aside class="kya-pop" id="kya-pop" hidden aria-label="क्या आप जानते हैं?"><button type="button" class="kp-x" aria-label="बंद करें">×</button>'
+               '<p class="kp-k">✨ क्या आप जानते हैं?</p><div class="kp-row"><span class="kp-i"></span><div><b class="kp-t"></b><p class="kp-p"></p><small class="kp-s"></small></div></div>'
+               '<div class="kp-nav"><span class="kp-dots"></span><a href="abhi-charcha-mein.html#facts">और रोचक तथ्य →</a></div></aside>'
+               '<script>(function(){var F=' + data + ',box=document.getElementById("kya-pop");if(!box||!F.length)return;'
+               'try{if(sessionStorage.getItem("kpX"))return}catch(e){}'
+               'var k=Math.floor(Math.random()*F.length),tm;var q=function(c){return box.querySelector(c)};'
+               'var dots=q(".kp-dots");dots.innerHTML=F.map(function(_,j){return "<i></i>"}).join("");'
+               'function show(){var f=F[k];q(".kp-i").textContent=f[0];q(".kp-t").textContent=f[1];q(".kp-p").textContent=f[2];q(".kp-s").textContent="स्रोत: "+f[3];'
+               '[].forEach.call(dots.children,function(d,j){d.className=j===k?"on":""});box.classList.remove("kp-in");void box.offsetWidth;box.classList.add("kp-in")}'
+               'function next(){k=(k+1)%F.length;show()}'
+               'function start(){box.hidden=false;show();tm=setInterval(next,9000)}'
+               'box.addEventListener("mouseenter",function(){clearInterval(tm)});box.addEventListener("mouseleave",function(){clearInterval(tm);tm=setInterval(next,9000)});'
+               'q(".kp-row").addEventListener("click",next);'
+               'q(".kp-x").addEventListener("click",function(){box.hidden=true;clearInterval(tm);try{sessionStorage.setItem("kpX","1")}catch(e){}});'
+               'setTimeout(start,window.innerWidth<700?9000:4000);})();</script>')
+        PAGES["index.html"] = h.replace("</main>", pop + "</main>", 1)
 
 build_charcha()
