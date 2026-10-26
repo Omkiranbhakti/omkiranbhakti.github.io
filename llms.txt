@@ -75,7 +75,7 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [इस्कॉन दिल्ली (श्री श्री राधा पार्थसारथी), ईस्ट ऑफ़ कैलाश, दिल्ली — लाइव दर्शन](https://omkiranbhakti.com/live-darshan.html#iskcon-delhi): इस्कॉन दिल्ली लाइव दर्शन; ISKCON Delhi live darshan today; ISKCON East of Kailash live
 
 ## Daily tools (updated every day)
-- [आज का चौघड़िया — 26 अक्टूबर 2026 शुभ मुहूर्त, राहु काल (65 शहर) | OmKiran Bhakti](https://omkiranbhakti.com/aaj-ka-choghadiya.html): choghadiya, Rahu kaal, Abhijit for 65 Indian cities
+- [आज का चौघड़िया — 27 अक्टूबर 2026 शुभ मुहूर्त, राहु काल (65 शहर) | OmKiran Bhakti](https://omkiranbhakti.com/aaj-ka-choghadiya.html): choghadiya, Rahu kaal, Abhijit for 65 Indian cities
 - [जन्म तिथि, राशि और नाम अक्षर कैलकुलेटर — जन्म तारीख़ से हिंदू तिथि जानें | OmKiran Bhakti](https://omkiranbhakti.com/janm-tithi-rashi-calculator.html): birth tithi, nakshatra, moon sign, naam akshar and next tithi-birthday from a birth date (runs in the browser)
 - [पंचक कब है? 2026–2027 पंचक की पूरी लिस्ट, प्रकार और समय | OmKiran Bhakti](https://omkiranbhakti.com/panchak-kab-hai.html)
 - [भद्रा कब है? आज की भद्रा, भद्रा का वास और पूरी लिस्ट | OmKiran Bhakti](https://omkiranbhakti.com/bhadra-kaal.html)
