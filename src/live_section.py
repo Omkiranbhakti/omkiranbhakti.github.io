@@ -90,6 +90,14 @@ LIVE = [
  ("iskcon-delhi","इस्कॉन दिल्ली (श्री श्री राधा पार्थसारथी)","ईस्ट ऑफ़ कैलाश, दिल्ली","UCt8rtuZMlfSCMcb2ZxMgubA","ISKCON Delhi","इस्कॉन दिल्ली मंदिर का अपना चैनल",
   ART["krishna"],("आरती कुंजबिहारी की",_L.KUNJ_BIHARI,"aarti-kunj-bihari-ki.html"),["hare-krishna-mahamantra.html","damodarashtakam.html"]),
 ]
+# Display order: most-searched temples first, all ISKCON temples last.
+LIVE_ORDER = ["ram-mandir-ayodhya","mahakaleshwar-ujjain","khatu-shyam","vaishno-devi","kashi-vishwanath-varanasi","tirupati-balaji","shirdi-sai-baba",
+ "banke-bihari-vrindavan","siddhivinayak-mumbai","kedarnath-badrinath","salasar-balaji","somnath","sabarimala-ayyappa","jagannath-puri","golden-temple-amritsar",
+ "dwarkadhish","haridwar-ganga-aarti","varanasi-ganga-aarti","omkareshwar","shrinathji-nathdwara","sanwaliya-seth","dagdusheth-ganpati-pune","radha-rani-barsana",
+ "trimbakeshwar","guruvayur","pandharpur-vitthal","mahalakshmi-mumbai","sankat-mochan-varanasi","dakshineswar-kali","ambaji-mata","naina-devi","pavagadh-mahakali",
+ "srisailam-mallikarjuna","govind-dev-ji-jaipur","kanaka-durga-vijayawada","annavaram-satyanarayan","simhachalam-narasimha",
+ "iskcon-vrindavan","iskcon-mayapur","iskcon-juhu","iskcon-bangalore","iskcon-delhi"]
+LIVE.sort(key=lambda x: (x[0].startswith("iskcon"), LIVE_ORDER.index(x[0]) if x[0] in LIVE_ORDER else 999))
 def _uu(cid): return "UU" + cid[2:]
 LIVE_JS = '''<script>(function(){[].slice.call(document.querySelectorAll(".ld-player")).forEach(function(p){
 var cid=p.dataset.ch, box=p.querySelector(".ld-frame"), bts=p.querySelectorAll("[data-mode]");
