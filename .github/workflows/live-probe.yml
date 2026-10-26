@@ -1,6 +1,11 @@
 name: Verify temple live darshan sources
 on:
   workflow_dispatch:
+    inputs:
+      script:
+        description: probe script in src/
+        required: false
+        default: live_probe.py
 permissions:
   contents: write
 jobs:
@@ -12,7 +17,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Probe official sites and YouTube
-        run: python src/live_probe.py
+        run: python src/${{ github.event.inputs.script || 'live_probe.py' }}
       - name: Save result to branch live-probe
         run: |
           mkdir -p /tmp/out && cp live_probe.json /tmp/out/
