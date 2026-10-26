@@ -242,7 +242,7 @@ NAVG = [
                 ("sant-bhajan.html","संत भजन","मीरा, सूर, तुलसी, कबीर")]),
  ("कथा-पूजा", "kalash", [("vrat-katha.html","व्रत कथा","करवा चौथ, तीज, एकादशी…"),("puja-niyam.html","पूजा के नियम","क्या करें, क्या न करें"),
                 ("puja-samagri.html","पूजा सामग्री","प्रिंट करने लायक लिस्ट")]),
- ("लाइव दर्शन", "temple", [("live-darshan.html","लाइव दर्शन","")]),
+ ("लाइव दर्शन", "temple", [("live-darshan.html","लाइव दर्शन","मंदिरों का आधिकारिक प्रसारण"),("mandir-darshan-guide.html","दर्शन गाइड","टिकट, बुकिंग, समय और नियम")]),
  ("भजन", "music", [("mata-rani-bhajan.html","माता रानी","देवी भजन"),("shiv-bhajan.html","शिव","शिव भजन और मंत्र"),("ganesh-bhajan.html","गणेश","गणपति भजन"),
                 ("krishna-bhajan.html","कृष्ण","राधा-कृष्ण भजन"),("ram-bhajan.html","राम","राम भजन"),("devotional-edm-bhajans.html","भक्ति EDM","नए अंदाज़ में")]),
  ("टूल्स", "mala", [("jaap-mala.html","जाप माला","108 बार गिनती"),("janm-tithi-rashi-calculator.html","जन्म राशि","नाम अक्षर, नक्षत्र"),
@@ -743,6 +743,7 @@ exec(open(os.path.join(os.path.dirname(__file__), "live_section.py"), encoding="
 exec(open(os.path.join(os.path.dirname(__file__), "vrat_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "gaps_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "guides_section.py"), encoding="utf-8").read())
+exec(open(os.path.join(os.path.dirname(__file__), "darshan_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "whatsapp_section.py"), encoding="utf-8").read())
 
 # ---------------- Home ----------------
