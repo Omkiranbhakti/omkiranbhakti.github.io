@@ -2,6 +2,8 @@
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
 # --- backlog added 2026-10-18 (all other sitemap pages not yet requested) ---
 # --- darshan guides added 2026-10-26 (Kedarnath closes 11 Nov: request first) ---
+karwa-chauth-kab-hai.html
+karwa-mata-aarti.html
 mandir-darshan-guide.html
 mahakal-darshan-booking.html
 vaishno-devi-yatra-guide.html
@@ -13,8 +15,15 @@ tirupati-darshan-booking.html
 siddhivinayak-darshan.html
 kainchi-dham-darshan.html
 live-darshan.html
+# --- new festival pages added 2026-10-26 (Karwa Chauth 29 Oct, Dhanteras/Diwali early Nov) ---
+dhanvantari-aarti.html
+dhanvantari-mantra.html
+kuber-aarti.html
+kuber-mantra.html
+yam-deepdaan-mantra.html
+narak-chaturdashi-katha.html
+diwali-lakshmi-puja-vidhi.html
 narak-chaturdashi-aur-diwali-ek-hi-din-kyon.html
-karwa-chauth-kab-hai.html
 karwa-chauth-chand-kab-niklega.html
 bhai-dooj-kab-hai.html
 narak-chaturdashi-kab-hai.html
@@ -352,3 +361,13 @@ choghadiya-pune.html
 choghadiya-hyderabad.html
 choghadiya-bengaluru.html
 choghadiya-chennai.html
+# --- other new sitemap pages added 2026-10-26 ---
+santoshi-mata-chalisa.html
+pitar-chalisa.html
+maiya-challi-kailash.html
+sharad-purnima-vrat-katha.html
+nashik-simhastha-kumbh.html
+puja-samagri-kharidein.html
+contact.html
+privacy-policy.html
+disclaimer.html
