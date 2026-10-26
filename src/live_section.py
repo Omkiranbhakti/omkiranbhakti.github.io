@@ -50,6 +50,45 @@ LIVE = [
   ART["shivaarti"],("ॐ जय गंगे माता",__import__("library3").GANGA_AARTI,"ganga-aarti.html"),["ganga-chalisa.html"]),
  ("golden-temple-amritsar","श्री हरमंदिर साहिब (स्वर्ण मंदिर)","अमृतसर","UCYn6UEtQ771a_OWSiNBoG8w","SGPC, Sri Amritsar","SGPC की आधिकारिक वेबसाइट sgpc.net इसी चैनल का लिंक देती है",
   ART["shivaarti"],None,[]),
+ # ---- round 4 (26 Oct 2026): verified with src/live_probe2.py / live_probe3.py ----
+ ("sabarimala-ayyappa","सबरीमला श्री अय्यप्पा स्वामी मंदिर","पत्तनमतिट्टा, केरल","UCvhUwke3pu_HQHDSP9_IGQg","Sabarimala Ayyappa Swami Temple Official","त्रावणकोर देवस्वम बोर्ड द्वारा चलाया जाने वाला सबरीमला मंदिर का आधिकारिक चैनल",
+  ART["vishnu"],None,["om-jai-jagdish-hare-aarti.html","hanuman-chalisa.html"]),
+ ("guruvayur","श्री गुरुवायुरप्पन मंदिर","गुरुवायुर, केरल","UCgYLLt5Drs2Scd-J--JqDzQ","Guruvayur Devaswom","गुरुवायुर देवस्वम का आधिकारिक चैनल, जिस पर रोज़ की पूजा और अलंकार दर्शन आते हैं",
+  ART["krishna"],("आरती कुंजबिहारी की",_L.KUNJ_BIHARI,"aarti-kunj-bihari-ki.html"),["krishna-chalisa.html","madhurashtakam.html"]),
+ ("dwarkadhish","श्री द्वारकाधीश मंदिर","द्वारका, गुजरात","UCBAvMHZO3BIfMMhOK9LMOYQ","Shri Dwarkadhish Mandir","मंदिर का आधिकारिक चैनल, जो अपने विवरण में dwarkadhish.org का लिंक देता है; रोज़ ध्वजा आरोहण के दर्शन",
+  ART["krishna"],("आरती कुंजबिहारी की",_L.KUNJ_BIHARI,"aarti-kunj-bihari-ki.html"),["krishna-chalisa.html","madhurashtakam.html"]),
+ ("shrinathji-nathdwara","श्रीनाथजी मंदिर","नाथद्वारा, राजस्थान","UCsXwdvZigny0t_d0TBIeHVA","Shrinathji Temple","नाथद्वारा के श्रीनाथजी मंदिर का आधिकारिक चैनल",
+  ART["krishna"],("आरती कुंजबिहारी की",_L.KUNJ_BIHARI,"aarti-kunj-bihari-ki.html"),["madhurashtakam.html","krishna-chalisa.html"]),
+ ("salasar-balaji","श्री सालासर बालाजी धाम","सालासर, चूरू (राजस्थान)","UC82-0zBQho_hyV10fFAAeQA","Shree Salasar Balaji Mandir","मंदिर के पुजारी परिवार का आधिकारिक चैनल, जिस पर रोज़ मंगला और संध्या आरती लाइव आती है",
+  ART["hanuman"],("आरती कीजै हनुमान लला की",_L.HANUMAN_AARTI,"hanuman-aarti.html"),["hanuman-chalisa.html","bajrang-baan.html","sankatmochan-hanumanashtak.html"]),
+ ("pandharpur-vitthal","श्री विट्ठल-रुक्मिणी मंदिर","पंढरपुर, महाराष्ट्र","UCCunHgsT7Hhogo40FHbhfDg","श्री विठ्ठल रुक्मिणी मंदिरे समिती पंढरपूर अधिकृत","मंदिर समिति की वेबसाइट vitthalrukminimandir.org इसी चैनल से जुड़ी है",
+  ART["vishnu"],("ॐ जय जगदीश हरे",OM_JAI_JAGDISH,"om-jai-jagdish-hare-aarti.html"),["vishnu-chalisa.html","krishna-chalisa.html"]),
+ ("dakshineswar-kali","दक्षिणेश्वर काली मंदिर (माँ भवतारिणी)","कोलकाता","UCzz1F1BYfBg_D23SpOnsRMw","Dakshineswar Kali Temple & Debottar Estate","रानी रासमणि द्वारा बनाए मंदिर के ट्रस्ट (देबोत्तर एस्टेट) का अपना चैनल",
+  ART["mata"],("अम्बे तू है जगदम्बे काली",__import__("library8").AMBE_TU_HAI_JAGDAMBE,"ambe-tu-hai-jagdambe-kali-aarti.html"),["kali-chalisa.html","durga-chalisa.html"]),
+ ("sanwaliya-seth","श्री सांवलिया सेठ मंदिर","मंडफिया, चित्तौड़गढ़ (राजस्थान)","UCgktEvceTyKnDN3w4F8n9Xg","Shri Sanwaliya Ji Mandir Mandal","श्री सांवलिया जी मंदिर मंडल का आधिकारिक चैनल",
+  ART["krishna"],("आरती कुंजबिहारी की",_L.KUNJ_BIHARI,"aarti-kunj-bihari-ki.html"),["krishna-chalisa.html","madhurashtakam.html"]),
+ ("govind-dev-ji-jaipur","श्री गोविंद देव जी मंदिर","जयपुर","UCSCMDOZrz_4-1dtnXsp8M7Q","Thikana Mandir Shri Govind Devji","ठिकाना मंदिर श्री गोविंद देव जी का अपना चैनल, जिस पर झाँकी दर्शन लाइव आते हैं",
+  ART["krishna"],("आरती कुंजबिहारी की",_L.KUNJ_BIHARI,"aarti-kunj-bihari-ki.html"),["radha-chalisa.html","krishna-chalisa.html"]),
+ ("radha-rani-barsana","श्री राधा रानी मंदिर (श्री लाडली जी)","बरसाना","UC5iFIulyp-G2hZWHUUSJVSw","Mandir Shri Ladli Ji Maharaj Barsana Official","मंदिर श्री लाडली जी महाराज का आधिकारिक चैनल, जिस पर रोज़ राजभोग आरती और दर्शन आते हैं",
+  ART["krishna"],("आरती कुंजबिहारी की",_L.KUNJ_BIHARI,"aarti-kunj-bihari-ki.html"),["radha-chalisa.html","radha-kripa-kataksh-stotra.html"]),
+ ("jagannath-puri","श्री जगन्नाथ मंदिर","पुरी, ओडिशा","UCET-LB-LgAuDS-Cy8nfH4-w","JAY JAGANNATH TV","पुरी श्रीमंदिर की रोज़ की नीतियों का सीधा प्रसारण करने वाला भक्ति चैनल (मंदिर का अपना नहीं)",
+  ART["vishnu"],("ॐ जय जगदीश हरे",OM_JAI_JAGDISH,"om-jai-jagdish-hare-aarti.html"),["vishnu-chalisa.html","shri-hari-stotram.html"]),
+ ("kanaka-durga-vijayawada","श्री कनक दुर्गा मंदिर (इंद्रकीलाद्रि)","विजयवाड़ा, आंध्र प्रदेश","UCh82LJ6iwg68CLTHmy4BX1w","Kanakadurga temple","श्री दुर्गा मल्लेश्वर स्वामी देवस्थानम का आधिकारिक चैनल",
+  ART["mata"],("जय अम्बे गौरी",_L.JAI_AMBE_GAURI,"jai-ambe-gauri-aarti.html"),["durga-chalisa.html","durga-mantra.html"]),
+ ("annavaram-satyanarayan","श्री वीर वेंकट सत्यनारायण स्वामी मंदिर","अन्नवरम, आंध्र प्रदेश","UC2m4o6e6TtbEQDj360pqBUw","Annavaram Devasthanam","अन्नवरम देवस्थानम का अपना चैनल",
+  ART["vishnu"],("ॐ जय जगदीश हरे",OM_JAI_JAGDISH,"om-jai-jagdish-hare-aarti.html"),["satyanarayan-vrat-katha.html","satyanarayan-aarti.html"]),
+ ("simhachalam-narasimha","श्री वराह लक्ष्मी नरसिंह स्वामी मंदिर","सिंहाचलम, विशाखापत्तनम","UC1S9R_iJ4w00yYpivF7nt1Q","Simhachalam Devasthanam","सिंहाचलम देवस्थानम का आधिकारिक चैनल",
+  ART["vishnu"],("ॐ जय जगदीश हरे",OM_JAI_JAGDISH,"om-jai-jagdish-hare-aarti.html"),["vishnu-chalisa.html","shri-hari-stotram.html"]),
+ ("mahalakshmi-mumbai","श्री महालक्ष्मी मंदिर","मुंबई","UCqNGTFK0_nHU2Ldj3ZKScYw","Shree Mahalakshmi Mandir Mumbai Official","मंदिर ट्रस्ट का आधिकारिक चैनल, जिस पर रोज़ लाइव प्रसारण होता है",
+  ("F95csn49Rq0",72),("ॐ जय लक्ष्मी माता",_L.LAKSHMI_AARTI,"lakshmi-aarti.html"),["lakshmi-chalisa.html","mahalakshmi-ashtakam.html"]),
+ ("sankat-mochan-varanasi","श्री संकट मोचन हनुमान मंदिर","वाराणसी","UCxEk8cJijhNrRNDTkpeX_Zw","Sankat Mochan Mandir","मंदिर का आधिकारिक चैनल — मंदिर के कार्यक्रम और संकट मोचन संगीत समारोह",
+  ART["hanuman"],("आरती कीजै हनुमान लला की",_L.HANUMAN_AARTI,"hanuman-aarti.html"),["hanuman-chalisa.html","sankatmochan-hanumanashtak.html"]),
+ ("iskcon-juhu","इस्कॉन जुहू (श्री श्री राधा रासबिहारी)","मुंबई","UC1vJ4RlWSHP6n0xL2G1tkYQ","ISKCON Juhu Mumbai","इस्कॉन जुहू मुंबई द्वारा चलाया जाने वाला चैनल — मंगल, श्रृंगार और संध्या आरती",
+  ART["krishna"],("आरती कुंजबिहारी की",_L.KUNJ_BIHARI,"aarti-kunj-bihari-ki.html"),["hare-krishna-mahamantra.html","damodarashtakam.html"]),
+ ("iskcon-bangalore","इस्कॉन बेंगलुरु (श्री राधा कृष्णचंद्र)","बेंगलुरु","UCPXnayBvF7ynbG_I3VOTgIg","ISKCON Bangalore","इस्कॉन बेंगलुरु मंदिर का आधिकारिक चैनल",
+  ART["krishna"],("आरती कुंजबिहारी की",_L.KUNJ_BIHARI,"aarti-kunj-bihari-ki.html"),["hare-krishna-mahamantra.html","damodarashtakam.html"]),
+ ("iskcon-delhi","इस्कॉन दिल्ली (श्री श्री राधा पार्थसारथी)","ईस्ट ऑफ़ कैलाश, दिल्ली","UCt8rtuZMlfSCMcb2ZxMgubA","ISKCON Delhi","इस्कॉन दिल्ली मंदिर का अपना चैनल",
+  ART["krishna"],("आरती कुंजबिहारी की",_L.KUNJ_BIHARI,"aarti-kunj-bihari-ki.html"),["hare-krishna-mahamantra.html","damodarashtakam.html"]),
 ]
 def _uu(cid): return "UU" + cid[2:]
 LIVE_JS = '''<script>(function(){[].slice.call(document.querySelectorAll(".ld-player")).forEach(function(p){
@@ -70,7 +109,10 @@ def ld_player(cid, title, art):
 
 # ---- one page for all temples: picker on top, a single player, the matching aarti below ----
 _BH = {d[1]: [v for v in d[6] if v in V] for d in DEITY}
-_TEMPLE_BH = {"khatu-shyam":"krishna","dagdusheth-ganpati-pune":"ganesh","iskcon-vrindavan":"krishna","iskcon-mayapur":"krishna","ambaji-mata":"mata","naina-devi":"mata","pavagadh-mahakali":"mata","ram-mandir-ayodhya":"ram","siddhivinayak-mumbai":"ganesh","vaishno-devi":"mata","banke-bihari-vrindavan":"krishna","tirupati-balaji":"krishna","shirdi-sai-baba":"ram"}
+_TEMPLE_BH = {"khatu-shyam":"krishna","dagdusheth-ganpati-pune":"ganesh","iskcon-vrindavan":"krishna","iskcon-mayapur":"krishna","ambaji-mata":"mata","naina-devi":"mata","pavagadh-mahakali":"mata","ram-mandir-ayodhya":"ram","siddhivinayak-mumbai":"ganesh","vaishno-devi":"mata","banke-bihari-vrindavan":"krishna","tirupati-balaji":"krishna","shirdi-sai-baba":"ram",
+ "sabarimala-ayyappa":"shiv","guruvayur":"krishna","dwarkadhish":"krishna","shrinathji-nathdwara":"krishna","salasar-balaji":"hanuman","pandharpur-vitthal":"krishna",
+ "dakshineswar-kali":"mata","sanwaliya-seth":"krishna","govind-dev-ji-jaipur":"krishna","radha-rani-barsana":"krishna","jagannath-puri":"krishna","kanaka-durga-vijayawada":"mata",
+ "annavaram-satyanarayan":"krishna","simhachalam-narasimha":"krishna","mahalakshmi-mumbai":"mata","sankat-mochan-varanasi":"hanuman","iskcon-juhu":"krishna","iskcon-bangalore":"krishna","iskcon-delhi":"krishna"}
 import json as _json, os as _os
 # Our own bhajan MP3s (no ads): {"shiv":[{"t":"title","f":"url"}], "ram":[...], ...}. Empty -> YouTube player fallback.
 AUD = next((_json.load(open(_p, encoding="utf-8")) for _p in ("audio_bhajan.json", "src/audio_bhajan.json") if _os.path.exists(_p)), {})
@@ -96,6 +138,11 @@ TEMPLE_TRACKS = {
  "pavagadh-mahakali": _first(["jAdixB5m0Zo","nFvgYHuqZt0"], _MATA),
  "banke-bihari-vrindavan": _KRI, "khatu-shyam": _first(["EE2zjTPyHaI"], _KRI), "iskcon-vrindavan": _first(["GtRRHlLc5gQ","P9N1XQzw8CI"], _KRI),
  "iskcon-mayapur": _first(["GtRRHlLc5gQ","P9N1XQzw8CI"], _KRI), "tirupati-balaji": _first(["P9N1XQzw8CI","GtRRHlLc5gQ"], _KRI),
+ "guruvayur": _KRI, "dwarkadhish": _KRI, "shrinathji-nathdwara": _first(["TVdX5XbbjHs"], _KRI), "sanwaliya-seth": _first(["EE2zjTPyHaI"], _KRI), "govind-dev-ji-jaipur": _KRI,
+ "radha-rani-barsana": _first(["R1PiCmntXIM"], _KRI), "pandharpur-vitthal": _first(["GtRRHlLc5gQ"], _KRI), "jagannath-puri": _KRI, "annavaram-satyanarayan": _KRI, "simhachalam-narasimha": _KRI,
+ "iskcon-juhu": _first(["GtRRHlLc5gQ","P9N1XQzw8CI"], _KRI), "iskcon-bangalore": _first(["GtRRHlLc5gQ","P9N1XQzw8CI"], _KRI), "iskcon-delhi": _first(["GtRRHlLc5gQ","P9N1XQzw8CI"], _KRI),
+ "salasar-balaji": _first(["707iS1Iyv-E","W__UjJxgK_o"], _RAM), "sankat-mochan-varanasi": _first(["707iS1Iyv-E","W__UjJxgK_o"], _RAM),
+ "dakshineswar-kali": _first(["jAdixB5m0Zo"], _MATA), "kanaka-durga-vijayawada": _MATA, "mahalakshmi-mumbai": _MATA, "sabarimala-ayyappa": _SHIV,
 }
 def _bh(slug):
     if slug in TEMPLE_TRACKS and not TEMPLE_TRACKS[slug]: return ""
@@ -141,9 +188,9 @@ _KWFAQ = [("आज के राम मंदिर अयोध्या दर
  ("शिरडी साईं बाबा लाइव दर्शन कहाँ देखें?", "‘श्री साईबाबा समाधि मंदिर’ चुनें — श्री साईबाबा संस्थान ट्रस्ट के आधिकारिक चैनल से काकड़ आरती, मध्याह्न आरती और शेज आरती के दर्शन यहीं होते हैं।"),
  ("खाटू श्याम जी के आज के दर्शन कहाँ देखें?", "‘श्री खाटू श्याम जी’ चुनें — श्री श्याम मंदिर की वेबसाइट से जुड़े चैनल पर रोज़ की श्रृंगार आरती और संध्या आरती आती है।"),
  ("वैष्णो देवी अटका आरती लाइव कहाँ देखें?", "‘माता वैष्णो देवी’ चुनें — श्राइन बोर्ड के आधिकारिक चैनल से सुबह-शाम की अटका आरती का प्रसारण यहीं चलता है।")]
-_faqs = [("मंदिरों के लाइव दर्शन कहाँ देखें?", "इसी पेज पर ऊपर से मंदिर चुनें — राम मंदिर अयोध्या, महाकाल उज्जैन, काशी विश्वनाथ, सोमनाथ, ओंकारेश्वर, त्र्यंबकेश्वर, केदारनाथ-बद्रीनाथ, सिद्धिविनायक, वैष्णो देवी, बांके बिहारी, तिरुपति, शिर्डी, खाटू श्याम, दगडूशेठ गणपति, इस्कॉन वृंदावन, इस्कॉन मायापुर, अम्बाजी, नैना देवी, पावागढ़ महाकाली, श्रीशैलम मल्लिकार्जुन, हरिद्वार और काशी की गंगा आरती तथा स्वर्ण मंदिर अमृतसर का आधिकारिक प्रसारण यहीं चलता है।"),
+_faqs = [("मंदिरों के लाइव दर्शन कहाँ देखें?", "इसी पेज पर ऊपर से मंदिर चुनें — " + ", ".join(x[1] + " (" + x[2].split(",")[0] + ")" for x in LIVE) + " — इन सभी का प्रसारण यहीं चलता है।"),
          ("लाइव प्रसारण न दिखे तो क्या करें?", "मंदिर आरती और विशेष अवसरों पर लाइव आते हैं। इसलिए पेज खुलते ही उसी मंदिर के चैनल के सबसे नए दर्शन-आरती वीडियो चलते हैं; प्रसारण चल रहा हो तो ‘अभी लाइव देखें’ दबाएँ।"),
-         ("क्या ये प्रसारण आधिकारिक हैं?", "हाँ। केवल वही YouTube चैनल लिए गए हैं जिन्हें मंदिर की अपनी वेबसाइट दिखाती है या जो मंदिर ट्रस्ट के नाम से चलते हैं। वीडियो और प्रसारण पूरी तरह मंदिरों के हैं; OmKiran Bhakti उन्हें YouTube के प्लेयर से यहाँ दिखाता है।")]
+         ("क्या ये प्रसारण आधिकारिक हैं?", "हाँ। लगभग सभी चैनल वही हैं जिन्हें मंदिर की अपनी वेबसाइट दिखाती है या जो मंदिर ट्रस्ट/देवस्थानम के नाम से चलते हैं; जहाँ मंदिर का अपना चैनल नहीं है (जैसे पुरी), वहाँ रोज़ सीधा प्रसारण करने वाला मान्य चैनल लिया गया है और यह नीचे साफ़ लिखा रहता है। वीडियो और प्रसारण पूरी तरह मंदिरों के हैं; OmKiran Bhakti उन्हें YouTube के प्लेयर से यहाँ दिखाता है।")]
 add("live-darshan.html", f"लाइव दर्शन — राम मंदिर, महाकाल, खाटू श्याम समेत {len(LIVE)} मंदिर | OmKiran Bhakti",
     f"आज के राम मंदिर अयोध्या दर्शन, महाकाल भस्म आरती लाइव, शिरडी साईं बाबा, खाटू श्याम, वैष्णो देवी, काशी विश्वनाथ, बांके बिहारी — {len(LIVE)} मंदिरों के आधिकारिक लाइव दर्शन एक पेज पर।",
     band("मंदिरों के लाइव दर्शन", f"भारत के {len(LIVE)} प्रमुख मंदिरों का <strong>आधिकारिक</strong> लाइव प्रसारण एक ही जगह। मंदिर चुनें — दर्शन यहीं चलेगा, साथ में आरती पढ़ें और भजन सुनें।", "लाइव दर्शन", "@live-hero", 50, "राम लला, अयोध्या — लाइव दर्शन") +
