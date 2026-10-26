@@ -1106,3 +1106,12 @@ body.no-dev .line-dev{display:none}
 .wish p{margin:.2rem 0 .7rem;line-height:1.6}
 .wish-b{display:flex;flex-wrap:wrap;gap:.5rem}
 .wish-b .btn{font-size:.85rem;padding:.4rem .8rem}
+/* bhajan player: volume + track list */
+.ap-vol{display:flex;align-items:center;gap:.35rem;flex:1 1 9rem;min-width:8rem;max-width:13rem}
+.ap-vr{flex:1;min-width:0;height:5px;-webkit-appearance:none;appearance:none;border-radius:3px;cursor:pointer;
+  background:linear-gradient(90deg,var(--gold,#C9A24A) var(--v,20%),rgba(255,255,255,.2) var(--v,20%))}
+.ap-vr::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:#fff4dc;border:2px solid var(--gold,#C9A24A)}
+.ap-vr::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:#fff4dc;border:2px solid var(--gold,#C9A24A)}
+.ap-list{display:flex;align-items:center;gap:.4rem;flex-basis:100%;font-size:.78rem;opacity:.95}
+.ap-list span{flex:none;opacity:.75}
+.ap-sel{flex:1;min-width:0;font:inherit;font-size:.82rem;padding:.3rem .4rem;border-radius:8px;border:1px solid rgba(246,210,122,.45);background:#1d0c0a;color:inherit}

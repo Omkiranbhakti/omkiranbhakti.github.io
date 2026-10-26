@@ -232,26 +232,43 @@
   })();
 })();
 
-/* OmKiran Bhakti own bhajan player (MP3, no ads). list = [{t:title, f:url}] */
+/* OmKiran Bhakti own bhajan player (MP3, no ads). list = [{t:title, f:url}]
+   Starts at 20% volume (the viewer's own choice is remembered), with volume slider, mute, prev/next and a track list. */
 window.okbAudio=function(box,list){
   if(!box||!list||!list.length)return;
   if(box._a){box._a.pause();}
+  var VK='okbVol',vol=0.2;try{var sv=parseFloat(localStorage.getItem(VK));if(sv>=0&&sv<=1)vol=sv;}catch(e){}
   box.classList.add('is-audio');
-  box.innerHTML='<div class="okb-ap"><button type="button" class="ap-b ap-prev" aria-label="पिछला भजन">⏮</button>'+
+  var opts='';for(var k=0;k<list.length;k++)opts+='<option value="'+k+'">'+(k+1)+'. '+String(list[k].t).replace(/</g,'&lt;')+'</option>';
+  box.innerHTML='<div class="okb-ap"><div class="ap-info"><b class="ap-t"></b><div class="ap-bar" role="slider" aria-label="भजन में आगे-पीछे"><i></i></div><small class="ap-n"></small></div>'+
+    '<button type="button" class="ap-b ap-prev" aria-label="पिछला भजन">⏮</button>'+
     '<button type="button" class="ap-b ap-play" aria-label="चलाएँ / रोकें">▶</button><button type="button" class="ap-b ap-next" aria-label="अगला भजन">⏭</button>'+
-    '<div class="ap-info"><b class="ap-t"></b><div class="ap-bar"><i></i></div><small class="ap-n"></small></div><audio preload="none"></audio></div>';
-  var a=box.querySelector('audio'),t=box.querySelector('.ap-t'),n=box.querySelector('.ap-n'),bar=box.querySelector('.ap-bar i'),pl=box.querySelector('.ap-play'),i=0;
+    '<div class="ap-vol"><button type="button" class="ap-b ap-mute" aria-label="आवाज़ बंद / चालू">🔉</button>'+
+    '<input type="range" class="ap-vr" min="0" max="100" step="1" aria-label="आवाज़ (वॉल्यूम)"></div>'+
+    (list.length>1?'<label class="ap-list"><span>भजन चुनें</span><select class="ap-sel">'+opts+'</select></label>':'')+
+    '<audio preload="none"></audio></div>';
+  var a=box.querySelector('audio'),t=box.querySelector('.ap-t'),n=box.querySelector('.ap-n'),bar=box.querySelector('.ap-bar i'),pl=box.querySelector('.ap-play'),
+      vr=box.querySelector('.ap-vr'),mu=box.querySelector('.ap-mute'),sel=box.querySelector('.ap-sel'),i=0;
   box._a=a;
-  function load(k,go){i=(k+list.length)%list.length;a.src=list[i].f;t.textContent=list[i].t;n.textContent=(i+1)+' / '+list.length+' · OmKiran Bhakti';
+  function icon(){mu.textContent=(a.muted||a.volume===0)?'🔇':(a.volume<0.5?'🔉':'🔊');}
+  function setVol(v,save){v=Math.max(0,Math.min(1,v));a.volume=v;a.muted=false;vr.value=Math.round(v*100);vr.style.setProperty('--v',vr.value+'%');icon();
+    if(save){try{localStorage.setItem(VK,String(v))}catch(e){}}}
+  setVol(vol,false);
+  function load(k,go){i=(k+list.length)%list.length;a.src=list[i].f;a.volume=parseFloat(vr.value)/100;t.textContent=list[i].t;n.textContent=(i+1)+' / '+list.length+' · OmKiran Bhakti';
+    if(sel)sel.value=String(i);
     if(go){var p=a.play();if(p&&p.catch)p.catch(function(){pl.textContent='▶';});}}
   a.addEventListener('play',function(){pl.textContent='⏸';});
   a.addEventListener('pause',function(){pl.textContent='▶';});
   a.addEventListener('ended',function(){load(i+1,true);});
+  a.addEventListener('volumechange',icon);
   a.addEventListener('timeupdate',function(){if(a.duration)bar.style.width=(a.currentTime/a.duration*100)+'%';});
   box.querySelector('.ap-bar').addEventListener('click',function(ev){if(a.duration){var r=this.getBoundingClientRect();a.currentTime=(ev.clientX-r.left)/r.width*a.duration;}});
   pl.addEventListener('click',function(){a.paused?a.play():a.pause();});
   box.querySelector('.ap-prev').addEventListener('click',function(){load(i-1,true);});
   box.querySelector('.ap-next').addEventListener('click',function(){load(i+1,true);});
+  vr.addEventListener('input',function(){setVol(vr.value/100,true);});
+  mu.addEventListener('click',function(){if(a.muted||a.volume===0){setVol(parseFloat(vr.value)>0?vr.value/100:0.2,true);}else{a.muted=true;icon();}});
+  if(sel)sel.addEventListener('change',function(){load(parseInt(sel.value,10),true);});
   load(0,true);
 };
 
@@ -345,4 +362,19 @@ window.okbAudio=function(box,list){
     if(r)r.addEventListener('click',function(){Array.prototype.forEach.call(boxes,function(b){b.checked=false});paint(true)});
     paint(false);
   });
+})();
+
+/* YouTube players we embed (live darshan, bhajans): start at 20% volume when the viewer unmutes. */
+(function(){
+  if(!window.MutationObserver)return;
+  function vol(f){try{f.contentWindow.postMessage(JSON.stringify({event:'command',func:'setVolume',args:[20]}),'*');}catch(e){}}
+  function fix(f){
+    if(f._okbv||!/youtube(-nocookie)?\.com\/embed\//.test(f.src||''))return; f._okbv=1;
+    if(f.src.indexOf('enablejsapi=1')<0)f.src=f.src+(f.src.indexOf('?')<0?'?':'&')+'enablejsapi=1';
+    f.addEventListener('load',function(){[600,1500,3000,6000].forEach(function(ms){setTimeout(function(){vol(f)},ms)});});
+  }
+  [].forEach.call(document.querySelectorAll('iframe'),fix);
+  new MutationObserver(function(ms){ms.forEach(function(m){[].forEach.call(m.addedNodes,function(n){
+    if(n.tagName==='IFRAME')fix(n);else if(n.querySelectorAll)[].forEach.call(n.querySelectorAll('iframe'),fix);});});})
+    .observe(document.documentElement,{childList:true,subtree:true});
 })();
