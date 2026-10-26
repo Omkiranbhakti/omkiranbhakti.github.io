@@ -13,9 +13,15 @@ CH = ["UCvhUwke3pu_HQHDSP9_IGQg","UCAv-PEL7-tc5_WX5Qj423UQ","UCeYbwWPOnxpJ4oIYKp
       "UCt8rtuZMlfSCMcb2ZxMgubA","UCqNGTFK0_nHU2Ldj3ZKScYw","UCzZ-P-kj1ByMNkzL4QCQlnw","UCxEk8cJijhNrRNDTkpeX_Zw","UCuk6VIkHtJZAkYZmCB8KVVQ","UCotHxqZyV7edB_gF7TmSnZw",
       "UCvyzcmTRl2y-1k9oeMvt41g","UC4G75x5HdLU77x_GG-byhCg","UCYXVKgcETYbcykzERUaU6ZA","UC0CWlMWRpuLIrp39nelismg","UCET-LB-LgAuDS-Cy8nfH4-w","UCKulZy7GUcfLE8ZaYi5V_kg"]
 def oembed(v):
+  try:
     s, b = get("https://www.youtube.com/oembed?format=json&url=" + urllib.parse.quote(f"https://www.youtube.com/watch?v={v}"))
-    return {"id": v, "ok": s == 200, "author": json.loads(b).get("author_name") if s == 200 else None, "title": json.loads(b).get("title")[:80] if s == 200 else None}
+    j = json.loads(b) if s == 200 else {}
+    return {"id": v, "ok": s == 200, "author": j.get("author_name"), "title": (j.get("title") or "")[:80]}
+  except Exception as e: return {"id": v, "ok": False, "err": str(e)[:60]}
 def chan(cid):
+  try: return _chan(cid)
+  except Exception as e: return cid, {"error": str(e)[:100]}
+def _chan(cid):
     s, b = get(f"https://www.youtube.com/channel/{cid}/videos")
     title = re.search(r'<meta property="og:title" content="([^"]+)"', b)
     desc = re.search(r'<meta property="og:description" content="([^"]*)"', b)
@@ -28,5 +34,5 @@ def chan(cid):
     return cid, {"status": s, "title": title.group(1) if title else None, "desc": desc.group(1)[:300] if desc else None, "links": links,
                  "uploads_age": ages, "streams_age": sages, "recent": [oembed(v) for v in vids], "recent_streams": [oembed(v) for v in sv]}
 with ThreadPoolExecutor(10) as ex: out = dict(ex.map(chan, CH))
-for c, i in out.items(): print(c, i["title"], i["uploads_age"], i["streams_age"], [r["ok"] for r in i["recent"]])
+for c, i in out.items(): print(c, i.get("title"), i.get("uploads_age"), i.get("error"))
 json.dump(out, open("live_probe.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
