@@ -742,6 +742,7 @@ exec(open(os.path.join(os.path.dirname(__file__), "live_keywords.py"), encoding=
 exec(open(os.path.join(os.path.dirname(__file__), "live_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "vrat_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "gaps_section.py"), encoding="utf-8").read())
+exec(open(os.path.join(os.path.dirname(__file__), "charcha_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "guides_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "darshan_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "whatsapp_section.py"), encoding="utf-8").read())
@@ -828,6 +829,7 @@ add("index.html", "OmKiran Bhakti — आरती, चालीसा, मं�
 add("404.html","पेज नहीं मिला | OmKiran Bhakti","यह पेज मौजूद नहीं है।",
  '<section><div class="wrap prose"><h1>यह पेज नहीं मिला</h1><p class="lede">पता बदल गया होगा। नीचे से अपना पाठ चुनें:</p><ul class="library">'+lib_html+'</ul></div></section>')
 PAGES["404.html"] = PAGES["404.html"].replace('<meta name="robots" content="index,follow,max-image-preview:large">','<meta name="robots" content="noindex">')
+cz_home_strip()
 
 # ---------------- Write ----------------
 import re as _re
