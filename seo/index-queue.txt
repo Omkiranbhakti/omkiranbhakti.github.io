@@ -1,6 +1,7 @@
 # Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
 # --- backlog added 2026-10-18 (all other sitemap pages not yet requested) ---
+live-darshan.html
 narak-chaturdashi-aur-diwali-ek-hi-din-kyon.html
 karwa-chauth-kab-hai.html
 karwa-chauth-chand-kab-niklega.html
@@ -29,7 +30,6 @@ gayatri-mantra.html
 mahamrityunjay-mantra.html
 shiv-tandav-stotram.html
 bajrang-baan.html
-live-darshan.html
 ekadashi-2026-2027.html
 dussehra-kab-hai.html
 dussehra-vijay-muhurat-ravan-dahan.html
