@@ -20,3 +20,59 @@
 2026-10-21 govardhan-puja-kab-hai.html
 2026-10-21 diwali-lakshmi-puja-muhurat.html already indexed
 2026-10-22 karwa-chauth-chand-kab-niklega.html (crawled same day; Google still picks github.io copy as canonical — domain move in progress)
+2026-10-26 mandir-darshan-guide.html
+2026-10-26 mahakal-darshan-booking.html
+2026-10-26 vaishno-devi-yatra-guide.html
+2026-10-26 kedarnath-badrinath-yatra.html
+2026-10-26 khatu-shyam-darshan.html
+2026-10-26 kashi-vishwanath-darshan.html
+2026-10-26 ram-mandir-darshan.html
+2026-10-26 tirupati-darshan-booking.html
+2026-10-26 siddhivinayak-darshan.html
+2026-10-26 kainchi-dham-darshan.html
+2026-10-26 diwali-puja-samagri-list.html
+2026-10-26 choghadiya-noida.html
+2026-10-26 bajrang-baan.html
+2026-10-26 ahoi-ashtami-vrat-katha.html
+2026-10-26 govatsa-dwadashi-kab-hai.html
+2026-10-26 karwa-chauth-chand-kab-niklega.html canonical=github.io
+2026-10-26 karwa-chauth-kab-hai.html already indexed
+2026-10-26 karwa-mata-aarti.html already indexed
+2026-10-26 live-darshan.html already indexed
+2026-10-26 dhanvantari-aarti.html already indexed
+2026-10-26 dhanvantari-mantra.html already indexed
+2026-10-26 kuber-aarti.html already indexed
+2026-10-26 kuber-mantra.html already indexed
+2026-10-26 yam-deepdaan-mantra.html already indexed
+2026-10-26 narak-chaturdashi-katha.html already indexed
+2026-10-26 diwali-lakshmi-puja-vidhi.html already indexed
+2026-10-26 narak-chaturdashi-aur-diwali-ek-hi-din-kyon.html already indexed
+2026-10-26 bhai-dooj-kab-hai.html already indexed
+2026-10-26 narak-chaturdashi-kab-hai.html already indexed
+2026-10-26 chhath-puja-arghya-time.html already indexed
+2026-10-26 diwali-calendar.html already indexed
+2026-10-26 aaj-ka-panchang.html already indexed
+2026-10-26 dev-uthani-ekadashi-kab-hai.html already indexed
+2026-10-26 tulsi-vivah-kab-hai.html already indexed
+2026-10-26 chhath-puja-calendar.html already indexed
+2026-10-26 diwali-lakshmi-puja-katha.html already indexed
+2026-10-26 lakshmi-aarti.html already indexed
+2026-10-26 om-jai-jagdish-hare-aarti.html already indexed
+2026-10-26 shiv-chalisa.html already indexed
+2026-10-26 durga-chalisa.html already indexed
+2026-10-26 ganesh-aarti-jai-ganesh-deva.html already indexed
+2026-10-26 kartik-purnima-kab-hai.html already indexed
+2026-10-26 aaj-ka-choghadiya.html already indexed
+2026-10-26 tyohar-kab-hai.html already indexed
+2026-10-26 choghadiya-delhi.html already indexed
+2026-10-26 chhath-puja-katha.html already indexed
+2026-10-26 gayatri-mantra.html already indexed
+2026-10-26 mahamrityunjay-mantra.html already indexed
+2026-10-26 shiv-tandav-stotram.html already indexed
+2026-10-26 ekadashi-2026-2027.html already indexed
+2026-10-26 dussehra-kab-hai.html already indexed
+2026-10-26 dussehra-vijay-muhurat-ravan-dahan.html already indexed
+2026-10-26 navratri-ashtami-navami-kab-hai.html already indexed
+2026-10-26 papankusha-ekadashi-vrat-katha.html already indexed
+2026-10-26 karwa-chauth-vrat-katha.html already indexed
+2026-10-26 karwa-chauth-vrat-niyam.html already indexed
