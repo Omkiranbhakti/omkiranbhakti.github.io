@@ -1,6 +1,17 @@
 # Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
 # --- backlog added 2026-10-18 (all other sitemap pages not yet requested) ---
+# --- darshan guides added 2026-10-26 (Kedarnath closes 11 Nov: request first) ---
+mandir-darshan-guide.html
+mahakal-darshan-booking.html
+vaishno-devi-yatra-guide.html
+kedarnath-badrinath-yatra.html
+khatu-shyam-darshan.html
+kashi-vishwanath-darshan.html
+ram-mandir-darshan.html
+tirupati-darshan-booking.html
+siddhivinayak-darshan.html
+kainchi-dham-darshan.html
 live-darshan.html
 narak-chaturdashi-aur-diwali-ek-hi-din-kyon.html
 karwa-chauth-kab-hai.html
