@@ -18,3 +18,5 @@ Follow up once after ~7 days (around 2 Nov) if no reply. Never pay for links.
 - 2026-10-26 Quora answers: "साल 2026 में दिवाली (लक्ष्मी पूजा) किस तारीख को..." ; "छठ पूजा 2026 की तारीख क्या है..." — next: seo/quora-answers.md #1, #4, #5, #6, #7 (1-2 a day)
 - 2026-10-27 Pins published (2): diwali-samagri, dev-uthani (board F). Pending (6): aaj-ka-panchang, hanuman-chalisa, om-jai-jagdish, lakshmi-aarti, shiv-aarti, live-darshan
 - 2026-10-27 Quora answer: "उर्वशी और पुरुरवा की प्रेमकहानी क्या हैं?" (seo/quora-mythology.md #2) https://hi.quora.com/उर्वशी-और-पुरुरवा-की/answers/1477743922212158
+
+- 2026-10-28 Quora Space created: पौराणिक कथा सागर https://pauranika-katha-sagara.quora.com/ — first story: उर्वशी का श्राप और बृहन्नला
