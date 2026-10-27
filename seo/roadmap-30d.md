@@ -45,3 +45,6 @@ The real questions people typed when our pages appeared. Ordered by opportunity:
 | Rahu kaal / choghadiya Faridabad | position 9–11 | fine; the city page is indexed and improving | — |
 | Local festival names: Kalam-dawat puja, Jhojhiya, Vasubaras 2027, Jitiya 2027 | 1–5 impressions each | short "kab hai" pages for Jhojhiya and Vasubaras | todo |
 | English lyrics queries (Gayatri, Mahamrityunjay, Ganesh chalisa in English) | position 48–90 | English pages are new; wait 4 weeks, then improve titles | later |
+
+## Live darshan (Google suggest, 27 Oct 2026)
+Every temple has "<temple> live darshan today / aaj ke darshan / time / app / official channel / youtube" suggestions. live-darshan.html used #hash links, which Google does not index separately, so on 27 Oct each of the 42 temples got its own page (src/live_pages.py, e.g. mahakal-live-darshan.html). The FAQ on each page answers "today", "time", "official channel" and "app". The pages are linked from the hub and the guide pages, and the top 17 are queued for indexing. Temples people search for that we do not have yet: Mehandipur Balaji, Baba Baidyanath Dham, Sundha Mata, Shantikunj Haridwar, Amarnath (yatra season), Lalbaugcha Raja (Ganesh festival) — add them once an official channel is verified.
