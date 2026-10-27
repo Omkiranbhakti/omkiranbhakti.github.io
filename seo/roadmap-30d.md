@@ -32,3 +32,16 @@ Every new page needs:
 - An entry in seo/index-queue.txt.
 
 Review: after 30 days, use Search Console to see which pages got impressions and build more pages on the topics that worked.
+
+## Search Console findings (27 Oct 2026, omkiranbhakti.com, 497 queries, 5.9k impressions, 47 clicks)
+The real questions people typed when our pages appeared. Ordered by opportunity:
+| Finding | Data | Action | Status |
+|---|---|---|---|
+| Bhadra questions are the biggest topic ("bhadra kab se kab tak", "kal bhadra hai kya") | ~400 impressions, position 5–10, almost 0 clicks | bhadra-kaal.html title → "भद्रा कब से कब तक है?", description with end time, new FAQ "क्या कल भद्रा है?" | done 27 Oct |
+| Karwa Chauth samagri list (~40 variants) | ~150 impressions, position 9–11 | festival is on 29 Oct; before Karwa Chauth 2027, add the exact phrases ("kya kya saman lagta hai", "saman list") as FAQ | later |
+| Purnima / amavasya kab hai | ~50 impressions, position 6–10 | make purnima-amavasya-2026-2027.html answer "अगली पूर्णिमा / अमावस्या कब है" at the top | todo |
+| Kharmas / malmas 2027 | ~40 impressions, position 6–9 | kharmas page: add FAQ for the March 2027 kharmas and "मलमास" | todo |
+| Sant bhajan meanings (Jau kahan taji charan, Man pachtai hai, Maya maha thagni) | position 2–11 | more Surdas / Kabir / Tulsi bhajan pages with meaning | todo |
+| Rahu kaal / choghadiya Faridabad | position 9–11 | fine; the city page is indexed and improving | — |
+| Local festival names: Kalam-dawat puja, Jhojhiya, Vasubaras 2027, Jitiya 2027 | 1–5 impressions each | short "kab hai" pages for Jhojhiya and Vasubaras | todo |
+| English lyrics queries (Gayatri, Mahamrityunjay, Ganesh chalisa in English) | position 48–90 | English pages are new; wait 4 weeks, then improve titles | later |
