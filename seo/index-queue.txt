@@ -3,7 +3,6 @@
 # --- backlog added 2026-10-18 (all other sitemap pages not yet requested) ---
 # --- darshan guides added 2026-10-26 (Kedarnath closes 11 Nov: request first) ---
 # --- new festival pages added 2026-10-26 (Karwa Chauth 29 Oct, Dhanteras/Diwali early Nov) ---
-abhi-charcha-mein.html
 ahoi-mata-aarti.html
 rama-ekadashi-vrat-katha.html
 dhanteras-katha.html

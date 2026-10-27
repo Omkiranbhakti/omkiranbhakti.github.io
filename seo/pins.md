@@ -7,13 +7,13 @@ Board F = "त्योहार 2026 — तारीख़ और मुहू
 
 ## Pending (post in this order, 2 a day)
 
-### [ ] diwali-samagri  (board F)
+### [x] (2026-10-27) diwali-samagri  (board F)
 - Title: दिवाली पूजा सामग्री की पूरी लिस्ट (चेकलिस्ट)
 - Description: लक्ष्मी-गणेश पूजा के लिए पूरी सामग्री — टिक करते जाएँ, लिस्ट आपके फ़ोन में सेव रहेगी। प्रिंट भी कर सकते हैं। #diwali2026 #pujasamagri #lakshmipuja
 - Link: https://omkiranbhakti.com/diwali-puja-samagri-list.html
 - Image: img/pins/pin_diwali-samagri.jpg
 
-### [ ] dev-uthani  (board F)
+### [x] (2026-10-27) dev-uthani  (board F)
 - Title: देवउठनी एकादशी और तुलसी विवाह 2026 — तारीख़ और पारण
 - Description: देवउठनी (प्रबोधिनी) एकादशी 2026 की तारीख़, व्रत पारण का समय, भगवान विष्णु को जगाने की विधि और तुलसी विवाह। #devuthaniekadashi #tulsivivah #ekadashi
 - Link: https://omkiranbhakti.com/dev-uthani-ekadashi-kab-hai.html
