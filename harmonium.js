@@ -41,7 +41,7 @@
   function save() { try { localStorage.setItem("okb-hm", JSON.stringify(store)); } catch (e) {} }
   var saPc = typeof store.sa === "number" ? store.sa : 0;          // 0 = C (सफ़ेद 1)
   var vol = typeof store.vol === "number" ? store.vol : 0.5;
-  var bpm = typeof store.bpm === "number" ? store.bpm : 70;
+  var speed = 100; // % of the song's real tempo
   var showKeys = store.keys !== false;
   var SCALES = ["सफ़ेद 1 (C)", "काली 1 (C#)", "सफ़ेद 2 (D)", "काली 2 (D#)", "सफ़ेद 3 (E)", "सफ़ेद 4 (F)",
     "काली 3 (F#)", "सफ़ेद 5 (G)", "काली 4 (G#)", "सफ़ेद 6 (A)", "काली 5 (A#)", "सफ़ेद 7 (B)"];
@@ -159,16 +159,20 @@
     if (voices[s]) return;
     voices[s] = reed(freq(s), 0.2);
     var k = keyEls[s]; if (k) k.classList.add("down");
+    breathe();
     onPlayed(s);
   }
   function noteOff(s) {
     if (voices[s]) { voices[s].stop(); delete voices[s]; }
     var k = keyEls[s]; if (k) k.classList.remove("down");
+    breathe();
   }
+  function breathe() { root.classList.toggle("playing", Object.keys(voices).length > 0 || !!drone); }
   function allOff() { Object.keys(voices).forEach(function (s) { noteOff(+s); }); }
   function setDrone(on) {
     if (drone) { drone.forEach(function (v) { v.stop(); }); drone = null; }
     if (on && audio()) drone = [reed(freq(-12), 0.06), reed(freq(-5), 0.045)];
+    breathe();
   }
 
   // ---------- UI ----------
@@ -181,21 +185,28 @@
   var opts = SCALES.map(function (n, i) { return '<option value="' + i + '"' + (i === saPc ? " selected" : "") + ">" + n + "</option>"; }).join("");
   var songOpts = '<option value="">— खुला बजाएँ (कोई गाना नहीं) —</option>' +
     songs.map(function (sg) { return '<option value="' + sg.id + '">' + sg.title + "</option>"; }).join("");
+  function stopKnob(cls, text, on) {
+    return '<label class="stop"><input type="checkbox" class="' + cls + '"' + (on ? " checked" : "") + '><span class="knob" aria-hidden="true"></span><span class="stop-l">' + text + "</span></label>";
+  }
   root.innerHTML =
-    '<div class="hm-bar">' +
-    '<label>सा का सुर <select class="hm-sa" aria-label="सा किस पट्टी पर">' + opts + "</select></label>" +
-    '<label class="hm-vol">आवाज़ <input type="range" min="0" max="1" step="0.05" value="' + vol + '" aria-label="आवाज़"></label>' +
-    '<label class="hm-chk"><input type="checkbox" class="hm-drone"> सा-प ड्रोन</label>' +
-    '<label class="hm-chk"><input type="checkbox" class="hm-showkeys"' + (showKeys ? " checked" : "") + "> कीबोर्ड अक्षर</label>" +
+    '<div class="hm-case">' +
+    '<div class="hm-bellows" aria-hidden="true"><i class="hm-strap"></i></div>' +
+    '<div class="hm-stops">' +
+    '<label class="plate">सा का सुर <select class="hm-sa" aria-label="सा किस पट्टी पर">' + opts + "</select></label>" +
+    '<label class="plate hm-vol">आवाज़ <input type="range" min="0" max="1" step="0.05" value="' + vol + '" aria-label="आवाज़"></label>' +
+    stopKnob("hm-drone", "सा-प ड्रोन", false) + stopKnob("hm-showkeys", "कीबोर्ड अक्षर", showKeys) +
     "</div>" +
     '<div class="hm-kbd-wrap"><div class="hm-kbd" role="group" aria-label="हारमोनियम की पट्टियाँ"></div></div>' +
+    '<div class="hm-grille" aria-hidden="true"><span class="hm-nameplate">OmKiran Bhakti</span></div>' +
+    "</div>" +
     '<p class="hm-load" hidden>असली हारमोनियम की आवाज़ लोड हो रही है…</p><p class="hm-hint">पट्टी पर उँगली या माउस रखें। कंप्यूटर पर <b>A S D F G H J K</b> = सा रे ग म प ध नि सां, ऊपर की लाइन (W E T Y U) = काली पट्टियाँ।</p>' +
     (songs.length ?
       '<div class="hm-song">' +
       '<div class="hm-bar"><label class="hm-pick">गाना <select class="hm-songsel" aria-label="गाना चुनें">' + songOpts + "</select></label>" +
       '<button type="button" class="hm-btn hm-play">▶ बजाएँ</button>' +
-      '<button type="button" class="hm-btn hm-practice" title="जब तक सही पट्टी न दबाएँ, आगे नहीं बढ़ेगा">✋ अभ्यास मोड</button>' +
-      '<label class="hm-tempo">रफ़्तार <input type="range" min="30" max="140" step="5" value="' + bpm + '" aria-label="रफ़्तार"><span class="hm-bpm"></span></label>' +
+      '<button type="button" class="hm-btn hm-practice" title="जब तक सही पट्टी न दबाएँ, आगे नहीं बढ़ेगा">✋ अभ्यास मोड</button></div>' +
+      '<div class="hm-bar"><label class="hm-tempo">रफ़्तार <input type="range" min="40" max="150" step="5" value="100" aria-label="रफ़्तार (असली का प्रतिशत)"><span class="hm-bpm"></span></label>' +
+      '<button type="button" class="hm-mini hm-reset">असली रफ़्तार</button>' +
       '<label class="hm-chk"><input type="checkbox" class="hm-loop"> चुनी पंक्ति दोहराएँ</label></div>' +
       '<p class="hm-status" aria-live="polite"></p><ol class="hm-lines"></ol></div>' : "");
 
@@ -273,7 +284,8 @@
   var playBtn = root.querySelector(".hm-play"), pracBtn = root.querySelector(".hm-practice");
   var tempo = root.querySelector(".hm-tempo input"), bpmEl = root.querySelector(".hm-bpm"), loopEl = root.querySelector(".hm-loop");
   var song = null, lines = [], cur = { l: 0, i: 0 }, timer = null, mode = null, chipEls = [];
-  bpmEl.textContent = bpm;
+  function showSpeed() { bpmEl.textContent = speed + "%" + (speed === 100 ? " (असली)" : ""); tempo.value = speed; }
+  showSpeed();
 
   function loadSong(id) {
     stop();
@@ -281,6 +293,7 @@
     songs.forEach(function (sg) { if (sg.id === id) song = sg; });
     playBtn.disabled = pracBtn.disabled = !song;
     if (!song) { status.textContent = "ऊपर से कोई गाना चुनें, या पट्टियों पर खुला बजाएँ।"; return; }
+    speed = 100; showSpeed();
     lines = song.lines.map(function (ln) { return { t: ln.t, notes: parse(ln.n) }; });
     linesEl.innerHTML = lines.map(function (ln, li) {
       return '<li data-l="' + li + '"><p class="hm-lyric">' + ln.t + '</p><p class="hm-notes">' +
@@ -309,7 +322,7 @@
     return true;
   }
   function step() {
-    var n = lines[cur.l].notes[cur.i], beat = 60000 / bpm;
+    var n = lines[cur.l].notes[cur.i], beat = 60000 / ((song.bpm || 120) * speed / 100);
     mark(); noteOn(n.s);
     var len = n.dur * beat;
     timer = setTimeout(function () {
@@ -351,7 +364,8 @@
     mode = "practice"; pracBtn.textContent = "✋ अभ्यास बंद करें"; pracBtn.classList.add("on");
     mark(); prompt();
   });
-  tempo.addEventListener("input", function () { bpm = +this.value; bpmEl.textContent = bpm; store.bpm = bpm; save(); });
+  tempo.addEventListener("input", function () { speed = +this.value; showSpeed(); });
+  root.querySelector(".hm-reset").addEventListener("click", function () { speed = 100; showSpeed(); });
   linesEl.addEventListener("click", function (ev) {
     var li = ev.target.closest("li"); if (!li) return;
     var chip = ev.target.closest(".chip");

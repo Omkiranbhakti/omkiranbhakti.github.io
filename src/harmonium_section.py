@@ -2,10 +2,11 @@
 # Uses add, band, sec_head, faq_html, faq_ld, e, SITE, TODAY, ver, PAGES.
 # Player code: /harmonium.js. Notation: S r R g G M m P d D n N (r g d n komal, m tivra),
 # "." before = mandra, "'" after = taar, "-" = hold one more beat.
+# bpm = syllables (note units) per minute at the song's real singing speed; the player's speed slider scales it.
 # Tunes: traditional melodies as commonly taught; regional tunes differ slightly — fix a line in HM_SONGS and rebuild.
 
 HM_SONGS = [
- dict(id="om-jai-jagdish-hare", slug="om-jai-jagdish-hare-harmonium-notes.html", name="ॐ जय जगदीश हरे",
+ dict(id="om-jai-jagdish-hare", bpm=150, slug="om-jai-jagdish-hare-harmonium-notes.html", name="ॐ जय जगदीश हरे",
   lyric_page="om-jai-jagdish-hare-aarti.html", kw="Om Jai Jagdish Hare",
   lines=[("ॐ जय जगदीश हरे", "S - S - S S S - .N S R -"),
          ("स्वामी जय जगदीश हरे", "R G M - P P D P M G R -"),
@@ -14,7 +15,7 @@ HM_SONGS = [
          ("क्षण में दूर करे", "S S R - G R S .N .D -"),
          ("ॐ जय जगदीश हरे", "S - S - S S S - .N S R -")],
   about="यह आरती पंडित श्रद्धाराम फिल्लौरी ने 1870 के आसपास लिखी थी और आज लगभग हर घर में संध्या आरती में गाई जाती है। धुन मध्य सप्तक में ही चलती है, बस \"क्षण में दूर करे\" पर मंद्र नि और ध तक उतरती है — इसलिए यह हारमोनियम सीखने वालों का सबसे अच्छा पहला गाना है।"),
- dict(id="jai-ganesh-deva", slug="jai-ganesh-deva-harmonium-notes.html", name="जय गणेश जय गणेश देवा",
+ dict(id="jai-ganesh-deva", bpm=170, slug="jai-ganesh-deva-harmonium-notes.html", name="जय गणेश जय गणेश देवा",
   lyric_page="ganesh-aarti-jai-ganesh-deva.html", kw="Jai Ganesh Deva",
   lines=[("जय गणेश जय गणेश जय गणेश देवा", "S S R R G G G G G G M G M G R R"),
          ("माता जाकी पार्वती पिता महादेवा", ".N .N S .N R R R R G G R S S -"),
@@ -23,7 +24,7 @@ HM_SONGS = [
          ("जय गणेश जय गणेश जय गणेश देवा", "S S R R G G G G G G M G M G R R"),
          ("माता जाकी पार्वती पिता महादेवा", ".N .N S .N R R R R G G R S S -")],
   about="गणेश जी की यह आरती हर पूजा की शुरुआत में गाई जाती है। स्थायी (जय गणेश…) सा से ग तक घूमती है और अंतरा (एक दंत…) प तक ऊपर जाता है। केवल शुद्ध सुर हैं, कोई कोमल-तीव्र नहीं — शुरुआत के लिए आसान।"),
- dict(id="aarti-kunj-bihari", slug="aarti-kunj-bihari-ki-harmonium-notes.html", name="आरती कुंजबिहारी की",
+ dict(id="aarti-kunj-bihari", bpm=160, slug="aarti-kunj-bihari-ki-harmonium-notes.html", name="आरती कुंजबिहारी की",
   lyric_page="aarti-kunj-bihari-ki.html", kw="Aarti Kunj Bihari Ki",
   lines=[("आरती कुंजबिहारी की", "P - P P M P n n D P - M G R"),
          ("श्री गिरिधर कृष्णमुरारी की", "S R P M M G G S R S .N S -"),
@@ -32,14 +33,14 @@ HM_SONGS = [
          ("श्रवण में कुण्डल झलकाला", "G G - G R - R G R R S .N S -"),
          ("नंद के आनंद नंदलाला", "G - G G R - R G R R S .N S -")],
   about="जन्माष्टमी और रोज़ की कृष्ण आरती। पहली पंक्ति में कोमल नि (नि॒) आता है — काली पट्टी, जो ध के ठीक ऊपर है। बाक़ी आरती सा-रे-ग के आसपास और मंद्र नि पर लौटती है।"),
- dict(id="hanuman-chalisa", slug="hanuman-chalisa-harmonium-notes.html", name="हनुमान चालीसा",
+ dict(id="hanuman-chalisa", bpm=170, slug="hanuman-chalisa-harmonium-notes.html", name="हनुमान चालीसा",
   lyric_page="hanuman-chalisa.html", kw="Hanuman Chalisa",
   lines=[("श्रीगुरु चरन सरोज रज", "S - S S S S R R G - R G G"),
          ("निज मनु मुकुरु सुधारि", "P P P M M R R S S - S -"),
          ("जय हनुमान ज्ञान गुन सागर", "S R R P - P P D P M G G R R"),
          ("जय कपीस तिहुँ लोक उजागर", "P - M G R R S .N .N .D R R R S S -")],
   about="चालीसा की हर चौपाई इसी धुन पर चलती है — दो पंक्तियाँ सीख लीं तो पूरी चालीसा बजा सकते हैं। ऊपर दोहा और पहली चौपाई की धुन है; आगे की चौपाइयाँ (राम दूत अतुलित बल धामा…) पहली चौपाई वाली धुन पर ही गाई जाती हैं।"),
- dict(id="raghupati-raghav", slug="raghupati-raghav-raja-ram-harmonium-notes.html", name="रघुपति राघव राजाराम",
+ dict(id="raghupati-raghav", bpm=140, slug="raghupati-raghav-raja-ram-harmonium-notes.html", name="रघुपति राघव राजाराम",
   lyric_page="raghupati-raghav-raja-ram.html", kw="Raghupati Raghav Raja Ram",
   lines=[("रघुपति राघव राजा राम", "S S S S S S .N .D .N R S R M G M -"),
          ("पतित पावन सीताराम", "R g R S .N .D .N G R R S -"),
@@ -47,19 +48,19 @@ HM_SONGS = [
          ("भज प्यारे तू सीताराम", "R R M P d P M G R R -"),
          ("रघुपति राघव राजा राम", "S S S S S S .N .D .N R S R M G M -"),
          ("पतित पावन सीताराम", "R g R S .N .D .N G R R S -")],
-  about="गांधी जी की प्रार्थना सभाओं से घर-घर पहुँची यह राम धुन। इसमें कोमल ग (ग॒) और कोमल ध (ध॒) भी आते हैं — दोनों काली पट्टियाँ। धीमी रफ़्तार (50–60) से शुरू करें।"),
+  about="गांधी जी की प्रार्थना सभाओं से घर-घर पहुँची यह राम धुन। इसमें कोमल ग (ग॒) और कोमल ध (ध॒) भी आते हैं — दोनों काली पट्टियाँ। शुरुआत में रफ़्तार 60–70% रखें।"),
 ]
 
 HM_ALANKAR = [
- dict(id="sargam", name="अभ्यास 1: सरगम ऊपर-नीचे (आरोह-अवरोह)",
+ dict(id="sargam", bpm=100, name="अभ्यास 1: सरगम ऊपर-नीचे (आरोह-अवरोह)",
   lines=[("आरोह — सा से तार सा तक", "S R G M P D N S' -"), ("अवरोह — तार सा से सा तक", "S' N D P M G R S -")]),
- dict(id="alankar-1", name="अभ्यास 2: अलंकार — सारेग, रेगम…",
+ dict(id="alankar-1", bpm=110, name="अभ्यास 2: अलंकार — सारेग, रेगम…",
   lines=[("आरोह", "S R G R G M G M P M P D P D N D N S' -"), ("अवरोह", "S' N D N D P D P M P M G M G R G R S -")]),
- dict(id="alankar-2", name="अभ्यास 3: अलंकार — सासा रेरे गग…",
+ dict(id="alankar-2", bpm=120, name="अभ्यास 3: अलंकार — सासा रेरे गग…",
   lines=[("आरोह", "S S R R G G M M P P D D N N S' S'"), ("अवरोह", "S' S' N N D D P P M M G G R R S S")]),
- dict(id="alankar-3", name="अभ्यास 4: अलंकार — साग, रेम, गप…",
+ dict(id="alankar-3", bpm=110, name="अभ्यास 4: अलंकार — साग, रेम, गप…",
   lines=[("आरोह", "S G R M G P M D P N D S' -"), ("अवरोह", "S' D N P D M P G M R G S -")]),
- dict(id="komal", name="अभ्यास 5: कोमल-तीव्र पहचान (सारे 12 सुर)",
+ dict(id="komal", bpm=90, name="अभ्यास 5: कोमल-तीव्र पहचान (सारे 12 सुर)",
   lines=[("ऊपर", "S r R g G M m P d D n N S' -"), ("नीचे", "S' N n D d P m M G g R r S -")]),
 ]
 
@@ -91,7 +92,7 @@ def _hm_text(notation):
     return " ".join(words)
 
 def _hm_json(items):
-    return json.dumps({"songs": [{"id": s["id"], "title": s["name"], "lines": [{"t": a, "n": b} for a, b in s["lines"]]} for s in items]},
+    return json.dumps({"songs": [{"id": s["id"], "title": s["name"], "bpm": s["bpm"], "lines": [{"t": a, "n": b} for a, b in s["lines"]]} for s in items]},
                       ensure_ascii=False)
 
 HMV = ver("harmonium.js")
@@ -175,7 +176,7 @@ add("harmonium-sikhen.html",
     '<h2 class="k-h">पाठ 4: कोमल और तीव्र सुर</h2>'
     '<p>रे, ग, ध, नि के कोमल रूप (आधा सुर नीचे) काली पट्टियों पर होते हैं — लिखते समय नीचे लकीर: रे॒ ग॒ ध॒ नि॒। म का तीव्र रूप (आधा सुर ऊपर) भी काली पट्टी पर है — ऊपर लकीर। सा और प कभी कोमल-तीव्र नहीं होते। \"अभ्यास 5\" में सारे 12 सुर एक के बाद एक बजते हैं।</p>'
     '<h2 class="k-h">पाठ 5: उँगलियाँ और अलंकार</h2>'
-    '<p>अलंकार सुरों के छोटे-छोटे पैटर्न हैं — जैसे व्यायाम। रोज़ 10 मिनट अलंकार करने से उँगलियाँ अपने-आप सही पट्टी पर जाने लगती हैं। पहले धीमी रफ़्तार (40–50) पर बजाएँ, बिना गलती बजने लगे तब रफ़्तार बढ़ाएँ।</p>' +
+    '<p>अलंकार सुरों के छोटे-छोटे पैटर्न हैं — जैसे व्यायाम। रोज़ 10 मिनट अलंकार करने से उँगलियाँ अपने-आप सही पट्टी पर जाने लगती हैं। पहले धीमी रफ़्तार (50–60%) पर बजाएँ, बिना गलती बजने लगे तब रफ़्तार बढ़ाएँ।</p>' +
     _steps(["दाएँ हाथ की तर्जनी सा पर, मध्यमा रे पर, अनामिका ग पर रखें।", "म के लिए अंगूठा तर्जनी के नीचे से निकालकर रखें, फिर तर्जनी प पर — इसी तरह आगे बढ़ें।",
             "हर अलंकार पहले आरोह (ऊपर), फिर अवरोह (नीचे)।", "\"चुनी पंक्ति दोहराएँ\" लगाकर एक ही पंक्ति कई बार बजाएँ।"]) +
     "</div></section>"
@@ -214,10 +215,10 @@ for _s in HM_SONGS:
         f'<h2 class="k-h">{e(_s["name"])} — सरगम नोट्स</h2>' + _hm_table(_s) + _HM_LEGEND +
         f'<h2 class="k-h">धुन के बारे में</h2><p>{e(_s["about"])}</p>' +
         '<h2 class="k-h">कैसे सीखें</h2>' +
-        _steps(["प्लेयर में रफ़्तार 50–60 रखें और ▶ बजाएँ से पूरी धुन एक-दो बार सुनें।",
-                "किसी एक पंक्ति पर टैप करें, \"चुनी पंक्ति दोहराएँ\" लगाएँ और ✋ अभ्यास मोड में बजाएँ।",
+        _steps(["▶ बजाएँ से पूरी धुन असली रफ़्तार पर एक-दो बार सुनें।",
+                "रफ़्तार 60–70% पर लाएँ, किसी एक पंक्ति पर टैप करें, \"चुनी पंक्ति दोहराएँ\" लगाएँ और ✋ अभ्यास मोड में बजाएँ।",
                 "एक पंक्ति बिना रुके बजने लगे, तब अगली पंक्ति पर जाएँ।",
-                "आख़िर में पूरी आरती साथ में गाते हुए बजाएँ और रफ़्तार धीरे-धीरे बढ़ाएँ।"]) +
+                "आख़िर में रफ़्तार धीरे-धीरे 100% तक लाएँ और पूरी आरती गाते हुए बजाएँ।"]) +
         f'<p>पूरी आरती के बोल और अर्थ: <a href="{_s["lyric_page"]}">{e(_s["name"])}</a>।</p>' +
         "</div></section></article>" +
         '<section class="no-print"><div class="wrap">' + sec_head("साथ में देखें") + _hm_ul(_rel) + "</div></section>" +
