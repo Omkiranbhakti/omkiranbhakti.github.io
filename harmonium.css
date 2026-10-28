@@ -252,3 +252,39 @@
 .hm-drawer{bottom:auto;max-height:100%;border-radius:0 0 12px 0}
 .hm [hidden]{display:none!important}
 @media (orientation:portrait){.hm.app .hm-song{position:static;transform:none;max-height:none;border-radius:0;box-shadow:none;transition:none}.hm.app .hm-songsbtn{display:none}.hm.app .hm-rotate{display:none}}
+
+/* ---------- phone held sideways (app): layout like a real harmonium app —
+   reed cover ≈15% (room for one 320×50 ad), control rail ≈13%, thin felt, keys get the rest ---------- */
+@media (orientation:landscape) and (max-height:520px){
+ .hm.app .hm-bellows{height:4px;margin:0 8px -1px;border-radius:4px 4px 0 0}
+ .hm.app.playing:not(.pumpmode) .hm-bellows{animation:hm-bh-s var(--pump,1.5s) ease-in-out infinite}
+ .hm.app.pumpmode .hm-bellows{height:calc(8px + 12px * var(--open,1))}
+ .hm.app .hm-pumphint{font-size:.58rem}
+ .hm.app .screw{width:10px;height:10px}.hm.app .screw::after{top:4px}
+ .hm.app .hm-top{height:max(58px,15dvh);box-sizing:border-box;padding:5px 24px;border-bottom-width:2px;display:flex}
+ .hm.app .hm-cover{flex:1;height:auto}
+ .hm.app .hm-ad{transform:translate(-50%,-50%) scale(.86)}
+ .hm.app .hm-rail{height:max(48px,13dvh);box-sizing:border-box;padding:0 24px;gap:10px}
+ .hm.app .rbtn{width:calc(max(48px,13dvh) - 10px);height:calc(max(48px,13dvh) - 10px);font-size:1.2rem}
+ .hm.app .hm-dronebtn,.hm.app .hm-songsbtn{width:auto;padding:0 16px;font-size:1rem}
+ .hm.app .hm-nav{padding-bottom:12px}
+ .hm.app .hm-navnums{font-size:.66rem;height:11px}
+ .hm.app .hm-felt{height:4px}
+ .hm.app .hm-cheek{width:26px}.hm.app .hm-cheek .brand-v{display:block;font-size:1.05rem}
+ .hm.app .hm-kbd .wht{padding-bottom:20px;font-size:1.15rem}
+ .hm.app .hm-kbd .blk{padding-bottom:14px}
+ .hm.app .hm-fly{font-size:1rem;padding:3px 10px 4px}
+ .hm.app .hm-drawer{max-height:100dvh;overflow-y:auto}
+}
+@keyframes hm-bh-s{0%,100%{height:4px}50%{height:9px}}
+.dr-app{display:flex;flex-wrap:wrap;gap:8px;padding:4px 0 8px}
+.dr-app .hm-mini{background:var(--ivory);color:#2e1604;border-color:rgba(60,22,2,.5);font-weight:600}
+.dr-app [hidden]{display:none}
+/* app in landscape: the instrument fills the screen exactly (keys take whatever height is left) */
+@media (orientation:landscape){
+ .hm.app{height:100%;display:flex;flex-direction:column}
+ .hm.app .hm-inst{flex:1;min-height:0;display:flex;flex-direction:column}
+ .hm.app .hm-keybed{flex:1;min-height:0}
+ .hm.app .hm-kbd-wrap,.hm.app .hm-kbd{height:100%}
+}
+.hm.app:not(.ready) .hm-song{transition:none}

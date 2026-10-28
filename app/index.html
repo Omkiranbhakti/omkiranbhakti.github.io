@@ -14,12 +14,13 @@
 <link rel="icon" href="icon-192.png" type="image/png"><link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Mukta:wght@400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap">
-<link rel="stylesheet" href="../harmonium.css?v=cfbd878e">
+<link rel="stylesheet" href="../harmonium.css?v=c709edf5">
 <style>
 /* app shell: a thin bar (brand, tabs, install) over a full-screen instrument */
 :root{--paper:#fffdf8;--paper-2:#fbf3e4;--ink:#2a1d12;--sindoor:#b4380f;--night:#1c2350;--bar:#3a1c06;--bar-ink:#fbe7c0}
 @media (prefers-color-scheme:dark){:root{--paper:#17140f;--paper-2:#221d16;--ink:#f3e7d3;--sindoor:#e2643a;--night:#3b4a9c;color-scheme:dark}}
 html,body{height:100%}
+@media (orientation:landscape){body{display:flex;flex-direction:column;height:100dvh}main{flex:1;min-height:0}#play{height:100%}}
 body{margin:0;background:#120804;color:var(--ink);font-family:"Mukta",system-ui,sans-serif;overscroll-behavior:none;-webkit-user-select:none;user-select:none}
 .app-bar{display:flex;align-items:center;gap:10px;padding:6px max(12px,env(safe-area-inset-right,0px)) 6px max(12px,env(safe-area-inset-left,0px));padding-top:max(6px,env(safe-area-inset-top,0px));background:var(--bar);color:var(--bar-ink)}
 .app-bar img{width:30px;height:30px}
@@ -49,6 +50,8 @@ main{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-i
 .turn-skip{font:600 .9rem "Mukta",sans-serif;border:1px solid rgba(251,231,192,.5);border-radius:999px;padding:7px 16px;background:transparent;color:#fbe7c0;cursor:pointer}
 .turn small{opacity:.8}
 @media (orientation:portrait){.hm.app .hm-kbd{height:min(calc(100dvh - var(--chrome,230px)),48dvh)}}
+.back-play{display:none;font:600 .95rem "Mukta",sans-serif;border:0;border-radius:999px;padding:8px 18px;margin:0 0 10px;background:var(--bar);color:var(--bar-ink);cursor:pointer}
+@media (orientation:landscape) and (max-height:520px){.app-bar{display:none}.back-play{display:inline-block}#learn{min-height:100dvh}}
 </style>
 </head>
 <body>
@@ -60,12 +63,12 @@ main{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-i
 <div class="turn" id="turn" hidden><div class="turn-box"><div class="phone" aria-hidden="true"></div><p>हारमोनियम आड़े फ़ोन पर ही अच्छा बजता है।</p>
 <button type="button" class="turn-go" id="turngo">🔄 आड़ा करके चलाएँ</button><button type="button" class="turn-skip" id="turnskip">ऐसे ही चलाएँ</button>
 <small id="turnios" hidden>iPhone पर फ़ोन को ख़ुद आड़ा घुमा दें (ऑटो-रोटेट चालू रखें)।</small></div></div>
-<section id="learn" hidden><h2>हारमोनियम सीखें — क़दम-दर-क़दम</h2><ol class="lessons"><li><button type="button" class="lesson" data-song="sargam"><b>सा पहचानें</b><span>दो काली पट्टियों के गुच्छे के ठीक बाईं सफ़ेद पट्टी सफ़ेद 1 (C) है। शुरुआत में इसी को सा मानें — पीली पट्टी।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="sargam"><b>सात सुर ऊपर-नीचे</b><span>सा रे ग म प ध नि सां — पहले ▶ से सुनें, फिर ✋ अभ्यास मोड में ख़ुद बजाएँ।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="alankar-1"><b>अलंकार: सारेग, रेगम…</b><span>तीन-तीन सुरों के पैटर्न से उँगलियाँ सधती हैं। रफ़्तार 60% से शुरू करें।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="alankar-2"><b>अलंकार: सासा रेरे…</b><span>हर सुर दो बार — हाथ को स्थिर रखने का अभ्यास।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="alankar-3"><b>अलंकार: साग, रेम…</b><span>एक सुर छोड़कर छलाँग — कान और उँगली दोनों के लिए।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="komal"><b>कोमल-तीव्र सुर</b><span>रे ग ध नि के कोमल और तीव्र म — सारे 12 सुर एक के बाद एक।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="om-jai-jagdish-hare"><b>पहला गाना: ॐ जय जगदीश हरे</b><span>सबसे आसान आरती। एक-एक पंक्ति दोहराकर सीखें।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="jai-ganesh-deva"><b>जय गणेश देवा</b><span>सिर्फ़ शुद्ध सुर — दूसरा गाना यही रखें।</span><i>अभ्यास करें →</i></button></li></ol>
+<section id="learn" hidden><button type="button" class="back-play" id="backplay">← हारमोनियम बजाएँ</button><h2>हारमोनियम सीखें — क़दम-दर-क़दम</h2><ol class="lessons"><li><button type="button" class="lesson" data-song="sargam"><b>सा पहचानें</b><span>दो काली पट्टियों के गुच्छे के ठीक बाईं सफ़ेद पट्टी सफ़ेद 1 (C) है। शुरुआत में इसी को सा मानें — पीली पट्टी।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="sargam"><b>सात सुर ऊपर-नीचे</b><span>सा रे ग म प ध नि सां — पहले ▶ से सुनें, फिर ✋ अभ्यास मोड में ख़ुद बजाएँ।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="alankar-1"><b>अलंकार: सारेग, रेगम…</b><span>तीन-तीन सुरों के पैटर्न से उँगलियाँ सधती हैं। रफ़्तार 60% से शुरू करें।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="alankar-2"><b>अलंकार: सासा रेरे…</b><span>हर सुर दो बार — हाथ को स्थिर रखने का अभ्यास।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="alankar-3"><b>अलंकार: साग, रेम…</b><span>एक सुर छोड़कर छलाँग — कान और उँगली दोनों के लिए।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="komal"><b>कोमल-तीव्र सुर</b><span>रे ग ध नि के कोमल और तीव्र म — सारे 12 सुर एक के बाद एक।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="om-jai-jagdish-hare"><b>पहला गाना: ॐ जय जगदीश हरे</b><span>सबसे आसान आरती। एक-एक पंक्ति दोहराकर सीखें।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="jai-ganesh-deva"><b>जय गणेश देवा</b><span>सिर्फ़ शुद्ध सुर — दूसरा गाना यही रखें।</span><i>अभ्यास करें →</i></button></li></ol>
 <p class="ios-tip" id="iostip" hidden>iPhone पर ऐप की तरह रखने के लिए: Safari में Share (⬆) → "Add to Home Screen"।</p>
 <p class="foot">पूरे पाठ, आरतियों के बोल और अर्थ: <a href="../harmonium-sikhen.html">omkiranbhakti.com</a> · आवाज़: असली हारमोनियम की रिकॉर्डिंग (CC0)</p></section>
 </main>
 <script type="application/json" id="hm-data">{"songs": [{"id": "om-jai-jagdish-hare", "title": "ॐ जय जगदीश हरे", "bpm": 150, "lines": [{"t": "ॐ जय जगदीश हरे", "n": "S - S - S S S - .N S R -"}, {"t": "स्वामी जय जगदीश हरे", "n": "R G M - P P D P M G R -"}, {"t": "भक्त जनों के संकट", "n": "R G R G M - M G R G R S"}, {"t": "दास जनों के संकट", "n": "R G R G M - M G R G R S"}, {"t": "क्षण में दूर करे", "n": "S S R - G R S .N .D -"}, {"t": "ॐ जय जगदीश हरे", "n": "S - S - S S S - .N S R -"}]}, {"id": "jai-ganesh-deva", "title": "जय गणेश जय गणेश देवा", "bpm": 170, "lines": [{"t": "जय गणेश जय गणेश जय गणेश देवा", "n": "S S R R G G G G G G M G M G R R"}, {"t": "माता जाकी पार्वती पिता महादेवा", "n": ".N .N S .N R R R R G G R S S -"}, {"t": "एक दंत दयावंत चार भुजा धारी", "n": "S S G M P P P P M P M P M G G -"}, {"t": "माथे सिंदूर सोहे मूसे की सवारी", "n": "S G M G P P P P M P M P M G G -"}, {"t": "जय गणेश जय गणेश जय गणेश देवा", "n": "S S R R G G G G G G M G M G R R"}, {"t": "माता जाकी पार्वती पिता महादेवा", "n": ".N .N S .N R R R R G G R S S -"}]}, {"id": "aarti-kunj-bihari", "title": "आरती कुंजबिहारी की", "bpm": 160, "lines": [{"t": "आरती कुंजबिहारी की", "n": "P - P P M P n n D P - M G R"}, {"t": "श्री गिरिधर कृष्णमुरारी की", "n": "S R P M M G G S R S .N S -"}, {"t": "गले में बैजंती माला", "n": "G G G R - R G R S .N S -"}, {"t": "बजावै मुरली मधुर बाला", "n": "G G - G R - R R G R R S .N S -"}, {"t": "श्रवण में कुण्डल झलकाला", "n": "G G - G R - R G R R S .N S -"}, {"t": "नंद के आनंद नंदलाला", "n": "G - G G R - R G R R S .N S -"}]}, {"id": "hanuman-chalisa", "title": "हनुमान चालीसा", "bpm": 170, "lines": [{"t": "श्रीगुरु चरन सरोज रज", "n": "S - S S S S R R G - R G G"}, {"t": "निज मनु मुकुरु सुधारि", "n": "P P P M M R R S S - S -"}, {"t": "जय हनुमान ज्ञान गुन सागर", "n": "S R R P - P P D P M G G R R"}, {"t": "जय कपीस तिहुँ लोक उजागर", "n": "P - M G R R S .N .N .D R R R S S -"}]}, {"id": "raghupati-raghav", "title": "रघुपति राघव राजाराम", "bpm": 140, "lines": [{"t": "रघुपति राघव राजा राम", "n": "S S S S S S .N .D .N R S R M G M -"}, {"t": "पतित पावन सीताराम", "n": "R g R S .N .D .N G R R S -"}, {"t": "सीताराम सीताराम", "n": "G G G M G R S R M G M -"}, {"t": "भज प्यारे तू सीताराम", "n": "R R M P d P M G R R -"}, {"t": "रघुपति राघव राजा राम", "n": "S S S S S S .N .D .N R S R M G M -"}, {"t": "पतित पावन सीताराम", "n": "R g R S .N .D .N G R R S -"}]}, {"id": "sargam", "title": "अभ्यास 1: सरगम ऊपर-नीचे (आरोह-अवरोह)", "bpm": 100, "lines": [{"t": "आरोह — सा से तार सा तक", "n": "S R G M P D N S' -"}, {"t": "अवरोह — तार सा से सा तक", "n": "S' N D P M G R S -"}]}, {"id": "alankar-1", "title": "अभ्यास 2: अलंकार — सारेग, रेगम…", "bpm": 110, "lines": [{"t": "आरोह", "n": "S R G R G M G M P M P D P D N D N S' -"}, {"t": "अवरोह", "n": "S' N D N D P D P M P M G M G R G R S -"}]}, {"id": "alankar-2", "title": "अभ्यास 3: अलंकार — सासा रेरे गग…", "bpm": 120, "lines": [{"t": "आरोह", "n": "S S R R G G M M P P D D N N S' S'"}, {"t": "अवरोह", "n": "S' S' N N D D P P M M G G R R S S"}]}, {"id": "alankar-3", "title": "अभ्यास 4: अलंकार — साग, रेम, गप…", "bpm": 110, "lines": [{"t": "आरोह", "n": "S G R M G P M D P N D S' -"}, {"t": "अवरोह", "n": "S' D N P D M P G M R G S -"}]}, {"id": "komal", "title": "अभ्यास 5: कोमल-तीव्र पहचान (सारे 12 सुर)", "bpm": 90, "lines": [{"t": "ऊपर", "n": "S r R g G M m P d D n N S' -"}, {"t": "नीचे", "n": "S' N n D d P m M G g R r S -"}]}], "start": "om-jai-jagdish-hare", "app": true, "samples": "../audio/harmonium/", "ads": false, "adClient": "", "adSlot": ""}</script>
-<script src="../harmonium.js?v=80e698d5"></script>
+<script src="../harmonium.js?v=b5b9b926"></script>
 <script>
 (function () {
   var hm = document.getElementById("hm");
@@ -83,6 +86,18 @@ main{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-i
     if (t === "play") setTimeout(fit, 30);
   }
   tabs.forEach(function (b) { b.addEventListener("click", function () { show(b.dataset.tab); }); });
+  document.getElementById("backplay").addEventListener("click", function () { show("play"); });
+  // the ☰ drawer carries "सीखें" and "इंस्टॉल" too, so the top bar can go on a sideways phone
+  (function addLearn() {
+    var dh = hm.querySelector(".hm-drawer .dr-head"); if (!dh) return setTimeout(addLearn, 50);
+    var row = document.createElement("div"); row.className = "dr-app";
+    row.innerHTML = '<button type="button" class="hm-mini dr-learn">📖 सीखें — पाठ और अलंकार</button><button type="button" class="hm-mini dr-install" hidden>📲 ऐप इंस्टॉल करें</button>';
+    dh.parentNode.insertBefore(row, dh.nextSibling);
+    row.querySelector(".dr-learn").addEventListener("click", function () { hm.querySelector(".hm-close").click(); show("learn"); });
+    var di = row.querySelector(".dr-install");
+    window.addEventListener("beforeinstallprompt", function () { di.hidden = false; });
+    di.addEventListener("click", function () { document.getElementById("install").click(); di.hidden = true; });
+  })();
   document.querySelectorAll(".lesson").forEach(function (b) {
     b.addEventListener("click", function () {
       show("play"); if (window.hmLoadSong) window.hmLoadSong(b.dataset.song);

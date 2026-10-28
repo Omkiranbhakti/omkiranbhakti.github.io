@@ -637,7 +637,7 @@
   window.hmLoadSong = function (id) { sel.value = id; loadSong(id); };
   if (data.app) {
     var sb = root.querySelector(".hm-songsbtn"), sheet = root.querySelector(".hm-song");
-    root.classList.add("app");
+    root.classList.add("app"); setTimeout(function () { root.classList.add("ready"); }, 400);
     sb.addEventListener("click", function () { var o = !root.classList.contains("sheet"); root.classList.toggle("sheet", o); sb.setAttribute("aria-expanded", o); });
   }
 })();

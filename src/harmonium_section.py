@@ -307,6 +307,7 @@ _APP_HTML = f'''<!doctype html>
 :root{{--paper:#fffdf8;--paper-2:#fbf3e4;--ink:#2a1d12;--sindoor:#b4380f;--night:#1c2350;--bar:#3a1c06;--bar-ink:#fbe7c0}}
 @media (prefers-color-scheme:dark){{:root{{--paper:#17140f;--paper-2:#221d16;--ink:#f3e7d3;--sindoor:#e2643a;--night:#3b4a9c;color-scheme:dark}}}}
 html,body{{height:100%}}
+@media (orientation:landscape){{body{{display:flex;flex-direction:column;height:100dvh}}main{{flex:1;min-height:0}}#play{{height:100%}}}}
 body{{margin:0;background:#120804;color:var(--ink);font-family:"Mukta",system-ui,sans-serif;overscroll-behavior:none;-webkit-user-select:none;user-select:none}}
 .app-bar{{display:flex;align-items:center;gap:10px;padding:6px max(12px,env(safe-area-inset-right,0px)) 6px max(12px,env(safe-area-inset-left,0px));padding-top:max(6px,env(safe-area-inset-top,0px));background:var(--bar);color:var(--bar-ink)}}
 .app-bar img{{width:30px;height:30px}}
@@ -336,6 +337,8 @@ main{{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-
 .turn-skip{{font:600 .9rem "Mukta",sans-serif;border:1px solid rgba(251,231,192,.5);border-radius:999px;padding:7px 16px;background:transparent;color:#fbe7c0;cursor:pointer}}
 .turn small{{opacity:.8}}
 @media (orientation:portrait){{.hm.app .hm-kbd{{height:min(calc(100dvh - var(--chrome,230px)),48dvh)}}}}
+.back-play{{display:none;font:600 .95rem "Mukta",sans-serif;border:0;border-radius:999px;padding:8px 18px;margin:0 0 10px;background:var(--bar);color:var(--bar-ink);cursor:pointer}}
+@media (orientation:landscape) and (max-height:520px){{.app-bar{{display:none}}.back-play{{display:inline-block}}#learn{{min-height:100dvh}}}}
 </style>
 </head>
 <body>
@@ -347,7 +350,7 @@ main{{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-
 <div class="turn" id="turn" hidden><div class="turn-box"><div class="phone" aria-hidden="true"></div><p>हारमोनियम आड़े फ़ोन पर ही अच्छा बजता है।</p>
 <button type="button" class="turn-go" id="turngo">🔄 आड़ा करके चलाएँ</button><button type="button" class="turn-skip" id="turnskip">ऐसे ही चलाएँ</button>
 <small id="turnios" hidden>iPhone पर फ़ोन को ख़ुद आड़ा घुमा दें (ऑटो-रोटेट चालू रखें)।</small></div></div>
-<section id="learn" hidden><h2>हारमोनियम सीखें — क़दम-दर-क़दम</h2><ol class="lessons">{_lesson_html}</ol>
+<section id="learn" hidden><button type="button" class="back-play" id="backplay">← हारमोनियम बजाएँ</button><h2>हारमोनियम सीखें — क़दम-दर-क़दम</h2><ol class="lessons">{_lesson_html}</ol>
 <p class="ios-tip" id="iostip" hidden>iPhone पर ऐप की तरह रखने के लिए: Safari में Share (⬆) → "Add to Home Screen"।</p>
 <p class="foot">पूरे पाठ, आरतियों के बोल और अर्थ: <a href="../harmonium-sikhen.html">omkiranbhakti.com</a> · आवाज़: असली हारमोनियम की रिकॉर्डिंग (CC0)</p></section>
 </main>
@@ -370,6 +373,18 @@ main{{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-
     if (t === "play") setTimeout(fit, 30);
   }}
   tabs.forEach(function (b) {{ b.addEventListener("click", function () {{ show(b.dataset.tab); }}); }});
+  document.getElementById("backplay").addEventListener("click", function () {{ show("play"); }});
+  // the ☰ drawer carries "सीखें" and "इंस्टॉल" too, so the top bar can go on a sideways phone
+  (function addLearn() {{
+    var dh = hm.querySelector(".hm-drawer .dr-head"); if (!dh) return setTimeout(addLearn, 50);
+    var row = document.createElement("div"); row.className = "dr-app";
+    row.innerHTML = '<button type="button" class="hm-mini dr-learn">📖 सीखें — पाठ और अलंकार</button><button type="button" class="hm-mini dr-install" hidden>📲 ऐप इंस्टॉल करें</button>';
+    dh.parentNode.insertBefore(row, dh.nextSibling);
+    row.querySelector(".dr-learn").addEventListener("click", function () {{ hm.querySelector(".hm-close").click(); show("learn"); }});
+    var di = row.querySelector(".dr-install");
+    window.addEventListener("beforeinstallprompt", function () {{ di.hidden = false; }});
+    di.addEventListener("click", function () {{ document.getElementById("install").click(); di.hidden = true; }});
+  }})();
   document.querySelectorAll(".lesson").forEach(function (b) {{
     b.addEventListener("click", function () {{
       show("play"); if (window.hmLoadSong) window.hmLoadSong(b.dataset.song);
