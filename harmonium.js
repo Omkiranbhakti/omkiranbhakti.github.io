@@ -50,7 +50,7 @@
   // Free-reed model: a narrow-pulse reed spectrum (strong, buzzy upper partials), two middle reeds a few
   // cents apart (the slow "beating" of a real harmonium), a bass reed an octave down, a little air from the
   // reed slot, and a shared body EQ (nasal formants) with a slow bellows swell. No vibrato, no tremolo.
-  var ac = null, master = null, bus = null, voices = {}, drone = null, waves = {}, noiseBuf = null;
+  var ac = null, master = null, bus = null, dry = null, voices = {}, drone = null, waves = {}, noiseBuf = null;
   function reedWave(duty, tilt) {
     var N = 48, re = new Float32Array(N), im = new Float32Array(N);
     for (var n = 1; n < N; n++) im[n] = (Math.abs(Math.sin(Math.PI * n * duty)) + 0.12) / Math.pow(n, tilt);
@@ -72,16 +72,67 @@
       lfo.frequency.value = 0.45; lfoG.gain.value = 0.03; lfo.connect(lfoG); lfoG.connect(bellows.gain); lfo.start();
       var comp = ac.createDynamicsCompressor(); comp.threshold.value = -14; comp.ratio.value = 3;
       bus.connect(hp); hp.connect(f1); f1.connect(f2); f2.connect(lp); lp.connect(bellows); bellows.connect(master);
+      dry = ac.createGain(); dry.connect(master);
       master.connect(comp); comp.connect(ac.destination);
       waves.mid = reedWave(0.23, 0.72); waves.bass = reedWave(0.38, 0.95);
       noiseBuf = ac.createBuffer(1, ac.sampleRate, ac.sampleRate);
       var d = noiseBuf.getChannelData(0); for (var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
     }
     if (ac.state === "suspended") ac.resume();
+    loadSamples();
     return ac;
   }
-  function freq(s) { return 261.6256 * Math.pow(2, (saPc + s) / 12); } // सा = C4 … B4
+  function freq(s) { return 130.8128 * Math.pow(2, (saPc + s) / 12); } // सा = C3 … B3 (real harmonium middle)
+
+  // ---------- recorded harmonium (CC0 samples, one per key G2–D5) ----------
+  var SMP = [43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,67,68,69,70,71,72,73,74];
+  var SBASE = (data.samples || "audio/harmonium/"), bufs = {}, loading = false, loadedN = 0;
+  var LOOP_A = 1.4, LOOP_B = 4.4, XF = 0.25, START = 0.09;
+  function prepLoop(b) { // equal-power crossfade so the sustain loops without a click
+    var sr = b.sampleRate, a = Math.round(LOOP_A * sr), e = Math.round(LOOP_B * sr), c = Math.round(XF * sr);
+    if (e > b.length) e = b.length - 1;
+    for (var ch = 0; ch < b.numberOfChannels; ch++) {
+      var d = b.getChannelData(ch);
+      for (var i = 0; i < c; i++) {
+        var w = i / c, x = e - c + i, y = a - c + i;
+        d[x] = d[x] * Math.cos(w * Math.PI / 2) + d[y] * Math.sin(w * Math.PI / 2);
+      }
+    }
+    b._a = a / sr; b._b = e / sr; return b;
+  }
+  function loadSamples() {
+    if (loading || !ac || !window.fetch) return; loading = true;
+    var sa = 48 + saPc, order = SMP.slice().sort(function (x, y) { return Math.abs(x - sa - 3) - Math.abs(y - sa - 3); });
+    var st = root.querySelector(".hm-load"); if (st) st.hidden = false;
+    order.forEach(function (m) {
+      fetch(SBASE + "h" + m + ".mp3").then(function (r) { if (!r.ok) throw 0; return r.arrayBuffer(); })
+        .then(function (ab) { return new Promise(function (ok, no) { ac.decodeAudioData(ab, ok, no); }); })
+        .then(function (b) { bufs[m] = prepLoop(b); })
+        .catch(function () {})
+        .then(function () { loadedN++; if (st && loadedN >= SMP.length) st.hidden = true; });
+    });
+  }
+  function nearest(m) {
+    var best = null;
+    SMP.forEach(function (k) { if (bufs[k] && (best === null || Math.abs(k - m) < Math.abs(best - m))) best = k; });
+    return best !== null && Math.abs(best - m) <= 4 ? best : null;
+  }
   function reed(f, level) {
+    var m = Math.round(12 * Math.log(f / 440) / Math.LN2) + 69, k = nearest(m);
+    if (k === null) return synthReed(f, level * 0.9);
+    var t = ac.currentTime, b = bufs[k], src = ac.createBufferSource(), out = ac.createGain();
+    src.buffer = b; src.loop = true; src.loopStart = b._a; src.loopEnd = b._b;
+    src.playbackRate.value = Math.pow(2, (m - k) / 12) * (f / (440 * Math.pow(2, (m - 69) / 12)));
+    out.gain.setValueAtTime(0, t); out.gain.setTargetAtTime(level * 2.2, t, 0.012);
+    src.connect(out); out.connect(dry); src.start(t, START);
+    return { out: out, stop: function () {
+      var n = ac.currentTime;
+      out.gain.cancelScheduledValues(n); out.gain.setValueAtTime(out.gain.value, n);
+      out.gain.setTargetAtTime(0, n, 0.05);
+      try { src.stop(n + 0.4); } catch (e) {}
+    } };
+  }
+  function synthReed(f, level) {
     var t = ac.currentTime, out = ac.createGain();
     out.gain.setValueAtTime(0, t);
     out.gain.setTargetAtTime(level, t, 0.022);           // reed "speaks" quickly but softly
@@ -138,7 +189,7 @@
     '<label class="hm-chk"><input type="checkbox" class="hm-showkeys"' + (showKeys ? " checked" : "") + "> कीबोर्ड अक्षर</label>" +
     "</div>" +
     '<div class="hm-kbd-wrap"><div class="hm-kbd" role="group" aria-label="हारमोनियम की पट्टियाँ"></div></div>' +
-    '<p class="hm-hint">पट्टी पर उँगली या माउस रखें। कंप्यूटर पर <b>A S D F G H J K</b> = सा रे ग म प ध नि सां, ऊपर की लाइन (W E T Y U) = काली पट्टियाँ।</p>' +
+    '<p class="hm-load" hidden>असली हारमोनियम की आवाज़ लोड हो रही है…</p><p class="hm-hint">पट्टी पर उँगली या माउस रखें। कंप्यूटर पर <b>A S D F G H J K</b> = सा रे ग म प ध नि सां, ऊपर की लाइन (W E T Y U) = काली पट्टियाँ।</p>' +
     (songs.length ?
       '<div class="hm-song">' +
       '<div class="hm-bar"><label class="hm-pick">गाना <select class="hm-songsel" aria-label="गाना चुनें">' + songOpts + "</select></label>" +
@@ -212,6 +263,9 @@
   root.querySelector(".hm-showkeys").addEventListener("change", function () {
     showKeys = this.checked; store.keys = showKeys; save(); root.classList.toggle("nokeys", !showKeys);
   });
+
+  // start fetching the recorded sound early (the context stays silent until the first tap)
+  setTimeout(function () { try { audio(); } catch (e) {} }, 600);
 
   // ---------- song player ----------
   if (!songs.length) return;
