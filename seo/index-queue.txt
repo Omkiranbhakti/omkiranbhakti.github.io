@@ -1,5 +1,8 @@
 # Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
+# --- roadmap pages 2026-10-28 (Govardhan 10 Nov, Bhai Dooj 11 Nov) ---
+govardhan-puja-vidhi.html
+bhai-dooj-tilak-vidhi.html
 # --- backlog added 2026-10-18 (all other sitemap pages not yet requested) ---
 # --- darshan guides added 2026-10-26 (Kedarnath closes 11 Nov: request first) ---
 # --- new festival pages added 2026-10-26 (Karwa Chauth 29 Oct, Dhanteras/Diwali early Nov) ---
