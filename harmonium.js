@@ -47,15 +47,35 @@
     "काली 3 (F#)", "सफ़ेद 5 (G)", "काली 4 (G#)", "सफ़ेद 6 (A)", "काली 5 (A#)", "सफ़ेद 7 (B)"];
 
   // ---------- sound: two detuned reeds + a soft bass reed, filtered, with gentle bellows tremolo ----------
-  var ac = null, master = null, voices = {}, drone = null;
+  // Free-reed model: a narrow-pulse reed spectrum (strong, buzzy upper partials), two middle reeds a few
+  // cents apart (the slow "beating" of a real harmonium), a bass reed an octave down, a little air from the
+  // reed slot, and a shared body EQ (nasal formants) with a slow bellows swell. No vibrato, no tremolo.
+  var ac = null, master = null, bus = null, voices = {}, drone = null, waves = {}, noiseBuf = null;
+  function reedWave(duty, tilt) {
+    var N = 48, re = new Float32Array(N), im = new Float32Array(N);
+    for (var n = 1; n < N; n++) im[n] = (Math.abs(Math.sin(Math.PI * n * duty)) + 0.12) / Math.pow(n, tilt);
+    return ac.createPeriodicWave(re, im);
+  }
   function audio() {
     if (!ac) {
       var AC = window.AudioContext || window.webkitAudioContext;
       if (!AC) return null;
       ac = new AC();
       master = ac.createGain(); master.gain.value = vol;
-      var comp = ac.createDynamicsCompressor();
+      bus = ac.createGain(); bus.gain.value = 1;
+      var hp = ac.createBiquadFilter(); hp.type = "highpass"; hp.frequency.value = 70;
+      var f1 = ac.createBiquadFilter(); f1.type = "peaking"; f1.frequency.value = 1150; f1.Q.value = 1.1; f1.gain.value = 5;
+      var f2 = ac.createBiquadFilter(); f2.type = "peaking"; f2.frequency.value = 2700; f2.Q.value = 1.4; f2.gain.value = 3;
+      var lp = ac.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 5200; lp.Q.value = 0.5;
+      var bellows = ac.createGain(); bellows.gain.value = 1;
+      var lfo = ac.createOscillator(), lfoG = ac.createGain();
+      lfo.frequency.value = 0.45; lfoG.gain.value = 0.03; lfo.connect(lfoG); lfoG.connect(bellows.gain); lfo.start();
+      var comp = ac.createDynamicsCompressor(); comp.threshold.value = -14; comp.ratio.value = 3;
+      bus.connect(hp); hp.connect(f1); f1.connect(f2); f2.connect(lp); lp.connect(bellows); bellows.connect(master);
       master.connect(comp); comp.connect(ac.destination);
+      waves.mid = reedWave(0.23, 0.72); waves.bass = reedWave(0.38, 0.95);
+      noiseBuf = ac.createBuffer(1, ac.sampleRate, ac.sampleRate);
+      var d = noiseBuf.getChannelData(0); for (var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
     }
     if (ac.state === "suspended") ac.resume();
     return ac;
@@ -64,29 +84,29 @@
   function reed(f, level) {
     var t = ac.currentTime, out = ac.createGain();
     out.gain.setValueAtTime(0, t);
-    out.gain.linearRampToValueAtTime(level, t + 0.045);
-    var lp = ac.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = Math.min(4200, f * 7); lp.Q.value = 0.6;
-    var trem = ac.createGain(); trem.gain.value = 1;
-    var lfo = ac.createOscillator(), lfoG = ac.createGain();
-    lfo.frequency.value = 5.2; lfoG.gain.value = 0.035; lfo.connect(lfoG); lfoG.connect(trem.gain);
-    var oscs = [["sawtooth", f, 0.5], ["sawtooth", f * 1.0035, 0.38], ["square", f / 2, 0.16]].map(function (o) {
+    out.gain.setTargetAtTime(level, t, 0.022);           // reed "speaks" quickly but softly
+    var srcs = [[waves.mid, f, 0.5], [waves.mid, f * 1.0032, 0.42], [waves.bass, f / 2, 0.3]].map(function (o) {
       var osc = ac.createOscillator(), g = ac.createGain();
-      osc.type = o[0]; osc.frequency.value = o[1]; g.gain.value = o[2];
-      osc.connect(g); g.connect(lp); osc.start(t); return osc;
+      osc.setPeriodicWave(o[0]); osc.frequency.value = o[1]; g.gain.value = o[2];
+      osc.connect(g); g.connect(out); osc.start(t); return osc;
     });
-    lfo.start(t);
-    lp.connect(trem); trem.connect(out); out.connect(master);
+    var air = ac.createBufferSource(); air.buffer = noiseBuf; air.loop = true;
+    var bp = ac.createBiquadFilter(); bp.type = "bandpass"; bp.frequency.value = 2600; bp.Q.value = 0.7;
+    var ag = ac.createGain(); ag.gain.value = 0.05;
+    air.connect(bp); bp.connect(ag); ag.connect(out); air.start(t, Math.random());
+    srcs.push(air);
+    out.connect(bus);
     return { out: out, stop: function () {
       var n = ac.currentTime;
       out.gain.cancelScheduledValues(n); out.gain.setValueAtTime(out.gain.value, n);
-      out.gain.linearRampToValueAtTime(0, n + 0.16);
-      oscs.concat([lfo]).forEach(function (o) { try { o.stop(n + 0.2); } catch (e) {} });
+      out.gain.setTargetAtTime(0, n, 0.03);
+      srcs.forEach(function (o) { try { o.stop(n + 0.25); } catch (e) {} });
     } };
   }
   function noteOn(s) {
     if (!audio()) return;
     if (voices[s]) return;
-    voices[s] = reed(freq(s), 0.22);
+    voices[s] = reed(freq(s), 0.2);
     var k = keyEls[s]; if (k) k.classList.add("down");
     onPlayed(s);
   }
@@ -97,7 +117,7 @@
   function allOff() { Object.keys(voices).forEach(function (s) { noteOff(+s); }); }
   function setDrone(on) {
     if (drone) { drone.forEach(function (v) { v.stop(); }); drone = null; }
-    if (on && audio()) drone = [reed(freq(-12), 0.07), reed(freq(-5), 0.05)];
+    if (on && audio()) drone = [reed(freq(-12), 0.06), reed(freq(-5), 0.045)];
   }
 
   // ---------- UI ----------
