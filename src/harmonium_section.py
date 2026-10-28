@@ -99,7 +99,8 @@ HMV = ver("harmonium.js")
 def _hm_player(items, start=""):
     d = json.loads(_hm_json(items)); d["start"] = start
     blob = json.dumps(d, ensure_ascii=False).replace("</", "<\\/")
-    return ('<div class="hm" id="hm"><noscript><p>हारमोनियम चलाने के लिए ब्राउज़र में JavaScript चालू करें।</p></noscript></div>'
+    return ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap">'
+            '<div class="hm" id="hm"><noscript><p>हारमोनियम चलाने के लिए ब्राउज़र में JavaScript चालू करें।</p></noscript></div>'
             f'<script type="application/json" id="hm-data">{blob}</script>'
             f'<script src="harmonium.js?v={HMV}" defer></script>')
 

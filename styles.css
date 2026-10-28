@@ -1323,4 +1323,32 @@ body.no-dev .line-dev{display:none}
 .sargam-tbl .sw{margin:0 2px}
 [data-theme="dark"] .hm-song{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)}
 [data-theme="dark"] .hm-notes .chip{background:rgba(255,255,255,.06);color:inherit}
+/* nameplate in the logo's style: gold swash serif on black lacquer */
+.hm-badge{display:flex;align-items:center;gap:8px;padding:3px 18px 5px;border-radius:7px;background:linear-gradient(180deg,#1b1310,#050302);
+ box-shadow:inset 0 0 0 2px #c99a3a,inset 0 0 0 4px #1b1310,inset 0 0 0 5px rgba(201,154,58,.6),0 3px 6px rgba(0,0,0,.6);color:#f2c062;text-shadow:none}
+.hm-badge .om{font-style:normal;font-family:"Tiro Devanagari Hindi",serif;font-size:1.25rem;line-height:1;background:linear-gradient(180deg,#ffd27a,#f08a1c 60%,#c2410c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hm-badge .bw{font-family:"Berkshire Swash","Tiro Devanagari Hindi",Georgia,serif;font-size:1.3rem;letter-spacing:.01em;line-height:1.15;
+ background:linear-gradient(180deg,#fff0b8 0,#f6c55a 38%,#e08a1e 62%,#ffd77a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 rgba(0,0,0,.8))}
+/* notes rising from the reed cover */
+.hm-inst{overflow:visible}
+.hm-top{border-radius:10px 10px 0 0}
+.hm-keybed{border-radius:0 0 10px 10px;overflow:hidden}
+.hm-air{position:absolute;left:0;right:0;bottom:14px;height:0;pointer-events:none;z-index:6}
+.hm-fly{position:absolute;bottom:0;display:flex;align-items:center;gap:5px;padding:4px 12px 6px;border-radius:999px;white-space:nowrap;
+ font-family:"Mukta",system-ui,sans-serif;font-weight:700;font-size:1.2rem;color:#3a1c06;
+ background:radial-gradient(circle at 35% 30%,#fffbe8,#ffe2a0 45%,#f5a623);box-shadow:0 0 0 2px rgba(255,255,255,.6),0 0 22px rgba(255,180,60,.85);
+ animation:hm-rise 2s cubic-bezier(.2,.65,.3,1) forwards}
+.hm-fly.blk{background:radial-gradient(circle at 35% 30%,#6b7a90,#2b3340 55%,#0e1116);color:#ffe2a0;box-shadow:0 0 0 2px rgba(255,226,160,.6),0 0 22px rgba(120,150,200,.7)}
+.hm-fly .g{font-style:normal;font-size:1.35rem;line-height:1}
+.hm-fly .wn{margin-left:3px;font-size:.78rem;opacity:.85}
+.hm-fly .wn.only{margin-left:0;font-size:1.1rem;opacity:1}
+@keyframes hm-rise{0%{opacity:0;transform:translate(-50%,16px) scale(.5)}
+ 12%{opacity:1;transform:translate(-50%,-14px) scale(1.08)}
+ 55%{opacity:1;transform:translate(calc(-50% + var(--dx)),-110px) scale(1) rotate(-5deg)}
+ 100%{opacity:0;transform:translate(calc(-50% - var(--dx)),-200px) scale(.8) rotate(6deg)}}
+.hm-puff{position:absolute;bottom:4px;width:10px;height:10px;border-radius:50%;background:rgba(255,246,225,.75);filter:blur(1.5px);opacity:0;animation:hm-puff 1.1s ease-out forwards}
+@keyframes hm-puff{0%{opacity:.9;transform:translate(-50%,0) scale(.4)}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),-80px) scale(2.6)}}
+@media (prefers-reduced-motion:reduce){.hm-fly{animation:hm-fade 1.4s ease forwards}.hm-puff{display:none}}
+@keyframes hm-fade{0%{opacity:0;transform:translate(-50%,-20px)}20%,70%{opacity:1;transform:translate(-50%,-20px)}100%{opacity:0;transform:translate(-50%,-20px)}}
+
 @media (max-width:640px){.hm-kbd{height:200px}.hm-top{padding:8px 24px}.hm-cover{height:40px}.hm-badge{font-size:.85rem}.hm-rail{padding:6px 12px 8px;gap:6px}.rbtn{width:38px;height:38px}.hm-cheek{width:14px}.hm-cheek span{display:none}.hm-tempo input{width:110px}}

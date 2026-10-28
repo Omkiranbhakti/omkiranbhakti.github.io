@@ -188,13 +188,33 @@
     if (voices[s]) return;
     voices[s] = reed(freq(s), 0.2);
     var k = keyEls[s]; if (k) k.classList.add("down");
-    breathe();
+    breathe(); floatNote(s);
     onPlayed(s);
   }
   function noteOff(s) {
     if (voices[s]) { voices[s].stop(); delete voices[s]; }
     var k = keyEls[s]; if (k) k.classList.remove("down");
     breathe();
+  }
+  // a note rises out of the reed cover above the key that was pressed: ♪ + its name
+  var GLYPH = ["♪", "♫", "♩", "♬"], flying = 0;
+  function floatNote(s) {
+    var air = root.querySelector(".hm-air"), k = keyEls[s];
+    if (!air || !k || flying > 14) return;
+    var kr = k.getBoundingClientRect(), ar = air.getBoundingClientRect();
+    var x = Math.max(24, Math.min(ar.width - 24, kr.left + kr.width / 2 - ar.left)), dx = (Math.random() * 50 - 25) + "px";
+    var el = document.createElement("span");
+    el.className = "hm-fly" + (k.classList.contains("blk") ? " blk" : "");
+    el.style.left = x + "px"; el.style.setProperty("--dx", dx);
+    el.innerHTML = '<i class="g">' + GLYPH[Math.floor(Math.random() * 4)] + "</i>" + label(s);
+    air.appendChild(el); flying++;
+    for (var i = 0; i < 3; i++) {
+      var p = document.createElement("i"); p.className = "hm-puff";
+      p.style.left = (x + Math.random() * 30 - 15) + "px"; p.style.setProperty("--dx", (Math.random() * 40 - 20) + "px");
+      p.style.animationDelay = (i * 0.09) + "s"; air.appendChild(p);
+      setTimeout(p.remove.bind(p), 1300);
+    }
+    setTimeout(function () { el.remove(); flying--; }, 2000);
   }
   function breathe() { root.classList.toggle("playing", Object.keys(voices).length > 0 || !!drone); }
   function allOff() { Object.keys(voices).forEach(function (s) { noteOff(+s); }); }
@@ -226,7 +246,7 @@
   root.innerHTML =
     '<div class="hm-inst">' +
     '<i class="screw tl"></i><i class="screw tr"></i><i class="screw bl"></i><i class="screw br"></i>' +
-    '<div class="hm-top wood" aria-hidden="true"><div class="hm-cover"></div><span class="hm-badge">ॐ OmKiran Bhakti</span></div>' +
+    '<div class="hm-top wood" aria-hidden="true"><div class="hm-cover"></div><span class="hm-badge"><i class="om">ॐ</i><span class="bw">OmKiran Bhakti</span></span><div class="hm-air"></div></div>' +
     '<div class="hm-rail wood">' +
     '<button type="button" class="rbtn hm-menu" aria-label="हारमोनियम सेटिंग्स खोलें" aria-expanded="false"><span class="bars"></span></button>' +
     '<button type="button" class="rbtn hm-dronebtn" aria-pressed="false" title="सा-प ड्रोन">सा·प</button>' +
