@@ -25,12 +25,24 @@
     });
     return out;
   }
-  function label(s) { // sargam label with octave + komal/tivra classes
+  var WEST = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+  function west(s) { var m = 48 + saPc + s; return WEST[m % 12] + (Math.floor(m / 12) - 1); }
+  function label(s) { // sargam and/or western name, per the "पट्टी पर नाम" choice
+    var sg = sargamLabel(s);
+    if (names === "west") return '<span class="wn only">' + west(s) + "</span>";
+    if (names === "both") return sg + '<span class="wn">' + west(s) + "</span>";
+    return sg;
+  }
+  function sargamLabel(s) { // sargam label with octave + komal/tivra classes
     var pc = ((s % 12) + 12) % 12, oct = Math.floor(s / 12);
     var cls = (KOMAL[pc] ? " komal" : "") + (TIVRA[pc] ? " tivra" : "") + (oct < 0 ? " low" : oct > 0 ? " high" : "");
     return '<span class="sw' + cls + '">' + NAME[pc] + "</span>";
   }
   function plain(s) {
+    if (names === "west") return west(s);
+    return plainSargam(s) + (names === "both" ? " / " + west(s) : "");
+  }
+  function plainSargam(s) {
     var pc = ((s % 12) + 12) % 12, oct = Math.floor(s / 12);
     return (oct < 0 ? "मंद्र " : oct > 0 ? "तार " : "") + NAME[pc] + (KOMAL[pc] ? " (कोमल)" : TIVRA[pc] ? " (तीव्र)" : "");
   }
@@ -43,6 +55,8 @@
   var vol = typeof store.vol === "number" ? store.vol : 0.5;
   var speed = 100; // % of the song's real tempo
   var showKeys = store.keys !== false;
+  var names = store.names || "sargam";
+  var bassOn = store.bass !== false, highOn = !!store.high, echoOn = store.echo !== false;
   var SCALES = ["सफ़ेद 1 (C)", "काली 1 (C#)", "सफ़ेद 2 (D)", "काली 2 (D#)", "सफ़ेद 3 (E)", "सफ़ेद 4 (F)",
     "काली 3 (F#)", "सफ़ेद 5 (G)", "काली 4 (G#)", "सफ़ेद 6 (A)", "काली 5 (A#)", "सफ़ेद 7 (B)"];
 
@@ -50,7 +64,7 @@
   // Free-reed model: a narrow-pulse reed spectrum (strong, buzzy upper partials), two middle reeds a few
   // cents apart (the slow "beating" of a real harmonium), a bass reed an octave down, a little air from the
   // reed slot, and a shared body EQ (nasal formants) with a slow bellows swell. No vibrato, no tremolo.
-  var ac = null, master = null, bus = null, dry = null, voices = {}, drone = null, waves = {}, noiseBuf = null;
+  var ac = null, master = null, bus = null, dry = null, room = null, roomIn = null, roomWet = null, voices = {}, drone = null, waves = {}, noiseBuf = null;
   function reedWave(duty, tilt) {
     var N = 48, re = new Float32Array(N), im = new Float32Array(N);
     for (var n = 1; n < N; n++) im[n] = (Math.abs(Math.sin(Math.PI * n * duty)) + 0.12) / Math.pow(n, tilt);
@@ -73,6 +87,12 @@
       var comp = ac.createDynamicsCompressor(); comp.threshold.value = -14; comp.ratio.value = 3;
       bus.connect(hp); hp.connect(f1); f1.connect(f2); f2.connect(lp); lp.connect(bellows); bellows.connect(master);
       dry = ac.createGain(); dry.connect(master);
+      // a small Indian room: generated impulse response (no files), mixed under the dry reed
+      room = ac.createConvolver(); roomIn = ac.createGain(); roomWet = ac.createGain();
+      var len = Math.round(ac.sampleRate * 1.5), ir = ac.createBuffer(2, len, ac.sampleRate);
+      for (var c = 0; c < 2; c++) { var dd = ir.getChannelData(c); for (var j = 0; j < len; j++) dd[j] = (Math.random() * 2 - 1) * Math.pow(1 - j / len, 3.2) * (j < 400 ? j / 400 : 1); }
+      room.buffer = ir; roomWet.gain.value = echoOn ? 0.28 : 0;
+      roomIn.connect(room); room.connect(roomWet); roomWet.connect(master);
       master.connect(comp); comp.connect(ac.destination);
       waves.mid = reedWave(0.23, 0.72); waves.bass = reedWave(0.38, 0.95);
       noiseBuf = ac.createBuffer(1, ac.sampleRate, ac.sampleRate);
@@ -117,19 +137,28 @@
     SMP.forEach(function (k) { if (bufs[k] && (best === null || Math.abs(k - m) < Math.abs(best - m))) best = k; });
     return best !== null && Math.abs(best - m) <= 4 ? best : null;
   }
-  function reed(f, level) {
-    var m = Math.round(12 * Math.log(f / 440) / Math.LN2) + 69, k = nearest(m);
-    if (k === null) return synthReed(f, level * 0.9);
-    var t = ac.currentTime, b = bufs[k], src = ac.createBufferSource(), out = ac.createGain();
+  function sampleSrc(m, gain, out, t) { // one looping reed at MIDI note m, or null if no sample is near
+    var k = nearest(m); if (k === null) return null;
+    var b = bufs[k], src = ac.createBufferSource(), g = ac.createGain();
     src.buffer = b; src.loop = true; src.loopStart = b._a; src.loopEnd = b._b;
-    src.playbackRate.value = Math.pow(2, (m - k) / 12) * (f / (440 * Math.pow(2, (m - 69) / 12)));
+    src.playbackRate.value = Math.pow(2, (m - k) / 12);
+    g.gain.value = gain; src.connect(g); g.connect(out); src.start(t, START + Math.random() * 0.02);
+    return src;
+  }
+  function reed(f, level, plain) {
+    var m = Math.round(12 * Math.log(f / 440) / Math.LN2) + 69;
+    if (nearest(m) === null) return synthReed(f, level * 0.9);
+    var t = ac.currentTime, out = ac.createGain(), srcs = [];
     out.gain.setValueAtTime(0, t); out.gain.setTargetAtTime(level * 2.2, t, 0.012);
-    src.connect(out); out.connect(dry); src.start(t, START);
+    srcs.push(sampleSrc(m, 1, out, t));
+    if (!plain && bassOn) srcs.push(sampleSrc(m - 12, 0.55, out, t));   // खरज — the lower reed set
+    if (!plain && highOn) srcs.push(sampleSrc(m + 12, 0.32, out, t));   // ऊँची रीड — octave coupler
+    out.connect(dry); if (room) out.connect(roomIn);
     return { out: out, stop: function () {
       var n = ac.currentTime;
       out.gain.cancelScheduledValues(n); out.gain.setValueAtTime(out.gain.value, n);
       out.gain.setTargetAtTime(0, n, 0.05);
-      try { src.stop(n + 0.4); } catch (e) {}
+      srcs.forEach(function (x) { if (x) try { x.stop(n + 0.4); } catch (e) {} });
     } };
   }
   function synthReed(f, level) {
@@ -171,7 +200,7 @@
   function allOff() { Object.keys(voices).forEach(function (s) { noteOff(+s); }); }
   function setDrone(on) {
     if (drone) { drone.forEach(function (v) { v.stop(); }); drone = null; }
-    if (on && audio()) drone = [reed(freq(-12), 0.06), reed(freq(-5), 0.045)];
+    if (on && audio()) drone = [reed(freq(-12), 0.06, true), reed(freq(-5), 0.045, true)];
     breathe();
   }
 
@@ -194,8 +223,15 @@
     '<div class="hm-stops">' +
     '<label class="plate">सा का सुर <select class="hm-sa" aria-label="सा किस पट्टी पर">' + opts + "</select></label>" +
     '<label class="plate hm-vol">आवाज़ <input type="range" min="0" max="1" step="0.05" value="' + vol + '" aria-label="आवाज़"></label>' +
-    stopKnob("hm-drone", "सा-प ड्रोन", false) + stopKnob("hm-showkeys", "कीबोर्ड अक्षर", showKeys) +
+    '<label class="plate">पट्टी पर नाम <select class="hm-names" aria-label="पट्टी पर कौन से नाम दिखें">' +
+    '<option value="sargam"' + (names === "sargam" ? " selected" : "") + '>सा रे ग (सरगम)</option>' +
+    '<option value="west"' + (names === "west" ? " selected" : "") + '>C D E (अंग्रेज़ी)</option>' +
+    '<option value="both"' + (names === "both" ? " selected" : "") + '>दोनों</option></select></label>' +
+    '<span class="hm-knobs">' +
+    stopKnob("hm-bass", "खरज", bassOn) + stopKnob("hm-high", "ऊँची रीड", highOn) + stopKnob("hm-echo", "गूँज", echoOn) +
+    stopKnob("hm-drone", "सा-प ड्रोन", false) + stopKnob("hm-showkeys", "कीबोर्ड अक्षर", showKeys) + "</span>" +
     "</div>" +
+    '<div class="hm-felt" aria-hidden="true"></div>' +
     '<div class="hm-kbd-wrap"><div class="hm-kbd" role="group" aria-label="हारमोनियम की पट्टियाँ"></div></div>' +
     '<div class="hm-grille" aria-hidden="true"><span class="hm-nameplate">OmKiran Bhakti</span></div>' +
     "</div>" +
@@ -264,13 +300,21 @@
 
   // controls
   root.querySelector(".hm-sa").addEventListener("change", function () {
-    saPc = +this.value; store.sa = saPc; save(); allOff(); drawKeys();
+    saPc = +this.value; store.sa = saPc; save(); allOff(); drawKeys(); if (window._hmRelabel) window._hmRelabel();
     var d = root.querySelector(".hm-drone"); if (d.checked) setDrone(true);
   });
   root.querySelector(".hm-vol input").addEventListener("input", function () {
     vol = +this.value; store.vol = vol; save(); if (master) master.gain.value = vol;
   });
   root.querySelector(".hm-drone").addEventListener("change", function () { setDrone(this.checked); });
+  root.querySelector(".hm-names").addEventListener("change", function () {
+    names = this.value; store.names = names; save(); drawKeys(); if (window._hmRelabel) window._hmRelabel();
+  });
+  root.querySelector(".hm-bass").addEventListener("change", function () { bassOn = this.checked; store.bass = bassOn; save(); });
+  root.querySelector(".hm-high").addEventListener("change", function () { highOn = this.checked; store.high = highOn; save(); });
+  root.querySelector(".hm-echo").addEventListener("change", function () {
+    echoOn = this.checked; store.echo = echoOn; save(); if (roomWet) roomWet.gain.value = echoOn ? 0.28 : 0;
+  });
   root.querySelector(".hm-showkeys").addEventListener("change", function () {
     showKeys = this.checked; store.keys = showKeys; save(); root.classList.toggle("nokeys", !showKeys);
   });
@@ -295,15 +339,19 @@
     if (!song) { status.textContent = "ऊपर से कोई गाना चुनें, या पट्टियों पर खुला बजाएँ।"; return; }
     speed = 100; showSpeed();
     lines = song.lines.map(function (ln) { return { t: ln.t, notes: parse(ln.n) }; });
+    renderLines();
+    cur = { l: 0, i: 0 }; mark();
+    status.textContent = "▶ बजाएँ से धुन सुनें, या ✋ अभ्यास मोड में ख़ुद बजाएँ। किसी पंक्ति पर टैप करके वहाँ से शुरू करें।";
+  }
+  function renderLines() {
     linesEl.innerHTML = lines.map(function (ln, li) {
       return '<li data-l="' + li + '"><p class="hm-lyric">' + ln.t + '</p><p class="hm-notes">' +
         ln.notes.map(function (n, ni) { return '<span class="chip" data-i="' + ni + '">' + label(n.s) + (n.dur > 1 ? '<i class="hold">' + new Array(n.dur).join("–") + "</i>" : "") + "</span>"; }).join("") +
         "</p></li>";
     }).join("");
     chipEls = lines.map(function (ln, li) { return linesEl.querySelectorAll('li[data-l="' + li + '"] .chip'); });
-    cur = { l: 0, i: 0 }; mark();
-    status.textContent = "▶ बजाएँ से धुन सुनें, या ✋ अभ्यास मोड में ख़ुद बजाएँ। किसी पंक्ति पर टैप करके वहाँ से शुरू करें।";
   }
+  window._hmRelabel = function () { if (song) { renderLines(); mark(); } };
   function mark() {
     Array.prototype.forEach.call(linesEl.querySelectorAll(".chip.on, li.on"), function (x) { x.classList.remove("on"); });
     Array.prototype.forEach.call(root.querySelectorAll(".key.next"), function (x) { x.classList.remove("next"); });
