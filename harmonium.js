@@ -217,24 +217,28 @@
   function stopKnob(cls, text, on) {
     return '<label class="stop"><input type="checkbox" class="' + cls + '"' + (on ? " checked" : "") + '><span class="knob" aria-hidden="true"></span><span class="stop-l">' + text + "</span></label>";
   }
+  var view = store.view || (window.innerWidth < 640 ? "flat" : "3d");
   root.innerHTML =
-    '<div class="hm-case">' +
-    '<div class="hm-bellows" aria-hidden="true"><i class="hm-strap"></i></div>' +
-    '<div class="hm-stops">' +
-    '<label class="plate">सा का सुर <select class="hm-sa" aria-label="सा किस पट्टी पर">' + opts + "</select></label>" +
-    '<label class="plate hm-vol">आवाज़ <input type="range" min="0" max="1" step="0.05" value="' + vol + '" aria-label="आवाज़"></label>' +
-    '<label class="plate">पट्टी पर नाम <select class="hm-names" aria-label="पट्टी पर कौन से नाम दिखें">' +
+    '<div class="hm-panel">' +
+    '<label>सा का सुर <select class="hm-sa" aria-label="सा किस पट्टी पर">' + opts + "</select></label>" +
+    '<label>पट्टी पर नाम <select class="hm-names" aria-label="पट्टी पर कौन से नाम दिखें">' +
     '<option value="sargam"' + (names === "sargam" ? " selected" : "") + '>सा रे ग (सरगम)</option>' +
     '<option value="west"' + (names === "west" ? " selected" : "") + '>C D E (अंग्रेज़ी)</option>' +
     '<option value="both"' + (names === "both" ? " selected" : "") + '>दोनों</option></select></label>' +
-    '<span class="hm-knobs">' +
+    '<label class="hm-vol">आवाज़ <input type="range" min="0" max="1" step="0.05" value="' + vol + '" aria-label="आवाज़"></label>' +
+    '<button type="button" class="hm-mini hm-view" aria-pressed="' + (view === "3d") + '">' + (view === "3d" ? "सीधा देखें" : "3D देखें") + "</button>" +
+    "</div>" +
+    '<div class="hm-stage' + (view === "3d" ? " v3d" : "") + '"><div class="hm-inst">' +
+    '<div class="hm-back" aria-hidden="true"><div class="hm-bel"><i class="clip l"></i><i class="clip r"></i><i class="hm-strap"></i></div></div>' +
+    '<div class="hm-lid wood" aria-hidden="true"><span class="slot"></span><span class="slot"></span><span class="hinge l"></span><span class="hinge r"></span></div>' +
+    '<div class="hm-stoprow wood">' +
     stopKnob("hm-bass", "खरज", bassOn) + stopKnob("hm-high", "ऊँची रीड", highOn) + stopKnob("hm-echo", "गूँज", echoOn) +
-    stopKnob("hm-drone", "सा-प ड्रोन", false) + stopKnob("hm-showkeys", "कीबोर्ड अक्षर", showKeys) + "</span>" +
+    stopKnob("hm-drone", "ड्रोन सा-प", false) + stopKnob("hm-showkeys", "कीबोर्ड अक्षर", showKeys) +
     "</div>" +
     '<div class="hm-felt" aria-hidden="true"></div>' +
-    '<div class="hm-kbd-wrap"><div class="hm-kbd" role="group" aria-label="हारमोनियम की पट्टियाँ"></div></div>' +
-    '<div class="hm-grille" aria-hidden="true"><span class="hm-nameplate">OmKiran Bhakti</span></div>' +
-    "</div>" +
+    '<div class="hm-kbd-wrap wood"><div class="hm-kbd" role="group" aria-label="हारमोनियम की पट्टियाँ"></div></div>' +
+    '<div class="hm-front wood" aria-hidden="true"><div class="hm-jaali"><span class="hm-nameplate">OmKiran Bhakti</span></div></div>' +
+    "</div></div>" +
     '<p class="hm-load" hidden>असली हारमोनियम की आवाज़ लोड हो रही है…</p><p class="hm-hint">पट्टी पर उँगली या माउस रखें। कंप्यूटर पर <b>A S D F G H J K</b> = सा रे ग म प ध नि सां, ऊपर की लाइन (W E T Y U) = काली पट्टियाँ।</p>' +
     (songs.length ?
       '<div class="hm-song">' +
@@ -245,6 +249,39 @@
       '<button type="button" class="hm-mini hm-reset">असली रफ़्तार</button>' +
       '<label class="hm-chk"><input type="checkbox" class="hm-loop"> चुनी पंक्ति दोहराएँ</label></div>' +
       '<p class="hm-status" aria-live="polite"></p><ol class="hm-lines"></ol></div>' : "");
+
+  // ---------- procedural textures: teak grain and ivory (drawn once, no image files) ----------
+  (function textures() {
+    try {
+      function noise(w, h, seed) { var g = [], r = seed; for (var i = 0; i < w * h; i++) { r = (r * 16807) % 2147483647; g.push(r / 2147483647); } return g; }
+      function smooth(g, gw, gh, x, y) {
+        var x0 = Math.floor(x) % gw, y0 = Math.floor(y) % gh, x1 = (x0 + 1) % gw, y1 = (y0 + 1) % gh, fx = x - Math.floor(x), fy = y - Math.floor(y);
+        fx = fx * fx * (3 - 2 * fx); fy = fy * fy * (3 - 2 * fy);
+        var a = g[y0 * gw + x0], b = g[y0 * gw + x1], c = g[y1 * gw + x0], d = g[y1 * gw + x1];
+        return a + (b - a) * fx + (c - a) * fy + (a - b - c + d) * fx * fy;
+      }
+      var W = 512, H = 256, cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+      var cx = cv.getContext("2d"), im = cx.createImageData(W, H), g1 = noise(32, 32, 7), g2 = noise(64, 64, 11);
+      for (var y = 0; y < H; y++) for (var x = 0; x < W; x++) {
+        var n = smooth(g1, 32, 32, x / 64, y / 16) * 2 + smooth(g2, 64, 64, x / 9, y / 3) * 0.6;
+        var ring = Math.sin((y / H) * 38 + n * 5.5), fine = smooth(g2, 64, 64, x / 2.5, y / 0.9);
+        var v = 0.55 + 0.22 * ring + 0.12 * (fine - 0.5) + 0.08 * (n - 1);
+        var i = (y * W + x) * 4;
+        im.data[i] = 70 + 95 * v; im.data[i + 1] = 30 + 48 * v; im.data[i + 2] = 12 + 22 * v; im.data[i + 3] = 255;
+      }
+      cx.putImageData(im, 0, 0);
+      root.style.setProperty("--wood", "url(" + cv.toDataURL("image/jpeg", 0.85) + ")");
+      var iv = document.createElement("canvas"); iv.width = iv.height = 128; var ic = iv.getContext("2d"), ii = ic.createImageData(128, 128);
+      for (var k = 0; k < ii.data.length; k += 4) { var q = 236 + Math.random() * 14; ii.data[k] = q + 6; ii.data[k + 1] = q + 1; ii.data[k + 2] = q - 16; ii.data[k + 3] = 255; }
+      ic.putImageData(ii, 0, 0);
+      root.style.setProperty("--ivory-tex", "url(" + iv.toDataURL("image/jpeg", 0.9) + ")");
+    } catch (e) {}
+  })();
+  root.querySelector(".hm-view").addEventListener("click", function () {
+    view = view === "3d" ? "flat" : "3d"; store.view = view; save();
+    root.querySelector(".hm-stage").classList.toggle("v3d", view === "3d");
+    this.textContent = view === "3d" ? "सीधा देखें" : "3D देखें"; this.setAttribute("aria-pressed", view === "3d");
+  });
 
   var kbd = root.querySelector(".hm-kbd"), keyEls = {};
   function drawKeys() {
@@ -264,7 +301,7 @@
     kbd.style.minWidth = (whites * 36) + "px";
     Array.prototype.forEach.call(kbd.querySelectorAll(".key"), function (k) { keyEls[+k.dataset.s] = k; });
     root.classList.toggle("nokeys", !showKeys);
-    var saKey = keyEls[0], wrap = root.querySelector(".hm-kbd-wrap");
+    var saKey = keyEls[0], wrap = root.querySelector(".hm-stage");
     if (saKey && wrap.scrollWidth > wrap.clientWidth) wrap.scrollLeft = saKey.offsetLeft - 40;
   }
   drawKeys();

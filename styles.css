@@ -1203,66 +1203,92 @@ body.no-dev .line-dev{display:none}
 @media (max-width:700px){.kya-pop .kp-p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;font-size:.8rem}}
 
 /* ---------- ऑनलाइन हारमोनियम (harmonium.js) ---------- */
-/* The instrument keeps its own wood-and-ivory look in both themes; the song panel follows the site theme. */
-.hm{--teak:#7a3f1d;--teak-d:#4a230e;--teak-l:#a5602f;--ivory:#fbf4e2;--ivory-d:#e9dcbd;--brass:#d9a441;--brass-d:#8f6418;--saffron:#f59e0b;margin:18px 0}
-.hm-case{position:relative;border-radius:16px 16px 12px 12px;padding:0 10px 10px;
- background:repeating-linear-gradient(92deg,rgba(255,255,255,.05) 0 2px,transparent 2px 9px),
-  repeating-linear-gradient(88deg,rgba(0,0,0,.08) 0 1px,transparent 1px 23px),
-  linear-gradient(180deg,var(--teak-l),var(--teak) 30%,var(--teak-d));
- box-shadow:0 14px 30px rgba(40,18,6,.35),inset 0 1px 0 rgba(255,255,255,.25),inset 0 -3px 0 rgba(0,0,0,.25);border:2px solid var(--teak-d)}
-.hm-case::before,.hm-case::after{content:"";position:absolute;bottom:8px;width:18px;height:18px;border-radius:3px;background:radial-gradient(circle at 35% 35%,#f7d98b,var(--brass) 45%,var(--brass-d));box-shadow:0 1px 2px rgba(0,0,0,.5)}
-.hm-case::before{left:8px}.hm-case::after{right:8px}
-/* bellows (धौंकनी) — pleats breathe while a reed sounds */
-.hm-bellows{position:relative;height:38px;margin:0 -10px 10px;border-radius:14px 14px 0 0;overflow:hidden;
- background:repeating-linear-gradient(180deg,#1f1a17 0 3px,#3d322b 3px 5px,#6e5a4b 5px 6px,#2a221d 6px 9px);
- box-shadow:inset 0 -6px 8px rgba(0,0,0,.55);transform-origin:top;transition:height .35s ease}
-.hm-bellows::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.45),transparent 12%,transparent 88%,rgba(0,0,0,.45))}
-.hm-strap{position:absolute;right:14%;top:6px;width:70px;height:20px;border-radius:10px;background:linear-gradient(#3b2414,#1e1209);box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 1px 3px rgba(0,0,0,.6)}
-.hm-strap::after{content:"";position:absolute;inset:6px 10px;border-radius:4px;background:linear-gradient(90deg,var(--brass-d),var(--brass),var(--brass-d))}
-.hm.playing .hm-bellows{animation:hm-breath 1.6s ease-in-out infinite}
-@keyframes hm-breath{0%,100%{height:38px}50%{height:46px}}
-@media (prefers-reduced-motion:reduce){.hm.playing .hm-bellows{animation:none}}
-/* stops row: brass plates + pull-out knobs */
-.hm-stops{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:8px 10px 10px;margin-bottom:10px;border-radius:10px;
- background:linear-gradient(180deg,rgba(0,0,0,.22),rgba(0,0,0,.08));box-shadow:inset 0 2px 4px rgba(0,0,0,.35);color:#fbecd0;font-size:.92rem}
-.hm-stops .plate{display:flex;align-items:center;gap:6px;padding:4px 8px;border-radius:8px;background:linear-gradient(180deg,#f2cf7c,var(--brass) 55%,#b9852b);color:#3a2408;font-weight:600;box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 2px 3px rgba(0,0,0,.45)}
-.hm-stops select{font:inherit;font-weight:500;padding:4px 6px;border-radius:6px;border:1px solid var(--brass-d);background:var(--ivory);color:#3a2408;max-width:100%}
-.hm-stops input[type=range]{width:100px;accent-color:#7a3f1d}
-.stop{position:relative;display:flex;align-items:center;gap:7px;cursor:pointer;user-select:none}
+/* Camera: the player's seat — looking down over the keys at the stop row, reed lid and the standing bellows.
+   The instrument keeps its wood-and-ivory look in both themes; panels around it follow the site theme. */
+.hm{--teak:#6a3418;--teak-d:#3b1c0b;--ivory:#f8efd9;--brass:#d6a443;--brass-d:#8a5f16;--saffron:#f59e0b;--ebony:#1a120d;margin:18px 0}
+.hm-panel{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-bottom:12px;font-size:.92rem}
+.hm-panel label{display:flex;align-items:center;gap:6px}
+.hm-panel select{font:inherit;padding:5px 8px;border-radius:8px;border:1px solid rgba(0,0,0,.2);background:var(--paper,#fff);color:var(--ink,#222)}
+.hm-panel input[type=range]{width:100px;accent-color:var(--sindoor,#c2410c)}
+.hm-panel .hm-view{margin-left:auto}
+.wood{background-color:var(--teak);background-image:linear-gradient(180deg,rgba(255,230,190,.16),rgba(0,0,0,.18)),var(--wood,linear-gradient(var(--teak),var(--teak-d)));background-size:100% 100%,512px 256px}
+/* stage + 3D camera */
+.hm-stage{overflow-x:auto;-webkit-overflow-scrolling:touch;padding:6px 4px 26px}
+.hm-stage.v3d{padding-top:30px}
+.hm-inst{position:relative;min-width:600px;transform-style:preserve-3d;transition:transform .5s ease;filter:drop-shadow(0 22px 22px rgba(30,12,4,.45))}
+.hm-stage.v3d{perspective:1300px;perspective-origin:50% -30%}
+.hm-stage.v3d .hm-inst{transform:rotateX(30deg);transform-origin:50% 100%;margin-top:-10px}
+@media (prefers-reduced-motion:reduce){.hm-inst{transition:none}}
+/* bellows: a leather-and-card pleated box standing at the back, facing the player */
+.hm-back{position:relative;height:40px;transform-style:preserve-3d}
+.hm-bel{position:absolute;left:3%;right:3%;bottom:0;height:120px;border-radius:6px 6px 0 0;
+ background:linear-gradient(90deg,rgba(0,0,0,.6),transparent 6%,transparent 94%,rgba(0,0,0,.6)),
+  repeating-linear-gradient(180deg,#120c08 0 2px,#3a2a1f 2px 5px,#7a6250 5px 6px,#2b1f17 6px 9px,#0e0906 9px 10px);
+ box-shadow:inset 0 3px 0 #5a3a22,inset 0 -2px 0 #000}
+.hm-stage:not(.v3d) .hm-bel{position:relative;left:auto;right:auto;height:40px;margin:0 3%}
+.hm-stage:not(.v3d) .hm-back{height:auto}
+.hm-stage.v3d .hm-bel{transform-origin:50% 100%;transform:rotateX(-62deg)}
+.hm.playing .hm-bel{animation:hm-pump 1.5s ease-in-out infinite}
+@keyframes hm-pump{0%,100%{height:120px}50%{height:138px}}
+.hm.playing .hm-stage:not(.v3d) .hm-bel{animation:hm-pump2 1.5s ease-in-out infinite}
+@keyframes hm-pump2{0%,100%{height:40px}50%{height:48px}}
+@media (prefers-reduced-motion:reduce){.hm.playing .hm-bel{animation:none!important}}
+.hm-bel .clip{position:absolute;top:8px;width:16px;height:70%;border-radius:3px;background:linear-gradient(90deg,var(--brass-d),var(--brass),var(--brass-d))}
+.hm-bel .clip.l{left:10px}.hm-bel .clip.r{right:10px}
+.hm-strap{position:absolute;left:50%;top:50%;width:90px;height:22px;margin:-11px 0 0 -45px;border-radius:11px;background:linear-gradient(#4a2c16,#21130a);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 2px 4px rgba(0,0,0,.6)}
+.hm-strap::after{content:"";position:absolute;inset:7px 14px;border-radius:4px;background:linear-gradient(90deg,var(--brass-d),var(--brass),var(--brass-d))}
+/* reed lid with two slots (reed-board openings) */
+.hm-lid{position:relative;height:74px;border-radius:10px 10px 0 0;display:flex;gap:4%;padding:14px 7%;box-sizing:border-box;
+ box-shadow:inset 0 2px 0 rgba(255,235,200,.35),inset 0 -2px 0 rgba(0,0,0,.4)}
+.hm-lid .slot{flex:1;border-radius:6px;background:radial-gradient(circle,#e3b35a 1.4px,transparent 1.8px) 0 0/7px 7px,linear-gradient(180deg,#0d0805,#2a1a10);
+ box-shadow:inset 0 3px 5px rgba(0,0,0,.9),0 1px 0 rgba(255,230,190,.25)}
+.hm-lid .hinge{position:absolute;top:30px;width:22px;height:12px;border-radius:2px;background:linear-gradient(180deg,#f0cf7f,var(--brass) 50%,var(--brass-d))}
+.hm-lid .hinge.l{left:2%}.hm-lid .hinge.r{right:2%}
+/* stop row: ebony knobs with ivory caps that pull out (translateZ in 3D) */
+.hm-stoprow{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 3%;padding:8px 4% 10px;border-top:2px solid rgba(0,0,0,.35);transform-style:preserve-3d;
+ box-shadow:inset 0 2px 0 rgba(255,235,200,.2)}
+.stop{position:relative;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;user-select:none;transform-style:preserve-3d}
 .stop input{position:absolute;opacity:0;width:1px;height:1px}
-.stop .knob{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 38% 32%,#fffaf0,var(--ivory) 40%,var(--ivory-d) 70%,#b9a77f);
- box-shadow:0 0 0 3px var(--teak-d),0 2px 3px rgba(0,0,0,.6);transition:transform .15s,box-shadow .15s}
-.stop input:checked+.knob{transform:translateY(-3px) scale(1.06);box-shadow:0 0 0 3px var(--saffron),0 6px 8px rgba(0,0,0,.55)}
+.stop .knob{width:30px;height:30px;border-radius:50%;
+ background:radial-gradient(circle at 50% 50%,var(--ivory) 0 7px,#c8b48a 8px,transparent 9px),radial-gradient(circle at 35% 30%,#5a4030,var(--ebony) 60%,#000);
+ box-shadow:0 3px 0 #000,0 5px 6px rgba(0,0,0,.6);transition:transform .15s,box-shadow .15s}
+.stop input:checked+.knob{transform:translateY(-4px);box-shadow:0 7px 0 #0a0603,0 0 0 2px var(--saffron),0 10px 10px rgba(0,0,0,.55)}
+.hm-stage.v3d .stop input:checked+.knob{transform:translateZ(10px) translateY(-3px)}
 .stop input:focus-visible+.knob{outline:3px solid #fff;outline-offset:3px}
-.stop-l{font-weight:500}
-/* keyboard bed */
-.hm-kbd-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:8px;padding:6px 6px 10px;background:linear-gradient(180deg,#1b0e06,#2d170a);box-shadow:inset 0 4px 10px rgba(0,0,0,.8)}
-.hm-kbd{position:relative;display:flex;height:190px;touch-action:none;user-select:none;-webkit-user-select:none}
-.hm-kbd .key{position:relative;border:0;padding:0 0 12px;margin:0;font:inherit;cursor:pointer;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:3px;-webkit-tap-highlight-color:transparent;transition:transform .05s,box-shadow .05s,background .05s}
-.hm-kbd .wht{flex:none;height:100%;box-sizing:border-box;border-right:2px solid #1b0e06;border-radius:0 0 7px 7px;color:#4a2d14;font-size:1.02rem;
- background:linear-gradient(180deg,#e8dcc0 0,var(--ivory) 10%,#fffdf6 70%,var(--ivory-d));
- box-shadow:inset 0 -6px 0 #d9c9a3,inset -1px 0 0 rgba(0,0,0,.08),0 3px 0 #8b7a58,0 5px 6px rgba(0,0,0,.6)}
-.hm-kbd .blk{position:absolute;top:0;height:60%;z-index:2;border-radius:0 0 5px 5px;color:#f3d9a8;font-size:.8rem;padding-bottom:8px;
- background:linear-gradient(90deg,#000,#3a3a3a 18%,#1a1a1a 50%,#2c2c2c 82%,#000);
- box-shadow:inset 0 -5px 0 #0a0a0a,inset 0 2px 0 rgba(255,255,255,.12),0 4px 5px rgba(0,0,0,.7)}
-.hm-kbd .wht.sa{background:linear-gradient(180deg,#eedcae 0,#fff2cf 12%,#ffecbc 70%,#f1d48a)}
-.hm-kbd .key.next{box-shadow:inset 0 -6px 0 var(--saffron),0 0 0 2px var(--saffron),0 5px 10px rgba(245,158,11,.55)}
-.hm-kbd .wht.down{transform:translateY(3px);background:linear-gradient(180deg,#e2cfa4,#f6e3b8 60%,#e9cf93);box-shadow:inset 0 -3px 0 #cdb27c,0 0 0 #8b7a58,0 1px 2px rgba(0,0,0,.6)}
-.hm-kbd .blk.down{transform:translateY(2px);background:linear-gradient(90deg,#000,#5a3a12 30%,#3a240b 70%,#000);box-shadow:inset 0 -2px 0 #000,0 1px 2px rgba(0,0,0,.7)}
+.stop-l{font-size:.72rem;font-weight:600;padding:1px 7px;border-radius:3px;color:#3a2408;background:linear-gradient(180deg,#f2d385,var(--brass) 60%,#b07f28);box-shadow:0 1px 2px rgba(0,0,0,.5);white-space:nowrap}
+/* felt + keys */
+.hm-felt{height:8px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 3px),linear-gradient(180deg,#9a1527,#5e0a16);box-shadow:inset 0 2px 2px rgba(0,0,0,.4)}
+.hm-kbd-wrap{padding:0 10px 8px;box-shadow:inset 0 3px 6px rgba(0,0,0,.6)}
+.hm-kbd{position:relative;display:flex;height:200px;touch-action:none;user-select:none;-webkit-user-select:none;background:#120a05;padding-top:2px}
+.hm-kbd .key{position:relative;border:0;padding:0 0 12px;margin:0;font:inherit;cursor:pointer;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:3px;-webkit-tap-highlight-color:transparent;transition:transform .05s,box-shadow .05s,filter .05s}
+.hm-kbd .wht{flex:none;height:100%;box-sizing:border-box;border-right:1.5px solid #2a1a0e;border-radius:0 0 6px 6px;color:#4a2d14;font-size:1.02rem;
+ background:linear-gradient(180deg,rgba(0,0,0,.18),transparent 8%,transparent 80%,rgba(120,90,40,.18)),var(--ivory-tex,var(--ivory)) var(--ivory);
+ box-shadow:inset 0 -7px 0 #d8c69e,inset 1px 0 0 rgba(255,255,255,.7),0 4px 0 #8a7650,0 6px 6px rgba(0,0,0,.65)}
+.hm-kbd .blk{position:absolute;top:0;height:60%;z-index:2;border-radius:0 0 4px 4px;color:#f3d9a8;font-size:.8rem;padding-bottom:8px;
+ background:linear-gradient(180deg,#000,transparent 10%),linear-gradient(90deg,#000,#3d3632 16%,#1b1714 50%,#2e2825 84%,#000);
+ box-shadow:inset 0 -6px 0 #0b0806,inset 0 2px 0 rgba(255,255,255,.1),0 4px 5px rgba(0,0,0,.75)}
+.hm-kbd .wht.sa{background:linear-gradient(180deg,rgba(0,0,0,.18),transparent 8%),linear-gradient(180deg,#fff0c8,#f7dc98)}
+.hm-kbd .key.next{box-shadow:inset 0 -7px 0 var(--saffron),0 0 0 2px var(--saffron),0 6px 12px rgba(245,158,11,.6)}
+.hm-kbd .wht.down{transform:translateY(3px);filter:brightness(.92);box-shadow:inset 0 -3px 0 #c8b07c,0 1px 0 #8a7650,0 1px 2px rgba(0,0,0,.6)}
+.hm-kbd .blk.down{transform:translateY(2px);filter:brightness(1.4) sepia(.6);box-shadow:inset 0 -2px 0 #000,0 1px 2px rgba(0,0,0,.7)}
 .hm-kbd .kk{font-style:normal;font-size:.62rem;opacity:.5}
 .hm.nokeys .kk{display:none}
-/* front jaali with brass name plate */
-.hm-grille{display:flex;justify-content:center;align-items:center;height:46px;margin-top:10px;border-radius:8px;
- background:radial-gradient(circle,#1a0d05 2.2px,transparent 2.8px) 0 0/11px 11px,radial-gradient(circle,#1a0d05 2.2px,transparent 2.8px) 5.5px 5.5px/11px 11px,linear-gradient(180deg,var(--teak),var(--teak-d));
- box-shadow:inset 0 2px 5px rgba(0,0,0,.5)}
-.hm-nameplate{padding:3px 16px;border-radius:6px;font-family:"Tiro Devanagari Hindi",serif;font-size:.95rem;letter-spacing:.06em;color:#3a2408;background:linear-gradient(180deg,#f7dc93,var(--brass) 55%,#a87725);box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 2px 4px rgba(0,0,0,.6)}
-/* labels on keys */
+.hm-kbd .key .wn{display:block;font-family:"Mukta",system-ui,sans-serif;font-size:.68rem;font-weight:600;opacity:.7}
+.hm-kbd .key .wn.only{font-size:.95rem;opacity:1}
+.hm-kbd .blk .wn{font-size:.6rem}.hm-kbd .blk .wn.only{font-size:.72rem}
+/* front panel: folds down toward the player in 3D */
+.hm-front{height:52px;border-radius:0 0 10px 10px;padding:8px 12%;box-sizing:border-box;box-shadow:inset 0 3px 4px rgba(0,0,0,.45)}
+.hm-stage.v3d .hm-front{transform-origin:50% 0;transform:rotateX(-62deg)}
+.hm-jaali{height:100%;display:flex;align-items:center;justify-content:center;border-radius:6px;
+ background:radial-gradient(circle,#140904 2px,transparent 2.6px) 0 0/10px 10px,radial-gradient(circle,#140904 2px,transparent 2.6px) 5px 5px/10px 10px;box-shadow:inset 0 0 0 2px rgba(214,164,67,.5)}
+.hm-nameplate{padding:2px 18px;border-radius:5px;font-family:"Tiro Devanagari Hindi",serif;font-size:.95rem;letter-spacing:.1em;color:#3a2408;background:linear-gradient(180deg,#f7dc93,var(--brass) 55%,#a87725);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 2px 4px rgba(0,0,0,.6)}
+/* labels on keys and chips */
 .sw{position:relative;display:inline-block;line-height:1.1}
 .sw.komal{text-decoration:underline;text-underline-offset:3px}
 .sw.tivra{text-decoration:overline}
 .sw.low::after,.sw.high::before{content:"";position:absolute;left:50%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:currentColor}
 .sw.low::after{bottom:-5px}.sw.high::before{top:-4px}
-.hm-hint,.hm-load{font-size:.85rem;opacity:.8;margin:10px 2px 0}
+.hm-hint,.hm-load{font-size:.85rem;opacity:.8;margin:4px 2px 0}
 /* song panel — follows the site theme */
 .hm-song{margin-top:14px;padding:14px;border-radius:14px;background:var(--paper-2,#fbf3e4);border:1px solid rgba(122,63,29,.18)}
 .hm-bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:10px;font-size:.95rem}
@@ -1276,7 +1302,7 @@ body.no-dev .line-dev{display:none}
 .hm-btn.hm-practice{background:var(--night,#1c2350)}
 .hm-btn.on{outline:3px solid var(--saffron)}
 .hm-btn:disabled{opacity:.4;cursor:default}
-.hm-mini{font:inherit;font-size:.85rem;border:1px solid rgba(0,0,0,.2);border-radius:999px;padding:4px 10px;background:var(--paper,#fff);color:var(--ink,#222);cursor:pointer}
+.hm-mini{font:inherit;font-size:.85rem;border:1px solid rgba(0,0,0,.2);border-radius:999px;padding:4px 12px;background:var(--paper,#fff);color:var(--ink,#222);cursor:pointer}
 .hm-status{min-height:1.5em;font-weight:500;margin:4px 2px 10px}
 .hm-lines{list-style:none;margin:0;padding:0;max-height:420px;overflow-y:auto}
 .hm-lines li{padding:8px 10px;border-radius:10px;cursor:pointer}
@@ -1285,30 +1311,11 @@ body.no-dev .line-dev{display:none}
 .hm-notes{margin:0;display:flex;flex-wrap:wrap;gap:4px 6px}
 .hm-notes .chip{display:inline-flex;align-items:center;padding:3px 7px 6px;border-radius:7px;background:var(--paper,#fff);border:1px solid rgba(0,0,0,.12);font-size:.95rem}
 .hm-notes .chip.on{background:var(--saffron);color:#2a1606;border-color:transparent}
+.hm-notes .chip .wn{margin-left:4px;font-size:.75rem;opacity:.7}
+.hm-notes .chip .wn.only{margin-left:0;font-size:.9rem;opacity:1}
 .hm-notes .hold{font-style:normal;opacity:.5;margin-left:2px}
 .sargam-tbl td:last-child{font-family:"Mukta",sans-serif;letter-spacing:.02em}
 .sargam-tbl .sw{margin:0 2px}
 [data-theme="dark"] .hm-song{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)}
 [data-theme="dark"] .hm-notes .chip{background:rgba(255,255,255,.06);color:inherit}
-/* more instrument detail: maroon felt above the keys, deeper bellows, wood sheen, base plank, western names */
-.hm-case{margin-bottom:14px}
-.hm-case>.hm-sheen{display:none}
-.hm-case{background-blend-mode:normal}
-.hm-case:not(.x){box-shadow:0 18px 0 -6px var(--teak-d),0 22px 30px rgba(40,18,6,.45),inset 0 1px 0 rgba(255,255,255,.25),inset 0 -3px 0 rgba(0,0,0,.25),inset 0 40px 60px -40px rgba(255,220,170,.25)}
-.hm-bellows{height:48px;background:
- linear-gradient(90deg,rgba(0,0,0,.55),transparent 10%,transparent 90%,rgba(0,0,0,.55)),
- repeating-linear-gradient(180deg,#171210 0 4px,#4a3b30 4px 6px,#8a725e 6px 7px,#2a221d 7px 11px);background-size:100% 100%,100% 11px}
-.hm.playing .hm-bellows{animation:hm-breath 1.4s ease-in-out infinite}
-@keyframes hm-breath{0%,100%{height:48px;background-size:100% 100%,100% 11px}50%{height:58px;background-size:100% 100%,100% 13px}}
-.hm-felt{height:9px;margin:0 2px -2px;border-radius:3px 3px 0 0;position:relative;z-index:1;
- background:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 1px,transparent 1px 3px),linear-gradient(180deg,#a3172a,#6d0c1a 70%,#4a0711);box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
-.hm-knobs{display:flex;flex-wrap:wrap;gap:8px 14px}
-.hm-stops .plate select{font-size:.9rem}
-.hm-kbd .key .wn{display:block;font-family:"Mukta",system-ui,sans-serif;font-size:.68rem;font-weight:600;opacity:.7;letter-spacing:.02em}
-.hm-kbd .key .wn.only{font-size:.95rem;opacity:1}
-.hm-kbd .blk .wn{font-size:.6rem}.hm-kbd .blk .wn.only{font-size:.72rem}
-.hm-notes .chip .wn{margin-left:4px;font-size:.75rem;opacity:.7}
-.hm-notes .chip .wn.only{margin-left:0;font-size:.9rem;opacity:1}
-.hm-nameplate{font-size:1rem;padding:4px 20px;letter-spacing:.1em;text-shadow:0 1px 0 rgba(255,255,255,.4)}
-
-@media (max-width:520px){.hm-case{padding:0 6px 8px}.hm-kbd{height:160px}.hm-stops{gap:8px 10px;font-size:.85rem}.hm-stops input[type=range]{width:80px}.hm-grille{height:36px}.hm-tempo input{width:110px}}
+@media (max-width:520px){.hm-kbd{height:165px}.hm-lid{height:56px}.stop .knob{width:26px;height:26px}.stop-l{font-size:.66rem}.hm-panel input[type=range]{width:80px}.hm-tempo input{width:110px}}
