@@ -84,7 +84,6 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [ॐ जय लक्ष्मी माता — harmonium notes](https://omkiranbhakti.com/om-jai-lakshmi-mata-harmonium-notes.html): sargam notes of Om Jai Lakshmi Mata for harmonium, with a player and practice mode
 - [जय गणेश जय गणेश देवा — harmonium notes](https://omkiranbhakti.com/jai-ganesh-deva-harmonium-notes.html): sargam notes of Jai Ganesh Deva for harmonium, with a player and practice mode
 - [आरती कुंजबिहारी की — harmonium notes](https://omkiranbhakti.com/aarti-kunj-bihari-ki-harmonium-notes.html): sargam notes of Aarti Kunj Bihari Ki for harmonium, with a player and practice mode
-- [हनुमान चालीसा — harmonium notes](https://omkiranbhakti.com/hanuman-chalisa-harmonium-notes.html): sargam notes of Hanuman Chalisa for harmonium, with a player and practice mode
 - [रघुपति राघव राजाराम — harmonium notes](https://omkiranbhakti.com/raghupati-raghav-raja-ram-harmonium-notes.html): sargam notes of Raghupati Raghav Raja Ram for harmonium, with a player and practice mode
 
 ## Daily tools (updated every day)

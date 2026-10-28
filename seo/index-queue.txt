@@ -6,7 +6,6 @@
 harmonium.html
 harmonium-sikhen.html
 om-jai-jagdish-hare-harmonium-notes.html
-hanuman-chalisa-harmonium-notes.html
 om-jai-shiv-omkara-harmonium-notes.html
 jai-ambe-gauri-harmonium-notes.html
 om-jai-lakshmi-mata-harmonium-notes.html
