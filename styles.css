@@ -1201,3 +1201,154 @@ body.no-dev .line-dev{display:none}
 @media (prefers-reduced-motion:reduce){.kya-pop.kp-in{animation:none}}
 @media (max-width:700px){.kya-pop .kp-p,.kya-pop .kp-s,.kya-pop .kp-dots{display:none}.kya-pop .kp-i{width:2.2rem;height:2.2rem;font-size:1.15rem}.kya-pop .kp-k{margin-bottom:.35rem}.kya-pop .kp-nav{margin-top:.3rem;justify-content:flex-end}.kya-pop .kp-t{font-size:.95rem;padding-right:1.4rem}}
 @media (max-width:700px){.kya-pop .kp-p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;font-size:.8rem}}
+
+/* ---------- ऑनलाइन हारमोनियम (harmonium.js) ---------- */
+/* Front-on instrument: honey-teak case, perforated reed cover, control rail, red felt, glossy keys.
+   The instrument keeps its own look in both themes; the song panel follows the site theme. */
+.hm{--honey:#b8661e;--honey-d:#7a3c0c;--ivory:#f7f3ea;--cream:#ece2c4;--brass:#d6a443;--brass-d:#8a5f16;--saffron:#f59e0b;margin:18px 0}
+.wood{background-color:var(--honey);background-image:linear-gradient(180deg,rgba(255,236,200,.18),rgba(60,20,0,.16)),var(--wood,linear-gradient(var(--honey),var(--honey-d)));background-size:100% 100%,512px 256px}
+.hm-inst{position:relative;border-radius:10px;overflow:hidden;background:var(--honey-d);
+ box-shadow:0 0 0 3px #5a2a08,0 18px 30px rgba(50,20,4,.45),inset 0 0 0 1px rgba(255,220,170,.25)}
+.screw{position:absolute;z-index:5;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#c9ccd0 45%,#7d8186);box-shadow:0 1px 2px rgba(0,0,0,.6)}
+.screw::after{content:"";position:absolute;left:2px;right:2px;top:6px;height:2px;background:#555;transform:rotate(35deg)}
+.screw.tl{left:8px;top:8px}.screw.tr{right:8px;top:8px}.screw.bl{left:8px;bottom:8px}.screw.br{right:8px;bottom:8px}
+/* top board with our own perforated cover: large and small holes in a lattice */
+.hm-top{position:relative;padding:12px 30px 10px;border-bottom:3px solid rgba(60,22,2,.55)}
+.hm-cover{height:62px;border-radius:4px;box-shadow:inset 0 0 0 2px rgba(60,22,2,.55),inset 0 2px 4px rgba(0,0,0,.35),0 1px 0 rgba(255,230,190,.35);
+ background:radial-gradient(circle,#2a1204 4px,transparent 4.6px) 0 0/30px 30px,
+  radial-gradient(circle,#2a1204 2px,transparent 2.5px) 15px 15px/30px 30px,
+  radial-gradient(circle,rgba(255,225,170,.35) 4px,transparent 4.6px) 0 1px/30px 30px;background-position:8px 8px,8px 8px,8px 9px}
+.hm-badge{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:4px 18px;border-radius:5px;font-family:"Tiro Devanagari Hindi",serif;font-size:1rem;letter-spacing:.06em;color:#3a2408;white-space:nowrap;
+ background:linear-gradient(180deg,#f7dc93,var(--brass) 55%,#a87725);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 2px 4px rgba(0,0,0,.55)}
+/* control rail with round wooden buttons and the octave navigator */
+.hm-rail{display:flex;align-items:center;gap:10px;padding:8px 30px 10px;border-bottom:2px solid rgba(60,22,2,.5)}
+.rbtn{flex:none;width:44px;height:44px;border-radius:50%;border:0;cursor:pointer;font:600 1.25rem/1 "Mukta",system-ui,sans-serif;color:#3a1c06;display:inline-flex;align-items:center;justify-content:center;
+ background:radial-gradient(circle at 40% 35%,rgba(255,236,200,.55),transparent 60%),var(--wood,#c47a2c) center/300px 150px,#c47a2c;
+ box-shadow:inset 0 0 0 3px rgba(60,22,2,.45),inset 0 -3px 4px rgba(0,0,0,.25),0 2px 3px rgba(0,0,0,.5)}
+.rbtn:active{transform:translateY(1px);box-shadow:inset 0 0 0 3px rgba(60,22,2,.55),inset 0 2px 4px rgba(0,0,0,.4)}
+.rbtn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.rbtn[aria-pressed=true]{box-shadow:inset 0 0 0 3px var(--saffron),0 0 10px rgba(245,158,11,.7)}
+.rbtn.sm{width:34px;height:34px;font-size:1.1rem}
+.hm-dronebtn{width:auto;padding:0 12px;border-radius:22px;font-size:.9rem}
+.bars,.bars::before,.bars::after{display:block;width:18px;height:2.5px;border-radius:2px;background:#3a1c06;position:relative}
+.bars::before,.bars::after{content:"";position:absolute;left:0}.bars::before{top:-6px}.bars::after{top:6px}
+.hm-nav{flex:1;min-width:120px;position:relative;padding-bottom:16px}
+.hm-navr{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:3px;background:#2a1204;box-shadow:0 1px 0 rgba(255,230,190,.35);margin:0}
+.hm-navr::-webkit-slider-thumb{-webkit-appearance:none;width:54px;height:30px;border-radius:15px;background:radial-gradient(circle at 40% 35%,rgba(255,236,200,.6),transparent 60%),#c47a2c;box-shadow:inset 0 0 0 2px rgba(60,22,2,.5),0 2px 3px rgba(0,0,0,.5);cursor:grab}
+.hm-navr::-moz-range-thumb{width:54px;height:30px;border-radius:15px;border:0;background:#c47a2c;box-shadow:inset 0 0 0 2px rgba(60,22,2,.5),0 2px 3px rgba(0,0,0,.5);cursor:grab}
+.hm-navr:disabled{opacity:.5}
+.hm-navnums{position:absolute;left:0;right:0;bottom:0;height:14px;font-size:.72rem;font-weight:600;color:#3a1c06}
+.hm-navnums span{position:absolute;transform:translateX(-10%)}
+/* felt, cheeks and keys */
+.hm-felt{height:9px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 3px),linear-gradient(180deg,#b31d2c,#7d0f1b);box-shadow:inset 0 -2px 3px rgba(0,0,0,.4)}
+.hm-keybed{display:flex;background:#1a0c04}
+.hm-cheek{flex:none;width:30px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,rgba(0,0,0,.12),transparent 30%,transparent 70%,rgba(0,0,0,.12)),var(--cream);box-shadow:inset 0 0 0 1px rgba(90,60,20,.3)}
+.hm-cheek span{writing-mode:vertical-rl;font-size:.7rem;letter-spacing:.2em;color:#6a4a20;opacity:.7}
+.hm-kbd-wrap{flex:1;min-width:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.hm-kbd-wrap::-webkit-scrollbar{display:none}
+.hm-kbd{position:relative;display:flex;height:260px;touch-action:pan-x;user-select:none;-webkit-user-select:none}
+.hm-kbd .key{position:relative;border:0;padding:0 0 14px;margin:0;font:inherit;cursor:pointer;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:3px;-webkit-tap-highlight-color:transparent;transition:transform .05s,filter .05s,box-shadow .05s}
+.hm-kbd .wht{flex:none;height:100%;box-sizing:border-box;border-right:1.5px solid #3b3127;color:#3c2f22;font-size:1.05rem;
+ background:linear-gradient(180deg,rgba(0,0,0,.22) 0,transparent 5%,transparent 85%,rgba(0,0,0,.07)),var(--ivory);
+ box-shadow:inset 1px 0 0 #fff,inset 0 -5px 0 #ddd6c5}
+.hm-kbd .blk{position:absolute;top:0;height:62%;z-index:2;border-radius:0 0 14px 14px;color:#e8eef6;font-size:.82rem;padding-bottom:16px;
+ background:linear-gradient(90deg,rgba(0,0,0,.6),transparent 18%,transparent 82%,rgba(0,0,0,.6)),
+  linear-gradient(180deg,#000 0,#121417 48%,#3f4a5a 74%,#8b9db3 86%,#2b3340 96%,#0b0d10 100%);
+ box-shadow:0 4px 6px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.08)}
+.hm-kbd .wht.sa{background:linear-gradient(180deg,rgba(0,0,0,.22) 0,transparent 5%),linear-gradient(180deg,#fff6dd,#fbe6b2)}
+.hm-kbd .key.next{box-shadow:inset 0 -6px 0 var(--saffron),inset 0 0 0 2px var(--saffron)}
+.hm-kbd .blk.next{box-shadow:0 0 0 2px var(--saffron),0 4px 12px rgba(245,158,11,.7)}
+.hm-kbd .wht.down{background:linear-gradient(180deg,rgba(0,0,0,.32) 0,transparent 9%),linear-gradient(180deg,#f1e4c4,#e9d5a5)}
+.hm-kbd .blk.down{transform:translateY(2px);filter:brightness(1.5) sepia(.5)}
+.hm-kbd .kk{font-style:normal;font-size:.62rem;opacity:.5}
+.hm.nokeys .kk{display:none}
+.hm-kbd .key .wn{display:block;font-family:"Mukta",system-ui,sans-serif;font-size:.72rem;font-weight:600;opacity:.75}
+.hm-kbd .key .wn.only{font-size:1.05rem;opacity:1}
+.hm-kbd .blk .wn{font-size:.62rem}.hm-kbd .blk .wn.only{font-size:.8rem}
+/* settings drawer */
+.hm-drawer{position:absolute;z-index:10;top:0;left:0;bottom:0;width:min(330px,88%);overflow-y:auto;padding:14px 16px;box-sizing:border-box;color:#2e1604;
+ box-shadow:4px 0 18px rgba(0,0,0,.55),inset -2px 0 0 rgba(60,22,2,.5)}
+.dr-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.dr-head b{font-family:"Tiro Devanagari Hindi",serif;font-size:1.35rem;font-weight:400;letter-spacing:.03em}
+.dr-row{display:flex;flex-direction:column;gap:6px;padding:10px 0;border-top:1px solid rgba(60,22,2,.35);font-weight:600;font-size:.9rem}
+.dr-row input[type=range]{width:100%;accent-color:#5a2a08}
+.dr-scale{display:flex;align-items:center;gap:8px}
+.dr-scale select{flex:1;min-width:0;font:inherit;font-weight:500;padding:6px;border-radius:8px;border:1px solid rgba(60,22,2,.5);background:var(--ivory);color:#2e1604}
+.seg{display:flex;border-radius:999px;overflow:hidden;box-shadow:inset 0 0 0 2px rgba(60,22,2,.5)}
+.seg button{flex:1;border:0;padding:7px 8px;font:inherit;font-weight:600;background:transparent;color:#2e1604;cursor:pointer}
+.seg button[aria-pressed=true]{background:#3a1c06;color:#fbe7c0}
+.dr-stops{display:flex;flex-wrap:wrap;gap:12px 14px}
+.stop{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;user-select:none;font-weight:600}
+.stop input{position:absolute;opacity:0;width:1px;height:1px}
+.stop .knob{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle,var(--ivory) 0 7px,#c8b48a 8px,transparent 9px),radial-gradient(circle at 35% 30%,#5a4030,#1a120d 60%,#000);box-shadow:0 3px 0 #000,0 5px 6px rgba(0,0,0,.5);transition:transform .15s,box-shadow .15s}
+.stop input:checked+.knob{transform:translateY(-4px);box-shadow:0 7px 0 #0a0603,0 0 0 2px var(--saffron),0 10px 10px rgba(0,0,0,.45)}
+.stop input:focus-visible+.knob{outline:3px solid #fff;outline-offset:3px}
+.stop-l{font-size:.72rem;padding:1px 7px;border-radius:3px;color:#3a2408;background:linear-gradient(180deg,#f2d385,var(--brass) 60%,#b07f28);box-shadow:0 1px 2px rgba(0,0,0,.4);white-space:nowrap}
+.dr-note{font-size:.75rem;opacity:.75;margin:8px 0 0}
+.hm-rotate{display:none;font-size:.85rem;margin:8px 2px 0;opacity:.8}
+@media (max-width:640px) and (orientation:portrait){.hm-rotate{display:block}}
+/* labels on keys and chips */
+.sw{position:relative;display:inline-block;line-height:1.1}
+.sw.komal{text-decoration:underline;text-underline-offset:3px}
+.sw.tivra{text-decoration:overline}
+.sw.low::after,.sw.high::before{content:"";position:absolute;left:50%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:currentColor}
+.sw.low::after{bottom:-5px}.sw.high::before{top:-4px}
+.hm-hint,.hm-load{font-size:.85rem;opacity:.8;margin:4px 2px 0}
+/* song panel — follows the site theme */
+.hm-song{margin-top:14px;padding:14px;border-radius:14px;background:var(--paper-2,#fbf3e4);border:1px solid rgba(122,63,29,.18)}
+.hm-bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:10px;font-size:.95rem}
+.hm-bar label{display:flex;align-items:center;gap:6px}
+.hm-bar select{font:inherit;padding:6px 8px;border-radius:8px;border:1px solid rgba(0,0,0,.2);background:var(--paper,#fff);color:var(--ink,#222);max-width:100%}
+.hm-pick{flex:1 1 260px}.hm-pick select{flex:1;min-width:0}
+.hm-tempo input{width:150px;accent-color:var(--sindoor,#c2410c)}
+.hm-bpm{min-width:5.5em;font-variant-numeric:tabular-nums}
+.hm-chk{cursor:pointer}
+.hm-btn{font:inherit;font-weight:600;border:0;border-radius:999px;padding:8px 16px;background:var(--sindoor,#c2410c);color:#fff;cursor:pointer}
+.hm-btn.hm-practice{background:var(--night,#1c2350)}
+.hm-btn.on{outline:3px solid var(--saffron)}
+.hm-btn:disabled{opacity:.4;cursor:default}
+.hm-mini{font:inherit;font-size:.85rem;border:1px solid rgba(0,0,0,.2);border-radius:999px;padding:4px 12px;background:var(--paper,#fff);color:var(--ink,#222);cursor:pointer}
+.hm-status{min-height:1.5em;font-weight:500;margin:4px 2px 10px}
+.hm-lines{list-style:none;margin:0;padding:0;max-height:420px;overflow-y:auto}
+.hm-lines li{padding:8px 10px;border-radius:10px;cursor:pointer}
+.hm-lines li.on{background:rgba(245,158,11,.16)}
+.hm-lyric{margin:0 0 4px;font-family:"Tiro Devanagari Hindi",serif;font-size:1.05rem}
+.hm-notes{margin:0;display:flex;flex-wrap:wrap;gap:4px 6px}
+.hm-notes .chip{display:inline-flex;align-items:center;padding:3px 7px 6px;border-radius:7px;background:var(--paper,#fff);border:1px solid rgba(0,0,0,.12);font-size:.95rem}
+.hm-notes .chip.on{background:var(--saffron);color:#2a1606;border-color:transparent}
+.hm-notes .chip .wn{margin-left:4px;font-size:.75rem;opacity:.7}
+.hm-notes .chip .wn.only{margin-left:0;font-size:.9rem;opacity:1}
+.hm-notes .hold{font-style:normal;opacity:.5;margin-left:2px}
+.sargam-tbl td:last-child{font-family:"Mukta",sans-serif;letter-spacing:.02em}
+.sargam-tbl .sw{margin:0 2px}
+[data-theme="dark"] .hm-song{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)}
+[data-theme="dark"] .hm-notes .chip{background:rgba(255,255,255,.06);color:inherit}
+/* nameplate in the logo's style: gold swash serif on black lacquer */
+.hm-badge{display:flex;align-items:center;gap:8px;padding:3px 18px 5px;border-radius:7px;background:linear-gradient(180deg,#1b1310,#050302);
+ box-shadow:inset 0 0 0 2px #c99a3a,inset 0 0 0 4px #1b1310,inset 0 0 0 5px rgba(201,154,58,.6),0 3px 6px rgba(0,0,0,.6);color:#f2c062;text-shadow:none}
+.hm-badge .om{font-style:normal;font-family:"Tiro Devanagari Hindi",serif;font-size:1.25rem;line-height:1;background:linear-gradient(180deg,#ffd27a,#f08a1c 60%,#c2410c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hm-badge .bw{font-family:"Berkshire Swash","Tiro Devanagari Hindi",Georgia,serif;font-size:1.3rem;letter-spacing:.01em;line-height:1.15;
+ background:linear-gradient(180deg,#fff0b8 0,#f6c55a 38%,#e08a1e 62%,#ffd77a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 rgba(0,0,0,.8))}
+/* notes rising from the reed cover */
+.hm-inst{overflow:visible}
+.hm-top{border-radius:10px 10px 0 0}
+.hm-keybed{border-radius:0 0 10px 10px;overflow:hidden}
+.hm-air{position:absolute;left:0;right:0;bottom:14px;height:0;pointer-events:none;z-index:6}
+.hm-fly{position:absolute;bottom:0;display:flex;align-items:center;gap:5px;padding:4px 12px 6px;border-radius:999px;white-space:nowrap;
+ font-family:"Mukta",system-ui,sans-serif;font-weight:700;font-size:1.2rem;color:#3a1c06;
+ background:radial-gradient(circle at 35% 30%,#fffbe8,#ffe2a0 45%,#f5a623);box-shadow:0 0 0 2px rgba(255,255,255,.6),0 0 22px rgba(255,180,60,.85);
+ animation:hm-rise 2s cubic-bezier(.2,.65,.3,1) forwards}
+.hm-fly.blk{background:radial-gradient(circle at 35% 30%,#6b7a90,#2b3340 55%,#0e1116);color:#ffe2a0;box-shadow:0 0 0 2px rgba(255,226,160,.6),0 0 22px rgba(120,150,200,.7)}
+.hm-fly .g{font-style:normal;font-size:1.35rem;line-height:1}
+.hm-fly .wn{margin-left:3px;font-size:.78rem;opacity:.85}
+.hm-fly .wn.only{margin-left:0;font-size:1.1rem;opacity:1}
+@keyframes hm-rise{0%{opacity:0;transform:translate(-50%,16px) scale(.5)}
+ 12%{opacity:1;transform:translate(-50%,-14px) scale(1.08)}
+ 55%{opacity:1;transform:translate(calc(-50% + var(--dx)),-110px) scale(1) rotate(-5deg)}
+ 100%{opacity:0;transform:translate(calc(-50% - var(--dx)),-200px) scale(.8) rotate(6deg)}}
+.hm-puff{position:absolute;bottom:4px;width:10px;height:10px;border-radius:50%;background:rgba(255,246,225,.75);filter:blur(1.5px);opacity:0;animation:hm-puff 1.1s ease-out forwards}
+@keyframes hm-puff{0%{opacity:.9;transform:translate(-50%,0) scale(.4)}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),-80px) scale(2.6)}}
+@media (prefers-reduced-motion:reduce){.hm-fly{animation:hm-fade 1.4s ease forwards}.hm-puff{display:none}}
+@keyframes hm-fade{0%{opacity:0;transform:translate(-50%,-20px)}20%,70%{opacity:1;transform:translate(-50%,-20px)}100%{opacity:0;transform:translate(-50%,-20px)}}
+
+@media (max-width:640px){.hm-kbd{height:200px}.hm-top{padding:8px 24px}.hm-cover{height:40px}.hm-badge{font-size:.85rem}.hm-rail{padding:6px 12px 8px;gap:6px}.rbtn{width:38px;height:38px}.hm-cheek{width:14px}.hm-cheek span{display:none}.hm-tempo input{width:110px}}
