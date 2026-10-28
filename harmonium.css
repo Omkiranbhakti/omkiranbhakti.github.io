@@ -251,3 +251,4 @@
 @media (max-width:520px){.dr-grid{grid-template-columns:1fr}.hm-drawer{width:100%}}
 .hm-drawer{bottom:auto;max-height:100%;border-radius:0 0 12px 0}
 .hm [hidden]{display:none!important}
+@media (orientation:portrait){.hm.app .hm-song{position:static;transform:none;max-height:none;border-radius:0;box-shadow:none;transition:none}.hm.app .hm-songsbtn{display:none}.hm.app .hm-rotate{display:none}}
