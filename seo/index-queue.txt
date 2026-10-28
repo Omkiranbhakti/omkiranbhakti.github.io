@@ -5,14 +5,6 @@
 # --- new festival pages added 2026-10-26 (Karwa Chauth 29 Oct, Dhanteras/Diwali early Nov) ---
 # --- roadmap pages 2026-10-27 (Dhanteras 6 Nov) ---
 # --- per-temple live darshan pages 2026-10-27 (most searched first; other 25 come via sitemap) ---
-mahakal-live-darshan.html
-khatu-shyam-live-darshan.html
-kashi-vishwanath-live-darshan.html
-shirdi-sai-baba-live-darshan.html
-somnath-live-darshan.html
-banke-bihari-live-darshan.html
-vaishno-devi-live-darshan.html
-ram-mandir-live-darshan.html
 siddhivinayak-live-darshan.html
 kedarnath-live-darshan.html
 tirupati-live-darshan.html
@@ -35,7 +27,6 @@ panchang-2026-11.html
 chhath-puja-samagri-list.html
 rama-ekadashi-kab-hai.html
 vrat-katha.html
-karwa-chauth-puja-samagri-list.html
 mangal-ki-seva-kali-aarti.html
 puja-niyam.html
 sant-bhajan.html
@@ -335,3 +326,29 @@ puja-samagri-kharidein.html
 contact.html
 privacy-policy.html
 disclaimer.html
+# --- remaining per-temple live darshan pages added 2026-10-28 ---
+ambaji-live-darshan.html
+annavaram-live-darshan.html
+barsana-radha-rani-live-darshan.html
+dagdusheth-ganpati-live-darshan.html
+dakshineswar-live-darshan.html
+dwarkadhish-live-darshan.html
+golden-temple-live-darshan.html
+guruvayur-live-darshan.html
+iskcon-bangalore-live-darshan.html
+iskcon-delhi-live-darshan.html
+iskcon-juhu-live-darshan.html
+iskcon-mayapur-live-darshan.html
+iskcon-vrindavan-live-darshan.html
+kanaka-durga-live-darshan.html
+mahalakshmi-mumbai-live-darshan.html
+mallikarjuna-live-darshan.html
+naina-devi-live-darshan.html
+omkareshwar-live-darshan.html
+pandharpur-live-darshan.html
+pavagadh-live-darshan.html
+sabarimala-live-darshan.html
+salasar-balaji-live-darshan.html
+sankat-mochan-live-darshan.html
+simhachalam-live-darshan.html
+trimbakeshwar-live-darshan.html

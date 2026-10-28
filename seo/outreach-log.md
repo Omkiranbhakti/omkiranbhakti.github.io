@@ -20,3 +20,6 @@ Follow up once after ~7 days (around 2 Nov) if no reply. Never pay for links.
 - 2026-10-27 Quora answer: "उर्वशी और पुरुरवा की प्रेमकहानी क्या हैं?" (seo/quora-mythology.md #2) https://hi.quora.com/उर्वशी-और-पुरुरवा-की/answers/1477743922212158
 
 - 2026-10-28 Quora Space created: पौराणिक कथा सागर https://pauranika-katha-sagara.quora.com/ — first story: उर्वशी का श्राप और बृहन्नला
+- 2026-10-28 Pins published (2): aaj-ka-panchang (board F), hanuman-chalisa (new board A "आरती, चालीसा और लाइव दर्शन" created). Pending (4): om-jai-jagdish, lakshmi-aarti, shiv-aarti, live-darshan
+- 2026-10-28 Quora answer (seo/quora-answers.md #1, question added by us): "2026 में नरक चतुर्दशी और दिवाली एक ही दिन क्यों हैं?" https://hi.quora.com/2026-में-नरक-चतुर्दशी-और-दिवाली/answers/1477743922314131 — Space story already posted today, none added
+- 2026-10-28 GSC: 8 indexing requests (quota hit), indexed 353 / not indexed 429 (330 discovered-not-indexed), last 7 days 46 clicks / 5.91k impressions, external links 0. Bing WMT not signed in (skipped)

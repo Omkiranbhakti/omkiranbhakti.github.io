@@ -19,13 +19,13 @@ Board F = "त्योहार 2026 — तारीख़ और मुहू
 - Link: https://omkiranbhakti.com/dev-uthani-ekadashi-kab-hai.html
 - Image: img/pins/pin_dev-uthani.jpg
 
-### [ ] aaj-ka-panchang  (board F)
+### [x] (2026-10-28) aaj-ka-panchang  (board F)
 - Title: आज का पंचांग — तिथि, नक्षत्र, राहुकाल, चौघड़िया
 - Description: हर दिन अपडेट होने वाला हिंदी पंचांग: आज की तिथि, नक्षत्र, योग, सूर्योदय-सूर्यास्त, राहुकाल, शुभ समय और चौघड़िया। #panchang #आजकापंचांग #rahukaal
 - Link: https://omkiranbhakti.com/aaj-ka-panchang.html
 - Image: img/pins/pin_aaj-ka-panchang.jpg
 
-### [ ] hanuman-chalisa  (board A)
+### [x] (2026-10-28) hanuman-chalisa  (board A)
 - Title: हनुमान चालीसा — पूरे बोल और हर चौपाई का सरल अर्थ
 - Description: श्री हनुमान चालीसा के पूरे बोल, हर चौपाई का आसान हिंदी अर्थ और साथ गाने के लिए वीडियो। मंगलवार-शनिवार पाठ के लिए। #hanumanchalisa #हनुमानचालीसा #bajrangbali
 - Link: https://omkiranbhakti.com/hanuman-chalisa.html
