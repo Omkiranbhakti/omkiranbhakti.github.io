@@ -56,8 +56,9 @@
   var speed = 100; // % of the song's real tempo
   var showKeys = store.keys !== false;
   var names = store.names || "sargam";
+  var pumpMode = !!store.pump, airLvl = 1; // "धौंकनी ख़ुद चलाएँ": sound needs air you pump in
   var mech = typeof store.mech === "number" ? store.mech : 0.3; // key clatter + bellows air, 0..1
-  var bassOn = store.bass !== false, highOn = !!store.high, echoOn = store.echo !== false;
+  var bassOn = store.bass !== false, highOn = !!store.high, coupOn = !!store.coup, echoOn = store.echo !== false;
   var SCALES = ["सफ़ेद 1 (C)", "काली 1 (C#)", "सफ़ेद 2 (D)", "काली 2 (D#)", "सफ़ेद 3 (E)", "सफ़ेद 4 (F)",
     "काली 3 (F#)", "सफ़ेद 5 (G)", "काली 4 (G#)", "सफ़ेद 6 (A)", "काली 5 (A#)", "सफ़ेद 7 (B)"];
 
@@ -76,7 +77,7 @@
       var AC = window.AudioContext || window.webkitAudioContext;
       if (!AC) return null;
       ac = new AC();
-      master = ac.createGain(); master.gain.value = vol;
+      master = ac.createGain(); master.gain.value = vol * (typeof airGain === "function" ? airGain() : 1);
       bus = ac.createGain(); bus.gain.value = 1;
       var hp = ac.createBiquadFilter(); hp.type = "highpass"; hp.frequency.value = 70;
       var f1 = ac.createBiquadFilter(); f1.type = "peaking"; f1.frequency.value = 1150; f1.Q.value = 1.1; f1.gain.value = 5;
@@ -211,7 +212,13 @@
   function noteOn(s) {
     if (!audio()) return;
     if (voices[s]) return;
-    voices[s] = reed(freq(s), 0.2); clack(true);
+    var v = reed(freq(s), 0.2);
+    if (coupOn) { // ऑक्टेव कपलर: the key an octave lower goes down with it
+      var c = reed(freq(s - 12), 0.16, true), ck = keyEls[s - 12], st = v.stop;
+      if (ck) ck.classList.add("coupled");
+      v.stop = function () { st(); c.stop(); if (ck) ck.classList.remove("coupled"); };
+    }
+    voices[s] = v; clack(true);
     var k = keyEls[s]; if (k) k.classList.add("down");
     breathe(); floatNote(s);
     onPlayed(s);
@@ -244,6 +251,7 @@
   function breathe() {
     var on = Object.keys(voices).length > 0 || !!drone;
     root.classList.toggle("playing", on); air(on);
+    root.style.setProperty("--pump", (1.6 - Math.min(3, Object.keys(voices).length) * 0.3) + "s");
   }
   function allOff() { Object.keys(voices).forEach(function (s) { noteOff(+s); }); }
   function setDrone(on) {
@@ -273,34 +281,39 @@
   }
   root.innerHTML =
     '<div class="hm-inst">' +
+    '<div class="hm-bellows" aria-hidden="true"><div class="hm-pleats"></div><span class="hm-pumphint">↕ धौंकनी चलाएँ</span></div>' +
     '<i class="screw tl"></i><i class="screw tr"></i><i class="screw bl"></i><i class="screw br"></i>' +
-    '<div class="hm-top wood" aria-hidden="true"><div class="hm-cover"></div><span class="hm-badge"><i class="om">ॐ</i><span class="bw">OmKiran Bhakti</span></span><div class="hm-air"></div></div>' +
+    '<div class="hm-top wood" aria-hidden="true"><div class="hm-cover"></div><div class="hm-ad" hidden><small>विज्ञापन</small><div class="hm-ad-slot"></div></div><div class="hm-air"></div></div>' +
     '<div class="hm-rail wood">' +
     '<button type="button" class="rbtn hm-menu" aria-label="हारमोनियम सेटिंग्स खोलें" aria-expanded="false"><span class="bars"></span></button>' +
     '<button type="button" class="rbtn hm-dronebtn" aria-pressed="false" title="सा-प ड्रोन">सा·प</button>' +
+    '<span class="hm-airmeter" hidden title="धौंकनी में हवा"><i></i></span>' +
+    (data.app ? '<button type="button" class="rbtn hm-songsbtn" aria-expanded="false">♪ गाने</button>' : "") +
     '<div class="hm-nav"><input type="range" class="hm-navr" min="0" max="1000" value="0" aria-label="पट्टियाँ खिसकाएँ (सप्तक)"><div class="hm-navnums" aria-hidden="true"></div></div>' +
     '<button type="button" class="rbtn hm-zout" aria-label="पट्टियाँ छोटी करें">−</button>' +
     '<button type="button" class="rbtn hm-zin" aria-label="पट्टियाँ बड़ी करें">+</button>' +
     "</div>" +
     '<div class="hm-felt" aria-hidden="true"></div>' +
-    '<div class="hm-keybed"><div class="hm-cheek" aria-hidden="true"></div>' +
+    '<div class="hm-keybed"><div class="hm-cheek" aria-hidden="true"><span class="brand-v">OmKiran</span></div>' +
     '<div class="hm-kbd-wrap"><div class="hm-kbd" role="group" aria-label="हारमोनियम की पट्टियाँ"></div></div>' +
-    '<div class="hm-cheek" aria-hidden="true"><span>सप्तक</span></div></div>' +
+    '<div class="hm-cheek" aria-hidden="true"><span class="brand-v">OmKiran</span></div></div>' +
     '<div class="hm-drawer wood" hidden>' +
-    '<div class="dr-head"><b>हारमोनियम</b><button type="button" class="rbtn hm-close" aria-label="सेटिंग्स बंद करें">×</button></div>' +
+    '<div class="dr-head"><b>हारमोनियम</b><button type="button" class="rbtn sm hm-close" aria-label="सेटिंग्स बंद करें">×</button></div>' +
+    '<div class="dr-grid"><div class="dr-col">' +
     '<label class="dr-row">आवाज़ <input type="range" class="hm-volr" min="0" max="1" step="0.05" value="' + vol + '"></label>' +
-    '<div class="dr-row">सा का सुर (स्केल)<div class="dr-scale"><button type="button" class="rbtn sm hm-sdown" aria-label="सुर नीचे">−</button>' +
+    '<div class="dr-row">सा का सुर<div class="dr-scale"><button type="button" class="rbtn sm hm-sdown" aria-label="सुर नीचे">−</button>' +
     '<select class="hm-sa" aria-label="सा किस पट्टी पर">' + opts + '</select><button type="button" class="rbtn sm hm-sup" aria-label="सुर ऊपर">+</button></div></div>' +
     '<div class="dr-row">पट्टी पर नाम' + seg("hm-names", names, [["sargam", "रे ग"], ["west", "C D E"], ["both", "दोनों"]]) + "</div>" +
-    '<div class="dr-row">रीड और स्टॉप<div class="dr-stops">' +
-    stopKnob("hm-bass", "खरज", bassOn) + stopKnob("hm-high", "ऊँची रीड", highOn) + stopKnob("hm-echo", "गूँज", echoOn) +
-    stopKnob("hm-drone", "ड्रोन", false) + stopKnob("hm-showkeys", "कीबोर्ड अक्षर", showKeys) + "</div></div>" +
-    '<details class="dr-adv"><summary>एडवांस्ड सेटिंग</summary>' +
-    '<label class="dr-row">खटके की आवाज़ <small>पट्टी की खट और धौंकनी की हवा — असली हारमोनियम जैसा एहसास</small>' +
-    '<input type="range" class="hm-mech" min="0" max="1" step="0.05" value="' + mech + '" aria-label="खटके की आवाज़"></label>' +
-    '<div class="dr-row">MIDI कीबोर्ड<button type="button" class="hm-midi hm-mini">MIDI कीबोर्ड जोड़ें</button><small class="hm-midist">जुड़ा MIDI कीबोर्ड यहीं से बजेगा (Chrome / Edge)।</small></div>' +
-    "</details>" +
-    '<p class="dr-note">आवाज़: असली हारमोनियम की रिकॉर्डिंग (CC0)।</p>' +
+    '<label class="dr-row" title="पट्टी की खट और धौंकनी की हवा — असली हारमोनियम जैसा एहसास">खटके की आवाज़ <input type="range" class="hm-mech" min="0" max="1" step="0.05" value="' + mech + '" aria-label="खटके की आवाज़"></label>' +
+    '</div><div class="dr-col">' +
+    '<div class="dr-row">स्टॉप<div class="dr-stops">' +
+    stopKnob("hm-bass", "खरज", bassOn) + stopKnob("hm-coup", "कपलर", coupOn) + stopKnob("hm-high", "ऊँची रीड", highOn) +
+    stopKnob("hm-echo", "गूँज", echoOn) + stopKnob("hm-drone", "ड्रोन", false) + stopKnob("hm-showkeys", "अक्षर", showKeys) + "</div></div>" +
+    '<div class="dr-row dr-adv">एडवांस्ड' +
+    '<label class="dr-inline" title="ऊपर की धौंकनी को उँगली/माउस से ऊपर-नीचे खींचें, या कंप्यूटर पर Space दबाते रहें। हवा ख़त्म तो आवाज़ भी बंद।"><input type="checkbox" class="hm-pump"' + (pumpMode ? " checked" : "") + '> धौंकनी ख़ुद चलाएँ</label>' +
+    '<div class="dr-inline"><button type="button" class="hm-midi hm-mini">MIDI कीबोर्ड जोड़ें</button><small class="hm-midist">Chrome / Edge में</small></div>' +
+    '</div></div></div>' +
+    '<p class="dr-note">आवाज़: असली हारमोनियम की रिकॉर्डिंग (CC0)। कपलर: हर पट्टी के साथ एक सप्तक नीचे वाली पट्टी भी बजती है।</p>' +
     "</div>" +
     "</div>" +
     '<p class="hm-rotate">📱 फ़ोन को आड़ा (लैंडस्केप) करें — पट्टियाँ बड़ी दिखेंगी।</p>' +
@@ -424,7 +437,7 @@
     var d = root.querySelector(".hm-drone"); if (d.checked) setDrone(true);
   });
   root.querySelector(".hm-volr").addEventListener("input", function () {
-    vol = +this.value; store.vol = vol; save(); if (master) master.gain.value = vol;
+    vol = +this.value; store.vol = vol; save(); if (master) master.gain.value = vol * airGain();
   });
   root.querySelector(".hm-mech").addEventListener("input", function () {
     mech = +this.value; store.mech = mech; save(); breathe();
@@ -464,6 +477,7 @@
     drawKeys(); if (window._hmRelabel) window._hmRelabel();
   });
   root.querySelector(".hm-bass").addEventListener("change", function () { bassOn = this.checked; store.bass = bassOn; save(); });
+  root.querySelector(".hm-coup").addEventListener("change", function () { coupOn = this.checked; store.coup = coupOn; save(); });
   root.querySelector(".hm-high").addEventListener("change", function () { highOn = this.checked; store.high = highOn; save(); });
   root.querySelector(".hm-echo").addEventListener("change", function () {
     echoOn = this.checked; store.echo = echoOn; save(); if (roomWet) roomWet.gain.value = echoOn ? 0.28 : 0;
@@ -471,6 +485,45 @@
   root.querySelector(".hm-showkeys").addEventListener("change", function () {
     showKeys = this.checked; store.keys = showKeys; save(); root.classList.toggle("nokeys", !showKeys);
   });
+
+  // ---------- ad slot (only when the page turns ads on — after AdSense approval) ----------
+  if (data.ads && data.adClient && data.adSlot) {
+    var ad = root.querySelector(".hm-ad"); ad.hidden = false;
+    ad.querySelector(".hm-ad-slot").innerHTML = '<ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="' + data.adClient + '" data-ad-slot="' + data.adSlot + '"></ins>';
+    try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+    root.classList.add("has-ad");
+  }
+
+  // ---------- bellows: pump-yourself mode ----------
+  var bel = root.querySelector(".hm-bellows"), meter = root.querySelector(".hm-airmeter"), meterBar = meter.querySelector("i");
+  function airGain() { return pumpMode ? Math.min(1, airLvl / 0.3) : 1; }
+  function applyAir() {
+    if (master) master.gain.setTargetAtTime(vol * airGain(), ac.currentTime, 0.05);
+    meterBar.style.height = Math.round(airLvl * 100) + "%";
+    bel.style.setProperty("--open", pumpMode ? airLvl : 1);
+  }
+  function pumpIn(x) { airLvl = Math.min(1, airLvl + x); bel.classList.add("pumping"); clearTimeout(bel._t); bel._t = setTimeout(function () { bel.classList.remove("pumping"); }, 180); applyAir(); }
+  var last = performance.now();
+  (function leak(now) {
+    var dt = Math.min(0.1, (now - last) / 1000); last = now;
+    if (pumpMode) { var n = Object.keys(voices).length + (drone ? 1 : 0); airLvl = Math.max(0, airLvl - dt * (0.02 + 0.075 * n)); applyAir(); }
+    requestAnimationFrame(leak);
+  })(last);
+  var belY = null;
+  bel.addEventListener("pointerdown", function (ev) { if (!pumpMode) return; ev.preventDefault(); audio(); belY = ev.clientY; try { bel.setPointerCapture(ev.pointerId); } catch (e) {} });
+  bel.addEventListener("pointermove", function (ev) { if (belY === null) return; var d = Math.abs(ev.clientY - belY); belY = ev.clientY; if (d) pumpIn(d * 0.006); });
+  bel.addEventListener("pointerup", function () { belY = null; });
+  bel.addEventListener("pointercancel", function () { belY = null; });
+  document.addEventListener("keydown", function (ev) {
+    if (!pumpMode || ev.code !== "Space" || typing(ev) || ev.target.tagName === "BUTTON" || ev.target.tagName === "SELECT") return;
+    ev.preventDefault(); if (!ev.repeat) pumpIn(0.22); else pumpIn(0.05);
+  });
+  function setPump(on) {
+    pumpMode = on; store.pump = on; save(); airLvl = on ? 0.6 : 1;
+    root.classList.toggle("pumpmode", on); meter.hidden = !on; applyAir();
+  }
+  root.querySelector(".hm-pump").addEventListener("change", function () { setPump(this.checked); });
+  setPump(pumpMode);
 
   // start fetching the recorded sound early (the context stays silent until the first tap)
   setTimeout(function () { try { audio(); } catch (e) {} }, 600);
@@ -579,4 +632,10 @@
   sel.addEventListener("change", function () { loadSong(this.value); });
   var start = data.start || "";
   sel.value = start; loadSong(start);
+  window.hmLoadSong = function (id) { sel.value = id; loadSong(id); };
+  if (data.app) {
+    var sb = root.querySelector(".hm-songsbtn"), sheet = root.querySelector(".hm-song");
+    root.classList.add("app");
+    sb.addEventListener("click", function () { var o = !root.classList.contains("sheet"); root.classList.toggle("sheet", o); sb.setAttribute("aria-expanded", o); });
+  }
 })();

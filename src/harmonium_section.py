@@ -95,11 +95,12 @@ def _hm_json(items):
     return json.dumps({"songs": [{"id": s["id"], "title": s["name"], "bpm": s["bpm"], "lines": [{"t": a, "n": b} for a, b in s["lines"]]} for s in items]},
                       ensure_ascii=False)
 
-HMV = ver("harmonium.js")
+HMV = ver("harmonium.js"); HMCV = ver("harmonium.css")
 def _hm_player(items, start=""):
     d = json.loads(_hm_json(items)); d["start"] = start
     blob = json.dumps(d, ensure_ascii=False).replace("</", "<\\/")
-    return ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap">'
+    return (f'<link rel="stylesheet" href="harmonium.css?v={HMCV}">'
+            '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap">'
             '<div class="hm" id="hm"><noscript><p>हारमोनियम चलाने के लिए ब्राउज़र में JavaScript चालू करें।</p></noscript></div>'
             f'<script type="application/json" id="hm-data">{blob}</script>'
             f'<script src="harmonium.js?v={HMV}" defer></script>')
@@ -131,7 +132,7 @@ add("harmonium.html",
     band("ऑनलाइन हारमोनियम — सरगम के साथ बजाएँ",
          "नीचे की पट्टियाँ छूकर बजाएँ। हर पट्टी पर सा रे ग म लिखा है, सुर (सफ़ेद 1, काली 1…) बदल सकते हैं, और किसी आरती को चुनकर उसकी धुन सुन सकते हैं या <b>अभ्यास मोड</b> में ख़ुद बजाना सीख सकते हैं।",
          "ऑनलाइन हारमोनियम") +
-    '<section><div class="wrap">' + _hm_player(HM_SONGS, "om-jai-jagdish-hare") + "</div></section>" +
+    '<section><div class="wrap"><p class="hm-applink"><a href="app/">📲 <b>OmKiran Harmonium ऐप</b> खोलें — फ़ुल स्क्रीन, होम स्क्रीन पर रखें, बिना इंटरनेट भी चले</a></p>' + _hm_player(HM_SONGS, "om-jai-jagdish-hare") + "</div></section>" +
     '<section class="band"><div class="wrap">' + sec_head("आरतियों के हारमोनियम नोट्स", "हर गाने का अलग पेज — सरगम लिखी हुई, और बजाकर सीखने वाला प्लेयर") +
     _hm_ul(_HM_SONG_LINKS) + "</div></section>" +
     '<section><div class="wrap prose">' + sec_head("नए हैं? यहाँ से शुरू करें") +
@@ -182,7 +183,7 @@ add("harmonium-sikhen.html",
             "हर अलंकार पहले आरोह (ऊपर), फिर अवरोह (नीचे)।", "\"चुनी पंक्ति दोहराएँ\" लगाकर एक ही पंक्ति कई बार बजाएँ।"]) +
     "</div></section>"
     '<section><div class="wrap">' + sec_head("अभ्यास का हारमोनियम", "ऊपर गाना/अभ्यास चुनें — अलंकार और आरतियाँ दोनों यहीं हैं") +
-    _hm_player(HM_ALANKAR + HM_SONGS, "sargam") + "</div></section>"
+    '<p class="hm-applink"><a href="app/">📲 <b>OmKiran Harmonium ऐप</b> में अभ्यास करें — फ़ुल स्क्रीन, बिना इंटरनेट भी</a></p>' + _hm_player(HM_ALANKAR + HM_SONGS, "sargam") + "</div></section>"
     '<section class="band"><div class="wrap">' + sec_head("पाठ 6: पहला गाना", "सबसे आसान से शुरू करें — ॐ जय जगदीश हरे, फिर जय गणेश देवा") +
     _hm_ul(_HM_SONG_LINKS) + "</div></section></article>" +
     faq_html(_learn_faq),
@@ -241,3 +242,167 @@ for _s in HM_SONGS:
     _i = _p.find('<section class="faq">')
     if _i < 0: _i = _p.find("</main>")
     if _i > 0: PAGES[_s["lyric_page"]] = _p[:_i] + _strip + _p[_i:]
+
+# ---------- 5. Standalone app: /app/ (PWA — installable, full screen, works offline) ----------
+_APP_DIR = os.path.join(ROOT, "app")
+os.makedirs(_APP_DIR, exist_ok=True)
+try:
+    from PIL import Image
+    _logo = Image.open(os.path.join(ROOT, "assets", "logo-512.png")).convert("RGBA")
+    for _n in (192, 512):
+        _logo.resize((_n, _n), Image.LANCZOS).quantize(colors=128, method=Image.FASTOCTREE).save(os.path.join(_APP_DIR, f"icon-{_n}.png"), optimize=True)
+    _m = Image.new("RGBA", (512, 512), (12, 8, 6, 255)); _l = _logo.resize((400, 400), Image.LANCZOS); _m.paste(_l, (56, 56), _l)
+    _m.convert("RGB").quantize(colors=128, method=Image.FASTOCTREE).save(os.path.join(_APP_DIR, "icon-maskable-512.png"), optimize=True)
+except Exception as _e:
+    print("app icons skipped:", _e)
+
+_APP_NAME, _APP_SHORT = "OmKiran Harmonium", "Harmonium"
+json.dump({
+    "name": _APP_NAME, "short_name": _APP_SHORT, "id": "/app/", "start_url": "/app/?source=pwa", "scope": "/app/",
+    "display": "fullscreen", "display_override": ["fullscreen", "standalone"], "orientation": "landscape",
+    "background_color": "#120804", "theme_color": "#7a3c0c", "lang": "hi", "dir": "ltr",
+    "description": "असली हारमोनियम की आवाज़ — सरगम लिखी पट्टियाँ, आरती की धुनें, अभ्यास मोड और सीखने के पाठ। बिना इंटरनेट भी चलता है।",
+    "categories": ["music", "education"],
+    "icons": [{"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+              {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
+              {"src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}],
+}, open(os.path.join(_APP_DIR, "manifest.webmanifest"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+_AUDIO = sorted(f for f in os.listdir(os.path.join(ROOT, "audio", "harmonium")) if f.endswith(".mp3"))
+_APP_ADS = dict(on=False, client="", slot="")   # switch on after AdSense approval: on=True + client "ca-pub-…" + slot id
+_app_data = json.loads(_hm_json(HM_SONGS + HM_ALANKAR))
+_app_data.update(start="om-jai-jagdish-hare", app=True, samples="../audio/harmonium/",
+                 ads=_APP_ADS["on"], adClient=_APP_ADS["client"], adSlot=_APP_ADS["slot"])
+_app_blob = json.dumps(_app_data, ensure_ascii=False).replace("</", "<\\/")
+_lessons = [
+ ("सा पहचानें", "दो काली पट्टियों के गुच्छे के ठीक बाईं सफ़ेद पट्टी सफ़ेद 1 (C) है। शुरुआत में इसी को सा मानें — पीली पट्टी।", "sargam"),
+ ("सात सुर ऊपर-नीचे", "सा रे ग म प ध नि सां — पहले ▶ से सुनें, फिर ✋ अभ्यास मोड में ख़ुद बजाएँ।", "sargam"),
+ ("अलंकार: सारेग, रेगम…", "तीन-तीन सुरों के पैटर्न से उँगलियाँ सधती हैं। रफ़्तार 60% से शुरू करें।", "alankar-1"),
+ ("अलंकार: सासा रेरे…", "हर सुर दो बार — हाथ को स्थिर रखने का अभ्यास।", "alankar-2"),
+ ("अलंकार: साग, रेम…", "एक सुर छोड़कर छलाँग — कान और उँगली दोनों के लिए।", "alankar-3"),
+ ("कोमल-तीव्र सुर", "रे ग ध नि के कोमल और तीव्र म — सारे 12 सुर एक के बाद एक।", "komal"),
+ ("पहला गाना: ॐ जय जगदीश हरे", "सबसे आसान आरती। एक-एक पंक्ति दोहराकर सीखें।", "om-jai-jagdish-hare"),
+ ("जय गणेश देवा", "सिर्फ़ शुद्ध सुर — दूसरा गाना यही रखें।", "jai-ganesh-deva"),
+]
+_lesson_html = "".join(f'<li><button type="button" class="lesson" data-song="{sid}"><b>{e(t)}</b><span>{e(d)}</span><i>अभ्यास करें →</i></button></li>' for t, d, sid in _lessons)
+_APP_HTML = f'''<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{_APP_NAME}</title>
+<meta name="description" content="OmKiran Harmonium — असली हारमोनियम की आवाज़ वाला मुफ़्त ऑनलाइन हारमोनियम ऐप: सरगम पट्टियाँ, आरती की धुनें, अभ्यास मोड। बिना इंटरनेट भी चलता है।">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="{SITE}harmonium.html">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#7a3c0c">
+<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="{_APP_SHORT}">
+<link rel="icon" href="icon-192.png" type="image/png"><link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Mukta:wght@400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap">
+<link rel="stylesheet" href="../harmonium.css?v={HMCV}">
+<style>
+/* app shell: a thin bar (brand, tabs, install) over a full-screen instrument */
+:root{{--paper:#fffdf8;--paper-2:#fbf3e4;--ink:#2a1d12;--sindoor:#b4380f;--night:#1c2350;--bar:#3a1c06;--bar-ink:#fbe7c0}}
+@media (prefers-color-scheme:dark){{:root{{--paper:#17140f;--paper-2:#221d16;--ink:#f3e7d3;--sindoor:#e2643a;--night:#3b4a9c;color-scheme:dark}}}}
+html,body{{height:100%}}
+body{{margin:0;background:#120804;color:var(--ink);font-family:"Mukta",system-ui,sans-serif;overscroll-behavior:none;-webkit-user-select:none;user-select:none}}
+.app-bar{{display:flex;align-items:center;gap:10px;padding:6px max(12px,env(safe-area-inset-right,0px)) 6px max(12px,env(safe-area-inset-left,0px));padding-top:max(6px,env(safe-area-inset-top,0px));background:var(--bar);color:var(--bar-ink)}}
+.app-bar img{{width:30px;height:30px}}
+.app-bar h1{{margin:0;font:400 1.15rem/1 "Berkshire Swash",Georgia,serif;letter-spacing:.02em;white-space:nowrap;background:linear-gradient(180deg,#fff0b8,#f6c55a 45%,#e08a1e);-webkit-background-clip:text;background-clip:text;color:transparent}}
+.tabs{{display:flex;gap:4px;margin-left:auto;background:rgba(0,0,0,.3);border-radius:999px;padding:3px}}
+.tabs button,.app-bar .ghost{{font:600 .9rem "Mukta",sans-serif;border:0;border-radius:999px;padding:5px 14px;background:transparent;color:var(--bar-ink);cursor:pointer}}
+.tabs button[aria-selected=true]{{background:var(--bar-ink);color:var(--bar)}}
+.app-bar .ghost{{border:1px solid rgba(251,231,192,.5)}}
+.app-bar .ghost[hidden]{{display:none}}
+main{{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-inset-left,0px))}}
+#learn{{padding:16px max(16px,env(safe-area-inset-left,0px));background:var(--paper);min-height:calc(100dvh - 50px);box-sizing:border-box;-webkit-user-select:text;user-select:text}}
+#learn h2{{font-family:"Tiro Devanagari Hindi",serif;font-weight:400;margin:4px 0 12px;color:var(--sindoor)}}
+.lessons{{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}}
+.lesson{{width:100%;text-align:left;display:flex;flex-direction:column;gap:4px;padding:12px 14px;border-radius:12px;border:1px solid rgba(122,63,29,.25);background:var(--paper-2);color:var(--ink);font:inherit;cursor:pointer}}
+.lesson b{{font-size:1.02rem}}.lesson span{{font-size:.88rem;opacity:.85}}.lesson i{{font-style:normal;font-weight:700;color:var(--sindoor);font-size:.85rem}}
+.ios-tip{{margin:14px 0 0;font-size:.85rem;opacity:.85}}
+.foot{{margin-top:18px;font-size:.8rem;opacity:.7}}
+.foot a{{color:inherit}}
+@media (max-height:420px){{.app-bar h1{{font-size:1rem}}.app-bar img{{width:24px;height:24px}}}}
+</style>
+</head>
+<body>
+<header class="app-bar"><img src="icon-192.png" alt="" width="30" height="30"><h1>{_APP_NAME}</h1>
+<div class="tabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-tab="play">बजाएँ</button><button type="button" role="tab" aria-selected="false" data-tab="learn">सीखें</button></div>
+<button type="button" class="ghost" id="install" hidden>📲 इंस्टॉल</button></header>
+<main>
+<section id="play"><div class="hm" id="hm"></div></section>
+<section id="learn" hidden><h2>हारमोनियम सीखें — क़दम-दर-क़दम</h2><ol class="lessons">{_lesson_html}</ol>
+<p class="ios-tip" id="iostip" hidden>iPhone पर ऐप की तरह रखने के लिए: Safari में Share (⬆) → "Add to Home Screen"।</p>
+<p class="foot">पूरे पाठ, आरतियों के बोल और अर्थ: <a href="../harmonium-sikhen.html">omkiranbhakti.com</a> · आवाज़: असली हारमोनियम की रिकॉर्डिंग (CC0)</p></section>
+</main>
+<script type="application/json" id="hm-data">{_app_blob}</script>
+<script src="../harmonium.js?v={HMV}"></script>
+<script>
+(function () {{
+  var hm = document.getElementById("hm");
+  function fit() {{
+    var bar = document.querySelector(".app-bar"), inst = hm.querySelector(".hm-inst"), kb = hm.querySelector(".hm-kbd");
+    if (!inst || !kb) return;
+    hm.style.setProperty("--chrome", (bar.offsetHeight + inst.offsetHeight - kb.offsetHeight + 2) + "px");
+  }}
+  window.addEventListener("resize", fit); window.addEventListener("orientationchange", function () {{ setTimeout(fit, 300); }});
+  setTimeout(fit, 50); setTimeout(fit, 600);
+  var tabs = document.querySelectorAll(".tabs button");
+  function show(t) {{
+    tabs.forEach(function (b) {{ b.setAttribute("aria-selected", b.dataset.tab === t); }});
+    document.getElementById("play").hidden = t !== "play"; document.getElementById("learn").hidden = t !== "learn";
+    if (t === "play") setTimeout(fit, 30);
+  }}
+  tabs.forEach(function (b) {{ b.addEventListener("click", function () {{ show(b.dataset.tab); }}); }});
+  document.querySelectorAll(".lesson").forEach(function (b) {{
+    b.addEventListener("click", function () {{
+      show("play"); if (window.hmLoadSong) window.hmLoadSong(b.dataset.song);
+      hm.classList.add("sheet"); var sb = hm.querySelector(".hm-songsbtn"); if (sb) sb.setAttribute("aria-expanded", "true");
+    }});
+  }});
+  // landscape + full screen on the first tap (Android); the manifest asks for it when installed
+  document.addEventListener("pointerdown", function once() {{
+    document.removeEventListener("pointerdown", once);
+    try {{ if (screen.orientation && screen.orientation.lock) screen.orientation.lock("landscape").catch(function () {{}}); }} catch (e) {{}}
+  }});
+  var deferred = null, ib = document.getElementById("install");
+  window.addEventListener("beforeinstallprompt", function (ev) {{ ev.preventDefault(); deferred = ev; ib.hidden = false; }});
+  ib.addEventListener("click", function () {{ if (!deferred) return; deferred.prompt(); deferred.userChoice.then(function () {{ deferred = null; ib.hidden = true; }}); }});
+  var standalone = (window.matchMedia && matchMedia("(display-mode: standalone), (display-mode: fullscreen)").matches) || navigator.standalone;
+  if (/iphone|ipad|ipod/i.test(navigator.userAgent) && !standalone) document.getElementById("iostip").hidden = false;
+  if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function () {{}});
+}})();
+</script>
+</body>
+</html>'''
+open(os.path.join(_APP_DIR, "index.html"), "w", encoding="utf-8").write(_APP_HTML)
+
+_cache_ver = hashlib.md5((HMV + HMCV + _APP_HTML).encode("utf-8")).hexdigest()[:10]
+_precache = ["./", "manifest.webmanifest", "icon-192.png", "icon-512.png", f"../harmonium.js?v={HMV}", f"../harmonium.css?v={HMCV}"] + [f"../audio/harmonium/{f}" for f in _AUDIO]
+open(os.path.join(_APP_DIR, "sw.js"), "w", encoding="utf-8").write(f'''/* OmKiran Harmonium — offline cache. Version changes whenever the app, player, styles or sounds change. */
+var CACHE = "okb-harmonium-{_cache_ver}";
+var FILES = {json.dumps(_precache)};
+self.addEventListener("install", function (e) {{
+  e.waitUntil(caches.open(CACHE).then(function (c) {{ return c.addAll(FILES); }}).then(function () {{ return self.skipWaiting(); }}));
+}});
+self.addEventListener("activate", function (e) {{
+  e.waitUntil(caches.keys().then(function (ks) {{ return Promise.all(ks.filter(function (k) {{ return k.indexOf("okb-harmonium-") === 0 && k !== CACHE; }}).map(function (k) {{ return caches.delete(k); }})); }}).then(function () {{ return self.clients.claim(); }}));
+}});
+self.addEventListener("fetch", function (e) {{
+  var r = e.request; if (r.method !== "GET") return;
+  if (r.mode === "navigate") {{ // the app page: fresh when online, cached when offline
+    e.respondWith(fetch(r).then(function (res) {{ var cp = res.clone(); caches.open(CACHE).then(function (c) {{ c.put("./", cp); }}); return res; }}).catch(function () {{ return caches.match("./"); }}));
+    return;
+  }}
+  e.respondWith(caches.match(r).then(function (hit) {{
+    return hit || fetch(r).then(function (res) {{
+      if (res.ok && (r.url.indexOf("fonts.g") > 0 || r.url.indexOf(self.location.origin) === 0)) {{ var cp = res.clone(); caches.open(CACHE).then(function (c) {{ c.put(r, cp); }}); }}
+      return res;
+    }});
+  }}));
+}});
+''')
+print("app: /app/ written,", len(_precache), "files precached")
