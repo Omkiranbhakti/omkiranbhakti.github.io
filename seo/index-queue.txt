@@ -1,5 +1,13 @@
 # Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
+# --- online harmonium 2026-10-28 ---
+harmonium.html
+harmonium-sikhen.html
+om-jai-jagdish-hare-harmonium-notes.html
+hanuman-chalisa-harmonium-notes.html
+jai-ganesh-deva-harmonium-notes.html
+aarti-kunj-bihari-ki-harmonium-notes.html
+raghupati-raghav-raja-ram-harmonium-notes.html
 # --- roadmap pages 2026-10-28 (Govardhan 10 Nov, Bhai Dooj 11 Nov) ---
 govardhan-puja-vidhi.html
 bhai-dooj-tilak-vidhi.html

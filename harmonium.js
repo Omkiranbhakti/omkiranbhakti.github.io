@@ -56,6 +56,7 @@
   var speed = 100; // % of the song's real tempo
   var showKeys = store.keys !== false;
   var names = store.names || "sargam";
+  var mech = typeof store.mech === "number" ? store.mech : 0.3; // key clatter + bellows air, 0..1
   var bassOn = store.bass !== false, highOn = !!store.high, echoOn = store.echo !== false;
   var SCALES = ["सफ़ेद 1 (C)", "काली 1 (C#)", "सफ़ेद 2 (D)", "काली 2 (D#)", "सफ़ेद 3 (E)", "सफ़ेद 4 (F)",
     "काली 3 (F#)", "सफ़ेद 5 (G)", "काली 4 (G#)", "सफ़ेद 6 (A)", "काली 5 (A#)", "सफ़ेद 7 (B)"];
@@ -183,16 +184,40 @@
       srcs.forEach(function (o) { try { o.stop(n + 0.25); } catch (e) {} });
     } };
   }
+  // ---------- mechanics: key "khat" on press/release, and air through the reeds while sounding ----------
+  var hiss = null, hissG = null;
+  function clack(down) {
+    if (!ac || mech <= 0 || !noiseBuf) return;
+    var t = ac.currentTime, n = ac.createBufferSource(), bp = ac.createBiquadFilter(), g = ac.createGain();
+    n.buffer = noiseBuf; bp.type = "bandpass"; bp.frequency.value = down ? 1800 : 2600; bp.Q.value = 1.2;
+    g.gain.setValueAtTime((down ? 0.5 : 0.25) * mech, t); g.gain.exponentialRampToValueAtTime(0.0001, t + (down ? 0.035 : 0.025));
+    n.connect(bp); bp.connect(g); g.connect(master); n.start(t, Math.random() * 0.5); n.stop(t + 0.05);
+    if (down) { // wooden thump of the key hitting its bed
+      var o = ac.createOscillator(), og = ac.createGain();
+      o.frequency.setValueAtTime(190, t); o.frequency.exponentialRampToValueAtTime(70, t + 0.05);
+      og.gain.setValueAtTime(0.35 * mech, t); og.gain.exponentialRampToValueAtTime(0.0001, t + 0.06);
+      o.connect(og); og.connect(master); o.start(t); o.stop(t + 0.07);
+    }
+  }
+  function air(on) {
+    if (!ac || !noiseBuf) return;
+    if (!hiss) {
+      hiss = ac.createBufferSource(); hiss.buffer = noiseBuf; hiss.loop = true;
+      var bp = ac.createBiquadFilter(); bp.type = "bandpass"; bp.frequency.value = 1400; bp.Q.value = 0.6;
+      hissG = ac.createGain(); hissG.gain.value = 0; hiss.connect(bp); bp.connect(hissG); hissG.connect(master); hiss.start();
+    }
+    hissG.gain.setTargetAtTime(on ? 0.06 * mech : 0, ac.currentTime, 0.12);
+  }
   function noteOn(s) {
     if (!audio()) return;
     if (voices[s]) return;
-    voices[s] = reed(freq(s), 0.2);
+    voices[s] = reed(freq(s), 0.2); clack(true);
     var k = keyEls[s]; if (k) k.classList.add("down");
     breathe(); floatNote(s);
     onPlayed(s);
   }
   function noteOff(s) {
-    if (voices[s]) { voices[s].stop(); delete voices[s]; }
+    if (voices[s]) { voices[s].stop(); delete voices[s]; clack(false); }
     var k = keyEls[s]; if (k) k.classList.remove("down");
     breathe();
   }
@@ -202,7 +227,7 @@
     var air = root.querySelector(".hm-air"), k = keyEls[s];
     if (!air || !k || flying > 14) return;
     var kr = k.getBoundingClientRect(), ar = air.getBoundingClientRect();
-    var x = Math.max(24, Math.min(ar.width - 24, kr.left + kr.width / 2 - ar.left)), dx = (Math.random() * 50 - 25) + "px";
+    var x = Math.max(24, Math.min(ar.width - 24, kr.left + kr.width / 2 - ar.left)), dx = (25 + Math.random() * 30) + "px"; // always drifts the same way, like air leaving the reeds
     var el = document.createElement("span");
     el.className = "hm-fly" + (k.classList.contains("blk") ? " blk" : "");
     el.style.left = x + "px"; el.style.setProperty("--dx", dx);
@@ -210,13 +235,16 @@
     air.appendChild(el); flying++;
     for (var i = 0; i < 3; i++) {
       var p = document.createElement("i"); p.className = "hm-puff";
-      p.style.left = (x + Math.random() * 30 - 15) + "px"; p.style.setProperty("--dx", (Math.random() * 40 - 20) + "px");
+      p.style.left = (x + Math.random() * 30 - 15) + "px"; p.style.setProperty("--dx", (20 + Math.random() * 30) + "px");
       p.style.animationDelay = (i * 0.09) + "s"; air.appendChild(p);
       setTimeout(p.remove.bind(p), 1300);
     }
     setTimeout(function () { el.remove(); flying--; }, 2000);
   }
-  function breathe() { root.classList.toggle("playing", Object.keys(voices).length > 0 || !!drone); }
+  function breathe() {
+    var on = Object.keys(voices).length > 0 || !!drone;
+    root.classList.toggle("playing", on); air(on);
+  }
   function allOff() { Object.keys(voices).forEach(function (s) { noteOff(+s); }); }
   function setDrone(on) {
     if (drone) { drone.forEach(function (v) { v.stop(); }); drone = null; }
@@ -267,6 +295,11 @@
     '<div class="dr-row">रीड और स्टॉप<div class="dr-stops">' +
     stopKnob("hm-bass", "खरज", bassOn) + stopKnob("hm-high", "ऊँची रीड", highOn) + stopKnob("hm-echo", "गूँज", echoOn) +
     stopKnob("hm-drone", "ड्रोन", false) + stopKnob("hm-showkeys", "कीबोर्ड अक्षर", showKeys) + "</div></div>" +
+    '<details class="dr-adv"><summary>एडवांस्ड सेटिंग</summary>' +
+    '<label class="dr-row">खटके की आवाज़ <small>पट्टी की खट और धौंकनी की हवा — असली हारमोनियम जैसा एहसास</small>' +
+    '<input type="range" class="hm-mech" min="0" max="1" step="0.05" value="' + mech + '" aria-label="खटके की आवाज़"></label>' +
+    '<div class="dr-row">MIDI कीबोर्ड<button type="button" class="hm-midi hm-mini">MIDI कीबोर्ड जोड़ें</button><small class="hm-midist">जुड़ा MIDI कीबोर्ड यहीं से बजेगा (Chrome / Edge)।</small></div>' +
+    "</details>" +
     '<p class="dr-note">आवाज़: असली हारमोनियम की रिकॉर्डिंग (CC0)।</p>' +
     "</div>" +
     "</div>" +
@@ -392,6 +425,30 @@
   });
   root.querySelector(".hm-volr").addEventListener("input", function () {
     vol = +this.value; store.vol = vol; save(); if (master) master.gain.value = vol;
+  });
+  root.querySelector(".hm-mech").addEventListener("input", function () {
+    mech = +this.value; store.mech = mech; save(); breathe();
+  });
+  // ---------- MIDI input (Web MIDI: Chrome, Edge, Opera; not Safari/Firefox) ----------
+  var midiBtn = root.querySelector(".hm-midi"), midiSt = root.querySelector(".hm-midist"), midiOn = {};
+  function midiMsg(ev) {
+    var d = ev.data, cmd = d[0] & 0xf0, note = d[1], vel = d[2];
+    var s = note - 60 - saPc; // middle C on the controller = मध्य सा when सा is सफ़ेद 1
+    if (cmd === 0x90 && vel > 0) { audio(); midiOn[note] = s; noteOn(s); }
+    else if (cmd === 0x80 || (cmd === 0x90 && vel === 0)) { if (note in midiOn) { noteOff(midiOn[note]); delete midiOn[note]; } }
+  }
+  midiBtn.addEventListener("click", function () {
+    if (!navigator.requestMIDIAccess) { midiSt.textContent = "यह ब्राउज़र MIDI नहीं चलाता — कंप्यूटर पर Chrome या Edge में खोलें।"; return; }
+    audio();
+    navigator.requestMIDIAccess().then(function (acc) {
+      function hook() {
+        var names = [];
+        acc.inputs.forEach(function (inp) { inp.onmidimessage = midiMsg; names.push(inp.name); });
+        midiSt.textContent = names.length ? "जुड़ा: " + names.join(", ") + " — अब बजाइए।" : "कोई MIDI कीबोर्ड नहीं मिला। केबल लगाकर फिर दबाएँ।";
+        midiBtn.textContent = names.length ? "MIDI जुड़ा ✓" : "MIDI कीबोर्ड जोड़ें";
+      }
+      hook(); acc.onstatechange = hook;
+    }, function () { midiSt.textContent = "MIDI की अनुमति नहीं मिली। ब्राउज़र की अनुमति देकर फिर कोशिश करें।"; });
   });
   var droneChk = root.querySelector(".hm-drone"), droneBtn = root.querySelector(".hm-dronebtn");
   function droneTo(on) { droneChk.checked = on; droneBtn.setAttribute("aria-pressed", on); setDrone(on); }

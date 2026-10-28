@@ -131,7 +131,7 @@ add("harmonium.html",
     band("ऑनलाइन हारमोनियम — सरगम के साथ बजाएँ",
          "नीचे की पट्टियाँ छूकर बजाएँ। हर पट्टी पर सा रे ग म लिखा है, सुर (सफ़ेद 1, काली 1…) बदल सकते हैं, और किसी आरती को चुनकर उसकी धुन सुन सकते हैं या <b>अभ्यास मोड</b> में ख़ुद बजाना सीख सकते हैं।",
          "ऑनलाइन हारमोनियम") +
-    '<section><div class="wrap">' + _hm_player(HM_SONGS) + "</div></section>" +
+    '<section><div class="wrap">' + _hm_player(HM_SONGS, "om-jai-jagdish-hare") + "</div></section>" +
     '<section class="band"><div class="wrap">' + sec_head("आरतियों के हारमोनियम नोट्स", "हर गाने का अलग पेज — सरगम लिखी हुई, और बजाकर सीखने वाला प्लेयर") +
     _hm_ul(_HM_SONG_LINKS) + "</div></section>" +
     '<section><div class="wrap prose">' + sec_head("नए हैं? यहाँ से शुरू करें") +
