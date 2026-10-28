@@ -250,3 +250,4 @@
 .hm-kbd .blk.coupled{transform:translateY(3px);filter:brightness(1.25) sepia(.35)}
 @media (max-width:520px){.dr-grid{grid-template-columns:1fr}.hm-drawer{width:100%}}
 .hm-drawer{bottom:auto;max-height:100%;border-radius:0 0 12px 0}
+.hm [hidden]{display:none!important}
