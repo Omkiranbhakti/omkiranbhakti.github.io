@@ -105,7 +105,7 @@
   function freq(s) { return 130.8128 * Math.pow(2, (saPc + s) / 12); } // सा = C3 … B3 (real harmonium middle)
 
   // ---------- recorded harmonium (CC0 samples, one per key G2–D5) ----------
-  var SMP = [43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,67,68,69,70,71,72,73,74];
+  var SMP = [36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,67,68,69,70,71,72,73,74];
   var SBASE = (data.samples || "audio/harmonium/"), bufs = {}, loading = false, loadedN = 0;
   var LOOP_A = 1.4, LOOP_B = 4.4, XF = 0.25, START = 0.09;
   function prepLoop(b) { // equal-power crossfade so the sustain loops without a click
@@ -205,7 +205,7 @@
   }
 
   // ---------- UI ----------
-  var LO = -5, HI = 19; // मंद्र प … तार प
+  var LO = -12, HI = 19; // मंद्र सा … तार प
   function isBlack(s) { return [1, 3, 6, 8, 10].indexOf(((saPc + s) % 12 + 12) % 12) >= 0; }
   var KEYMAP = { z: -5, x: -3, c: -1, a: 0, w: 1, s: 2, e: 3, d: 4, f: 5, t: 6, g: 7, y: 8, h: 9, u: 10, j: 11,
     k: 12, o: 13, l: 14, p: 15, ";": 16, "'": 17 };
@@ -217,28 +217,40 @@
   function stopKnob(cls, text, on) {
     return '<label class="stop"><input type="checkbox" class="' + cls + '"' + (on ? " checked" : "") + '><span class="knob" aria-hidden="true"></span><span class="stop-l">' + text + "</span></label>";
   }
-  var view = store.view || (window.innerWidth < 640 ? "flat" : "3d");
+  var kw = typeof store.kw === "number" ? store.kw : (window.innerWidth < 640 ? 46 : 58); // white-key width (zoom)
+  function seg(cls, cur, items) {
+    return '<div class="seg ' + cls + '" role="group">' + items.map(function (it) {
+      return '<button type="button" data-v="' + it[0] + '" aria-pressed="' + (it[0] === cur) + '">' + it[1] + "</button>";
+    }).join("") + "</div>";
+  }
   root.innerHTML =
-    '<div class="hm-panel">' +
-    '<label>सा का सुर <select class="hm-sa" aria-label="सा किस पट्टी पर">' + opts + "</select></label>" +
-    '<label>पट्टी पर नाम <select class="hm-names" aria-label="पट्टी पर कौन से नाम दिखें">' +
-    '<option value="sargam"' + (names === "sargam" ? " selected" : "") + '>सा रे ग (सरगम)</option>' +
-    '<option value="west"' + (names === "west" ? " selected" : "") + '>C D E (अंग्रेज़ी)</option>' +
-    '<option value="both"' + (names === "both" ? " selected" : "") + '>दोनों</option></select></label>' +
-    '<label class="hm-vol">आवाज़ <input type="range" min="0" max="1" step="0.05" value="' + vol + '" aria-label="आवाज़"></label>' +
-    '<button type="button" class="hm-mini hm-view" aria-pressed="' + (view === "3d") + '">' + (view === "3d" ? "सीधा देखें" : "3D देखें") + "</button>" +
-    "</div>" +
-    '<div class="hm-stage' + (view === "3d" ? " v3d" : "") + '"><div class="hm-inst">' +
-    '<div class="hm-back" aria-hidden="true"><div class="hm-bel"><i class="clip l"></i><i class="clip r"></i><i class="hm-strap"></i></div></div>' +
-    '<div class="hm-lid wood" aria-hidden="true"><span class="slot"></span><span class="slot"></span><span class="hinge l"></span><span class="hinge r"></span></div>' +
-    '<div class="hm-stoprow wood">' +
-    stopKnob("hm-bass", "खरज", bassOn) + stopKnob("hm-high", "ऊँची रीड", highOn) + stopKnob("hm-echo", "गूँज", echoOn) +
-    stopKnob("hm-drone", "ड्रोन सा-प", false) + stopKnob("hm-showkeys", "कीबोर्ड अक्षर", showKeys) +
+    '<div class="hm-inst">' +
+    '<i class="screw tl"></i><i class="screw tr"></i><i class="screw bl"></i><i class="screw br"></i>' +
+    '<div class="hm-top wood" aria-hidden="true"><div class="hm-cover"></div><span class="hm-badge">ॐ OmKiran Bhakti</span></div>' +
+    '<div class="hm-rail wood">' +
+    '<button type="button" class="rbtn hm-menu" aria-label="हारमोनियम सेटिंग्स खोलें" aria-expanded="false"><span class="bars"></span></button>' +
+    '<button type="button" class="rbtn hm-dronebtn" aria-pressed="false" title="सा-प ड्रोन">सा·प</button>' +
+    '<div class="hm-nav"><input type="range" class="hm-navr" min="0" max="1000" value="0" aria-label="पट्टियाँ खिसकाएँ (सप्तक)"><div class="hm-navnums" aria-hidden="true"></div></div>' +
+    '<button type="button" class="rbtn hm-zout" aria-label="पट्टियाँ छोटी करें">−</button>' +
+    '<button type="button" class="rbtn hm-zin" aria-label="पट्टियाँ बड़ी करें">+</button>' +
     "</div>" +
     '<div class="hm-felt" aria-hidden="true"></div>' +
-    '<div class="hm-kbd-wrap wood"><div class="hm-kbd" role="group" aria-label="हारमोनियम की पट्टियाँ"></div></div>' +
-    '<div class="hm-front wood" aria-hidden="true"><div class="hm-jaali"><span class="hm-nameplate">OmKiran Bhakti</span></div></div>' +
-    "</div></div>" +
+    '<div class="hm-keybed"><div class="hm-cheek" aria-hidden="true"></div>' +
+    '<div class="hm-kbd-wrap"><div class="hm-kbd" role="group" aria-label="हारमोनियम की पट्टियाँ"></div></div>' +
+    '<div class="hm-cheek" aria-hidden="true"><span>सप्तक</span></div></div>' +
+    '<div class="hm-drawer wood" hidden>' +
+    '<div class="dr-head"><b>हारमोनियम</b><button type="button" class="rbtn hm-close" aria-label="सेटिंग्स बंद करें">×</button></div>' +
+    '<label class="dr-row">आवाज़ <input type="range" class="hm-volr" min="0" max="1" step="0.05" value="' + vol + '"></label>' +
+    '<div class="dr-row">सा का सुर (स्केल)<div class="dr-scale"><button type="button" class="rbtn sm hm-sdown" aria-label="सुर नीचे">−</button>' +
+    '<select class="hm-sa" aria-label="सा किस पट्टी पर">' + opts + '</select><button type="button" class="rbtn sm hm-sup" aria-label="सुर ऊपर">+</button></div></div>' +
+    '<div class="dr-row">पट्टी पर नाम' + seg("hm-names", names, [["sargam", "रे ग"], ["west", "C D E"], ["both", "दोनों"]]) + "</div>" +
+    '<div class="dr-row">रीड और स्टॉप<div class="dr-stops">' +
+    stopKnob("hm-bass", "खरज", bassOn) + stopKnob("hm-high", "ऊँची रीड", highOn) + stopKnob("hm-echo", "गूँज", echoOn) +
+    stopKnob("hm-drone", "ड्रोन", false) + stopKnob("hm-showkeys", "कीबोर्ड अक्षर", showKeys) + "</div></div>" +
+    '<p class="dr-note">आवाज़: असली हारमोनियम की रिकॉर्डिंग (CC0)।</p>' +
+    "</div>" +
+    "</div>" +
+    '<p class="hm-rotate">📱 फ़ोन को आड़ा (लैंडस्केप) करें — पट्टियाँ बड़ी दिखेंगी।</p>' +
     '<p class="hm-load" hidden>असली हारमोनियम की आवाज़ लोड हो रही है…</p><p class="hm-hint">पट्टी पर उँगली या माउस रखें। कंप्यूटर पर <b>A S D F G H J K</b> = सा रे ग म प ध नि सां, ऊपर की लाइन (W E T Y U) = काली पट्टियाँ।</p>' +
     (songs.length ?
       '<div class="hm-song">' +
@@ -267,7 +279,7 @@
         var ring = Math.sin((y / H) * 38 + n * 5.5), fine = smooth(g2, 64, 64, x / 2.5, y / 0.9);
         var v = 0.55 + 0.22 * ring + 0.12 * (fine - 0.5) + 0.08 * (n - 1);
         var i = (y * W + x) * 4;
-        im.data[i] = 70 + 95 * v; im.data[i + 1] = 30 + 48 * v; im.data[i + 2] = 12 + 22 * v; im.data[i + 3] = 255;
+        im.data[i] = 120 + 110 * v; im.data[i + 1] = 58 + 62 * v; im.data[i + 2] = 14 + 26 * v; im.data[i + 3] = 255;
       }
       cx.putImageData(im, 0, 0);
       root.style.setProperty("--wood", "url(" + cv.toDataURL("image/jpeg", 0.85) + ")");
@@ -277,12 +289,6 @@
       root.style.setProperty("--ivory-tex", "url(" + iv.toDataURL("image/jpeg", 0.9) + ")");
     } catch (e) {}
   })();
-  root.querySelector(".hm-view").addEventListener("click", function () {
-    view = view === "3d" ? "flat" : "3d"; store.view = view; save();
-    root.querySelector(".hm-stage").classList.toggle("v3d", view === "3d");
-    this.textContent = view === "3d" ? "सीधा देखें" : "3D देखें"; this.setAttribute("aria-pressed", view === "3d");
-  });
-
   var kbd = root.querySelector(".hm-kbd"), keyEls = {};
   function drawKeys() {
     kbd.innerHTML = "";
@@ -298,12 +304,36 @@
       if (!b) wi++;
     }
     kbd.innerHTML = html;
-    kbd.style.minWidth = (whites * 36) + "px";
+    kbd.style.width = (whites * kw) + "px";
     Array.prototype.forEach.call(kbd.querySelectorAll(".key"), function (k) { keyEls[+k.dataset.s] = k; });
     root.classList.toggle("nokeys", !showKeys);
-    var saKey = keyEls[0], wrap = root.querySelector(".hm-stage");
-    if (saKey && wrap.scrollWidth > wrap.clientWidth) wrap.scrollLeft = saKey.offsetLeft - 40;
+    var nums = root.querySelector(".hm-navnums"), total = whites * kw;
+    nums.innerHTML = [[-12, "मंद्र"], [0, "मध्य"], [12, "तार"]].map(function (x) {
+      var k = keyEls[x[0]]; return k ? '<span style="left:' + (100 * k.offsetLeft / total) + '%">' + x[1] + "</span>" : "";
+    }).join("");
+    centerSa();
   }
+  var wrap = root.querySelector(".hm-kbd-wrap"), navr = root.querySelector(".hm-navr");
+  function centerSa() {
+    var k = keyEls[0]; if (!k) return;
+    wrap.scrollLeft = Math.max(0, k.offsetLeft - kw * 2.5); syncNav();
+  }
+  function syncNav() {
+    var max = wrap.scrollWidth - wrap.clientWidth;
+    navr.disabled = max <= 0; navr.value = max > 0 ? Math.round(1000 * wrap.scrollLeft / max) : 0;
+  }
+  wrap.addEventListener("scroll", syncNav, { passive: true });
+  navr.addEventListener("input", function () { wrap.scrollLeft = (wrap.scrollWidth - wrap.clientWidth) * this.value / 1000; });
+  window.addEventListener("resize", syncNav);
+  function zoom(d) { kw = Math.max(34, Math.min(90, kw + d)); store.kw = kw; save(); drawKeys(); }
+  root.querySelector(".hm-zin").addEventListener("click", function () { zoom(8); });
+  root.querySelector(".hm-zout").addEventListener("click", function () { zoom(-8); });
+  // drawer
+  var drawer = root.querySelector(".hm-drawer"), menuBtn = root.querySelector(".hm-menu");
+  function openDrawer(on) { drawer.hidden = !on; menuBtn.setAttribute("aria-expanded", on); if (on) root.querySelector(".hm-close").focus(); }
+  menuBtn.addEventListener("click", function () { openDrawer(drawer.hidden); });
+  root.querySelector(".hm-close").addEventListener("click", function () { openDrawer(false); menuBtn.focus(); });
+  drawer.addEventListener("keydown", function (ev) { if (ev.key === "Escape") { openDrawer(false); menuBtn.focus(); } });
   drawKeys();
 
   // pointer: press, slide across keys, release
@@ -340,12 +370,21 @@
     saPc = +this.value; store.sa = saPc; save(); allOff(); drawKeys(); if (window._hmRelabel) window._hmRelabel();
     var d = root.querySelector(".hm-drone"); if (d.checked) setDrone(true);
   });
-  root.querySelector(".hm-vol input").addEventListener("input", function () {
+  root.querySelector(".hm-volr").addEventListener("input", function () {
     vol = +this.value; store.vol = vol; save(); if (master) master.gain.value = vol;
   });
-  root.querySelector(".hm-drone").addEventListener("change", function () { setDrone(this.checked); });
-  root.querySelector(".hm-names").addEventListener("change", function () {
-    names = this.value; store.names = names; save(); drawKeys(); if (window._hmRelabel) window._hmRelabel();
+  var droneChk = root.querySelector(".hm-drone"), droneBtn = root.querySelector(".hm-dronebtn");
+  function droneTo(on) { droneChk.checked = on; droneBtn.setAttribute("aria-pressed", on); setDrone(on); }
+  droneChk.addEventListener("change", function () { droneTo(this.checked); });
+  droneBtn.addEventListener("click", function () { droneTo(!droneChk.checked); });
+  function stepSa(d) { var sel = root.querySelector(".hm-sa"); sel.value = (saPc + d + 12) % 12; sel.dispatchEvent(new Event("change")); }
+  root.querySelector(".hm-sup").addEventListener("click", function () { stepSa(1); });
+  root.querySelector(".hm-sdown").addEventListener("click", function () { stepSa(-1); });
+  root.querySelector(".hm-names").addEventListener("click", function (ev) {
+    var b = ev.target.closest("button"); if (!b) return;
+    names = b.dataset.v; store.names = names; save();
+    Array.prototype.forEach.call(this.querySelectorAll("button"), function (x) { x.setAttribute("aria-pressed", x === b); });
+    drawKeys(); if (window._hmRelabel) window._hmRelabel();
   });
   root.querySelector(".hm-bass").addEventListener("change", function () { bassOn = this.checked; store.bass = bassOn; save(); });
   root.querySelector(".hm-high").addEventListener("change", function () { highOn = this.checked; store.high = highOn; save(); });
