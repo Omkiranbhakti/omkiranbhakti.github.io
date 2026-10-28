@@ -245,7 +245,7 @@ NAVG = [
  ("लाइव दर्शन", "temple", [("live-darshan.html","लाइव दर्शन","मंदिरों का आधिकारिक प्रसारण"),("mandir-darshan-guide.html","दर्शन गाइड","टिकट, बुकिंग, समय और नियम")]),
  ("भजन", "music", [("mata-rani-bhajan.html","माता रानी","देवी भजन"),("shiv-bhajan.html","शिव","शिव भजन और मंत्र"),("ganesh-bhajan.html","गणेश","गणपति भजन"),
                 ("krishna-bhajan.html","कृष्ण","राधा-कृष्ण भजन"),("ram-bhajan.html","राम","राम भजन"),("devotional-edm-bhajans.html","भक्ति EDM","नए अंदाज़ में")]),
- ("टूल्स", "mala", [("jaap-mala.html","जाप माला","108 बार गिनती"),("janm-tithi-rashi-calculator.html","जन्म राशि","नाम अक्षर, नक्षत्र"),
+ ("टूल्स", "mala", [("harmonium.html","ऑनलाइन हारमोनियम","सरगम के साथ बजाएँ"),("harmonium-sikhen.html","हारमोनियम सीखें","आरती के नोट्स, अलंकार"),("jaap-mala.html","जाप माला","108 बार गिनती"),("janm-tithi-rashi-calculator.html","जन्म राशि","नाम अक्षर, नक्षत्र"),
                 ("aaj-ka-choghadiya.html","शुभ समय","चौघड़िया")]),
 ]
 def nav_html(cur):
@@ -748,6 +748,7 @@ exec(open(os.path.join(os.path.dirname(__file__), "darshan_section.py"), encodin
 exec(open(os.path.join(os.path.dirname(__file__), "live_pages.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "roadmap_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "whatsapp_section.py"), encoding="utf-8").read())
+exec(open(os.path.join(os.path.dirname(__file__), "harmonium_section.py"), encoding="utf-8").read())
 
 # ---------------- Home ----------------
 ORG = {"@type":"Organization","@id":SITE+"#organization","name":"OmKiran Bhakti","alternateName":["Om Kiran Bhakti","ओमकिरण भक्ति"],"url":SITE,

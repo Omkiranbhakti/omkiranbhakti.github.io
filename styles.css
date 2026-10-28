@@ -1201,3 +1201,49 @@ body.no-dev .line-dev{display:none}
 @media (prefers-reduced-motion:reduce){.kya-pop.kp-in{animation:none}}
 @media (max-width:700px){.kya-pop .kp-p,.kya-pop .kp-s,.kya-pop .kp-dots{display:none}.kya-pop .kp-i{width:2.2rem;height:2.2rem;font-size:1.15rem}.kya-pop .kp-k{margin-bottom:.35rem}.kya-pop .kp-nav{margin-top:.3rem;justify-content:flex-end}.kya-pop .kp-t{font-size:.95rem;padding-right:1.4rem}}
 @media (max-width:700px){.kya-pop .kp-p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;font-size:.8rem}}
+
+/* ---------- ऑनलाइन हारमोनियम (harmonium.js) ---------- */
+.hm{background:var(--paper-2,#fff8ec);border:1px solid rgba(0,0,0,.08);border-radius:var(--r-l,18px);padding:14px;margin:18px 0;box-shadow:0 6px 24px rgba(28,35,80,.08)}
+.hm-bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:10px;font-size:.95rem}
+.hm-bar label{display:flex;align-items:center;gap:6px}
+.hm-bar select{font:inherit;padding:6px 8px;border-radius:8px;border:1px solid rgba(0,0,0,.2);background:var(--paper,#fff);color:var(--ink,#222);max-width:100%}
+.hm-pick{flex:1 1 260px}.hm-pick select{flex:1;min-width:0}
+.hm-vol input,.hm-tempo input{width:110px;accent-color:var(--sindoor,#c2410c)}
+.hm-bpm{min-width:2.4em;font-variant-numeric:tabular-nums}
+.hm-chk{cursor:pointer}
+.hm-kbd-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px;background:#3b2414;padding:10px 8px 8px;box-shadow:inset 0 2px 8px rgba(0,0,0,.5)}
+.hm-kbd{position:relative;display:flex;height:180px;touch-action:none;user-select:none;-webkit-user-select:none}
+.hm-kbd .key{position:relative;border:0;padding:0 0 10px;margin:0;font:inherit;cursor:pointer;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:2px;-webkit-tap-highlight-color:transparent}
+.hm-kbd .wht{flex:none;height:100%;background:linear-gradient(#fffdf7,#f1e6cf);border-right:1px solid #b9a27e;border-radius:0 0 6px 6px;color:#3b2414;font-size:1rem}
+.hm-kbd .blk{position:absolute;top:0;height:60%;z-index:2;background:linear-gradient(#2b2b2b,#0d0d0d);border-radius:0 0 5px 5px;color:#f5deb3;font-size:.78rem;padding-bottom:6px}
+.hm-kbd .wht.sa{background:linear-gradient(#fff3d6,#f6d58c)}
+.hm-kbd .key.next{box-shadow:inset 0 -6px 0 var(--genda,#f59e0b)}
+.hm-kbd .wht.down{background:linear-gradient(#fbd38d,#f59e0b)}
+.hm-kbd .blk.down{background:linear-gradient(#b45309,#7c2d12)}
+.hm-kbd .kk{font-style:normal;font-size:.62rem;opacity:.55}
+.hm.nokeys .kk{display:none}
+.sw{position:relative;display:inline-block;line-height:1.1}
+.sw.komal{text-decoration:underline;text-underline-offset:3px}
+.sw.tivra{text-decoration:overline}
+.sw.low::after,.sw.high::before{content:"";position:absolute;left:50%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:currentColor}
+.sw.low::after{bottom:-5px}.sw.high::before{top:-4px}
+.hm-hint{font-size:.85rem;opacity:.75;margin:8px 2px}
+.hm-btn{font:inherit;font-weight:600;border:0;border-radius:999px;padding:8px 16px;background:var(--sindoor,#c2410c);color:#fff;cursor:pointer}
+.hm-btn.hm-practice{background:var(--night,#1c2350)}
+.hm-btn.on{outline:3px solid var(--genda,#f59e0b)}
+.hm-btn:disabled{opacity:.4;cursor:default}
+.hm-song{border-top:1px dashed rgba(0,0,0,.15);margin-top:12px;padding-top:12px}
+.hm-status{min-height:1.5em;font-weight:500;margin:4px 2px 10px}
+.hm-lines{list-style:none;margin:0;padding:0;max-height:420px;overflow-y:auto}
+.hm-lines li{padding:8px 10px;border-radius:10px;cursor:pointer}
+.hm-lines li.on{background:rgba(245,158,11,.14)}
+.hm-lyric{margin:0 0 4px;font-family:"Tiro Devanagari Hindi",serif;font-size:1.05rem}
+.hm-notes{margin:0;display:flex;flex-wrap:wrap;gap:4px 6px}
+.hm-notes .chip{display:inline-flex;align-items:center;padding:3px 7px 6px;border-radius:7px;background:var(--paper,#fff);border:1px solid rgba(0,0,0,.12);font-size:.95rem}
+.hm-notes .chip.on{background:var(--genda,#f59e0b);color:#2a1606;border-color:transparent}
+.hm-notes .hold{font-style:normal;opacity:.5;margin-left:2px}
+.sargam-tbl td:last-child{font-family:"Mukta",sans-serif;letter-spacing:.02em}
+.sargam-tbl .sw{margin:0 2px}
+[data-theme="dark"] .hm{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)}
+[data-theme="dark"] .hm-notes .chip{background:rgba(255,255,255,.06);color:inherit}
+@media (max-width:520px){.hm{padding:10px}.hm-kbd{height:150px}.hm-vol input,.hm-tempo input{width:90px}}
