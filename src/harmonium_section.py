@@ -326,6 +326,16 @@ main{{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-
 .foot{{margin-top:18px;font-size:.8rem;opacity:.7}}
 .foot a{{color:inherit}}
 @media (max-height:420px){{.app-bar h1{{font-size:1rem}}.app-bar img{{width:24px;height:24px}}}}
+.turn{{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(18,8,4,.94);color:#fbe7c0;text-align:center}}
+.turn[hidden]{{display:none}}
+.turn-box{{display:flex;flex-direction:column;align-items:center;gap:14px;max-width:320px}}
+.turn p{{margin:0;font-size:1.1rem;font-weight:600}}
+.phone{{width:46px;height:80px;border:4px solid #f6c55a;border-radius:10px;animation:turnph 2.2s ease-in-out infinite}}
+@keyframes turnph{{0%,25%{{transform:rotate(0)}}55%,100%{{transform:rotate(-90deg)}}}}
+.turn-go{{font:700 1.05rem "Mukta",sans-serif;border:0;border-radius:999px;padding:12px 22px;background:linear-gradient(180deg,#f6c55a,#e08a1e);color:#2a1206;cursor:pointer}}
+.turn-skip{{font:600 .9rem "Mukta",sans-serif;border:1px solid rgba(251,231,192,.5);border-radius:999px;padding:7px 16px;background:transparent;color:#fbe7c0;cursor:pointer}}
+.turn small{{opacity:.8}}
+@media (orientation:portrait){{.hm.app .hm-kbd{{height:min(calc(100dvh - var(--chrome,230px)),48dvh)}}}}
 </style>
 </head>
 <body>
@@ -334,6 +344,9 @@ main{{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-
 <button type="button" class="ghost" id="install" hidden>📲 इंस्टॉल</button></header>
 <main>
 <section id="play"><div class="hm" id="hm"></div></section>
+<div class="turn" id="turn" hidden><div class="turn-box"><div class="phone" aria-hidden="true"></div><p>हारमोनियम आड़े फ़ोन पर ही अच्छा बजता है।</p>
+<button type="button" class="turn-go" id="turngo">🔄 आड़ा करके चलाएँ</button><button type="button" class="turn-skip" id="turnskip">ऐसे ही चलाएँ</button>
+<small id="turnios" hidden>iPhone पर फ़ोन को ख़ुद आड़ा घुमा दें (ऑटो-रोटेट चालू रखें)।</small></div></div>
 <section id="learn" hidden><h2>हारमोनियम सीखें — क़दम-दर-क़दम</h2><ol class="lessons">{_lesson_html}</ol>
 <p class="ios-tip" id="iostip" hidden>iPhone पर ऐप की तरह रखने के लिए: Safari में Share (⬆) → "Add to Home Screen"।</p>
 <p class="foot">पूरे पाठ, आरतियों के बोल और अर्थ: <a href="../harmonium-sikhen.html">omkiranbhakti.com</a> · आवाज़: असली हारमोनियम की रिकॉर्डिंग (CC0)</p></section>
@@ -373,6 +386,18 @@ main{{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-
   ib.addEventListener("click", function () {{ if (!deferred) return; deferred.prompt(); deferred.userChoice.then(function () {{ deferred = null; ib.hidden = true; }}); }});
   var standalone = (window.matchMedia && matchMedia("(display-mode: standalone), (display-mode: fullscreen)").matches) || navigator.standalone;
   if (/iphone|ipad|ipod/i.test(navigator.userAgent) && !standalone) document.getElementById("iostip").hidden = false;
+  // portrait gate: one tap → full screen + landscape (Android); iPhone users rotate by hand
+  var turn = document.getElementById("turn"), skipped = false, ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  if (ios) {{ document.getElementById("turnios").hidden = false; document.getElementById("turngo").hidden = true; }}
+  function gate() {{ var p = window.matchMedia("(orientation: portrait)").matches; turn.hidden = !p || skipped; setTimeout(fit, 60); }}
+  document.getElementById("turngo").addEventListener("click", function () {{
+    var el = document.documentElement, fs = el.requestFullscreen || el.webkitRequestFullscreen;
+    var p = fs ? Promise.resolve(fs.call(el)) : Promise.resolve();
+    p.then(function () {{ return screen.orientation && screen.orientation.lock ? screen.orientation.lock("landscape") : null; }})
+     .catch(function () {{}}).then(function () {{ setTimeout(gate, 400); }});
+  }});
+  document.getElementById("turnskip").addEventListener("click", function () {{ skipped = true; gate(); }});
+  window.addEventListener("resize", gate); gate();
   if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function () {{}});
 }})();
 </script>

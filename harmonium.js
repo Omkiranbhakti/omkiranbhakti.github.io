@@ -487,8 +487,10 @@
   });
 
   // ---------- ad slot (only when the page turns ads on — after AdSense approval) ----------
-  if (data.ads && data.adClient && data.adSlot) {
-    var ad = root.querySelector(".hm-ad"); ad.hidden = false;
+  var ad = root.querySelector(".hm-ad");
+  if (!(data.ads && data.adClient && data.adSlot)) { if (ad) ad.remove(); }
+  else {
+    ad.hidden = false;
     ad.querySelector(".hm-ad-slot").innerHTML = '<ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="' + data.adClient + '" data-ad-slot="' + data.adSlot + '"></ins>';
     try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
     root.classList.add("has-ad");

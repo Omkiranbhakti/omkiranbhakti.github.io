@@ -39,6 +39,16 @@ main{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-i
 .foot{margin-top:18px;font-size:.8rem;opacity:.7}
 .foot a{color:inherit}
 @media (max-height:420px){.app-bar h1{font-size:1rem}.app-bar img{width:24px;height:24px}}
+.turn{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(18,8,4,.94);color:#fbe7c0;text-align:center}
+.turn[hidden]{display:none}
+.turn-box{display:flex;flex-direction:column;align-items:center;gap:14px;max-width:320px}
+.turn p{margin:0;font-size:1.1rem;font-weight:600}
+.phone{width:46px;height:80px;border:4px solid #f6c55a;border-radius:10px;animation:turnph 2.2s ease-in-out infinite}
+@keyframes turnph{0%,25%{transform:rotate(0)}55%,100%{transform:rotate(-90deg)}}
+.turn-go{font:700 1.05rem "Mukta",sans-serif;border:0;border-radius:999px;padding:12px 22px;background:linear-gradient(180deg,#f6c55a,#e08a1e);color:#2a1206;cursor:pointer}
+.turn-skip{font:600 .9rem "Mukta",sans-serif;border:1px solid rgba(251,231,192,.5);border-radius:999px;padding:7px 16px;background:transparent;color:#fbe7c0;cursor:pointer}
+.turn small{opacity:.8}
+@media (orientation:portrait){.hm.app .hm-kbd{height:min(calc(100dvh - var(--chrome,230px)),48dvh)}}
 </style>
 </head>
 <body>
@@ -47,12 +57,15 @@ main{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-i
 <button type="button" class="ghost" id="install" hidden>📲 इंस्टॉल</button></header>
 <main>
 <section id="play"><div class="hm" id="hm"></div></section>
+<div class="turn" id="turn" hidden><div class="turn-box"><div class="phone" aria-hidden="true"></div><p>हारमोनियम आड़े फ़ोन पर ही अच्छा बजता है।</p>
+<button type="button" class="turn-go" id="turngo">🔄 आड़ा करके चलाएँ</button><button type="button" class="turn-skip" id="turnskip">ऐसे ही चलाएँ</button>
+<small id="turnios" hidden>iPhone पर फ़ोन को ख़ुद आड़ा घुमा दें (ऑटो-रोटेट चालू रखें)।</small></div></div>
 <section id="learn" hidden><h2>हारमोनियम सीखें — क़दम-दर-क़दम</h2><ol class="lessons"><li><button type="button" class="lesson" data-song="sargam"><b>सा पहचानें</b><span>दो काली पट्टियों के गुच्छे के ठीक बाईं सफ़ेद पट्टी सफ़ेद 1 (C) है। शुरुआत में इसी को सा मानें — पीली पट्टी।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="sargam"><b>सात सुर ऊपर-नीचे</b><span>सा रे ग म प ध नि सां — पहले ▶ से सुनें, फिर ✋ अभ्यास मोड में ख़ुद बजाएँ।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="alankar-1"><b>अलंकार: सारेग, रेगम…</b><span>तीन-तीन सुरों के पैटर्न से उँगलियाँ सधती हैं। रफ़्तार 60% से शुरू करें।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="alankar-2"><b>अलंकार: सासा रेरे…</b><span>हर सुर दो बार — हाथ को स्थिर रखने का अभ्यास।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="alankar-3"><b>अलंकार: साग, रेम…</b><span>एक सुर छोड़कर छलाँग — कान और उँगली दोनों के लिए।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="komal"><b>कोमल-तीव्र सुर</b><span>रे ग ध नि के कोमल और तीव्र म — सारे 12 सुर एक के बाद एक।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="om-jai-jagdish-hare"><b>पहला गाना: ॐ जय जगदीश हरे</b><span>सबसे आसान आरती। एक-एक पंक्ति दोहराकर सीखें।</span><i>अभ्यास करें →</i></button></li><li><button type="button" class="lesson" data-song="jai-ganesh-deva"><b>जय गणेश देवा</b><span>सिर्फ़ शुद्ध सुर — दूसरा गाना यही रखें।</span><i>अभ्यास करें →</i></button></li></ol>
 <p class="ios-tip" id="iostip" hidden>iPhone पर ऐप की तरह रखने के लिए: Safari में Share (⬆) → "Add to Home Screen"।</p>
 <p class="foot">पूरे पाठ, आरतियों के बोल और अर्थ: <a href="../harmonium-sikhen.html">omkiranbhakti.com</a> · आवाज़: असली हारमोनियम की रिकॉर्डिंग (CC0)</p></section>
 </main>
 <script type="application/json" id="hm-data">{"songs": [{"id": "om-jai-jagdish-hare", "title": "ॐ जय जगदीश हरे", "bpm": 150, "lines": [{"t": "ॐ जय जगदीश हरे", "n": "S - S - S S S - .N S R -"}, {"t": "स्वामी जय जगदीश हरे", "n": "R G M - P P D P M G R -"}, {"t": "भक्त जनों के संकट", "n": "R G R G M - M G R G R S"}, {"t": "दास जनों के संकट", "n": "R G R G M - M G R G R S"}, {"t": "क्षण में दूर करे", "n": "S S R - G R S .N .D -"}, {"t": "ॐ जय जगदीश हरे", "n": "S - S - S S S - .N S R -"}]}, {"id": "jai-ganesh-deva", "title": "जय गणेश जय गणेश देवा", "bpm": 170, "lines": [{"t": "जय गणेश जय गणेश जय गणेश देवा", "n": "S S R R G G G G G G M G M G R R"}, {"t": "माता जाकी पार्वती पिता महादेवा", "n": ".N .N S .N R R R R G G R S S -"}, {"t": "एक दंत दयावंत चार भुजा धारी", "n": "S S G M P P P P M P M P M G G -"}, {"t": "माथे सिंदूर सोहे मूसे की सवारी", "n": "S G M G P P P P M P M P M G G -"}, {"t": "जय गणेश जय गणेश जय गणेश देवा", "n": "S S R R G G G G G G M G M G R R"}, {"t": "माता जाकी पार्वती पिता महादेवा", "n": ".N .N S .N R R R R G G R S S -"}]}, {"id": "aarti-kunj-bihari", "title": "आरती कुंजबिहारी की", "bpm": 160, "lines": [{"t": "आरती कुंजबिहारी की", "n": "P - P P M P n n D P - M G R"}, {"t": "श्री गिरिधर कृष्णमुरारी की", "n": "S R P M M G G S R S .N S -"}, {"t": "गले में बैजंती माला", "n": "G G G R - R G R S .N S -"}, {"t": "बजावै मुरली मधुर बाला", "n": "G G - G R - R R G R R S .N S -"}, {"t": "श्रवण में कुण्डल झलकाला", "n": "G G - G R - R G R R S .N S -"}, {"t": "नंद के आनंद नंदलाला", "n": "G - G G R - R G R R S .N S -"}]}, {"id": "hanuman-chalisa", "title": "हनुमान चालीसा", "bpm": 170, "lines": [{"t": "श्रीगुरु चरन सरोज रज", "n": "S - S S S S R R G - R G G"}, {"t": "निज मनु मुकुरु सुधारि", "n": "P P P M M R R S S - S -"}, {"t": "जय हनुमान ज्ञान गुन सागर", "n": "S R R P - P P D P M G G R R"}, {"t": "जय कपीस तिहुँ लोक उजागर", "n": "P - M G R R S .N .N .D R R R S S -"}]}, {"id": "raghupati-raghav", "title": "रघुपति राघव राजाराम", "bpm": 140, "lines": [{"t": "रघुपति राघव राजा राम", "n": "S S S S S S .N .D .N R S R M G M -"}, {"t": "पतित पावन सीताराम", "n": "R g R S .N .D .N G R R S -"}, {"t": "सीताराम सीताराम", "n": "G G G M G R S R M G M -"}, {"t": "भज प्यारे तू सीताराम", "n": "R R M P d P M G R R -"}, {"t": "रघुपति राघव राजा राम", "n": "S S S S S S .N .D .N R S R M G M -"}, {"t": "पतित पावन सीताराम", "n": "R g R S .N .D .N G R R S -"}]}, {"id": "sargam", "title": "अभ्यास 1: सरगम ऊपर-नीचे (आरोह-अवरोह)", "bpm": 100, "lines": [{"t": "आरोह — सा से तार सा तक", "n": "S R G M P D N S' -"}, {"t": "अवरोह — तार सा से सा तक", "n": "S' N D P M G R S -"}]}, {"id": "alankar-1", "title": "अभ्यास 2: अलंकार — सारेग, रेगम…", "bpm": 110, "lines": [{"t": "आरोह", "n": "S R G R G M G M P M P D P D N D N S' -"}, {"t": "अवरोह", "n": "S' N D N D P D P M P M G M G R G R S -"}]}, {"id": "alankar-2", "title": "अभ्यास 3: अलंकार — सासा रेरे गग…", "bpm": 120, "lines": [{"t": "आरोह", "n": "S S R R G G M M P P D D N N S' S'"}, {"t": "अवरोह", "n": "S' S' N N D D P P M M G G R R S S"}]}, {"id": "alankar-3", "title": "अभ्यास 4: अलंकार — साग, रेम, गप…", "bpm": 110, "lines": [{"t": "आरोह", "n": "S G R M G P M D P N D S' -"}, {"t": "अवरोह", "n": "S' D N P D M P G M R G S -"}]}, {"id": "komal", "title": "अभ्यास 5: कोमल-तीव्र पहचान (सारे 12 सुर)", "bpm": 90, "lines": [{"t": "ऊपर", "n": "S r R g G M m P d D n N S' -"}, {"t": "नीचे", "n": "S' N n D d P m M G g R r S -"}]}], "start": "om-jai-jagdish-hare", "app": true, "samples": "../audio/harmonium/", "ads": false, "adClient": "", "adSlot": ""}</script>
-<script src="../harmonium.js?v=84265634"></script>
+<script src="../harmonium.js?v=80e698d5"></script>
 <script>
 (function () {
   var hm = document.getElementById("hm");
@@ -86,6 +99,18 @@ main{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-i
   ib.addEventListener("click", function () { if (!deferred) return; deferred.prompt(); deferred.userChoice.then(function () { deferred = null; ib.hidden = true; }); });
   var standalone = (window.matchMedia && matchMedia("(display-mode: standalone), (display-mode: fullscreen)").matches) || navigator.standalone;
   if (/iphone|ipad|ipod/i.test(navigator.userAgent) && !standalone) document.getElementById("iostip").hidden = false;
+  // portrait gate: one tap → full screen + landscape (Android); iPhone users rotate by hand
+  var turn = document.getElementById("turn"), skipped = false, ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  if (ios) { document.getElementById("turnios").hidden = false; document.getElementById("turngo").hidden = true; }
+  function gate() { var p = window.matchMedia("(orientation: portrait)").matches; turn.hidden = !p || skipped; setTimeout(fit, 60); }
+  document.getElementById("turngo").addEventListener("click", function () {
+    var el = document.documentElement, fs = el.requestFullscreen || el.webkitRequestFullscreen;
+    var p = fs ? Promise.resolve(fs.call(el)) : Promise.resolve();
+    p.then(function () { return screen.orientation && screen.orientation.lock ? screen.orientation.lock("landscape") : null; })
+     .catch(function () {}).then(function () { setTimeout(gate, 400); });
+  });
+  document.getElementById("turnskip").addEventListener("click", function () { skipped = true; gate(); });
+  window.addEventListener("resize", gate); gate();
   if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function () {});
 })();
 </script>
