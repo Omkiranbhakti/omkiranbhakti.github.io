@@ -23,3 +23,7 @@ Follow up once after ~7 days (around 2 Nov) if no reply. Never pay for links.
 - 2026-10-28 Pins published (2): aaj-ka-panchang (board F), hanuman-chalisa (new board A "आरती, चालीसा और लाइव दर्शन" created). Pending (4): om-jai-jagdish, lakshmi-aarti, shiv-aarti, live-darshan
 - 2026-10-28 Quora answer (seo/quora-answers.md #1, question added by us): "2026 में नरक चतुर्दशी और दिवाली एक ही दिन क्यों हैं?" https://hi.quora.com/2026-में-नरक-चतुर्दशी-और-दिवाली/answers/1477743922314131 — Space story already posted today, none added
 - 2026-10-28 GSC: 8 indexing requests (quota hit), indexed 353 / not indexed 429 (330 discovered-not-indexed), last 7 days 46 clicks / 5.91k impressions, external links 0. Bing WMT not signed in (skipped)
+- 2026-10-29 Pins published (2): om-jai-jagdish, lakshmi-aarti (board A). Pending (2): shiv-aarti, live-darshan
+- 2026-10-29 Quora answer (seo/quora-answers.md #4, question added by us): "घर बैठे राम मंदिर, महाकाल या खाटू श्याम के लाइव दर्शन कैसे करें?" https://hi.quora.com/घर-बैठे-राम-मंदिर-महाकाल-या/answers/1477743922413672
+- 2026-10-29 Quora Space story (पौराणिक कथा सागर, seo/quora-mythology.md #4): रावण ने सीता जी को बलपूर्वक क्यों नहीं छुआ (नलकूबर का श्राप)
+- 2026-10-29 GSC: 25 indexing requests (no quota dialog), 11 queued pages already indexed; indexed 353 / not indexed 429 (330 discovered-not-indexed); last 7 days 48 clicks / 6.38k impressions; external links 0; sitemap last read 27 Oct (688 discovered). Question queries saved to seo/gsc-questions.md. Bing WMT not signed in (skipped)

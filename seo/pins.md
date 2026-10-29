@@ -31,13 +31,13 @@ Board F = "त्योहार 2026 — तारीख़ और मुहू
 - Link: https://omkiranbhakti.com/hanuman-chalisa.html
 - Image: img/pins/pin_hanuman-chalisa.jpg
 
-### [ ] om-jai-jagdish  (board A)
+### [x] (2026-10-29) om-jai-jagdish  (board A)
 - Title: ॐ जय जगदीश हरे आरती — पूरे बोल और अर्थ
 - Description: भगवान विष्णु की सबसे लोकप्रिय आरती ॐ जय जगदीश हरे — पूरे बोल, सरल अर्थ और वीडियो। #omjaijagdishhare #aarti #vishnu
 - Link: https://omkiranbhakti.com/om-jai-jagdish-hare-aarti.html
 - Image: img/pins/pin_om-jai-jagdish.jpg
 
-### [ ] lakshmi-aarti  (board A)
+### [x] (2026-10-29) lakshmi-aarti  (board A)
 - Title: ॐ जय लक्ष्मी माता — लक्ष्मी जी की आरती (पूरे बोल)
 - Description: दिवाली और शुक्रवार की पूजा के लिए माँ लक्ष्मी की आरती — पूरे बोल और सरल अर्थ के साथ। #lakshmiaarti #diwali #आरती
 - Link: https://omkiranbhakti.com/lakshmi-aarti.html

@@ -48,3 +48,8 @@ The real questions people typed when our pages appeared. Ordered by opportunity:
 
 ## Live darshan (Google suggest, 27 Oct 2026)
 Every temple has "<temple> live darshan today / aaj ke darshan / time / app / official channel / youtube" suggestions. live-darshan.html used #hash links, which Google does not index separately, so on 27 Oct each of the 42 temples got its own page (src/live_pages.py, e.g. mahakal-live-darshan.html). The FAQ on each page answers "today", "time", "official channel" and "app". The pages are linked from the hub and the guide pages, and the top 17 are queued for indexing. Temples people search for that we do not have yet: Mehandipur Balaji, Baba Baidyanath Dham, Sundha Mata, Shantikunj Haridwar, Amarnath (yatra season), Lalbaugcha Raja (Ganesh festival) — add them once an official channel is verified.
+
+## FAQ additions
+From Search Console question queries (seo/gsc-questions.md, 29 Oct 2026). Every question with 5+ impressions already has a page; these pages answer them only partly:
+- faq-add: bhadra-kaal.html — "दुर्गा पूजा / दशहरा के बाद भदवा (भद्रा) कब है?" (~25 impressions across "bhadwa" / "भादवा" variants, position 5–11; check which period searchers mean by "भदवा" before writing the answer)
+- faq-add: panchak-kab-hai.html — "इस महीने पंचक कब है?" (~10 impressions across variants, position 6–11)

@@ -3,47 +3,11 @@
 # --- online harmonium 2026-10-28 ---
 # --- roadmap pages 2026-10-28 (Govardhan 10 Nov, Bhai Dooj 11 Nov) ---
 # --- harmonium pages 2026-10-28 (top priority) ---
-harmonium.html
-harmonium-sikhen.html
-om-jai-jagdish-hare-harmonium-notes.html
-om-jai-shiv-omkara-harmonium-notes.html
-jai-ambe-gauri-harmonium-notes.html
-om-jai-lakshmi-mata-harmonium-notes.html
-jai-ganesh-deva-harmonium-notes.html
-aarti-kunj-bihari-ki-harmonium-notes.html
-raghupati-raghav-raja-ram-harmonium-notes.html
-govardhan-puja-vidhi.html
-bhai-dooj-tilak-vidhi.html
 # --- backlog added 2026-10-18 (all other sitemap pages not yet requested) ---
 # --- darshan guides added 2026-10-26 (Kedarnath closes 11 Nov: request first) ---
 # --- new festival pages added 2026-10-26 (Karwa Chauth 29 Oct, Dhanteras/Diwali early Nov) ---
 # --- roadmap pages 2026-10-27 (Dhanteras 6 Nov) ---
 # --- per-temple live darshan pages 2026-10-27 (most searched first; other 25 come via sitemap) ---
-siddhivinayak-live-darshan.html
-kedarnath-live-darshan.html
-tirupati-live-darshan.html
-sanwaliya-seth-live-darshan.html
-shrinathji-live-darshan.html
-govind-dev-ji-live-darshan.html
-jagannath-puri-live-darshan.html
-varanasi-ganga-aarti-live.html
-haridwar-ganga-aarti-live.html
-dhanteras-kya-kharide.html
-dhanteras-puja-vidhi.html
-rama-ekadashi-vrat-katha.html
-dhanteras-katha.html
-kali-puja-kab-hai.html
-govardhan-puja-katha.html
-govardhan-aarti.html
-bhai-dooj-katha.html
-chitragupt-puja-kab-hai.html
-panchang-2026-11.html
-chhath-puja-samagri-list.html
-rama-ekadashi-kab-hai.html
-vrat-katha.html
-mangal-ki-seva-kali-aarti.html
-puja-niyam.html
-sant-bhajan.html
 ahoi-ashtami-kab-hai.html
 diwali-par-kya-kare-kya-na-kare.html
 lok-parv.html
