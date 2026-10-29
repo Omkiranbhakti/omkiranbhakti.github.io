@@ -6,7 +6,6 @@ Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
 Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi, purnimanta months; festivals follow their traditional kaal rule (sunrise, pradosh, moonrise, nishita).
 
 ## Upcoming festivals (dates for New Delhi)
-- करवा चौथ: 2026-10-29 — https://omkiranbhakti.com/karwa-chauth-kab-hai.html
 - अहोई अष्टमी: 2026-11-01 — https://omkiranbhakti.com/ahoi-ashtami-kab-hai.html
 - धनतेरस: 2026-11-06 — https://omkiranbhakti.com/dhanteras-kab-hai.html
 - दिवाली (लक्ष्मी पूजा): 2026-11-08 — https://omkiranbhakti.com/diwali-kab-hai.html
@@ -18,10 +17,11 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - कार्तिक पूर्णिमा (देव दीपावली): 2026-11-24 — https://omkiranbhakti.com/kartik-purnima-kab-hai.html
 - विवाह पंचमी: 2026-12-14 — https://omkiranbhakti.com/vivah-panchami-kab-hai.html
 - गीता जयंती (मोक्षदा एकादशी): 2026-12-20 — https://omkiranbhakti.com/gita-jayanti-kab-hai.html
+- वसंत पंचमी: 2027-02-11 — https://omkiranbhakti.com/vasant-panchami-kab-hai.html
 
 ## City-wise festival timings and quick answers
 - [त्योहार कब है? — एकादशी, पूर्णिमा, दशहरा, दिवाली के सीधे जवाब | OmKiran Bhakti](https://omkiranbhakti.com/tyohar-kab-hai.html)
-- [करवा चौथ 2026 चाँद कब निकलेगा? शहरवार चंद्रोदय समय | OmKiran Bhakti](https://omkiranbhakti.com/karwa-chauth-chand-kab-niklega.html)
+- [करवा चौथ 2027 चाँद कब निकलेगा? शहरवार चंद्रोदय समय | OmKiran Bhakti](https://omkiranbhakti.com/karwa-chauth-chand-kab-niklega.html)
 - [दिवाली 2026 लक्ष्मी पूजा मुहूर्त — आपके शहर का शुभ समय | OmKiran Bhakti](https://omkiranbhakti.com/diwali-lakshmi-puja-muhurat.html)
 - [छठ पूजा 2026 अर्घ्य का समय — पटना, दिल्ली और शहरवार | OmKiran Bhakti](https://omkiranbhakti.com/chhath-puja-arghya-time.html)
 - [नवरात्रि 2027 अष्टमी-नवमी कब है? क्या एक साथ हैं, संधि पूजा का समय | OmKiran Bhakti](https://omkiranbhakti.com/navratri-ashtami-navami-kab-hai.html)
@@ -87,7 +87,7 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [रघुपति राघव राजाराम — harmonium notes](https://omkiranbhakti.com/raghupati-raghav-raja-ram-harmonium-notes.html): sargam notes of Raghupati Raghav Raja Ram for harmonium, with a player and practice mode
 
 ## Daily tools (updated every day)
-- [आज का चौघड़िया — 29 अक्टूबर 2026 शुभ मुहूर्त, राहु काल (65 शहर) | OmKiran Bhakti](https://omkiranbhakti.com/aaj-ka-choghadiya.html): choghadiya, Rahu kaal, Abhijit for 65 Indian cities
+- [आज का चौघड़िया — 30 अक्टूबर 2026 शुभ मुहूर्त, राहु काल (65 शहर) | OmKiran Bhakti](https://omkiranbhakti.com/aaj-ka-choghadiya.html): choghadiya, Rahu kaal, Abhijit for 65 Indian cities
 - [जन्म तिथि, राशि और नाम अक्षर कैलकुलेटर — जन्म तारीख़ से हिंदू तिथि जानें | OmKiran Bhakti](https://omkiranbhakti.com/janm-tithi-rashi-calculator.html): birth tithi, nakshatra, moon sign, naam akshar and next tithi-birthday from a birth date (runs in the browser)
 - [पंचक कब है? 2026–2027 पंचक की पूरी लिस्ट, प्रकार और समय | OmKiran Bhakti](https://omkiranbhakti.com/panchak-kab-hai.html)
 - [भद्रा कब से कब तक है? आज, कल और अगली भद्रा का समय | OmKiran Bhakti](https://omkiranbhakti.com/bhadra-kaal.html)
