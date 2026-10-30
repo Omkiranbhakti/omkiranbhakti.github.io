@@ -87,7 +87,7 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [रघुपति राघव राजाराम — harmonium notes](https://omkiranbhakti.com/raghupati-raghav-raja-ram-harmonium-notes.html): sargam notes of Raghupati Raghav Raja Ram for harmonium, with a player and practice mode
 
 ## Daily tools (updated every day)
-- [आज का चौघड़िया — 30 अक्टूबर 2026 शुभ मुहूर्त, राहु काल (65 शहर) | OmKiran Bhakti](https://omkiranbhakti.com/aaj-ka-choghadiya.html): choghadiya, Rahu kaal, Abhijit for 65 Indian cities
+- [आज का चौघड़िया — 31 अक्टूबर 2026 शुभ मुहूर्त, राहु काल (65 शहर) | OmKiran Bhakti](https://omkiranbhakti.com/aaj-ka-choghadiya.html): choghadiya, Rahu kaal, Abhijit for 65 Indian cities
 - [जन्म तिथि, राशि और नाम अक्षर कैलकुलेटर — जन्म तारीख़ से हिंदू तिथि जानें | OmKiran Bhakti](https://omkiranbhakti.com/janm-tithi-rashi-calculator.html): birth tithi, nakshatra, moon sign, naam akshar and next tithi-birthday from a birth date (runs in the browser)
 - [पंचक कब है? 2026–2027 पंचक की पूरी लिस्ट, प्रकार और समय | OmKiran Bhakti](https://omkiranbhakti.com/panchak-kab-hai.html)
 - [भद्रा कब से कब तक है? आज, कल और अगली भद्रा का समय | OmKiran Bhakti](https://omkiranbhakti.com/bhadra-kaal.html)
