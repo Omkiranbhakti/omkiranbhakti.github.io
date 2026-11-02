@@ -1,54 +1,56 @@
 # Online harmonium + harmonium learning pages. Executed inside build.py (after whatsapp_section).
 # Uses add, band, sec_head, faq_html, faq_ld, e, SITE, TODAY, ver, PAGES.
 # Player code: /harmonium.js. Notation: S r R g G M m P d D n N (r g d n komal, m tivra),
-# "." before = mandra, "'" after = taar, "-" = hold one more beat.
+# "." before = mandra, "'" after = taar, "-" = hold one more beat, "_" = rest (silent beat), "|" = bar line.
+# taal = beats per cycle; the player pads every line with a rest up to the end of its cycle, so each line
+# starts on sam and the last word is held its full time before the breath. Alankar exercises use gap instead.
 # bpm = syllables (note units) per minute at the song's real singing speed; the player's speed slider scales it.
 # Tunes: traditional melodies as commonly taught; regional tunes differ slightly — fix a line in HM_SONGS and rebuild.
 
 HM_SONGS = [
- dict(id="om-jai-jagdish-hare", bpm=150, slug="om-jai-jagdish-hare-harmonium-notes.html", name="ॐ जय जगदीश हरे",
+ dict(id="om-jai-jagdish-hare", bpm=150, taal=6, slug="om-jai-jagdish-hare-harmonium-notes.html", name="ॐ जय जगदीश हरे",
   lyric_page="om-jai-jagdish-hare-aarti.html", kw="Om Jai Jagdish Hare",
   lines=[("ॐ जय जगदीश हरे", "S - S - S S S - .N S R -"),
          ("स्वामी जय जगदीश हरे", "R G M - P P D P M G R -"),
          ("भक्त जनों के संकट", "R G R G M - M G R G R S"),
          ("दास जनों के संकट", "R G R G M - M G R G R S"),
-         ("क्षण में दूर करे", "S S R R G R S .N .D -"),
-         ("ॐ जय जगदीश हरे", "R R R R G R S .N S -")],
+         ("क्षण में दूर करे", "S S R R G R S .N .D - -"),
+         ("ॐ जय जगदीश हरे", "R R R R G R S .N S - -")],
   about="यह आरती पंडित श्रद्धाराम फिल्लौरी ने 1870 के आसपास लिखी थी और आज लगभग हर घर में संध्या आरती में गाई जाती है। धुन मध्य सप्तक में ही चलती है, बस \"क्षण में दूर करे\" पर मंद्र नि और ध तक उतरती है — इसलिए यह हारमोनियम सीखने वालों का सबसे अच्छा पहला गाना है।"),
- dict(id="om-jai-shiv-omkara", bpm=150, slug="om-jai-shiv-omkara-harmonium-notes.html", name="ॐ जय शिव ओंकारा",
+ dict(id="om-jai-shiv-omkara", bpm=150, taal=6, slug="om-jai-shiv-omkara-harmonium-notes.html", name="ॐ जय शिव ओंकारा",
   lyric_page="shiv-aarti-om-jai-shiv-omkara.html", kw="Om Jai Shiv Omkara",
   lines=[("ॐ जय शिव ओंकारा", "S - S - S S S - .N S R -"),
          ("स्वामी जय शिव ओंकारा", "R G M - P P D P M G R -"),
          ("ब्रह्मा विष्णु सदाशिव", "R G R G M - M G R G R S"),
-         ("अर्द्धांगी धारा", "S S R R G R S .N .D -"),
-         ("ॐ जय शिव ओंकारा", "R R R R G R S .N S -")],
+         ("अर्द्धांगी धारा", "S S R R G R S .N .D - -"),
+         ("ॐ जय शिव ओंकारा", "R R R R G R S .N S - -")],
   about="यह आरती उसी प्रचलित धुन पर गाई जाती है जिस पर ॐ जय जगदीश हरे — इसलिए जिसने वह आरती सीख ली, वह इसे तुरंत बजा सकता है। यहाँ पहले छंद के सुर दिए हैं; बाक़ी छंद इसी धुन पर दोहराए जाते हैं।"),
- dict(id="jai-ambe-gauri", bpm=150, slug="jai-ambe-gauri-harmonium-notes.html", name="जय अम्बे गौरी",
+ dict(id="jai-ambe-gauri", bpm=150, taal=6, slug="jai-ambe-gauri-harmonium-notes.html", name="जय अम्बे गौरी",
   lyric_page="jai-ambe-gauri-aarti.html", kw="Jai Ambe Gauri",
   lines=[("जय अम्बे गौरी", "S - S - S S S - .N S R -"),
          ("मैया जय श्यामा गौरी", "R G M - P P D P M G R -"),
          ("तुमको निशदिन ध्यावत", "R G R G M - M G R G R S"),
-         ("हरि ब्रह्मा शिवरी", "S S R R G R S .N .D -"),
-         ("जय अम्बे गौरी", "R R R R G R S .N S -")],
+         ("हरि ब्रह्मा शिवरी", "S S R R G R S .N .D - -"),
+         ("जय अम्बे गौरी", "R R R R G R S .N S - -")],
   about="यह आरती उसी प्रचलित धुन पर गाई जाती है जिस पर ॐ जय जगदीश हरे — इसलिए जिसने वह आरती सीख ली, वह इसे तुरंत बजा सकता है। यहाँ पहले छंद के सुर दिए हैं; बाक़ी छंद इसी धुन पर दोहराए जाते हैं।"),
- dict(id="om-jai-lakshmi-mata", bpm=150, slug="om-jai-lakshmi-mata-harmonium-notes.html", name="ॐ जय लक्ष्मी माता",
+ dict(id="om-jai-lakshmi-mata", bpm=150, taal=6, slug="om-jai-lakshmi-mata-harmonium-notes.html", name="ॐ जय लक्ष्मी माता",
   lyric_page="lakshmi-aarti.html", kw="Om Jai Lakshmi Mata",
   lines=[("ॐ जय लक्ष्मी माता", "S - S - S S S - .N S R -"),
          ("मैया जय लक्ष्मी माता", "R G M - P P D P M G R -"),
          ("तुमको निशदिन सेवत", "R G R G M - M G R G R S"),
-         ("हरि विष्णु विधाता", "S S R R G R S .N .D -"),
-         ("ॐ जय लक्ष्मी माता", "R R R R G R S .N S -")],
+         ("हरि विष्णु विधाता", "S S R R G R S .N .D - -"),
+         ("ॐ जय लक्ष्मी माता", "R R R R G R S .N S - -")],
   about="यह आरती उसी प्रचलित धुन पर गाई जाती है जिस पर ॐ जय जगदीश हरे — इसलिए जिसने वह आरती सीख ली, वह इसे तुरंत बजा सकता है। यहाँ पहले छंद के सुर दिए हैं; बाक़ी छंद इसी धुन पर दोहराए जाते हैं।"),
- dict(id="jai-ganesh-deva", bpm=170, slug="jai-ganesh-deva-harmonium-notes.html", name="जय गणेश जय गणेश देवा",
+ dict(id="jai-ganesh-deva", bpm=170, taal=8, slug="jai-ganesh-deva-harmonium-notes.html", name="जय गणेश जय गणेश देवा",
   lyric_page="ganesh-aarti-jai-ganesh-deva.html", kw="Jai Ganesh Deva",
   lines=[("जय गणेश जय गणेश जय गणेश देवा", "S S R R G G G G G G M G R G R R"),
          ("माता जाकी पार्वती पिता महादेवा", ".N .N S .N R R R S G G R S S -"),
-         ("एक दंत दयावंत चार भुजा धारी", "S S G M P P P P m P m D P M G G -"),
+         ("एक दंत दयावंत चार भुजा धारी", "S S G M P P P m P m D P M G G -"),
          ("माथे सिंदूर सोहे मूसे की सवारी", "S G M P P P P m P m D P M G G -"),
          ("जय गणेश जय गणेश जय गणेश देवा", "S S R R G G G G G G M G R G R R"),
          ("माता जाकी पार्वती पिता महादेवा", ".N .N S .N R R R S G G R S S -")],
   about="गणेश जी की यह आरती हर पूजा की शुरुआत में गाई जाती है। स्थायी (जय गणेश…) सा से ग तक घूमती है और अंतरा (एक दंत…) प तक ऊपर जाता है। केवल शुद्ध सुर हैं, कोई कोमल-तीव्र नहीं — शुरुआत के लिए आसान।"),
- dict(id="aarti-kunj-bihari", bpm=160, slug="aarti-kunj-bihari-ki-harmonium-notes.html", name="आरती कुंजबिहारी की",
+ dict(id="aarti-kunj-bihari", bpm=160, taal=8, slug="aarti-kunj-bihari-ki-harmonium-notes.html", name="आरती कुंजबिहारी की",
   lyric_page="aarti-kunj-bihari-ki.html", kw="Aarti Kunj Bihari Ki",
   lines=[("आरती कुंजबिहारी की", "P - P P M P n n D P - M G R"),
          ("श्री गिरिधर कृष्णमुरारी की", "S R P M M G G S R S .N S -"),
@@ -57,7 +59,7 @@ HM_SONGS = [
          ("श्रवण में कुण्डल झलकाला", "g g - g R R g R R S .N S -"),
          ("नंद के आनंद नंदलाला", "g - g g R - R g R R S .N S -")],
   about="जन्माष्टमी और रोज़ की कृष्ण आरती। पहली पंक्ति में कोमल नि (नि॒) आता है — काली पट्टी, जो ध के ठीक ऊपर है। बाक़ी आरती सा-रे-ग के आसपास और मंद्र नि पर लौटती है।"),
- dict(id="raghupati-raghav", bpm=140, slug="raghupati-raghav-raja-ram-harmonium-notes.html", name="रघुपति राघव राजाराम",
+ dict(id="raghupati-raghav", bpm=140, taal=8, slug="raghupati-raghav-raja-ram-harmonium-notes.html", name="रघुपति राघव राजाराम",
   lyric_page="raghupati-raghav-raja-ram.html", kw="Raghupati Raghav Raja Ram",
   lines=[("रघुपति राघव राजा राम", "S S S .N S - .n .D .n - R - G M -"),
          ("पतित पावन सीताराम", "R g - R S - .n .D .n g R S -"),
@@ -71,15 +73,15 @@ HM_SONGS = [
 ]
 
 HM_ALANKAR = [
- dict(id="sargam", bpm=100, name="अभ्यास 1: सरगम ऊपर-नीचे (आरोह-अवरोह)",
+ dict(id="sargam", gap=2, bpm=100, name="अभ्यास 1: सरगम ऊपर-नीचे (आरोह-अवरोह)",
   lines=[("आरोह — सा से तार सा तक", "S R G M P D N S' -"), ("अवरोह — तार सा से सा तक", "S' N D P M G R S -")]),
- dict(id="alankar-1", bpm=110, name="अभ्यास 2: अलंकार — सारेग, रेगम…",
+ dict(id="alankar-1", gap=2, bpm=110, name="अभ्यास 2: अलंकार — सारेग, रेगम…",
   lines=[("आरोह", "S R G R G M G M P M P D P D N D N S' -"), ("अवरोह", "S' N D N D P D P M P M G M G R G R S -")]),
- dict(id="alankar-2", bpm=120, name="अभ्यास 3: अलंकार — सासा रेरे गग…",
+ dict(id="alankar-2", gap=2, bpm=120, name="अभ्यास 3: अलंकार — सासा रेरे गग…",
   lines=[("आरोह", "S S R R G G M M P P D D N N S' S'"), ("अवरोह", "S' S' N N D D P P M M G G R R S S")]),
- dict(id="alankar-3", bpm=110, name="अभ्यास 4: अलंकार — साग, रेम, गप…",
+ dict(id="alankar-3", gap=2, bpm=110, name="अभ्यास 4: अलंकार — साग, रेम, गप…",
   lines=[("आरोह", "S G R M G P M D P N D S' -"), ("अवरोह", "S' D N P D M P G M R G S -")]),
- dict(id="komal", bpm=90, name="अभ्यास 5: कोमल-तीव्र पहचान (सारे 12 सुर)",
+ dict(id="komal", gap=2, bpm=90, name="अभ्यास 5: कोमल-तीव्र पहचान (सारे 12 सुर)",
   lines=[("ऊपर", "S r R g G M m P d D n N S' -"), ("नीचे", "S' N n D d P m M G g R r S -")]),
 ]
 
@@ -92,6 +94,10 @@ def _hm_sargam_html(notation):
     for t in notation.split():
         if t == "-":
             out.append('<i class="hold">–</i>'); continue
+        if t == "_":
+            out.append('<i class="rest" title="विराम">॰</i>'); continue
+        if t == "|":
+            out.append('<i class="hold">|</i>'); continue
         low = len(t) - len(t.lstrip(".")); t = t.lstrip(".")
         high = len(t) - len(t.rstrip("'")); t = t.rstrip("'")
         pc = _HM_SEMI[t]
@@ -103,7 +109,7 @@ def _hm_text(notation):
     """Plain-text sargam for descriptions/FAQ: मंद्र = ़ prefix-free words."""
     words = []
     for t in notation.split():
-        if t == "-": continue
+        if t in ("-", "_", "|"): continue
         low = t.startswith("."); high = t.endswith("'"); t = t.strip(".'")
         pc = _HM_SEMI[t]
         w = _HM_NAME[pc] + ("(को)" if pc in (1, 3, 8, 10) else "(ती)" if pc == 6 else "")
@@ -111,7 +117,7 @@ def _hm_text(notation):
     return " ".join(words)
 
 def _hm_json(items):
-    return json.dumps({"songs": [{"id": s["id"], "title": s["name"], "bpm": s["bpm"], "lines": [{"t": a, "n": b} for a, b in s["lines"]]} for s in items]},
+    return json.dumps({"songs": [{"id": s["id"], "title": s["name"], "bpm": s["bpm"], "taal": s.get("taal", 0), "gap": s.get("gap", 0), "lines": [{"t": a, "n": b} for a, b in s["lines"]]} for s in items]},
                       ensure_ascii=False)
 
 HMV = ver("harmonium.js"); HMCV = ver("harmonium.css")
@@ -312,7 +318,7 @@ _APP_HTML = f'''<!doctype html>
 <html lang="hi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <title>{_APP_NAME}</title>
 <meta name="description" content="OmKiran Harmonium — असली हारमोनियम की आवाज़ वाला मुफ़्त ऑनलाइन हारमोनियम ऐप: सरगम पट्टियाँ, आरती की धुनें, अभ्यास मोड। बिना इंटरनेट भी चलता है।">
 <meta name="robots" content="noindex,follow">
@@ -330,6 +336,7 @@ _APP_HTML = f'''<!doctype html>
 :root{{--paper:#fffdf8;--paper-2:#fbf3e4;--ink:#2a1d12;--sindoor:#b4380f;--night:#1c2350;--bar:#3a1c06;--bar-ink:#fbe7c0}}
 @media (prefers-color-scheme:dark){{:root{{--paper:#17140f;--paper-2:#221d16;--ink:#f3e7d3;--sindoor:#e2643a;--night:#3b4a9c;color-scheme:dark}}}}
 html,body{{height:100%}}
+@media (orientation:landscape){{body{{display:flex;flex-direction:column;height:100dvh}}main{{flex:1;min-height:0}}#play{{height:100%}}}}
 body{{margin:0;background:#120804;color:var(--ink);font-family:"Mukta",system-ui,sans-serif;overscroll-behavior:none;-webkit-user-select:none;user-select:none}}
 .app-bar{{display:flex;align-items:center;gap:10px;padding:6px max(12px,env(safe-area-inset-right,0px)) 6px max(12px,env(safe-area-inset-left,0px));padding-top:max(6px,env(safe-area-inset-top,0px));background:var(--bar);color:var(--bar-ink)}}
 .app-bar img{{width:30px;height:30px}}
@@ -359,6 +366,8 @@ main{{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-
 .turn-skip{{font:600 .9rem "Mukta",sans-serif;border:1px solid rgba(251,231,192,.5);border-radius:999px;padding:7px 16px;background:transparent;color:#fbe7c0;cursor:pointer}}
 .turn small{{opacity:.8}}
 @media (orientation:portrait){{.hm.app .hm-kbd{{height:min(calc(100dvh - var(--chrome,230px)),48dvh)}}}}
+.back-play{{display:none;font:600 .95rem "Mukta",sans-serif;border:0;border-radius:999px;padding:8px 18px;margin:0 0 10px;background:var(--bar);color:var(--bar-ink);cursor:pointer}}
+@media (orientation:landscape) and (max-height:520px){{.app-bar{{display:none}}.back-play{{display:inline-block}}#learn{{min-height:100dvh}}}}
 </style>
 </head>
 <body>
@@ -370,7 +379,7 @@ main{{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-
 <div class="turn" id="turn" hidden><div class="turn-box"><div class="phone" aria-hidden="true"></div><p>हारमोनियम आड़े फ़ोन पर ही अच्छा बजता है।</p>
 <button type="button" class="turn-go" id="turngo">🔄 आड़ा करके चलाएँ</button><button type="button" class="turn-skip" id="turnskip">ऐसे ही चलाएँ</button>
 <small id="turnios" hidden>iPhone पर फ़ोन को ख़ुद आड़ा घुमा दें (ऑटो-रोटेट चालू रखें)।</small></div></div>
-<section id="learn" hidden><h2>हारमोनियम सीखें — क़दम-दर-क़दम</h2><ol class="lessons">{_lesson_html}</ol>
+<section id="learn" hidden><button type="button" class="back-play" id="backplay">← हारमोनियम बजाएँ</button><h2>हारमोनियम सीखें — क़दम-दर-क़दम</h2><ol class="lessons">{_lesson_html}</ol>
 <p class="ios-tip" id="iostip" hidden>iPhone पर ऐप की तरह रखने के लिए: Safari में Share (⬆) → "Add to Home Screen"।</p>
 <p class="foot">पूरे पाठ, आरतियों के बोल और अर्थ: <a href="../harmonium-sikhen.html">omkiranbhakti.com</a> · आवाज़: असली हारमोनियम की रिकॉर्डिंग (CC0)</p></section>
 </main>
@@ -386,6 +395,7 @@ main{{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-
   }}
   window.addEventListener("resize", fit); window.addEventListener("orientationchange", function () {{ setTimeout(fit, 300); }});
   setTimeout(fit, 50); setTimeout(fit, 600);
+  var ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
   var tabs = document.querySelectorAll(".tabs button");
   function show(t) {{
     tabs.forEach(function (b) {{ b.setAttribute("aria-selected", b.dataset.tab === t); }});
@@ -393,31 +403,44 @@ main{{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-
     if (t === "play") setTimeout(fit, 30);
   }}
   tabs.forEach(function (b) {{ b.addEventListener("click", function () {{ show(b.dataset.tab); }}); }});
+  document.getElementById("backplay").addEventListener("click", function () {{ show("play"); }});
+  // the ☰ drawer carries "सीखें" and "इंस्टॉल" too, so the top bar can go on a sideways phone
+  (function addLearn() {{
+    var dh = hm.querySelector(".hm-drawer .dr-head"); if (!dh) return setTimeout(addLearn, 50);
+    var row = document.createElement("div"); row.className = "dr-app";
+    row.innerHTML = '<button type="button" class="hm-mini dr-learn">📖 सीखें — पाठ और अलंकार</button><button type="button" class="hm-mini dr-install" hidden>📲 ऐप इंस्टॉल करें</button>';
+    dh.parentNode.insertBefore(row, dh.nextSibling);
+    row.querySelector(".dr-learn").addEventListener("click", function () {{ hm.querySelector(".hm-close").click(); show("learn"); }});
+    var di = row.querySelector(".dr-install");
+    window.addEventListener("beforeinstallprompt", function () {{ di.hidden = false; }});
+    di.addEventListener("click", function () {{ document.getElementById("install").click(); di.hidden = true; }});
+  }})();
   document.querySelectorAll(".lesson").forEach(function (b) {{
     b.addEventListener("click", function () {{
       show("play"); if (window.hmLoadSong) window.hmLoadSong(b.dataset.song);
       hm.classList.add("sheet"); var sb = hm.querySelector(".hm-songsbtn"); if (sb) sb.setAttribute("aria-expanded", "true");
     }});
   }});
-  // landscape + full screen on the first tap (Android); the manifest asks for it when installed
-  document.addEventListener("pointerdown", function once() {{
-    document.removeEventListener("pointerdown", once);
-    try {{ if (screen.orientation && screen.orientation.lock) screen.orientation.lock("landscape").catch(function () {{}}); }} catch (e) {{}}
-  }});
+  // full screen + landscape on the first touch (browsers allow it only after a tap); installed app opens full screen by itself
+  function goFull() {{
+    var el = document.documentElement, fs = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (document.fullscreenElement || document.webkitFullscreenElement || !fs) return Promise.resolve();
+    return Promise.resolve(fs.call(el, {{ navigationUI: "hide" }})).catch(function () {{}});
+  }}
+  function lockLand() {{ try {{ if (screen.orientation && screen.orientation.lock) return screen.orientation.lock("landscape").catch(function () {{}}); }} catch (e) {{}} return Promise.resolve(); }}
+  document.addEventListener("pointerdown", function () {{ if (!ios) goFull().then(lockLand).then(function () {{ setTimeout(fit, 300); }}); }}, true);
+  document.addEventListener("dblclick", function (e) {{ e.preventDefault(); }}, {{ passive: false }});
   var deferred = null, ib = document.getElementById("install");
   window.addEventListener("beforeinstallprompt", function (ev) {{ ev.preventDefault(); deferred = ev; ib.hidden = false; }});
   ib.addEventListener("click", function () {{ if (!deferred) return; deferred.prompt(); deferred.userChoice.then(function () {{ deferred = null; ib.hidden = true; }}); }});
   var standalone = (window.matchMedia && matchMedia("(display-mode: standalone), (display-mode: fullscreen)").matches) || navigator.standalone;
   if (/iphone|ipad|ipod/i.test(navigator.userAgent) && !standalone) document.getElementById("iostip").hidden = false;
   // portrait gate: one tap → full screen + landscape (Android); iPhone users rotate by hand
-  var turn = document.getElementById("turn"), skipped = false, ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  var turn = document.getElementById("turn"), skipped = false;
   if (ios) {{ document.getElementById("turnios").hidden = false; document.getElementById("turngo").hidden = true; }}
   function gate() {{ var p = window.matchMedia("(orientation: portrait)").matches; turn.hidden = !p || skipped; setTimeout(fit, 60); }}
   document.getElementById("turngo").addEventListener("click", function () {{
-    var el = document.documentElement, fs = el.requestFullscreen || el.webkitRequestFullscreen;
-    var p = fs ? Promise.resolve(fs.call(el)) : Promise.resolve();
-    p.then(function () {{ return screen.orientation && screen.orientation.lock ? screen.orientation.lock("landscape") : null; }})
-     .catch(function () {{}}).then(function () {{ setTimeout(gate, 400); }});
+    goFull().then(lockLand).then(function () {{ setTimeout(gate, 400); }});
   }});
   document.getElementById("turnskip").addEventListener("click", function () {{ skipped = true; gate(); }});
   window.addEventListener("resize", gate); gate();
