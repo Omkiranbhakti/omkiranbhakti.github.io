@@ -17,6 +17,8 @@
     var out = [];
     str.trim().split(/\s+/).forEach(function (t) {
       if (t === "-") { if (out.length) out[out.length - 1].dur++; return; }
+      if (t === "|") return;
+      if (t === "_") { var L = out[out.length - 1]; if (L && L.s === null) L.dur++; else out.push({ s: null, dur: 1 }); return; }
       var low = 0, high = 0;
       while (t.charAt(0) === ".") { low++; t = t.slice(1); }
       while (t.charAt(t.length - 1) === "'") { high++; t = t.slice(0, -1); }
@@ -76,7 +78,7 @@
     if (!ac) {
       var AC = window.AudioContext || window.webkitAudioContext;
       if (!AC) return null;
-      ac = new AC();
+      try { ac = new AC({ latencyHint: "interactive" }); } catch (e) { ac = new AC(); }
       master = ac.createGain(); master.gain.value = vol * (typeof airGain === "function" ? airGain() : 1);
       bus = ac.createGain(); bus.gain.value = 1;
       var hp = ac.createBiquadFilter(); hp.type = "highpass"; hp.frequency.value = 70;
@@ -220,7 +222,7 @@
     }
     voices[s] = v; clack(true);
     var k = keyEls[s]; if (k) k.classList.add("down");
-    breathe(); floatNote(s);
+    breathe(); requestAnimationFrame(function () { floatNote(s); });
     onPlayed(s);
   }
   function noteOff(s) {
@@ -233,8 +235,8 @@
   function floatNote(s) {
     var air = root.querySelector(".hm-air"), k = keyEls[s];
     if (!air || !k || flying > 14) return;
-    var kr = k.getBoundingClientRect(), ar = air.getBoundingClientRect();
-    var x = Math.max(24, Math.min(ar.width - 24, kr.left + kr.width / 2 - ar.left)), dx = (25 + Math.random() * 30) + "px"; // always drifts the same way, like air leaving the reeds
+    var aw = air.offsetWidth || 600, kx = k.offsetLeft + k.offsetWidth / 2 - wrap.scrollLeft + (wrap.offsetLeft || 0);
+    var x = Math.max(24, Math.min(aw - 24, kx)), dx = (25 + Math.random() * 30) + "px"; // always drifts the same way, like air leaving the reeds
     var el = document.createElement("span");
     el.className = "hm-fly" + (k.classList.contains("blk") ? " blk" : "");
     el.style.left = x + "px"; el.style.setProperty("--dx", dx);
@@ -402,22 +404,27 @@
   drawer.addEventListener("keydown", function (ev) { if (ev.key === "Escape") { openDrawer(false); menuBtn.focus(); } });
   drawKeys();
 
-  // pointer: press, slide across keys, release
-  var down = null;
+  // pointer input: every finger is tracked on its own (chords), a finger sliding across keys changes the note,
+  // and touching the keys never scrolls or zooms the page — the keyboard stays put.
+  var fingers = {}, held = {};
   function sOf(el) { var k = el && el.closest && el.closest(".key"); return k ? +k.dataset.s : null; }
+  function press(s) { held[s] = (held[s] || 0) + 1; if (held[s] === 1) noteOn(s); }
+  function lift(s) { if (!held[s]) return; held[s]--; if (!held[s]) { delete held[s]; noteOff(s); } }
   kbd.addEventListener("pointerdown", function (ev) {
     var s = sOf(ev.target); if (s === null) return;
-    ev.preventDefault(); down = s; noteOn(s);
-    try { kbd.releasePointerCapture(ev.pointerId); } catch (e) {}
+    ev.preventDefault();
+    try { kbd.setPointerCapture(ev.pointerId); } catch (e) {}
+    fingers[ev.pointerId] = s; press(s);
   });
-  kbd.addEventListener("pointerover", function (ev) {
-    if (down === null) return;
-    var s = sOf(ev.target); if (s === null || s === down) return;
-    noteOff(down); down = s; noteOn(s);
+  kbd.addEventListener("pointermove", function (ev) {
+    var cur = fingers[ev.pointerId]; if (cur === undefined) return;
+    var s = sOf(document.elementFromPoint(ev.clientX, ev.clientY));
+    if (s === null || s === cur) return;
+    lift(cur); fingers[ev.pointerId] = s; press(s);
   });
-  function release() { if (down !== null) { noteOff(down); down = null; } }
-  window.addEventListener("pointerup", release);
-  window.addEventListener("pointercancel", release);
+  function up(ev) { var cur = fingers[ev.pointerId]; if (cur === undefined) return; delete fingers[ev.pointerId]; lift(cur); }
+  kbd.addEventListener("pointerup", up); kbd.addEventListener("pointercancel", up); kbd.addEventListener("lostpointercapture", up);
+  ["touchstart", "touchmove", "gesturestart"].forEach(function (t) { kbd.addEventListener(t, function (e) { e.preventDefault(); }, { passive: false }); });
   kbd.addEventListener("contextmenu", function (ev) { ev.preventDefault(); });
 
   // computer keyboard
@@ -546,7 +553,16 @@
     playBtn.disabled = pracBtn.disabled = !song;
     if (!song) { status.textContent = "ऊपर से कोई गाना चुनें, या पट्टियों पर खुला बजाएँ।"; return; }
     speed = 100; showSpeed();
-    lines = song.lines.map(function (ln) { return { t: ln.t, notes: parse(ln.n) }; });
+    var taal = song.taal || 0;
+    lines = song.lines.map(function (ln) {
+      var ns = parse(ln.n), u = 0; ns.forEach(function (n) { u += n.dur; });
+      var pad = taal ? (taal - u % taal) % taal : (song.gap || 0);
+      var L = ns[ns.length - 1], breath = taal ? Math.max(1, Math.round(taal / 4)) : pad;
+      if (pad > breath && L && L.s !== null) { L.dur += pad - breath; pad = breath; } // hold the last word first…
+      if (pad) { if (L && L.s === null) L.dur += pad; else ns.push({ s: null, dur: pad }); } // …then breathe
+      if (ns.length) ns[ns.length - 1].last = true;
+      return { t: ln.t, notes: ns };
+    });
     renderLines();
     cur = { l: 0, i: 0 }; mark();
     status.textContent = "▶ बजाएँ से धुन सुनें, या ✋ अभ्यास मोड में ख़ुद बजाएँ। किसी पंक्ति पर टैप करके वहाँ से शुरू करें।";
@@ -554,7 +570,9 @@
   function renderLines() {
     linesEl.innerHTML = lines.map(function (ln, li) {
       return '<li data-l="' + li + '"><p class="hm-lyric">' + ln.t + '</p><p class="hm-notes">' +
-        ln.notes.map(function (n, ni) { return '<span class="chip" data-i="' + ni + '">' + label(n.s) + (n.dur > 1 ? '<i class="hold">' + new Array(n.dur).join("–") + "</i>" : "") + "</span>"; }).join("") +
+        ln.notes.map(function (n, ni) {
+          if (n.s === null) return '<span class="chip rest" data-i="' + ni + '" title="विराम">' + new Array(n.dur + 1).join("॰") + "</span>";
+          return '<span class="chip" data-i="' + ni + '">' + label(n.s) + (n.dur > 1 ? '<i class="hold">' + new Array(n.dur).join("–") + "</i>" : "") + "</span>"; }).join("") +
         "</p></li>";
     }).join("");
     chipEls = lines.map(function (ln, li) { return linesEl.querySelectorAll('li[data-l="' + li + '"] .chip'); });
@@ -566,7 +584,7 @@
     var li = linesEl.querySelector('li[data-l="' + cur.l + '"]'); if (li) li.classList.add("on");
     var c = chipEls[cur.l] && chipEls[cur.l][cur.i]; if (c) c.classList.add("on");
     var n = lines[cur.l] && lines[cur.l].notes[cur.i];
-    if (n && keyEls[n.s]) keyEls[n.s].classList.add("next");
+    if (n && n.s !== null && keyEls[n.s]) keyEls[n.s].classList.add("next");
   }
   function advance() {
     cur.i++;
@@ -577,22 +595,27 @@
     }
     return true;
   }
+  var due = 0; // wall-clock time the current note should start; keeps tempo steady (no drift)
   function step() {
-    var n = lines[cur.l].notes[cur.i], beat = 60000 / ((song.bpm || 120) * speed / 100);
-    mark(); noteOn(n.s);
-    var len = n.dur * beat;
+    var n = lines[cur.l].notes[cur.i], beat = 60000 / ((song.bpm || 120) * speed / 100), now = performance.now();
+    if (!due || now - due > 250) due = now;
+    mark(); if (n.s !== null) noteOn(n.s);
+    var end = due + n.dur * beat, gapMs = n.last ? beat * 0.35 : Math.min(60, beat * 0.12); // lift before the next note; a breath at line end
     timer = setTimeout(function () {
-      noteOff(n.s);
+      if (n.s !== null) noteOff(n.s);
       if (mode !== "play") return;
-      if (advance()) timer = setTimeout(step, 30);
-    }, len - 30);
+      due = end;
+      if (advance()) timer = setTimeout(step, Math.max(0, due - performance.now()));
+    }, Math.max(0, end - gapMs - now));
   }
   function stop() {
     clearTimeout(timer); timer = null; mode = null; allOff();
     playBtn.textContent = "▶ बजाएँ"; pracBtn.textContent = "✋ अभ्यास मोड";
     playBtn.classList.remove("on"); pracBtn.classList.remove("on");
   }
+  function skipRests() { var guard = 0; while (lines[cur.l].notes[cur.i].s === null && guard++ < 999) { if (!advance()) return false; } mark(); return true; }
   function prompt() {
+    if (!skipRests()) return;
     var n = lines[cur.l].notes[cur.i];
     status.innerHTML = "अब दबाएँ: <b>" + plain(n.s) + "</b>" + (showKeys && KEYOF[n.s] ? " (कीबोर्ड पर " + KEYOF[n.s].toUpperCase() + ")" : "");
   }
@@ -612,7 +635,7 @@
     if (mode === "play") { stop(); status.textContent = "रुका हुआ। ▶ से वहीं से आगे बजेगा।"; return; }
     stop(); if (!audio()) return;
     mode = "play"; playBtn.textContent = "⏸ रोकें"; playBtn.classList.add("on");
-    status.textContent = "धुन बज रही है — चमकती पट्टी देखते रहें।"; step();
+    status.textContent = "धुन बज रही है — चमकती पट्टी देखते रहें।"; due = 0; step();
   });
   pracBtn.addEventListener("click", function () {
     if (mode === "practice") { stop(); status.textContent = "अभ्यास रोका।"; return; }
@@ -637,7 +660,7 @@
   window.hmLoadSong = function (id) { sel.value = id; loadSong(id); };
   if (data.app) {
     var sb = root.querySelector(".hm-songsbtn"), sheet = root.querySelector(".hm-song");
-    root.classList.add("app");
+    root.classList.add("app"); setTimeout(function () { root.classList.add("ready"); }, 400);
     sb.addEventListener("click", function () { var o = !root.classList.contains("sheet"); root.classList.toggle("sheet", o); sb.setAttribute("aria-expanded", o); });
   }
 })();
