@@ -54,7 +54,8 @@
   try { store = JSON.parse(localStorage.getItem("okb-hm") || "{}"); } catch (e) {}
   function save() { try { localStorage.setItem("okb-hm", JSON.stringify(store)); } catch (e) {} }
   var saPc = typeof store.sa === "number" ? store.sa : 0;          // 0 = C (सफ़ेद 1)
-  var vol = typeof store.vol === "number" ? store.vol : 0.5;
+  var vol = typeof store.vol === "number" ? store.vol : 0.75;
+  var LOUD = 2.2; // overall loudness; a limiter after the master keeps it from distorting
   var speed = 100; // % of the song's real tempo
   var showKeys = store.keys !== false;
   var names = store.names || "sargam";
@@ -79,7 +80,7 @@
       var AC = window.AudioContext || window.webkitAudioContext;
       if (!AC) return null;
       try { ac = new AC({ latencyHint: "interactive" }); } catch (e) { ac = new AC(); }
-      master = ac.createGain(); master.gain.value = vol * (typeof airGain === "function" ? airGain() : 1);
+      master = ac.createGain(); master.gain.value = LOUD * vol * (typeof airGain === "function" ? airGain() : 1);
       bus = ac.createGain(); bus.gain.value = 1;
       var hp = ac.createBiquadFilter(); hp.type = "highpass"; hp.frequency.value = 70;
       var f1 = ac.createBiquadFilter(); f1.type = "peaking"; f1.frequency.value = 1150; f1.Q.value = 1.1; f1.gain.value = 5;
@@ -88,7 +89,7 @@
       var bellows = ac.createGain(); bellows.gain.value = 1;
       var lfo = ac.createOscillator(), lfoG = ac.createGain();
       lfo.frequency.value = 0.45; lfoG.gain.value = 0.03; lfo.connect(lfoG); lfoG.connect(bellows.gain); lfo.start();
-      var comp = ac.createDynamicsCompressor(); comp.threshold.value = -14; comp.ratio.value = 3;
+      var comp = ac.createDynamicsCompressor(); comp.threshold.value = -9; comp.knee.value = 6; comp.ratio.value = 8; comp.attack.value = 0.003; comp.release.value = 0.2;
       bus.connect(hp); hp.connect(f1); f1.connect(f2); f2.connect(lp); lp.connect(bellows); bellows.connect(master);
       dry = ac.createGain(); dry.connect(master);
       // a small Indian room: generated impulse response (no files), mixed under the dry reed
@@ -444,7 +445,7 @@
     var d = root.querySelector(".hm-drone"); if (d.checked) setDrone(true);
   });
   root.querySelector(".hm-volr").addEventListener("input", function () {
-    vol = +this.value; store.vol = vol; save(); if (master) master.gain.value = vol * airGain();
+    vol = +this.value; store.vol = vol; save(); if (master) master.gain.value = LOUD * vol * airGain();
   });
   root.querySelector(".hm-mech").addEventListener("input", function () {
     mech = +this.value; store.mech = mech; save(); breathe();
@@ -507,7 +508,7 @@
   var bel = root.querySelector(".hm-bellows"), meter = root.querySelector(".hm-airmeter"), meterBar = meter.querySelector("i");
   function airGain() { return pumpMode ? Math.min(1, airLvl / 0.3) : 1; }
   function applyAir() {
-    if (master) master.gain.setTargetAtTime(vol * airGain(), ac.currentTime, 0.05);
+    if (master) master.gain.setTargetAtTime(LOUD * vol * airGain(), ac.currentTime, 0.05);
     meterBar.style.height = Math.round(airLvl * 100) + "%";
     bel.style.setProperty("--open", pumpMode ? airLvl : 1);
   }
