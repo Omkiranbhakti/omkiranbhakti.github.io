@@ -378,3 +378,7 @@ window.okbAudio=function(box,list){
     if(n.tagName==='IFRAME')fix(n);else if(n.querySelectorAll)[].forEach.call(n.querySelectorAll('iframe'),fix);});});})
     .observe(document.documentElement,{childList:true,subtree:true});
 })();
+/* Donate card: copy the UPI ID */
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.sewa-copy');if(!b)return;var id=b.getAttribute('data-upi');
+  var done=function(){b.textContent='कॉपी हो गया ✓';setTimeout(function(){b.textContent='कॉपी करें'},2000)};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(id).then(done,function(){prompt('UPI ID',id)})}else{prompt('UPI ID',id)}});

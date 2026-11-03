@@ -298,3 +298,9 @@
 .hm-notes .chip.rest{background:transparent;border-style:dashed;opacity:.55;letter-spacing:.15em;font-size:.8rem;min-width:1.6em;justify-content:center}
 .hm-notes .chip.rest.on{background:rgba(245,158,11,.25);opacity:1}
 .sargam-tbl .rest{opacity:.5;letter-spacing:.15em}
+
+/* Amazon box on harmonium pages + Donate card */
+.hm-shop h2{margin-top:0}
+.hm-shop .prod-cards{list-style:none;margin:10px 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.hm-shop .prod-cards a{display:flex;flex-direction:column;gap:4px;align-items:flex-start;padding:10px 12px;border-radius:12px;border:1px solid rgba(122,63,29,.2);text-decoration:none;color:inherit;background:var(--paper,#fff)}
+.hm-shop .pc-ico{font-size:1.5rem}.hm-shop .pc-nm{font-weight:600}.hm-shop .pc-cta{font-size:.82rem;color:var(--sindoor,#b4380f)}

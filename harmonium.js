@@ -57,7 +57,8 @@
   var vol = typeof store.vol === "number" ? store.vol : 0.75;
   var LOUD = 2.2; // overall loudness; a limiter after the master keeps it from distorting
   var speed = 100; // % of the song's real tempo
-  var showKeys = store.keys !== false;
+  var touchy = !!data.app || (window.matchMedia && matchMedia("(pointer: coarse)").matches);
+  var showKeys = typeof store.keys === "boolean" ? store.keys : !touchy; // A S D… letters only help on a computer keyboard
   var names = store.names || "sargam";
   var pumpMode = !!store.pump, airLvl = 1; // "धौंकनी ख़ुद चलाएँ": sound needs air you pump in
   var mech = typeof store.mech === "number" ? store.mech : 0.3; // key clatter + bellows air, 0..1
@@ -277,6 +278,7 @@
     return '<label class="stop"><input type="checkbox" class="' + cls + '"' + (on ? " checked" : "") + '><span class="knob" aria-hidden="true"></span><span class="stop-l">' + text + "</span></label>";
   }
   var kw = typeof store.kw === "number" ? store.kw : (window.innerWidth < 640 ? 46 : 58); // white-key width (zoom)
+  var userZoom = store.kwUser === true; // until the player zooms by hand, the keys fit "मंद्र प … तार रे" to the screen
   function seg(cls, cur, items) {
     return '<div class="seg ' + cls + '" role="group">' + items.map(function (it) {
       return '<button type="button" data-v="' + it[0] + '" aria-pressed="' + (it[0] === cur) + '">' + it[1] + "</button>";
@@ -383,9 +385,18 @@
     centerSa();
   }
   var wrap = root.querySelector(".hm-kbd-wrap"), navr = root.querySelector(".hm-navr");
+  // default view: one full octave (सा…नि) with three keys below (मंद्र प ध नि) and two above (तार सा रे)
+  var VIEW_LO = -5, VIEW_HI = 14;
+  function viewWhites() { var n = 0; for (var s = VIEW_LO; s <= VIEW_HI; s++) if (!isBlack(s)) n++; return n; }
+  function fitView() {
+    if (userZoom || !wrap.clientWidth) return false;
+    var want = Math.max(34, Math.floor(wrap.clientWidth / viewWhites()));
+    if (want !== kw) { kw = want; return true; }
+    return false;
+  }
   function centerSa() {
-    var k = keyEls[0]; if (!k) return;
-    wrap.scrollLeft = Math.max(0, k.offsetLeft - kw * 2.5); syncNav();
+    var k = keyEls[userZoom ? 0 : VIEW_LO] || keyEls[VIEW_LO + 1] || keyEls[0]; if (!k) return;
+    wrap.scrollLeft = Math.max(0, userZoom ? k.offsetLeft - kw * 2.5 : k.offsetLeft); syncNav();
   }
   function syncNav() {
     var max = wrap.scrollWidth - wrap.clientWidth;
@@ -394,7 +405,10 @@
   wrap.addEventListener("scroll", syncNav, { passive: true });
   navr.addEventListener("input", function () { wrap.scrollLeft = (wrap.scrollWidth - wrap.clientWidth) * this.value / 1000; });
   window.addEventListener("resize", syncNav);
-  function zoom(d) { kw = Math.max(34, Math.min(90, kw + d)); store.kw = kw; save(); drawKeys(); }
+  function zoom(d) { kw = Math.max(34, Math.min(90, kw + d)); userZoom = true; store.kw = kw; store.kwUser = true; save(); drawKeys(); }
+  function refit() { if (fitView()) drawKeys(); else centerSa(); }
+  window.addEventListener("resize", function () { clearTimeout(refit._t); refit._t = setTimeout(refit, 150); });
+  window.addEventListener("orientationchange", function () { setTimeout(refit, 350); });
   root.querySelector(".hm-zin").addEventListener("click", function () { zoom(8); });
   root.querySelector(".hm-zout").addEventListener("click", function () { zoom(-8); });
   // drawer
@@ -403,7 +417,7 @@
   menuBtn.addEventListener("click", function () { openDrawer(drawer.hidden); });
   root.querySelector(".hm-close").addEventListener("click", function () { openDrawer(false); menuBtn.focus(); });
   drawer.addEventListener("keydown", function (ev) { if (ev.key === "Escape") { openDrawer(false); menuBtn.focus(); } });
-  drawKeys();
+  fitView(); drawKeys(); setTimeout(refit, 80); setTimeout(refit, 700);
 
   // pointer input: every finger is tracked on its own (chords), a finger sliding across keys changes the note,
   // and touching the keys never scrolls or zooms the page — the keyboard stays put.
@@ -441,7 +455,7 @@
 
   // controls
   root.querySelector(".hm-sa").addEventListener("change", function () {
-    saPc = +this.value; store.sa = saPc; save(); allOff(); drawKeys(); if (window._hmRelabel) window._hmRelabel();
+    saPc = +this.value; store.sa = saPc; save(); allOff(); fitView(); drawKeys(); if (window._hmRelabel) window._hmRelabel();
     var d = root.querySelector(".hm-drone"); if (d.checked) setDrone(true);
   });
   root.querySelector(".hm-volr").addEventListener("input", function () {
