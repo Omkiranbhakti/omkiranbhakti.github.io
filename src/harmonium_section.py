@@ -365,6 +365,27 @@ main{{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-
 .turn-go{{font:700 1.05rem "Mukta",sans-serif;border:0;border-radius:999px;padding:12px 22px;background:linear-gradient(180deg,#f6c55a,#e08a1e);color:#2a1206;cursor:pointer}}
 .turn-skip{{font:600 .9rem "Mukta",sans-serif;border:1px solid rgba(251,231,192,.5);border-radius:999px;padding:7px 16px;background:transparent;color:#fbe7c0;cursor:pointer}}
 .turn small{{opacity:.8}}
+.turn-skip{{font-size:.72rem;padding:3px 10px;border:0;opacity:.55;text-decoration:underline}}
+.inst{{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto;background:radial-gradient(circle at 50% 30%,#4a1f08,#120804 70%);color:#fbe7c0;text-align:center}}
+.inst[hidden]{{display:none}}
+.inst-box{{display:flex;flex-direction:column;align-items:center;gap:12px;max-width:360px;width:100%}}
+.inst-ic{{border-radius:22px;box-shadow:0 0 0 3px #f6c55a,0 8px 24px rgba(0,0,0,.6)}}
+.inst h2{{margin:0;font:400 1.45rem/1.25 "Berkshire Swash","Tiro Devanagari Hindi",Georgia,serif;color:#ffd77a;text-wrap:balance}}
+.inst-why{{margin:0;font-size:.95rem;opacity:.9}}
+.inst-go{{width:100%;font:800 1.35rem "Mukta",sans-serif;border:0;border-radius:18px;padding:18px 20px;cursor:pointer;color:#2a1206;
+ background:linear-gradient(180deg,#fff1b0,#f6c55a 40%,#e0791e);box-shadow:0 0 0 3px #fff3c8,0 0 28px 6px rgba(255,190,70,.75);animation:instpulse 1.1s ease-in-out infinite}}
+@keyframes instpulse{{0%,100%{{transform:scale(1);box-shadow:0 0 0 3px #fff3c8,0 0 18px 4px rgba(255,190,70,.6)}}50%{{transform:scale(1.06);box-shadow:0 0 0 5px #fff3c8,0 0 44px 14px rgba(255,170,40,.95)}}}}
+.inst-steps{{width:100%;margin:0;padding:12px 14px 12px 34px;text-align:left;border-radius:14px;background:rgba(255,255,255,.08);box-shadow:0 0 0 2px #f6c55a;font-size:1.05rem;line-height:1.6;animation:instglow 1.4s ease-in-out infinite}}
+.inst-steps b{{color:#ffd77a}}
+@keyframes instglow{{0%,100%{{box-shadow:0 0 0 2px #f6c55a}}50%{{box-shadow:0 0 0 3px #fff3c8,0 0 22px rgba(255,190,70,.7)}}}}
+.inst-skip{{margin-top:6px;font:500 .68rem "Mukta",sans-serif;border:0;background:none;color:#fbe7c0;opacity:.4;text-decoration:underline;cursor:pointer;padding:2px 6px}}
+.inst-arrow{{position:fixed;font-size:2.6rem;color:#ffd77a;text-shadow:0 0 14px rgba(255,190,70,.9);animation:instbounce .9s ease-in-out infinite;pointer-events:none}}
+.inst-arrow.bottom{{left:50%;bottom:max(6px,env(safe-area-inset-bottom,0px));transform:translateX(-50%)}}
+.inst-arrow.top{{right:14px;top:max(4px,env(safe-area-inset-top,0px))}}
+@keyframes instbounce{{0%,100%{{translate:0 0}}50%{{translate:0 10px}}}}
+.inst-arrow.top{{animation-name:instbounceup}}@keyframes instbounceup{{0%,100%{{translate:0 0}}50%{{translate:0 -10px}}}}
+@media (prefers-reduced-motion:reduce){{.inst-go,.inst-steps,.inst-arrow{{animation:none}}}}
+@media (orientation:landscape) and (max-height:520px){{.inst-box{{max-width:560px;gap:8px}}.inst-ic{{width:56px;height:56px}}.inst h2{{font-size:1.2rem}}.inst-go{{padding:12px 18px;font-size:1.2rem}}}}
 @media (orientation:portrait){{.hm.app .hm-kbd{{height:min(calc(100dvh - var(--chrome,230px)),48dvh)}}}}
 .back-play{{display:none;font:600 .95rem "Mukta",sans-serif;border:0;border-radius:999px;padding:8px 18px;margin:0 0 10px;background:var(--bar);color:var(--bar-ink);cursor:pointer}}
 @media (orientation:landscape) and (max-height:520px){{.app-bar{{display:none}}.back-play{{display:inline-block}}#learn{{min-height:100dvh}}}}
@@ -376,6 +397,14 @@ main{{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-
 <button type="button" class="ghost" id="install" hidden>📲 इंस्टॉल</button></header>
 <main>
 <section id="play"><div class="hm" id="hm"></div></section>
+<div class="inst" id="inst" hidden><div class="inst-box">
+<img src="icon-192.png" alt="" width="84" height="84" class="inst-ic">
+<h2>{_APP_NAME} ऐप इंस्टॉल करें</h2>
+<p class="inst-why">हर बार सीधा फ़ुल स्क्रीन में खुलेगा · बिना इंटरनेट भी चलेगा · होम स्क्रीन पर आइकन</p>
+<button type="button" class="inst-go" id="instgo">📲 इंस्टॉल करें</button>
+<ol class="inst-steps" id="inststeps" hidden></ol>
+<button type="button" class="inst-skip" id="instskip">ऐसे ही चलाएँ</button></div>
+<div class="inst-arrow" id="instarrow" hidden aria-hidden="true">⬇</div></div>
 <div class="turn" id="turn" hidden><div class="turn-box"><div class="phone" aria-hidden="true"></div><p>हारमोनियम आड़े फ़ोन पर ही अच्छा बजता है।</p>
 <button type="button" class="turn-go" id="turngo">🔄 आड़ा करके चलाएँ</button><button type="button" class="turn-skip" id="turnskip">ऐसे ही चलाएँ</button>
 <small id="turnios" hidden>iPhone पर फ़ोन को ख़ुद आड़ा घुमा दें (ऑटो-रोटेट चालू रखें)।</small></div></div>
@@ -428,17 +457,35 @@ main{{padding:0 max(0px,env(safe-area-inset-right,0px)) 0 max(0px,env(safe-area-
     return Promise.resolve(fs.call(el, {{ navigationUI: "hide" }})).catch(function () {{}});
   }}
   function lockLand() {{ try {{ if (screen.orientation && screen.orientation.lock) return screen.orientation.lock("landscape").catch(function () {{}}); }} catch (e) {{}} return Promise.resolve(); }}
-  document.addEventListener("pointerdown", function () {{ if (!ios) goFull().then(lockLand).then(function () {{ setTimeout(fit, 300); }}); }}, true);
+  document.addEventListener("pointerdown", function (e) {{ if (e.target.closest && e.target.closest("#inst")) return; if (!ios) goFull().then(lockLand).then(function () {{ setTimeout(fit, 300); }}); }}, true);
   document.addEventListener("dblclick", function (e) {{ e.preventDefault(); }}, {{ passive: false }});
   var deferred = null, ib = document.getElementById("install");
   window.addEventListener("beforeinstallprompt", function (ev) {{ ev.preventDefault(); deferred = ev; ib.hidden = false; }});
   ib.addEventListener("click", function () {{ if (!deferred) return; deferred.prompt(); deferred.userChoice.then(function () {{ deferred = null; ib.hidden = true; }}); }});
   var standalone = (window.matchMedia && matchMedia("(display-mode: standalone), (display-mode: fullscreen)").matches) || navigator.standalone;
   if (/iphone|ipad|ipod/i.test(navigator.userAgent) && !standalone) document.getElementById("iostip").hidden = false;
+  // install screen: phones and tablets that are not yet running the installed app see a big, glowing
+  // install button (one tap on Android) or a two-step guide (iPhone/iPad); "ऐसे ही चलाएँ" is kept tiny.
+  var inst = document.getElementById("inst"), instGo = document.getElementById("instgo"), steps = document.getElementById("inststeps"), arrow = document.getElementById("instarrow");
+  var ipad = /ipad/i.test(navigator.userAgent) || (/macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+  var touchDev = ios || ipad || /android/i.test(navigator.userAgent) || (window.matchMedia && matchMedia("(pointer: coarse)").matches);
+  var installed = (window.matchMedia && matchMedia("(display-mode: standalone), (display-mode: fullscreen)").matches) || navigator.standalone;
+  var instOpen = touchDev && !installed;
+  function closeInst() {{ instOpen = false; inst.hidden = true; arrow.hidden = true; gate(); }}
+  function showSteps(html, where) {{ steps.innerHTML = html; steps.hidden = false; instGo.hidden = true; if (where) {{ arrow.hidden = false; arrow.className = "inst-arrow " + where; arrow.textContent = where === "top" ? "⬆" : "⬇"; }} }}
+  instGo.addEventListener("click", function () {{
+    if (deferred) {{ deferred.prompt(); deferred.userChoice.then(function (c) {{ deferred = null; if (c && c.outcome === "accepted") closeInst(); }}); return; }}
+    if (ios || ipad) showSteps('<li>नीचे/ऊपर <b>Share ⬆</b> बटन दबाएँ</li><li><b>Add to Home Screen</b> (होम स्क्रीन पर जोड़ें) चुनें</li><li>ऊपर दाईं ओर <b>Add</b> दबाएँ — बस!</li>', ipad ? "top" : "bottom");
+    else showSteps('<li>ऊपर दाईं ओर Chrome का <b>⋮ मेन्यू</b> दबाएँ</li><li><b>ऐप इंस्टॉल करें</b> / <b>Add to Home screen</b> चुनें</li><li><b>Install</b> दबाएँ — बस!</li>', "top");
+  }});
+  document.getElementById("instskip").addEventListener("click", closeInst);
+  window.addEventListener("appinstalled", closeInst);
+  if (instOpen) {{ inst.hidden = false; if (ios && !ipad) instGo.textContent = "📲 इंस्टॉल करें (2 क़दम)"; }}
+
   // portrait gate: one tap → full screen + landscape (Android); iPhone users rotate by hand
   var turn = document.getElementById("turn"), skipped = false;
   if (ios) {{ document.getElementById("turnios").hidden = false; document.getElementById("turngo").hidden = true; }}
-  function gate() {{ var p = window.matchMedia("(orientation: portrait)").matches; turn.hidden = !p || skipped; setTimeout(fit, 60); }}
+  function gate() {{ var p = window.matchMedia("(orientation: portrait)").matches; turn.hidden = !p || skipped || instOpen; setTimeout(fit, 60); }}
   document.getElementById("turngo").addEventListener("click", function () {{
     goFull().then(lockLand).then(function () {{ setTimeout(gate, 400); }});
   }});
