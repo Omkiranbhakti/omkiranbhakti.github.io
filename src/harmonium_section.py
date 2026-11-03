@@ -172,6 +172,7 @@ add("harmonium.html",
     '<li><strong>सा-प ड्रोन:</strong> गाते समय सुर पकड़ने के लिए।</li>'
     '<li><strong>धुन प्लेयर:</strong> चमकती पट्टी देखकर साथ-साथ बजाएँ; रफ़्तार कम करें; एक पंक्ति को बार-बार दोहराएँ।</li>'
     '<li><strong>अभ्यास मोड:</strong> गाना तभी आगे बढ़ता है जब आप सही पट्टी दबाते हैं — जैसे गुरु जी साथ बैठे हों।</li></ul></div></section>' +
+    MON.harmonium_box() +
     faq_html(_hub_faq),
     crumbs="ऑनलाइन हारमोनियम",
     ld=[{"@type": "WebApplication", "name": "OmKiran Bhakti ऑनलाइन हारमोनियम", "alternateName": ["Online Harmonium Free", "OmKiran Harmonium", "ऑनलाइन हारमोनियम"], "applicationCategory": "MusicApplication", "publisher": {"@id": SITE + "#organization"}, "featureList": "सरगम लिखी पट्टियाँ, असली हारमोनियम की आवाज़, स्केल बदलना, सा-प ड्रोन, आरती नोट्स, अभ्यास मोड, MIDI कीबोर्ड",
@@ -215,6 +216,7 @@ add("harmonium-sikhen.html",
     '<p class="hm-applink"><a href="app/">📲 <b>OmKiran Harmonium ऐप</b> में अभ्यास करें — फ़ुल स्क्रीन, बिना इंटरनेट भी</a></p>' + _hm_player(HM_ALANKAR + HM_SONGS, "sargam") + "</div></section>"
     '<section class="band"><div class="wrap">' + sec_head("पाठ 6: पहला गाना", "सबसे आसान से शुरू करें — ॐ जय जगदीश हरे, फिर जय गणेश देवा") +
     _hm_ul(_HM_SONG_LINKS) + "</div></section></article>" +
+    MON.harmonium_box() +
     faq_html(_learn_faq),
     crumbs="हारमोनियम सीखें",
     ld=[{"@type": "HowTo", "name": "हारमोनियम कैसे बजाएँ — शुरुआत से", "inLanguage": "hi",
@@ -253,6 +255,7 @@ for _s in HM_SONGS:
         f'<p>पूरी आरती के बोल और अर्थ: <a href="{_s["lyric_page"]}">{e(_s["name"])}</a>।</p>' +
         "</div></section></article>" +
         '<section class="no-print"><div class="wrap">' + sec_head("साथ में देखें") + _hm_ul(_rel) + "</div></section>" +
+        MON.harmonium_box() +
         faq_html(_faq),
         crumbs=_s["name"] + " नोट्स",
         ld=[{"@type": "MusicComposition", "name": _s["name"], "inLanguage": "hi", "description": "हारमोनियम सरगम नोट्स"},

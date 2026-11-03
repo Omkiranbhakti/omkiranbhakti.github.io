@@ -1,6 +1,8 @@
 # Monetisation switches. Both stay OFF (nothing is shown) until the IDs are filled in.
 AMAZON_TAG = "omkiranbhakti-21"      # Amazon Associates India store ID, e.g. "omkiran-21"
 ADSENSE_PUB = "ca-pub-2329005702942940"     # AdSense publisher ID, e.g. "ca-pub-1234567890123456"
+UPI_ID = "gogy.goyal@okicici"                              # Donate (UPI) — e.g. "naam@okaxis"; empty = the button stays hidden
+UPI_NAME = "OmKiran Bhakti"
 
 # Puja items per deity: (label shown in Hindi, Amazon.in search words). Links are plain Amazon searches with our tag —
 # no prices are shown (Amazon rule), and every box carries an affiliate disclosure.
@@ -153,3 +155,30 @@ def shop_teaser():
     return (f'<section class="shop-sec alt no-print"><div class="wrap"><div class="shop-head"><span class="sh-ico" aria-hidden="true">🛍️</span><div><h2>घर बैठे मँगाएँ</h2>'
             f'<p>पूजा का सामान, मूर्तियाँ, माला और गीता प्रेस की किताबें — Amazon पर</p></div></div><ul class="pc-grid">{"".join(_card(n, q) for n, q in pick)}</ul>'
             f'<p class="shop-more"><a class="btn" href="puja-samagri-kharidein.html">पूरी पूजा सामग्री देखें →</a></p>{NOTE}</div></section>')
+
+
+# ---------- Harmonium pages: instruments, books, accessories (Amazon search links) ----------
+HARMONIUM = [("हारमोनियम (स्केल चेंजर)", "scale changer harmonium"), ("सफ़री हारमोनियम (हल्का)", "safari harmonium portable"),
+ ("हारमोनियम सीखने की किताब", "harmonium learning book hindi"), ("हारमोनियम कवर / बैग", "harmonium cover bag"),
+ ("तबला / ढोलक", "dholak for bhajan"), ("मंजीरा / करताल", "manjira kartal")]
+HM_ICON = {"हारमोनियम": "🎹", "किताब": "📖", "कवर": "👜", "तबला": "🥁", "मंजीरा": "🔔"}
+
+def harmonium_box():
+    if not AMAZON_TAG: return ""
+    def ic(n): return next((v for k, v in HM_ICON.items() if k in n), "🎵")
+    lis = "".join(f'<li><a href="{_url(q)}" target="_blank" rel="sponsored noopener"><span class="pc-ico" aria-hidden="true">{ic(n)}</span>'
+                  f'<span class="pc-nm">{n}</span><span class="pc-cta">Amazon पर देखें</span></a></li>' for n, q in HARMONIUM)
+    return (f'<section class="no-print"><div class="wrap"><aside class="samagri-box hm-shop" aria-label="असली हारमोनियम">'
+            f'<h2>🎹 असली हारमोनियम पर बजाना है?</h2><p>ऑनलाइन सीख लिया, अब घर के लिए हारमोनियम, सीखने की किताब और भजन-संगत का साज़:</p>'
+            f'<ul class="prod-cards">{lis}</ul>{NOTE}</aside></div></section>')
+
+def sewa_box():
+    """Donate — a quiet UPI support card (phone: opens the UPI app; computer: shows the UPI ID to copy). Hidden until UPI_ID is set."""
+    if not UPI_ID: return ""
+    from urllib.parse import quote
+    link = f"upi://pay?pa={UPI_ID}&amp;pn={quote(UPI_NAME)}&amp;cu=INR&amp;tn={quote('OmKiran Bhakti seva')}"
+    return (f'<section class="no-print sewa"><div class="wrap"><div class="sewa-box"><p class="sewa-h">🙏 यह साइट और हारमोनियम सबके लिए मुफ़्त हैं — आपके सहयोग से चलते हैं</p>'
+            f'<p>अपनी श्रद्धा से कोई भी राशि UPI से भेजें। आपकी सेवा से नई आरतियाँ, भजन और धुनें जुड़ती हैं।</p>'
+            f'<p class="sewa-row"><a class="sewa-btn" href="{link}">🙏 Donate</a>'
+            f'<span class="sewa-id">UPI ID: <b translate="no">{UPI_ID}</b> <button type="button" class="sewa-copy" data-upi="{UPI_ID}">कॉपी करें</button></span></p>'
+            f'<p class="sewa-note">यह राशि साइट चलाने के सहयोग के लिए है; इस पर टैक्स छूट (80G) नहीं मिलती।</p></div></div></section>')
