@@ -304,3 +304,27 @@
 .hm-shop .prod-cards{list-style:none;margin:10px 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
 .hm-shop .prod-cards a{display:flex;flex-direction:column;gap:4px;align-items:flex-start;padding:10px 12px;border-radius:12px;border:1px solid rgba(122,63,29,.2);text-decoration:none;color:inherit;background:var(--paper,#fff)}
 .hm-shop .pc-ico{font-size:1.5rem}.hm-shop .pc-nm{font-weight:600}.hm-shop .pc-cta{font-size:.82rem;color:var(--sindoor,#b4380f)}
+
+/* app song sheet: always a way out (✕), and a mini strip over the reed cover while playing */
+.hm-sheethead{display:none}
+.hm.app .hm-sheethead{display:flex;justify-content:space-between;gap:10px;margin:-4px 0 8px}
+.hm-shut,.hm-expand{font:700 .95rem "Mukta",system-ui,sans-serif;border:0;border-radius:999px;padding:7px 16px;cursor:pointer}
+.hm-shut{background:#b3200e;color:#fff;box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.hm-expand{background:rgba(122,63,29,.14);color:inherit;display:none}
+.hm.app.sheet.mini .hm-song{top:0;bottom:auto;max-height:none;border-radius:0 0 14px 14px;padding:6px 12px;transform:none;overflow:hidden;
+ padding-top:max(6px,env(safe-area-inset-top,0px));display:flex;align-items:center;gap:8px}
+.hm.app.sheet.mini .hm-sheethead{display:contents}
+.hm.app.sheet.mini .hm-expand{display:inline-block;flex:none;order:3;padding:6px 12px;font-size:.85rem}
+.hm.app.sheet.mini .hm-shut{flex:none;order:4;padding:6px 12px;font-size:.85rem}
+.hm.app.sheet.mini .hm-bar{display:none}
+.hm.app.sheet.mini .hm-bar1{display:flex;flex:none;gap:6px;margin:0;order:1}
+.hm.app.sheet.mini .hm-bar1 .hm-pick{display:none}
+.hm.app.sheet.mini .hm-btn{padding:6px 12px;font-size:.85rem}
+.hm.app.sheet.mini .hm-status{display:none}
+.hm.app.sheet.mini .hm-lines{order:2;flex:1;max-height:none;overflow:hidden;min-width:0}
+.hm.app.sheet.mini .hm-lines li{display:none;padding:2px 4px;background:none}
+.hm.app.sheet.mini .hm-lines li.on{display:flex;align-items:center;gap:10px;flex-wrap:nowrap;overflow-x:auto}
+.hm.app.sheet.mini .hm-lyric{margin:0;font-size:.9rem;white-space:nowrap}
+.hm.app.sheet.mini .hm-notes{flex-wrap:nowrap}
+.hm.app.sheet.mini .hm-notes .chip{padding:2px 6px 4px;font-size:.85rem}
+@media (orientation:portrait){.hm.app .hm-sheethead{display:none}}

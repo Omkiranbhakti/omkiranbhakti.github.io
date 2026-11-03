@@ -325,7 +325,9 @@
     '<p class="hm-load" hidden>असली हारमोनियम की आवाज़ लोड हो रही है…</p><p class="hm-hint">पट्टी पर उँगली या माउस रखें। कंप्यूटर पर <b>A S D F G H J K</b> = सा रे ग म प ध नि सां, ऊपर की लाइन (W E T Y U) = काली पट्टियाँ।</p>' +
     (songs.length ?
       '<div class="hm-song">' +
-      '<div class="hm-bar"><label class="hm-pick">गाना <select class="hm-songsel" aria-label="गाना चुनें">' + songOpts + "</select></label>" +
+      '<div class="hm-sheethead"><button type="button" class="hm-expand" aria-label="पूरी सूची खोलें">☰ पूरी धुन</button>' +
+      '<button type="button" class="hm-shut" aria-label="बंद करें, हारमोनियम पर लौटें">✕ बंद करें</button></div>' +
+      '<div class="hm-bar hm-bar1"><label class="hm-pick">गाना <select class="hm-songsel" aria-label="गाना चुनें">' + songOpts + "</select></label>" +
       '<button type="button" class="hm-btn hm-play">▶ बजाएँ</button>' +
       '<button type="button" class="hm-btn hm-practice" title="जब तक सही पट्टी न दबाएँ, आगे नहीं बढ़ेगा">✋ अभ्यास मोड</button></div>' +
       '<div class="hm-bar"><label class="hm-tempo">रफ़्तार <input type="range" min="40" max="150" step="5" value="100" aria-label="रफ़्तार (असली का प्रतिशत)"><span class="hm-bpm"></span></label>' +
@@ -674,8 +676,22 @@
   sel.value = start; loadSong(start);
   window.hmLoadSong = function (id) { sel.value = id; loadSong(id); };
   if (data.app) {
-    var sb = root.querySelector(".hm-songsbtn"), sheet = root.querySelector(".hm-song");
+    // song sheet in the app: open = full list over the keys; mini = a thin strip over the reed cover while playing,
+    // so the keys stay free; ✕ always stops and returns to the plain harmonium.
+    var sb = root.querySelector(".hm-songsbtn");
     root.classList.add("app"); setTimeout(function () { root.classList.add("ready"); }, 400);
-    sb.addEventListener("click", function () { var o = !root.classList.contains("sheet"); root.classList.toggle("sheet", o); sb.setAttribute("aria-expanded", o); });
+    function sheetTo(state) {
+      root.classList.toggle("sheet", state !== "closed"); root.classList.toggle("mini", state === "mini");
+      sb.setAttribute("aria-expanded", state !== "closed");
+      var cur = linesEl.querySelector("li.on"); if (cur && state === "mini") cur.scrollIntoView({ block: "nearest" });
+    }
+    window.hmSheet = sheetTo;
+    sb.addEventListener("click", function () { sheetTo(root.classList.contains("sheet") && !root.classList.contains("mini") ? "closed" : "open"); });
+    root.querySelector(".hm-shut").addEventListener("click", function () { stop(); status.textContent = ""; sheetTo("closed"); });
+    root.querySelector(".hm-expand").addEventListener("click", function () { sheetTo("open"); });
+    playBtn.addEventListener("click", function () { if (mode === "play") sheetTo("mini"); });
+    pracBtn.addEventListener("click", function () { if (mode === "practice") sheetTo("mini"); });
+    linesEl.addEventListener("click", function () { if (root.classList.contains("mini")) sheetTo("open"); }, true);
+    document.addEventListener("keydown", function (ev) { if (ev.key === "Escape" && root.classList.contains("sheet")) sheetTo("closed"); });
   }
 })();
