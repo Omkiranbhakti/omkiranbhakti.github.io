@@ -43,13 +43,13 @@ Board F = "त्योहार 2026 — तारीख़ और मुहू
 - Link: https://omkiranbhakti.com/lakshmi-aarti.html
 - Image: img/pins/pin_lakshmi-aarti.jpg
 
-### [ ] shiv-aarti  (board A)
+### [x] (2026-11-02 earlier run, logged late; duplicate 2026-11-03) shiv-aarti  (board A)
 - Title: ॐ जय शिव ओंकारा — शिव जी की आरती (पूरे बोल)
 - Description: भोलेनाथ की आरती ॐ जय शिव ओंकारा — पूरे बोल, सरल हिंदी अर्थ और वीडियो। सोमवार और शिवरात्रि के लिए। #shivaarti #omjaishivomkara #mahadev
 - Link: https://omkiranbhakti.com/shiv-aarti-om-jai-shiv-omkara.html
 - Image: img/pins/pin_shiv-aarti.jpg
 
-### [ ] live-darshan  (board A)
+### [x] (2026-11-02 earlier run, logged late; duplicate 2026-11-03) live-darshan  (board A)
 - Title: 42 मंदिरों के लाइव दर्शन — राम लला, महाकाल, खाटू श्याम
 - Description: राम मंदिर अयोध्या, महाकाल उज्जैन, खाटू श्याम, वैष्णो देवी, सबरीमला, सालासर बालाजी समेत 42 मंदिरों के आधिकारिक लाइव दर्शन एक जगह, साथ में आरती। #livedarshan #rammandir #mahakal #khatushyam
 - Link: https://omkiranbhakti.com/live-darshan.html

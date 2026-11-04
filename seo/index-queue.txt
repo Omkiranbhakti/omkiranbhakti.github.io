@@ -12,32 +12,13 @@ chhath-geet.html
 # --- new festival pages added 2026-10-26 (Karwa Chauth 29 Oct, Dhanteras/Diwali early Nov) ---
 # --- roadmap pages 2026-10-27 (Dhanteras 6 Nov) ---
 # --- per-temple live darshan pages 2026-10-27 (most searched first; other 25 come via sitemap) ---
-ahoi-ashtami-kab-hai.html
-diwali-par-kya-kare-kya-na-kare.html
-lok-parv.html
-puja-samagri.html
-papankusha-ekadashi-kab-hai.html
-payo-ji-maine-ram-ratan-dhan-payo.html
-maiya-mori-main-nahi-makhan-khayo.html
-vaishnav-jan-to-tene-kahiye.html
-main-to-sanware-ke-rang-rachi.html
-moko-kahan-dhoondhe-re-bande.html
-prabhu-more-avgun-chit-na-dharo.html
-jheeni-jheeni-beeni-chadariya.html
-shiv-aarti-om-jai-shiv-omkara.html
-mata-rani-bhajan.html
-shiv-bhajan.html
-ganesh-bhajan.html
-krishna-bhajan.html
-ram-bhajan.html
-devotional-edm-bhajans.html
+# --- festival pages next 3 weeks 2026-11-03 (Diwali 8 Nov, Chhath 13-16 Nov) ---
 aarti-mantra.html
 navratri-2026.html
 jaap-mala.html
 about.html
 panchang-2026-10.html
 panchang-2026-12.html
-panchang-2027-01.html
 panchang-2027-02.html
 panchang-2027-03.html
 panchang-2027-04.html
@@ -66,9 +47,6 @@ janmashtami-kab-hai.html
 ganesh-chaturthi-kab-hai.html
 anant-chaturdashi-kab-hai.html
 sharadiya-navratri-kab-hai.html
-chhath-nahay-khay-kab-hai.html
-chhath-kharna-kab-hai.html
-chhath-usha-arghya-kab-hai.html
 gopashtami-kab-hai.html
 akshay-navami-kab-hai.html
 vaikunth-chaturdashi-kab-hai.html
