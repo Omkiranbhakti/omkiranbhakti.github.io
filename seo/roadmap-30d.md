@@ -12,8 +12,8 @@ Search Console query data is not used yet (the browser was offline on 27 Oct). R
 | 2 | 29 Oct | dhanteras-puja-vidhi.html: Dhanvantari, Kuber and Yam deepdaan vidhi | informational | 6 Nov | done 27 Oct |
 | 3 | 31 Oct | govardhan-puja-vidhi.html: Annakut, parikrama, vidhi | informational | 10 Nov | done 2026-10-28 |
 | 4 | 31 Oct | bhai-dooj-tilak-vidhi.html: tilak muhurat and vidhi, what to give | informational | 11 Nov | done 2026-10-28 |
-| 5 | 2 Nov | chhath-vrat-niyam.html: the 4-day rules | informational | 13–16 Nov | todo |
-| 6 | 2 Nov | chhath-geet.html: traditional Chhath songs (traditional lyrics only) + our videos | informational / video | 15 Nov | todo |
+| 5 | 2 Nov | chhath-vrat-niyam.html: the 4-day rules | informational | 13–16 Nov | done 2026-11-04 |
+| 6 | 2 Nov | chhath-geet.html: traditional Chhath songs (traditional lyrics only) + our videos | informational / video | 15 Nov | done 2026-11-04 |
 | 7 | 5 Nov | dev-uthani-ekadashi-katha.html + puja vidhi (sugarcane mandap, waking Bhagwan) | informational | 20 Nov | todo |
 | 8 | 7 Nov | tulsi-vivah-vidhi.html: vidhi + samagri list (Amazon) | informational / commercial | 21 Nov | todo |
 | 9 | 10 Nov | dev-deepawali-varanasi.html: date, ghats, Ganga aarti timings, boat/crowd tips, live link | informational / travel | 24 Nov | todo |
