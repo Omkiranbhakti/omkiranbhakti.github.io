@@ -345,7 +345,7 @@ def finish(soup, slug, conv, en_slugs, site, hi_url, en_url):
         for a in ("href", "src", "srcset", "poster", "data-src"):
             v = t.get(a)
             if not v or not isinstance(v, str): continue
-            if re.match(r"^(https?:|mailto:|tel:|data:|#|//|javascript:)", v): continue
+            if re.match(r"^([a-z][a-z0-9+.-]*:|#|//)", v): continue  # any URL scheme (upi:, whatsapp:, …) stays as is
             if a == "srcset":
                 t[a] = ", ".join("../" + p.strip() for p in v.split(",")); continue
             path = v.split("#")[0].split("?")[0]
