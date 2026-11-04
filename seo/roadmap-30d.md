@@ -14,7 +14,7 @@ Search Console query data is not used yet (the browser was offline on 27 Oct). R
 | 4 | 31 Oct | bhai-dooj-tilak-vidhi.html: tilak muhurat and vidhi, what to give | informational | 11 Nov | done 2026-10-28 |
 | 5 | 2 Nov | chhath-vrat-niyam.html: the 4-day rules | informational | 13–16 Nov | done 2026-11-04 |
 | 6 | 2 Nov | chhath-geet.html: traditional Chhath songs (traditional lyrics only) + our videos | informational / video | 15 Nov | done 2026-11-04 |
-| 7 | 5 Nov | dev-uthani-ekadashi-katha.html + puja vidhi (sugarcane mandap, waking Bhagwan) | informational | 20 Nov | todo |
+| 7 | 5 Nov | dev-uthani-ekadashi-katha.html + puja vidhi (sugarcane mandap, waking Bhagwan) | informational | 20 Nov | done 2026-11-04 |
 | 8 | 7 Nov | tulsi-vivah-vidhi.html: vidhi + samagri list (Amazon) | informational / commercial | 21 Nov | todo |
 | 9 | 10 Nov | dev-deepawali-varanasi.html: date, ghats, Ganga aarti timings, boat/crowd tips, live link | informational / travel | 24 Nov | todo |
 | 10 | 10 Nov | guru-nanak-jayanti-kab-hai.html: date, gurpurab, what happens | informational (same day as Kartik Purnima) | 24 Nov | todo |
