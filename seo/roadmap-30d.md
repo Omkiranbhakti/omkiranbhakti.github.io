@@ -53,3 +53,4 @@ Every temple has "<temple> live darshan today / aaj ke darshan / time / app / of
 From Search Console question queries (seo/gsc-questions.md, 29 Oct 2026). Every question with 5+ impressions already has a page; these pages answer them only partly:
 - faq-add: bhadra-kaal.html — "दुर्गा पूजा / दशहरा के बाद भदवा (भद्रा) कब है?" (~25 impressions across "bhadwa" / "भादवा" variants, position 5–11; check which period searchers mean by "भदवा" before writing the answer)
 - faq-add: panchak-kab-hai.html — "इस महीने पंचक कब है?" (~10 impressions across variants, position 6–11)
+- faq-add: bhadra-kaal.html — "भानी / बन्नी भद्रा कब है?" (5 Nov 2026 data: ~11 impressions across "bhanni / banni / bhani bhadra", position 7–10; check what searchers mean by this term before writing the answer)
