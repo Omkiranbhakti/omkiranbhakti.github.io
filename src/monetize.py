@@ -182,3 +182,16 @@ def sewa_box():
             f'<p class="sewa-row"><a class="sewa-btn" href="{link}">🙏 Donate</a>'
             f'<span class="sewa-id">UPI ID: <b translate="no">{UPI_ID}</b> <button type="button" class="sewa-copy" data-upi="{UPI_ID}">कॉपी करें</button></span></p>'
             f'<p class="sewa-note">यह राशि साइट चलाने के सहयोग के लिए है; इस पर टैक्स छूट (80G) नहीं मिलती।</p></div></div></section>')
+
+
+# Google Preferred Sources button (official embed, no Publisher ID needed).
+# Keep False until omkiranbhakti.com appears at google.com/preferences/source (Google showed
+# "No results" on 6 Nov 2026), otherwise readers who click reach a dead end. Switching it on
+# loads Google's script on every page, so also add a line to the privacy policy.
+PREFERRED_SOURCE_ON = False
+
+def preferred_source_btn():
+    if not PREFERRED_SOURCE_ON:
+        return ""
+    return ('<script async src="https://news.google.com/swg/js/v1/publisher.js"></script>'
+            '<div google-add-preferred-source-btn></div>')

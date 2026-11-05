@@ -39,7 +39,7 @@ def en_foot():
     return f'''<footer class="site-foot"><div class="wrap foot-grid">
 <div><h2>OmKiran Bhakti</h2><p>Hindu devotional music and prayers — aartis, chalisas and mantras with lyrics and meaning. Watch and sing along on our <a href="{YT}">YouTube channel</a>.</p></div>
 <div><h2>Prayers in English</h2><ul>{"".join(f'<li><a href="{s}">{e(EN[s]["name"])}</a></li>' for s in EN)}</ul></div>
-</div><div class="wrap join-strip"><span>🙏 Daily panchang, festivals and new bhajans on your phone</span><a class="wa-join" href="{WA_CH}" target="_blank" rel="noopener">WhatsApp channel</a><a class="yt-join" href="https://www.youtube.com/@OmKiranBhakti?sub_confirmation=1" target="_blank" rel="noopener">▶ YouTube Subscribe</a></div>
+</div><div class="wrap join-strip"><span>🙏 Daily panchang, festivals and new bhajans on your phone</span><a class="wa-join" href="{WA_CH}" target="_blank" rel="noopener">WhatsApp channel</a><a class="yt-join" href="https://www.youtube.com/@OmKiranBhakti?sub_confirmation=1" target="_blank" rel="noopener">▶ YouTube Subscribe</a>{MON.preferred_source_btn()}</div>
 <div class="wrap fine">© {datetime.date.today().year} OmKiran Bhakti. Traditional texts are public heritage; meanings and music are by OmKiran Bhakti.</div></footer>
 <script src="../script.js?v={JSV}" defer></script>
 </body></html>'''
