@@ -351,6 +351,10 @@
 "e62f4ef52b624573",
 "2026-11-04"
 ],
+"dev-deepawali-varanasi.html": [
+"cb531982d139bf1d",
+"2026-11-06"
+],
 "dev-uthani-ekadashi-kab-hai.html": [
 "e495fb4690b97beb",
 "2026-11-05"
@@ -755,6 +759,10 @@
 "a00e9a1a7dd456c2",
 "2026-11-06"
 ],
+"en/dev-deepawali-varanasi.html": [
+"eb531edf8b591627",
+"2026-11-06"
+],
 "en/dev-uthani-ekadashi-kab-hai.html": [
 "66bf588b3a5ab401",
 "2026-11-06"
@@ -1084,7 +1092,7 @@
 "2026-11-06"
 ],
 "en/kartik-purnima-kab-hai.html": [
-"2645b7dda57d2792",
+"c35d42da94246a35",
 "2026-11-06"
 ],
 "en/karwa-chauth-kab-hai.html": [
@@ -1660,11 +1668,15 @@
 "2026-11-06"
 ],
 "en/tulsi-vivah-kab-hai.html": [
-"154c58e4522197e2",
+"f108b788be30a916",
 "2026-11-06"
 ],
 "en/tulsi-vivah-katha.html": [
 "33ef74dbf4f976c9",
+"2026-11-06"
+],
+"en/tulsi-vivah-vidhi.html": [
+"3efa5a5aa35faf15",
 "2026-11-06"
 ],
 "en/tyohar-kab-hai.html": [
@@ -2068,8 +2080,8 @@
 "2026-11-03"
 ],
 "kartik-purnima-kab-hai.html": [
-"1d51e1c29e24ede3",
-"2026-11-05"
+"61d9651eb710a998",
+"2026-11-06"
 ],
 "karwa-chauth-chand-kab-niklega.html": [
 "57ebc49cfbacd5fb",
@@ -2908,11 +2920,15 @@
 "2026-11-04"
 ],
 "tulsi-vivah-kab-hai.html": [
-"b10c953eb0721cf4",
-"2026-11-05"
+"380c48b1a2817b73",
+"2026-11-06"
 ],
 "tulsi-vivah-katha.html": [
 "26b652bcc271196b",
+"2026-11-06"
+],
+"tulsi-vivah-vidhi.html": [
+"2d7b1b9041a2a3ab",
 "2026-11-06"
 ],
 "tyohar-calendar.html": [

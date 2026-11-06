@@ -1,5 +1,8 @@
 # Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
+# --- roadmap pages 2026-11-06 ---
+tulsi-vivah-vidhi.html
+dev-deepawali-varanasi.html
 # --- roadmap pages 2026-11-04 (Chhath 13-16 Nov) ---
 dev-uthani-ekadashi-katha.html
 chhath-vrat-niyam.html
