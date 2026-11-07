@@ -1,12 +1,7 @@
 # Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
 # --- roadmap pages 2026-11-06 ---
-tulsi-vivah-vidhi.html
-dev-deepawali-varanasi.html
 # --- roadmap pages 2026-11-04 (Chhath 13-16 Nov) ---
-dev-uthani-ekadashi-katha.html
-chhath-vrat-niyam.html
-chhath-geet.html
 # --- online harmonium 2026-10-28 ---
 # --- roadmap pages 2026-10-28 (Govardhan 10 Nov, Bhai Dooj 11 Nov) ---
 # --- harmonium pages 2026-10-28 (top priority) ---
@@ -16,75 +11,6 @@ chhath-geet.html
 # --- roadmap pages 2026-10-27 (Dhanteras 6 Nov) ---
 # --- per-temple live darshan pages 2026-10-27 (most searched first; other 25 come via sitemap) ---
 # --- festival pages next 3 weeks 2026-11-03 (Diwali 8 Nov, Chhath 13-16 Nov) ---
-aarti-mantra.html
-navratri-2026.html
-jaap-mala.html
-about.html
-panchang-2026-10.html
-panchang-2026-12.html
-panchang-2027-02.html
-panchang-2027-03.html
-panchang-2027-04.html
-panchang-2027-05.html
-panchang-2027-06.html
-panchang-2027-07.html
-panchang-2027-08.html
-panchang-2027-09.html
-panchang-2027-10.html
-panchang-2027-11.html
-panchang-2027-12.html
-sharad-purnima-kab-hai.html
-vivah-panchami-kab-hai.html
-gita-jayanti-kab-hai.html
-vasant-panchami-kab-hai.html
-maha-shivratri-kab-hai.html
-holika-dahan-kab-hai.html
-holi-kab-hai.html
-chaitra-navratri-kab-hai.html
-ram-navami-kab-hai.html
-hanuman-jayanti-kab-hai.html
-akshaya-tritiya-kab-hai.html
-guru-purnima-kab-hai.html
-raksha-bandhan-kab-hai.html
-janmashtami-kab-hai.html
-ganesh-chaturthi-kab-hai.html
-anant-chaturdashi-kab-hai.html
-sharadiya-navratri-kab-hai.html
-gopashtami-kab-hai.html
-akshay-navami-kab-hai.html
-vaikunth-chaturdashi-kab-hai.html
-kaal-bhairav-jayanti-kab-hai.html
-dattatreya-jayanti-kab-hai.html
-sakat-chauth-kab-hai.html
-mauni-amavasya-kab-hai.html
-ratha-saptami-kab-hai.html
-magh-purnima-kab-hai.html
-rang-panchami-kab-hai.html
-sheetala-ashtami-kab-hai.html
-hindu-nav-varsh-kab-hai.html
-gangaur-kab-hai.html
-parshuram-jayanti-kab-hai.html
-sita-navami-kab-hai.html
-narasimha-jayanti-kab-hai.html
-buddha-purnima-kab-hai.html
-vat-savitri-kab-hai.html
-shani-jayanti-kab-hai.html
-ganga-dussehra-kab-hai.html
-jagannath-rath-yatra-kab-hai.html
-sawan-start-kab-hai.html
-hariyali-teej-kab-hai.html
-nag-panchami-kab-hai.html
-kajari-teej-kab-hai.html
-hal-shashthi-kab-hai.html
-hartalika-teej-kab-hai.html
-rishi-panchami-kab-hai.html
-radha-ashtami-kab-hai.html
-pitru-paksha-kab-hai.html
-sarva-pitru-amavasya-kab-hai.html
-goga-navami-kab-hai.html
-bahula-chauth-kab-hai.html
-jitiya-vrat-kab-hai.html
-labh-panchami-kab-hai.html
 hariyali-amavasya-kab-hai.html
 vat-purnima-kab-hai.html
 ganga-saptami-kab-hai.html
@@ -107,8 +33,6 @@ shravana-putrada-ekadashi-kab-hai.html
 aja-ekadashi-kab-hai.html
 parivartini-ekadashi-kab-hai.html
 indira-ekadashi-kab-hai.html
-utpanna-ekadashi-kab-hai.html
-saphala-ekadashi-kab-hai.html
 paush-putrada-ekadashi-kab-hai.html
 shattila-ekadashi-kab-hai.html
 jaya-ekadashi-kab-hai.html
