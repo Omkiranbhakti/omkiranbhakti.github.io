@@ -906,6 +906,28 @@ print(f"English: {len(EN_READY)} pages ready, {len(_conv.missing)} texts still t
 import seo_index as _SI
 if "index.html" not in EN_OUT: en_index()
 _ni = _SI.apply(PAGES) + _SI.apply(EN_OUT, english=True)
+# Live darshan internal links (9 Nov 2026): temple pages were "Discovered – not indexed" because the site linked to
+# live-darshan.html#slug (hash URLs). Point every such link at the temple's own page, and link deity pages to their temples.
+for _s in list(PAGES):
+  if _s == "live-darshan.html": continue
+  _h = PAGES[_s]
+  _h = re.sub(r'href="live-darshan\.html#[a-z0-9-]+">सभी मंदिरों', 'href="live-darshan.html">सभी मंदिरों', _h)
+  for _k, (_nm, _pg) in LP.items(): _h = _h.replace(f'href="live-darshan.html#{_k}"', f'href="{_pg}"')
+  PAGES[_s] = _h
+DEITY_LIVE = {
+ "shiv-bhajan.html": ["mahakaleshwar-ujjain","kashi-vishwanath-varanasi","somnath","omkareshwar","kedarnath-badrinath","trimbakeshwar","srisailam-mallikarjuna"],
+ "mata-rani-bhajan.html": ["vaishno-devi","ambaji-mata","naina-devi","pavagadh-mahakali","dakshineswar-kali","mahalakshmi-mumbai","kanaka-durga-vijayawada"],
+ "ganesh-bhajan.html": ["siddhivinayak-mumbai","dagdusheth-ganpati-pune"],
+ "krishna-bhajan.html": ["banke-bihari-vrindavan","khatu-shyam","dwarkadhish","shrinathji-nathdwara","radha-rani-barsana","iskcon-vrindavan","jagannath-puri"],
+ "ram-bhajan.html": ["ram-mandir-ayodhya"],
+ "hanuman-chalisa.html": ["salasar-balaji","sankat-mochan-varanasi"],
+}
+for _s, _ks in DEITY_LIVE.items():
+  if _s not in PAGES or "dl-live" in PAGES[_s]: continue
+  _li = "".join(f'<li><a href="{LP[k][1]}"><strong>{LP[k][0]}</strong><span>आज के लाइव दर्शन</span></a></li>' for k in _ks if k in LP)
+  _sec = f'<section class="dl-live"><div class="wrap"><h2>मंदिरों के लाइव दर्शन</h2><ul class="library">{_li}</ul></div></section>'
+  _anchor = '<section class="faq">' if '<section class="faq">' in PAGES[_s] else '<footer'
+  PAGES[_s] = PAGES[_s].replace(_anchor, _sec + _anchor, 1)
 for slug, content in PAGES.items():
     with open(os.path.join(ROOT, slug), "w", encoding="utf-8") as f: f.write(content)
 os.makedirs(os.path.join(ROOT, "en"), exist_ok=True)
