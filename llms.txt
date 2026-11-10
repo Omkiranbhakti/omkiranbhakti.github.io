@@ -6,7 +6,6 @@ Official YouTube channel: https://www.youtube.com/@OmKiranBhakti
 Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi, purnimanta months; festivals follow their traditional kaal rule (sunrise, pradosh, moonrise, nishita).
 
 ## Upcoming festivals (dates for New Delhi)
-- गोवर्धन पूजा: 2026-11-10 — https://omkiranbhakti.com/govardhan-puja-kab-hai.html
 - भाई दूज: 2026-11-11 — https://omkiranbhakti.com/bhai-dooj-kab-hai.html
 - छठ पूजा (संध्या अर्घ्य): 2026-11-15 — https://omkiranbhakti.com/chhath-puja-kab-hai.html
 - देवउठनी एकादशी: 2026-11-20 — https://omkiranbhakti.com/dev-uthani-ekadashi-kab-hai.html
@@ -18,6 +17,7 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - होलिका दहन: 2027-03-21 — https://omkiranbhakti.com/holika-dahan-kab-hai.html
 - होली (रंगवाली): 2027-03-22 — https://omkiranbhakti.com/holi-kab-hai.html
 - चैत्र नवरात्रि (घटस्थापना): 2027-04-07 — https://omkiranbhakti.com/chaitra-navratri-kab-hai.html
+- राम नवमी: 2027-04-15 — https://omkiranbhakti.com/ram-navami-kab-hai.html
 
 ## City-wise festival timings and quick answers
 - [त्योहार कब है? — एकादशी, पूर्णिमा, दशहरा, दिवाली के सीधे जवाब | OmKiran Bhakti](https://omkiranbhakti.com/tyohar-kab-hai.html)
@@ -87,7 +87,7 @@ Panchang method: sidereal (Lahiri ayanamsa) positions from PyEphem, udaya tithi,
 - [रघुपति राघव राजाराम — harmonium notes](https://omkiranbhakti.com/raghupati-raghav-raja-ram-harmonium-notes.html): sargam notes of Raghupati Raghav Raja Ram for harmonium, with a player and practice mode
 
 ## Daily tools (updated every day)
-- [आज का चौघड़िया — 10 नवंबर 2026 शुभ मुहूर्त, राहु काल (65 शहर) | OmKiran Bhakti](https://omkiranbhakti.com/aaj-ka-choghadiya.html): choghadiya, Rahu kaal, Abhijit for 65 Indian cities
+- [आज का चौघड़िया — 11 नवंबर 2026 शुभ मुहूर्त, राहु काल (65 शहर) | OmKiran Bhakti](https://omkiranbhakti.com/aaj-ka-choghadiya.html): choghadiya, Rahu kaal, Abhijit for 65 Indian cities
 - [जन्म तिथि, राशि और नाम अक्षर कैलकुलेटर — जन्म तारीख़ से हिंदू तिथि जानें | OmKiran Bhakti](https://omkiranbhakti.com/janm-tithi-rashi-calculator.html): birth tithi, nakshatra, moon sign, naam akshar and next tithi-birthday from a birth date (runs in the browser)
 - [पंचक कब है? 2026–2027 पंचक की पूरी लिस्ट, प्रकार और समय | OmKiran Bhakti](https://omkiranbhakti.com/panchak-kab-hai.html)
 - [भद्रा कब से कब तक है? आज, कल और अगली भद्रा का समय | OmKiran Bhakti](https://omkiranbhakti.com/bhadra-kaal.html)
