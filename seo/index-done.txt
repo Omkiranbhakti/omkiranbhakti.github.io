@@ -313,3 +313,104 @@
 2026-11-10 aditya-hridaya-stotra.html already indexed
 2026-11-10 devi-kshama-prarthana.html already indexed
 2026-11-10 argala-stotram.html already indexed
+2026-11-12 guru-nanak-jayanti-kab-hai.html
+2026-11-12 kartik-purnima-snan-daan.html
+2026-11-12 shri-suktam.html already indexed
+2026-11-12 radha-kripa-kataksh-stotra.html already indexed
+2026-11-12 damodarashtakam.html already indexed
+2026-11-12 shivashtakam.html
+2026-11-12 ganesh-pancharatnam.html already indexed
+2026-11-12 dashavatar-stotram.html already indexed
+2026-11-12 rin-mochan-mangal-stotra.html already indexed
+2026-11-12 bhavani-ashtakam.html already indexed
+2026-11-12 hanuman-mantra.html already indexed
+2026-11-12 hanuman-stavan.html already indexed
+2026-11-12 vindhyeshwari-aarti.html
+2026-11-12 ambe-tu-hai-jagdambe-kali-aarti.html
+2026-11-12 ganesh-aarti-shendur-lal.html already indexed
+2026-11-12 khatu-shyam-aarti.html already indexed
+2026-11-12 mere-to-girdhar-gopal.html
+2026-11-12 hari-tum-haro-jan-ki-bheer.html
+2026-11-12 baso-mere-nainan-mein-nandlal.html already indexed
+2026-11-12 sabse-unchi-prem-sagai.html already indexed
+2026-11-12 thumak-chalat-ramchandra.html already indexed
+2026-11-12 prabhu-ji-tum-chandan-hum-pani.html already indexed
+2026-11-12 raghupati-raghav-raja-ram.html already indexed
+2026-11-12 pag-ghungroo-bandh-meera-nachi-re.html
+2026-11-12 shyam-mhane-chakar-rakho-ji.html
+2026-11-12 mai-ri-main-to-liyo-govindo-mol.html already indexed
+2026-11-12 man-re-parasi-hari-ke-charan.html
+2026-11-12 maiya-mohi-dau-bahut-khijhayo.html already indexed
+2026-11-12 maiya-kabahi-badhegi-choti.html already indexed
+2026-11-12 jasoda-hari-palne-jhulave.html already indexed
+2026-11-12 udho-man-na-bhaye-das-bees.html already indexed
+2026-11-12 nisidin-barsat-nain-hamare.html already indexed
+2026-11-12 charan-kamal-bandau-hari-rai.html already indexed
+2026-11-12 mo-sam-kaun-kutil-khal-kami.html already indexed
+2026-11-12 abigat-gati-kachhu-kahat-na-aave.html already indexed
+2026-11-12 jaun-kahan-taji-charan-tumhare.html already indexed
+2026-11-12 ab-lau-nasani-ab-na-nasaihon.html already indexed
+2026-11-12 aiso-ko-udar-jag-mahi.html already indexed
+2026-11-12 kesav-kahi-na-jai-ka-kahiye.html already indexed
+2026-11-12 man-pachhitaihai-avsar-beete.html already indexed
+2026-11-12 kabahunk-haun-yahi-rahani-rahaungo.html already indexed
+2026-11-12 man-lago-mero-yaar-fakiri-mein.html already indexed
+2026-11-12 rahna-nahi-des-birana-hai.html already indexed
+2026-11-12 santo-dekho-jag-baurana.html already indexed
+2026-11-12 ghunghat-ka-pat-khol-re.html already indexed
+2026-11-12 maya-maha-thagini-hum-jani.html already indexed
+2026-11-12 bhajo-re-bhaiya-ram-govind-hari.html already indexed
+2026-11-12 aisi-lal-tujh-binu-kaun-kare.html already indexed
+2026-11-12 manus-haun-to-wahi-raskhan.html already indexed
+2026-11-12 ya-lakuti-aru-kamariya-par.html already indexed
+2026-11-12 ses-ganes-mahes-dines.html already indexed
+2026-11-12 somvar-vrat-katha.html already indexed
+2026-11-12 satyanarayan-vrat-katha.html already indexed
+2026-11-12 tulsi-vivah-katha.html already indexed
+2026-11-12 hariyali-teej-katha.html already indexed
+2026-11-12 hartalika-teej-katha.html already indexed
+2026-11-12 kajari-teej-katha.html already indexed
+2026-11-12 gangaur-katha.html already indexed
+2026-11-12 raksha-bandhan-katha.html already indexed
+2026-11-12 jitiya-vrat-katha.html already indexed
+2026-11-12 hal-shashthi-katha.html already indexed
+2026-11-12 bahula-chauth-katha.html already indexed
+2026-11-12 panchak-kab-hai.html already indexed
+2026-11-12 bhadra-kaal.html already indexed
+2026-11-12 kharmas-kab-hai.html already indexed
+2026-11-12 makar-sankranti-kab-hai.html already indexed
+2026-11-12 baisakhi-kab-hai.html already indexed
+2026-11-12 gandmool-nakshatra.html already indexed
+2026-11-12 janm-tithi-rashi-calculator.html already indexed
+2026-11-12 pradosh-vrat-list.html already indexed
+2026-11-12 sankashti-chaturthi-list.html already indexed
+2026-11-12 vinayaka-chaturthi-list.html already indexed
+2026-11-12 masik-shivratri-list.html already indexed
+2026-11-12 sawan-somvar.html already indexed
+2026-11-12 ekadashi-vrat-ke-niyam.html already indexed
+2026-11-12 shivling-par-kya-chadhaye.html already indexed
+2026-11-12 tulsi-ke-niyam.html already indexed
+2026-11-12 pitru-paksha-niyam.html already indexed
+2026-11-12 navratri-vrat-ke-niyam.html already indexed
+2026-11-12 sawan-somvar-vrat-niyam.html already indexed
+2026-11-12 shani-dev-puja-niyam.html already indexed
+2026-11-12 grahan-ke-niyam.html already indexed
+2026-11-12 satyanarayan-puja-samagri-list.html already indexed
+2026-11-12 navratri-kalash-sthapana-samagri-list.html already indexed
+2026-11-12 choghadiya-gurugram.html
+2026-11-12 choghadiya-ghaziabad.html already indexed
+2026-11-12 choghadiya-faridabad.html
+2026-11-12 choghadiya-chandigarh.html
+2026-11-12 choghadiya-jaipur.html
+2026-11-12 choghadiya-lucknow.html already indexed
+2026-11-12 choghadiya-kanpur.html already indexed
+2026-11-12 choghadiya-varanasi.html
+2026-11-12 choghadiya-patna.html already indexed
+2026-11-12 choghadiya-kolkata.html already indexed
+2026-11-12 choghadiya-bhopal.html already indexed
+2026-11-12 choghadiya-indore.html already indexed
+2026-11-12 choghadiya-ahmedabad.html already indexed
+2026-11-12 choghadiya-mumbai.html
+2026-11-12 choghadiya-pune.html
+2026-11-12 choghadiya-hyderabad.html already indexed
+2026-11-12 choghadiya-bengaluru.html already indexed

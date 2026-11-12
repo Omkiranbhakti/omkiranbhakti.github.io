@@ -1,8 +1,6 @@
 # Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
 # --- roadmap pages 2026-11-11 (Kartik Purnima / Guru Nanak Jayanti 24 Nov) ---
-guru-nanak-jayanti-kab-hai.html
-kartik-purnima-snan-daan.html
 # --- roadmap pages 2026-11-06 ---
 # --- roadmap pages 2026-11-04 (Chhath 13-16 Nov) ---
 # --- online harmonium 2026-10-28 ---
@@ -14,106 +12,7 @@ kartik-purnima-snan-daan.html
 # --- roadmap pages 2026-10-27 (Dhanteras 6 Nov) ---
 # --- per-temple live darshan pages 2026-10-27 (most searched first; other 25 come via sitemap) ---
 # --- festival pages next 3 weeks 2026-11-03 (Diwali 8 Nov, Chhath 13-16 Nov) ---
-shri-suktam.html
-radha-kripa-kataksh-stotra.html
-damodarashtakam.html
-shivashtakam.html
-ganesh-pancharatnam.html
-dashavatar-stotram.html
-rin-mochan-mangal-stotra.html
 daridrya-dahan-shiv-stotra.html
-bhavani-ashtakam.html
-hanuman-mantra.html
-hanuman-stavan.html
-vindhyeshwari-aarti.html
-ambe-tu-hai-jagdambe-kali-aarti.html
-ganesh-aarti-shendur-lal.html
-khatu-shyam-aarti.html
-mere-to-girdhar-gopal.html
-hari-tum-haro-jan-ki-bheer.html
-baso-mere-nainan-mein-nandlal.html
-sabse-unchi-prem-sagai.html
-thumak-chalat-ramchandra.html
-prabhu-ji-tum-chandan-hum-pani.html
-raghupati-raghav-raja-ram.html
-pag-ghungroo-bandh-meera-nachi-re.html
-shyam-mhane-chakar-rakho-ji.html
-mai-ri-main-to-liyo-govindo-mol.html
-man-re-parasi-hari-ke-charan.html
-maiya-mohi-dau-bahut-khijhayo.html
-maiya-kabahi-badhegi-choti.html
-jasoda-hari-palne-jhulave.html
-udho-man-na-bhaye-das-bees.html
-nisidin-barsat-nain-hamare.html
-charan-kamal-bandau-hari-rai.html
-mo-sam-kaun-kutil-khal-kami.html
-abigat-gati-kachhu-kahat-na-aave.html
-jaun-kahan-taji-charan-tumhare.html
-ab-lau-nasani-ab-na-nasaihon.html
-aiso-ko-udar-jag-mahi.html
-kesav-kahi-na-jai-ka-kahiye.html
-man-pachhitaihai-avsar-beete.html
-kabahunk-haun-yahi-rahani-rahaungo.html
-man-lago-mero-yaar-fakiri-mein.html
-rahna-nahi-des-birana-hai.html
-santo-dekho-jag-baurana.html
-ghunghat-ka-pat-khol-re.html
-maya-maha-thagini-hum-jani.html
-bhajo-re-bhaiya-ram-govind-hari.html
-aisi-lal-tujh-binu-kaun-kare.html
-manus-haun-to-wahi-raskhan.html
-ya-lakuti-aru-kamariya-par.html
-ses-ganes-mahes-dines.html
-somvar-vrat-katha.html
-satyanarayan-vrat-katha.html
-tulsi-vivah-katha.html
-hariyali-teej-katha.html
-hartalika-teej-katha.html
-kajari-teej-katha.html
-gangaur-katha.html
-raksha-bandhan-katha.html
-jitiya-vrat-katha.html
-hal-shashthi-katha.html
-bahula-chauth-katha.html
-panchak-kab-hai.html
-bhadra-kaal.html
-kharmas-kab-hai.html
-makar-sankranti-kab-hai.html
-baisakhi-kab-hai.html
-gandmool-nakshatra.html
-janm-tithi-rashi-calculator.html
-pradosh-vrat-list.html
-sankashti-chaturthi-list.html
-vinayaka-chaturthi-list.html
-masik-shivratri-list.html
-sawan-somvar.html
-ekadashi-vrat-ke-niyam.html
-shivling-par-kya-chadhaye.html
-tulsi-ke-niyam.html
-pitru-paksha-niyam.html
-navratri-vrat-ke-niyam.html
-sawan-somvar-vrat-niyam.html
-shani-dev-puja-niyam.html
-grahan-ke-niyam.html
-satyanarayan-puja-samagri-list.html
-navratri-kalash-sthapana-samagri-list.html
-choghadiya-gurugram.html
-choghadiya-ghaziabad.html
-choghadiya-faridabad.html
-choghadiya-chandigarh.html
-choghadiya-jaipur.html
-choghadiya-lucknow.html
-choghadiya-kanpur.html
-choghadiya-varanasi.html
-choghadiya-patna.html
-choghadiya-kolkata.html
-choghadiya-bhopal.html
-choghadiya-indore.html
-choghadiya-ahmedabad.html
-choghadiya-mumbai.html
-choghadiya-pune.html
-choghadiya-hyderabad.html
-choghadiya-bengaluru.html
 choghadiya-chennai.html
 # --- other new sitemap pages added 2026-10-26 ---
 santoshi-mata-chalisa.html
