@@ -19,8 +19,8 @@ Search Console query data is not used yet (the browser was offline on 27 Oct). R
 | 9 | 10 Nov | dev-deepawali-varanasi.html: date, ghats, Ganga aarti timings, boat/crowd tips, live link | informational / travel | 24 Nov | done 2026-11-06 |
 | 10 | 10 Nov | guru-nanak-jayanti-kab-hai.html: date, gurpurab, what happens | informational (same day as Kartik Purnima) | 24 Nov | done 2026-11-11 |
 | 11 | 12 Nov | kartik-purnima-snan-daan.html: snan muhurat, what to donate, deepdaan | informational | 24 Nov | done 2026-11-11 |
-| 12 | 15 Nov | utpanna-ekadashi-katha.html | informational | Dec (check date) | todo |
-| 13 | 18 Nov | kaal-bhairav-jayanti-puja-vidhi.html + katha | informational | 1 Dec | todo |
+| 12 | 15 Nov | utpanna-ekadashi-katha.html | informational | Dec (check date) | done 2026-11-13 |
+| 13 | 18 Nov | kaal-bhairav-jayanti-puja-vidhi.html + katha | informational | 1 Dec | done 2026-11-13 |
 | 14 | 20 Nov | margashirsha-maas.html: month guide, Margashirsha Guruvar (Lakshmi vrat) | informational | Nov–Dec | todo |
 | 15 | 25 Nov | vivah-panchami-katha.html | informational | 14 Dec | todo |
 | 16 | ongoing | darshan guide pages: add 5 more temples (Somnath, Omkareshwar, Banke Bihari, Shirdi, Jagannath Puri) | informational / travel | evergreen | todo |
