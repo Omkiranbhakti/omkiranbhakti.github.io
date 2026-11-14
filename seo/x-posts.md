@@ -6,7 +6,7 @@ Strategy (set 2026-11-14):
 - Each post: one hook line with the date, 1–2 short lines, ONE link to our page, 2–3 hashtags (one Hindi, one English). Keep it under ~130 Hindi characters plus the link (X counts Devanagari as 2).
 - Do not post the same link twice within 7 days. No tagging celebrities, no follow-for-follow, no political or communal topics.
 - Post intro is pinned on the profile.
-- Debate posts (added 2026-11-14, owner approved): on Monday, Wednesday and Friday the evergreen post is replaced by the next item from "## Debate queue" below. These are curiosity/debate questions from the scriptures only (Mahabharat, Ramayan, Puran, vrat rules), phrased as a question, ending with "👇 आपकी राय?". Facts must match the source; respectful tone. NEVER religion-vs-religion, politics, caste, communities, or living people. Do not reply to or argue with commenters.
+- Debate posts (added 2026-11-14, owner approved): on Monday, Wednesday and Friday the evergreen post is replaced by a debate/rochak post, alternating: one week day from "## Debate queue" below, the next from seo/viral-topics.md (follow the rules in that file, re-check any number before posting). These are curiosity/debate questions from the scriptures only (Mahabharat, Ramayan, Puran, vrat rules), phrased as a question, ending with "👇 आपकी राय?". Facts must match the source; respectful tone. NEVER religion-vs-religion, politics, caste, communities, or living people. Do not reply to or argue with commenters.
 - Mark posted items "[x] (YYYY-MM-DD) <post URL>". When fewer than 6 items are left, add new ones from upcoming festivals (src/fest_years.json / *-kab-hai.html) and popular aarti pages.
 
 ## Queue (post in this order unless a festival date makes another item more urgent)
