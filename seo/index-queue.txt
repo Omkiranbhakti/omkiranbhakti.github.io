@@ -1,8 +1,6 @@
 # Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
 # --- roadmap pages 2026-11-13 (Kaal Bhairav Jayanti 1 Dec, Utpanna Ekadashi 4 Dec) ---
-kaal-bhairav-jayanti-puja-vidhi.html
-utpanna-ekadashi-katha.html
 # --- roadmap pages 2026-11-11 (Kartik Purnima / Guru Nanak Jayanti 24 Nov) ---
 # --- roadmap pages 2026-11-06 ---
 # --- roadmap pages 2026-11-04 (Chhath 13-16 Nov) ---
@@ -15,28 +13,8 @@ utpanna-ekadashi-katha.html
 # --- roadmap pages 2026-10-27 (Dhanteras 6 Nov) ---
 # --- per-temple live darshan pages 2026-10-27 (most searched first; other 25 come via sitemap) ---
 # --- festival pages next 3 weeks 2026-11-03 (Diwali 8 Nov, Chhath 13-16 Nov) ---
-daridrya-dahan-shiv-stotra.html
-choghadiya-chennai.html
 # --- other new sitemap pages added 2026-10-26 ---
-santoshi-mata-chalisa.html
-pitar-chalisa.html
-maiya-challi-kailash.html
-sharad-purnima-vrat-katha.html
-nashik-simhastha-kumbh.html
-puja-samagri-kharidein.html
-contact.html
-privacy-policy.html
-disclaimer.html
 # --- remaining per-temple live darshan pages added 2026-10-28 ---
-ambaji-live-darshan.html
-annavaram-live-darshan.html
-barsana-radha-rani-live-darshan.html
-dagdusheth-ganpati-live-darshan.html
-dakshineswar-live-darshan.html
-dwarkadhish-live-darshan.html
-golden-temple-live-darshan.html
-guruvayur-live-darshan.html
-iskcon-bangalore-live-darshan.html
 iskcon-delhi-live-darshan.html
 iskcon-juhu-live-darshan.html
 iskcon-mayapur-live-darshan.html
