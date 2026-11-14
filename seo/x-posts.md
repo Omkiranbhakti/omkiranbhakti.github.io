@@ -6,6 +6,7 @@ Strategy (set 2026-11-14):
 - Each post: one hook line with the date, 1–2 short lines, ONE link to our page, 2–3 hashtags (one Hindi, one English). Keep it under ~130 Hindi characters plus the link (X counts Devanagari as 2).
 - Do not post the same link twice within 7 days. No tagging celebrities, no follow-for-follow, no political or communal topics.
 - Post intro is pinned on the profile.
+- Debate posts (added 2026-11-14, owner approved): on Monday, Wednesday and Friday the evergreen post is replaced by the next item from "## Debate queue" below. These are curiosity/debate questions from the scriptures only (Mahabharat, Ramayan, Puran, vrat rules), phrased as a question, ending with "👇 आपकी राय?". Facts must match the source; respectful tone. NEVER religion-vs-religion, politics, caste, communities, or living people. Do not reply to or argue with commenters.
 - Mark posted items "[x] (YYYY-MM-DD) <post URL>". When fewer than 6 items are left, add new ones from upcoming festivals (src/fest_years.json / *-kab-hai.html) and popular aarti pages.
 
 ## Queue (post in this order unless a festival date makes another item more urgent)
@@ -89,3 +90,65 @@ https://omkiranbhakti.com/vivah-panchami-kab-hai.html
 गीता जयंती (मोक्षदा एकादशी) 2026: 20 दिसंबर, रविवार 📖 तिथि और शुभ समय:
 https://omkiranbhakti.com/gita-jayanti-kab-hai.html
 #गीता_जयंती #GitaJayanti
+
+## Debate queue (Mon/Wed/Fri, one a day, in order)
+
+### D1. [ ] कर्ण
+कर्ण सही थे या गलत? 🤔 जानते हुए भी अधर्म का साथ देना — दोस्ती थी या भूल? पहले उनके जन्म की कहानी पढ़ें:
+https://pauranika-katha-sagara.quora.com/
+👇 आपकी राय?
+#महाभारत #Karna
+
+### D2. [ ] शिखंडी और भीष्म
+अर्जुन ने शिखंडी को आगे रखकर भीष्म को गिराया — यह धर्म था या छल? 🏹 अंबा से शिखंडी बनने की पूरी कथा:
+https://pauranika-katha-sagara.quora.com/
+👇 आपकी राय?
+#महाभारत #Bhishma
+
+### D3. [ ] एकादशी पर चावल
+एकादशी पर चावल क्यों नहीं खाते? 🍚 परंपरा, नियम और व्रत में क्या खाएँ-क्या नहीं:
+https://omkiranbhakti.com/ekadashi-vrat-ke-niyam.html
+👇 आप एकादशी पर क्या खाते हैं?
+#एकादशी #Ekadashi
+
+### D4. [ ] रावण और सीता जी
+रावण ने सीता जी को बलपूर्वक कभी क्यों नहीं छुआ? 🤔 ज़्यादातर लोग इसका असली कारण नहीं जानते — नलकूबर का श्राप:
+https://pauranika-katha-sagara.quora.com/
+👇 क्या आप यह जानते थे?
+#रामायण #Ramayan
+
+### D5. [ ] गणेश जी और तुलसी
+गणेश जी की पूजा में तुलसी क्यों नहीं चढ़ाते? 🌿 और गणेश चतुर्थी की पूजा के ज़रूरी नियम:
+https://omkiranbhakti.com/ganesh-chaturthi-kab-hai.html
+👇 क्या आपको यह पता था?
+#गणेश #Ganesh
+
+### D6. [ ] उर्वशी का श्राप
+उर्वशी ने अर्जुन को श्राप क्यों दिया — और वही श्राप वनवास में वरदान कैसे बन गया? 🤔
+https://pauranika-katha-sagara.quora.com/
+👇 आपकी राय?
+#महाभारत #Arjun
+
+### D7. [ ] भीष्म की चुप्पी
+द्रौपदी के अपमान पर भीष्म पितामह चुप क्यों रहे — प्रतिज्ञा की मजबूरी या उनकी सबसे बड़ी भूल? 🤔
+https://pauranika-katha-sagara.quora.com/
+👇 आपकी राय?
+#महाभारत #Mahabharat
+
+### D8. [ ] एकलव्य
+द्रोणाचार्य का एकलव्य से अंगूठा माँगना — गुरु दक्षिणा थी या अन्याय? 🏹
+https://pauranika-katha-sagara.quora.com/
+👇 आपकी राय?
+#महाभारत #Eklavya
+
+### D9. [ ] विश्वामित्र और मेनका
+इंद्र ने विश्वामित्र की तपस्या भंग करने के लिए मेनका को क्यों भेजा? क्या देवताओं का यह डर सही था? 🤔
+https://pauranika-katha-sagara.quora.com/
+👇 आपकी राय?
+#पौराणिक_कथा #Vishwamitra
+
+### D10. [ ] देवउठनी पर विवाह
+चार महीने (चातुर्मास) शादी-ब्याह क्यों नहीं होते और देवउठनी एकादशी के बाद ही शुभ काम क्यों शुरू होते हैं? 🪔
+https://omkiranbhakti.com/dev-uthani-ekadashi-katha.html
+👇 आपके यहाँ यह नियम मानते हैं?
+#देवउठनी_एकादशी #Chaturmas
