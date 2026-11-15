@@ -1,5 +1,8 @@
 # Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
+# --- roadmap pages 2026-11-15 (Margashirsha 25 Nov–23 Dec, Vivah Panchami 14 Dec) ---
+margashirsha-maas.html
+vivah-panchami-katha.html
 # --- roadmap pages 2026-11-13 (Kaal Bhairav Jayanti 1 Dec, Utpanna Ekadashi 4 Dec) ---
 # --- roadmap pages 2026-11-11 (Kartik Purnima / Guru Nanak Jayanti 24 Nov) ---
 # --- roadmap pages 2026-11-06 ---

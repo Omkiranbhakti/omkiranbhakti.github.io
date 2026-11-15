@@ -21,8 +21,8 @@ Search Console query data is not used yet (the browser was offline on 27 Oct). R
 | 11 | 12 Nov | kartik-purnima-snan-daan.html: snan muhurat, what to donate, deepdaan | informational | 24 Nov | done 2026-11-11 |
 | 12 | 15 Nov | utpanna-ekadashi-katha.html | informational | Dec (check date) | done 2026-11-13 |
 | 13 | 18 Nov | kaal-bhairav-jayanti-puja-vidhi.html + katha | informational | 1 Dec | done 2026-11-13 |
-| 14 | 20 Nov | margashirsha-maas.html: month guide, Margashirsha Guruvar (Lakshmi vrat) | informational | Nov–Dec | todo |
-| 15 | 25 Nov | vivah-panchami-katha.html | informational | 14 Dec | todo |
+| 14 | 20 Nov | margashirsha-maas.html: month guide, Margashirsha Guruvar (Lakshmi vrat) | informational | Nov–Dec | done 2026-11-15 |
+| 15 | 25 Nov | vivah-panchami-katha.html | informational | 14 Dec | done 2026-11-15 |
 | 16 | ongoing | darshan guide pages: add 5 more temples (Somnath, Omkareshwar, Banke Bihari, Shirdi, Jagannath Puri) | informational / travel | evergreen | todo |
 
 Every new page needs:
