@@ -636,8 +636,8 @@
 "2026-11-09"
 ],
 "en/chhath-puja-kab-hai.html": [
-"6eed4d6bed876ff4",
-"2026-11-12"
+"af2efd54ae942919",
+"2026-11-15"
 ],
 "en/chhath-puja-katha.html": [
 "7fda09c4555d65f2",
@@ -756,7 +756,7 @@
 "2026-11-09"
 ],
 "en/dattatreya-jayanti-kab-hai.html": [
-"de85437761d45f87",
+"67ce8313926eeb40",
 "2026-11-15"
 ],
 "en/dev-deepawali-varanasi.html": [
@@ -764,8 +764,8 @@
 "2026-11-15"
 ],
 "en/dev-uthani-ekadashi-kab-hai.html": [
-"383b8995e2d312f6",
-"2026-11-12"
+"1b25ae866438bc97",
+"2026-11-15"
 ],
 "en/dev-uthani-ekadashi-katha.html": [
 "f0373491556aa8e0",
@@ -908,8 +908,8 @@
 "2026-11-09"
 ],
 "en/gita-jayanti-kab-hai.html": [
-"7d728ab286c10ff7",
-"2026-11-12"
+"dc6d091323d01e2e",
+"2026-11-15"
 ],
 "en/goga-navami-kab-hai.html": [
 "c9460d7c15e04c1d",
@@ -1104,8 +1104,8 @@
 "2026-11-09"
 ],
 "en/kartik-purnima-kab-hai.html": [
-"aae1d29d1f61e2ca",
-"2026-11-12"
+"6c106331339e247b",
+"2026-11-15"
 ],
 "en/kartik-purnima-snan-daan.html": [
 "724243510bcbf0a9",
@@ -1238,6 +1238,10 @@
 "en/manus-haun-to-wahi-raskhan.html": [
 "5d1f214f149d373d",
 "2026-11-09"
+],
+"en/margashirsha-maas.html": [
+"76972317aeb9ae28",
+"2026-11-15"
 ],
 "en/masik-shivratri-list.html": [
 "4a33e657d0e5b33c",
@@ -1728,8 +1732,8 @@
 "2026-11-09"
 ],
 "en/vasant-panchami-kab-hai.html": [
-"116deafa3c99839c",
-"2026-11-12"
+"df2ef3e9ae3dd25f",
+"2026-11-15"
 ],
 "en/vat-purnima-kab-hai.html": [
 "05de067eebc74d2c",
@@ -1752,7 +1756,11 @@
 "2026-11-09"
 ],
 "en/vivah-panchami-kab-hai.html": [
-"dd32a11078209a5c",
+"a590254d5e167913",
+"2026-11-15"
+],
+"en/vivah-panchami-katha.html": [
+"68164abe031bb938",
 "2026-11-15"
 ],
 "en/ya-lakuti-aru-kamariya-par.html": [
@@ -2316,7 +2324,7 @@
 "2026-11-04"
 ],
 "margashirsha-maas.html": [
-"b1e083abaa5cbf24",
+"ea454b83055a429e",
 "2026-11-15"
 ],
 "masik-shivratri-list.html": [
@@ -3044,7 +3052,7 @@
 "2026-11-15"
 ],
 "vivah-panchami-katha.html": [
-"36dd3c1bde411d2e",
+"4fff710d0d767535",
 "2026-11-15"
 ],
 "vrat-katha.html": [
