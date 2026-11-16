@@ -1,10 +1,7 @@
 # Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
 # --- roadmap pages 2026-11-16 (darshan guides: Somnath, Omkareshwar) ---
-somnath-darshan.html
-omkareshwar-darshan.html
 # --- roadmap pages 2026-11-15 (Margashirsha 25 Nov–23 Dec, Vivah Panchami 14 Dec) ---
-vivah-panchami-katha.html
 # --- roadmap pages 2026-11-13 (Kaal Bhairav Jayanti 1 Dec, Utpanna Ekadashi 4 Dec) ---
 # --- roadmap pages 2026-11-11 (Kartik Purnima / Guru Nanak Jayanti 24 Nov) ---
 # --- roadmap pages 2026-11-06 ---
@@ -20,16 +17,6 @@ vivah-panchami-katha.html
 # --- festival pages next 3 weeks 2026-11-03 (Diwali 8 Nov, Chhath 13-16 Nov) ---
 # --- other new sitemap pages added 2026-10-26 ---
 # --- remaining per-temple live darshan pages added 2026-10-28 ---
-iskcon-delhi-live-darshan.html
-iskcon-juhu-live-darshan.html
-iskcon-mayapur-live-darshan.html
-iskcon-vrindavan-live-darshan.html
-kanaka-durga-live-darshan.html
-mahalakshmi-mumbai-live-darshan.html
-mallikarjuna-live-darshan.html
-naina-devi-live-darshan.html
-omkareshwar-live-darshan.html
-pandharpur-live-darshan.html
 pavagadh-live-darshan.html
 sabarimala-live-darshan.html
 salasar-balaji-live-darshan.html
