@@ -279,15 +279,10 @@ $('#bSnd').onclick=()=>{SND.on=!SND.on;LS.set('kc-snd',SND.on?'1':'0');uiSnd();i
 $('#bTan').onclick=()=>{SND.tan=!SND.tan;LS.set('kc-tan',SND.tan?'1':'0');if(SND.tan&&!SND.on){SND.on=true;LS.set('kc-snd','1')}uiSnd();tanStart()};
 uiSnd();
 
-// ---------- images (Wikipedia / Wikimedia, loaded live with credit) ----------
-const IMG=new Map();
-function img(e){if(!e.w)return Promise.resolve(null);if(IMG.has(e.w))return IMG.get(e.w);
- const ck='kc-img2-'+e.w,c=LS.get(ck);if(c){const v=c==='-'?null:JSON.parse(c);const p=Promise.resolve(v);IMG.set(e.w,p);return p}
- const p=fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(e.w.replace(/ /g,'_'))).then(r=>r.ok?r.json():null).then(j=>{
-  if(!j||!(j.thumbnail||j.originalimage)){LS.set(ck,'-');return null}
-  const r0=(j.thumbnail||j.originalimage).source,s=r0.replace(/\/(\d+)px-/,'/960px-');
-  const v={s,t:r0,u:(j.content_urls&&j.content_urls.desktop.page)||''};LS.set(ck,JSON.stringify(v));return v}).catch(()=>null);
- IMG.set(e.w,p);return p}
+// ---------- images (Wikimedia Commons, saved locally as WebP; credits: credits.html) ----------
+const IMGS=new Set(["agastya", "bhagirath-ganga", "bhagwat-katha-shukdev", "bhalka-tirth", "bharat-shakuntala", "bhishma-pratigya", "bhishma-sahasranam", "chirharan-draupadi", "dhruv-tara", "diwali-ram-rajya", "draupadi-arjun", "dwarka", "gita-updesh-geeta-jayanti", "hanuman-lanka", "harishchandra", "indraprastha-rajsuya", "janmejay", "kalki-avatar", "kalki-devdatt", "kalki-parshuram", "kalp-varah", "kalyug", "kans-vadh", "krishna-janm-janmashtami", "kuru-kurukshetra", "mahabharat-yudh", "manvantar", "matsya-avatar", "mohini-kumbh", "naimisharanya-sut", "narsingh-prahlad-holi", "nashik-kumbh-2027", "neelkanth-shiv", "pandav-swarg", "parshuram", "pashupatastra-kirat", "prakriti", "prithu", "pururava-chandravansh", "ram-janm-ramnavami", "ram-setu-rameshwaram", "ravan-dussehra", "samudra-manthan-kurma", "sandipani-sudama", "sankirtan", "sati-daksh-shiv-shaktipeeth", "shanti-doot", "sita-haran-jatayu", "sita-swayamvar-vivah-panchami", "ujjain-simhastha-2028", "valmiki-ramayan", "vaman-bali-onam", "vanvas-chitrakoot", "varah-avatar-vishnu", "ved", "ved-vyas", "vishwamitra-gayatri", "vrindavan-leela-govardhan", "vyas-guru-purnima", "yadav", "yudhishthir"]);
+const slug=e=>(e.r||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+function img(e){const s=slug(e);return Promise.resolve(IMGS.has(s)?{s:'img/'+s+'.webp?v=1',u:'credits.html#'+s}:null)}
 
 // ---------- three.js wheel ----------
 const cv=$('#gl');
@@ -409,7 +404,7 @@ function card(i){const e=E[i],tc=tclass(e),y=YG(e.yk);
  const fb=$('#fb');fb.textContent=C[e.c][1];fb.style.opacity=1;$('#pic').style.backgroundImage='none';$('#cr').textContent='';
  $('#bWa').href=waLink(e);
  const c=$('#card');c.classList.remove('sw');void c.offsetWidth;c.classList.add('sw');
- const tok=++imgTok;img(e).then(v=>{if(tok!==imgTok||!v)return;const im=new Image();im.onload=()=>{if(tok!==imgTok)return;$('#pic').style.backgroundImage=`url("${v.s}")`;fb.style.opacity=0;$('#cr').textContent='चित्र: Wikimedia';$('#cr').href=v.u};im.onerror=()=>{if(v.t&&im.src!==v.t){v.s=v.t;im.src=v.t}};im.src=v.s});
+ const tok=++imgTok;img(e).then(v=>{if(tok!==imgTok||!v)return;const im=new Image();im.onload=()=>{if(tok!==imgTok)return;$('#pic').style.backgroundImage=`url("${v.s}")`;fb.style.opacity=0;$('#cr').textContent='चित्र: Wikimedia Commons';$('#cr').href=v.u};im.onerror=()=>{if(v.t&&im.src!==v.t){v.s=v.t;im.src=v.t}};im.src=v.s});
  [1,-1,2].forEach(d=>img(E[(i+d+N)%N]));
  if(started)bell(e.c==='n'?440:e.c==='b'?392:528,.09,3)}
 function waLink(e){return'https://wa.me/?text='+encodeURIComponent(`🕉️ *${e.t}*\n${dlabel(e.y)} • ${e.p}\n\n${e.d}\n\nकाल-चक्र घुमाइए, सृष्टि से कल्कि तक की हर कथा 👇\nhttps://omkiranbhakti.com/kaal-chakra/`)}
