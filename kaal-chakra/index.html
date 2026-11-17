@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>काल-चक्र — सनातन काल-यात्रा | ओमकिरण भक्ति</title>
+<meta name="description" content="काल-चक्र घुमाइए — सृष्टि के आरंभ से कल्कि अवतार और सत्ययुग की वापसी तक, सनातन धर्म की हर कथा एक घूमते चक्र पर, हिंदी में।">
+<meta name="theme-color" content="#0d0805">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+@property --s1{syntax:'<color>';inherits:true;initial-value:#3a2208}
+@property --s2{syntax:'<color>';inherits:true;initial-value:#0d0805}
+:root{--gold:#f0c25e;--txt:#f7ecd9;--mut:#c4ae8e;--line:#ffffff1f;--s1:#3a2208;--s2:#0d0805;--yc:#f0c25e}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--s2);color:var(--txt);font-family:"Noto Sans Devanagari",system-ui,sans-serif;overscroll-behavior:none}
+body{background:radial-gradient(120% 80% at 50% 78%,var(--s1) 0,var(--s2) 70%);transition:--s1 1.6s,--s2 1.6s}
+h1,h2,.ttl,.serif{font-family:"Tiro Devanagari Hindi",serif;font-weight:400}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+#gl{position:fixed;inset:0;width:100%;height:100%;touch-action:none;display:block}
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;gap:8px;padding:10px 12px;background:linear-gradient(#0d0805e6,#0d080500)}
+.brand{flex:1;min-width:0;line-height:1.15}
+.brand small{color:var(--gold);font-size:.7rem;letter-spacing:.6px}
+.brand div{font-size:1.15rem}
+.hb{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#00000055;backdrop-filter:blur(6px);font-size:1rem;display:grid;place-items:center}
+.hb.off{opacity:.4}
+/* yuga chips */
+#yc{position:fixed;left:0;right:0;z-index:5;display:flex;gap:6px;overflow-x:auto;padding:0 12px;scrollbar-width:none}
+#yc::-webkit-scrollbar{display:none}
+#yc button{flex:none;border:1px solid var(--line);border-radius:16px;padding:3px 11px;font-size:.78rem;color:var(--mut);background:#00000055;backdrop-filter:blur(4px);transition:.3s}
+#yc button.on{background:var(--yc);border-color:var(--yc);color:#1a0f05;font-weight:700}
+/* card */
+#card{position:fixed;z-index:4;left:12px;right:12px;border-radius:20px;overflow:hidden;background:#140c06cc;border:1px solid #f0c25e40;box-shadow:0 12px 40px #000a,0 0 30px color-mix(in srgb,var(--yc) 25%,transparent);backdrop-filter:blur(8px);transition:box-shadow 1s}
+#pic{position:relative;height:30vh;max-height:260px;background:#2a1a0c center/cover no-repeat;transition:opacity .45s}
+#pic .fb{position:absolute;inset:0;display:grid;place-items:center;font-size:4.5rem;color:#ffd27a;font-family:'Tiro Devanagari Hindi',serif;text-shadow:0 0 30px #f0c25e;transition:opacity .45s;background:radial-gradient(circle,color-mix(in srgb,var(--cc) 45%,#1a0f05),#120a04 75%)}
+#pic:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,#140c06 98%)}
+#pic .cr{position:absolute;right:8px;top:8px;z-index:2;font-size:.62rem;color:#ffffffaa;background:#0007;padding:1px 6px;border-radius:8px;text-decoration:none}
+#pic .yb{position:absolute;left:10px;top:10px;z-index:2;font-size:.72rem;font-weight:700;color:#1a0f05;background:var(--yc);padding:2px 9px;border-radius:10px}
+.cb{padding:0 16px 14px;margin-top:-34px;position:relative;z-index:2}
+#ttl{margin:0;font-size:1.45rem;line-height:1.3;text-shadow:0 2px 10px #000}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.74rem;color:var(--mut);margin-top:4px}
+.dt{padding:1px 8px;border-radius:10px;font-weight:600}
+.t-p{background:#f0c25e26;color:#f5cf7a}.t-u{background:#3fbf8f26;color:#78e6b8}.t-n{background:#ff4d6d26;color:#ff98aa}.t-b{background:#b06cff26;color:#d3abff}
+#ds{margin:7px 0 10px;font-size:.9rem;color:#e4d4bb;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.55}
+.crow{display:flex;gap:8px}
+.crow button,.crow a{flex:1;text-align:center;border-radius:12px;padding:8px 6px;font-size:.86rem;text-decoration:none;color:var(--txt);border:1px solid var(--line);background:#ffffff0c}
+.crow .pri{background:linear-gradient(135deg,#f3c25d,#d9831f);color:#2a1606;font-weight:700;border:0}
+#card.sw{animation:sw .45s}
+@keyframes sw{0%{opacity:.25;transform:translateY(8px) scale(.985)}100%{opacity:1;transform:none}}
+/* wheel ui */
+.nv{position:fixed;z-index:5;width:46px;height:46px;border-radius:50%;background:#0008;border:1px solid #f0c25e55;font-size:1.2rem;color:var(--gold)}
+#kc{position:fixed;left:0;right:0;z-index:3;text-align:center;font-size:.72rem;color:var(--mut);pointer-events:none}
+#kc b{color:var(--gold);font-weight:600}
+#yn{position:fixed;left:0;right:0;z-index:3;text-align:center;pointer-events:none;font-size:1.25rem;color:var(--yc);text-shadow:0 0 18px var(--yc);transition:color 1s}
+#hintd{position:fixed;left:0;right:0;z-index:3;text-align:center;font-size:.75rem;color:#ffffff88;pointer-events:none;transition:opacity 1s}
+/* sheet */
+#ov{position:fixed;inset:0;background:#000b;z-index:20;opacity:0;pointer-events:none;transition:.3s}
+#ov.on{opacity:1;pointer-events:auto}
+#sh{position:fixed;left:0;right:0;bottom:0;z-index:21;max-width:640px;margin:0 auto;background:linear-gradient(#2a1b0d,#140c06);border-radius:22px 22px 0 0;border-top:2px solid var(--gold);padding:10px 18px 24px;transform:translateY(105%);transition:transform .35s cubic-bezier(.2,.8,.2,1);max-height:90vh;overflow-y:auto}
+#sh.on{transform:none}
+.grab{width:44px;height:5px;border-radius:5px;background:#6a5338;margin:0 auto 12px}
+#sh h2{margin:0 0 4px;font-size:1.6rem;color:var(--gold);line-height:1.3}
+#sh .full{font-size:1.02rem;line-height:1.75;color:#efe2cc}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:16px 0 4px}
+.acts a{display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;color:var(--txt);border:1px solid var(--line);background:#ffffff0a;border-radius:12px;padding:11px 8px;font-size:.9rem}
+.acts a.wa{grid-column:1/-1;background:#1f8f4e;border-color:#1f8f4e;font-weight:700}
+.shimg{width:100%;max-height:240px;object-fit:cover;border-radius:14px;margin:6px 0 10px;display:block}
+/* list */
+#lv{position:fixed;inset:0;z-index:30;background:#0d0805f5;transform:translateX(100%);transition:transform .35s;display:flex;flex-direction:column}
+#lv.on{transform:none}
+#lv .lh{display:flex;gap:8px;align-items:center;padding:12px}
+#lv input{flex:1;padding:10px 14px;border-radius:12px;border:1px solid var(--gold);background:#1c130b;color:var(--txt);font:inherit;outline:0}
+#ll{overflow-y:auto;padding:0 12px 40px;flex:1}
+#ll h3{font-family:"Tiro Devanagari Hindi",serif;font-weight:400;margin:18px 0 6px;font-size:1.2rem}
+#ll button{display:flex;gap:10px;width:100%;text-align:left;padding:9px 10px;border-radius:10px;border-bottom:1px solid #ffffff10}
+#ll button:active{background:#ffffff10}
+#ll .li{font-size:1.2rem}
+#ll small{display:block;color:var(--mut);font-size:.72rem}
+/* intro */
+#intro{position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:radial-gradient(circle at 50% 45%,#2c1a0acc,#070403 75%);transition:opacity 1.2s}
+#intro.hide{opacity:0;pointer-events:none}
+#intro .om{font-size:4.2rem;color:var(--gold);text-shadow:0 0 30px #f0c25e,0 0 60px #d9831f;animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{50%{text-shadow:0 0 14px #f0c25e,0 0 30px #d9831f;transform:scale(.96)}}
+#intro h1{font-size:2.6rem;margin:6px 0 2px;color:var(--gold)}
+#intro p{color:var(--mut);margin:0 0 6px;max-width:360px;line-height:1.6}
+#intro .go{margin-top:18px;background:linear-gradient(135deg,#f3c25d,#d9831f);color:#2a1606;border-radius:40px;padding:14px 34px;font-weight:700;font-size:1.1rem;box-shadow:0 6px 28px #e8b04a66}
+#intro small{display:block;margin-top:14px;color:#8d7858;font-size:.78rem}
+#err{display:none;position:fixed;inset:auto 12px 12px;z-index:50;background:#400;padding:10px;border-radius:10px;font-size:.8rem}
+/* desktop */
+@media (min-aspect-ratio:11/10){
+ #card{left:28px;right:auto;width:min(420px,38vw);top:50%!important;transform:translateY(-50%)}
+ #card.sw{animation:none}
+ #pic{height:240px;max-height:none}
+ #ds{-webkit-line-clamp:4}
+}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+
+<header>
+ <div class="brand"><small>ॐ ओमकिरण भक्ति</small><div class="serif">काल-चक्र</div></div>
+ <button class="hb" id="bSnd" title="आवाज़">🔔</button>
+ <button class="hb" id="bTan" title="तानपुरा">🪕</button>
+ <button class="hb" id="bList" title="सभी कथाएँ">☰</button>
+</header>
+<nav id="yc"></nav>
+
+<div id="card">
+ <div id="pic"><div class="fb" id="fb"></div><span class="yb" id="yb"></span><a class="cr" id="cr" target="_blank" rel="noopener"></a></div>
+ <div class="cb">
+  <h2 id="ttl" class="ttl"></h2>
+  <div class="meta" id="meta"></div>
+  <p id="ds"></p>
+  <div class="crow"><button class="pri" id="bRead">📖 पूरी कथा</button><a id="bWa" target="_blank" rel="noopener">📲 भेजें</a></div>
+ </div>
+</div>
+
+<div id="yn" class="serif"></div>
+<div id="kc"></div>
+<div id="hintd">👆 चक्र को उँगली से घुमाइए</div>
+<button class="nv" id="bPrev" aria-label="पिछली कथा">‹</button>
+<button class="nv" id="bNext" aria-label="अगली कथा">›</button>
+
+<div id="ov"></div>
+<div id="sh" role="dialog" aria-modal="true"></div>
+
+<div id="lv">
+ <div class="lh"><input id="q" type="search" placeholder="खोजें — राम, कृष्ण, shiv, kumbh…" autocomplete="off"><button class="hb" id="bLc">✕</button></div>
+ <div id="ll"></div>
+</div>
+
+<div id="intro">
+ <div class="om">ॐ</div>
+ <h1>काल-चक्र</h1>
+ <p>सृष्टि के आरंभ से कल्कि अवतार और सत्ययुग की वापसी तक — सनातन की हर कथा, एक घूमते चक्र पर।</p>
+ <button class="go" id="go">🙏 प्रवेश करें</button>
+ <small>🎧 हेडफ़ोन के साथ सबसे सुंदर अनुभव</small>
+</div>
+<div id="err"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+window.onerror=function(m){var e=document.getElementById('err');e.style.display='block';e.textContent='Error: '+m};
+// ---------- data ----------
+const C={c:['युग-काल','ॐ','#f0c25e'],a:['अवतार','🪷','#ffae3d'],sh:['शिव-शक्ति','🔱','#9a8cff'],r:['राम कथा','🏹','#ff7a3d'],k:['कृष्ण कथा','🦚','#4c9bff'],m:['महाभारत','⚔️','#e0605d'],s:['ऋषि-भक्त','🙏','#4fd09c'],v:['राजवंश','👑','#e0b020'],u:['पर्व-कुंभ','🪔','#ffa62b'],b:['भविष्यवाणी','🔮','#b77cff'],n:['आज','📍','#ff4d6d']};
+const Y=[['adi','आदि काल','#d6b27a','#2e2010','कल्प और मन्वंतरों का आरंभ'],
+['satya','सत्ययुग','#ffd24d','#4a3508','17,28,000 वर्ष • धर्म चारों चरणों पर'],
+['treta','त्रेतायुग','#ff8a3d','#4a2008','12,96,000 वर्ष • धर्म तीन चरणों पर'],
+['dvapara','द्वापरयुग','#5aa8ff','#0c1f40','8,64,000 वर्ष • धर्म दो चरणों पर'],
+['kali','कलियुग','#ff5a5f','#3a0d10','4,32,000 वर्ष • धर्म एक चरण पर'],
+['aaj','आज','#ff4d6d','#3a0d18','आप यहाँ हैं'],
+['bhavishya','भविष्य','#b77cff','#1f0f3a','पुराणों की भविष्यवाणियाँ'],
+['satya2','पुनः सत्ययुग','#ffd24d','#4a3508','काल-चक्र फिर से घूमता है']];
+const NOW=2026.86;
+function yk(y){if(y===NOW)return'aaj';if(y<-3891102)return'adi';if(y<-2163102)return'satya';if(y<-867102)return'treta';if(y<-3102)return'dvapara';if(y<NOW)return'kali';if(y>=428899.5)return'satya2';return'bhavishya'}
+// [sortYear, cat, title, place, description, related keyword, roman search, wikipedia title]
+const D=[
+[-1972949101,'c','श्वेत वराह कल्प का आरंभ','ब्रह्मांड','पुराणों के अनुसार एक कल्प ब्रह्मा जी का एक दिन है — 432 करोड़ वर्ष। वर्तमान कल्प वराह भगवान के नाम पर है, और हम इसके सातवें मन्वंतर में जी रहे हैं।','विष्णु','kalp varah',"Brahma"],
+[-1972000000,'a','वराह अवतार — पृथ्वी का उद्धार','ब्रह्मांड','हिरण्याक्ष पृथ्वी को रसातल में ले गया। भगवान विष्णु ने वराह रूप धरकर उसका वध किया और भूदेवी को अपने दाँतों पर उठाकर फिर स्थापित किया।','विष्णु','varah avatar vishnu',"Varaha"],
+[-1900000000,'v','स्वायंभुव मनु — पहले मनु','ब्रह्मावर्त','ब्रह्मा जी से उत्पन्न पहले मनु और शतरूपा से मानव वंश चला। इन्हीं के पुत्र उत्तानपाद और प्रियव्रत थे।','विष्णु','manu',"Svayambhuva Manu"],
+[-1850000000,'s','ध्रुव की तपस्या — ध्रुव तारा','मधुवन','सौतेली माँ के अपमान से आहत बालक ध्रुव ने मधुवन में कठोर तप किया। प्रसन्न होकर नारायण ने उन्हें अटल ध्रुव-पद दिया — आज का ध्रुव तारा।','विष्णु','dhruv tara',"Dhruva"],
+[-1800000000,'sh','दक्ष यज्ञ और सती का देह-त्याग','कनखल','दक्ष ने यज्ञ में महादेव का अपमान किया तो सती ने योगाग्नि में देह त्याग दी। वीरभद्र ने यज्ञ ध्वस्त किया; सती के अंग जहाँ गिरे, वहाँ शक्तिपीठ बने।','शिव','sati daksh shiv shaktipeeth',"Daksha yajna"],
+[-1700000000,'v','राजा पृथु और पृथ्वी का दोहन','ब्रह्मावर्त','पृथ्वी ने अन्न छिपा लिया तो राजा पृथु ने उसे गाय रूप में दुहकर अन्न और औषधियाँ प्राप्त कीं। उन्हीं के नाम से धरती "पृथ्वी" कहलाई।','विष्णु','prithu',"Prithu"],
+[-500000000,'a','समुद्र मंथन और कूर्म अवतार','क्षीर सागर','देवों और असुरों ने मंदराचल को मथानी और वासुकि को रस्सी बनाकर क्षीर सागर मथा। कूर्म भगवान ने पर्वत पीठ पर संभाला और चौदह रत्न निकले।','विष्णु','samudra manthan kurma',"Samudra manthan"],
+[-499999000,'sh','महादेव बने नीलकंठ','क्षीर सागर','मंथन से निकले हलाहल विष से सृष्टि जलने लगी। महादेव ने विष पीकर कंठ में रोक लिया और नीलकंठ कहलाए।','शिव','neelkanth shiv',"Halahala"],
+[-499998000,'a','मोहिनी अवतार और कुंभ की कथा','प्रयाग, हरिद्वार, उज्जैन, नासिक','विष्णु ने मोहिनी रूप में देवताओं को अमृत पिलाया। अमृत-कलश की बूँदें जिन चार स्थानों पर गिरीं, वहीं आज कुंभ मेला लगता है।','कुंभ','mohini kumbh',"Mohini"],
+[-120533102,'c','वैवस्वत मन्वंतर का आरंभ','ब्रह्मांड','सातवें मनु, वैवस्वत मनु का काल शुरू हुआ। यही वर्तमान मन्वंतर है।','विष्णु','manvantar',"Vaivasvata Manu"],
+[-120533000,'a','मत्स्य अवतार और महाप्रलय','हिमालय','प्रलय के जल में भगवान मत्स्य ने मनु की नाव को अपने सींग से बाँधकर बचाया और वेदों व सप्तर्षियों की रक्षा की।','विष्णु','matsya avatar',"Matsya"],
+[-120000000,'v','इक्ष्वाकु और सूर्यवंश','अयोध्या','वैवस्वत मनु के पुत्र इक्ष्वाकु अयोध्या के पहले राजा बने। इसी सूर्यवंश में आगे हरिश्चंद्र, भगीरथ और श्रीराम हुए।','राम','ikshvaku suryavansh',"Ikshvaku"],
+[-119990000,'v','पुरूरवा और चंद्रवंश','प्रतिष्ठान (प्रयाग)','बुध और इला के पुत्र पुरूरवा से चंद्रवंश चला। इसी वंश में यदु, कुरु, पांडव और श्रीकृष्ण हुए।','कृष्ण','pururava chandravansh',"Pururavas"],
+[-3891102,'c','सत्ययुग का आरंभ','भारतवर्ष','वर्तमान 28वें महायुग का पहला युग। धर्म चारों चरणों पर खड़ा था — सत्य, तप, दया और दान।','विष्णु','satyug',"Satya Yuga"],
+[-3500000,'a','नृसिंह अवतार — प्रह्लाद की रक्षा','अहोबिलम (परंपरा)','हिरण्यकशिपु ने भक्त प्रह्लाद को मारना चाहा। भगवान खंभे से नृसिंह रूप में प्रकट हुए और संध्या के समय देहरी पर उसका वध किया।','नृसिंह','narsingh prahlad holi',"Narasimha"],
+[-3000000,'v','राजा हरिश्चंद्र की सत्य-परीक्षा','अयोध्या, काशी','वचन निभाने के लिए हरिश्चंद्र ने राज्य, पत्नी, पुत्र सब त्याग दिए और श्मशान में सेवक बने। सत्य पर अडिग रहकर वे अमर हो गए।','सत्यनारायण','harishchandra',"Harishchandra"],
+[-2163102,'c','त्रेतायुग का आरंभ','भारतवर्ष','धर्म तीन चरणों पर रह गया। यह वामन, परशुराम और श्रीराम के अवतारों का युग है।','विष्णु','treta yug',"Treta Yuga"],
+[-2100000,'a','वामन अवतार और राजा बलि','भृगुकच्छ (परंपरा)','वामन ने दानवीर बलि से तीन पग भूमि माँगी और दो पग में सारे लोक नाप लिए। तीसरा पग बलि ने अपने सिर पर रखवाया और पाताल का राजा बना।','विष्णु','vaman bali onam',"Vamana"],
+[-2000000,'s','भगीरथ ने गंगा को धरती पर उतारा','गंगोत्री','पूर्वजों के उद्धार के लिए भगीरथ ने घोर तप किया। महादेव ने गंगा का वेग जटाओं में थामा और गंगा माँ धरती पर आईं।','गंगा','bhagirath ganga',"Bhagiratha"],
+[-1800000,'s','विश्वामित्र बने ब्रह्मर्षि','कान्यकुब्ज','राजा कौशिक ने वसिष्ठ से हारकर हज़ारों वर्ष तप किया। अंत में वसिष्ठ ने ही उन्हें ब्रह्मर्षि कहा — गायत्री मंत्र के द्रष्टा यही हैं।','गायत्री','vishwamitra gayatri',"Vishvamitra"],
+[-1500000,'a','परशुराम अवतार','नर्मदा, कोंकण','जमदग्नि-पुत्र परशुराम ने अत्याचारी राजाओं का संहार किया। परंपरा कहती है कि उन्होंने समुद्र से कोंकण-केरल की भूमि निकाली।','परशुराम','parshuram',"Parashurama"],
+[-1400000,'s','अगस्त्य ऋषि ने विंध्य पार किया','विंध्य, पोदिगै','बढ़ते विंध्य पर्वत को अगस्त्य ऋषि ने झुकने को कहा और दक्षिण चले गए। उन्हें दक्षिण भारत की ऋषि-परंपरा का आदि-गुरु माना जाता है।','शिव','agastya',"Agastya"],
+[-869200,'r','श्रीराम का जन्म','अयोध्या','चैत्र शुक्ल नवमी को राजा दशरथ और माता कौशल्या के घर भगवान विष्णु ने श्रीराम रूप में अवतार लिया। इसी दिन रामनवमी मनाई जाती है।','राम','ram janm ramnavami',"Rama"],
+[-869185,'r','सीता स्वयंवर','मिथिला','राजा जनक की शर्त थी — शिव धनुष चढ़ाना। श्रीराम ने धनुष उठाया तो वह टूट गया, और सीता माँ ने उन्हें वरमाला पहनाई।','राम सीता','sita swayamvar vivah panchami',"Sita"],
+[-869175,'r','श्रीराम का वनवास','अयोध्या, चित्रकूट','कैकेयी के दो वरदानों से राम को चौदह वर्ष का वनवास मिला। सीता और लक्ष्मण साथ गए; भरत ने खड़ाऊँ रखकर राज चलाया।','राम','vanvas chitrakoot',"Kaikeyi"],
+[-869163,'r','सीता हरण','पंचवटी (नासिक)','स्वर्ण मृग के छल से राम-लक्ष्मण को दूर कर रावण ने सीता का हरण किया। जटायु ने रोकने का प्रयास किया और वीरगति पाई।','राम','sita haran jatayu',"Jatayu"],
+[-869162,'r','हनुमान जी की लंका छलांग','लंका','हनुमान जी ने समुद्र लाँघकर अशोक वाटिका में सीता माँ को राम की मुद्रिका दी और लंका दहन किया।','हनुमान','hanuman lanka',"Hanuman"],
+[-869161,'r','राम सेतु का निर्माण','रामेश्वरम','नल-नील के नेतृत्व में वानर सेना ने राम नाम लिखे पत्थरों से समुद्र पर सेतु बनाया। रामेश्वरम में श्रीराम ने शिवलिंग स्थापित किया।','राम','ram setu rameshwaram',"Nala (Ramayana)"],
+[-869160,'r','रावण का अंत','लंका','भीषण युद्ध के बाद श्रीराम ने रावण का वध किया। अधर्म पर धर्म की इसी विजय को दशहरे पर मनाया जाता है।','राम','ravan dussehra',"Ravana"],
+[-869159,'r','श्रीराम की वापसी और राम-राज्य','अयोध्या','वनवास पूरा कर श्रीराम अयोध्या लौटे और नगरवासियों ने दीप जलाए — यही दीपावली की परंपरा है। उनका शासन आदर्श राम-राज्य कहलाया।','राम','diwali ram rajya',"Diwali"],
+[-869150,'s','वाल्मीकि ने रामायण रची','तमसा नदी','क्रौंच पक्षी के दुःख से आदिकवि वाल्मीकि के मुख से पहला श्लोक निकला। उन्होंने 24,000 श्लोकों की रामायण रची।','राम','valmiki ramayan',"Valmiki"],
+[-867102,'c','द्वापरयुग का आरंभ','भारतवर्ष','धर्म दो चरणों पर रह गया। यह श्रीकृष्ण और महाभारत का युग है।','कृष्ण','dwapar yug',"Dvapara Yuga"],
+[-500000,'v','चक्रवर्ती भरत — जिनसे "भारत"','हस्तिनापुर क्षेत्र','दुष्यंत और शकुंतला के पुत्र सम्राट भरत। परंपरा के अनुसार उन्हीं के नाम से देश "भारतवर्ष" कहलाया।','विष्णु','bharat shakuntala',"Shakuntala"],
+[-400000,'v','राजा कुरु और कुरुक्षेत्र','कुरुक्षेत्र','राजा कुरु ने इस भूमि को तप और धर्म से जोता, इसलिए यह धर्मक्षेत्र कुरुक्षेत्र कहलाई। उन्हीं से कुरुवंश चला।','गीता','kuru kurukshetra',"Kurukshetra"],
+[-3300,'s','वेदव्यास का जन्म','यमुना','पराशर ऋषि और सत्यवती के पुत्र कृष्णद्वैपायन यमुना के द्वीप पर जन्मे। आगे चलकर वे वेदों के विभाजक और महाभारत के रचयिता बने।','व्यास','vyas guru purnima',"Vyasa"],
+[-3250,'m','भीष्म की प्रतिज्ञा','हस्तिनापुर','पिता शांतनु के सुख के लिए देवव्रत ने आजीवन ब्रह्मचर्य और सिंहासन-त्याग की प्रतिज्ञा ली — तभी से वे "भीष्म" कहलाए।','महाभारत','bhishma pratigya',"Bhishma"],
+[-3228,'k','श्रीकृष्ण का जन्म','मथुरा','भाद्रपद कृष्ण अष्टमी की आधी रात, कंस के कारागार में देवकी-वसुदेव के घर श्रीकृष्ण प्रकट हुए। वसुदेव उन्हें यमुना पार गोकुल ले गए।','कृष्ण','krishna janm janmashtami',"Krishna Janmashtami"],
+[-3225,'k','वृंदावन की लीलाएँ','वृंदावन','माखन चोरी, कालिया दमन, गोवर्धन धारण और महारास — ब्रज की लीलाओं ने कान्हा को जन-जन का लाड़ला बना दिया।','कृष्ण','vrindavan leela govardhan',"Radha Krishna"],
+[-3217,'k','श्रीकृष्ण ने कंस का वध किया','मथुरा','मथुरा के धनुर्यज्ञ में किशोर कृष्ण ने कंस का वध किया और माता-पिता व उग्रसेन को कारागार से मुक्त किया।','कृष्ण','kans vadh',"Kamsa"],
+[-3215,'k','सांदीपनि आश्रम में शिक्षा','उज्जैन','कृष्ण-बलराम ने उज्जैन में गुरु सांदीपनि से 64 दिनों में 64 कलाएँ सीखीं; यहीं सुदामा से मित्रता हुई।','कृष्ण','sandipani sudama',"Sudama"],
+[-3200,'k','द्वारका की स्थापना','द्वारका','जरासंध के बार-बार आक्रमणों से प्रजा को बचाने के लिए श्रीकृष्ण ने समुद्र तट पर स्वर्ण नगरी द्वारका बसाई।','द्वारकाधीश','dwarka',"Dwarka"],
+[-3170,'m','द्रौपदी स्वयंवर','कांपिल्य','ब्राह्मण वेश में अर्जुन ने घूमती मछली की आँख भेदकर द्रौपदी को जीता।','महाभारत','draupadi arjun',"Draupadi"],
+[-3160,'m','इंद्रप्रस्थ और राजसूय यज्ञ','इंद्रप्रस्थ','पांडवों ने खांडवप्रस्थ को इंद्रप्रस्थ बनाया। युधिष्ठिर के राजसूय यज्ञ में श्रीकृष्ण की अग्रपूजा हुई।','कृष्ण','indraprastha rajsuya',"Rajasuya"],
+[-3152,'m','द्यूत क्रीड़ा और द्रौपदी की लाज','हस्तिनापुर','शकुनि के छल से पांडव सब हार गए। भरी सभा में द्रौपदी की लाज श्रीकृष्ण ने अनंत वस्त्र देकर बचाई।','कृष्ण','chirharan draupadi',"Shakuni"],
+[-3140,'sh','अर्जुन को पाशुपतास्त्र','इंद्रकील','वनवास में अर्जुन ने महादेव की तपस्या की। किरात वेश में शिव ने परीक्षा ली, फिर प्रसन्न होकर पाशुपतास्त्र दिया।','शिव','pashupatastra kirat',"Pashupatastra"],
+[-3139,'k','श्रीकृष्ण बने शांति-दूत','हस्तिनापुर','युद्ध टालने के लिए श्रीकृष्ण ने पांडवों के लिए केवल पाँच गाँव माँगे। दुर्योधन ने सुई की नोक भर भूमि देने से भी मना कर दिया।','कृष्ण','shanti doot',"Udyoga Parva"],
+[-3138,'k','भगवद्गीता का उपदेश','कुरुक्षेत्र','मोह से घिरे अर्जुन को श्रीकृष्ण ने कर्म, ज्ञान और भक्ति का उपदेश दिया और विश्वरूप दिखाया। मार्गशीर्ष शुक्ल एकादशी को गीता जयंती मनाई जाती है।','गीता','gita updesh geeta jayanti',"Bhagavad Gita"],
+[-3137.9,'m','महाभारत का युद्ध','कुरुक्षेत्र','अठारह दिन, अठारह अक्षौहिणी सेना। कौरवों का अंत हुआ और धर्म की स्थापना हुई।','महाभारत','mahabharat yudh',"Kurukshetra War"],
+[-3137.8,'m','शरशय्या पर भीष्म','कुरुक्षेत्र','इच्छामृत्यु के वरदान वाले भीष्म ने बाणों की शय्या पर उत्तरायण की प्रतीक्षा की और युधिष्ठिर को धर्म और विष्णु सहस्रनाम का उपदेश दिया।','विष्णु सहस्रनाम','bhishma sahasranam',"Vishnu Sahasranama"],
+[-3137,'m','युधिष्ठिर का राज्याभिषेक','हस्तिनापुर','युद्ध के बाद युधिष्ठिर राजा बने और अश्वमेध यज्ञ किया।','महाभारत','yudhishthir',"Yudhishthira"],
+[-3103,'k','यादव वंश का अंत','प्रभास','ऋषियों के श्राप से प्रभास क्षेत्र में यादव आपस में लड़कर नष्ट हो गए।','कृष्ण','yadav',"Mausala Parva"],
+[-3102.1,'k','श्रीकृष्ण का स्वधाम गमन','प्रभास (सोमनाथ)','एक व्याध का बाण चरण में लगने के बाद श्रीकृष्ण ने देह-लीला समाप्त की। यह स्थान आज भालका तीर्थ कहलाता है।','कृष्ण','bhalka tirth',"Somnath temple"],
+[-3102,'c','कलियुग का आरंभ','भारतवर्ष','श्रीकृष्ण के जाने के साथ कलियुग शुरू हुआ। धर्म एक चरण पर रह गया, पर इस युग में नाम-जप ही सबसे बड़ा साधन माना गया।','हरि नाम','kalyug',"Kali Yuga"],
+[-3101,'m','पांडवों का महाप्रस्थान','हिमालय','राज्य परीक्षित को सौंपकर पांडव हिमालय की ओर चले। केवल युधिष्ठिर सशरीर स्वर्ग पहुँचे।','महाभारत','pandav swarg',"Mahaprasthanika Parva"],
+[-3090,'s','वेदव्यास ने वेदों का विभाजन किया','बदरिकाश्रम','व्यास जी ने वेद को ऋग्, यजुः, साम और अथर्व — चार भागों में बाँटा और शिष्यों को सौंपा।','व्यास','ved vyas',"Vedas"],
+[-3080,'s','शुकदेव ने परीक्षित को भागवत सुनाई','शुकताल','सात दिन में मृत्यु जानकर राजा परीक्षित ने गंगा तट पर शुकदेव जी से श्रीमद्भागवत सुनी — यहीं से भागवत सप्ताह की परंपरा है।','भागवत','bhagwat katha shukdev',"Bhagavata Purana"],
+[-3070,'v','जनमेजय का सर्प-सत्र','तक्षशिला','पिता परीक्षित की मृत्यु का बदला लेने जनमेजय ने सर्प-यज्ञ किया; आस्तीक मुनि ने उसे रुकवाया। इसी सत्र में महाभारत सुनाई गई।','महाभारत','janmejay',"Janamejaya"],
+[-3060,'s','नैमिषारण्य में सूत जी की कथा','नैमिषारण्य','नैमिषारण्य में शौनक आदि ऋषियों को सूत जी ने पुराणों की कथा सुनाई — ज़्यादातर पुराण इसी संवाद से शुरू होते हैं।','सत्यनारायण','naimisharanya sut',"Naimisharanya"],
+[NOW,'n','आप यहाँ हैं','भारतवर्ष','कलियुग के लगभग 5,128 वर्ष बीत चुके हैं। इस काल-यात्रा में आज का दिन यहाँ है।','','aaj today',""],
+[2027,'u','नासिक–त्र्यंबकेश्वर कुंभ','नासिक','2027 में गोदावरी तट पर नासिक और त्र्यंबकेश्वर में सिंहस्थ कुंभ के अमृत स्नान होंगे।','कुंभ','nashik kumbh 2027',"Trimbakeshwar Shiva Temple"],
+[2028,'u','उज्जैन सिंहस्थ कुंभ','उज्जैन','2028 में क्षिप्रा तट पर, महाकाल की नगरी उज्जैन में सिंहस्थ कुंभ लगेगा।','महाकाल','ujjain simhastha 2028',"Mahakaleshwar Jyotirlinga"],
+[7000,'b','कलियुग में नाम-संकीर्तन का काल','भारतवर्ष','परंपरा कहती है कि कलियुग के पहले लगभग 10,000 वर्ष तक भगवान का नाम-संकीर्तन फलता-फूलता रहेगा।','हरि नाम','sankirtan',"Kirtan"],
+[50000,'b','धर्म एक चरण पर','भारतवर्ष','भागवत के अनुसार कलियुग में सत्य, दया और तप घटते जाएँगे और धर्म केवल एक चरण पर टिका रहेगा।','विष्णु','dharm',"Dharma"],
+[100000,'b','शासक बनेंगे लुटेरे','भारतवर्ष','पुराणों की भविष्यवाणी — शासक प्रजा की रक्षा के बजाय उसका धन हरने लगेंगे।','विष्णु','kalyug bhavishya',"Kali (demon)"],
+[200000,'b','मनुष्य की आयु घटती जाएगी','भारतवर्ष','कलियुग के अंत की ओर मनुष्य की आयु, बल और स्मृति लगातार घटते जाएँगे।','विष्णु','aayu',"Kali Yuga"],
+[300000,'b','वेद भुला दिए जाएँगे','भारतवर्ष','पुराणों के अनुसार वेद-ज्ञान और यज्ञ-परंपरा धीरे-धीरे लुप्त होने लगेगी।','विष्णु','ved',"Vedas"],
+[400000,'b','नदियाँ, औषधियाँ और वर्षा क्षीण','भारतवर्ष','धरती की उर्वरता घटेगी और वर्षा अनियमित होगी — कलियुग के अंतिम काल का वर्णन।','विष्णु','prakriti',"Ganges"],
+[428890,'b','शंभल में कल्कि का जन्म','शंभल','कलियुग के अंत में भगवान विष्णु शंभल ग्राम में विष्णुयश के घर कल्कि रूप में अवतार लेंगे।','कल्कि','kalki avatar',"Kalki"],
+[428893,'b','परशुराम देंगे कल्कि को शिक्षा','महेंद्र पर्वत','कल्कि पुराण के अनुसार चिरंजीवी परशुराम महेंद्र पर्वत पर कल्कि को शस्त्र-विद्या देंगे।','कल्कि','kalki parshuram',"Parashurama"],
+[428896,'b','देवदत्त अश्व पर कल्कि','पृथ्वी','श्वेत अश्व देवदत्त पर सवार, हाथ में खड्ग लिए कल्कि भगवान अधर्म का अंत करेंगे।','कल्कि','kalki devdatt',"Kalki"],
+[428898,'b','मरु और देवापि लौटेंगे','कलाप ग्राम','योगबल से जीवित मरु (सूर्यवंश) और देवापि (चंद्रवंश) कलाप ग्राम से लौटकर दोनों राजवंश फिर चलाएँगे।','कल्कि','maru devapi',"Kalki"],
+[428899,'b','कलियुग का अंत','भारतवर्ष','4,32,000 वर्षों का कलियुग पूरा होगा।','कल्कि','kalyug ant',"Kali Yuga"],
+[428899.5,'c','सत्ययुग की वापसी','भारतवर्ष','फिर से सत्ययुग आएगा और काल-चक्र नए सिरे से घूमेगा।','विष्णु','satyug wapsi',"Satya Yuga"]
+];
+const E=D.map((d,i)=>({i,y:d[0],c:d[1],t:d[2],p:d[3],d:d[4],k:d[5],r:d[6],w:d[7],yk:yk(d[0])}));
+const N=E.length,STEP=Math.PI*2/N,NOWI=E.findIndex(e=>e.c==='n');
+const YG=k=>Y.find(y=>y[0]===k);
+const fmt=n=>Math.round(n).toLocaleString('en-IN');
+function dlabel(y){const a=2026-y;if(y===NOW)return'2026 ई.';
+ if(y<0){if(a>=1e7)return'लगभग '+(+(a/1e7).toFixed(1))+' करोड़ वर्ष पूर्व';if(a>=1e5)return'लगभग '+(+(a/1e5).toFixed(1))+' लाख वर्ष पूर्व';return'ई.पू. '+fmt(-y)}
+ return fmt(y)+' ई.'}
+function tclass(e){return e.c==='n'?['n','आज']:e.c==='u'?['u','निर्धारित']:e.y>NOW?['b','भविष्यवाणी']:['p','पारंपरिक']}
+const $=s=>document.querySelector(s);
+const LS={get(k){try{return localStorage.getItem(k)}catch(_){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(_){}}};
+
+// ---------- sound (all synthesised, no files) ----------
+const SND={on:LS.get('kc-snd')!=='0',tan:LS.get('kc-tan')!=='0',c:null,m:null,lt:0,tanTimer:null,next:0,step:0};
+function AC(){if(!SND.c){try{SND.c=new(window.AudioContext||window.webkitAudioContext)();SND.m=SND.c.createGain();SND.m.gain.value=.9;
+ const comp=SND.c.createDynamicsCompressor();SND.m.connect(comp).connect(SND.c.destination);
+ // simple reverb
+ const len=SND.c.sampleRate*2.6,b=SND.c.createBuffer(2,len,SND.c.sampleRate);for(let ch=0;ch<2;ch++){const d=b.getChannelData(ch);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.4)}
+ SND.rv=SND.c.createConvolver();SND.rv.buffer=b;SND.rg=SND.c.createGain();SND.rg.gain.value=.35;SND.rv.connect(SND.rg).connect(SND.m)}catch(_){return null}}
+ if(SND.c.state==='suspended')SND.c.resume();return SND.c}
+function out(node,wet){node.connect(SND.m);if(wet&&SND.rv){const g=SND.c.createGain();g.gain.value=wet;node.connect(g).connect(SND.rv)}}
+function bell(f=528,v=.11,d=3.4){if(!SND.on)return;const c=AC();if(!c)return;const t=c.currentTime+.01,g=c.createGain();
+ g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.005);g.gain.exponentialRampToValueAtTime(.0001,t+d);out(g,.6);
+ [[1,1],[2.0,.55],[2.74,.35],[4.07,.2],[5.43,.12],[.5,.25]].forEach(([r,a],j)=>{const o=c.createOscillator(),h=c.createGain();o.type='sine';o.frequency.value=f*r*(1+(j%2?.0025:-.0015));
+  h.gain.setValueAtTime(a,t);h.gain.exponentialRampToValueAtTime(.0001,t+d/(1+j*.7));o.connect(h).connect(g);o.start(t);o.stop(t+d+.1)})}
+function tick(){if(!SND.on||!SND.c)return;const n=performance.now();if(n-SND.lt<38)return;SND.lt=n;const c=SND.c,t=c.currentTime;
+ const len=c.sampleRate*.03,b=c.createBuffer(1,len,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3);
+ const s=c.createBufferSource();s.buffer=b;const f=c.createBiquadFilter();f.type='bandpass';f.frequency.value=1700+Math.random()*300;f.Q.value=6;const g=c.createGain();g.gain.value=.5;s.connect(f).connect(g);out(g,.1);s.start(t);
+ try{navigator.vibrate&&navigator.vibrate(5)}catch(_){}}
+function shankh(v=.07){if(!SND.on)return;const c=AC();if(!c)return;const t=c.currentTime+.02,g=c.createGain(),f=c.createBiquadFilter();f.type='lowpass';f.frequency.setValueAtTime(500,t);f.frequency.linearRampToValueAtTime(1600,t+.8);f.frequency.linearRampToValueAtTime(900,t+2.6);f.Q.value=3;
+ g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.7);g.gain.setValueAtTime(v,t+1.6);g.gain.exponentialRampToValueAtTime(.0001,t+3.2);f.connect(g);out(g,.7);
+ const lfo=c.createOscillator(),lg=c.createGain();lfo.frequency.value=5.2;lg.gain.value=2.2;lfo.connect(lg);lfo.start(t);lfo.stop(t+3.3);
+ [[1,1],[2,.35],[3,.12]].forEach(([r,a])=>{const o=c.createOscillator(),h=c.createGain();o.type='sawtooth';o.frequency.setValueAtTime(220*r*.97,t);o.frequency.linearRampToValueAtTime(220*r,t+.45);lg.connect(o.frequency);h.gain.value=a;o.connect(h).connect(f);o.start(t);o.stop(t+3.3)})}
+function om(v=.16){if(!SND.on)return;const c=AC();if(!c)return;const t=c.currentTime+.02,g=c.createGain(),f=c.createBiquadFilter();f.type='lowpass';f.frequency.setValueAtTime(900,t);f.frequency.linearRampToValueAtTime(700,t+1.8);f.frequency.linearRampToValueAtTime(260,t+3.2);f.Q.value=4;
+ g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+1.4);g.gain.setValueAtTime(v,t+3);g.gain.exponentialRampToValueAtTime(.0001,t+6);f.connect(g);out(g,.8);
+ [[110,'sawtooth',.5],[110.6,'sawtooth',.4],[220,'triangle',.4],[55,'sine',.8]].forEach(([fr,ty,a])=>{const o=c.createOscillator(),h=c.createGain();o.type=ty;o.frequency.value=fr;h.gain.value=a;o.connect(h).connect(f);o.start(t);o.stop(t+6.1)})}
+function pluck(f,t,v){const c=SND.c,g=c.createGain(),fl=c.createBiquadFilter();fl.type='lowpass';fl.frequency.setValueAtTime(2800,t);fl.frequency.exponentialRampToValueAtTime(500,t+3);
+ g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.015);g.gain.exponentialRampToValueAtTime(.0001,t+4.6);fl.connect(g);out(g,.5);
+ [[1,'sawtooth',.6],[1.0035,'sawtooth',.5],[2,'triangle',.25]].forEach(([r,ty,a])=>{const o=c.createOscillator(),h=c.createGain();o.type=ty;o.frequency.value=f*r;h.gain.value=a;o.connect(h).connect(fl);o.start(t);o.stop(t+4.7)})}
+const SA=130.81,TP=[SA*.75,SA,SA,SA/2];
+function tanTick(){if(!SND.c)return;const c=SND.c;while(SND.next<c.currentTime+.4){pluck(TP[SND.step%4],SND.next,SND.tan&&SND.on?.035:0);SND.step++;SND.next+=SND.step%4===0?1.6:1.15}}
+function tanStart(){if(!AC())return;if(!SND.tanTimer){SND.next=SND.c.currentTime+.3;SND.tanTimer=setInterval(tanTick,120)}}
+function uiSnd(){$('#bSnd').classList.toggle('off',!SND.on);$('#bTan').classList.toggle('off',!(SND.on&&SND.tan))}
+$('#bSnd').onclick=()=>{SND.on=!SND.on;LS.set('kc-snd',SND.on?'1':'0');uiSnd();if(SND.on){AC();bell(660,.08,2)}};
+$('#bTan').onclick=()=>{SND.tan=!SND.tan;LS.set('kc-tan',SND.tan?'1':'0');if(SND.tan&&!SND.on){SND.on=true;LS.set('kc-snd','1')}uiSnd();tanStart()};
+uiSnd();
+
+// ---------- images (Wikipedia / Wikimedia, loaded live with credit) ----------
+const IMG=new Map();
+function img(e){if(!e.w)return Promise.resolve(null);if(IMG.has(e.w))return IMG.get(e.w);
+ const ck='kc-img-'+e.w,c=LS.get(ck);if(c){const v=c==='-'?null:JSON.parse(c);const p=Promise.resolve(v);IMG.set(e.w,p);return p}
+ const p=fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(e.w.replace(/ /g,'_'))).then(r=>r.ok?r.json():null).then(j=>{
+  if(!j||!(j.thumbnail||j.originalimage)){LS.set(ck,'-');return null}
+  let s=(j.thumbnail||j.originalimage).source;s=s.replace(/\/(\d+)px-/,'/800px-');
+  const v={s,u:(j.content_urls&&j.content_urls.desktop.page)||''};LS.set(ck,JSON.stringify(v));return v}).catch(()=>null);
+ IMG.set(e.w,p);return p}
+
+// ---------- three.js wheel ----------
+const cv=$('#gl');
+const R=10;
+const renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));
+const scene=new THREE.Scene();
+const cam=new THREE.PerspectiveCamera(42,1,.1,400);
+scene.add(new THREE.AmbientLight(0xffe2b8,.55));
+const kl=new THREE.DirectionalLight(0xfff0d0,1.05);kl.position.set(6,14,18);scene.add(kl);
+const pl=new THREE.PointLight(0xffa040,1.6,90);scene.add(pl);
+const root=new THREE.Group();scene.add(root);           // tilted
+const spin=new THREE.Group();root.add(spin);            // rotates with time
+const gold=new THREE.MeshStandardMaterial({color:0xe0a94a,metalness:.75,roughness:.32,emissive:0x3a2004});
+const gold2=new THREE.MeshStandardMaterial({color:0xb7792a,metalness:.7,roughness:.45,emissive:0x220f02});
+function glowTex(){const c=document.createElement('canvas');c.width=c.height=128;const x=c.getContext('2d'),g=x.createRadialGradient(64,64,0,64,64,64);
+ g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(.25,'rgba(255,240,200,.8)');g.addColorStop(1,'rgba(255,200,120,0)');x.fillStyle=g;x.fillRect(0,0,128,128);return new THREE.CanvasTexture(c)}
+const GT=glowTex();
+function textTex(t,size,color,w=512,h=128){const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');x.font=size+'px "Tiro Devanagari Hindi", serif';x.textAlign='center';x.textBaseline='middle';
+ x.shadowColor=color;x.shadowBlur=18;x.fillStyle=color;x.fillText(t,w/2,h/2+4);const tx=new THREE.CanvasTexture(c);return tx}
+// rims
+spin.add(new THREE.Mesh(new THREE.TorusGeometry(R,.38,20,160),gold));
+spin.add(new THREE.Mesh(new THREE.TorusGeometry(R*1.035,.09,10,160),gold2));
+spin.add(new THREE.Mesh(new THREE.TorusGeometry(R*.8,.16,14,140),gold));
+spin.add(new THREE.Mesh(new THREE.TorusGeometry(R*.24,.32,16,80),gold));
+spin.add(new THREE.Mesh(new THREE.TorusGeometry(R*.13,.18,12,60),gold2));
+// rim studs
+for(let i=0;i<48;i++){const a=i/48*Math.PI*2,m=new THREE.Mesh(new THREE.SphereGeometry(i%2?.13:.2,10,8),gold);m.position.set(Math.cos(a)*R*1.0,Math.sin(a)*R*1.0,.35);spin.add(m)}
+// 24 spokes (Konark style)
+for(let i=0;i<24;i++){const a=i/24*Math.PI*2,len=R*.56,g=new THREE.Group();
+ const sp=new THREE.Mesh(new THREE.CylinderGeometry(i%2?.07:.12,i%2?.1:.17,len,10),i%2?gold2:gold);sp.position.y=R*.24+len/2;g.add(sp);
+ const kn=new THREE.Mesh(new THREE.SphereGeometry(i%2?.14:.22,12,10),gold);kn.position.y=R*.52;g.add(kn);
+ g.rotation.z=a;spin.add(g)}
+// lotus (counter-rotates slowly)
+const lotus=new THREE.Group();root.add(lotus);
+const ps=new THREE.Shape();ps.moveTo(0,.4);ps.quadraticCurveTo(.75,1.6,0,2.4);ps.quadraticCurveTo(-.75,1.6,0,.4);
+const pg=new THREE.ShapeGeometry(ps,12),pm=new THREE.MeshBasicMaterial({color:0xffb347,transparent:true,opacity:.55,side:THREE.DoubleSide,blending:THREE.AdditiveBlending,depthWrite:false});
+for(let i=0;i<12;i++){const m=new THREE.Mesh(pg,pm);m.rotation.z=i/12*Math.PI*2;m.position.z=.05;lotus.add(m)}
+const pm2=pm.clone();pm2.opacity=.35;for(let i=0;i<12;i++){const m=new THREE.Mesh(pg,pm2);m.scale.setScalar(.62);m.rotation.z=(i+.5)/12*Math.PI*2;m.position.z=.1;lotus.add(m)}
+const omS=new THREE.Sprite(new THREE.SpriteMaterial({map:textTex('ॐ',96,'#ffd27a',256,128),transparent:true,depthWrite:false}));omS.scale.set(4,2,1);omS.position.z=1.2;root.add(omS);
+const hubGlow=new THREE.Sprite(new THREE.SpriteMaterial({map:GT,color:0xffb050,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.55}));hubGlow.scale.set(9,9,1);hubGlow.position.z=.4;root.add(hubGlow);
+// yuga arcs + labels
+const ranges=[];E.forEach((e,i)=>{const l=ranges[ranges.length-1];if(l&&l.k===e.yk)l.e=i;else ranges.push({k:e.yk,s:i,e:i})});
+const ang=i=>Math.PI/2-i*STEP;
+ranges.forEach(rg=>{const y=YG(rg.k),col=new THREE.Color(y[2]);const ts=ang(rg.e+.5),tl=(rg.e-rg.s+1)*STEP;
+ const m=new THREE.Mesh(new THREE.RingGeometry(R*.83,R*.97,Math.max(8,Math.ceil(tl*40)),1,ts,tl),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.42,side:THREE.DoubleSide,depthWrite:false}));m.position.z=-.05;spin.add(m);
+ const sep=new THREE.Mesh(new THREE.BoxGeometry(.08,R*.16,.3),gold);const a0=ang(rg.s-.5);sep.position.set(Math.cos(a0)*R*.9,Math.sin(a0)*R*.9,0);sep.rotation.z=a0-Math.PI/2;spin.add(sep);
+ if(rg.e-rg.s>=2){const am=(ang(rg.s)+ang(rg.e))/2,s=new THREE.Sprite(new THREE.SpriteMaterial({map:textTex(y[1],64,y[2]),transparent:true,depthWrite:false}));s.scale.set(5.2,1.3,1);s.position.set(Math.cos(am)*R*1.2,Math.sin(am)*R*1.2,.3);spin.add(s)}});
+// event dots
+const dots=[],hits=[];const hitMat=new THREE.MeshBasicMaterial({visible:false});
+E.forEach((e,i)=>{const a=ang(i),x=Math.cos(a)*R*.9,y=Math.sin(a)*R*.9,col=new THREE.Color(C[e.c][2]);
+ const s=new THREE.Mesh(new THREE.SphereGeometry(.2,12,10),new THREE.MeshBasicMaterial({color:col}));s.position.set(x,y,.3);spin.add(s);
+ const g=new THREE.Sprite(new THREE.SpriteMaterial({map:GT,color:col,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.75}));g.scale.set(1.3,1.3,1);g.position.set(x,y,.35);spin.add(g);
+ const h=new THREE.Mesh(new THREE.SphereGeometry(.65,8,6),hitMat);h.position.set(x,y,.3);h.userData.i=i;spin.add(h);hits.push(h);dots.push({s,g})});
+// pointer diya at top (does not rotate)
+const ptr=new THREE.Group();root.add(ptr);ptr.position.set(0,R*1.13,.4);
+const tri=new THREE.Mesh(new THREE.ConeGeometry(.42,.9,4),gold);tri.rotation.z=Math.PI;tri.position.y=-.1;ptr.add(tri);
+const bowl=new THREE.Mesh(new THREE.SphereGeometry(.55,16,10,0,Math.PI*2,Math.PI/2,Math.PI/2),gold2);bowl.position.y=.75;bowl.rotation.x=Math.PI;ptr.add(bowl);
+const flame=new THREE.Sprite(new THREE.SpriteMaterial({map:GT,color:0xffa030,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false}));flame.position.y=1.35;flame.scale.set(1.1,1.8,1);ptr.add(flame);
+const halo=new THREE.Sprite(new THREE.SpriteMaterial({map:GT,color:0xff9030,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.5}));halo.position.y=1.2;halo.scale.set(4,4,1);ptr.add(halo);
+// sparks
+const SPN=260,sg=new THREE.BufferGeometry(),sp=new Float32Array(SPN*3),sv=new Float32Array(SPN);
+for(let i=0;i<SPN;i++){sp[i*3]=(Math.random()-.5)*R*3.2;sp[i*3+1]=(Math.random()-.5)*R*3.2;sp[i*3+2]=Math.random()*8-2;sv[i]=.01+Math.random()*.03}
+sg.setAttribute('position',new THREE.BufferAttribute(sp,3));
+const smat=new THREE.PointsMaterial({map:GT,size:.38,color:0xffc060,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.8});
+const sparks=new THREE.Points(sg,smat);scene.add(sparks);
+
+// ---------- layout ----------
+let wide=false,W=1,H=1;
+function layout(){W=innerWidth;H=innerHeight;renderer.setSize(W,H,false);cam.aspect=W/H;wide=W/H>1.1;
+ const t=Math.tan(cam.fov*Math.PI/360);
+ if(wide){cam.position.set(0,0,R*2.9/ t/2.2);const hh=t*cam.position.z,hw=hh*cam.aspect;root.position.set(hw*.33,-hh*.08,0);root.rotation.x=-.5;
+  $('#card').style.top='50%';}
+ else{const z=(R*1.16)/(t*cam.aspect);cam.position.set(0,0,z);const hh=t*z;root.position.set(0,-hh*.5,0);root.rotation.x=-.78;}
+ cam.lookAt(0,0,0);cam.updateProjectionMatrix();sparks.position.copy(root.position);
+ pl.position.set(root.position.x,root.position.y+R*1.2,6);
+ // place DOM around the wheel
+ const p=v=>{const q=v.clone().project(cam);return{x:(q.x+1)/2*W,y:(1-q.y)/2*H}};
+ root.updateMatrixWorld(true);
+ const top=p(new THREE.Vector3(0,R*1.13,.4).applyMatrix4(root.matrixWorld)),ctr=p(new THREE.Vector3(0,0,0).applyMatrix4(root.matrixWorld)),bot=p(new THREE.Vector3(0,-R,0).applyMatrix4(root.matrixWorld)),lft=p(new THREE.Vector3(-R,0,0).applyMatrix4(root.matrixWorld)),rgt=p(new THREE.Vector3(R,0,0).applyMatrix4(root.matrixWorld));
+ if(!wide){$('#card').style.top='58px';$('#yc').style.top=(top.y-58)+'px';}else{$('#yc').style.top='60px';$('#yc').style.left=(W*.45)+'px'}
+ $('#yn').style.top=(ctr.y+(bot.y-ctr.y)*.18+18)+'px';$('#kc').style.top=Math.min(H-26,bot.y+10)+'px';$('#hintd').style.top=Math.min(H-46,bot.y-12)+'px';
+ if(wide){$('#yn').style.left=$('#kc').style.left=$('#hintd').style.left=(ctr.x-W/2)*2+'px'}else{$('#yn').style.left=$('#kc').style.left=$('#hintd').style.left='0px'}
+ $('#bPrev').style.left=Math.max(6,lft.x-6)+'px';$('#bPrev').style.top=(ctr.y-23)+'px';$('#bNext').style.left=Math.min(W-52,rgt.x-40)+'px';$('#bNext').style.top=(ctr.y-23)+'px';
+ if(!wide){const ch=$('#card').offsetHeight,lim=top.y-64;if(58+ch>lim){$('#pic').style.height=Math.max(110,$('#pic').offsetHeight-(58+ch-lim))+'px'}}
+}
+addEventListener('resize',()=>{$('#pic').style.height='';layout()});
+
+// ---------- rotation state ----------
+let th=0,vel=0,target=null,ease=.14,drag=false,lastCi=null,settled=-1,curY=null;
+const idx=t=>((Math.round(t/STEP)%N)+N)%N;
+function go(i,e2){const cur=th/STEP;let d=((i-cur)%N+N)%N;if(d>N/2)d-=N;target=(cur+d)*STEP;ease=e2||.12;vel=0}
+function step(d){go(idx(th)+d)}
+// pointer input
+let px=0,py=0,pt=0,moved=0,lastX=0,lastT=0;
+cv.addEventListener('pointerdown',e=>{drag=true;target=null;px=lastX=e.clientX;py=e.clientY;pt=lastT=performance.now();moved=0;vel=0;cv.setPointerCapture(e.pointerId);AC()});
+cv.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-lastX,now=performance.now();moved+=Math.abs(dx)+Math.abs(e.clientY-py)*0;
+ const k=(wide?1:1.5)*Math.PI/W;th+=-dx*k;vel=-dx*k/Math.max(1,(now-lastT))*16;lastX=e.clientX;lastT=now;hideHint()});
+cv.addEventListener('pointerup',e=>{drag=false;if(performance.now()-lastT>90)vel=0;if(moved<6&&performance.now()-pt<400)tap(e)});
+cv.addEventListener('pointercancel',()=>{drag=false});
+cv.addEventListener('wheel',e=>{e.preventDefault();target=null;vel+=(e.deltaY+e.deltaX)*.00035;hideHint()},{passive:false});
+addEventListener('keydown',e=>{if($('#sh').classList.contains('on')||$('#lv').classList.contains('on')){if(e.key==='Escape'){closeSheet();$('#lv').classList.remove('on')}return}if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+const ray=new THREE.Raycaster(),mv=new THREE.Vector2();
+function tap(e){mv.set(e.clientX/W*2-1,-(e.clientY/H)*2+1);ray.setFromCamera(mv,cam);const h=ray.intersectObjects(hits)[0];if(h)go(h.object.userData.i)}
+$('#bPrev').onclick=()=>{AC();step(-1)};$('#bNext').onclick=()=>{AC();step(1)};
+let hinted=false;function hideHint(){if(!hinted){hinted=true;$('#hintd').style.opacity=0}}
+
+// ---------- card ----------
+function setYuga(k){if(curY===k)return;const first=curY===null;curY=k;const y=YG(k);
+ document.documentElement.style.setProperty('--yc',y[2]);document.documentElement.style.setProperty('--s1',y[3]);
+ smat.color.set(y[2]);pl.color.set(y[2]);$('#yn').textContent=y[1];
+ document.querySelectorAll('#yc button').forEach(b=>{const on=b.dataset.y===k;b.classList.toggle('on',on);if(on)b.scrollIntoView({inline:'center',block:'nearest'})});
+ if(!first&&started){shankh(.05)}}
+function quick(i){const e=E[i],tc=tclass(e);$('#ttl').textContent=e.t;$('#ds').textContent=e.d;$('#meta').innerHTML=`<span class="dt t-${tc[0]}">${tc[1]} • ${dlabel(e.y)}</span><span>📍 ${e.p}</span>`;$('#fb').textContent=C[e.c][1];$('#yb').textContent=YG(e.yk)[1];setYuga(e.yk)}
+let imgTok=0;
+function card(i){const e=E[i],tc=tclass(e),y=YG(e.yk);
+ $('#ttl').textContent=e.t;$('#meta').innerHTML=`<span class="dt t-${tc[0]}">${tc[1]} • ${dlabel(e.y)}</span><span>📍 ${e.p}</span><span>${C[e.c][1]} ${C[e.c][0]}</span>`;
+ $('#ds').textContent=e.d;$('#yb').textContent=y[1];$('#card').style.setProperty('--cc',C[e.c][2]);
+ const fb=$('#fb');fb.textContent=C[e.c][1];fb.style.opacity=1;$('#pic').style.backgroundImage='none';$('#cr').textContent='';
+ $('#bWa').href=waLink(e);
+ const c=$('#card');c.classList.remove('sw');void c.offsetWidth;c.classList.add('sw');
+ const tok=++imgTok;img(e).then(v=>{if(tok!==imgTok||!v)return;const im=new Image();im.onload=()=>{if(tok!==imgTok)return;$('#pic').style.backgroundImage=`url("${v.s}")`;fb.style.opacity=0;$('#cr').textContent='चित्र: Wikimedia';$('#cr').href=v.u};im.src=v.s});
+ [1,-1,2].forEach(d=>img(E[(i+d+N)%N]));
+ if(started)bell(e.c==='n'?440:e.c==='b'?392:528,.09,3)}
+function waLink(e){return'https://wa.me/?text='+encodeURIComponent(`🕉️ *${e.t}*\n${dlabel(e.y)} • ${e.p}\n\n${e.d}\n\nकाल-चक्र घुमाइए, सृष्टि से कल्कि तक की हर कथा 👇\nhttps://omkiranbhakti.com/kaal-chakra/`)}
+function openSheet(i){const e=E[i],tc=tclass(e),kw=e.k||'भजन',y=YG(e.yk);
+ $('#sh').innerHTML=`<div class="grab"></div><img class="shimg" id="shi" alt="" hidden><h2 class="serif">${e.t}</h2><div class="meta" style="margin-bottom:10px"><span class="dt t-${tc[0]}">${tc[1]} • ${dlabel(e.y)}</span><span>📍 ${e.p}</span><span style="color:${y[2]}">● ${y[1]}</span></div>
+ <p class="full">${e.d}</p>
+ <div class="acts"><a href="https://www.youtube.com/@OmKiranBhakti/search?query=${encodeURIComponent(kw)}" target="_blank" rel="noopener">▶️ ${kw} भजन</a>
+ <a href="https://www.amazon.in/s?k=${encodeURIComponent(kw+' पूजा सामग्री')}&tag=omkiranbhakti-21" target="_blank" rel="noopener sponsored">🪔 पूजा सामग्री</a>
+ <a class="wa" href="${waLink(e)}" target="_blank" rel="noopener">📲 WhatsApp पर भेजें</a></div>`;
+ img(e).then(v=>{if(v){const im=$('#shi');if(im){im.src=v.s;im.hidden=false}}});
+ $('#sh').classList.add('on');$('#ov').classList.add('on');$('#sh').scrollTop=0}
+function closeSheet(){$('#sh').classList.remove('on');$('#ov').classList.remove('on')}
+$('#bRead').onclick=()=>openSheet(idx(th));$('#ov').onclick=closeSheet;
+let sy=0;$('#sh').addEventListener('touchstart',e=>{sy=e.touches[0].clientY},{passive:true});$('#sh').addEventListener('touchend',e=>{if(e.changedTouches[0].clientY-sy>90&&$('#sh').scrollTop<=0)closeSheet()});
+// card swipe = rotate
+let cx0=0;$('#card').addEventListener('touchstart',e=>{cx0=e.touches[0].clientX},{passive:true});$('#card').addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-cx0;if(Math.abs(dx)>60)step(dx<0?1:-1)});
+
+// ---------- yuga chips, list, kali clock ----------
+const firstOf=k=>E.findIndex(e=>e.yk===k);
+$('#yc').innerHTML=Y.map(y=>`<button data-y="${y[0]}">${y[1]}</button>`).join('');
+$('#yc').onclick=e=>{const b=e.target.closest('button');if(b){AC();go(b.dataset.y==='aaj'?NOWI:firstOf(b.dataset.y),.08)}};
+function renderList(q){q=(q||'').trim().toLowerCase();let h='';Y.forEach(y=>{const ev=E.filter(e=>e.yk===y[0]&&(!q||(e.t+e.p+e.d+e.k+e.r).toLowerCase().includes(q)));if(!ev.length)return;
+ h+=`<h3 style="color:${y[2]}">${y[1]}</h3>`+ev.map(e=>`<button data-i="${e.i}"><span class="li">${C[e.c][1]}</span><span>${e.t}<small>${dlabel(e.y)} • ${e.p}</small></span></button>`).join('')});
+ $('#ll').innerHTML=h||'<p style="text-align:center;color:#c4ae8e;padding:30px">कुछ नहीं मिला 🙏</p>'}
+$('#bList').onclick=()=>{renderList($('#q').value);$('#lv').classList.add('on')};$('#bLc').onclick=()=>$('#lv').classList.remove('on');
+$('#q').oninput=e=>renderList(e.target.value);
+$('#ll').onclick=e=>{const b=e.target.closest('button');if(b){$('#lv').classList.remove('on');AC();go(+b.dataset.i,.09)}};
+const KS=-3102,KL=432000;function kclock(){const el=NOW-KS;$('#kc').innerHTML=`कलियुग: <b>${fmt(el)}</b> वर्ष बीते • <b>${fmt(KL-el)}</b> वर्ष शेष`}
+kclock();
+
+// ---------- animate ----------
+let started=false,clk=new THREE.Clock();
+function frame(){requestAnimationFrame(frame);const dt=Math.min(clk.getDelta(),.05),T=clk.elapsedTime;
+ if(!drag){const f=dt*60;if(target!==null){th+=(target-th)*(1-Math.pow(1-ease,f));if(Math.abs(target-th)<.0004){th=target;target=null;vel=0}}
+  else if(Math.abs(vel)>.0006){th+=vel*f;vel*=Math.pow(.945,f)}else{vel=0;const s=Math.round(th/STEP)*STEP;if(Math.abs(s-th)>.0004){target=s;ease=.16}}}
+ const ci=Math.round(th/STEP);if(ci!==lastCi){if(lastCi!==null)tick();lastCi=ci;quick(idx(th))}
+ const still=!drag&&target===null&&vel===0,cur=idx(th);if(still&&settled!==cur){settled=cur;card(cur)}
+ spin.rotation.z=th;lotus.rotation.z=-th*.35+T*.05;
+ dots.forEach((d,i)=>{const on=i===cur;const sc=on?1.9+Math.sin(T*4)*.15:1;d.s.scale.setScalar(sc);d.g.scale.setScalar(on?3.2:1.3)});
+ flame.scale.set(1+Math.sin(T*13)*.08,1.8+Math.sin(T*9)*.18,1);halo.material.opacity=.45+Math.sin(T*7)*.08;hubGlow.material.opacity=.45+Math.sin(T*1.4)*.12;
+ const a=sg.attributes.position.array;for(let i=0;i<SPN;i++){a[i*3+1]+=sv[i];a[i*3]+=Math.sin(T+i)*.004;if(a[i*3+1]>R*1.8)a[i*3+1]=-R*1.6}sg.attributes.position.needsUpdate=true;
+ root.rotation.y=Math.sin(T*.25)*.05;
+ renderer.render(scene,cam)}
+// start position: a little before "आज", then land on it in the intro
+th=(NOWI-6)*STEP;lastCi=Math.round(th/STEP);
+layout();frame();quick(idx(th));card(idx(th));
+document.fonts&&document.fonts.ready.then(()=>{layout()});
+$('#go').onclick=()=>{started=true;AC();om();setTimeout(()=>shankh(.06),500);if(SND.tan)setTimeout(tanStart,1800);
+ $('#intro').classList.add('hide');th=(NOWI-N-6)*STEP;lastCi=Math.round(th/STEP);settled=-1;target=null;vel=0;setTimeout(()=>{target=NOWI*STEP;ease=.04},350)};
+</script>
+</body>
+</html>
