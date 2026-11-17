@@ -56,6 +56,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:ce
 #yn{position:fixed;left:0;right:0;z-index:3;text-align:center;pointer-events:none;font-size:1.25rem;color:var(--yc);text-shadow:0 0 18px var(--yc);transition:color 1s}
 #hintd{position:fixed;left:0;right:0;z-index:3;text-align:center;font-size:.75rem;color:#ffffff88;pointer-events:none;transition:opacity 1s}
 /* sheet */
+.ks{font-size:1rem;margin:16px 0 4px;color:#f5c66b}.src{opacity:.8;font-size:.9em}
 #ov{position:fixed;inset:0;background:#000b;z-index:20;opacity:0;pointer-events:none;transition:.3s}
 #ov.on{opacity:1;pointer-events:auto}
 #sh{position:fixed;left:0;right:0;bottom:0;z-index:21;max-width:640px;margin:0 auto;background:linear-gradient(#2a1b0d,#140c06);border-radius:22px 22px 0 0;border-top:2px solid var(--gold);padding:10px 18px 24px;transform:translateY(105%);transition:transform .35s cubic-bezier(.2,.8,.2,1);max-height:90vh;overflow-y:auto}
@@ -414,12 +415,15 @@ function card(i){const e=E[i],tc=tclass(e),y=YG(e.yk);
 function waLink(e){return'https://wa.me/?text='+encodeURIComponent(`🕉️ *${e.t}*\n${dlabel(e.y)} • ${e.p}\n\n${e.d}\n\nकाल-चक्र घुमाइए, सृष्टि से कल्कि तक की हर कथा 👇\nhttps://omkiranbhakti.com/kaal-chakra/`)}
 function openSheet(i){const e=E[i],tc=tclass(e),kw=e.k||'भजन',y=YG(e.yk);
  $('#sh').innerHTML=`<div class="grab"></div><img class="shimg" id="shi" alt="" hidden><h2 class="serif">${e.t}</h2><div class="meta" style="margin-bottom:10px"><span class="dt t-${tc[0]}">${tc[1]} • ${dlabel(e.y)}</span><span>📍 ${e.p}</span><span style="color:${y[2]}">● ${y[1]}</span></div>
- <p class="full">${e.d}</p>
+ <div id="kt"><p class="full">${e.d}</p></div>
  <div class="acts"><a href="https://www.youtube.com/@OmKiranBhakti/search?query=${encodeURIComponent(kw)}" target="_blank" rel="noopener">▶️ ${kw} भजन</a>
  <a href="https://www.amazon.in/s?k=${encodeURIComponent(kw+' पूजा सामग्री')}&tag=omkiranbhakti-21" target="_blank" rel="noopener sponsored">🪔 पूजा सामग्री</a>
  <a class="wa" href="${waLink(e)}" target="_blank" rel="noopener">📲 WhatsApp पर भेजें</a></div>`;
  img(e).then(v=>{if(v){const im=$('#shi');if(im){im.onerror=()=>{if(v.t&&im.src!==v.t)im.src=v.t};im.src=v.s;im.hidden=false}}});
- $('#sh').classList.add('on');$('#ov').classList.add('on');$('#sh').scrollTop=0}
+ loadKatha().then(K=>{const k=K&&K[e.t],el=$('#kt');if(!k||!el||$('#sh').dataset.i!=i)return;const p=s=>s.split('\n\n').map(x=>`<p class="full">${x}</p>`).join('');
+  el.innerHTML=p(k[0])+`<h3 class="ks">🙏 महत्व / संदेश</h3><p class="full">${k[1]}</p>`+(k[2]&&k[2]!=='—'?`<h3 class="ks">📍 तीर्थ / कहाँ मनाया जाता है</h3><p class="full">${k[2]}</p>`:'')+`<h3 class="ks">📜 स्रोत</h3><p class="full src">${k[3]}</p>`});
+ $('#sh').dataset.i=i;$('#sh').classList.add('on');$('#ov').classList.add('on');$('#sh').scrollTop=0}
+let kP=null;function loadKatha(){return kP||(kP=new Promise(r=>{if(window.KATHA)return r(window.KATHA);const s=document.createElement('script');s.src='katha.js?v=1';s.onload=()=>r(window.KATHA);s.onerror=()=>{kP=null;r(null)};document.head.appendChild(s)}))}
 function closeSheet(){$('#sh').classList.remove('on');$('#ov').classList.remove('on')}
 $('#bRead').onclick=()=>openSheet(idx(th));$('#ov').onclick=closeSheet;
 let sy=0;$('#sh').addEventListener('touchstart',e=>{sy=e.touches[0].clientY},{passive:true});$('#sh').addEventListener('touchend',e=>{if(e.changedTouches[0].clientY-sy>90&&$('#sh').scrollTop<=0)closeSheet()});

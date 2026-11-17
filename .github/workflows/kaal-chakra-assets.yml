@@ -1,0 +1,25 @@
+name: kaal-chakra-assets
+on:
+  workflow_dispatch:
+    inputs:
+      mode: {description: "cand | sound | build", required: true, default: cand}
+permissions: {contents: write}
+jobs:
+  run:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick webp ffmpeg
+      - name: cand/sound -> branch kc-assets
+        if: github.event.inputs.mode != 'build'
+        run: |
+          python3 tools/kc_assets.py ${{ github.event.inputs.mode }}
+          git fetch -q origin kc-assets && git worktree add -q w origin/kc-assets 2>/dev/null || { mkdir w && cd w && git init -q && git checkout -q -b kc-assets && cd ..; }
+          rm -rf w/${{ github.event.inputs.mode }} && mkdir -p w/${{ github.event.inputs.mode }} && cp -r out/* w/${{ github.event.inputs.mode }}/
+          cd w && git checkout -q -B kc-assets && git add -A && git -c user.name=bot -c user.email=bot@x commit -qm "${{ github.event.inputs.mode }} $(date -u +%F)" && git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" kc-assets
+      - name: build -> main
+        if: github.event.inputs.mode == 'build'
+        run: |
+          python3 tools/kc_assets.py build
+          git add kaal-chakra/img && git -c user.name=bot -c user.email=bot@x commit -qm "Kaal-Chakra: images (WebP) + credits" && git push -q
