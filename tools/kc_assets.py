@@ -2,10 +2,10 @@
 """Kaal-Chakra assets. modes: cand (image candidates + contact sheets), sound (Freesound CC0 candidates), build (picked images -> webp + credits)."""
 import json,re,sys,os,time,html,urllib.parse,urllib.request,subprocess
 UA={'User-Agent':'OmKiranBhakti-KaalChakra/1.0 (https://omkiranbhakti.com; bot)'}
-def get(u,raw=False):
-    for t in range(4):
+def get(u,raw=False,tries=4,to=60):
+    for t in range(tries):
         try:
-            r=urllib.request.urlopen(urllib.request.Request(u,headers=UA),timeout=60).read()
+            r=urllib.request.urlopen(urllib.request.Request(u,headers=UA),timeout=to).read()
             return r if raw else r.decode('utf8','replace')
         except Exception as e:
             time.sleep(2+3*t); err=e
@@ -62,24 +62,44 @@ def cand():
 def sound():
     os.makedirs('out/snd',exist_ok=True); res={}
     Q={'tanpura':['tanpura','tambura drone'],'bell':['temple bell','ghanta','bell india temple'],'shankh':['conch shell','shankh','sankh'],'tick':['wood block','wooden click','temple block']}
-    for key,qs in Q.items():
-        ids=[]
-        for q in qs:
-            s=get('https://freesound.org/search/?'+urllib.parse.urlencode({'q':q,'f':'license:"Creative Commons 0"','s':'Rating highest first'})) or ''
-            for u,i in re.findall(r'/people/([^/"]+)/sounds/(\d+)/',s):
-                if i not in [x[1] for x in ids]: ids.append((u,i))
+    CQ={'tanpura':['tanpura','tambura'],'bell':['temple bell','hand bell ringing','ghanta'],'shankh':['conch','shankha'],'tick':['wood block','woodblock']}
+    def conv(src,fn,maxd):
+        subprocess.run(['ffmpeg','-y','-loglevel','error','-i',src,'-t',str(maxd),'-ac','2','-b:a','128k',fn])
+        return subprocess.run(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',fn],capture_output=True,text=True).stdout.strip()
+    fs_ok=get('https://freesound.org/search/?q=bell',tries=1,to=25) is not None; print('freesound reachable:',fs_ok,flush=True)
+    for key in Q:
         lst=[]
-        for u,i in ids[:10]:
-            p=get(f'https://freesound.org/people/{u}/sounds/{i}/') or ''
-            au=re.search(r'property="og:audio" content="([^"]+)"',p); ti=re.search(r'<title>(.*?)</title>',p,re.S)
-            lic='CC0' if 'publicdomain/zero' in p else ('CC-BY' if 'licenses/by/' in p else ('CC-BY-NC' if 'licenses/by-nc' in p else '?'))
-            if not au or lic!='CC0': continue
-            mp=au.group(1).replace('-lq.mp3','-hq.mp3'); b=get(mp,raw=True)
-            if not b: continue
-            fn=f'out/snd/{key}_{i}.mp3'; open(fn,'wb').write(b)
-            dur=subprocess.run(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',fn],capture_output=True,text=True).stdout.strip()
-            lst.append(dict(id=i,user=u,title=html.unescape(ti.group(1).strip()) if ti else '',lic=lic,dur=dur,file=os.path.basename(fn),page=f'https://freesound.org/people/{u}/sounds/{i}/'))
-            if len(lst)>=6: break
+        if fs_ok:
+            ids=[]
+            for q in Q[key]:
+                s=get('https://freesound.org/search/?'+urllib.parse.urlencode({'q':q,'f':'license:"Creative Commons 0"','s':'Rating highest first'}),tries=1,to=25) or ''
+                for u,i in re.findall(r'/people/([^/"]+)/sounds/(\d+)/',s):
+                    if i not in [x[1] for x in ids]: ids.append((u,i))
+            for u,i in ids[:8]:
+                p=get(f'https://freesound.org/people/{u}/sounds/{i}/',tries=1,to=25) or ''
+                au=re.search(r'property="og:audio" content="([^"]+)"',p); ti=re.search(r'<title>(.*?)</title>',p,re.S)
+                if not au or 'publicdomain/zero' not in p: continue
+                b=get(au.group(1).replace('-lq.mp3','-hq.mp3'),raw=True,tries=1,to=40)
+                if not b: continue
+                open('/tmp/a','wb').write(b); fn=f'out/snd/{key}_fs{i}.mp3'; dur=conv('/tmp/a',fn,60)
+                lst.append(dict(src='Freesound',id=i,user=u,title=html.unescape(ti.group(1).strip()) if ti else '',lic='CC0',dur=dur,file=os.path.basename(fn),page=f'https://freesound.org/people/{u}/sounds/{i}/'))
+                if len(lst)>=4: break
+        seen=set()
+        for q in CQ[key]:
+            d=api(CA,action='query',list='search',srsearch=q+' filetype:audio',srnamespace=6,srlimit=8)
+            fl=[x['title'] for x in d.get('query',{}).get('search',[]) if x['title'] not in seen]
+            if not fl: continue
+            seen.update(fl); inf=info(fl)
+            for f in fl:
+                j=inf.get(f)
+                if not j or not re.search(r'(CC0|Public domain|CC BY)',j['lic'] or '',re.I): continue
+                b=get(j['url'],raw=True,tries=2,to=60)
+                if not b: continue
+                ext=f.rsplit('.',1)[-1]; open('/tmp/a.'+ext,'wb').write(b); fn=f'out/snd/{key}_c{len(lst)}.mp3'; dur=conv('/tmp/a.'+ext,fn,60)
+                if not dur: continue
+                lst.append(dict(src='Wikimedia Commons',file_c=f,title=f[5:],lic=j['lic'],licurl=j['licurl'],artist=j['artist'],dur=dur,file=os.path.basename(fn),page=j['desc']))
+                if len(lst)>=7: break
+            if len(lst)>=7: break
         res[key]=lst; print(key,len(lst),flush=True)
     json.dump(res,open('out/snd/sound.json','w'),ensure_ascii=False,indent=1)
 def build():
