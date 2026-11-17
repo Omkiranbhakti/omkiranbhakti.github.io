@@ -275,13 +275,13 @@ const SA=130.81,TP=[SA*.75,SA,SA,SA/2];
 function tanTick(){if(!SND.c)return;const c=SND.c;while(SND.next<c.currentTime+.4){pluck(TP[SND.step%4],SND.next,SND.tan&&SND.on?.035:0);SND.step++;SND.next+=SND.step%4===0?1.6:1.15}}
 function tanStart(){if(!AC())return;if(!SND.tanTimer){SND.next=SND.c.currentTime+.3;SND.tanTimer=setInterval(tanTick,120)}}
 // real recordings (snd/*.mp3, loudness-normalised); synth above is the fallback
-const RB={},TANV=.42;let rbP=null;
+const RB={},TANV=.2;let rbP=null;
 function loadReal(){if(rbP)return rbP;const c=AC();if(!c)return Promise.resolve();
- rbP=Promise.all(['tanpura','bell','shankh'].map(k=>fetch('snd/'+k+'.mp3?v=1').then(r=>r.ok?r.arrayBuffer():Promise.reject()).then(a=>new Promise((ok,no)=>c.decodeAudioData(a,ok,no))).then(b=>{RB[k]=b}).catch(()=>{})));return rbP}
+ rbP=Promise.all(['tanpura','bell'].map(k=>fetch('snd/'+k+'.mp3?v=2').then(r=>r.ok?r.arrayBuffer():Promise.reject()).then(a=>new Promise((ok,no)=>c.decodeAudioData(a,ok,no))).then(b=>{RB[k]=b}).catch(()=>{})));return rbP}
 function playBuf(k,v,rate,wet){const c=SND.c,s=c.createBufferSource(),g=c.createGain();s.buffer=RB[k];s.playbackRate.value=rate||1;g.gain.value=v;s.connect(g);out(g,wet);s.start();return g}
 const _bell=bell,_shankh=shankh,_tanStart=tanStart;
 bell=function(f=528,v=.11,d=3.4){if(SND.on&&SND.c&&RB.bell)return playBuf('bell',Math.min(1,v*6),Math.pow(f/528,.5),.2);return _bell(f,v,d)};
-shankh=function(v=.07){if(SND.on&&SND.c&&RB.shankh)return playBuf('shankh',Math.min(1,v*9),1,.3);return _shankh(v)};
+shankh=function(v=.07){if(SND.on&&SND.c&&RB.shankh)return playBuf('shankh',Math.min(1,v*9),1,.3)};
 function tanVol(){if(SND.tl){const t=SND.c.currentTime;SND.tl.gain.cancelScheduledValues(t);SND.tl.gain.setTargetAtTime(SND.tan&&SND.on?TANV:0,t,.8)}}
 tanStart=function(){if(!AC())return;loadReal().then(()=>{if(!RB.tanpura)return _tanStart();
  if(!SND.tl){const s=SND.c.createBufferSource();s.buffer=RB.tanpura;s.loop=true;SND.tl=SND.c.createGain();SND.tl.gain.value=0;s.connect(SND.tl);out(SND.tl,.12);s.start()}tanVol()})};
