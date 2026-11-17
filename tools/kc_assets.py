@@ -118,6 +118,24 @@ def fsids():
         dur=subprocess.run(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',fn],capture_output=True,text=True).stdout.strip()
         res.setdefault(key,[]).append(dict(src='Freesound',id=i,user=us.group(1) if us else '',title=html.unescape(ti.group(1).strip()) if ti else '',lic=lic,dur=dur,file=os.path.basename(fn),page=f'https://freesound.org/s/{i}/'))
     json.dump(res,open('out/snd/sound.json','w'),ensure_ascii=False,indent=1)
+def fsapi():
+    os.makedirs('out/snd',exist_ok=True); res={}; key=os.environ.get('FSKEY','').strip()
+    if not key: sys.exit('FREESOUND_KEY secret missing')
+    for tok in os.environ.get('IDS','').split():
+        cat,i=tok.split(':')
+        try:
+            d=json.loads(urllib.request.urlopen(urllib.request.Request(f'https://freesound.org/apiv2/sounds/{i}/?'+urllib.parse.urlencode({'token':key,'fields':'id,name,username,license,previews,duration'}),headers=UA),timeout=40).read())
+        except Exception as e:
+            print(cat,i,'API ERR',e,flush=True); continue
+        lic=d.get('license',''); print(cat,i,d.get('name'),lic,flush=True)
+        if 'nc' in lic.lower().replace('/licenses/',''): print('  skip NC'); continue
+        u=d['previews']['preview-hq-mp3']
+        try: b=urllib.request.urlopen(urllib.request.Request(u,headers=UA),timeout=60).read()
+        except Exception as e: print('  DL ERR',e,flush=True); continue
+        fn=f'out/snd/{cat}_{i}.mp3'; open(fn,'wb').write(b)
+        res.setdefault(cat,[]).append(dict(src='Freesound',id=i,user=d.get('username'),title=d.get('name'),lic=lic,dur=d.get('duration'),file=os.path.basename(fn),page=f'https://freesound.org/s/{i}/'))
+    json.dump(res,open('out/snd/sound.json','w'),ensure_ascii=False,indent=1)
+    if not res: sys.exit('no sounds fetched')
 def build():
     pick=json.load(open('kaal-chakra/img/pick.json',encoding='utf8')); inf=info(list(set(pick.values())),w=640); cr={}
     for slug,f in pick.items():
@@ -130,4 +148,4 @@ def build():
         cr[slug]=dict(file=f,desc=j['desc'],lic=j['lic'],licurl=j['licurl'],artist=j['artist'] or j['credit'] or 'Unknown',kb=os.path.getsize(out)//1024)
         print(slug,cr[slug]['kb'],'KB',flush=True)
     json.dump(cr,open('kaal-chakra/img/credits.json','w'),ensure_ascii=False,indent=1)
-{'cand':cand,'sound':sound,'build':build,'fsids':fsids}[sys.argv[1]]()
+{'cand':cand,'sound':sound,'build':build,'fsids':fsids,'fsapi':fsapi}[sys.argv[1]]()
