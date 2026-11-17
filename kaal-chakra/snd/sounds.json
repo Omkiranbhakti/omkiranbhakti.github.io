@@ -1,9 +1,9 @@
 {
- "t3": {
-  "n": "Acoustic Tanpura 5",
+ "t4": {
+  "n": "Electronic Tanpura 3",
   "by": "sankalp",
   "lic": "CC BY 4.0",
-  "url": "https://freesound.org/s/153265/"
+  "url": "https://freesound.org/s/155500/"
  },
  "b3": {
   "n": "Temple bell 002",
@@ -16,17 +16,5 @@
   "by": "barryshamir",
   "lic": "CC BY",
   "url": "https://freesound.org/s/876449/"
- },
- "t4": {
-  "n": "Electronic Tanpura 3",
-  "by": "sankalp",
-  "lic": "CC BY 4.0",
-  "url": "https://freesound.org/s/155500/"
- },
- "s3": {
-  "n": "Conch",
-  "by": "RoofDog",
-  "lic": "CC BY",
-  "url": "https://freesound.org/s/78974/"
  }
 }

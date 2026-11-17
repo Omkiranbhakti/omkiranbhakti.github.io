@@ -277,7 +277,7 @@ function tanStart(){if(!AC())return;if(!SND.tanTimer){SND.next=SND.c.currentTime
 // real recordings (snd/*.mp3, loudness-normalised); synth above is the fallback
 const RB={},TANV=.2;let rbP=null;
 function loadReal(){if(rbP)return rbP;const c=AC();if(!c)return Promise.resolve();
- rbP=Promise.all(['tanpura','bell','yuga'].map(k=>fetch('snd/'+k+'.mp3?v=3').then(r=>r.ok?r.arrayBuffer():Promise.reject()).then(a=>new Promise((ok,no)=>c.decodeAudioData(a,ok,no))).then(b=>{RB[k]=b}).catch(()=>{})));return rbP}
+ rbP=Promise.all(['tanpura','bell','yuga'].map(k=>fetch('snd/'+k+'.mp3?v=4').then(r=>r.ok?r.arrayBuffer():Promise.reject()).then(a=>new Promise((ok,no)=>c.decodeAudioData(a,ok,no))).then(b=>{RB[k]=b}).catch(()=>{})));return rbP}
 function playBuf(k,v,rate,wet){const c=SND.c,s=c.createBufferSource(),g=c.createGain();s.buffer=RB[k];s.playbackRate.value=rate||1;g.gain.value=v;s.connect(g);out(g,wet);s.start();return g}
 const _bell=bell,_shankh=shankh,_tanStart=tanStart;
 bell=function(f=528,v=.11,d=3.4){if(SND.on&&SND.c&&RB.bell)return playBuf('bell',Math.min(1,v*6),Math.pow(f/528,.5),.2);return _bell(f,v,d)};
