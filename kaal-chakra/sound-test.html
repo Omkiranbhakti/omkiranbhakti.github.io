@@ -17,6 +17,6 @@ function A(){if(!ac)ac=new (window.AudioContext||window.webkitAudioContext)();if
 async function get(k){if(bufs[k])return bufs[k];const a=await fetch('snd/test/'+k+'.mp3').then(r=>r.arrayBuffer());return bufs[k]=await new Promise((ok,no)=>A().decodeAudioData(a,ok,no))}
 function stop(){if(cur){try{cur.s.stop()}catch(e){}cur.b.classList.remove('on');cur=null}}
 async function play(k,b){const c=A();stop();const buf=await get(k);const s=c.createBufferSource();s.buffer=buf;s.loop=k[0]==='t';const g=c.createGain();g.gain.value=k[0]==='t'?.35:1;s.connect(g).connect(c.destination);s.start();b.classList.add('on');cur={s,b};s.onended=()=>{if(cur&&cur.s===s)stop()}}
-[['T',['t1','t2','t3']],['B',['b4','b5','b6','b7','b1','b3']],['S',['s3']]].forEach(([id,ks])=>ks.forEach(k=>{const b=document.createElement('button');b.textContent='▶ '+k.toUpperCase();b.onclick=()=>cur&&cur.b===b?stop():play(k,b);document.getElementById(id).appendChild(b)}));
+[['T',['t3hq','t4hq']],['B',['b6','b3']],['S',['s3r']]].forEach(([id,ks])=>ks.forEach(k=>{const b=document.createElement('button');b.textContent='▶ '+({t3hq:'T3 (नया, साफ़)',t4hq:'T4 (इलेक्ट्रॉनिक)',s3r:'S3 (गूँज के साथ)'}[k]||k.toUpperCase());b.onclick=()=>cur&&cur.b===b?stop():play(k,b);document.getElementById(id).appendChild(b)}));
 document.getElementById('stop').onclick=stop;
 </script></body></html>
