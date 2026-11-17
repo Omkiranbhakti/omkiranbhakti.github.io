@@ -102,6 +102,22 @@ def sound():
             if len(lst)>=7: break
         res[key]=lst; print(key,len(lst),flush=True)
     json.dump(res,open('out/snd/sound.json','w'),ensure_ascii=False,indent=1)
+def fsids():
+    os.makedirs('out/snd',exist_ok=True); res={}
+    for tok in os.environ.get('IDS','').split():
+        key,i=tok.split(':'); p=get(f'https://freesound.org/s/{i}/',tries=2,to=30) or ''
+        au=re.search(r'property="og:audio" content="([^"]+)"',p); ti=re.search(r'property="og:title" content="([^"]+)"',p) or re.search(r'<title>(.*?)</title>',p,re.S)
+        us=re.search(r'freesound\.org/people/([^/"]+)/sounds/'+i,p) or re.search(r'/people/([^/"]+)/sounds/'+i,p)
+        txt=re.sub('<[^>]+>',' ',p)
+        lic='CC0' if ('Creative Commons 0' in txt or 'publicdomain/zero' in p) else ('CC BY-NC' if ('NonCommercial' in txt or 'by-nc' in p) else ('CC BY 4.0' if 'Attribution 4.0' in txt else ('CC BY 3.0' if ('Attribution 3.0' in txt or 'licenses/by/3.0' in p) else ('CC BY' if 'Attribution' in txt else '?'))))
+        print(key,i,bool(au),lic,flush=True)
+        if not au or lic in ('CC BY-NC','?'): continue
+        b=get(au.group(1).replace('-lq.mp3','-hq.mp3'),raw=True,tries=2,to=60)
+        if not b: continue
+        fn=f'out/snd/{key}_{i}.mp3'; open(fn,'wb').write(b)
+        dur=subprocess.run(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',fn],capture_output=True,text=True).stdout.strip()
+        res.setdefault(key,[]).append(dict(src='Freesound',id=i,user=us.group(1) if us else '',title=html.unescape(ti.group(1).strip()) if ti else '',lic=lic,dur=dur,file=os.path.basename(fn),page=f'https://freesound.org/s/{i}/'))
+    json.dump(res,open('out/snd/sound.json','w'),ensure_ascii=False,indent=1)
 def build():
     pick=json.load(open('kaal-chakra/img/pick.json',encoding='utf8')); inf=info(list(set(pick.values())),w=640); cr={}
     for slug,f in pick.items():
@@ -114,4 +130,4 @@ def build():
         cr[slug]=dict(file=f,desc=j['desc'],lic=j['lic'],licurl=j['licurl'],artist=j['artist'] or j['credit'] or 'Unknown',kb=os.path.getsize(out)//1024)
         print(slug,cr[slug]['kb'],'KB',flush=True)
     json.dump(cr,open('kaal-chakra/img/credits.json','w'),ensure_ascii=False,indent=1)
-{'cand':cand,'sound':sound,'build':build}[sys.argv[1]]()
+{'cand':cand,'sound':sound,'build':build,'fsids':fsids}[sys.argv[1]]()

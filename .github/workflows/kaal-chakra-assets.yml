@@ -2,7 +2,8 @@ name: kaal-chakra-assets
 on:
   workflow_dispatch:
     inputs:
-      mode: {description: "cand | sound | build", required: true, default: cand}
+      mode: {description: "cand | sound | fsids | build", required: true, default: cand}
+      ids: {description: "fsids: key:id ...", required: false, default: ""}
 permissions: {contents: write}
 jobs:
   run:
@@ -13,6 +14,7 @@ jobs:
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick webp ffmpeg
       - name: cand/sound -> branch kc-assets
         if: github.event.inputs.mode != 'build'
+        env: {IDS: "${{ github.event.inputs.ids }}"}
         run: |
           python3 tools/kc_assets.py ${{ github.event.inputs.mode }}
           git fetch -q origin kc-assets && git worktree add -q w origin/kc-assets 2>/dev/null || { mkdir w && cd w && git init -q && git checkout -q -b kc-assets && cd ..; }
