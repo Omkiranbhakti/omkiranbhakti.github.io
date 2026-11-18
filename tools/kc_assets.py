@@ -32,7 +32,9 @@ def info(files,w=330):
     return res
 def cand():
     os.makedirs('out/th',exist_ok=True); allc={}
+    done=set(json.load(open('kaal-chakra/img/pick.json'))) if os.path.exists('kaal-chakra/img/pick.json') else set()
     for k,e in enumerate(events()):
+        if e['slug'] in done or e['c']=='n': continue
         fs=[]
         if e['w']:
             d=api(WA,action='query',titles=e['w'],prop='pageimages|images',piprop='name',imlimit=40,redirects=1)
