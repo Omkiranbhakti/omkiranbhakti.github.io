@@ -4,7 +4,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:A_roundel_of_Brahma.jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown author",
+  "artist": "Unknown authorUnknown author",
   "kb": 22
  },
  "varah-avatar-vishnu": {
@@ -28,7 +28,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Virabhadra_Daksha.jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown author",
+  "artist": "Unknown authorUnknown author",
   "kb": 37
  },
  "prithu": {
@@ -44,7 +44,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Sagar_Manthan.jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown artist",
+  "artist": "Unknown artistUnknown artist",
   "kb": 43
  },
  "neelkanth-shiv": {
@@ -68,7 +68,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Manu_and_Saptarishi.jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown author",
+  "artist": "Unknown authorUnknown author",
   "kb": 20
  },
  "matsya-avatar": {
@@ -140,7 +140,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Agastya_giving_Rama_a_sword.jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown author",
+  "artist": "Unknown authorUnknown author",
   "kb": 23
  },
  "ram-janm-ramnavami": {
@@ -148,7 +148,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Lord_Rama_with_arrows.jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown author",
+  "artist": "Unknown authorUnknown author",
   "kb": 32
  },
  "sita-swayamvar-vivah-panchami": {
@@ -156,7 +156,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Marriage_of_Rama_to_Sita_with_Brahmins_making_fire_sacrifice._Coloured_transfer_lithograph.jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown author",
+  "artist": "Unknown authorUnknown author",
   "kb": 41
  },
  "hanuman-lanka": {
@@ -236,7 +236,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Kr%CC%A5%E1%B9%A3%E1%B9%87advaip%C4%81yana_vy%C4%81sa.png",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown author",
+  "artist": "Unknown authorUnknown author",
   "kb": 29
  },
  "bhishma-pratigya": {
@@ -292,7 +292,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Arjuna_wins_Draupadi.jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown author",
+  "artist": "Unknown authorUnknown author",
   "kb": 22
  },
  "indraprastha-rajsuya": {
@@ -340,7 +340,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Arjuna_and_His_Charioteer_Krishna_Confront_Karna,_crop.jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown author",
+  "artist": "Unknown authorUnknown author",
   "kb": 29
  },
  "bhishma-sahasranam": {
@@ -364,7 +364,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Yudhishthira_and_dog_ascending_to_heaven.jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown author",
+  "artist": "Unknown authorUnknown author",
   "kb": 36
  },
  "yadav": {
@@ -388,7 +388,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Snakesacrifice.jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown artist",
+  "artist": "Unknown artistUnknown artist",
   "kb": 25
  },
  "naimisharanya-sut": {
@@ -412,7 +412,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Bhagavata_Purana_manuscript,_18_century.jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown author",
+  "artist": "Unknown authorUnknown author",
   "kb": 42
  },
  "ujjain-simhastha-2028": {
@@ -468,7 +468,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Kalki_painting.jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown author",
+  "artist": "Unknown authorUnknown author",
   "kb": 30
  },
  "ved": {
@@ -636,7 +636,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Kabir004.jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown author",
+  "artist": "Unknown authorUnknown author",
   "kb": 34
  },
  "ravidas": {
@@ -652,7 +652,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Surdas,_detail_of_a_painting_of_Surdas_with_a_devoted_Brahmin,_Kishangarh_style,_Rajasthan,_circa_18th_century_(cropped).jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown author",
+  "artist": "Unknown authorUnknown author",
   "kb": 8
  },
  "vallabhacharya": {
@@ -684,7 +684,7 @@
   "desc": "https://commons.wikimedia.org/wiki/File:Kangra_painting_of_Mirabai,_the_female_Bhakti_saint.jpg",
   "lic": "Public domain",
   "licurl": "",
-  "artist": "Unknown author",
+  "artist": "Unknown authorUnknown author",
   "kb": 33
  },
  "dwarkadhish": {
@@ -806,5 +806,269 @@
   "licurl": "https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf",
   "artist": "Prime Minister's Office",
   "kb": 27
+ },
+ "kailasanathar-kanchi": {
+  "file": "File:7th century Sri Kailashnathar Temple Kanchipuram Tamil Nadu India 01 (11).jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:7th_century_Sri_Kailashnathar_Temple_Kanchipuram_Tamil_Nadu_India_01_(11).jpg",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Bikash Das from bangalore, india",
+  "kb": 32
+ },
+ "chidambaram-nataraja": {
+  "file": "File:A view of Nataraja Shiva Temple at Chidambaram, Tamil Nadu (10).jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:A_view_of_Nataraja_Shiva_Temple_at_Chidambaram,_Tamil_Nadu_(10).jpg",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Richard Mortel from Riyadh, Saudi Arabia",
+  "kb": 24
+ },
+ "modhera": {
+  "file": "File:Modhera SunTemple.JPG",
+  "desc": "https://commons.wikimedia.org/wiki/File:Modhera_SunTemple.JPG",
+  "lic": "CC BY 2.5",
+  "licurl": "https://creativecommons.org/licenses/by/2.5",
+  "artist": "The original uploader was Parmar uday at English Wikipedia.",
+  "kb": 37
+ },
+ "lingaraj": {
+  "file": "File:LINGARAJ TEMPLE AMLAN BISWAL 2024.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:LINGARAJ_TEMPLE_AMLAN_BISWAL_2024.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "AmlanBiswal25",
+  "kb": 18
+ },
+ "basavanna": {
+  "file": "File:Stamp of India - 1967 - Colnect 239712 - 800th Death Anniv of Basaveswara - Reformer - Stateman.jpeg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Stamp_of_India_-_1967_-_Colnect_239712_-_800th_Death_Anniv_of_Basaveswara_-_Reformer_-_Stateman.jpeg",
+  "lic": "GODL-India",
+  "licurl": "https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf",
+  "artist": "Post of India",
+  "kb": 4
+ },
+ "jayadeva": {
+  "file": "File:Radha and Krishna in Discussion.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Radha_and_Krishna_in_Discussion.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Unknown authorUnknown author",
+  "kb": 22
+ },
+ "pandharpur": {
+  "file": "File:Pandharpur 2013 Aashad - panoramio (10) (cropped).jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Pandharpur_2013_Aashad_-_panoramio_(10)_(cropped).jpg",
+  "lic": "CC BY 3.0",
+  "licurl": "https://creativecommons.org/licenses/by/3.0",
+  "artist": "Udaykumar PR",
+  "kb": 39
+ },
+ "ramananda": {
+  "file": "File:Ramanand.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Ramanand.jpg",
+  "lic": "CC BY 4.0",
+  "licurl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Unknown authorUnknown author",
+  "kb": 54
+ },
+ "vaishno-devi": {
+  "file": "File:Mata Vaishno Devi Mandir, Katra.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Mata_Vaishno_Devi_Mandir,_Katra.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Lpp3535",
+  "kb": 20
+ },
+ "srisailam": {
+  "file": "File:Srisailam-temple-entrance.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Srisailam-temple-entrance.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Chintohere",
+  "kb": 22
+ },
+ "annamacharya": {
+  "file": "File:Stamp of India - 2004 - Colnect 158503 - Annamacharya.jpeg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Stamp_of_India_-_2004_-_Colnect_158503_-_Annamacharya.jpeg",
+  "lic": "GODL-India",
+  "licurl": "https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf",
+  "artist": "Post of India",
+  "kb": 10
+ },
+ "sankardev": {
+  "file": "File:Sankaradeva.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Sankaradeva.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Jrkalita",
+  "kb": 28
+ },
+ "kanakadasa": {
+  "file": "File:Kanakadasa art.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Kanakadasa_art.jpg",
+  "lic": "FAL",
+  "licurl": "http://artlibre.org/licence/lal/en",
+  "artist": "Creator unknown",
+  "kb": 19
+ },
+ "virupaksha-hampi": {
+  "file": "File:Galigopuram of Virupaksha Temple, Hampi (03).jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Galigopuram_of_Virupaksha_Temple,_Hampi_(03).jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "iMahesh",
+  "kb": 24
+ },
+ "eknath": {
+  "file": "File:Eknath 2003 stamp of India.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Eknath_2003_stamp_of_India.jpg",
+  "lic": "GODL-India",
+  "licurl": "https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf",
+  "artist": "India Post, Government of India",
+  "kb": 55
+ },
+ "guruvayur": {
+  "file": "File:Guruvayoor Temple 2.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Guruvayoor_Temple_2.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Susmitanair",
+  "kb": 30
+ },
+ "baidyanath": {
+  "file": "File:Temples at Deorgag, Santal Parhanas, Bihar - William Hodges, 1782 - BL Foster 396.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Temples_at_Deorgag,_Santal_Parhanas,_Bihar_-_William_Hodges,_1782_-_BL_Foster_396.jpg",
+  "lic": "CC0",
+  "licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "William Hodges",
+  "kb": 24
+ },
+ "padmanabhaswamy": {
+  "file": "File:Sree Padmanabhaswamy temple 01.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Sree_Padmanabhaswamy_temple_01.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Rahulrnath001",
+  "kb": 32
+ },
+ "trimbakeshwar": {
+  "file": "File:Trimbakeshwar Temple-Nashik-Maharashtra-1.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Trimbakeshwar_Temple-Nashik-Maharashtra-1.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Abhideo21",
+  "kb": 20
+ },
+ "grishneshwar": {
+  "file": "File:Grishneshwar temple in Aurangabad district.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Grishneshwar_temple_in_Aurangabad_district.jpg",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Rashmi.parab",
+  "kb": 42
+ },
+ "muthuswami-dikshitar": {
+  "file": "File:Muthuswami Dikshitar 1976 stamp of India.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Muthuswami_Dikshitar_1976_stamp_of_India.jpg",
+  "lic": "GODL-India",
+  "licurl": "https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf",
+  "artist": "India Post, Government of India",
+  "kb": 20
+ },
+ "swaminarayan": {
+  "file": "File:Lord Swaminarayan writing the Shikshapatri.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Lord_Swaminarayan_writing_the_Shikshapatri.jpg",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Around The GlobeContact",
+  "kb": 10
+ },
+ "bhimashankar": {
+  "file": "File:Bhimashankar temple, Maharashtra.JPG",
+  "desc": "https://commons.wikimedia.org/wiki/File:Bhimashankar_temple,_Maharashtra.JPG",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "ସୁରଥ କୁମାର ପାଢ଼ୀ",
+  "kb": 20
+ },
+ "siddhivinayak": {
+  "file": "File:Shree Siddhivinayak Temple Mumbai.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Shree_Siddhivinayak_Temple_Mumbai.jpg",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Darwininan",
+  "kb": 23
+ },
+ "kalighat": {
+  "file": "File:India, Kalighat painting, 19th century - Two Aspects of Kali- Kali Enshrined - 1980.216.b - Cleveland Museum of Art.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:India,_Kalighat_painting,_19th_century_-_Two_Aspects_of_Kali-_Kali_Enshrined_-_1980.216.b_-_Cleveland_Museum_of_Art.jpg",
+  "lic": "CC0",
+  "licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "anonymous",
+  "kb": 44
+ },
+ "gangotri": {
+  "file": "File:Shrines of Goddess Ganga - Gangotri Temple Uttarakhand Uttarkashi District.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Shrines_of_Goddess_Ganga_-_Gangotri_Temple_Uttarakhand_Uttarkashi_District.jpg",
+  "lic": "CC0",
+  "licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "Aboyfromthehills",
+  "kb": 10
+ },
+ "sarada-devi": {
+  "file": "File:Sarada Mandir.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Sarada_Mandir.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Rakeshmallick27",
+  "kb": 16
+ },
+ "gajanan-maharaj": {
+  "file": "File:Gajanan Maharaj Temple, Nandura - panoramio.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Gajanan_Maharaj_Temple,_Nandura_-_panoramio.jpg",
+  "lic": "CC BY 3.0",
+  "licurl": "https://creativecommons.org/licenses/by/3.0",
+  "artist": "Ganesh Dhamodkar",
+  "kb": 13
+ },
+ "ramana-maharshi": {
+  "file": "File:A view of Thiruvanamalai Mountain..jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:A_view_of_Thiruvanamalai_Mountain..jpg",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Abdulrefai1992",
+  "kb": 15
+ },
+ "anandamayi-ma": {
+  "file": "File:Ma Anandamayi Samadhi Mandir, Kankhal, Haridwar.JPG",
+  "desc": "https://commons.wikimedia.org/wiki/File:Ma_Anandamayi_Samadhi_Mandir,_Kankhal,_Haridwar.JPG",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Ekabhishek",
+  "kb": 14
+ },
+ "shirdi-sai": {
+  "file": "File:Sai baba samadhi mandir .jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Sai_baba_samadhi_mandir_.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Sanskar RM Khatri",
+  "kb": 17
+ },
+ "neem-karoli-baba": {
+  "file": "File:Early morning Glimpse of Kainchi Dham Nainital 2023.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Early_morning_Glimpse_of_Kainchi_Dham_Nainital_2023.jpg",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "25 Cents FC",
+  "kb": 28
+ },
+ "prem-mandir": {
+  "file": "File:Prem mandir vrindavan India- April 2026-uploads by Vijayan Rajapuram - 04.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Prem_mandir_vrindavan_India-_April_2026-uploads_by_Vijayan_Rajapuram_-_04.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Vijayanrajapuram",
+  "kb": 20
  }
 }
