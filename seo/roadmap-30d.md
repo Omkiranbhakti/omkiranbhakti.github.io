@@ -23,7 +23,7 @@ Search Console query data is not used yet (the browser was offline on 27 Oct). R
 | 13 | 18 Nov | kaal-bhairav-jayanti-puja-vidhi.html + katha | informational | 1 Dec | done 2026-11-13 |
 | 14 | 20 Nov | margashirsha-maas.html: month guide, Margashirsha Guruvar (Lakshmi vrat) | informational | Nov–Dec | done 2026-11-15 |
 | 15 | 25 Nov | vivah-panchami-katha.html | informational | 14 Dec | done 2026-11-15 |
-| 16 | ongoing | darshan guide pages: add 5 more temples (Somnath, Omkareshwar, Banke Bihari, Shirdi, Jagannath Puri) | informational / travel | evergreen | in progress: somnath-darshan.html, omkareshwar-darshan.html done 2026-11-16; next Banke Bihari, Shirdi, Jagannath Puri |
+| 16 | ongoing | darshan guide pages: add 5 more temples (Somnath, Omkareshwar, Banke Bihari, Shirdi, Jagannath Puri) | informational / travel | evergreen | in progress: somnath-darshan.html, omkareshwar-darshan.html done 2026-11-16; banke-bihari-darshan.html, shirdi-sai-baba-darshan.html done 2026-11-18; next Jagannath Puri |
 
 Every new page needs:
 - An FAQ (5–8 real questions) with FAQPage schema.
