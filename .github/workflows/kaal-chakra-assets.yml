@@ -11,7 +11,8 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick webp ffmpeg
+      - run: sudo apt-get install -y -qq --no-install-recommends imagemagick webp ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends imagemagick webp ffmpeg)
+        timeout-minutes: 8
       - name: cand/sound -> branch kc-assets
         if: github.event.inputs.mode != 'build'
         env: {IDS: "${{ github.event.inputs.ids }}", FSKEY: "${{ secrets.FREESOUND_KEY }}"}
