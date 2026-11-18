@@ -1,8 +1,6 @@
 # Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
 # --- roadmap pages 2026-11-18 (darshan guides: Banke Bihari, Shirdi) ---
-banke-bihari-darshan.html
-shirdi-sai-baba-darshan.html
 # --- roadmap pages 2026-11-16 (darshan guides: Somnath, Omkareshwar) ---
 # --- roadmap pages 2026-11-15 (Margashirsha 25 Nov–23 Dec, Vivah Panchami 14 Dec) ---
 # --- roadmap pages 2026-11-13 (Kaal Bhairav Jayanti 1 Dec, Utpanna Ekadashi 4 Dec) ---
@@ -20,8 +18,3 @@ shirdi-sai-baba-darshan.html
 # --- festival pages next 3 weeks 2026-11-03 (Diwali 8 Nov, Chhath 13-16 Nov) ---
 # --- other new sitemap pages added 2026-10-26 ---
 # --- remaining per-temple live darshan pages added 2026-10-28 ---
-pavagadh-live-darshan.html
-salasar-balaji-live-darshan.html
-sankat-mochan-live-darshan.html
-simhachalam-live-darshan.html
-trimbakeshwar-live-darshan.html
