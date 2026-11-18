@@ -26,7 +26,7 @@ https://omkiranbhakti.com/dev-uthani-ekadashi-kab-hai.html
 https://omkiranbhakti.com/hanuman-chalisa.html
 #हनुमान_चालीसा #HanumanChalisa
 
-### 4. [ ] तुलसी विवाह — post 18–20 Nov
+### 4. [x] (2026-11-18) https://x.com/omkiranbhakti/status/2123136889809174806 तुलसी विवाह — post 18–20 Nov
 तुलसी विवाह 2026: 21 नवंबर, शनिवार 🌿 घर पर पूरी विधि स्टेप-बाय-स्टेप और सामग्री की लिस्ट:
 https://omkiranbhakti.com/tulsi-vivah-vidhi.html
 #तुलसी_विवाह #TulsiVivah
@@ -93,7 +93,7 @@ https://omkiranbhakti.com/gita-jayanti-kab-hai.html
 
 ## Debate queue (Mon/Wed/Fri, one a day, in order)
 
-### D1. [ ] कर्ण
+### D1. [x] (2026-11-18) https://x.com/omkiranbhakti/status/2123137004783489281 कर्ण
 कर्ण सही थे या गलत? 🤔 जानते हुए भी अधर्म का साथ देना — दोस्ती थी या भूल? पहले उनके जन्म की कहानी पढ़ें:
 https://pauranika-katha-sagara.quora.com/
 👇 आपकी राय?
