@@ -953,6 +953,7 @@ for k in _smap:
 # standalone app pages (not built here)
 _kc_lm = datetime.date.fromtimestamp(os.path.getmtime(os.path.join(ROOT, "kaal-chakra/katha.js"))).isoformat()
 sm.append(f'  <url><loc>{SITE}kaal-chakra/</loc><lastmod>{_kc_lm}</lastmod></url>')
+sm.append(f'  <url><loc>{SITE}kaal-chakra/method.html</loc><lastmod>{TODAY}</lastmod></url>')
 sm.append('</urlset>')
 print(f"SEO: {_ni} pages set to noindex, sitemap {len(_smap)} urls with lastmod")
 open(os.path.join(ROOT,"sitemap.xml"),"w").write("\n".join(sm)+"\n")
