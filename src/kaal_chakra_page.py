@@ -69,7 +69,7 @@ def build(root):
                        f'<a class="kc-go" href="kaal-chakra/#{r["slug"]}">काल-चक्र में देखें →</a></div></li>')
         secs.append(f'<section id="{gid}"><h2>{_e(g)}</h2><ul class="kc-list">{"".join(lis)}</ul></section>')
     faq_h = "".join(f"<details><summary>{_e(q)}</summary><p>{a}</p></details>" for q, a in FAQS)
-    css = """<style>.kc-cta{display:inline-block;margin:.6rem 0 1rem;padding:.8rem 1.3rem;border-radius:999px;background:#f0c25e;color:#1a0f05;font-weight:600;text-decoration:none}
+    css = """<style>.kc-cta{display:inline-block;margin:.6rem 0 1rem;padding:.8rem 1.3rem;border-radius:999px;background:#f0c25e;color:#1a0f05!important;font-weight:600;text-decoration:none}
 .kc-toc{columns:2;padding-left:1.1rem}.kc-list{list-style:none;padding:0;margin:0}.kc-ev{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #8884}
 .kc-ev img{width:96px;height:96px;object-fit:cover;border-radius:12px;flex:none}.kc-ev h3{margin:0 0 .2rem;font-size:1.08rem}.kc-meta{margin:0;opacity:.75;font-size:.88rem}.kc-ev p{margin:.25rem 0}
 .kc-go{font-size:.92rem;font-weight:600}@media(max-width:560px){.kc-toc{columns:1}.kc-ev img{width:72px;height:72px}}</style>"""

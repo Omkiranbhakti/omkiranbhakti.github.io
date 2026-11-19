@@ -870,6 +870,18 @@ for _s, _h in PAGES.items():
     if _s in EN or _s in ("404.html", "whatsapp-sandesh.html"): continue
     _r = _conv.convert(_s, _h, SITE + "en/" + _s)
     if _r is not None: _soups[_s] = _r
+# Kaal-Chakra English (19 Nov 2026): A = en/kaal-chakra/ wheel, B = en/hindu-kaal-chakra.html (src/kaal_chakra_en.py + src/kc_en.json)
+import kaal_chakra_en as _KCE
+try:
+    _et, _ed, _eb, _eld = _KCE.landing(ROOT, _roman_line)
+    _eh = page("hindu-kaal-chakra.html", _et, _ed, _eb, ld=_eld, og=SITE + "assets/og-kaal-chakra.jpg").replace('"inLanguage": "hi-IN"', '"inLanguage": "en-IN"')
+    _r = _conv.convert("hindu-kaal-chakra.html", _eh, SITE + "en/hindu-kaal-chakra.html")
+    if _r is not None: _soups["hindu-kaal-chakra.html"] = _r
+    else: print("Kaal-Chakra EN landing: some site text is not translated yet")
+    os.makedirs(os.path.join(ROOT, "en", "kaal-chakra"), exist_ok=True)
+    open(os.path.join(ROOT, "en", "kaal-chakra", "index.html"), "w", encoding="utf-8").write(_KCE.wheel(ROOT, _roman_line))
+except Exception as _x:
+    print("Kaal-Chakra EN skipped:", _x)
 EN_READY = set(_soups) | set(EN)
 # hand-made English pages: video titles, alt and aria text still come from the Hindi video list
 def _en_fix_text(_t):
@@ -954,6 +966,8 @@ for k in _smap:
 _kc_lm = datetime.date.fromtimestamp(os.path.getmtime(os.path.join(ROOT, "kaal-chakra/katha.js"))).isoformat()
 sm.append(f'  <url><loc>{SITE}kaal-chakra/</loc><lastmod>{_kc_lm}</lastmod></url>')
 sm.append(f'  <url><loc>{SITE}kaal-chakra/method.html</loc><lastmod>{TODAY}</lastmod></url>')
+if os.path.exists(os.path.join(ROOT, "en/kaal-chakra/index.html")):
+    sm.append(f'  <url><loc>{SITE}en/kaal-chakra/</loc><lastmod>{_kc_lm}</lastmod></url>')
 sm.append('</urlset>')
 print(f"SEO: {_ni} pages set to noindex, sitemap {len(_smap)} urls with lastmod")
 open(os.path.join(ROOT,"sitemap.xml"),"w").write("\n".join(sm)+"\n")
