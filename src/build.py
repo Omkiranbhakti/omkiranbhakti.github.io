@@ -245,7 +245,7 @@ NAVG = [
  ("लाइव दर्शन", "temple", [("live-darshan.html","लाइव दर्शन","मंदिरों का आधिकारिक प्रसारण"),("mandir-darshan-guide.html","दर्शन गाइड","टिकट, बुकिंग, समय और नियम")]),
  ("भजन", "music", [("mata-rani-bhajan.html","माता रानी","देवी भजन"),("shiv-bhajan.html","शिव","शिव भजन और मंत्र"),("ganesh-bhajan.html","गणेश","गणपति भजन"),
                 ("krishna-bhajan.html","कृष्ण","राधा-कृष्ण भजन"),("ram-bhajan.html","राम","राम भजन"),("devotional-edm-bhajans.html","भक्ति EDM","नए अंदाज़ में")]),
- ("टूल्स", "mala", [("harmonium.html","ऑनलाइन हारमोनियम","सरगम के साथ बजाएँ"),("harmonium-sikhen.html","हारमोनियम सीखें","आरती के नोट्स, अलंकार"),("jaap-mala.html","जाप माला","108 बार गिनती"),("janm-tithi-rashi-calculator.html","जन्म राशि","नाम अक्षर, नक्षत्र"),
+ ("टूल्स", "mala", [("hindu-kaal-chakra.html","हिंदू काल-चक्र","सनातन धर्म की टाइम मशीन"),("harmonium.html","ऑनलाइन हारमोनियम","सरगम के साथ बजाएँ"),("harmonium-sikhen.html","हारमोनियम सीखें","आरती के नोट्स, अलंकार"),("jaap-mala.html","जाप माला","108 बार गिनती"),("janm-tithi-rashi-calculator.html","जन्म राशि","नाम अक्षर, नक्षत्र"),
                 ("aaj-ka-choghadiya.html","शुभ समय","चौघड़िया")]),
 ]
 def nav_html(cur):
@@ -269,7 +269,8 @@ EXPLORE = [("aaj-ka-panchang.html","sun","आज का पंचांग","h1"
  ("tyohar-calendar.html","calendar","त्योहार","h1"),("puja-niyam.html","niyam","पूजा नियम","h3"),
  ("puja-samagri.html","thali","पूजा सामग्री","h7"),("lok-parv.html","map","लोक पर्व","h4"),
  ("mata-rani-bhajan.html","music","भजन","h6"),("jaap-mala.html","mala","जाप माला","h5"),
- ("aaj-ka-choghadiya.html","clock","शुभ समय","h2"),("janm-tithi-rashi-calculator.html","stars","जन्म राशि","h8")]
+ ("aaj-ka-choghadiya.html","clock","शुभ समय","h2"),("janm-tithi-rashi-calculator.html","stars","जन्म राशि","h8"),
+ ("hindu-kaal-chakra.html","om","काल-चक्र","h4")]
 def explore_grid(items=None, title=None):
     items = items or EXPLORE
     tiles = "".join(f'<li><a href="{x[0]}" class="xt {x[3]}"><span class="xi">{ico(x[1])}</span><b>{x[2]}</b>{f"<span class=cnt>{x[4]}</span>" if len(x) > 4 else ""}</a></li>' for x in items)
@@ -337,7 +338,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og
 </main>
 <footer class="site-foot"><div class="wrap foot-grid">
 <div><h2>OmKiran Bhakti</h2><p>हिंदी भक्ति संगीत का घर — आरती, चालीसा, मंत्र और भजन, बोल और अर्थ के साथ। हमारे सभी वीडियो <a href="{YT}">YouTube चैनल</a> पर हैं।</p></div>
-<div><h2>पाठ</h2><ul><li><a href="hanuman-chalisa.html">हनुमान चालीसा</a></li><li><a href="om-jai-jagdish-hare-aarti.html">ॐ जय जगदीश हरे</a></li><li><a href="ganesh-aarti-jai-ganesh-deva.html">गणेश आरती</a></li><li><a href="shiv-aarti-om-jai-shiv-omkara.html">शिव आरती</a></li><li><a href="jaap-mala.html">ऑनलाइन जाप माला</a></li><li><a href="aaj-ka-panchang.html">आज का पंचांग</a></li><li><a href="tyohar-calendar.html">त्योहार कैलेंडर</a></li><li><a href="about.html">परिचय</a></li></ul></div>
+<div><h2>पाठ</h2><ul><li><a href="hanuman-chalisa.html">हनुमान चालीसा</a></li><li><a href="om-jai-jagdish-hare-aarti.html">ॐ जय जगदीश हरे</a></li><li><a href="ganesh-aarti-jai-ganesh-deva.html">गणेश आरती</a></li><li><a href="shiv-aarti-om-jai-shiv-omkara.html">शिव आरती</a></li><li><a href="jaap-mala.html">ऑनलाइन जाप माला</a></li><li><a href="aaj-ka-panchang.html">आज का पंचांग</a></li><li><a href="tyohar-calendar.html">त्योहार कैलेंडर</a></li><li><a href="hindu-kaal-chakra.html">हिंदू काल-चक्र</a></li><li><a href="about.html">परिचय</a></li></ul></div>
 <div><h2>भजन</h2><ul><li><a href="mata-rani-bhajan.html">माता रानी</a></li><li><a href="shiv-bhajan.html">शिव</a></li><li><a href="ganesh-bhajan.html">गणेश</a></li><li><a href="krishna-bhajan.html">कृष्ण</a></li><li><a href="ram-bhajan.html">राम</a></li><li><a href="devotional-edm-bhajans.html">भक्ति EDM</a></li><li><a href="sant-bhajan.html">संत भजन (बोल)</a></li></ul></div>
 </div>{MON.sewa_box()}<div class="wrap join-strip"><p class="okb-count" id="okb-count" hidden aria-live="polite"></p><span>🙏 रोज़ का पंचांग, त्योहार और नए भजन सीधे फ़ोन पर पाएँ</span><a class="wa-join" href="{WA_CH}" target="_blank" rel="noopener">{WA_ICON} WhatsApp चैनल से जुड़ें</a><a class="yt-join" href="https://www.youtube.com/@OmKiranBhakti?sub_confirmation=1" target="_blank" rel="noopener">▶ YouTube Subscribe</a>{MON.preferred_source_btn()}</div><div class="wrap fine"><nav class="foot-legal" aria-label="जानकारी"><a href="about.html">परिचय</a> · <a href="contact.html">संपर्क करें</a> · <a href="privacy-policy.html">गोपनीयता नीति</a> · <a href="disclaimer.html">अस्वीकरण / Affiliate जानकारी</a></nav>© {datetime.date.today().year} OmKiran Bhakti. पारंपरिक पाठ सार्वजनिक धरोहर हैं; अर्थ और संगीत OmKiran Bhakti के हैं। Amazon Associate के रूप में हम योग्य ख़रीदारी पर कमीशन कमाते हैं।</div></footer>
 <a class="wa-float" href="{WA_CH}" target="_blank" rel="noopener" aria-label="OmKiran Bhakti WhatsApp चैनल से जुड़ें">{WA_ICON}<span>चैनल से जुड़ें</span></a>
@@ -831,6 +832,10 @@ add("index.html", "OmKiran Bhakti — आरती, चालीसा, मं�
 # 404
 add("404.html","पेज नहीं मिला | OmKiran Bhakti","यह पेज मौजूद नहीं है।",
  '<section><div class="wrap prose"><h1>यह पेज नहीं मिला</h1><p class="lede">पता बदल गया होगा। नीचे से अपना पाठ चुनें:</p><ul class="library">'+lib_html+'</ul></div></section>')
+# Hindu Kaal-Chakra landing page (content read from kaal-chakra/)
+import kaal_chakra_page as _KCP
+_kt, _kd, _kb, _kld = _KCP.build(ROOT)
+add("hindu-kaal-chakra.html", _kt, _kd, _kb, crumbs="हिंदू काल-चक्र", ld=_kld, og=SITE+"assets/og-kaal-chakra.jpg")
 PAGES["404.html"] = PAGES["404.html"].replace('<meta name="robots" content="index,follow,max-image-preview:large">','<meta name="robots" content="noindex">')
 cz_home_strip()
 
@@ -945,6 +950,9 @@ for s in EN_OUT:
 _lm = _SI.lastmod_dates(ROOT, _smap, TODAY)
 for k in _smap:
     sm.append(f'  <url><loc>{SITE}{k}</loc><lastmod>{_lm[k]}</lastmod></url>')
+# standalone app pages (not built here)
+_kc_lm = datetime.date.fromtimestamp(os.path.getmtime(os.path.join(ROOT, "kaal-chakra/katha.js"))).isoformat()
+sm.append(f'  <url><loc>{SITE}kaal-chakra/</loc><lastmod>{_kc_lm}</lastmod></url>')
 sm.append('</urlset>')
 print(f"SEO: {_ni} pages set to noindex, sitemap {len(_smap)} urls with lastmod")
 open(os.path.join(ROOT,"sitemap.xml"),"w").write("\n".join(sm)+"\n")

@@ -3,10 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>काल-चक्र — सनातन काल-यात्रा | ओमकिरण भक्ति</title>
-<meta name="description" content="काल-चक्र घुमाइए — सृष्टि के आरंभ से कल्कि अवतार और सत्ययुग की वापसी तक, सनातन धर्म की हर कथा एक घूमते चक्र पर, हिंदी में।">
+<title>हिंदू काल-चक्र — सनातन धर्म की टाइम मशीन | 3D इंटरैक्टिव टाइमलाइन</title>
+<meta name="description" content="हिंदू काल-चक्र घुमाइए: सनातन धर्म की टाइम मशीन। सृष्टि, वराह अवतार, समुद्र मंथन, रामायण, महाभारत, गीता, संत-परंपरा, मंदिर-तीर्थ से कल्कि अवतार तक 150+ घटनाएँ, कथा और चित्रों के साथ।">
 <meta name="theme-color" content="#0d0805">
-<meta name="robots" content="noindex,nofollow">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://omkiranbhakti.com/kaal-chakra/">
+<meta name="keywords" content="हिंदू काल चक्र, सनातन काल चक्र, सनातन धर्म की टाइम मशीन, हिंदू धर्म टाइमलाइन, युग चक्र, सतयुग त्रेता द्वापर कलियुग, Hindu Kaal Chakra, Sanatan Kaal Chakra, time machine of Hindu dharma, time machine of Sanatan dharma, Hindu timeline">
+<meta property="og:type" content="website"><meta property="og:site_name" content="OmKiran Bhakti"><meta property="og:locale" content="hi_IN">
+<meta property="og:title" content="हिंदू काल-चक्र — सनातन धर्म की टाइम मशीन | 3D इंटरैक्टिव टाइमलाइन"><meta property="og:description" content="हिंदू काल-चक्र घुमाइए: सनातन धर्म की टाइम मशीन। सृष्टि, वराह अवतार, समुद्र मंथन, रामायण, महाभारत, गीता, संत-परंपरा, मंदिर-तीर्थ से कल्कि अवतार तक 150+ घटनाएँ, कथा और चित्रों के साथ।"><meta property="og:url" content="https://omkiranbhakti.com/kaal-chakra/">
+<meta property="og:image" content="https://omkiranbhakti.com/assets/og-kaal-chakra.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://omkiranbhakti.com/assets/og-kaal-chakra.jpg">
+<link rel="icon" href="../assets/favicon-48.png" type="image/png" sizes="48x48">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "@id": "https://omkiranbhakti.com/kaal-chakra/#app", "name": "हिंदू काल-चक्र — सनातन धर्म की टाइम मशीन", "alternateName": ["Hindu Kaal Chakra", "Sanatan Kaal Chakra", "Time Machine of Sanatan Dharma", "Hindu Dharma Timeline"], "url": "https://omkiranbhakti.com/kaal-chakra/", "description": "हिंदू काल-चक्र घुमाइए: सनातन धर्म की टाइम मशीन। सृष्टि, वराह अवतार, समुद्र मंथन, रामायण, महाभारत, गीता, संत-परंपरा, मंदिर-तीर्थ से कल्कि अवतार तक 150+ घटनाएँ, कथा और चित्रों के साथ।", "inLanguage": "hi-IN", "applicationCategory": "EducationalApplication", "operatingSystem": "Any (web browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "isPartOf": {"@id": "https://omkiranbhakti.com/#website"}, "publisher": {"@type": "Organization", "name": "OmKiran Bhakti", "url": "https://omkiranbhakti.com/"}, "image": "https://omkiranbhakti.com/assets/og-kaal-chakra.jpg"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "होम", "item": "https://omkiranbhakti.com/"}, {"@type": "ListItem", "position": 2, "name": "हिंदू काल-चक्र", "item": "https://omkiranbhakti.com/hindu-kaal-chakra.html"}, {"@type": "ListItem", "position": 3, "name": "3D काल-चक्र", "item": "https://omkiranbhakti.com/kaal-chakra/"}]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -315,6 +323,7 @@ const D=[
 ];
 const E=D.map((d,i)=>({i,y:d[0],c:d[1],t:d[2],p:d[3],d:d[4],k:d[5],r:d[6],w:d[7],yk:yk(d[0])}));
 const N=E.length,STEP=Math.PI*2/N,NOWI=E.findIndex(e=>e.c==='n');
+const HSL=decodeURIComponent((location.hash||'').slice(1)),HI=HSL?E.findIndex(e=>(e.r||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')===HSL):-1,START=HI>=0?HI:NOWI;
 const YG=k=>Y.find(y=>y[0]===k);
 const fmt=n=>Math.round(n).toLocaleString('en-IN');
 function dlabel(y){const a=2026-y;if(y===NOW)return'2026 ई.';
@@ -498,7 +507,7 @@ function card(i){const e=E[i],tc=tclass(e),y=YG(e.yk);
  const tok=++imgTok;img(e).then(v=>{if(tok!==imgTok||!v)return;const im=new Image();im.onload=()=>{if(tok!==imgTok)return;$('#pic').style.backgroundImage=`url("${v.s}")`;fb.style.opacity=0;$('#cr').textContent='चित्र: Wikimedia Commons';$('#cr').href=v.u};im.onerror=()=>{if(v.t&&im.src!==v.t){v.s=v.t;im.src=v.t}};im.src=v.s});
  [1,-1,2].forEach(d=>img(E[(i+d+N)%N]));
  if(started)bell(e.c==='n'?440:e.c==='b'?392:528,.09,3)}
-function waLink(e){return'https://wa.me/?text='+encodeURIComponent(`🕉️ *${e.t}*\n${dlabel(e.y)} • ${e.p}\n\n${e.d}\n\nकाल-चक्र घुमाइए, सृष्टि से कल्कि तक की हर कथा 👇\nhttps://omkiranbhakti.com/kaal-chakra/`)}
+function waLink(e){return'https://wa.me/?text='+encodeURIComponent(`🕉️ *${e.t}*\n${dlabel(e.y)} • ${e.p}\n\n${e.d}\n\nकाल-चक्र घुमाइए, सृष्टि से कल्कि तक की हर कथा 👇\nhttps://omkiranbhakti.com/kaal-chakra/#${slug(e)}`)}
 function openSheet(i){const e=E[i],tc=tclass(e),kw=e.k||'भजन',y=YG(e.yk);
  $('#sh').innerHTML=`<div class="grab"></div><img class="shimg" id="shi" alt="" hidden><h2 class="serif">${e.t}</h2><div class="meta" style="margin-bottom:10px"><span class="dt t-${tc[0]}">${tc[1]} • ${dlabel(e.y)}</span><span>📍 ${e.p}</span><span style="color:${y[2]}">● ${y[1]}</span></div>
  <div id="kt"><p class="full">${e.d}</p></div>
@@ -543,11 +552,11 @@ function frame(){requestAnimationFrame(frame);const dt=Math.min(clk.getDelta(),.
  root.rotation.y=Math.sin(T*.25)*.05;
  renderer.render(scene,cam)}
 // start position: a little before "आज", then land on it in the intro
-th=(NOWI-6)*STEP;lastCi=Math.round(th/STEP);
+th=(START-6)*STEP;lastCi=Math.round(th/STEP);
 layout();frame();quick(idx(th));card(idx(th));
 document.fonts&&document.fonts.ready.then(()=>{layout()});
 $('#go').onclick=()=>{started=true;AC();om();const lr=loadReal(),t0=Date.now();lr.then(()=>setTimeout(()=>shankh(.06),Math.max(0,500-(Date.now()-t0))));if(SND.tan)setTimeout(tanStart,1800);
- $('#intro').classList.add('hide');th=(NOWI-N-6)*STEP;lastCi=Math.round(th/STEP);settled=-1;target=null;vel=0;setTimeout(()=>{target=NOWI*STEP;ease=.04},350)};
+ $('#intro').classList.add('hide');th=(START-N-6)*STEP;lastCi=Math.round(th/STEP);settled=-1;target=null;vel=0;setTimeout(()=>{target=START*STEP;ease=.04},350)};
 </script>
 </body>
 </html>
