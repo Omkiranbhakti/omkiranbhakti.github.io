@@ -2,6 +2,10 @@
 
 Filter: Performance > Search results, Query matches the question regex (kya/kab/kaise/kyon/kitne/kaun/kahan/kis/what/when/how/... and Hindi क्या/कब/कैसे/...). "Our page" is inferred from the topic (the Pages column was not read), so it is marked "likely".
 
+## 2026-11-19 (last 28 days)
+
+Unchanged from 18 Nov: same totals (4 clicks, 1.92k impressions, position 11.8, 625 question queries) and the same 88 queries with 5+ impressions — GSC data not refreshed since the previous read. See the 18 Nov table below. No new roadmap rows or FAQ additions.
+
 ## 2026-11-18 (last 28 days)
 
 Totals with the filter (Custom regex applied in GSC): 4 clicks, 1.92k impressions, position 11.8, 625 question queries (top 500 read, sorted by impressions). 88 rows with 5+ impressions below; 72 more had 3-4, 106 had 2, 234 had 1. New vs 16 Nov: "पंचक कब है" up to 140 impressions (position 11.5); new 5+ query "shama kab hai?" (12 impressions, position 9.1) lands on en/kali-puja-kab-hai.html — "Shama" is how searchers spell Shyama Puja. Every question has an existing page. Our page is inferred from the topic (likely) unless marked checked.
