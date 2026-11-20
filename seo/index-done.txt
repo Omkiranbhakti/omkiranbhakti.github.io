@@ -458,3 +458,6 @@
 2026-11-18 sankat-mochan-live-darshan.html
 2026-11-18 simhachalam-live-darshan.html
 2026-11-18 trimbakeshwar-live-darshan.html
+2026-11-20 hindu-kaal-chakra.html
+2026-11-20 kaal-chakra/
+2026-11-20 kaal-chakra/method.html
