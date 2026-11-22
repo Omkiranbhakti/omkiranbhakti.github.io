@@ -36,6 +36,8 @@ jobs:
         run: pip install ephem==4.2.1 tzdata aksharamukha==2.3 beautifulsoup4==4.12.3
       - name: Build site (today's panchang)
         run: python src/build.py
+        env:
+          CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL }}
       - name: Save built pages to main (the site is served from the main branch)
         run: |
           git config user.name "github-actions" && git config user.email "actions@github.com"
