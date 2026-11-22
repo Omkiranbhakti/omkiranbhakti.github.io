@@ -1,7 +1,6 @@
 # Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
 # --- roadmap pages 2026-11-20 (darshan guide: Jagannath Puri) ---
-jagannath-puri-darshan.html
 # --- roadmap pages 2026-11-18 (darshan guides: Banke Bihari, Shirdi) ---
 # --- roadmap pages 2026-11-16 (darshan guides: Somnath, Omkareshwar) ---
 # --- roadmap pages 2026-11-15 (Margashirsha 25 Nov–23 Dec, Vivah Panchami 14 Dec) ---
