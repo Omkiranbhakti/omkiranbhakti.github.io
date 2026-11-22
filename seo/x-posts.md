@@ -21,7 +21,7 @@ https://omkiranbhakti.com
 https://omkiranbhakti.com/dev-uthani-ekadashi-kab-hai.html
 #देवउठनी_एकादशी #DevUthaniEkadashi
 
-### 3. [ ] हनुमान चालीसा (evergreen)
+### 3. [x] (2026-11-22) https://x.com/omkiranbhakti/status/2124497352933491163 हनुमान चालीसा (evergreen)
 हनुमान चालीसा के पूरे बोल — हर चौपाई के सरल हिंदी अर्थ के साथ 🙏 मंगलवार-शनिवार के पाठ के लिए:
 https://omkiranbhakti.com/hanuman-chalisa.html
 #हनुमान_चालीसा #HanumanChalisa
@@ -41,7 +41,7 @@ https://omkiranbhakti.com/aaj-ka-panchang.html
 https://omkiranbhakti.com/dev-uthani-ekadashi-kab-hai.html
 #देवउठनी_एकादशी #Ekadashi
 
-### 7. [ ] देव दीपावली वाराणसी — post 20–22 Nov
+### 7. [x] (2026-11-22) https://x.com/omkiranbhakti/status/2124497241583001695 देव दीपावली वाराणसी — post 20–22 Nov
 देव दीपावली 2026: 24 नवंबर, मंगलवार ✨ वाराणसी के घाट, गंगा आरती का समय, नाव और भीड़ की पूरी जानकारी:
 https://omkiranbhakti.com/dev-deepawali-varanasi.html
 #देव_दीपावली #DevDeepawali #Varanasi
