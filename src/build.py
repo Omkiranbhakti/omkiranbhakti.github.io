@@ -10,6 +10,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://omkiranbhakti.com/"
 OG_DEFAULT = SITE + "assets/og-home.jpg"
 WA_CH = "https://whatsapp.com/channel/0029Vb8NYJMCXC3MDVIhkB3p"
+TG_CH = "https://t.me/omkiranbhakti"
+TG_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.1 1.8 11.6c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg>'
 WA_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3z"/></svg>'
 YT = "https://www.youtube.com/@OmKiranBhakti"
 LOGO = "https://omkiranbhakti.com/assets/logo-512.png"
@@ -340,7 +342,7 @@ def page(slug, title, desc, body, crumbs=None, ld=None, active=None, h1=None, og
 <div><h2>OmKiran Bhakti</h2><p>हिंदी भक्ति संगीत का घर — आरती, चालीसा, मंत्र और भजन, बोल और अर्थ के साथ। हमारे सभी वीडियो <a href="{YT}">YouTube चैनल</a> पर हैं।</p></div>
 <div><h2>पाठ</h2><ul><li><a href="hanuman-chalisa.html">हनुमान चालीसा</a></li><li><a href="om-jai-jagdish-hare-aarti.html">ॐ जय जगदीश हरे</a></li><li><a href="ganesh-aarti-jai-ganesh-deva.html">गणेश आरती</a></li><li><a href="shiv-aarti-om-jai-shiv-omkara.html">शिव आरती</a></li><li><a href="jaap-mala.html">ऑनलाइन जाप माला</a></li><li><a href="aaj-ka-panchang.html">आज का पंचांग</a></li><li><a href="tyohar-calendar.html">त्योहार कैलेंडर</a></li><li><a href="hindu-kaal-chakra.html">हिंदू काल-चक्र</a></li><li><a href="about.html">परिचय</a></li></ul></div>
 <div><h2>भजन</h2><ul><li><a href="mata-rani-bhajan.html">माता रानी</a></li><li><a href="shiv-bhajan.html">शिव</a></li><li><a href="ganesh-bhajan.html">गणेश</a></li><li><a href="krishna-bhajan.html">कृष्ण</a></li><li><a href="ram-bhajan.html">राम</a></li><li><a href="devotional-edm-bhajans.html">भक्ति EDM</a></li><li><a href="sant-bhajan.html">संत भजन (बोल)</a></li></ul></div>
-</div>{MON.sewa_box()}<div class="wrap join-strip"><p class="okb-count" id="okb-count" hidden aria-live="polite"></p><span>🙏 रोज़ का पंचांग, त्योहार और नए भजन सीधे फ़ोन पर पाएँ</span><a class="wa-join" href="{WA_CH}" target="_blank" rel="noopener">{WA_ICON} WhatsApp चैनल से जुड़ें</a><a class="yt-join" href="https://www.youtube.com/@OmKiranBhakti?sub_confirmation=1" target="_blank" rel="noopener">▶ YouTube Subscribe</a>{MON.preferred_source_btn()}</div><div class="wrap fine"><nav class="foot-legal" aria-label="जानकारी"><a href="about.html">परिचय</a> · <a href="contact.html">संपर्क करें</a> · <a href="privacy-policy.html">गोपनीयता नीति</a> · <a href="disclaimer.html">अस्वीकरण / Affiliate जानकारी</a></nav>© {datetime.date.today().year} OmKiran Bhakti. पारंपरिक पाठ सार्वजनिक धरोहर हैं; अर्थ और संगीत OmKiran Bhakti के हैं। Amazon Associate के रूप में हम योग्य ख़रीदारी पर कमीशन कमाते हैं।</div></footer>
+</div>{MON.sewa_box()}<div class="wrap join-strip"><p class="okb-count" id="okb-count" hidden aria-live="polite"></p><span>🙏 रोज़ का पंचांग, त्योहार और नए भजन सीधे फ़ोन पर पाएँ</span><a class="wa-join" href="{WA_CH}" target="_blank" rel="noopener">{WA_ICON} WhatsApp चैनल से जुड़ें</a><a class="tg-join" href="{TG_CH}" target="_blank" rel="noopener">{TG_ICON} Telegram चैनल</a><a class="yt-join" href="https://www.youtube.com/@OmKiranBhakti?sub_confirmation=1" target="_blank" rel="noopener">▶ YouTube Subscribe</a>{MON.preferred_source_btn()}</div><div class="wrap fine"><nav class="foot-legal" aria-label="जानकारी"><a href="about.html">परिचय</a> · <a href="contact.html">संपर्क करें</a> · <a href="privacy-policy.html">गोपनीयता नीति</a> · <a href="disclaimer.html">अस्वीकरण / Affiliate जानकारी</a></nav>© {datetime.date.today().year} OmKiran Bhakti. पारंपरिक पाठ सार्वजनिक धरोहर हैं; अर्थ और संगीत OmKiran Bhakti के हैं। Amazon Associate के रूप में हम योग्य ख़रीदारी पर कमीशन कमाते हैं।</div></footer>
 <a class="wa-float" href="{WA_CH}" target="_blank" rel="noopener" aria-label="OmKiran Bhakti WhatsApp चैनल से जुड़ें">{WA_ICON}<span>चैनल से जुड़ें</span></a>
 <script src="script.js?v={JSV}" defer></script>
 </body></html>'''
@@ -949,6 +951,14 @@ for _s, _ks in DEITY_LIVE.items():
   _sec = f'<section class="dl-live"><div class="wrap"><h2>मंदिरों के लाइव दर्शन</h2><ul class="library">{_li}</ul></div></section>'
   _anchor = '<section class="faq">' if '<section class="faq">' in PAGES[_s] else '<footer'
   PAGES[_s] = PAGES[_s].replace(_anchor, _sec + _anchor, 1)
+# Join box (WhatsApp + Telegram) inside content pages, before FAQ / "और क्या देखें"
+_JOIN_SKIP = {"index.html","404.html","whatsapp-sandesh.html","privacy-policy.html","disclaimer.html","contact.html","about.html"}
+_JOIN_BOX = f'<aside class="join-box no-print" aria-label="चैनल से जुड़ें"><div class="wrap"><p><b>🔔 त्योहार की सही तारीख़ और रोज़ का पंचांग — सीधे आपके फ़ोन पर</b><br><small>हर व्रत-त्योहार से पहले याद दिलाएँगे। बिल्कुल मुफ़्त।</small></p><div class="jb-btns"><a class="wa-join" href="{WA_CH}" target="_blank" rel="noopener">{WA_ICON} WhatsApp पर जुड़ें</a><a class="tg-join" href="{TG_CH}" target="_blank" rel="noopener">{TG_ICON} Telegram पर जुड़ें</a></div></div></aside>'
+for _s in list(PAGES):
+  if _s in _JOIN_SKIP or "join-box" in PAGES[_s]: continue
+  for _a in ('<section class="faq">', '<section class="xplore'):
+    if _a in PAGES[_s]:
+      PAGES[_s] = PAGES[_s].replace(_a, _JOIN_BOX + _a, 1); break
 for slug, content in PAGES.items():
     with open(os.path.join(ROOT, slug), "w", encoding="utf-8") as f: f.write(content)
 os.makedirs(os.path.join(ROOT, "en"), exist_ok=True)

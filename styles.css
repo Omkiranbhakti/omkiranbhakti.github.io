@@ -788,6 +788,13 @@ html.paath-on .verse.dhyan .line{color:#F5B83A}
 .okb-count .dot{flex:none}
 .wa-join,.ok-wa{display:inline-flex;align-items:center;gap:.4rem;background:#25d366;color:#06301a!important;font-weight:700;padding:.5rem 1rem;border-radius:999px;text-decoration:none}
 .wa-join:hover,.ok-wa:hover{background:#1ebe5a}
+.tg-join{display:inline-flex;align-items:center;gap:.4rem;background:#229ed9;color:#fff!important;font-weight:700;padding:.5rem 1rem;border-radius:999px;text-decoration:none}
+.tg-join:hover{background:#1b8cc2}
+.join-box{margin:1.5rem 0}
+.join-box .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.8rem 1.2rem;padding:1rem 1.2rem;border-radius:16px;background:linear-gradient(135deg,rgba(37,211,102,.1),rgba(34,158,217,.1));border:1px solid rgba(34,158,217,.3)}
+.join-box p{margin:0;flex:1 1 16rem}
+.join-box small{opacity:.8}
+.jb-btns{display:flex;flex-wrap:wrap;gap:.6rem}
 .yt-join{display:inline-flex;align-items:center;background:#e01e1e;color:#fff!important;font-weight:700;padding:.5rem 1rem;border-radius:999px;text-decoration:none}
 .ok-wa{padding:.38rem .9rem;font-size:.88rem;margin-left:.3rem}
 .wa-float{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;align-items:center;gap:.4rem;background:#25d366;color:#06301a!important;font-weight:700;text-decoration:none;
