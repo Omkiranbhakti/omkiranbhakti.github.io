@@ -2,6 +2,88 @@
 
 Filter: Performance > Search results, Query matches the question regex (kya/kab/kaise/kyon/kitne/kaun/kahan/kis/what/when/how/... and Hindi क्या/कब/कैसे/...). "Our page" is inferred from the topic (the Pages column was not read), so it is marked "likely".
 
+## 2026-11-23 (last 28 days)
+
+Totals with the filter (Custom regex): 6 clicks, 1.77k impressions, CTR 0.3%, position 13.1, 624 question queries (top 500 read, sorted by impressions). 76 rows with 5+ impressions below. Every one already has a page; new partial-answer FAQs: "पसंग कब उतरेगा" (panchak) and "badwa kab utrega" (bhadra).
+
+| query | impressions | clicks | avg position | our page that ranks |
+|---|---|---|---|---|
+| पंचक कब है | 141 | 0 | 11.8 | panchak-kab-hai.html (likely) |
+| karwa chauth kab hai 2027 | 71 | 0 | 1.0 | karwa-chauth-kab-hai.html (likely) |
+| 2027 ka karwa chauth kab hai | 35 | 0 | 1.0 | karwa-chauth-kab-hai.html (likely) |
+| dhanteras kab hai | 32 | 0 | 11.0 | dhanteras-kab-hai.html (likely) |
+| shama kab hai? | 29 | 0 | 9.5 | kali-puja-kab-hai.html (FAQ pending) |
+| bhadra kal kab se lag raha hai | 26 | 0 | 7.7 | bhadra-kaal.html (likely) |
+| panchak kab h | 23 | 0 | 8.0 | panchak-kab-hai.html (likely) |
+| karwachauth 2027 kab hai | 22 | 0 | 1.0 | karwa-chauth-kab-hai.html (likely) |
+| 2027 mein karva chauth kab hai | 20 | 0 | 1.0 | karwa-chauth-kab-hai.html (likely) |
+| kl bhadra h kya | 19 | 0 | 7.0 | bhadra-kaal.html (likely) |
+| bhadra kal kab hai | 17 | 0 | 9.1 | bhadra-kaal.html (likely) |
+| 2027 ka chhath puja kab hai | 16 | 0 | 1.0 | chhath-puja-kab-hai.html (likely) |
+| jau kahan taji charan tumhare lyrics | 15 | 0 | 10.0 | jau-kahan bhajan page (likely) |
+| 2027 mein chaiti chhath kab hai | 15 | 0 | 11.1 | chaiti-chhath-kab-hai.html (likely) |
+| 2027 mein karwa chauth kab hai | 14 | 0 | 1.0 | karwa-chauth-kab-hai.html (likely) |
+| karva chauth kab hai 2027 ka | 13 | 0 | 1.0 | karwa-chauth-kab-hai.html (likely) |
+| karwa chauth 2027 mein kab hai | 13 | 0 | 1.0 | karwa-chauth-kab-hai.html (likely) |
+| karva chauth kab ki hai 2027 | 12 | 0 | 1.0 | karwa-chauth-kab-hai.html (likely) |
+| kya kal bhadra hai | 11 | 0 | 8.5 | bhadra-kaal.html (likely) |
+| 20 november ko bhadra kitne baje se kitne baje tak hai? | 11 | 0 | 8.8 | bhadra-kaal.html (likely) |
+| when is ahoi | 11 | 0 | 10.5 | ahoi-ashtami-kab-hai.html (likely) |
+| आज भद्रा कितने बजे से कितने बजे तक है | 10 | 1 | 5.9 | bhadra-kaal.html (likely) |
+| when is santan saptami | 10 | 0 | 5.8 | santan-saptami-kab-hai.html (likely) |
+| kya kal bhadra hai? | 10 | 0 | 8.4 | bhadra-kaal.html (likely) |
+| jaun kahan taji charan tumhare lyrics | 10 | 0 | 8.9 | jau-kahan bhajan page (likely) |
+| when is guru purnima 2021 | 10 | 0 | 71.8 | guru-purnima-kab-hai.html (old year, ignore) |
+| 2027 ki karva chauth kab hai | 9 | 0 | 1.0 | karwa-chauth-kab-hai.html (likely) |
+| karva chauth kab ki hai 2027 mein | 9 | 0 | 1.0 | karwa-chauth-kab-hai.html (likely) |
+| 27 mein chaiti chhath kab hai | 9 | 0 | 6.7 | chaiti-chhath-kab-hai.html (likely) |
+| chaiti chhath 2027 mein kab pad raha hai | 9 | 0 | 9.8 | chaiti-chhath-kab-hai.html (likely) |
+| jitiya kab hai 2027 date and time | 9 | 0 | 9.8 | jitiya-vrat-kab-hai.html (likely) |
+| chaiti chhath 2027 kab hai | 9 | 0 | 10.0 | chaiti-chhath-kab-hai.html (likely) |
+| जाऊँ कहाँ तजि चरन तुम्हारे | 9 | 0 | 10.9 | jau-kahan bhajan page (likely) |
+| bhadra ka time kitne baje se kitne baje tak hai | 8 | 0 | 7.2 | bhadra-kaal.html (likely) |
+| kharmas kab se lag raha hai 2027 | 8 | 0 | 7.4 | kharmas-kab-hai.html (likely) |
+| bhadra kaal kab se kab tak hai | 8 | 0 | 9.1 | bhadra-kaal.html (likely) |
+| जाऊं कहां तजि चरन तुम्हारे लिरिक्स | 8 | 0 | 10.0 | jau-kahan bhajan page (likely) |
+| 2027 ka chaiti chhath kab hai | 8 | 0 | 11.0 | chaiti-chhath-kab-hai.html (likely) |
+| jitiya kab hai 2027 | 8 | 0 | 11.6 | jitiya-vrat-kab-hai.html (likely) |
+| 2027 me karwa chauth kab hai | 7 | 0 | 1.0 | karwa-chauth-kab-hai.html (likely) |
+| chhath ke bad bhadwa kab padta hai | 7 | 0 | 4.7 | bhadra-kaal.html (FAQ pending) |
+| bhadra kitne se kitne baje tak hai? | 7 | 0 | 5.6 | bhadra-kaal.html (likely) |
+| पसंग कब उतरेगा | 7 | 0 | 7.7 | panchak-kab-hai.html (partial, new FAQ) |
+| gopashtami kab hai 2027 | 7 | 0 | 8.6 | gopashtami-kab-hai.html (likely) |
+| 29 ko bhadra hai kya | 7 | 0 | 8.7 | bhadra-kaal.html (likely) |
+| 2027 mein kharmas kab lag raha hai | 7 | 0 | 9.6 | kharmas-kab-hai.html (likely) |
+| 2027 chaiti chhath kab hai | 7 | 0 | 10.0 | chaiti-chhath-kab-hai.html (likely) |
+| badwa kab utrega? | 7 | 0 | 10.1 | bhadra-kaal.html (partial, new FAQ) |
+| is mahine panchak kab hai | 7 | 0 | 17.4 | panchak-kab-hai.html (FAQ pending) |
+| kal bhadra hai kya | 7 | 0 | 17.4 | bhadra-kaal.html (likely) |
+| nahay khay kab hai 2026 | 7 | 0 | 19.6 | chhath-nahay-khay-kab-hai.html (likely) |
+| 2027 mein karwa chauth kab hai? | 6 | 0 | 1.0 | karwa-chauth-kab-hai.html (likely) |
+| pajak kab hai | 6 | 0 | 8.2 | panchak-kab-hai.html (likely) |
+| bhadra kal kab se shuru hai | 6 | 0 | 9.3 | bhadra-kaal.html (likely) |
+| kharna kab hai 2026 | 6 | 0 | 10.0 | chhath-kharna-kab-hai.html (likely) |
+| mo sam kaun kutil khal kami lyrics | 6 | 0 | 10.7 | mo-sam-kaun-kutil-khal-kami.html (likely) |
+| पंचक कब से शुरू है | 6 | 0 | 11.8 | panchak-kab-hai.html (likely) |
+| bhadra kab hai | 6 | 0 | 21.7 | bhadra-kaal.html (likely) |
+| jitiya kab hai | 6 | 0 | 45.2 | jitiya-vrat-kab-hai.html (likely) |
+| panchak kab hai | 6 | 0 | 49.3 | panchak-kab-hai.html (likely) |
+| kartik purnima 2026 kab hai | 6 | 0 | 75.5 | kartik-purnima-kab-hai.html (likely) |
+| cal bhadra kitne baje tak hai | 5 | 1 | 7.2 | bhadra-kaal.html (likely) |
+| मैया कबहिं बढ़ैगी चोटी का भावार्थ | 5 | 1 | 11.4 | maiya-kabahi-badhegi-choti.html (likely) |
+| 2027 me chhath puja kab hai | 5 | 0 | 1.0 | chhath-puja-kab-hai.html (likely) |
+| 2027 mein kab hai karva chauth | 5 | 0 | 1.0 | karwa-chauth-kab-hai.html (likely) |
+| bhadra kab se kab tak lag rahi hai | 5 | 0 | 5.0 | bhadra-kaal.html (likely) |
+| chhath puja ke bad panchak kab hai | 5 | 0 | 5.2 | panchak-kab-hai.html (likely) |
+| 2027 mein santan saptami kab hai | 5 | 0 | 5.8 | santan-saptami-kab-hai.html (likely) |
+| panchak kab he | 5 | 0 | 8.0 | panchak-kab-hai.html (likely) |
+| जितिया कब है 2027 में | 5 | 0 | 8.2 | jitiya-vrat-kab-hai.html (likely) |
+| panche kab ki hai | 5 | 0 | 9.6 | panchak-kab-hai.html (likely) |
+| karva chauth puja mein kya-kya saman lagta hai | 5 | 0 | 10.2 | karwa-chauth-puja-samagri-list.html (likely) |
+| आज भद्रा कब से कब तक है | 5 | 0 | 10.2 | bhadra-kaal.html (likely) |
+| karva chauth mein saman kya-kya lagta hai | 5 | 0 | 10.8 | karwa-chauth-puja-samagri-list.html (likely) |
+| 2027 mein chaiti chhath puja kab hai | 5 | 0 | 11.8 | chaiti-chhath-kab-hai.html (likely) |
+
 ## 2026-11-19 (last 28 days)
 
 Unchanged from 18 Nov: same totals (4 clicks, 1.92k impressions, position 11.8, 625 question queries) and the same 88 queries with 5+ impressions — GSC data not refreshed since the previous read. See the 18 Nov table below. No new roadmap rows or FAQ additions.

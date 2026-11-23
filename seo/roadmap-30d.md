@@ -55,3 +55,5 @@ From Search Console question queries (seo/gsc-questions.md, 29 Oct 2026). Every 
 - faq-add: panchak-kab-hai.html — "इस महीने पंचक कब है?" (~10 impressions across variants, position 6–11)
 - faq-add: bhadra-kaal.html — "भानी / बन्नी भद्रा कब है?" (5 Nov 2026 data: ~11 impressions across "bhanni / banni / bhani bhadra", position 7–10; check what searchers mean by this term before writing the answer)
 - faq-add: kali-puja-kab-hai.html (Hindi + en/) — "Shama / Shyama Puja kab hai?" (18 Nov 2026 data: "shama kab hai?" 12 impressions, position 9.1, ranks en/kali-puja-kab-hai.html; add the "shama" spelling to the FAQ so the next Kali Puja (2027) date matches it)
+- faq-add: panchak-kab-hai.html — "पसंग (पंचक) कब उतरेगा?" (23 Nov 2026 data: 7 impressions, position 7.7; answer with the end date/time of the current and next panchak)
+- faq-add: bhadra-kaal.html — "बडवा / भदवा कब उतरेगा?" (23 Nov 2026 data: "badwa kab utrega?" 7 impressions, position 10.1; give the end time of the current bhadra)
