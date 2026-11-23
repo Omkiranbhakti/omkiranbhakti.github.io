@@ -12,6 +12,30 @@ KEEP_CITIES = {  # biggest search demand — these choghadiya pages stay indexed
 INDEX_META = '<meta name="robots" content="index,follow,max-image-preview:large">'
 NOINDEX_META = '<meta name="robots" content="noindex,follow">'
 
+# AdSense review (4 Nov 2026) flagged "replicated content, low-value content".
+# Pages with embedded temple live streams, and thin pages (few words of their own), stay indexed
+# but carry no AdSense code, so ads only run on full pages. Decided from Hindi pages, applied to both languages.
+THIN_WORDS = 300
+KEEP_ADS = {"index.html", "about.html", "contact.html", "privacy-policy.html", "disclaimer.html",
+            "jaap-mala.html", "puja-samagri.html", "gayatri-mantra.html", "mahamrityunjay-mantra.html"}  # tools + top mantras
+NO_ADS = set()   # filled by mark_no_ads() from the Hindi pages before apply()
+_ADS = re.compile(r'<script async src="https://pagead2\.googlesyndication\.com/pagead/js/adsbygoogle\.js[^"]*"[^>]*></script>')
+
+
+def _own_words(html):
+    m = re.search(r"(?s)<main[^>]*>(.*)</main>", html)
+    t = m.group(1) if m else html
+    t = re.sub(r"(?s)<(script|style|nav|aside)[^>]*>.*?</\1>", " ", t)
+    return len(re.sub(r"<[^>]+>", " ", t).split())
+
+
+def mark_no_ads(pages):
+    NO_ADS.clear()
+    for s, h in pages.items():
+        if s in KEEP_ADS or not s.endswith(".html"): continue
+        if s == "live-darshan.html" or s.endswith("-live-darshan.html") or _own_words(h) < THIN_WORDS: NO_ADS.add(s)
+    return len(NO_ADS)
+
 
 def is_noindex(slug, english=False):
     m = re.fullmatch(r"choghadiya-([a-z-]+)\.html", slug)
@@ -23,6 +47,10 @@ _ROBOTS = re.compile(r'<meta (?:name="robots" content="[^"]*"|content="[^"]*" na
 
 
 def apply(pages, english=False):
+    if not english:   # Hindi pages are applied first; decide no-ads pages from them
+        print(f"ADS: {mark_no_ads(pages)} live-stream/thin pages without AdSense code")
+    for s in NO_ADS & set(pages):
+        pages[s] = _ADS.sub("", pages[s])
     n = 0
     for s in list(pages):
         if is_noindex(s, english):
