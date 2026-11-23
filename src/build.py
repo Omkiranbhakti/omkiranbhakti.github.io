@@ -825,8 +825,6 @@ add("index.html", "OmKiran Bhakti — आरती, चालीसा, मं�
 <p style="text-align:center;margin-top:1.5rem"><a class="btn" href="tyohar-calendar.html">पूरा त्योहार कैलेंडर</a> <a class="btn ghost" href="ekadashi-2026-2027.html">सभी एकादशी</a></p></div></section>
 <section><div class="wrap">{sec_head("अपने आराध्य चुनें","हर देवता के भजन, आरती और मंत्र एक जगह")}<ul class="devta devta-light">{dlist}</ul></div></section>
 <section class="band"><div class="wrap">{sec_head("बोल और अर्थ","पूजा के समय फ़ोन पर बड़े अक्षरों में पढ़ें, या प्रिंट करके रखें")}{paath_html}</div></section>
-<section><div class="wrap">{sec_head("नए भजन","इस हफ़्ते चैनल पर आए")}{video_cards(home_latest)}
-<p style="margin-top:2rem;text-align:center"><a class="btn" href="{YT}?sub_confirmation=1" target="_blank" rel="noopener">YouTube पर सब्सक्राइब करें</a></p></div></section>
 <section class="band"><div class="wrap">{sec_head("सबसे ज़्यादा सुने गए","लाखों भक्तों की पसंद")}{video_cards(home_popular)}</div></section>
 <section class="night"><div class="wrap">{sec_head("भक्ति EDM","स्तोत्र और मंत्र, आज की धुन में")}{video_cards(["unfGUJz6D8U","D5LIL8j8Kqs","XLYs9iEXKmA"])}
 <p style="margin-top:2rem;text-align:center"><a class="btn gold" href="devotional-edm-bhajans.html">सभी EDM ट्रैक</a></p></div></section>''',
