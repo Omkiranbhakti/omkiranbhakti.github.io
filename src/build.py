@@ -656,11 +656,8 @@ add("about.html", "OmKiran Bhakti के बारे में — हिंद
  ld=[{"@type":"AboutPage","url":SITE+"about.html","about":{"@id":SITE+"#organization"}}])
 
 # ---------------- Policy pages (AdSense / Amazon Associates requirements) ----------------
-CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "").strip()  # set as a GitHub Actions repository variable
-if not CONTACT_EMAIL:
-    if os.environ.get("GITHUB_ACTIONS"):
-        sys.exit("CONTACT_EMAIL repository variable is not set: add it under Settings > Secrets and variables > Actions > Variables")
-    CONTACT_EMAIL = "contact@example.com"  # local builds only; built pages are published by CI
+# The site's public contact address. A GitHub Actions repository variable CONTACT_EMAIL overrides it if set.
+CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "").strip() or "omkiranbhakti@gmail.com"
 POLICY_DATE = "18 अक्टूबर 2026"
 
 add("contact.html", "संपर्क करें — OmKiran Bhakti",
