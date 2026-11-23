@@ -32,6 +32,8 @@ def _cz_near(a):
     ks = re.findall(r"\{date:([\w-]+)\}", a)
     return bool(ks) and all(_cz_d(k) and 0 <= (_cz_d(k) - TODAY_D).days <= CZ_DAYS for k in ks)
 CZ_TRENDS = [t for t in CZ_TRENDS if _cz_near(t[2])]
+def _cz_has(f):  # page built now, or built by an earlier section run (katha/vidhi pages are added after this file)
+    return f in PAGES or os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", f))
 def _cz_auto():
     import festivals as _F
     seen, out = {re.search(r"\{date:([\w-]+)\}", t[2]).group(1) for t in CZ_TRENDS}, []
@@ -40,11 +42,11 @@ def _cz_auto():
         d = _cz_d(k)
         if k in seen or not d or not 0 <= (d - TODAY_D).days <= CZ_DAYS: continue
         seen.add(k)
-        page = next((h for h in (f"{k}-kab-hai.html", f"{k}.html") if h in PAGES), "tyohar-calendar.html")
+        page = next((h for h in (f"{k}-kab-hai.html", f"{k}.html") if _cz_has(h)), "tyohar-calendar.html")
         out.append((d, k in _F.MINOR_KEYS, (f"{name.split(' (')[0]} {d.year} कब है?", "google",
                     f"{{date:{k}}} को।" + (f" {mean}।" if mean else ""), page, "तारीख़, मुहूर्त और नियम")))
         for suf, q, lt in (("katha", "की कथा", "पूरी कथा पढ़ें"), ("puja-vidhi", "की पूजा विधि", "पूजा विधि देखें"), ("vidhi", "की पूजा विधि", "पूजा विधि देखें")):
-            if f"{k}-{suf}.html" in PAGES:
+            if _cz_has(f"{k}-{suf}.html"):
                 out.append((d, True, (f"{name.split(' (')[0]} {q}", "google", f"{{date:{k}}} को। सरल हिंदी में, शुरू से अंत तक।", f"{k}-{suf}.html", lt)))
     out.sort(key=lambda x: (x[0], x[1]))
     return [t for _, _, t in out]
