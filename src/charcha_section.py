@@ -127,15 +127,24 @@ def cz_home_strip():
         m = re.search(r"<main[^>]*>", h)
         if m: h = h[:m.end()] + strip + h[m.end():]
         import json as _j
-        data = _j.dumps([[i, t, p, s] for i, t, p, s in CZ_POP], ensure_ascii=False).replace("</", "<\\/")
+        _tools = [("🎹", "आरती हारमोनियम पर बजाइए", "सरगम लिखी पट्टियाँ — फ़ोन पर ही बजाकर सीखें, बिलकुल मुफ़्त।", "", "/harmonium.html"),
+                  ("📿", "जाप माला से 108 जाप गिनिए", "माला न हो तो भी — हर जाप पर टैप करें, गिनती हम रखेंगे।", "", "/jaap-mala.html"),
+                  ("🕉️", "हिंदू काल-चक्र देखिए", "युग, मन्वंतर और कल्प — सनातन समय की टाइम मशीन।", "", "/hindu-kaal-chakra.html"),
+                  ("🌙", "अपनी जन्म तिथि और राशि जानिए", "जन्म की तारीख़ डालें — नक्षत्र, राशि और नाम अक्षर।", "", "/janm-tithi-rashi-calculator.html")]
+        _mix = []
+        for _n, _f in enumerate(CZ_POP):
+            _mix.append(list(_f) + [""])
+            if _n % 2 == 1 and _tools: _mix.append(list(_tools.pop(0)))
+        _mix += [list(t) for t in _tools]
+        data = _j.dumps(_mix, ensure_ascii=False).replace("</", "<\\/")
         pop = ('<aside class="kya-pop" id="kya-pop" hidden aria-label="क्या आप जानते हैं?"><button type="button" class="kp-x" aria-label="बंद करें">×</button>'
                '<p class="kp-k">✨ क्या आप जानते हैं?</p><div class="kp-row"><span class="kp-i"></span><div><b class="kp-t"></b><p class="kp-p"></p><small class="kp-s"></small></div></div>'
-               '<div class="kp-nav"><span class="kp-dots"></span><a href="abhi-charcha-mein.html#facts">और रोचक तथ्य →</a></div></aside>'
+               '<div class="kp-nav"><span class="kp-dots"></span><a href="/abhi-charcha-mein.html#facts">और रोचक तथ्य →</a></div></aside>'
                '<script>(function(){var F=' + data + ',box=document.getElementById("kya-pop");if(!box||!F.length)return;'
                'try{if(sessionStorage.getItem("kpX"))return}catch(e){}'
-               'var k=Math.floor(Math.random()*F.length),tm;var q=function(c){return box.querySelector(c)};'
+               'var k=Math.floor(Math.random()*F.length),tm;if(!F[k][4]&&F[(k+1)%F.length][4])k=(k+1)%F.length;var q=function(c){return box.querySelector(c)};'
                'var dots=q(".kp-dots");dots.innerHTML=F.map(function(_,j){return "<i></i>"}).join("");'
-               'function show(){var f=F[k];q(".kp-i").textContent=f[0];q(".kp-t").textContent=f[1];q(".kp-p").textContent=f[2];q(".kp-s").textContent="स्रोत: "+f[3];'
+               'function show(){var f=F[k];q(".kp-i").textContent=f[0];var t=q(".kp-t");t.textContent="";if(f[4]){var a=document.createElement("a");a.href=f[4];a.textContent=f[1]+" →";t.appendChild(a)}else t.textContent=f[1];q(".kp-p").textContent=f[2];q(".kp-s").textContent=f[4]?"मुफ़्त टूल · बिना ऐप":"स्रोत: "+f[3];box.classList.toggle("kp-tool",!!f[4]);'
                '[].forEach.call(dots.children,function(d,j){d.className=j===k?"on":""});box.classList.remove("kp-in");void box.offsetWidth;box.classList.add("kp-in")}'
                'function next(){k=(k+1)%F.length;show()}'
                'function start(){box.hidden=false;show();tm=setInterval(next,9000)}'

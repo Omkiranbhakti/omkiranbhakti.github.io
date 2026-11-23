@@ -1232,3 +1232,6 @@ body.no-dev .line-dev{display:none}
 .okb-tp .okb-tp-1 a{background:linear-gradient(180deg,#7a2a0a,#4a1806);color:#fbe7c0;border-color:#d9a441}
 .okb-tp .okb-tp-1 b{color:#ffd77a}
 .ng-h[href$="hindu-kaal-chakra.html"]{background:linear-gradient(180deg,#f3b13a,#d9862a);color:#3a1404!important;border-radius:999px;padding-left:.7em;padding-right:.7em}
+.kya-pop.kp-tool{border-color:#d9a441;background:linear-gradient(180deg,#fff4dc,#ffe9c2)}
+.kya-pop .kp-t a{color:#7a2a0a;text-decoration:none}
+.kya-pop .kp-t a:hover{text-decoration:underline}

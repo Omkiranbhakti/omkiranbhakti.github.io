@@ -79,8 +79,30 @@ def insert(html, blk, home):
     return html
 
 
+POP_A, POP_B = "<!--okb-pop-->", "<!--/okb-pop-->"
+
+
+def home_pop():
+    """The rotating 'क्या आप जानते हैं?' card (facts + tool glimpses) from the built home page."""
+    h = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
+    m = re.search(r'<aside class="kya-pop".*?</aside><script>.*?</script>', h, flags=re.S)
+    return POP_A + m.group() + POP_B if m else ""
+
+
+def add_pop(html, pop):
+    html = re.sub(re.escape(POP_A) + ".*?" + re.escape(POP_B), "", html, flags=re.S)
+    if not pop or 'class="kya-pop"' in html:
+        return html
+    for a in ("</main>", "</body>"):
+        i = html.find(a)
+        if i != -1:
+            return html[:i] + pop + html[i:]
+    return html
+
+
 def main():
     n = 0
+    pop = home_pop()
     for d, en in ((ROOT, False), (os.path.join(ROOT, "en"), True)):
         for name in sorted(os.listdir(d)):
             if not name.endswith(".html") or name in SKIP:
@@ -88,6 +110,8 @@ def main():
             p = os.path.join(d, name)
             s = open(p, encoding="utf-8").read()
             t = insert(s, block(name, en), name == "index.html")
+            if not en and name != "index.html":
+                t = add_pop(t, pop)
             if t != s:
                 open(p, "w", encoding="utf-8").write(t); n += 1
     print("promo: tools block on", n, "pages")
