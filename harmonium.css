@@ -231,6 +231,7 @@
 .hm-applink{margin:0 0 12px}
 .hm-applink a{display:inline-block;padding:8px 16px;border-radius:999px;background:linear-gradient(180deg,#5a2a08,#3a1c06);color:#fbe7c0;text-decoration:none;font-weight:500;box-shadow:0 2px 6px rgba(0,0,0,.3)}
 .hm-applink a b{color:#ffd77a}
+.hm-applink a img{vertical-align:middle;border-radius:7px;margin-right:4px}
 
 /* compact settings: two columns, everything visible at once */
 .hm-drawer{width:min(600px,96%);padding:10px 14px;overflow-y:auto}

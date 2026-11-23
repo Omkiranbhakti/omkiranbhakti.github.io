@@ -161,7 +161,7 @@ add("harmonium.html",
     band("ऑनलाइन हारमोनियम — सरगम के साथ बजाएँ",
          "नीचे की पट्टियाँ छूकर बजाएँ। हर पट्टी पर सा रे ग म लिखा है, सुर (सफ़ेद 1, काली 1…) बदल सकते हैं, और किसी आरती को चुनकर उसकी धुन सुन सकते हैं या <b>अभ्यास मोड</b> में ख़ुद बजाना सीख सकते हैं।",
          "ऑनलाइन हारमोनियम") +
-    '<section><div class="wrap"><p class="hm-applink"><a href="app/">📲 <b>OmKiran Harmonium ऐप</b> खोलें — फ़ुल स्क्रीन, होम स्क्रीन पर रखें, बिना इंटरनेट भी चले</a></p>' + _hm_player(HM_SONGS, "om-jai-jagdish-hare") + "</div></section>" +
+    '<section><div class="wrap"><p class="hm-applink"><a href="app/"><img src="/app/icon-192.png" alt="" width="28" height="28" loading="lazy"> <b>OmKiran Harmonium ऐप</b> खोलें — फ़ुल स्क्रीन, होम स्क्रीन पर रखें, बिना इंटरनेट भी चले</a></p>' + _hm_player(HM_SONGS, "om-jai-jagdish-hare") + "</div></section>" +
     '<section class="band"><div class="wrap">' + sec_head("आरतियों के हारमोनियम नोट्स", "हर गाने का अलग पेज — सरगम लिखी हुई, और बजाकर सीखने वाला प्लेयर") +
     _hm_ul(_HM_SONG_LINKS) + "</div></section>" +
     '<section><div class="wrap prose">' + sec_head("नए हैं? यहाँ से शुरू करें") +
@@ -213,7 +213,7 @@ add("harmonium-sikhen.html",
             "हर अलंकार पहले आरोह (ऊपर), फिर अवरोह (नीचे)।", "\"चुनी पंक्ति दोहराएँ\" लगाकर एक ही पंक्ति कई बार बजाएँ।"]) +
     "</div></section>"
     '<section><div class="wrap">' + sec_head("अभ्यास का हारमोनियम", "ऊपर गाना/अभ्यास चुनें — अलंकार और आरतियाँ दोनों यहीं हैं") +
-    '<p class="hm-applink"><a href="app/">📲 <b>OmKiran Harmonium ऐप</b> में अभ्यास करें — फ़ुल स्क्रीन, बिना इंटरनेट भी</a></p>' + _hm_player(HM_ALANKAR + HM_SONGS, "sargam") + "</div></section>"
+    '<p class="hm-applink"><a href="app/"><img src="/app/icon-192.png" alt="" width="28" height="28" loading="lazy"> <b>OmKiran Harmonium ऐप</b> में अभ्यास करें — फ़ुल स्क्रीन, बिना इंटरनेट भी</a></p>' + _hm_player(HM_ALANKAR + HM_SONGS, "sargam") + "</div></section>"
     '<section class="band"><div class="wrap">' + sec_head("पाठ 6: पहला गाना", "सबसे आसान से शुरू करें — ॐ जय जगदीश हरे, फिर जय गणेश देवा") +
     _hm_ul(_HM_SONG_LINKS) + "</div></section></article>" +
     MON.harmonium_box() +
@@ -280,7 +280,7 @@ _APP_DIR = os.path.join(ROOT, "app")
 os.makedirs(_APP_DIR, exist_ok=True)
 try:
     from PIL import Image
-    _logo = Image.open(os.path.join(ROOT, "assets", "logo-512.png")).convert("RGBA")
+    _logo = Image.open(os.path.join(ROOT, "assets", "harmonium-icon-512.png")).convert("RGBA")
     for _n in (192, 512):
         _logo.resize((_n, _n), Image.LANCZOS).quantize(colors=128, method=Image.FASTOCTREE).save(os.path.join(_APP_DIR, f"icon-{_n}.png"), optimize=True)
     _m = Image.new("RGBA", (512, 512), (12, 8, 6, 255)); _l = _logo.resize((400, 400), Image.LANCZOS); _m.paste(_l, (56, 56), _l)

@@ -1218,3 +1218,17 @@ body.no-dev .line-dev{display:none}
 .sewa-id{font-size:.92rem}
 .sewa-copy{font:inherit;font-size:.82rem;margin-left:6px;padding:3px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.2);background:var(--paper,#fff);color:var(--ink,#222);cursor:pointer}
 .sewa-note{font-size:.75rem;opacity:.7;margin:0}
+/* free tools block (tools/promo.py) */
+.okb-tp{padding:1.6rem 0}
+.okb-tp h2{font-size:1.25rem;text-align:center;margin:0 0 1rem}
+.okb-tp h2 small{display:block;font-size:.8rem;font-weight:400;opacity:.75;margin-top:.2rem}
+.okb-tp ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem}
+.okb-tp a{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.3rem;height:100%;box-sizing:border-box;padding:.9rem .6rem;border-radius:14px;background:#fff8ec;border:1px solid #ecd3a4;color:#4a2208;text-decoration:none;transition:transform .15s}
+.okb-tp a:hover{transform:translateY(-2px)}
+.okb-tp i{font-style:normal;font-size:2.1rem;line-height:44px;height:44px}
+.okb-tp i img{border-radius:10px;display:block}
+.okb-tp b{font-size:1rem}
+.okb-tp small{font-size:.8rem;opacity:.8}
+.okb-tp .okb-tp-1 a{background:linear-gradient(180deg,#7a2a0a,#4a1806);color:#fbe7c0;border-color:#d9a441}
+.okb-tp .okb-tp-1 b{color:#ffd77a}
+.ng-h[href$="hindu-kaal-chakra.html"]{background:linear-gradient(180deg,#f3b13a,#d9862a);color:#3a1404!important;border-radius:999px;padding-left:.7em;padding-right:.7em}
