@@ -3,8 +3,12 @@
 # Everything shown is our own writing/images; external posts are only linked, never copied.
 # Executed inside build.py's namespace (uses add, e, hdate, hdate_w, nxt_fest, FEST, CITY_ANS, PAGES, SITE, TODAY_D, faq_html, faq_ld).
 import urllib.parse as _cup
-CZ_WEEK = "27 अक्टूबर – 2 नवंबर 2026"
-CZ_UPDATED = "27 अक्टूबर 2026"
+import datetime as _cdt
+_cz_mon = TODAY_D - _cdt.timedelta(days=TODAY_D.weekday())
+def _cz_dm(d): return f"{d.day} {MONTHS_HI[d.month]}"
+CZ_WEEK = f"{_cz_dm(_cz_mon)} – {_cz_dm(_cz_mon + _cdt.timedelta(days=6))} {(_cz_mon + _cdt.timedelta(days=6)).year}"
+CZ_UPDATED = f"{_cz_dm(TODAY_D)} {TODAY_D.year}"
+CZ_DAYS = 40   # only festivals coming within this many days are "in discussion"
 
 def _cz_d(k):
     x = nxt_fest(k)
@@ -21,6 +25,30 @@ CZ_TRENDS = [
  ("देवउठनी एकादशी 2026 कब है?", "google", "{date:dev-uthani-ekadashi} को — इसी दिन भगवान विष्णु जागते हैं और शुभ काम फिर शुरू होते हैं।", "dev-uthani-ekadashi-kab-hai.html", "तारीख़ और पारण"),
  ("करवा चौथ पर चाँद कब निकलेगा?", "google", "करवा चौथ {date:karwa-chauth} को। {city:karwa-chauth}", "karwa-chauth-chand-kab-niklega.html", "अपने शहर का समय"),
 ]
+# --- keep the page fresh on every daily build ---
+# hand-written entries stay only while their festival is near; the rest is filled
+# automatically from the festival calendar (next CZ_DAYS days), nearest first.
+def _cz_near(a):
+    ks = re.findall(r"\{date:([\w-]+)\}", a)
+    return bool(ks) and all(_cz_d(k) and 0 <= (_cz_d(k) - TODAY_D).days <= CZ_DAYS for k in ks)
+CZ_TRENDS = [t for t in CZ_TRENDS if _cz_near(t[2])]
+def _cz_auto():
+    import festivals as _F
+    seen, out = {re.search(r"\{date:([\w-]+)\}", t[2]).group(1) for t in CZ_TRENDS}, []
+    for r in _F.RULES:
+        k, name, mean = r[0], r[1], r[7] if len(r) > 7 else ""
+        d = _cz_d(k)
+        if k in seen or not d or not 0 <= (d - TODAY_D).days <= CZ_DAYS: continue
+        seen.add(k)
+        page = next((h for h in (f"{k}-kab-hai.html", f"{k}.html") if h in PAGES), "tyohar-calendar.html")
+        out.append((d, k in _F.MINOR_KEYS, (f"{name.split(' (')[0]} {d.year} कब है?", "google",
+                    f"{{date:{k}}} को।" + (f" {mean}।" if mean else ""), page, "तारीख़, मुहूर्त और नियम")))
+        for suf, q, lt in (("katha", "की कथा", "पूरी कथा पढ़ें"), ("puja-vidhi", "की पूजा विधि", "पूजा विधि देखें"), ("vidhi", "की पूजा विधि", "पूजा विधि देखें")):
+            if f"{k}-{suf}.html" in PAGES:
+                out.append((d, True, (f"{name.split(' (')[0]} {q}", "google", f"{{date:{k}}} को। सरल हिंदी में, शुरू से अंत तक।", f"{k}-{suf}.html", lt)))
+    out.sort(key=lambda x: (x[0], x[1]))
+    return [t for _, _, t in out]
+CZ_TRENDS = (CZ_TRENDS + _cz_auto())[:10]
 CZ_SRC = {"google": ("🔎", "Google पर ट्रेंडिंग"), "quora": ("💬", "Quora पर चर्चा"), "pinterest": ("📌", "Pinterest पर ट्रेंड")}
 
 # our own Quora answers
@@ -88,7 +116,7 @@ def build_charcha():
         + f'<section class="cz-sec"><div class="wrap"><p class="cz-upd">अपडेट: {e(CZ_UPDATED)} · हर हफ़्ते नए ट्रेंड। ट्रेंड Google के खोज-सुझावों और Quora-Pinterest की चर्चा से चुने जाते हैं; सारी जानकारी और तस्वीरें OmKiran Bhakti की अपनी हैं।</p></div></section>'
     )
     add("abhi-charcha-mein.html", f"अभी चर्चा में — इस हफ़्ते के ट्रेंडिंग भक्ति सवाल ({CZ_WEEK}) | OmKiran Bhakti",
-        f"इस हफ़्ते सबसे ज़्यादा खोजे जा रहे भक्ति सवाल: दिवाली 2026 कब है, धनतेरस पर क्या खरीदें, छठ पूजा की तारीख़ — सीधे जवाब, Pinterest पिन्स और रोचक पौराणिक तथ्य।"[:160],
+        "इस हफ़्ते सबसे ज़्यादा खोजे जा रहे भक्ति सवाल: " + ", ".join(q.rstrip("?") for q, *_ in CZ_TRENDS[:3]) + " — सही तारीख़, मुहूर्त और पूजा विधि।",
         body, crumbs="अभी चर्चा में", ld=[faq_ld(faqs)], active="tyohar-calendar.html")
 
 def cz_home_strip():
