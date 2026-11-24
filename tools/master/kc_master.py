@@ -39,7 +39,7 @@ for ln in open(extras, encoding='utf8'):
 # OKB additions that Tryambak already has: keep the Tryambak card, give it the Hindi name and priority 1
 DUP = {'त्रिपुर सुंदरी, उदयपुर (त्रिपुरा)': 'nb-03', 'पशुपतिनाथ, काठमांडू': '07-107', 'जनकपुर — जानकी मंदिर': 'nb-06', 'गया का विष्णुपद मंदिर': '11-67',
        'शारदा पीठ, कश्मीर': '20-17', 'अष्टविनायक': '11-81', 'दुर्गा पूजा': '11-95', 'पुरी की रथ यात्रा': '20-4', 'ओणम और राजा महाबली': '20-5',
-       'गणेश चतुर्थी — सार्वजनिक उत्सव': '12-63', 'माधवदेव और बरगीत': '10-102'}
+       'गणेश चतुर्थी — सार्वजनिक उत्सव': '12-63', 'माधवदेव और बरगीत': '10-102', 'उनाकोटी के शिव शिल्प': 'na-20', 'जागेश्वर धाम': '07-77'}
 byid = {r['id']: r for r in rows}
 for r in [r for r in rows if r['title_hi'] in DUP]:
     t = byid[DUP[r['title_hi']]]; t.update(title_hi=r['title_hi'], priority=1, kind=r['kind']); rows.remove(r)
@@ -54,11 +54,24 @@ def norm(t):
 def toks(t): return [norm(w) for w in fold(t).split() if len(w) >= 4 and w not in STOP]
 def shared(a, b): return sum(1 for x in toks(a) if any(difflib.SequenceMatcher(None, x, y).ratio() >= .8 for y in toks(b)))
 FIX = {'सीता हरण': 'Abduction of Sītā', 'वेदव्यास का जन्म': 'Vyāsa born to Satyavatī', 'श्रीकृष्ण का जन्म': 'Birth of Śrī Kṛṣṇa',
-       'निंबार्काचार्य और राधा-कृष्ण उपासना': 'Nimbārka and the Dvaitādvaita', 'केदारनाथ धाम': None, 'सोमनाथ मंदिर का पुनर्निर्माण': 'Somanātha reconstruction pledged',
+       'निंबार्काचार्य और राधा-कृष्ण उपासना': 'Nimbārka and the Dvaitādvaita', 'सोमनाथ मंदिर का पुनर्निर्माण': 'Somanātha reconstruction pledged',
        'अनंत पद्मनाभस्वामी मंदिर': None, 'माँ आनंदमयी': 'Ānandamayī Mā recognised', 'काशी विश्वनाथ मंदिर': 'Kāśī Viśvanātha rebuilt by Ahilyābāī',
        'मदुरै का मीनाक्षी मंदिर': 'Madurai Nāyakas and the Mīnākṣī', 'रामानुजाचार्य — विशिष्टाद्वैत': 'Rāmānuja’s Śrī Bhāṣya',
        'स्वामी विवेकानंद — शिकागो': 'Vivekānanda at the Parliament', 'बेलूर मठ': None, 'श्री अरविंद, पुदुचेरी': 'Aurobindo arrives at Pondicherry',
-       'विद्यारण्य और विजयनगर': None}
+       'विद्यारण्य और विजयनगर': None,
+ 'सत्ययुग का आरंभ': 'Satya (Kṛta) Yuga', 'राम सेतु का निर्माण': 'Rāma Setu is built', 'वृंदावन की लीलाएँ': "Kṛṣṇa's Vraja līlā", 'श्रीकृष्ण का स्वधाम गमन': "Kṛṣṇa's departure",
+       'कलियुग का आरंभ': 'Kali Yuga begins', 'पांडवों का महाप्रस्थान': 'Mahāprasthāna', 'संत कबीर': 'Kabīr, the weaver', 'सूरदास': 'Sūrdāsa', 'संत रविदास': 'Ravidāsa',
+       'लल्लेश्वरी — लल्ल देद': 'Lallā, the Kashmiri', 'संत चोखामेला': 'Cokhāmeḷā', 'स्वामी रामानंद': 'Rāmānanda and the', 'सबरीमला के अयप्पा': 'Śabarimala and the',
+       'गुरुवायूर के श्रीकृष्ण': 'Guruvāyūr temple rises', 'कनकदास': 'Kanaka Dāsa', 'श्रीमंत शंकरदेव': 'Śaṅkaradeva born', 'घृष्णेश्वर ज्योतिर्लिंग': 'Ghṛṣṇeśvara and',
+       'हर की पौड़ी, हरिद्वार': 'Bathing fairs at Haridvāra', 'महाबलीपुरम का तट मंदिर': 'Narasiṃhavarman II builds', 'कांची का कैलाशनाथर मंदिर': 'Rājasiṃha Pallava builds',
+       'केदारनाथ धाम': "Śaṅkara's mahāsamādhi at Kedā",
+       'ऋग्वेद — सबसे प्राचीन ग्रंथ': 'Ṛgveda Saṃhitā composed', 'याज्ञवल्क्य-मैत्रेयी संवाद': 'Yājñavalkya and Maitreyī', 'पतंजलि का योगसूत्र': 'Yoga Sūtra of Patañjali',
+       'महाशिवरात्रि और एकादशी व्रत': 'Mahāśivarātri and Ekādaśī', 'नवरात्रि और शारदीय दुर्गा उत्सव': 'Navarātri and the autumn', 'अप्पर — तिरुनावुक्करसर': 'Appar (Tirunāvukkarasar)',
+       'संबंदर — बाल-संत': 'Tiruñāṉacampantar', 'माणिक्कवाचकर और तिरुवाचकम्': 'Māṇikkavācakar', 'नम्मालवार और तिरुवायमोऴि': 'Nammāḻvār', 'माधवदेव और नामघोषा': 'Mādhavadeva composes',
+       'कृत्तिवासी रामायण': 'Kṛttivāsa', 'अक्कलकोट के स्वामी समर्थ': 'Akkalkoṭ', 'बामाखेपा — तारापीठ के संत': 'Bāmākṣepā', 'मोरया गोसावी — गणेश भक्त': 'Morayā Gosāvī',
+       'जनाबाई, मुक्ताबाई और सोयराबाई': 'Janābāī', 'अक्का महादेवी': 'Akka Mahādevī', 'गुरु राघवेंद्र स्वामी, मंत्रालयम': 'Raghavendra Tīrtha enters', 'शारदा पीठ, कश्मीर': 'Śāradā Pīṭha',
+       'पशुपतिनाथ, काठमांडू': 'Paśupatinātha in Licchavi', 'द्वादश ज्योतिर्लिंग': 'Twelve jyotirliṅgas', '51 शक्तिपीठ': 'Fifty-one Śakti', 'भारत के चार धाम': 'Cār Dhām of Bhārata',
+       'गया का विष्णुपद मंदिर': 'Viṣṇupada temple', 'रथ यात्रा': 'Ratha-yātrā festivals'}
 for L in live:
     best, score = None, 0
     if L['hi'] in FIX:

@@ -14,7 +14,7 @@ a | -400000000 | गजेंद्र मोक्ष | Gajendra Moksha | Triku
 a | -200000000 | अंबरीष और सुदर्शन चक्र | Ambarisha and the Sudarshana chakra | Pan-India | 2
 a | -3891000 | हयग्रीव अवतार — वेदों की रक्षा | Hayagriva rescues the Vedas | Pan-India | 2
 s | -3800000 | सनकादि ऋषि और जय-विजय | Sanaka rishis curse Jaya-Vijaya | Vaikuntha | 2
-s | -3700000 | नारद मुनि की भक्ति | Narada, the eternal devotee | Pan-India | 1
+s | -3700000 | नारद मुनि — देवर्षि | Narada, the eternal devotee | Pan-India | 1
 s | -3000000 | सावित्री-सत्यवान | Savitri and Satyavan | Madra | 1
 s | -2900000 | नचिकेता और यम संवाद | Nachiketa and Yama | Pan-India | 1
 s | -2500000 | नल-दमयंती | Nala and Damayanti | Vidarbha | 2
@@ -140,7 +140,6 @@ u |  | थैपूसम | Thaipusam | Tamil Nadu | 2
 u |  | थेय्यम | Theyyam | Kerala | 2
 u |  | प्रयाग कुंभ / महाकुंभ | Prayag Kumbh | Prayagraj | 1
 # --- संत ---
-s | 1872 | बामाखेपा, तारापीठ | Bamakhepa of Tarapith | Bengal | 2
 s | 1900 | देवराहा बाबा | Devraha Baba | Uttar Pradesh | 2
 # --- पूर्वोत्तर / पूर्व (gap-check) ---
 t |  | श्री गोविंदजी मंदिर, इंफाल | Shri Govindajee temple, Imphal | Manipur | 1
