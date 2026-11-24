@@ -33,7 +33,21 @@ def info(files,w=330):
 def cand():
     os.makedirs('out/th',exist_ok=True); allc={}
     done=set(json.load(open('kaal-chakra/img/pick.json'))) if os.path.exists('kaal-chakra/img/pick.json') else set()
+    Q=json.load(open('tools/kc_query.json',encoding='utf8')) if os.path.exists('tools/kc_query.json') else {}
     for k,e in enumerate(events()):
+        if Q:
+            if e['slug'] not in Q: continue
+            fs=[]
+            for q in Q[e['slug']]:
+                d=api(CA,action='query',list='search',srsearch=q+' filetype:bitmap',srnamespace=6,srlimit=8)
+                fs+=[s['title'] for s in d.get('query',{}).get('search',[])]
+            seen=[];[seen.append(f) for f in fs if f not in seen]; seen=seen[:16]
+            inf=info(seen); lst=[]
+            for n,f in enumerate([f for f in seen if f in inf and inf[f]['thumb']]):
+                j=inf[f]; fn=f'out/th/{k:02d}_{n:02d}.jpg'; b=get(j['thumb'],raw=True)
+                if not b: continue
+                open(fn,'wb').write(b); j['file']=f; j['n']=n; lst.append(j)
+            allc[e['slug']]=dict(k=k,t=e['t'],w=e['w'],c=lst); print(k,e['slug'],len(lst),flush=True); continue
         if e['slug'] in done or e['c']=='n': continue
         fs=[]
         if e['w']:
