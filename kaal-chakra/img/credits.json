@@ -1214,5 +1214,205 @@
   "licurl": "",
   "artist": "Attributed to Murad and Lupha",
   "kb": 35
+ },
+ "har-ki-pauri": {
+  "file": "File:The sacred bathing ghat at Hardwar, by George Strahan.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:The_sacred_bathing_ghat_at_Hardwar,_by_George_Strahan.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Colonel George Strahan (1839 – 7 January 1911)",
+  "kb": 26
+ },
+ "elephanta-caves": {
+  "file": "File:Shiva as Ardhanarishwar, Cave 1, Elephanta Caves Maharashtra.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Shiva_as_Ardhanarishwar,_Cave_1,_Elephanta_Caves_Maharashtra.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "SpeakingArch",
+  "kb": 12
+ },
+ "badami-cave-temples": {
+  "file": "File:Cave Temple 3, Badami.JPG",
+  "desc": "https://commons.wikimedia.org/wiki/File:Cave_Temple_3,_Badami.JPG",
+  "lic": "CC BY 3.0",
+  "licurl": "https://creativecommons.org/licenses/by/3.0",
+  "artist": "Dey.sandip",
+  "kb": 27
+ },
+ "martand-sun-temple": {
+  "file": "File:Martand Sun Temple in 1873.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Martand_Sun_Temple_in_1873.jpg",
+  "lic": "CC0",
+  "licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "John Edward Saché",
+  "kb": 13
+ },
+ "abhinavagupta": {
+  "file": "File:Abhinavagupta-5.BluMLhEy.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Abhinavagupta-5.BluMLhEy.jpg",
+  "lic": "CC0",
+  "licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "Narayan Dikshit",
+  "kb": 25
+ },
+ "omkareshwar": {
+  "file": "File:Omkareshwar.JPG",
+  "desc": "https://commons.wikimedia.org/wiki/File:Omkareshwar.JPG",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Ssriram mt at English Wikipedia",
+  "kb": 41
+ },
+ "gorakhnath": {
+  "file": "File:Illustrated manuscript depiction of Gorakhnath under a tree outside his hut, ca.1715.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Illustrated_manuscript_depiction_of_Gorakhnath_under_a_tree_outside_his_hut,_ca.1715.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Unknown authorUnknown author",
+  "kb": 25
+ },
+ "amarnath": {
+  "file": "File:Painting of devotees in the Amarnath cave temple. Jammu, Pahari, circa mid-19th century.webp",
+  "desc": "https://commons.wikimedia.org/wiki/File:Painting_of_devotees_in_the_Amarnath_cave_temple._Jammu,_Pahari,_circa_mid-19th_century.webp",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Unknown authorUnknown author",
+  "kb": 49
+ },
+ "nimbarka": {
+  "file": "File:Nimbarkcharya from Kathiababa Ashram, Vrindavan (pradipta).jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Nimbarkcharya_from_Kathiababa_Ashram,_Vrindavan_(pradipta).jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Unknown authorUnknown author",
+  "kb": 29
+ },
+ "udupi-krishna": {
+  "file": "File:Udupi Sri Krishna Matha Temple.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Udupi_Sri_Krishna_Matha_Temple.jpg",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "Ashok Prabhakaran from Chennai, India",
+  "kb": 35
+ },
+ "vedanta-desika": {
+  "file": "File:Vedanta Desika 2019 stamp of India.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Vedanta_Desika_2019_stamp_of_India.jpg",
+  "lic": "GODL-India",
+  "licurl": "https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf",
+  "artist": "India Post, Government of India",
+  "kb": 8
+ },
+ "chokhamela": {
+  "file": "File:Chokhamela Samadhi, Pandharpur.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Chokhamela_Samadhi,_Pandharpur.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "AviSonkar",
+  "kb": 37
+ },
+ "vidyaranya": {
+  "file": "File:Harihara and Bukka meeting Vidyaranya.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Harihara_and_Bukka_meeting_Vidyaranya.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Unknown authorUnknown author",
+  "kb": 22
+ },
+ "swami-haridas": {
+  "file": "File:Akbar and Tansen visit Haridas.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Akbar_and_Tansen_visit_Haridas.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "unknown painter in Rajasthani miniature style",
+  "kb": 69
+ },
+ "dadu-dayal": {
+  "file": "File:Painting of Dadu Dayal displayed within the sanctum sanctorum of the Dadu Vani Temple in Amber (Amer), Jaipur district, Rajasthan, India.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Painting_of_Dadu_Dayal_displayed_within_the_sanctum_sanctorum_of_the_Dadu_Vani_Temple_in_Amber_(Amer),_Jaipur_district,_Rajasthan,_India.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Unknown authorUnknown author",
+  "kb": 44
+ },
+ "raskhan": {
+  "file": "File:Tomb of Raskhan at Mahaban.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Tomb_of_Raskhan_at_Mahaban.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Suyash Dwivedi",
+  "kb": 28
+ },
+ "govind-dev-temple": {
+  "file": "File:Govind Dev temple at vrindavan from entrance.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Govind_Dev_temple_at_vrindavan_from_entrance.jpg",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Meenakshi Sundaram",
+  "kb": 18
+ },
+ "nathdwara-shrinathji": {
+  "file": "File:Krishna as Shrinathji, a 19th-century watercolor in Nathdwara style.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Krishna_as_Shrinathji,_a_19th-century_watercolor_in_Nathdwara_style.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Unknown authorUnknown author",
+  "kb": 24
+ },
+ "bhadrachalam": {
+  "file": "File:Sri sita rama temple bhadrachalam temple view best.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Sri_sita_rama_temple_bhadrachalam_temple_view_best.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "WithShivaram",
+  "kb": 31
+ },
+ "khatu-shyam": {
+  "file": "File:Shree Shree Khatu Shyam Temple.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Shree_Shree_Khatu_Shyam_Temple.jpg",
+  "lic": "CC BY 4.0",
+  "licurl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "SayandeepDutta",
+  "kb": 35
+ },
+ "ramprasad-sen": {
+  "file": "File:Ramaprasad Sen.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Ramaprasad_Sen.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "The original uploader was Jonoikobangali at Bangla Wikipedia.",
+  "kb": 13
+ },
+ "salasar-balaji": {
+  "file": "File:Salasar Balaji.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Salasar_Balaji.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Urvashi9",
+  "kb": 79
+ },
+ "dakshineswar-kali-temple": {
+  "file": "File:Dakshineswar Kali Temple, a navaratna temple located at Dakshineswar.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Dakshineswar_Kali_Temple,_a_navaratna_temple_located_at_Dakshineswar.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "eclicks_by_bunny",
+  "kb": 33
+ },
+ "belur-math": {
+  "file": "File:Belur Math shot from the side.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Belur_Math_shot_from_the_side.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Ravi Dwivedi",
+  "kb": 23
+ },
+ "lahiri-mahasaya": {
+  "file": "File:Lahiri Mahasaya.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Lahiri_Mahasaya.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "AnonymousUnknown author",
+  "kb": 21
  }
 }
