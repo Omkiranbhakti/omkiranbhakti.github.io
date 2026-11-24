@@ -1,0 +1,154 @@
+# OKB additions (not in Tryambak). kind | year | हिंदी नाम | English | region | priority
+# --- पुराण-इतिहास कथाएँ ---
+sh | -1790000000 | शिव-पार्वती विवाह | Marriage of Shiva and Parvati | Himalaya | 1
+sh | -1789000000 | गणेश जन्म और प्रथम पूज्य | Birth of Ganesha, the first-worshipped | Kailash | 1
+sh | -1788000000 | कार्तिकेय और तारकासुर वध | Kartikeya slays Tarakasura | Pan-India | 1
+sh | -1700000000 | त्रिपुरासुर वध — त्रिपुरारी शिव | Shiva destroys Tripura | Pan-India | 1
+sh | -1600000000 | महिषासुर मर्दिनी दुर्गा | Durga slays Mahishasura | Pan-India | 1
+sh | -1590000000 | शुंभ-निशुंभ वध और चंडी | Chandi slays Shumbha-Nishumbha | Pan-India | 1
+sh | -1000000000 | मार्कंडेय और महामृत्युंजय | Markandeya saved from Yama | Pan-India | 1
+sh | -900000000 | कामदेव दहन | Shiva burns Kamadeva | Himalaya | 2
+sh | -800000000 | अर्धनारीश्वर रूप | Ardhanarishvara form | Pan-India | 2
+sh | -700000000 | लिंगोद्भव — अनंत ज्योति-स्तंभ | Lingodbhava, the endless pillar of light | Arunachala | 1
+a | -400000000 | गजेंद्र मोक्ष | Gajendra Moksha | Trikuta | 1
+a | -200000000 | अंबरीष और सुदर्शन चक्र | Ambarisha and the Sudarshana chakra | Pan-India | 2
+a | -3891000 | हयग्रीव अवतार — वेदों की रक्षा | Hayagriva rescues the Vedas | Pan-India | 2
+s | -3800000 | सनकादि ऋषि और जय-विजय | Sanaka rishis curse Jaya-Vijaya | Vaikuntha | 2
+s | -3700000 | नारद मुनि की भक्ति | Narada, the eternal devotee | Pan-India | 1
+s | -3000000 | सावित्री-सत्यवान | Savitri and Satyavan | Madra | 1
+s | -2900000 | नचिकेता और यम संवाद | Nachiketa and Yama | Pan-India | 1
+s | -2500000 | नल-दमयंती | Nala and Damayanti | Vidarbha | 2
+s | -2200000 | अत्रि-अनसूया और दत्तात्रेय जन्म | Atri, Anasuya and the birth of Dattatreya | Chitrakoot | 1
+r | -2000000 | हनुमान जन्म | Birth of Hanuman | Kishkindha | 1
+r | -869190 | अहल्या उद्धार | Rama frees Ahalya | Mithila | 1
+r | -869175 | केवट प्रसंग | Kevat ferries Rama | Shringverpur | 1
+r | -869172 | भरत मिलाप और चरण-पादुका | Bharat meets Rama, the padukas | Chitrakoot | 1
+r | -869163.5 | जटायु का बलिदान | Jatayu's sacrifice | Panchavati | 1
+r | -869163.2 | शबरी के बेर | Shabari's berries | Pampa | 1
+r | -869163.1 | राम-हनुमान मिलन और सुग्रीव मैत्री | Rama meets Hanuman; friendship with Sugriva | Kishkindha | 1
+r | -869161 | लक्ष्मण शक्ति और संजीवनी | Lakshmana revived by Sanjivani | Lanka | 1
+r | -869159 | लव-कुश | Lava and Kusha | Valmiki ashram | 1
+k | -3227 | पूतना वध और माखन चोर लीला | Putana and the butter thief | Gokul | 1
+k | -3224 | कालिय नाग दमन | Krishna subdues Kaliya | Vrindavan | 1
+k | -3223 | गोवर्धन लीला | Krishna lifts Govardhan | Braj | 1
+k | -3222 | महारास | The Maharas | Vrindavan | 1
+k | -3199 | रुक्मिणी हरण | Krishna and Rukmini | Vidarbha | 1
+k | -3190 | सुदामा मिलन | Sudama meets Krishna | Dwarka | 1
+k | -3189 | स्यमंतक मणि और जाम्बवंत | Syamantaka jewel and Jambavan | Dwarka | 2
+m | -3180 | एकलव्य की गुरु-दक्षिणा | Ekalavya's guru-dakshina | Kuru | 1
+m | -3170 | लाक्षागृह | The house of lac | Varanavat | 2
+m | -3141 | यक्ष प्रश्न | Yaksha's questions to Yudhishthira | Dwaitavan | 1
+m | -3138.5 | कर्ण का कवच-कुंडल दान | Karna gives away his armour | Hastinapur | 1
+m | -3137.95 | अभिमन्यु और चक्रव्यूह | Abhimanyu and the Chakravyuha | Kurukshetra | 1
+m | -3137.92 | विष्णु सहस्रनाम — भीष्म का उपदेश | Bhishma teaches the Vishnu Sahasranama | Kurukshetra | 1
+# --- ज्योतिर्लिंग / धाम / सप्तपुरी ---
+t |  | नागेश्वर ज्योतिर्लिंग | Nageshwar Jyotirlinga | Gujarat | 1
+t |  | यमुनोत्री धाम | Yamunotri Dham | Uttarakhand | 1
+t |  | चित्रकूट — कामदगिरि | Chitrakoot, Kamadgiri | Bundelkhand | 1
+t |  | पुष्कर का ब्रह्मा मंदिर | Brahma temple, Pushkar | Rajasthan | 1
+t |  | मथुरा — श्रीकृष्ण जन्मभूमि | Krishna Janmabhoomi, Mathura | Braj | 1
+t |  | बरसाना — श्री राधा रानी मंदिर | Radha Rani temple, Barsana | Braj | 1
+t |  | गोवर्धन परिक्रमा | Govardhan parikrama | Braj | 1
+t |  | गया का विष्णुपद मंदिर | Vishnupad temple, Gaya | Bihar | 1
+t |  | जनकपुर — जानकी मंदिर | Janaki temple, Janakpur | Nepal | 1
+t |  | पशुपतिनाथ, काठमांडू | Pashupatinath, Kathmandu | Nepal | 1
+t |  | मुक्तिनाथ | Muktinath | Nepal | 2
+t |  | गिरनार — दत्तात्रेय शिखर | Girnar, Dattatreya peak | Gujarat | 1
+t |  | पंचकेदार | Panch Kedar | Uttarakhand | 2
+t |  | अयोध्या का हनुमानगढ़ी | Hanumangarhi, Ayodhya | Ayodhya | 1
+t |  | काशी का संकटमोचन हनुमान | Sankat Mochan, Varanasi | Kashi | 1
+# --- शक्तिपीठ / देवी ---
+t |  | कांची कामाक्षी | Kamakshi, Kanchipuram | Tamil Nadu | 1
+t |  | ज्वालामुखी शक्तिपीठ | Jwalamukhi Shaktipeeth | Himachal | 1
+t |  | नैना देवी | Naina Devi | Himachal | 1
+t |  | चिंतपूर्णी | Chintpurni | Himachal | 2
+t |  | विंध्यवासिनी, मिर्ज़ापुर | Vindhyavasini, Mirzapur | Uttar Pradesh | 1
+t |  | अंबाजी शक्तिपीठ | Ambaji Shaktipeeth | Gujarat | 1
+t |  | पावागढ़ की महाकाली | Mahakali, Pavagadh | Gujarat | 1
+t |  | कोल्हापुर की महालक्ष्मी | Mahalakshmi, Kolhapur | Maharashtra | 1
+t |  | तुलजापुर की तुलजा भवानी | Tulja Bhavani, Tuljapur | Maharashtra | 1
+t |  | माहुर की रेणुका देवी | Renuka, Mahur | Maharashtra | 2
+t |  | सप्तश्रृंगी देवी, वणी | Saptashrungi, Vani | Maharashtra | 2
+t |  | हिंगलाज माता | Hinglaj Mata | Balochistan | 1
+t |  | शारदा पीठ, कश्मीर | Sharada Peeth | Kashmir | 1
+t |  | क्षीर भवानी, तुलमुल | Kheer Bhawani, Tulmul | Kashmir | 1
+t |  | ढाकेश्वरी, ढाका | Dhakeshwari, Dhaka | Bangladesh | 2
+t |  | तारापीठ | Tarapith | Bengal | 1
+t |  | कन्याकुमारी — देवी कुमारी | Devi Kumari, Kanyakumari | Tamil Nadu | 1
+t |  | मूकाम्बिका, कोल्लूर | Mookambika, Kollur | Karnataka | 1
+t |  | चामुंडेश्वरी, मैसूर | Chamundeshwari, Mysuru | Karnataka | 1
+t |  | शृंगेरी की शारदांबा | Sharadamba, Sringeri | Karnataka | 1
+t |  | अट्टुकल भगवती | Attukal Bhagavathy | Kerala | 2
+t |  | चोट्टानिक्कारा भगवती | Chottanikkara Bhagavathy | Kerala | 2
+t |  | त्रिपुर सुंदरी, उदयपुर (त्रिपुरा) | Tripura Sundari, Udaipur | Tripura | 1
+t |  | बिरजा देवी, जाजपुर | Biraja, Jajpur | Odisha | 2
+t |  | करणी माता, देशनोक | Karni Mata, Deshnoke | Rajasthan | 2
+t |  | मनसा देवी, हरिद्वार | Mansa Devi, Haridwar | Uttarakhand | 2
+t |  | कालका जी, दिल्ली | Kalkaji, Delhi | Delhi | 2
+t |  | छिन्नमस्तिका, रजरप्पा | Chhinnamastika, Rajrappa | Jharkhand | 2
+t |  | माँ शारदा, मैहर | Sharada Mata, Maihar | Madhya Pradesh | 1
+t |  | दंतेश्वरी, दंतेवाड़ा | Danteshwari, Dantewada | Chhattisgarh | 2
+# --- गणेश / मुरुगन / दक्षिण ---
+t |  | अष्टविनायक | Ashtavinayak | Maharashtra | 1
+t |  | पलनी के दंडायुधपाणि | Palani Murugan | Tamil Nadu | 1
+t |  | तिरुचेंदूर मुरुगन | Tiruchendur Murugan | Tamil Nadu | 1
+t |  | स्वामीमलै, तिरुत्तणी, तिरुप्परंकुंड्रम, पळमुदिरचोलै | Other Arupadai Veedu of Murugan | Tamil Nadu | 2
+t |  | अरुणाचलेश्वर, तिरुवण्णामलै | Arunachaleshwara, Tiruvannamalai | Tamil Nadu | 1
+t |  | श्रीकालहस्ती | Srikalahasti | Andhra | 1
+t |  | जम्बुकेश्वर, तिरुवनैकावल | Jambukeswarar, Thiruvanaikaval | Tamil Nadu | 2
+t |  | सिंहाचलम के वराह-नृसिंह | Simhachalam Varaha-Narasimha | Andhra | 1
+t |  | अहोबिलम के नव नृसिंह | Nava Narasimha, Ahobilam | Andhra | 1
+t |  | यादगिरिगुट्टा नृसिंह | Yadagirigutta Narasimha | Telangana | 2
+t |  | श्रीविल्लिपुत्तूर | Srivilliputhur | Tamil Nadu | 2
+t |  | कुंभकोणम और महामहम | Kumbakonam and Mahamaham | Tamil Nadu | 1
+t |  | नवग्रह मंदिर, तमिलनाडु | Navagraha temples, Tamil Nadu | Tamil Nadu | 2
+t |  | गोकर्ण महाबलेश्वर | Gokarna Mahabaleshwar | Karnataka | 1
+t |  | धर्मस्थल मंजुनाथ | Dharmasthala Manjunatha | Karnataka | 2
+t |  | कुक्के सुब्रह्मण्य | Kukke Subramanya | Karnataka | 2
+t |  | वैकोम महादेव | Vaikom Mahadeva | Kerala | 2
+t |  | अन्नवरम सत्यनारायण | Annavaram Satyanarayana | Andhra | 2
+# --- पूर्व / पूर्वोत्तर / पश्चिम / उत्तर लोक-आस्था ---
+t |  | मेहंदीपुर बालाजी | Mehandipur Balaji | Rajasthan | 1
+t |  | रामदेवरा — बाबा रामदेव | Ramdevra, Baba Ramdev | Rajasthan | 1
+t |  | तेजाजी और गोगाजी | Tejaji and Gogaji | Rajasthan | 2
+t |  | जेजुरी के खंडोबा | Khandoba, Jejuri | Maharashtra | 1
+t |  | शनि शिंगणापुर | Shani Shingnapur | Maharashtra | 1
+t |  | गाणगापुर — दत्त | Ganagapur Datta | Karnataka | 2
+t |  | जागेश्वर धाम | Jageshwar Dham | Uttarakhand | 1
+t |  | गोलू देवता, चितई | Golu Devta, Chitai | Uttarakhand | 2
+t |  | तुंगनाथ | Tungnath | Uttarakhand | 2
+t |  | बाबा बालक नाथ | Baba Balak Nath | Himachal | 2
+t |  | मणिमहेश कैलाश | Manimahesh Kailash | Himachal | 2
+t |  | ब्रज की रासलीला और ठाकुर राधारमण | Radharaman temple, Vrindavan | Braj | 2
+t |  | उमानंद, गुवाहाटी | Umananda, Guwahati | Assam | 2
+t |  | माजुली के सत्र | Sattras of Majuli | Assam | 1
+t |  | तारकेश्वर | Tarakeswar | Bengal | 2
+t |  | गंगासागर | Gangasagar | Bengal | 1
+t |  | बासुकीनाथ धाम | Basukinath | Jharkhand | 2
+# --- पर्व ---
+u |  | छठ महापर्व | Chhath Mahaparv | Bihar | 1
+u |  | पोंगल / मकर संक्रांति | Pongal / Makar Sankranti | Pan-India | 1
+u |  | बिहू | Bihu | Assam | 1
+u |  | ओणम और राजा महाबली | Onam and King Mahabali | Kerala | 1
+u |  | दुर्गा पूजा | Durga Puja | Bengal | 1
+u |  | गणेश चतुर्थी — सार्वजनिक उत्सव | Ganesh Chaturthi public festival | Maharashtra | 1
+u |  | पुरी की रथ यात्रा | Rath Yatra, Puri | Odisha | 1
+u |  | पंढरपुर की वारी | Pandharpur Wari | Maharashtra | 1
+u |  | कांवड़ यात्रा | Kanwar Yatra | North India | 1
+u |  | मैसूर दशहरा | Mysuru Dasara | Karnataka | 2
+u |  | थैपूसम | Thaipusam | Tamil Nadu | 2
+u |  | थेय्यम | Theyyam | Kerala | 2
+u |  | प्रयाग कुंभ / महाकुंभ | Prayag Kumbh | Prayagraj | 1
+# --- संत ---
+s | 1872 | बामाखेपा, तारापीठ | Bamakhepa of Tarapith | Bengal | 2
+s | 1900 | देवराहा बाबा | Devraha Baba | Uttar Pradesh | 2
+# --- पूर्वोत्तर / पूर्व (gap-check) ---
+t |  | श्री गोविंदजी मंदिर, इंफाल | Shri Govindajee temple, Imphal | Manipur | 1
+u |  | मणिपुरी रास लीला | Manipuri Ras Leela | Manipur | 1
+t |  | परशुराम कुंड | Parashuram Kund | Arunachal Pradesh | 1
+t |  | मालिनीथान | Malinithan | Arunachal Pradesh | 2
+t |  | उनाकोटी के शिव शिल्प | Unakoti rock carvings of Shiva | Tripura | 1
+t |  | हाजो का हयग्रीव माधव मंदिर | Hayagriva Madhava temple, Hajo | Assam | 2
+t |  | नवग्रह मंदिर, गुवाहाटी | Navagraha temple, Guwahati | Assam | 2
+s |  | माधवदेव और बरगीत | Madhavdev and the Borgeet | Assam | 1
+t |  | साक्षी गोपाल और माँ तारिणी | Sakshi Gopal and Maa Tarini | Odisha | 2
