@@ -103,7 +103,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:ce
  #card{left:28px;right:auto;width:min(420px,38vw);top:50%!important;transform:translateY(-50%)}
  #card.sw{animation:none}
  #pic{height:240px;max-height:none}
- #ds{-webkit-line-clamp:4}
+ #card #ds{-webkit-line-clamp:4;min-height:6.2em}
 }
 .t-h{background:#4fd09c26;color:#8be8c2}
 #tb{position:fixed;left:50%;transform:translateX(-50%);bottom:30px;z-index:6;display:flex;gap:4px;padding:4px;border-radius:999px;background:#000a;border:1px solid #f0c25e33;backdrop-filter:blur(6px)}
@@ -117,7 +117,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:ce
 #lf{padding:10px 14px 16px;text-align:center;font-size:.85rem;flex:none}#lf a{color:var(--gold)}
 .zm #yn,.zm #hintd{opacity:0!important}
 @media(min-width:900px) and (min-aspect-ratio:11/10){#tb,#fp{left:auto;right:18px;transform:none}}
-</style>
+#pic{background:#1a1020!important;overflow:hidden}#pbg{position:absolute;inset:-24px;background:center/cover no-repeat;filter:blur(18px) saturate(1.2) brightness(.5)}#pim{position:relative;display:block;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .45s;filter:drop-shadow(0 6px 18px #000a)}#pic .fb{z-index:0}#pic:after{z-index:1}#src{font-size:.74rem;color:#c9b693;border-left:2px solid #e9c46a;padding:2px 8px;margin:6px 0 2px;line-height:1.5}#src b{color:#e9c46a;font-weight:600}.shimg{object-fit:contain!important;max-height:340px!important;background:#0006}.t-e{background:#5aa9ff26;color:#a9d0ff}#yn{display:none!important}#ttl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#card .meta{flex-wrap:nowrap;overflow:hidden;white-space:nowrap}#ds{min-height:3.1em}#src{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;min-height:1.5em}</style>
 </head>
 <body>
 <canvas id="gl"></canvas>
@@ -131,11 +131,11 @@ header{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:ce
 <nav id="yc"></nav>
 
 <div id="card">
- <div id="pic"><div class="fb" id="fb"></div><span class="yb" id="yb"></span><a class="cr" id="cr" target="_blank" rel="noopener"></a></div>
+ <div id="pic"><div id="pbg"></div><img id="pim" alt=""><div class="fb" id="fb"></div><span class="yb" id="yb"></span><a class="cr" id="cr" target="_blank" rel="noopener"></a></div>
  <div class="cb">
   <h2 id="ttl" class="ttl"></h2>
   <div class="meta" id="meta"></div>
-  <p id="ds"></p>
+  <p id="ds"></p><div id="src"></div>
   <div class="crow"><button class="pri" id="bRead">📖 पूरी कथा</button><a id="bWa" target="_blank" rel="noopener">📲 भेजें</a></div>
  </div>
 </div>
@@ -186,16 +186,16 @@ function yk(y){if(y===NOW)return'aaj';if(y<-3891102)return'adi';if(y<-2163102)re
 const D=[
 [-1972949101,'c','श्वेत वराह कल्प का आरंभ','ब्रह्मांड','पुराणों के अनुसार एक कल्प ब्रह्मा जी का एक दिन है — 432 करोड़ वर्ष। वर्तमान कल्प वराह भगवान के नाम पर है, और हम इसके सातवें मन्वंतर में जी रहे हैं।','विष्णु','kalp varah',"Brahma"],
 [-1972000000,'a','वराह अवतार — पृथ्वी का उद्धार','ब्रह्मांड','हिरण्याक्ष पृथ्वी को रसातल में ले गया। भगवान विष्णु ने वराह रूप धरकर उसका वध किया और भूदेवी को अपने दाँतों पर उठाकर फिर स्थापित किया।','विष्णु','varah avatar vishnu',"Varaha"],
-[-1900000000,'v','स्वायंभुव मनु — पहले मनु','ब्रह्मावर्त','ब्रह्मा जी से उत्पन्न पहले मनु और शतरूपा से मानव वंश चला। इन्हीं के पुत्र उत्तानपाद और प्रियव्रत थे।','विष्णु','manu',"Svayambhuva Manu"],
+[-1971221000,'v','स्वायंभुव मनु — पहले मनु','ब्रह्मावर्त','ब्रह्मा जी से उत्पन्न पहले मनु और शतरूपा से मानव वंश चला। इन्हीं के पुत्र उत्तानपाद और प्रियव्रत थे।','विष्णु','manu',"Svayambhuva Manu"],
 [-1850000000,'s','ध्रुव की तपस्या — ध्रुव तारा','मधुवन','सौतेली माँ के अपमान से आहत बालक ध्रुव ने मधुवन में कठोर तप किया। प्रसन्न होकर नारायण ने उन्हें अटल ध्रुव-पद दिया — आज का ध्रुव तारा।','विष्णु','dhruv tara',"Dhruva"],
 [-1800000000,'sh','दक्ष यज्ञ और सती का देह-त्याग','कनखल','दक्ष ने यज्ञ में महादेव का अपमान किया तो सती ने योगाग्नि में देह त्याग दी। वीरभद्र ने यज्ञ ध्वस्त किया; सती के अंग जहाँ गिरे, वहाँ शक्तिपीठ बने।','शिव','sati daksh shiv shaktipeeth',"Daksha yajna"],
 [-1700000000,'v','राजा पृथु और पृथ्वी का दोहन','ब्रह्मावर्त','पृथ्वी ने अन्न छिपा लिया तो राजा पृथु ने उसे गाय रूप में दुहकर अन्न और औषधियाँ प्राप्त कीं। उन्हीं के नाम से धरती "पृथ्वी" कहलाई।','विष्णु','prithu',"Prithu"],
-[-500000000,'a','समुद्र मंथन और कूर्म अवतार','क्षीर सागर','देवों और असुरों ने मंदराचल को मथानी और वासुकि को रस्सी बनाकर क्षीर सागर मथा। कूर्म भगवान ने पर्वत पीठ पर संभाला और चौदह रत्न निकले।','विष्णु','samudra manthan kurma',"Samudra manthan"],
-[-499999000,'sh','महादेव बने नीलकंठ','क्षीर सागर','मंथन से निकले हलाहल विष से सृष्टि जलने लगी। महादेव ने विष पीकर कंठ में रोक लिया और नीलकंठ कहलाए।','शिव','neelkanth shiv',"Halahala"],
-[-499998000,'a','मोहिनी अवतार और कुंभ की कथा','प्रयाग, हरिद्वार, उज्जैन, नासिक','विष्णु ने मोहिनी रूप में देवताओं को अमृत पिलाया। अमृत-कलश की बूँदें जिन चार स्थानों पर गिरीं, वहीं आज कुंभ मेला लगता है।','कुंभ','mohini kumbh',"Mohini"],
+[-300000000,'a','समुद्र मंथन और कूर्म अवतार','क्षीर सागर','देवों और असुरों ने मंदराचल को मथानी और वासुकि को रस्सी बनाकर क्षीर सागर मथा। कूर्म भगवान ने पर्वत पीठ पर संभाला और चौदह रत्न निकले।','विष्णु','samudra manthan kurma',"Samudra manthan"],
+[-299999000,'sh','महादेव बने नीलकंठ','क्षीर सागर','मंथन से निकले हलाहल विष से सृष्टि जलने लगी। महादेव ने विष पीकर कंठ में रोक लिया और नीलकंठ कहलाए।','शिव','neelkanth shiv',"Halahala"],
+[-299998000,'a','मोहिनी अवतार और कुंभ की कथा','प्रयाग, हरिद्वार, उज्जैन, नासिक','विष्णु ने मोहिनी रूप में देवताओं को अमृत पिलाया। अमृत-कलश की बूँदें जिन चार स्थानों पर गिरीं, वहीं आज कुंभ मेला लगता है।','कुंभ','mohini kumbh',"Mohini"],
+[-120533200,'a','मत्स्य अवतार और महाप्रलय','हिमालय','प्रलय के जल में भगवान मत्स्य ने मनु की नाव को अपने सींग से बाँधकर बचाया और वेदों व सप्तर्षियों की रक्षा की।','विष्णु','matsya avatar',"Matsya"],
 [-120533102,'c','वैवस्वत मन्वंतर का आरंभ','ब्रह्मांड','सातवें मनु, वैवस्वत मनु का काल शुरू हुआ। यही वर्तमान मन्वंतर है।','विष्णु','manvantar',"Vaivasvata Manu"],
-[-120533000,'a','मत्स्य अवतार और महाप्रलय','हिमालय','प्रलय के जल में भगवान मत्स्य ने मनु की नाव को अपने सींग से बाँधकर बचाया और वेदों व सप्तर्षियों की रक्षा की।','विष्णु','matsya avatar',"Matsya"],
-[-120000000,'v','इक्ष्वाकु और सूर्यवंश','अयोध्या','वैवस्वत मनु के पुत्र इक्ष्वाकु अयोध्या के पहले राजा बने। इसी सूर्यवंश में आगे हरिश्चंद्र, भगीरथ और श्रीराम हुए।','राम','ikshvaku suryavansh',"Ikshvaku"],
+[-120000000,'v','इक्ष्वाकु और सूर्यवंश','अयोध्या','वैवस्वत मनु ने अयोध्या बसाई और उनके पुत्र इक्ष्वाकु से सूर्यवंश चला। इसी वंश में आगे हरिश्चंद्र, भगीरथ और श्रीराम हुए।','राम','ikshvaku suryavansh',"Ikshvaku"],
 [-119990000,'v','पुरूरवा और चंद्रवंश','प्रतिष्ठान (प्रयाग)','बुध और इला के पुत्र पुरूरवा से चंद्रवंश चला। इसी वंश में यदु, कुरु, पांडव और श्रीकृष्ण हुए।','कृष्ण','pururava chandravansh',"Pururavas"],
 [-3891102,'c','सत्ययुग का आरंभ','भारतवर्ष','वर्तमान 28वें महायुग का पहला युग। धर्म चारों चरणों पर खड़ा था — सत्य, तप, दया और दान।','विष्णु','satyug',"Satya Yuga"],
 [-3500000,'a','नृसिंह अवतार — प्रह्लाद की रक्षा','अहोबिलम (परंपरा)','हिरण्यकशिपु ने भक्त प्रह्लाद को मारना चाहा। भगवान खंभे से नृसिंह रूप में प्रकट हुए और संध्या के समय देहरी पर उसका वध किया।','नृसिंह','narsingh prahlad holi',"Narasimha"],
@@ -346,7 +346,7 @@ const fmt=n=>Math.round(n).toLocaleString('en-IN');
 function dlabel(y){const a=2026-y;if(y===NOW)return'2026 ई.';
  if(y<0){if(a>=1e7)return'लगभग '+(+(a/1e7).toFixed(1))+' करोड़ वर्ष पूर्व';if(a>=1e5)return'लगभग '+(+(a/1e5).toFixed(1))+' लाख वर्ष पूर्व';return'ई.पू. '+fmt(-y)}
  return fmt(y)+' ई.'}
-function tclass(e){return e.c==='n'?['n','आज']:e.c==='u'?['u','निर्धारित']:e.y>NOW?['b','भविष्यवाणी']:(e.y>0||((e.c==='s'||e.c==='t')&&e.y>-600))?['h','ऐतिहासिक']:['p','पारंपरिक']}
+function tclass(e){return e.c==='n'?['n','आज']:e.c==='u'?['u','निर्धारित']:e.y>NOW?['b','भविष्यवाणी']:(e.c==='s'||e.c==='t')&&e.y>-600&&e.y<1500?['e','अनुमानित']:e.y>0||e.c==='s'||e.c==='t'?['h','ऐतिहासिक']:['p','पारंपरिक']}
 const $=s=>document.querySelector(s);
 const LS={get(k){try{return localStorage.getItem(k)}catch(_){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(_){}}};
 
@@ -420,40 +420,71 @@ function glowTex(){const c=document.createElement('canvas');c.width=c.height=128
 const GT=glowTex();
 function textTex(t,size,color,w=512,h=128){const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');x.font=size+'px "Tiro Devanagari Hindi", serif';x.textAlign='center';x.textBaseline='middle';
  x.shadowColor=color;x.shadowBlur=18;x.fillStyle=color;x.fillText(t,w/2,h/2+4);const tx=new THREE.CanvasTexture(c);return tx}
-// rims
-spin.add(new THREE.Mesh(new THREE.TorusGeometry(R,.38,20,160),gold));
-spin.add(new THREE.Mesh(new THREE.TorusGeometry(R*1.035,.09,10,160),gold2));
-spin.add(new THREE.Mesh(new THREE.TorusGeometry(R*.8,.16,14,140),gold));
-spin.add(new THREE.Mesh(new THREE.TorusGeometry(R*.24,.32,16,80),gold));
-spin.add(new THREE.Mesh(new THREE.TorusGeometry(R*.13,.18,12,60),gold2));
-// rim studs
-for(let i=0;i<48;i++){const a=i/48*Math.PI*2,m=new THREE.Mesh(new THREE.SphereGeometry(i%2?.13:.2,10,8),gold);m.position.set(Math.cos(a)*R*1.0,Math.sin(a)*R*1.0,.35);spin.add(m)}
-// 24 spokes (Konark style)
-for(let i=0;i<24;i++){const a=i/24*Math.PI*2,len=R*.56,g=new THREE.Group();
- const sp=new THREE.Mesh(new THREE.CylinderGeometry(i%2?.07:.12,i%2?.1:.17,len,10),i%2?gold2:gold);sp.position.y=R*.24+len/2;g.add(sp);
- const kn=new THREE.Mesh(new THREE.SphereGeometry(i%2?.14:.22,12,10),gold);kn.position.y=R*.52;g.add(kn);
- g.rotation.z=a;spin.add(g)}
-// lotus (counter-rotates slowly)
-const lotus=new THREE.Group();root.add(lotus);
-const ps=new THREE.Shape();ps.moveTo(0,.4);ps.quadraticCurveTo(.75,1.6,0,2.4);ps.quadraticCurveTo(-.75,1.6,0,.4);
-const pg=new THREE.ShapeGeometry(ps,12),pm=new THREE.MeshBasicMaterial({color:0xffb347,transparent:true,opacity:.55,side:THREE.DoubleSide,blending:THREE.AdditiveBlending,depthWrite:false});
-for(let i=0;i<12;i++){const m=new THREE.Mesh(pg,pm);m.rotation.z=i/12*Math.PI*2;m.position.z=.05;lotus.add(m)}
-const pm2=pm.clone();pm2.opacity=.35;for(let i=0;i<12;i++){const m=new THREE.Mesh(pg,pm2);m.scale.setScalar(.62);m.rotation.z=(i+.5)/12*Math.PI*2;m.position.z=.1;lotus.add(m)}
-const omS=new THREE.Sprite(new THREE.SpriteMaterial({map:textTex('ॐ',96,'#ffd27a',256,128),transparent:true,depthWrite:false}));omS.scale.set(4,2,1);omS.position.z=1.2;root.add(omS);
-const hubGlow=new THREE.Sprite(new THREE.SpriteMaterial({map:GT,color:0xffb050,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.55}));hubGlow.scale.set(9,9,1);hubGlow.position.z=.4;root.add(hubGlow);
+// ---------- mandala wheel (layered 3D) ----------
+// layer per kind: [radius factor, height]
+const LAY={c:[.93,.42],a:[.93,.42],sh:[.93,.42],b:[.93,.42],n:[.93,.42],u:[.83,.3],r:[.83,.3],k:[.83,.3],m:[.83,.3],v:[.73,.18],s:[.73,.18],t:[.63,.07]};
+const thin=(r,z,op)=>{const m=new THREE.Mesh(new THREE.TorusGeometry(r,.035,6,200),new THREE.MeshBasicMaterial({color:0xe9c46a,transparent:true,opacity:op}));m.position.z=z;spin.add(m);return m};
+// glass plates + gold rings for each layer
+[[.93,.42],[.83,.3],[.73,.18],[.63,.07]].forEach(([f,z],i)=>{thin(R*f,z,.55);
+ const pl2=new THREE.Mesh(new THREE.RingGeometry(R*(f-.045),R*(f+.045),160),new THREE.MeshBasicMaterial({color:0xe9c46a,transparent:true,opacity:.045,side:THREE.DoubleSide,depthWrite:false}));pl2.position.z=z;spin.add(pl2)});
+// outer rim: double gold ring + 72 ticks
+thin(R*1.105,0,.7);thin(R*1.13,0,.35);
+for(let i=0;i<72;i++){const a=i/72*Math.PI*2,l=i%3?.22:.5,m=new THREE.Mesh(new THREE.BoxGeometry(.04,l,.04),gold);m.position.set(Math.cos(a)*(R*1.105+l/2),Math.sin(a)*(R*1.105+l/2),0);m.rotation.z=a-Math.PI/2;spin.add(m)}
 // yuga arcs + labels
 const ranges=[];E.forEach((e,i)=>{const l=ranges[ranges.length-1];if(l&&l.k===e.yk)l.e=i;else ranges.push({k:e.yk,s:i,e:i})});
 const ang=i=>Math.PI/2-i*STEP;
 ranges.forEach(rg=>{const y=YG(rg.k),col=new THREE.Color(y[2]);const ts=ang(rg.e+.5),tl=(rg.e-rg.s+1)*STEP;
- const m=new THREE.Mesh(new THREE.RingGeometry(R*.83,R*.97,Math.max(8,Math.ceil(tl*40)),1,ts,tl),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.42,side:THREE.DoubleSide,depthWrite:false}));m.position.z=-.05;spin.add(m);
- const sep=new THREE.Mesh(new THREE.BoxGeometry(.08,R*.16,.3),gold);const a0=ang(rg.s-.5);sep.position.set(Math.cos(a0)*R*.9,Math.sin(a0)*R*.9,0);sep.rotation.z=a0-Math.PI/2;spin.add(sep);
- if(rg.e-rg.s>=2){const am=(ang(rg.s)+ang(rg.e))/2,s=new THREE.Sprite(new THREE.SpriteMaterial({map:textTex(y[1],64,y[2]),transparent:true,depthWrite:false}));s.scale.set(5.2,1.3,1);s.position.set(Math.cos(am)*R*1.2,Math.sin(am)*R*1.2,.3);spin.add(s)}});
-// event dots
+ const m=new THREE.Mesh(new THREE.RingGeometry(R*1.0,R*1.07,Math.max(8,Math.ceil(tl*40)),1,ts+.004,tl-.008),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.85,side:THREE.DoubleSide,depthWrite:false}));m.position.z=.02;spin.add(m);
+ if(rg.e-rg.s>=2){const am=(ang(rg.s)+ang(rg.e))/2,s=new THREE.Sprite(new THREE.SpriteMaterial({map:textTex(y[1],64,y[2]),transparent:true,depthWrite:false}));s.scale.set(5.2,1.3,1);s.position.set(Math.cos(am)*R*1.24,Math.sin(am)*R*1.24,.3);spin.add(s)}});
+// event beads on their layer, with a faint thread down to the base
 const dots=[],hits=[];const hitMat=new THREE.MeshBasicMaterial({visible:false});
-E.forEach((e,i)=>{const a=ang(i),x=Math.cos(a)*R*.9,y=Math.sin(a)*R*.9,col=new THREE.Color(C[e.c][2]);
- const s=new THREE.Mesh(new THREE.SphereGeometry(.2,12,10),new THREE.MeshBasicMaterial({color:col}));s.position.set(x,y,.3);spin.add(s);
- const g=new THREE.Sprite(new THREE.SpriteMaterial({map:GT,color:col,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.75}));g.scale.set(1.3,1.3,1);g.position.set(x,y,.35);spin.add(g);
- const h=new THREE.Mesh(new THREE.SphereGeometry(.65,8,6),hitMat);h.position.set(x,y,.3);h.userData.i=i;spin.add(h);hits.push(h);dots.push({s,g})});
+const sphG=new THREE.SphereGeometry(.2,16,12);
+E.forEach((e,i)=>{const a=ang(i),L=LAY[e.c]||[.73,.62],x=Math.cos(a)*R*L[0],y=Math.sin(a)*R*L[0],z=L[1],col=new THREE.Color(C[e.c][2]);
+ const s=new THREE.Mesh(sphG,new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:.55,metalness:.3,roughness:.25}));s.position.set(x,y,z);spin.add(s);
+ const g=new THREE.Sprite(new THREE.SpriteMaterial({map:GT,color:col,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.7}));g.scale.set(1.2,1.2,1);g.position.set(x,y,z+.05);spin.add(g);
+ if(0){const th2=new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(x,y,0),new THREE.Vector3(x,y,z)]),new THREE.LineBasicMaterial({color:col,transparent:true,opacity:.18}));spin.add(th2);}
+ const h=new THREE.Mesh(new THREE.SphereGeometry(.6,8,6),hitMat);h.position.set(x,y,z);h.userData.i=i;spin.add(h);hits.push(h);dots.push({s,g})});
+// ---------- 3D lotus: three petal layers at different heights ----------
+const lotus=new THREE.Group();root.add(lotus);
+function petalSVG(r0,r1,w,f,curl){const L=r1-r0,sh=`M0 ${-r0} C${w*1.15} ${-(r0+L*.12)} ${w*1.05} ${-(r0+L*.72)} 0 ${-r1} C${-w*1.05} ${-(r0+L*.72)} ${-w*1.15} ${-(r0+L*.12)} 0 ${-r0}Z`,id='c'+r0+r1;
+ let v='';[-.55,-.28,0,.28,.55].forEach(k=>v+=`<path d="M${k*w*.25} ${-r0-1} Q${k*w*1.1} ${-(r0+L*.5)} ${k*w*.3} ${-r1+L*.12}" stroke="#b8285f" stroke-opacity="${k?'.14':'.25'}" stroke-width="${k?.35:.5}" fill="none"/>`);
+ return{def:`<clipPath id="${id}"><path d="${sh}"/></clipPath>`,g:`<g filter="url(#ps)"><path d="${sh}" fill="url(#${f})"/></g><g clip-path="url(#${id})"><path d="M0 ${-r0} L0 ${-r1}" stroke="#7a1240" stroke-opacity=".35" stroke-width="${w*.35}" filter="url(#b2)"/><ellipse cx="${-w*.42}" cy="${-(r0+L*.62)}" rx="${w*.32}" ry="${L*.26}" fill="#fff" fill-opacity=".7" filter="url(#b2)"/><ellipse cx="${w*.5}" cy="${-(r0+L*.55)}" rx="${w*.28}" ry="${L*.3}" fill="#6d0f38" fill-opacity=".28" filter="url(#b2)"/><path d="M${-w*1.3} ${-(r0+L*(1-curl))} Q0 ${-(r0+L*(1-curl))+L*.1} ${w*1.3} ${-(r0+L*(1-curl))}" stroke="#fff" stroke-opacity=".55" stroke-width="1.1" fill="none" filter="url(#b1)"/>${v}</g><path d="${sh}" fill="none" stroke="#a51e55" stroke-opacity=".4" stroke-width=".45"/>`}}
+function layerSVG(n,off,r0,r1,w,f,curl,extra){const p=petalSVG(r0,r1,w,f,curl);let g='';for(let i=0;i<n;i++)g+=`<g transform="rotate(${i*360/n+off})">${p.g}</g>`;
+ return`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-112 -112 224 224" width="1024" height="1024"><defs>
+ <linearGradient id="pl" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fffaf2"/><stop offset=".35" stop-color="#fde6ea"/><stop offset=".7" stop-color="#f29ab6"/><stop offset=".92" stop-color="#d9467e"/><stop offset="1" stop-color="#b8285f"/></linearGradient>
+ <linearGradient id="pl2" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fffdf8"/><stop offset=".5" stop-color="#ffeef1"/><stop offset=".85" stop-color="#f6aec3"/><stop offset="1" stop-color="#e06a95"/></linearGradient>
+ <filter id="ps" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="2" stdDeviation="2.2" flood-color="#2a0614" flood-opacity=".75"/></filter>
+ <filter id="b2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2"/></filter><filter id="b1" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1"/></filter>${p.def}</defs>${extra||''}${g}</svg>`}
+function svgTex(s,mesh){const im=new Image();im.onload=()=>{const c=document.createElement('canvas');c.width=c.height=1024;c.getContext('2d').drawImage(im,0,0,1024,1024);const t=new THREE.CanvasTexture(c);t.anisotropy=4;mesh.material.map=t;mesh.material.opacity=1;mesh.material.needsUpdate=true};im.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s)}
+const LP=[];// [mesh, z, breath amplitude, phase, spin speed]
+const stam=`<g>${Array.from({length:40},(_,i)=>{const a=i*9*Math.PI/180;return`<circle cx="${(58*Math.sin(a)).toFixed(1)}" cy="${(-58*Math.cos(a)).toFixed(1)}" r="${i%2?1:1.6}" fill="#ffe7a3"/>`}).join('')}</g>`;
+[[16,0,60,106,18,'pl',.16,.12,'',.012,0],[16,11.25,57,91,15,'pl',.22,.26,'',.02,1.2],[10,5,53,76,12,'pl2',.3,.4,stam,.03,2.4]].forEach(([n,off,r0,r1,w,f,c,z,ex,amp,ph],k)=>{
+ const m=new THREE.Mesh(new THREE.PlaneGeometry(R*1.12,R*1.12),new THREE.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false}));m.position.z=z;lotus.add(m);svgTex(layerSVG(n,off,r0,r1,w,f,c,ex),m);LP.push([m,amp,ph,k])});
+// medallion (event picture) + gold frame
+const MC=document.createElement('canvas');MC.width=MC.height=512;const MT=new THREE.CanvasTexture(MC);
+const med=new THREE.Mesh(new THREE.CircleGeometry(R*.255,64),new THREE.MeshBasicMaterial({map:MT,transparent:true}));med.position.z=.5;lotus.add(med);
+const medRing=new THREE.Mesh(new THREE.TorusGeometry(R*.262,.11,12,90),gold);medRing.position.z=.5;lotus.add(medRing);
+const medRing2=new THREE.Mesh(new THREE.TorusGeometry(R*.29,.03,6,90),gold2);medRing2.position.z=.48;lotus.add(medRing2);
+let medTok=0;function medDraw(e){const x=MC.getContext('2d'),tok=++medTok,col=C[e.c][2];
+ const base=()=>{const g=x.createRadialGradient(256,256,20,256,256,256);g.addColorStop(0,col+'aa');g.addColorStop(1,'#140c1e');x.fillStyle=g;x.fillRect(0,0,512,512);x.font='200px serif';x.textAlign='center';x.textBaseline='middle';x.fillStyle='#fff';x.fillText(C[e.c][1],256,270)};
+ const vig=()=>{const g=x.createRadialGradient(256,256,180,256,256,256);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,.55)');x.fillStyle=g;x.fillRect(0,0,512,512);MT.needsUpdate=true};
+ base();vig();img(e).then(v=>{if(!v||tok!==medTok)return;const im=new Image();im.crossOrigin='anonymous';im.onload=()=>{if(tok!==medTok)return;const s=Math.max(512/im.width,512/im.height),w=im.width*s,h=im.height*s;
+  x.fillStyle='#140c1e';x.fillRect(0,0,512,512);x.drawImage(im,(512-w)/2,im.height>im.width?0:(512-h)/2,w,h);vig()};im.src=v.s})}
+// yuga name + year (big sprites, always face the viewer)
+function lblTex(t,size,color,w,h,sub){const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');x.textAlign='center';x.textBaseline='middle';
+ x.font=size+'px "Tiro Devanagari Hindi", serif';x.lineWidth=size*.22;x.strokeStyle='rgba(20,8,4,.9)';x.lineJoin='round';x.strokeText(t,w/2,h*(sub?.36:.52));x.shadowColor=color;x.shadowBlur=14;x.fillStyle=color;x.fillText(t,w/2,h*(sub?.36:.52));
+ if(sub){x.shadowBlur=0;x.font=(size*.62)+'px "Noto Sans Devanagari", sans-serif';x.lineWidth=size*.14;x.strokeText(sub,w/2,h*.8);x.fillStyle='#e9c46a';x.fillText(sub,w/2,h*.8)}return new THREE.CanvasTexture(c)}
+const ySpr=new THREE.Sprite(new THREE.SpriteMaterial({transparent:true,depthWrite:false,depthTest:false}));ySpr.scale.set(7.2,1.8,1);ySpr.position.set(0,R*.37,.7);ySpr.renderOrder=5;lotus.parent.add(ySpr);
+const dSpr=new THREE.Sprite(new THREE.SpriteMaterial({transparent:true,depthWrite:false,depthTest:false}));dSpr.scale.set(7.2,2.25,1);dSpr.position.set(0,-R*.38,.7);dSpr.renderOrder=5;lotus.parent.add(dSpr);
+const PADA={adi:4,satya:4,treta:3,dvapara:2,kali:1};
+function centerLbl(e){const y=YG(e.yk);ySpr.material.map=lblTex(y[1],92,'#fff1c1',720,180);ySpr.material.needsUpdate=true;
+ const p=PADA[e.yk];dSpr.material.map=lblTex(dlabel(e.y),66,'#ffe7a3',720,225,p?'धर्म '+'◆'.repeat(p)+'◇'.repeat(4-p):'');dSpr.material.needsUpdate=true;medDraw(e)}
+// deep star field: three depths drift at different speeds
+const STAR=[];[[700,-60,1.1,.5],[400,-30,1.6,.7],[160,-12,2.2,.9]].forEach(([n,z,sz,op])=>{const g=new THREE.BufferGeometry(),p=new Float32Array(n*3);for(let i=0;i<n;i++){p[i*3]=(Math.random()-.5)*R*16;p[i*3+1]=(Math.random()-.5)*R*12;p[i*3+2]=z+Math.random()*6}
+ g.setAttribute('position',new THREE.BufferAttribute(p,3));const pt=new THREE.Points(g,new THREE.PointsMaterial({map:GT,size:sz*.18,color:0xfff2d8,transparent:true,opacity:op,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true}));scene.add(pt);STAR.push([pt,z])});
+// gentle tilt with mouse / phone
+let tiltX=0,tiltY=0,tX=0,tY=0;addEventListener('mousemove',e=>{tX=(e.clientY/innerHeight-.5)*.05;tY=(e.clientX/innerWidth-.5)*.07});
+addEventListener('deviceorientation',e=>{if(e.beta==null)return;tX=Math.max(-.04,Math.min(.04,(e.beta-45)/600));tY=Math.max(-.05,Math.min(.05,(e.gamma||0)/500))});
 // pointer diya at top (does not rotate)
 const ptr=new THREE.Group();root.add(ptr);ptr.position.set(0,R*1.13,.4);
 const tri=new THREE.Mesh(new THREE.ConeGeometry(.42,.9,4),gold);tri.rotation.z=Math.PI;tri.position.y=-.1;ptr.add(tri);
@@ -461,20 +492,20 @@ const bowl=new THREE.Mesh(new THREE.SphereGeometry(.55,16,10,0,Math.PI*2,Math.PI
 const flame=new THREE.Sprite(new THREE.SpriteMaterial({map:GT,color:0xffa030,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false}));flame.position.y=1.35;flame.scale.set(1.1,1.8,1);ptr.add(flame);
 const halo=new THREE.Sprite(new THREE.SpriteMaterial({map:GT,color:0xff9030,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.5}));halo.position.y=1.2;halo.scale.set(4,4,1);ptr.add(halo);
 // sparks
-const SPN=260,sg=new THREE.BufferGeometry(),sp=new Float32Array(SPN*3),sv=new Float32Array(SPN);
-for(let i=0;i<SPN;i++){sp[i*3]=(Math.random()-.5)*R*3.2;sp[i*3+1]=(Math.random()-.5)*R*3.2;sp[i*3+2]=Math.random()*8-2;sv[i]=.01+Math.random()*.03}
+const SPN=90,sg=new THREE.BufferGeometry(),sp=new Float32Array(SPN*3),sv=new Float32Array(SPN);
+for(let i=0;i<SPN;i++){sp[i*3]=(Math.random()-.5)*R*3.2;sp[i*3+1]=(Math.random()-.5)*R*3.2;sp[i*3+2]=Math.random()*8-2;sv[i]=.004+Math.random()*.01}
 sg.setAttribute('position',new THREE.BufferAttribute(sp,3));
 const smat=new THREE.PointsMaterial({map:GT,size:.38,color:0xffc060,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,opacity:.8});
 const sparks=new THREE.Points(sg,smat);scene.add(sparks);
 
 // ---------- layout ----------
-let wide=false,W=1,H=1;
+let wide=false,W=1,H=1,baseRX=-.6,topY=0;function placeYC(){if(!wide)$('#yc').style.top=Math.max(topY-58,58+$('#card').offsetHeight+6)+'px'}
 function layout(){W=innerWidth;H=innerHeight;renderer.setSize(W,H,false);cam.aspect=W/H;wide=W/H>1.1;
  const t=Math.tan(cam.fov*Math.PI/360);
- if(wide){cam.position.set(0,0,R*2.9/ t/2.2);const hh=t*cam.position.z,hw=hh*cam.aspect;root.position.set(hw*.33,-hh*.08,0);root.rotation.x=-.5;
+ if(wide){cam.position.set(0,0,R*2.9/ t/2.2);const hh=t*cam.position.z,hw=hh*cam.aspect;root.position.set(hw*.33,-hh*.08,0);root.rotation.x=baseRX=-.2;
   $('#card').style.top='50%';}
- else{const z=(R*1.16)/(t*cam.aspect);cam.position.set(0,0,z);const hh=t*z;root.position.set(0,-hh*.5,0);root.rotation.x=-.78;}
- cam.lookAt(0,0,0);cam.updateProjectionMatrix();sparks.position.copy(root.position);
+ else{const z=(R*1.16)/(t*cam.aspect);cam.position.set(0,0,z);const hh=t*z;root.position.set(0,-hh*.56,0);root.rotation.x=baseRX=-.24;}
+ {const f=wide?1:1.6;ySpr.scale.set(7.2*f,1.8*f,1);dSpr.scale.set(7.2*f,2.25*f,1);ySpr.position.y=R*(wide?.37:.41);dSpr.position.y=-R*(wide?.38:.43)}cam.lookAt(0,0,0);cam.updateProjectionMatrix();sparks.position.copy(root.position);
  pl.position.set(root.position.x,root.position.y+R*1.2,6);
  // place DOM around the wheel
  const p=v=>{const q=v.clone().project(cam);return{x:(q.x+1)/2*W,y:(1-q.y)/2*H}};
@@ -485,9 +516,9 @@ function layout(){W=innerWidth;H=innerHeight;renderer.setSize(W,H,false);cam.asp
  if(wide){$('#yn').style.left=$('#kc').style.left=$('#hintd').style.left=(ctr.x-W/2)*2+'px'}else{$('#yn').style.left=$('#kc').style.left=$('#hintd').style.left='0px'}
  $('#bPrev').style.left=Math.max(6,lft.x-6)+'px';$('#bPrev').style.top=(ctr.y-23)+'px';$('#bNext').style.left=Math.min(W-52,rgt.x-40)+'px';$('#bNext').style.top=(ctr.y-23)+'px';
  CB.copy(cam.position);ZP.set(0,R*.9,.3).applyMatrix4(root.matrixWorld);
- if(!wide){const ch=$('#card').offsetHeight,lim=top.y-64;if(58+ch>lim){$('#pic').style.height=Math.max(110,$('#pic').offsetHeight-(58+ch-lim))+'px'}}
+ if(!wide){const ch=$('#card').offsetHeight,lim=top.y-64;if(58+ch>lim){$('#pic').style.height=Math.max(110,$('#pic').offsetHeight-(58+ch-lim))+'px'}topY=top.y;placeYC()}
 }
-addEventListener('resize',()=>{$('#pic').style.height='';layout()});
+window.ResizeObserver&&new ResizeObserver(placeYC).observe($('#card'));addEventListener('resize',()=>{$('#pic').style.height='';layout()});
 
 // ---------- rotation state ----------
 let th=0,vel=0,target=null,ease=.14,drag=false,lastCi=null,settled=-1,curY=null;
@@ -525,13 +556,13 @@ function setYuga(k){if(curY===k)return;const first=curY===null;curY=k;const y=YG
  if(!first&&started){shankh(.05)}}
 function quick(i){const e=E[i],tc=tclass(e);$('#ttl').textContent=e.t;$('#ds').textContent=e.d;$('#meta').innerHTML=`<span class="dt t-${tc[0]}">${tc[1]} • ${dlabel(e.y)}</span><span>📍 ${e.p}</span>`;$('#fb').textContent=C[e.c][1];$('#yb').textContent=YG(e.yk)[1];setYuga(e.yk)}
 let imgTok=0;
-function card(i){const e=E[i],tc=tclass(e),y=YG(e.yk);
+function card(i){const e=E[i],tc=tclass(e),y=YG(e.yk);centerLbl(e);
  $('#ttl').textContent=e.t;$('#meta').innerHTML=`<span class="dt t-${tc[0]}">${tc[1]} • ${dlabel(e.y)}</span><span>📍 ${e.p}</span><span>${C[e.c][1]} ${C[e.c][0]}</span>`;
  $('#ds').textContent=e.d;$('#yb').textContent=y[1];$('#card').style.setProperty('--cc',C[e.c][2]);
- const fb=$('#fb');fb.textContent=C[e.c][1];fb.style.opacity=1;$('#pic').style.backgroundImage='none';$('#cr').textContent='';
+ const fb=$('#fb');fb.textContent=C[e.c][1];fb.style.opacity=1;$('#pbg').style.backgroundImage='none';$('#pim').style.opacity=0;$('#src').textContent='';if(started||window.KATHA)loadKatha().then(K=>{const k=K&&K[e.t];if(k&&settled===i)$('#src').innerHTML='<b>स्रोत:</b> '+k[3]});$('#cr').textContent='';
  $('#bWa').href=waLink(e);
  const c=$('#card');c.classList.remove('sw');void c.offsetWidth;c.classList.add('sw');
- const tok=++imgTok;img(e).then(v=>{if(tok!==imgTok||!v)return;const im=new Image();im.onload=()=>{if(tok!==imgTok)return;$('#pic').style.backgroundImage=`url("${v.s}")`;fb.style.opacity=0;$('#cr').textContent='चित्र: Wikimedia Commons';$('#cr').href=v.u};im.onerror=()=>{if(v.t&&im.src!==v.t){v.s=v.t;im.src=v.t}};im.src=v.s});
+ const tok=++imgTok;img(e).then(v=>{if(tok!==imgTok||!v)return;const im=new Image();im.onload=()=>{if(tok!==imgTok)return;$('#pbg').style.backgroundImage=`url("${v.s}")`;$('#pim').src=v.s;$('#pim').style.opacity=1;fb.style.opacity=0;$('#cr').textContent='चित्र: Wikimedia Commons';$('#cr').href=v.u};im.onerror=()=>{if(v.t&&im.src!==v.t){v.s=v.t;im.src=v.t}};im.src=v.s});
  [1,-1,2].forEach(d=>img(E[(i+d+N)%N]));
  if(started)bell(e.c==='n'?440:e.c==='b'?392:528,.09,3)}
 function waLink(e){return'https://wa.me/?text='+encodeURIComponent(`🕉️ *${e.t}*\n${dlabel(e.y)} • ${e.p}\n\n${e.d}\n\nकाल-चक्र घुमाइए, सृष्टि से कल्कि तक की हर कथा 👇\nhttps://omkiranbhakti.com/kaal-chakra/#${slug(e)}`)}
@@ -545,7 +576,7 @@ function openSheet(i){const e=E[i],tc=tclass(e),kw=e.k||'भजन',y=YG(e.yk);
  loadKatha().then(K=>{const k=K&&K[e.t],el=$('#kt');if(!k||!el||$('#sh').dataset.i!=i)return;const p=s=>s.split('\n\n').map(x=>`<p class="full">${x}</p>`).join('');
   el.innerHTML=p(k[0])+`<h3 class="ks">🙏 महत्व / संदेश</h3><p class="full">${k[1]}</p>`+(k[2]&&k[2]!=='—'?`<h3 class="ks">📍 तीर्थ / कहाँ मनाया जाता है</h3><p class="full">${k[2]}</p>`:'')+`<h3 class="ks">📜 स्रोत</h3><p class="full src">${k[3]}</p>`});
  $('#sh').dataset.i=i;$('#sh').classList.add('on');$('#ov').classList.add('on');$('#sh').scrollTop=0}
-let kP=null;function loadKatha(){return kP||(kP=new Promise(r=>{if(window.KATHA)return r(window.KATHA);const s=document.createElement('script');s.src='katha.js?v=3';s.onload=()=>r(window.KATHA);s.onerror=()=>{kP=null;r(null)};document.head.appendChild(s)}))}
+let kP=null;function loadKatha(){return kP||(kP=new Promise(r=>{if(window.KATHA)return r(window.KATHA);const s=document.createElement('script');s.src='katha.js?v=4';s.onload=()=>r(window.KATHA);s.onerror=()=>{kP=null;r(null)};document.head.appendChild(s)}))}
 function closeSheet(){$('#sh').classList.remove('on');$('#ov').classList.remove('on')}
 $('#bRead').onclick=()=>openSheet(idx(th));$('#ov').onclick=closeSheet;
 let sy=0;$('#sh').addEventListener('touchstart',e=>{sy=e.touches[0].clientY},{passive:true});$('#sh').addEventListener('touchend',e=>{if(e.changedTouches[0].clientY-sy>90&&$('#sh').scrollTop<=0)closeSheet()});
@@ -576,25 +607,25 @@ const KS=-3102,KL=432000;function kclock(){const el=NOW-KS;$('#kc').innerHTML=`�
 kclock();
 
 // ---------- animate ----------
-let started=false,clk=new THREE.Clock();
+let started=false,bloomT=-1,clk=new THREE.Clock();lotus.scale.setScalar(.62);
 function frame(){requestAnimationFrame(frame);const dt=Math.min(clk.getDelta(),.05),T=clk.elapsedTime;
  if(!drag){const f=dt*60;if(target!==null){th+=(target-th)*(1-Math.pow(1-ease,f));if(Math.abs(target-th)<.0004){th=target;target=null;vel=0}}
   else if(Math.abs(vel)>.0006){th+=vel*f;vel*=Math.pow(.945,f)}else{vel=0;const s=Math.round(th/STEP)*STEP;if(Math.abs(s-th)>.0004){target=s;ease=.16}}}
  const ci=Math.round(th/STEP);if(ci!==lastCi){if(lastCi!==null)tick();lastCi=ci;quick(idx(th))}
  const still=!drag&&target===null&&vel===0,cur=idx(th);if(still&&settled!==cur){settled=cur;card(cur)}
- spin.rotation.z=th;lotus.rotation.z=-th*.35+T*.05;
- dots.forEach((d,i)=>{const on=i===cur;const f2=ok(i),sc=on?1.9+Math.sin(T*4)*.15:f2?1:.45;d.s.scale.setScalar(sc);d.g.visible=f2;d.g.scale.setScalar(on?3.2:1.3)});
+ spin.rotation.z=th;LP.forEach(([m,amp,ph,k])=>{m.rotation.z=T*(k===1?-.0004:1)*(k===2?.018:.015);m.scale.setScalar(1+amp*Math.sin(T*.45+ph))});if(bloomT>=0){bloomT+=dt;const q=Math.min(1,bloomT/3.6),s=.62+.38*(1-Math.pow(1-q,3));lotus.scale.setScalar(s);lotus.rotation.z=(1-q)*-.18}STAR.forEach(([p2,z],k)=>{p2.position.x=Math.sin(T*.03)*(k+1)*.5;p2.rotation.z=T*.0015*(k+1)});
+ dots.forEach((d,i)=>{const on=i===cur;const f2=ok(i),sc=on?2+Math.sin(T*2)*.12:f2?1:.45;d.s.scale.setScalar(sc);d.g.visible=f2;d.g.scale.setScalar(on?3.4:1.2)});
  zs+=(ZS-zs)*Math.min(1,dt*8);if(Math.abs(ZS-zs)<.001)zs=ZS;cam.position.copy(ZP).add(ZT.copy(CB).sub(ZP).multiplyScalar(1/zs));const zon=zs>1.05;if(zon!==zmOn){zmOn=zon;document.body.classList.toggle('zm',zon)}
- flame.scale.set(1+Math.sin(T*13)*.08,1.8+Math.sin(T*9)*.18,1);halo.material.opacity=.45+Math.sin(T*7)*.08;hubGlow.material.opacity=.45+Math.sin(T*1.4)*.12;
+ flame.scale.set(1+Math.sin(T*13)*.08,1.8+Math.sin(T*9)*.18,1);halo.material.opacity=.45+Math.sin(T*7)*.08;
  const a=sg.attributes.position.array;for(let i=0;i<SPN;i++){a[i*3+1]+=sv[i];a[i*3]+=Math.sin(T+i)*.004;if(a[i*3+1]>R*1.8)a[i*3+1]=-R*1.6}sg.attributes.position.needsUpdate=true;
- root.rotation.y=Math.sin(T*.25)*.05;
+ tiltX+=(tX-tiltX)*.04;tiltY+=(tY-tiltY)*.04;root.rotation.x=baseRX+tiltX;root.rotation.y=tiltY;
  renderer.render(scene,cam)}
 // start position: a little before "आज", then land on it in the intro
 th=(START-6)*STEP;lastCi=Math.round(th/STEP);
 layout();frame();quick(idx(th));card(idx(th));
 document.fonts&&document.fonts.ready.then(()=>{layout()});
 $('#go').onclick=()=>{started=true;AC();om();const lr=loadReal(),t0=Date.now();lr.then(()=>setTimeout(()=>shankh(.06),Math.max(0,500-(Date.now()-t0))));if(SND.tan)setTimeout(tanStart,1800);
- $('#intro').classList.add('hide');th=(START-N-6)*STEP;lastCi=Math.round(th/STEP);settled=-1;target=null;vel=0;setTimeout(()=>{target=START*STEP;ease=.04},350)};
+ $('#intro').classList.add('hide');bloomT=0;th=(START-N-6)*STEP;lastCi=Math.round(th/STEP);settled=-1;target=null;vel=0;setTimeout(()=>{target=START*STEP;ease=.04},350)};
 </script>
 </body>
 </html>

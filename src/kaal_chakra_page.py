@@ -63,15 +63,15 @@ def build(root):
             n += 1
             k = K.get(r["t"])
             first = k[0].split("\n\n")[0] if k else r["d"]
-            img = (f'<img src="kaal-chakra/img/{r["slug"]}.webp" alt="{_e(r["t"])}" loading="lazy" width="120" height="120">' if r["slug"] in imgs else "")
+            img = (f'<img src="kaal-chakra/img/{r["slug"]}.webp" alt="{_e(r["t"])} — हिंदू काल-चक्र" loading="lazy" width="120" height="120">' if r["slug"] in imgs else "")
             lis.append(f'<li class="kc-ev" id="{r["slug"]}">{img}<div><h3>{_e(r["t"])}</h3>'
-                       f'<p class="kc-meta">{_e(_ylabel(r["y"]))} · {_e(r["p"])}</p><p>{_e(first)}</p>'
+                       f'<p class="kc-meta">{_e(_ylabel(r["y"]))} · {_e(r["p"])}</p><p>{_e(first)}</p>' + (f'<p class="kc-src"><b>स्रोत:</b> {_e(k[3])}</p>' if k and k[3] else '') +
                        f'<a class="kc-go" href="kaal-chakra/#{r["slug"]}">काल-चक्र में देखें →</a></div></li>')
         secs.append(f'<section id="{gid}"><h2>{_e(g)}</h2><ul class="kc-list">{"".join(lis)}</ul></section>')
     faq_h = "".join(f"<details><summary>{_e(q)}</summary><p>{a}</p></details>" for q, a in FAQS)
     css = """<style>.kc-cta{display:inline-block;margin:.6rem 0 1rem;padding:.8rem 1.3rem;border-radius:999px;background:#f0c25e;color:#1a0f05!important;font-weight:600;text-decoration:none}
 .kc-toc{columns:2;padding-left:1.1rem}.kc-list{list-style:none;padding:0;margin:0}.kc-ev{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #8884}
-.kc-ev img{width:96px;height:96px;object-fit:cover;border-radius:12px;flex:none}.kc-ev h3{margin:0 0 .2rem;font-size:1.08rem}.kc-meta{margin:0;opacity:.75;font-size:.88rem}.kc-ev p{margin:.25rem 0}
+.kc-src{font-size:.82rem;color:#8a6d3b;margin:.2rem 0}.kc-ev img{width:96px;height:96px;object-fit:cover;border-radius:12px;flex:none}.kc-ev h3{margin:0 0 .2rem;font-size:1.08rem}.kc-meta{margin:0;opacity:.75;font-size:.88rem}.kc-ev p{margin:.25rem 0}
 .kc-go{font-size:.92rem;font-weight:600}@media(max-width:560px){.kc-toc{columns:1}.kc-ev img{width:72px;height:72px}}</style>"""
     body = (f'{css}<section class="night scallop page-band"><div class="wrap"><div><nav class="crumbs-in" aria-label="breadcrumb"><a href="index.html">होम</a> / हिंदू काल-चक्र</nav>'
             f'<h1 class="gold-type">हिंदू काल-चक्र — सनातन धर्म की टाइम मशीन</h1>'
