@@ -33,5 +33,6 @@ jobs:
       - name: build -> main
         if: env.MODE == 'build'
         run: |
+          git config user.name bot && git config user.email bot@x
           python3 tools/kc_assets.py build
           git add kaal-chakra/img && git -c user.name=bot -c user.email=bot@x commit -qm "Kaal-Chakra: images (WebP) + credits" && git pull -q --rebase && git push -q
