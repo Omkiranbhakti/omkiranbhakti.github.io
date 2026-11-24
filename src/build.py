@@ -743,6 +743,7 @@ exec(open(os.path.join(os.path.dirname(__file__), "kaal_section.py"), encoding="
 exec(open(os.path.join(os.path.dirname(__file__), "choghadiya_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "calc_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "live_keywords.py"), encoding="utf-8").read())
+exec(open(os.path.join(os.path.dirname(__file__), "live_info.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "live_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "vrat_section.py"), encoding="utf-8").read())
 exec(open(os.path.join(os.path.dirname(__file__), "gaps_section.py"), encoding="utf-8").read())

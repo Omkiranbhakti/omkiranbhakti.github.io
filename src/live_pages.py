@@ -56,6 +56,39 @@ def _lp_name(r):
     m = _x.search(r"<title>([^<]+)</title>", PAGES.get(r, ""))
     return _x.split(r" — | \| | – |: ", m.group(1))[0].strip() if m else r
 
+
+def _lp_en(slug):
+    import re as _x
+    for k in LIVE_KW.get(slug, []):
+        if _x.search(r"[A-Za-z]", k) and "live" in k.lower():
+            return _x.split(r"(?i) live\b", k)[0].strip()
+    return ""
+
+def _lp_glance(slug, g):
+    """Short facts for the top of the page: from live_info.LI, else from the temple's guide (DARSHAN)."""
+    d = dict(LI.get(slug) or {})
+    if not d and g:
+        for sec in g["sections"]:
+            if sec[1] == "{T}" and len(sec) > 3 and "समय" in sec[0] and "aarti" not in d:
+                d["aarti"] = " · ".join(f"{r[0]} {r[1]}" for r in sec[3][:5])
+                if len(sec) > 4 and sec[4]: d["darshan"] = sec[4]
+            elif sec[1] == "{T}" and len(sec) > 3 and "टिकट" in sec[0] and "ticket" not in d:
+                d["ticket"] = " · ".join(f"{r[0]}: {r[1]}" for r in sec[3][:4])
+        if g.get("official"): d["official"] = (g["official"], g["official"].split("//", 1)[-1].strip("/"))
+    if not d: return "", {}
+    rows = []
+    if d.get("darshan"): rows.append(("दर्शन का समय", e(d["darshan"])))
+    if d.get("aarti"): rows.append(("आरती का समय", e(d["aarti"])))
+    if d.get("ticket"): rows.append(("टिकट / VIP दर्शन", e(d["ticket"])))
+    if d.get("book"): rows.append(("ऑनलाइन बुकिंग", _ext(*d["book"])))
+    if g: rows.append(("पूरी गाइड", f'<a href="{g["slug"]}">टिकट, बुकिंग, नियम और कैसे पहुँचें</a>'))
+    if d.get("official"): rows.append(("आधिकारिक वेबसाइट", _ext(*d["official"])))
+    if d.get("tip"): rows.append(("ध्यान दें", e(d["tip"])))
+    tr = "".join(f"<tr><th>{k}</th><td>{v}</td></tr>" for k, v in rows)
+    html = (f'<div class="tbl"><table class="ptable lp-glance"><tbody>{tr}</tbody></table></div>'
+            f'<p class="small">समय मौसम और त्योहारों पर बदल जाता है। जानकारी की जाँच: {LI_CHECKED if slug in LI else DG_CHECKED}।</p>')
+    return html, d
+
 for slug, name, place, cid, cname, note, art, aarti, rel in _lp_rows:
     short, ps = LP[slug]
     g = _GUIDE_OF.get(slug)
@@ -63,6 +96,13 @@ for slug, name, place, cid, cname, note, art, aarti, rel in _lp_rows:
     ans = (f"{e(name)}, {e(place)} के <strong>आज के लाइव दर्शन</strong> इसी पेज पर देखें — सीधे मंदिर के आधिकारिक YouTube चैनल “{e(cname)}” से। "
            "प्रसारण आरती और विशेष अवसरों पर लाइव आता है; उस समय लाइव न हो तो ‘दर्शन और आरती’ दबाएँ, मंदिर के सबसे नए दर्शन चलेंगे।")
     secs = ['<h2 class="k-h">आज के लाइव दर्शन</h2>' + _dg_player(slug, name)]
+    gl, gd = _lp_glance(slug, g)
+    if gl:
+        secs.append(f'<h2 class="k-h">{e(short)} दर्शन का समय, आरती और टिकट — एक नज़र में</h2>' + gl)
+    en = _lp_en(slug)
+    kws = kws + [f"आज के {short} दर्शन", f"{short} दर्शन का समय", f"{short} आरती का समय", f"{short} VIP दर्शन टिकट बुकिंग", f"{short} आधिकारिक वेबसाइट"]
+    if en:
+        kws += [f"{en} darshan timings", f"{en} aarti time today", f"{en} VIP darshan ticket booking", f"{en} official website"]
     if g:
         secs.append(f'<p><a class="btn" href="{g["slug"]}">{e(short)}: टिकट, बुकिंग, समय और नियम</a></p>')
     if aarti:
@@ -77,10 +117,16 @@ for slug, name, place, cid, cname, note, art, aarti, rel in _lp_rows:
     rel = [r for r in rel if r in PAGES]
     read = ('<ul class="library">' + "".join(f'<li><a href="{r}"><strong>{e(_lp_name(r))}</strong><span>पढ़ें और सुनें</span></a></li>' for r in rel) + "</ul>") if rel else ""
     faqs = [(f"{short} के आज के लाइव दर्शन कहाँ देखें?", f"इसी पेज पर ऊपर ‘दर्शन शुरू करें’ दबाएँ। प्रसारण मंदिर के आधिकारिक YouTube चैनल “{cname}” से चलता है — {note}।"),
-            (f"{short} लाइव दर्शन किस समय होता है?", "मंदिर आमतौर पर सुबह-शाम की आरती और विशेष उत्सवों पर लाइव प्रसारण करते हैं। बाकी समय ‘दर्शन और आरती’ दबाने पर मंदिर के हाल के दर्शन चलते हैं।"),
+            (f"{short} लाइव दर्शन किस समय होता है?", (f"आरती के समय ({gd['aarti']}) प्रसारण सबसे ज़्यादा आता है। " if gd.get("aarti") else "") + "मंदिर आमतौर पर सुबह-शाम की आरती और विशेष उत्सवों पर लाइव प्रसारण करते हैं। बाकी समय ‘दर्शन और आरती’ दबाने पर मंदिर के हाल के दर्शन चलते हैं।"),
             (f"{short} लाइव दर्शन का आधिकारिक चैनल कौन सा है?", f"“{cname}” — {note}।"),
             (f"क्या {short} के लाइव दर्शन देखने के लिए कोई app चाहिए?", "नहीं। यह पेज मोबाइल के ब्राउज़र में ही खुलता है; कोई app या लॉग-इन नहीं चाहिए।"),
             ("लाइव प्रसारण न दिखे तो क्या करें?", "हो सकता है मंदिर उस समय लाइव न हो। ‘दर्शन और आरती’ दबाएँ, या आरती के समय दोबारा पेज खोलें।")]
+    if gd.get("darshan"):
+        faqs.insert(1, (f"{short} में दर्शन का समय क्या है?", gd["darshan"] + "। त्योहारों पर समय बदल सकता है।"))
+    if gd.get("ticket"):
+        faqs.append((f"{short} में VIP या शीघ्र दर्शन का टिकट कितने का है?", gd["ticket"] + (f"। बुकिंग: {gd['book'][1]}" if gd.get("book") else "") + "।"))
+    if gd.get("official"):
+        faqs.append((f"{short} मंदिर की आधिकारिक वेबसाइट कौन सी है?", f"{gd['official'][1]} — बुकिंग और दान सिर्फ़ आधिकारिक वेबसाइट से करें, किसी एजेंट या WhatsApp नंबर को पैसे न भेजें।"))
     if g:
         faqs.append((f"{short} में दर्शन की बुकिंग कैसे करें?", f"टिकट, बुकिंग, समय और नियम की पूरी जानकारी हमारी <a href=\"{g['slug']}\">{short} दर्शन गाइड</a> में है।"))
     body = (band(f"{short} लाइव दर्शन: आज के दर्शन और आरती", ans, f"{short} लाइव दर्शन") +
@@ -89,9 +135,10 @@ for slug, name, place, cid, cname, note, art, aarti, rel in _lp_rows:
             '<section class="band no-print"><div class="wrap">' + sec_head("दूसरे मंदिरों के लाइव दर्शन") + more + "</div></section>" +
             faq_html(faqs) + DG_JS)
     temple = {"@type": "HinduTemple", "name": name, "address": {"@type": "PostalAddress", "addressLocality": place, "addressCountry": "IN"}}
+    if gd.get("official"): temple["sameAs"] = gd["official"][0]
     ld = [{"@type": "WebPage", "name": f"{short} लाइव दर्शन", "about": temple}, faq_ld(faqs)]
-    add(ps, f"{short} लाइव दर्शन आज — आधिकारिक प्रसारण, आरती और आज के दर्शन | OmKiran Bhakti",
-        f"{name} ({place}) के आज के लाइव दर्शन और आरती, सीधे मंदिर के आधिकारिक YouTube चैनल से। कोई app नहीं चाहिए — मोबाइल पर यहीं देखें।",
+    add(ps, (f"{short} लाइव दर्शन आज — दर्शन का समय, आरती टाइम" + (", VIP टिकट बुकिंग" if gd.get("book") or gd.get("ticket") else "") + " | OmKiran Bhakti") if gd else f"{short} लाइव दर्शन आज — आधिकारिक प्रसारण, आरती और आज के दर्शन | OmKiran Bhakti",
+        f"{name} ({place}) के आज के लाइव दर्शन, सीधे आधिकारिक चैनल से।" + (f" दर्शन का समय: {gd['darshan']}।" if gd.get("darshan") else "") + " आरती टाइम, टिकट, बुकिंग और आधिकारिक वेबसाइट एक नज़र में।",
         body, crumbs=f"{short} लाइव दर्शन", ld=ld, active="live-darshan.html")
 
 # guide pages -> their live page; live-darshan hub -> every temple page
