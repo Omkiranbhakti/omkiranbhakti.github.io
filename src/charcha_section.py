@@ -34,6 +34,8 @@ def _cz_near(a):
 CZ_TRENDS = [t for t in CZ_TRENDS if _cz_near(t[2])]
 def _cz_has(f):  # page built now, or built by an earlier section run (katha/vidhi pages are added after this file)
     return f in PAGES or os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", f))
+_CZ_SUF = (("katha", "की कथा", "पूरी कथा पढ़ें"), ("vrat-katha", "की व्रत कथा", "पूरी कथा पढ़ें"),
+           ("puja-vidhi", "की पूजा विधि", "पूजा विधि देखें"), ("vidhi", "की पूजा विधि", "पूजा विधि देखें"), ("tilak-vidhi", "की तिलक विधि", "विधि देखें"))
 def _cz_auto():
     import festivals as _F
     seen, out = {re.search(r"\{date:([\w-]+)\}", t[2]).group(1) for t in CZ_TRENDS}, []
@@ -45,9 +47,20 @@ def _cz_auto():
         page = next((h for h in (f"{k}-kab-hai.html", f"{k}.html") if _cz_has(h)), "tyohar-calendar.html")
         out.append((d, k in _F.MINOR_KEYS, (f"{name.split(' (')[0]} {d.year} कब है?", "google",
                     f"{{date:{k}}} को।" + (f" {mean}।" if mean else ""), page, "तारीख़, मुहूर्त और नियम")))
-        for suf, q, lt in (("katha", "की कथा", "पूरी कथा पढ़ें"), ("puja-vidhi", "की पूजा विधि", "पूजा विधि देखें"), ("vidhi", "की पूजा विधि", "पूजा विधि देखें")):
+        for suf, q, lt in _CZ_SUF:
             if _cz_has(f"{k}-{suf}.html"):
                 out.append((d, True, (f"{name.split(' (')[0]} {q}", "google", f"{{date:{k}}} को। सरल हिंदी में, शुरू से अंत तक।", f"{k}-{suf}.html", lt)))
+    # ekadashis are not in festivals.RULES: take them from the panchang (EKA)
+    for x in globals().get("EKA", []):
+        k, d = x.get("key"), x["date"]
+        if not k or k in seen or not 0 <= (d - TODAY_D).days <= CZ_DAYS: continue
+        seen.add(k)
+        nm, dt_ = x["name"], hdate_w(d)
+        page = next((h for h in (f"{k}-kab-hai.html", f"{k}.html") if _cz_has(h)), "ekadashi-2026-2027.html")
+        out.append((d, False, (f"{nm} {d.year} कब है?", "google", f"{dt_} को। व्रत, पारण का समय और नियम।", page, "तारीख़ और पारण")))
+        for suf, q, lt in _CZ_SUF:
+            if _cz_has(f"{k}-{suf}.html"):
+                out.append((d, True, (f"{nm} {q}", "google", f"{dt_} को। सरल हिंदी में, शुरू से अंत तक।", f"{k}-{suf}.html", lt)))
     out.sort(key=lambda x: (x[0], x[1]))
     return [t for _, _, t in out]
 CZ_TRENDS = (CZ_TRENDS + _cz_auto())[:10]
