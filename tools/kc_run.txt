@@ -1,2 +1,2 @@
-build
-# rerun 2026-11-25 (identity fix)
+cand
+# batch 03 images 2026-11-25
