@@ -1,0 +1,24 @@
+name: kc-source-data
+# Downloads the Tryambak reference sheet (facts only, no text reuse) to branch kc-data -> tryambak/*.csv
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/kc-source-data.yml']
+  workflow_dispatch:
+permissions: {contents: write}
+jobs:
+  run:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - run: |
+          set -e
+          ID=1gfI2p11iuLP7yOsyWW-LXGDRjD_64qx4o8XT2bpZEoc
+          mkdir -p w/tryambak && cd w && git init -q && git checkout -q -b kc-data
+          for S in Cards Sources; do
+            curl -sSfL "https://docs.google.com/spreadsheets/d/$ID/gviz/tq?tqx=out:csv&sheet=$S" -o tryambak/$S.csv || echo "fail $S"
+          done
+          curl -sSfL "https://docs.google.com/spreadsheets/d/$ID/export?format=csv" -o tryambak/first_tab.csv || true
+          wc -l tryambak/*.csv; head -c 600 tryambak/Cards.csv || true
+          git add -A && git -c user.name=bot -c user.email=bot@x commit -qm "Tryambak sheet $(date -u +%F)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" kc-data
