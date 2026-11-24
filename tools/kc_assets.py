@@ -160,7 +160,8 @@ def build():
         b=get(j['thumb'],raw=True)
         if not b: continue
         open('/tmp/x','wb').write(b); out=f'kaal-chakra/img/{slug}.webp'
-        subprocess.run(['convert','/tmp/x','-resize','480x480>','-strip','-quality','70',out],check=True)
+        r=subprocess.run(['convert','/tmp/x[0]','-resize','480x480>','-strip','-quality','70',out])
+        if r.returncode or not os.path.exists(out): print('CONVERT FAIL',slug,f); continue
         cr[slug]=dict(file=f,desc=j['desc'],lic=j['lic'],licurl=j['licurl'],artist=j['artist'] or j['credit'] or 'Unknown',kb=os.path.getsize(out)//1024)
         print(slug,cr[slug]['kb'],'KB',flush=True)
     json.dump(cr,open('kaal-chakra/img/credits.json','w'),ensure_ascii=False,indent=1)
