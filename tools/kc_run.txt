@@ -1,2 +1,2 @@
-cand
+build
 # batch 03 images 2026-11-25
