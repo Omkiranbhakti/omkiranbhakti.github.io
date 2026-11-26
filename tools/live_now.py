@@ -30,18 +30,11 @@ if __name__ == "__main__":
     ch = channels()
     # health check: a channel that streams 24x7 (Lofi Girl). If it doesn't show as live, detection is broken -> don't publish.
     if "--debug" in sys.argv:
-        for u in ["https://www.youtube.com/channel/UCSJ4gkVC6NrvII8umztf0Ow/live", "https://www.youtube.com/@LofiGirl/live",
-                  "https://www.youtube.com/channel/UCEUuwXHmHckwmdANSy4c7Sw/live", "https://www.youtube.com/channel/UCIbhcJEGjI7fRfKiG_p0Mqg/live"]:
-            try:
-                with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=25) as r:
-                    b = r.read().decode("utf-8", "replace"); fu = r.geturl()
-            except Exception as e:
-                print(u, "ERR", e); continue
-            m = re.search(r'"videoDetails":\{"videoId":"([\w-]{11})"', b); seg = b[m.start():m.start()+6000] if m else ""
-            print("  videoDetails:", m.group(1) if m else None, "isLive in seg:", '"isLive":true' in seg, "upcoming:", '"isUpcoming":true' in seg)
-            print(u, "->", fu, len(b), "canon:", re.findall(r'<link rel="canonical" href="([^"]+)"', b)[:1],
-                  "isLiveNow:", b.count('"isLiveNow":true'), "isLive:", b.count('"isLive":true'), "liveBroadcastDetails:", b.count("liveBroadcastDetails"),
-                  "consent:", b.count("consent.youtube"), "videoIds:", re.findall(r'"videoId":"([\w-]{11})"', b)[:2])
+        for v in ["_tV5LEBDs7w", "wYJYJ61EeQE", "Qzv2g6bkpSc"]:
+            req = urllib.request.Request(f"https://www.youtube.com/watch?v={v}", headers=UA)
+            b = urllib.request.urlopen(req, timeout=25).read().decode("utf-8", "replace")
+            print(v, len(b), "isLiveNow:true", b.count('"isLiveNow":true'), "isLiveNow:false", b.count('"isLiveNow":false'),
+                  "isLive:true", b.count('"isLive":true'), "lbd", b.count("liveBroadcastDetails"), "endTimestamp", b.count('"endTimestamp"'))
         sys.exit(0)
     probe = check("UCSJ4gkVC6NrvII8umztf0Ow")[1]
     print("probe:", repr(probe))
