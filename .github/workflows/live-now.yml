@@ -32,8 +32,11 @@ jobs:
         with:
           python-version: "3.12"
       - name: Check temple channels
+        env:
+          YT_API_KEY: ${{ secrets.YT_API_KEY }}
         run: python tools/live_now.py ${{ github.event.inputs.args }}
       - name: Publish to branch live-status
+        if: hashFiles('live-now.json') != ''
         env:
           TOKEN: ${{ github.token }}
         run: |

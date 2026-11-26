@@ -41,30 +41,29 @@ def check(cid):
         if v: return cid, v.group(1)
     return cid, ""
 
+def confirm(cands, key):
+    """YouTube Data API (free key, 1 quota unit per 50 videos): keep only videos that are live right now."""
+    ids = [v for v in cands.values() if v]
+    live = set()
+    for i in range(0, len(ids), 50):
+        u = ("https://www.googleapis.com/youtube/v3/videos?part=snippet&fields=items(id,snippet/liveBroadcastContent)&id="
+             + ",".join(ids[i:i+50]) + "&key=" + key)
+        j = json.loads(urllib.request.urlopen(u, timeout=25).read())
+        live |= {x["id"] for x in j.get("items", []) if x["snippet"].get("liveBroadcastContent") == "live"}
+    return {c: v for c, v in cands.items() if v in live}
+
 if __name__ == "__main__":
-    ch = channels()
-    # health check: a channel that streams 24x7 (Lofi Girl). If it doesn't show as live, detection is broken -> don't publish.
-    if "--debug" in sys.argv:
-        for v in ["_tV5LEBDs7w", "wYJYJ61EeQE", "Qzv2g6bkpSc", "jfKfPfyJRdk"]:
-            for th in ["hqdefault_live.jpg", "maxresdefault_live.jpg"]:
-                try:
-                    r = urllib.request.urlopen(urllib.request.Request(f"https://i.ytimg.com/vi/{v}/{th}", headers=UA), timeout=20); print(v, th, r.status, len(r.read()))
-                except Exception as e: print(v, th, "ERR", getattr(e, "code", e))
-            try:
-                b = urllib.request.urlopen(urllib.request.Request(f"https://www.youtube.com/embed/{v}", headers=UA), timeout=20).read().decode("utf-8","replace")
-                print(v, "embed isLive", b.count('"isLive":true'), "isLiveContent", b.count('"isLiveContent":true'), "liveStreamability", b.count("liveStreamability"), "len", len(b))
-            except Exception as e: print(v, "embed ERR", e)
+    import os
+    key = os.environ.get("YT_API_KEY", "").strip()
+    if not key:
+        print("YT_API_KEY secret not set: page scraping alone gives false 'live' results, so nothing is published.")
         sys.exit(0)
-    probe = check("UCSJ4gkVC6NrvII8umztf0Ow")[1]
-    print("probe:", repr(probe))
-    if not probe:
-        sys.exit("detection check failed (24x7 test channel not seen as live); not publishing")
+    ch = channels()
     with ThreadPoolExecutor(8) as ex:
         res = list(ex.map(check, ch))
     ok = sum(1 for _, v in res if v is not None)
-    live = {c: v for c, v in res if v}
-    out = {"t": int(time.time()), "checked": ok, "total": len(ch), "live": live}
-    json.dump(out, open("live-now.json", "w"), indent=0)
-    print(f"{len(live)} live of {ok}/{len(ch)} checked:", live)
     if ok < len(ch) // 2:
         sys.exit("too many fetch failures; not publishing")
+    live = confirm({c: v for c, v in res if v}, key)
+    json.dump({"t": int(time.time()), "checked": ok, "total": len(ch), "live": live}, open("live-now.json", "w"), indent=0)
+    print(f"{len(live)} live of {ok}/{len(ch)} checked:", live)
