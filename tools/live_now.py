@@ -26,6 +26,18 @@ def check(cid):
 if __name__ == "__main__":
     ch = channels()
     # health check: a channel that streams 24x7 (Lofi Girl). If it doesn't show as live, detection is broken -> don't publish.
+    if "--debug" in sys.argv:
+        for u in ["https://www.youtube.com/channel/UCSJ4gkVC6NrvII8umztf0Ow/live", "https://www.youtube.com/@LofiGirl/live",
+                  "https://www.youtube.com/embed/live_stream?channel=UCSJ4gkVC6NrvII8umztf0Ow"]:
+            try:
+                with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=25) as r:
+                    b = r.read().decode("utf-8", "replace"); fu = r.geturl()
+            except Exception as e:
+                print(u, "ERR", e); continue
+            print(u, "->", fu, len(b), "canon:", re.findall(r'<link rel="canonical" href="([^"]+)"', b)[:1],
+                  "isLiveNow:", b.count('"isLiveNow":true'), "isLive:", b.count('"isLive":true'), "liveBroadcastDetails:", b.count("liveBroadcastDetails"),
+                  "consent:", b.count("consent.youtube"), "videoIds:", re.findall(r'"videoId":"([\w-]{11})"', b)[:2])
+        sys.exit(0)
     probe = check("UCSJ4gkVC6NrvII8umztf0Ow")[1]
     print("probe:", repr(probe))
     if not probe:

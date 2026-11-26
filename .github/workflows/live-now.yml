@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "*/15 * * * *"
   workflow_dispatch:
+    inputs:
+      args:
+        description: extra args (e.g. --debug)
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -27,7 +32,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Check temple channels
-        run: python tools/live_now.py
+        run: python tools/live_now.py ${{ github.event.inputs.args }}
       - name: Publish to branch live-status
         env:
           TOKEN: ${{ github.token }}
