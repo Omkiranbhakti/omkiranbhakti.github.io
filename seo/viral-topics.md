@@ -18,7 +18,7 @@ How each platform uses this list:
 ### T1. VIP दर्शन — सही या गलत?
 X: भगवान के दरबार में भी लाइन अलग? 🤔 तिरुपति में ₹300 का स्पेशल दर्शन और मुफ़्त सर्वदर्शन — VIP दर्शन सुविधा है या भेदभाव? पूरी जानकारी: https://omkiranbhakti.com/tirupati-darshan-booking.html 👇 आपकी राय? #तिरुपति #VIPDarshan
 Notes: Tirupati has free Sarva Darshan and ₹300 Special Entry Darshan (from our tirupati-darshan-booking page). Argument for: money goes to the temple trust, saves time for elderly/working people. Against: God's door should be equal for all. Do not name any VIP person.
-X: [ ]  Quora: [ ]
+X: [ ]  Quora: [x] (2026-11-26, Space post) https://pauranika-katha-sagara.quora.com/भगवान-के-दरबार-में-भी-अलग-अलग-लाइन-क्या-यह-सही-है-तिरुपति-बालाजी-तिरुमला-में-दर्शन-के-दो-आम-रास्ते-हैं-मुफ़्त
 
 ### T2. तिरुपति का बजट
 X: एक मंदिर का एक साल का बजट ₹5,456 करोड़! 😮 TTD ने 2026-27 के लिए इतना बजट मंज़ूर किया (स्रोत: Deccan Chronicle)। इतना पैसा कहाँ खर्च होना चाहिए? 👇 https://omkiranbhakti.com/tirupati-live-darshan.html #Tirupati #तिरुपति

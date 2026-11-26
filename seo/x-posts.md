@@ -31,7 +31,7 @@ https://omkiranbhakti.com/hanuman-chalisa.html
 https://omkiranbhakti.com/tulsi-vivah-vidhi.html
 #तुलसी_विवाह #TulsiVivah
 
-### 5. [ ] आज का पंचांग (evergreen)
+### 5. [x] (2026-11-26) https://x.com/omkiranbhakti/status/2125796831066284372 आज का पंचांग (evergreen)
 रोज़ सुबह देखें आज का पंचांग — तिथि, नक्षत्र, राहुकाल, चौघड़िया और शुभ समय, एक ही जगह:
 https://omkiranbhakti.com/aaj-ka-panchang.html
 #पंचांग #Panchang
@@ -61,7 +61,7 @@ https://omkiranbhakti.com/guru-nanak-jayanti-kab-hai.html
 https://omkiranbhakti.com/om-jai-jagdish-hare-aarti.html
 #आरती #OmJaiJagdishHare
 
-### 11. [ ] काल भैरव जयंती — post 26–28 Nov
+### 11. [x] (2026-11-26) https://x.com/omkiranbhakti/status/2125796718759567681 काल भैरव जयंती — post 26–28 Nov
 काल भैरव जयंती 2026: 1 दिसंबर, मंगलवार 🔱 घर पर पूजा की विधि, भोग और कथा:
 https://omkiranbhakti.com/kaal-bhairav-jayanti-puja-vidhi.html
 #कालभैरव_जयंती #KaalBhairav
