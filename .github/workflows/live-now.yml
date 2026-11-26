@@ -1,0 +1,39 @@
+name: Live now (which temples are streaming)
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "live-now"
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          sparse-checkout: |
+            src/live_section.py
+            tools/live_now.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Check temple channels
+        run: python tools/live_now.py
+      - name: Publish to branch live-status
+        run: |
+          cp live-now.json /tmp/live-now.json
+          git config user.name "github-actions" && git config user.email "actions@github.com"
+          git checkout -q --orphan live-status
+          git rm -rfq . >/dev/null 2>&1 || true
+          cp /tmp/live-now.json live-now.json
+          git add live-now.json && git commit -qm "live now"
+          git push -qf origin live-status

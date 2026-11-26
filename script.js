@@ -382,3 +382,32 @@ window.okbAudio=function(box,list){
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.sewa-copy');if(!b)return;var id=b.getAttribute('data-upi');
   var done=function(){b.textContent='कॉपी हो गया ✓';setTimeout(function(){b.textContent='कॉपी करें'},2000)};
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(id).then(done,function(){prompt('UPI ID',id)})}else{prompt('UPI ID',id)}});
+
+/* Which temples are live right now. A GitHub Action checks every temple channel every 15 minutes and writes
+   live-now.json to branch live-status. Sets data-lv on players/tiles: video id = live now, "" = not live. */
+window.OKB_LIVE_MSG='अभी यह मंदिर लाइव नहीं है — मंदिर आमतौर पर आरती और उत्सव के समय लाइव आते हैं। तब तक मंदिर के हाल के दर्शन चल रहे हैं।';
+window.okbLiveMsg=function(after,show){if(!after)return;var m=after.parentNode.querySelector('.lv-msg');
+  if(!m){m=document.createElement('p');m.className='lv-msg';m.setAttribute('role','status');after.insertAdjacentElement('afterend',m);}
+  m.textContent=window.OKB_LIVE_MSG;m.hidden=!show;};
+(function(){
+  if(!window.fetch)return;
+  var els=[].slice.call(document.querySelectorAll('.dg-player[data-ch],.ld-pick[data-ch],.hl-grid a[data-ch]'));if(!els.length)return;
+  fetch('https://raw.githubusercontent.com/Omkiranbhakti/omkiranbhakti.github.io/live-status/live-now.json?v='+Math.floor(Date.now()/3e5))
+  .then(function(r){return r.ok?r.json():null}).then(function(j){
+    if(!j||!j.live||(Date.now()/1000-j.t)>3600)return;
+    var on=[];
+    els.forEach(function(el){var v=j.live[el.dataset.ch]||'';el.dataset.lv=v;if(!v)return;el.classList.add('is-live');
+      if(el.classList.contains('dg-player')){
+        var c=el.querySelector('.live-chip');if(c)c.lastChild.textContent='अभी लाइव चल रहा है — देखें';
+        var s=el.querySelector('.ld-start span');if(s)s.textContent='🔴 अभी लाइव — '+s.textContent.replace(/^▶\s*/,'');
+      }else{var b=document.createElement('span');b.className='lv-badge';b.textContent='LIVE';el.appendChild(b);
+        if(el.classList.contains('ld-pick'))on.push(el);}
+    });
+    var picks=document.querySelector('.ld-picks');
+    if(picks&&on.length){var bar=document.createElement('div');bar.className='lv-now';
+      bar.innerHTML='<b><span class="lv-dot" aria-hidden="true"></span>अभी लाइव:</b> ';
+      on.forEach(function(p){var a=document.createElement('button');a.type='button';a.className='chip';a.textContent=p.dataset.name;
+        a.addEventListener('click',function(){p.click()});bar.appendChild(a);});
+      picks.parentNode.insertBefore(bar,picks);}
+  }).catch(function(){});
+})();

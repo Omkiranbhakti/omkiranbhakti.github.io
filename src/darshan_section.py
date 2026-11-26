@@ -23,21 +23,25 @@ def _dg_player(live_slug, name):
     d = _LIVE_BY.get(live_slug)
     if not d: return ""
     cid, cname, note = d[3], d[4], d[5]
-    return (f'<div class="ld-player dg-player" data-ch="{cid}" data-t="{e(name)} लाइव दर्शन"><div class="ld-frame">'
+    aud = _aud(live_slug) if "_aud" in globals() else ""
+    return (f'<div class="ld-player dg-player" data-ch="{cid}" data-t="{e(name)} लाइव दर्शन" data-aud="{aud}"><div class="ld-frame">'
             f'<img src="img/live/sm/{live_slug}.webp" alt="{e(name)}" width="300" height="300" loading="lazy">'
             f'<button class="ld-start" type="button"><span>▶ {e(name)} — दर्शन शुरू करें</span></button></div>'
             '<div class="ld-modes" role="group" aria-label="क्या देखें"><button class="chip" data-mode="recent" aria-pressed="false">दर्शन और आरती</button>'
             '<button class="chip live-chip" data-mode="live" aria-pressed="false"><span class="lv-dot" aria-hidden="true"></span>अभी लाइव देखें</button></div>'
+            '<div class="bh-aud dg-aud"></div>'
             f'<p class="note">स्रोत: मंदिर का आधिकारिक YouTube चैनल “{e(cname)}” — {e(note)}। वीडियो के सभी अधिकार उन्हीं के हैं। '
             f'<a href="live-darshan.html#{live_slug}">सभी मंदिरों के लाइव दर्शन</a></p></div>')
 
 DG_JS = '''<script>(function(){[].slice.call(document.querySelectorAll(".dg-player")).forEach(function(p){
 var cid=p.dataset.ch,box=p.querySelector(".ld-frame"),bts=p.querySelectorAll("[data-mode]");
-function load(m){var u=m==="live"?"https://www.youtube.com/embed/live_stream?channel="+cid+"&autoplay=1&mute=1&rel=0":"https://www.youtube.com/embed/videoseries?list=UU"+cid.slice(2)+"&autoplay=1&mute=1&rel=0";
+function load(m){var lv=p.dataset.lv,nl=m==="live"&&lv==="";if(nl)m="recent";if(window.okbLiveMsg)okbLiveMsg(p.querySelector(".ld-modes"),nl);
+var u=m==="live"?(lv?"https://www.youtube.com/embed/"+lv+"?autoplay=1&mute=1&rel=0":"https://www.youtube.com/embed/live_stream?channel="+cid+"&autoplay=1&mute=1&rel=0"):"https://www.youtube.com/embed/videoseries?list=UU"+cid.slice(2)+"&autoplay=1&mute=1&rel=0";
 box.innerHTML='<iframe src="'+u+'" title="'+p.dataset.t+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
-[].forEach.call(bts,function(b){b.setAttribute("aria-pressed",b.dataset.mode===m?"true":"false")});}
+[].forEach.call(bts,function(b){b.setAttribute("aria-pressed",b.dataset.mode===m?"true":"false")});
+var au=p.querySelector(".dg-aud");if(au&&!au._a&&p.dataset.aud&&window.okbAudio){try{okbAudio(au,JSON.parse(p.dataset.aud))}catch(e){}}}
 [].forEach.call(bts,function(b){b.addEventListener("click",function(){load(b.dataset.mode)})});
-var st=p.querySelector(".ld-start");if(st)st.addEventListener("click",function(){load("recent")});});})();</script>'''
+var st=p.querySelector(".ld-start");if(st)st.addEventListener("click",function(){load(p.dataset.lv?"live":"recent")});});})();</script>'''
 
 _FAKE = ("<strong>नकली वेबसाइटों से सावधान:</strong> इंटरनेट पर इस मंदिर के नाम से मिलती-जुलती कई वेबसाइटें और WhatsApp नंबर "
          "‘VIP दर्शन’ या टिकट बेचते हैं। बुकिंग सिर्फ़ नीचे दी गई आधिकारिक वेबसाइट या ऐप से करें, किसी एजेंट को पहले से पैसे न भेजें।")

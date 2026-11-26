@@ -1235,3 +1235,12 @@ body.no-dev .line-dev{display:none}
 .kya-pop.kp-tool{border-color:#d9a441;background:linear-gradient(180deg,#fff4dc,#ffe9c2)}
 .kya-pop .kp-t a{color:#7a2a0a;text-decoration:none}
 .kya-pop .kp-t a:hover{text-decoration:underline}
+.lv-badge{position:absolute;top:.35rem;left:.35rem;background:#e0242c;color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.04em;padding:.1rem .4rem;border-radius:.3rem;box-shadow:0 0 0 2px #fff6;animation:lvp 1.6s ease-in-out infinite}
+.ld-pick,.hl-grid a{position:relative}
+.ld-pick.is-live .ld-thumb img,.hl-grid a.is-live img{box-shadow:0 0 0 3px #e0242c}
+.dg-player.is-live .live-chip{background:#e0242c;color:#fff;border-color:#e0242c}
+.lv-now{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:0 0 .9rem;padding:.55rem .75rem;border-radius:var(--r-m,12px);background:#fff0f0;box-shadow:inset 0 0 0 1px #e0242c55}
+.lv-now b{display:inline-flex;align-items:center;gap:.35rem;color:#b3161d}
+.lv-msg{margin:.5rem 0 0;padding:.5rem .7rem;border-radius:10px;background:#fff7e6;color:#5a3a00;font-size:.92rem}
+@keyframes lvp{50%{opacity:.6}}
+@media (prefers-reduced-motion:reduce){.lv-badge{animation:none}}

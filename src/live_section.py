@@ -174,8 +174,8 @@ LIVE_ONE_JS = r"""<script>document.addEventListener("DOMContentLoaded",function(
 var picks=[].slice.call(document.querySelectorAll(".ld-pick")),box=document.querySelector(".ld-frame"),mode="live",cur=null;
 var bh=document.getElementById("ld-bh"),bhw={};
 var nm=document.getElementById("ld-name"),src=document.getElementById("ld-src"),aar=[].slice.call(document.querySelectorAll(".ld-aarti"));
-function play(m){mode=m;if(!cur)return;var cid=cur.dataset.ch;
- var u=m==="live"?"https://www.youtube.com/embed/live_stream?channel="+cid+"&autoplay=1&mute=1&rel=0&cc_load_policy=0&iv_load_policy=3":"https://www.youtube.com/embed/videoseries?list=UU"+cid.slice(2)+"&autoplay=1&mute=1&rel=0&cc_load_policy=0&iv_load_policy=3";
+function play(m){mode=m;if(!cur)return;var cid=cur.dataset.ch,lv=cur.dataset.lv,nl=m==="live"&&lv==="";if(nl)m="recent";if(window.okbLiveMsg)okbLiveMsg(document.querySelector(".ld-player .ld-modes"),nl);
+ var u=m==="live"&&lv?"https://www.youtube.com/embed/"+lv+"?autoplay=1&mute=1&rel=0&cc_load_policy=0&iv_load_policy=3":m==="live"?"https://www.youtube.com/embed/live_stream?channel="+cid+"&autoplay=1&mute=1&rel=0&cc_load_policy=0&iv_load_policy=3":"https://www.youtube.com/embed/videoseries?list=UU"+cid.slice(2)+"&autoplay=1&mute=1&rel=0&cc_load_policy=0&iv_load_policy=3";
  box.innerHTML='<iframe src="'+u+'" title="'+cur.dataset.name+' लाइव दर्शन" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
  [].forEach.call(document.querySelectorAll("[data-mode]"),function(b){b.setAttribute("aria-pressed",b.dataset.mode===m?"true":"false")});
  bhajan();}
@@ -186,7 +186,7 @@ function pick(b,start){cur=b;picks.forEach(function(x){x.setAttribute("aria-pres
  nm.textContent=b.dataset.name+", "+b.dataset.place;src.textContent="स्रोत: मंदिर का आधिकारिक YouTube चैनल “"+b.dataset.src+"” — "+b.dataset.note+"। वीडियो के सभी अधिकार उन्हीं के हैं।";
  var ta="";aar.forEach(function(a){var on=a.dataset.a===b.dataset.a;a.hidden=!on;if(on)ta=a.dataset.t});var al=document.getElementById("ld-aline");al.hidden=!ta;document.getElementById("ld-atitle").textContent=ta;
  try{history.replaceState(null,"","#"+b.dataset.slug)}catch(e){}
- if(start)play("recent");else{box.innerHTML='<button class="ld-start" type="button"><span>▶ '+b.dataset.name+' — दर्शन शुरू करें</span></button>';box.querySelector(".ld-start").addEventListener("click",function(){play("recent")});}}
+ if(start)play(b.dataset.lv?"live":"recent");else{box.innerHTML='<button class="ld-start" type="button"><span>▶ '+b.dataset.name+' — दर्शन शुरू करें</span></button>';box.querySelector(".ld-start").addEventListener("click",function(){play("recent")});}}
 picks.forEach(function(b){b.addEventListener("click",function(){pick(b,true);document.querySelector(".ld-player").scrollIntoView({behavior:"smooth",block:"start"})})});
 [].forEach.call(document.querySelectorAll("[data-mode]"),function(b){b.addEventListener("click",function(){play(b.dataset.mode)})});
 var h=(location.hash||"").slice(1),hit=picks.filter(function(p){return p.dataset.slug===h})[0],first=hit||picks[0];pick(first,!!hit);if(hit)document.querySelector(".ld-player").scrollIntoView({block:"start"});

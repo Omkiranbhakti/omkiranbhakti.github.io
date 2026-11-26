@@ -1,5 +1,49 @@
 # Google Search Console "Request indexing" queue — one URL path per line, top = highest priority.
 # The daily task requests up to Google's quota (~10/day), then moves done lines to seo/index-done.txt.
+# --- re-request 2026-11-26: live darshan pages now have timings/aarti/VIP ticket box + live-now badge (most searched first) ---
+mahakal-live-darshan.html
+ram-mandir-live-darshan.html
+khatu-shyam-live-darshan.html
+vaishno-devi-live-darshan.html
+kashi-vishwanath-live-darshan.html
+tirupati-live-darshan.html
+shirdi-sai-baba-live-darshan.html
+banke-bihari-live-darshan.html
+siddhivinayak-live-darshan.html
+kedarnath-live-darshan.html
+salasar-balaji-live-darshan.html
+somnath-live-darshan.html
+sabarimala-live-darshan.html
+jagannath-puri-live-darshan.html
+golden-temple-live-darshan.html
+dwarkadhish-live-darshan.html
+haridwar-ganga-aarti-live.html
+varanasi-ganga-aarti-live.html
+omkareshwar-live-darshan.html
+shrinathji-live-darshan.html
+sanwaliya-seth-live-darshan.html
+dagdusheth-ganpati-live-darshan.html
+barsana-radha-rani-live-darshan.html
+trimbakeshwar-live-darshan.html
+guruvayur-live-darshan.html
+pandharpur-live-darshan.html
+mahalakshmi-mumbai-live-darshan.html
+sankat-mochan-live-darshan.html
+dakshineswar-live-darshan.html
+ambaji-live-darshan.html
+naina-devi-live-darshan.html
+pavagadh-live-darshan.html
+mallikarjuna-live-darshan.html
+govind-dev-ji-live-darshan.html
+kanaka-durga-live-darshan.html
+annavaram-live-darshan.html
+simhachalam-live-darshan.html
+iskcon-vrindavan-live-darshan.html
+iskcon-mayapur-live-darshan.html
+iskcon-juhu-live-darshan.html
+iskcon-bangalore-live-darshan.html
+iskcon-delhi-live-darshan.html
+live-darshan.html
 # --- roadmap pages 2026-11-20 (darshan guide: Jagannath Puri) ---
 # --- roadmap pages 2026-11-18 (darshan guides: Banke Bihari, Shirdi) ---
 # --- roadmap pages 2026-11-16 (darshan guides: Somnath, Omkareshwar) ---
