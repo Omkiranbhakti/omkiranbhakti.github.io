@@ -11,6 +11,21 @@ def channels():
     block = src.split("LIVE = [", 1)[1].split("\n]", 1)[0]
     return list(dict.fromkeys(re.findall(r'"(UC[\w-]{22})"', block)))
 
+def player(v):
+    """Ask YouTube's own player API whether a video is live now. Returns True/False, or None on failure."""
+    body = json.dumps({"videoId": v, "context": {"client": {"clientName": "WEB", "clientVersion": "2.20251120.01.00", "hl": "en", "gl": "IN"}}}).encode()
+    req = urllib.request.Request("https://www.youtube.com/youtubei/v1/player?prettyPrint=false", data=body,
+                                 headers={**UA, "Content-Type": "application/json", "Origin": "https://www.youtube.com"})
+    try:
+        j = json.loads(urllib.request.urlopen(req, timeout=25).read())
+    except Exception as e:
+        return None
+    vd = j.get("videoDetails") or {}
+    lb = ((j.get("microformat") or {}).get("playerMicroformatRenderer") or {}).get("liveBroadcastDetails") or {}
+    if "isLiveNow" in lb: return bool(lb["isLiveNow"])
+    if vd: return bool(vd.get("isLive"))
+    return None
+
 def check(cid):
     try:
         req = urllib.request.Request(f"https://www.youtube.com/channel/{cid}/live", headers=UA)
@@ -31,10 +46,7 @@ if __name__ == "__main__":
     # health check: a channel that streams 24x7 (Lofi Girl). If it doesn't show as live, detection is broken -> don't publish.
     if "--debug" in sys.argv:
         for v in ["_tV5LEBDs7w", "wYJYJ61EeQE", "Qzv2g6bkpSc"]:
-            req = urllib.request.Request(f"https://www.youtube.com/watch?v={v}", headers=UA)
-            b = urllib.request.urlopen(req, timeout=25).read().decode("utf-8", "replace")
-            print(v, len(b), "isLiveNow:true", b.count('"isLiveNow":true'), "isLiveNow:false", b.count('"isLiveNow":false'),
-                  "isLive:true", b.count('"isLive":true'), "lbd", b.count("liveBroadcastDetails"), "endTimestamp", b.count('"endTimestamp"'))
+            print(v, player(v))
         sys.exit(0)
     probe = check("UCSJ4gkVC6NrvII8umztf0Ow")[1]
     print("probe:", repr(probe))
