@@ -1726,5 +1726,93 @@
   "licurl": "",
   "artist": "Unknown.Public domain image.",
   "kb": 39
+ },
+ "nachiketa-yama": {
+  "file": "File:Yama teaches Nasiketha.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Yama_teaches_Nasiketha.jpg",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "S. B. Krishnamurthy",
+  "kb": 26
+ },
+ "ram-hanuman-milan-sugriv": {
+  "file": "File:Hanuman meets Sri Rama in Forest.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Hanuman_meets_Sri_Rama_in_Forest.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Raja Ravi Varma",
+  "kb": 41
+ },
+ "lakshman-shakti-sanjivani": {
+  "file": "File:Hanuman returns with sanjeevani mountain for laxmana's life.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Hanuman_returns_with_sanjeevani_mountain_for_laxmana%27s_life.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Balasaheb Pant \n\n(Life time: ( October 24, 1868 - April 13, 1951) )",
+  "kb": 31
+ },
+ "karna-kavach-kundal": {
+  "file": "File:Karan offering an old poor man, bent with age and destitution, a Kavach that is embedded in his arms and is retrieved by culling with a knife.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Karan_offering_an_old_poor_man,_bent_with_age_and_destitution,_a_Kavach_that_is_embedded_in_his_arms_and_is_retrieved_by_culling_with_a_knife.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Bamapada Banerjee",
+  "kb": 20
+ },
+ "vishnu-sahasranama-bhishma": {
+  "file": "File:Bhisma on arrows bed.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Bhisma_on_arrows_bed.jpg",
+  "lic": "CC0",
+  "licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "Mahavir Prasad Mishra",
+  "kb": 37
+ },
+ "yajnavalkya-maitreyi": {
+  "file": "File:Imagery of Sage Yagnavalkya.JPG",
+  "desc": "https://commons.wikimedia.org/wiki/File:Imagery_of_Sage_Yagnavalkya.JPG",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Subbyseeta (talk)",
+  "kb": 28
+ },
+ "navratri-durga": {
+  "file": "File:Durga Puja Festival - Kolkata October 2025.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Durga_Puja_Festival_-_Kolkata_October_2025.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Pramanikshreya",
+  "kb": 46
+ },
+ "janabai-muktabai": {
+  "file": "File:Stamp of India - 2003 - Colnect 158310 - Muktabai.jpeg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Stamp_of_India_-_2003_-_Colnect_158310_-_Muktabai.jpeg",
+  "lic": "GODL-India",
+  "licurl": "https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf",
+  "artist": "Post of India",
+  "kb": 8
+ },
+ "51-shaktipeeth": {
+  "file": "File:Shiva carrying his wife in her Sakti form. Watercolour drawi Wellcome V0045169.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Shiva_carrying_his_wife_in_her_Sakti_form._Watercolour_drawi_Wellcome_V0045169.jpg",
+  "lic": "CC BY 4.0",
+  "licurl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "https://wellcomeimages.org/indexplus/obf_images/15/22/3f530eb2885fd2efc17b1d277955.jpg\n\nGallery: https://wellcomeimages.",
+  "kb": 27
+ },
+ "char-dham-bharat": {
+  "file": "File:Badrinath temple - Uttarakhand.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Badrinath_temple_-_Uttarakhand.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Shitha Valsan",
+  "kb": 30
+ },
+ "morya-gosavi": {
+  "file": "File:Morya Gosavi.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Morya_Gosavi.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Chitrashala Press, Poona",
+  "kb": 32
  }
 }
