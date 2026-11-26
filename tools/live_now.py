@@ -18,9 +18,11 @@ def check(cid):
             b = r.read().decode("utf-8", "replace")
     except Exception:
         return cid, None
-    can = re.search(r'<link rel="canonical" href="https://www\.youtube\.com/watch\?v=([\w-]{11})"', b)
-    if can and '"isLiveNow":true' in b:
-        return cid, can.group(1)
+    m = re.search(r'"videoDetails":\{"videoId":"([\w-]{11})"', b)
+    if m:
+        seg = b[m.start():m.start() + 6000]
+        if '"isLive":true' in seg and '"isUpcoming":true' not in seg:
+            return cid, m.group(1)
     return cid, ""
 
 if __name__ == "__main__":
@@ -28,12 +30,14 @@ if __name__ == "__main__":
     # health check: a channel that streams 24x7 (Lofi Girl). If it doesn't show as live, detection is broken -> don't publish.
     if "--debug" in sys.argv:
         for u in ["https://www.youtube.com/channel/UCSJ4gkVC6NrvII8umztf0Ow/live", "https://www.youtube.com/@LofiGirl/live",
-                  "https://www.youtube.com/embed/live_stream?channel=UCSJ4gkVC6NrvII8umztf0Ow"]:
+                  "https://www.youtube.com/channel/UCEUuwXHmHckwmdANSy4c7Sw/live", "https://www.youtube.com/channel/UCIbhcJEGjI7fRfKiG_p0Mqg/live"]:
             try:
                 with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=25) as r:
                     b = r.read().decode("utf-8", "replace"); fu = r.geturl()
             except Exception as e:
                 print(u, "ERR", e); continue
+            m = re.search(r'"videoDetails":\{"videoId":"([\w-]{11})"', b); seg = b[m.start():m.start()+6000] if m else ""
+            print("  videoDetails:", m.group(1) if m else None, "isLive in seg:", '"isLive":true' in seg, "upcoming:", '"isUpcoming":true' in seg)
             print(u, "->", fu, len(b), "canon:", re.findall(r'<link rel="canonical" href="([^"]+)"', b)[:1],
                   "isLiveNow:", b.count('"isLiveNow":true'), "isLive:", b.count('"isLive":true'), "liveBroadcastDetails:", b.count("liveBroadcastDetails"),
                   "consent:", b.count("consent.youtube"), "videoIds:", re.findall(r'"videoId":"([\w-]{11})"', b)[:2])
