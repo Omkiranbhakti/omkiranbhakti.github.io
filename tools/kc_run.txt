@@ -1,2 +1,2 @@
-cand
-# batch-06 images, retry 3
+build
+# batch-06 build 50
