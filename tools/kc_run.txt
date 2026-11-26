@@ -1,2 +1,2 @@
-build
-# batch-05 swap 6
+cand
+# batch-06 images
