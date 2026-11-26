@@ -1,67 +1,202 @@
 {
- "kevat-prasang": [
-  "Rama crossing Ganga boat",
-  "Guha Rama boat painting",
-  "Kevat Rama"
- ],
- "nachiketa-yama": [
-  "Nachiketa",
-  "Nachiketa Yama painting",
-  "Katha Upanishad Nachiketa"
- ],
- "yajnavalkya-maitreyi": [
-  "Yajnavalkya",
-  "Yajnavalkya painting",
-  "Yajnavalkya sage"
- ],
- "janabai-muktabai": [
-  "Sant Janabai",
-  "Muktabai",
-  "Janabai Vitthal"
- ],
- "char-dham-bharat": [
-  "Badrinath Temple",
-  "Rameswaram temple",
-  "Dwarkadhish temple"
- ],
- "51-shaktipeeth": [
-  "Shiva carrying Sati",
-  "Shiva carrying corpse of Sati",
-  "Sati Shiva painting"
- ],
- "navratri-durga": [
-  "Durga Puja Kolkata idol",
-  "Durga Puja pandal",
-  "Navaratri Durga"
- ],
- "vishnu-sahasranama-bhishma": [
-  "Bhishma bed of arrows",
-  "Bhishma Sharashayya",
-  "Bhishma arrows painting"
- ],
- "lakshman-shakti-sanjivani": [
-  "Hanuman carrying mountain",
-  "Hanuman Dronagiri",
-  "Hanuman mountain painting"
- ],
- "yaksha-prashna": [
-  "Yudhishthira Yaksha",
-  "Yaksha Yudhishthira painting",
-  "Pandavas lake Yaksha"
- ],
- "karna-kavach-kundal": [
-  "Karna Indra armour",
-  "Karna painting Mahabharata",
-  "Karna Raja Ravi Varma"
- ],
- "ram-hanuman-milan-sugriv": [
-  "Rama meets Hanuman",
-  "Hanuman meets Rama painting",
-  "Rama Sugriva alliance"
- ],
- "morya-gosavi": [
-  "Morya Gosavi",
-  "Chinchwad Morya Gosavi temple",
-  "Morgaon Ganesh temple"
- ]
+"tripurasur-vadh": [
+"Tripurantaka",
+"Tripurantaka painting"
+],
+"lingodbhava": [
+"Lingodbhava",
+"Lingodbhava painting"
+],
+"putana-makhan-chor": [
+"Putana",
+"Putana painting"
+],
+"chitrakoot-kamadgiri": [
+"Chitrakoot",
+"Chitrakoot painting"
+],
+"gokarna-mahabaleshwar": [
+"Mahabaleshwar Temple, Gokarna",
+"Mahabaleshwar Temple, Gokarna painting"
+],
+"gangasagar-kapil-muni": [
+"Gangasagar",
+"Gangasagar painting"
+],
+"chhath-mahaparv": [
+"Chhath",
+"Chhath painting"
+],
+"kanyakumari-devi": [
+"Kanyakumari Temple",
+"Kanyakumari Temple painting"
+],
+"palani-murugan": [
+"Palani Murugan Temple",
+"Palani Murugan Temple painting"
+],
+"tiruchendur-murugan": [
+"Tiruchendur Murugan Temple",
+"Tiruchendur Murugan Temple painting"
+],
+"pongal-makar-sankranti": [
+"Makar Sankranti",
+"Makar Sankranti painting"
+],
+"vindhyavasini-mirzapur": [
+"Vindhyavasini Temple",
+"Vindhyavasini Temple painting"
+],
+"arunachaleswarar-tiruvannamalai": [
+"Annamalaiyar Temple",
+"Annamalaiyar Temple painting"
+],
+"srikalahasti-kannappa": [
+"Srikalahasti Temple",
+"Srikalahasti Temple painting"
+],
+"kanchi-kamakshi": [
+"Kamakshi Amman Temple",
+"Kamakshi Amman Temple painting"
+],
+"kolhapur-mahalakshmi": [
+"Mahalakshmi Temple, Kolhapur",
+"Mahalakshmi Temple, Kolhapur painting"
+],
+"naina-devi-himachal": [
+"Naina Devi Temple",
+"Naina Devi Temple painting"
+],
+"kollur-mookambika": [
+"Kollur Mookambika Temple",
+"Kollur Mookambika Temple painting"
+],
+"sringeri-sharadamba": [
+"Sringeri Sharada Peetham",
+"Sringeri Sharada Peetham painting"
+],
+"mehandipur-balaji": [
+"Mehandipur Balaji Temple",
+"Mehandipur Balaji Temple painting"
+],
+"ambaji-shaktipeeth": [
+"Ambaji Temple",
+"Ambaji Temple painting"
+],
+"pavagadh-kalika": [
+"Kalika Mata Temple, Pavagadh",
+"Kalika Mata Temple, Pavagadh painting"
+],
+"hinglaj-mata": [
+"Hinglaj Mata",
+"Hinglaj Mata painting"
+],
+"simhachalam-narasimha": [
+"Simhachalam",
+"Simhachalam painting"
+],
+"tulja-bhavani": [
+"Tulja Bhavani Temple",
+"Tulja Bhavani Temple painting"
+],
+"maihar-sharda-mata": [
+"Maihar Sharda Temple",
+"Maihar Sharda Temple painting"
+],
+"jejuri-khandoba": [
+"Khandoba",
+"Khandoba painting"
+],
+"pushkar-brahma": [
+"Jagatpita Brahma Mandir",
+"Jagatpita Brahma Mandir painting"
+],
+"ahobilam-nava-narasimha": [
+"Ahobilam",
+"Ahobilam painting"
+],
+"ramdevra-baba-ramdev": [
+"Ramdev Pir",
+"Ramdev Pir painting"
+],
+"majuli-satra": [
+"Sattra (Ekasarana)",
+"Sattra (Ekasarana) painting"
+],
+"sankat-mochan-varanasi": [
+"Sankat Mochan Hanuman Temple",
+"Sankat Mochan Hanuman Temple painting"
+],
+"kumbakonam-mahamaham": [
+"Mahamaham",
+"Mahamaham painting"
+],
+"mathura-krishna-janmabhoomi": [
+"Krishna Janmasthan Temple Complex",
+"Krishna Janmasthan Temple Complex painting"
+],
+"barsana-radha-rani": [
+"Radha Rani Temple, Barsana",
+"Radha Rani Temple, Barsana painting"
+],
+"shani-shingnapur": [
+"Shani Shingnapur",
+"Shani Shingnapur painting"
+],
+"bihu-assam": [
+"Bihu",
+"Bihu painting"
+],
+"shri-govindajee-imphal": [
+"Shree Govindajee Temple",
+"Shree Govindajee Temple painting"
+],
+"manipuri-ras-leela": [
+"Manipuri dance",
+"Manipuri dance painting"
+],
+"hanumangarhi-ayodhya": [
+"Hanuman Garhi",
+"Hanuman Garhi painting"
+],
+"jwalamukhi-shaktipeeth": [
+"Jwalamukhi Temple",
+"Jwalamukhi Temple painting"
+],
+"tarapith-temple": [
+"Tarapith",
+"Tarapith painting"
+],
+"chamundeshwari-mysore": [
+"Chamundeshwari Temple",
+"Chamundeshwari Temple painting"
+],
+"yamunotri-dham": [
+"Yamunotri",
+"Yamunotri painting"
+],
+"kheer-bhawani-tulmul": [
+"Kheer Bhawani",
+"Kheer Bhawani painting"
+],
+"kanwar-yatra": [
+"Kanwar Yatra",
+"Kanwar Yatra painting"
+],
+"parshuram-kund": [
+"Parshuram Kund",
+"Parshuram Kund painting"
+],
+"nageshwar-jyotirlinga": [
+"Nageshwar Jyotirlinga",
+"Nageshwar Jyotirlinga painting"
+],
+"girnar-dattatreya": [
+"Girnar",
+"Girnar painting"
+],
+"prayagraj-mahakumbh": [
+"Kumbh Mela",
+"Kumbh Mela painting"
+]
 }

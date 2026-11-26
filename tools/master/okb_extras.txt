@@ -42,7 +42,7 @@ m | -3138.5 | कर्ण का कवच-कुंडल दान | Karna gi
 m | -3137.95 | अभिमन्यु और चक्रव्यूह | Abhimanyu and the Chakravyuha | Kurukshetra | 1
 m | -3137.92 | विष्णु सहस्रनाम — भीष्म का उपदेश | Bhishma teaches the Vishnu Sahasranama | Kurukshetra | 1
 # --- ज्योतिर्लिंग / धाम / सप्तपुरी ---
-t |  | नागेश्वर ज्योतिर्लिंग | Nageshwar Jyotirlinga | Gujarat | 1
+t |  | नागेश्वर ज्योतिर्लिंग, द्वारका | Nageshwar Jyotirlinga | Gujarat | 1
 t |  | यमुनोत्री धाम | Yamunotri Dham | Uttarakhand | 1
 t |  | चित्रकूट — कामदगिरि | Chitrakoot, Kamadgiri | Bundelkhand | 1
 t |  | पुष्कर का ब्रह्मा मंदिर | Brahma temple, Pushkar | Rajasthan | 1
@@ -60,7 +60,7 @@ t |  | काशी का संकटमोचन हनुमान | Sankat 
 # --- शक्तिपीठ / देवी ---
 t |  | कांची कामाक्षी | Kamakshi, Kanchipuram | Tamil Nadu | 1
 t |  | ज्वालामुखी शक्तिपीठ | Jwalamukhi Shaktipeeth | Himachal | 1
-t |  | नैना देवी | Naina Devi | Himachal | 1
+t |  | नैना देवी, बिलासपुर | Naina Devi | Himachal | 1
 t |  | चिंतपूर्णी | Chintpurni | Himachal | 2
 t |  | विंध्यवासिनी, मिर्ज़ापुर | Vindhyavasini, Mirzapur | Uttar Pradesh | 1
 t |  | अंबाजी शक्तिपीठ | Ambaji Shaktipeeth | Gujarat | 1
@@ -86,11 +86,11 @@ t |  | करणी माता, देशनोक | Karni Mata, Deshnoke | Ra
 t |  | मनसा देवी, हरिद्वार | Mansa Devi, Haridwar | Uttarakhand | 2
 t |  | कालका जी, दिल्ली | Kalkaji, Delhi | Delhi | 2
 t |  | छिन्नमस्तिका, रजरप्पा | Chhinnamastika, Rajrappa | Jharkhand | 2
-t |  | माँ शारदा, मैहर | Sharada Mata, Maihar | Madhya Pradesh | 1
+t |  | मैहर की माँ शारदा | Sharada Mata, Maihar | Madhya Pradesh | 1
 t |  | दंतेश्वरी, दंतेवाड़ा | Danteshwari, Dantewada | Chhattisgarh | 2
 # --- गणेश / मुरुगन / दक्षिण ---
 t |  | अष्टविनायक | Ashtavinayak | Maharashtra | 1
-t |  | पलनी के दंडायुधपाणि | Palani Murugan | Tamil Nadu | 1
+t |  | पलनी के दंडायुधपाणि मुरुगन | Palani Murugan | Tamil Nadu | 1
 t |  | तिरुचेंदूर मुरुगन | Tiruchendur Murugan | Tamil Nadu | 1
 t |  | स्वामीमलै, तिरुत्तणी, तिरुप्परंकुंड्रम, पळमुदिरचोलै | Other Arupadai Veedu of Murugan | Tamil Nadu | 2
 t |  | अरुणाचलेश्वर, तिरुवण्णामलै | Arunachaleshwara, Tiruvannamalai | Tamil Nadu | 1
@@ -123,11 +123,11 @@ t |  | ब्रज की रासलीला और ठाकुर रा�
 t |  | उमानंद, गुवाहाटी | Umananda, Guwahati | Assam | 2
 t |  | माजुली के सत्र | Sattras of Majuli | Assam | 1
 t |  | तारकेश्वर | Tarakeswar | Bengal | 2
-t |  | गंगासागर | Gangasagar | Bengal | 1
+t |  | गंगासागर — कपिल मुनि आश्रम | Gangasagar | Bengal | 1
 t |  | बासुकीनाथ धाम | Basukinath | Jharkhand | 2
 # --- पर्व ---
 u |  | छठ महापर्व | Chhath Mahaparv | Bihar | 1
-u |  | पोंगल / मकर संक्रांति | Pongal / Makar Sankranti | Pan-India | 1
+u |  | पोंगल और मकर संक्रांति | Pongal / Makar Sankranti | Pan-India | 1
 u |  | बिहू | Bihu | Assam | 1
 u |  | ओणम और राजा महाबली | Onam and King Mahabali | Kerala | 1
 u |  | दुर्गा पूजा | Durga Puja | Bengal | 1
@@ -138,7 +138,7 @@ u |  | कांवड़ यात्रा | Kanwar Yatra | North India | 1
 u |  | मैसूर दशहरा | Mysuru Dasara | Karnataka | 2
 u |  | थैपूसम | Thaipusam | Tamil Nadu | 2
 u |  | थेय्यम | Theyyam | Kerala | 2
-u |  | प्रयाग कुंभ / महाकुंभ | Prayag Kumbh | Prayagraj | 1
+u |  | प्रयागराज महाकुंभ | Prayag Kumbh | Prayagraj | 1
 # --- संत ---
 s | 1900 | देवराहा बाबा | Devraha Baba | Uttar Pradesh | 2
 # --- पूर्वोत्तर / पूर्व (gap-check) ---

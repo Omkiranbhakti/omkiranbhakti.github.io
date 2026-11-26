@@ -4,53 +4,53 @@ id,source,status,priority,kind,category,region,sort_year,date,title_en,title_hi,
 01-2,TRY,live,1,c,Itihāsa & Purāṇa tradition,Brahmāvarta,-1900000000,1900000000 BCE (traditional),"Svāyambhuva Manu, the first Manu",स्वायंभुव मनु — पहले मनु,7,manu,हाँ,स्रोत Tryambak में,match 2.20; live: Svayambhuva Manu — the First Manu
 01-3,TRY,live,1,c,Itihāsa & Purāṇa tradition,Madhuvana,-1850000000,1850000000 BCE (traditional),Dhruva's tapas and the Pole Star,ध्रुव की तपस्या — ध्रुव तारा,6,dhruv-tara,हाँ,स्रोत Tryambak में,match 1.78; live: Dhruva's Penance — the Pole Star
 01-4,TRY,live,1,c,Itihāsa & Purāṇa tradition,Kankhal,-1800000000,1800000000 BCE (traditional),Dakṣa-yajña and Satī's self-immolation,दक्ष यज्ञ और सती का देह-त्याग,7,sati-daksh-shiv-shaktipeeth,हाँ,स्रोत Tryambak में,match 1.68; live: Daksha's Yajna and Sati's Sacrifice
-okb-001,OKB,live,1,sh,OKB addition,Himalaya,-1790000000,,Marriage of Shiva and Parvati,शिव-पार्वती विवाह,0,shiv-parvati-vivah,नहीं,स्रोत जोड़ना बाकी,match 9.00
-okb-002,OKB,live,1,sh,OKB addition,Kailash,-1789000000,,"Birth of Ganesha, the first-worshipped",गणेश जन्म और प्रथम पूज्य,0,ganesh-janm-pratham-pujya,नहीं,स्रोत जोड़ना बाकी,match 9.00
-okb-003,OKB,live,1,sh,OKB addition,Pan-India,-1788000000,,Kartikeya slays Tarakasura,कार्तिकेय और तारकासुर वध,0,kartikeya-tarakasur,नहीं,स्रोत जोड़ना बाकी,match 9.00
+okb-001,OKB,live,1,sh,OKB addition,Himalaya,-1790000000,,Marriage of Shiva and Parvati,शिव-पार्वती विवाह,0,shiv-parvati-vivah,हाँ,स्रोत जोड़ना बाकी,match 9.00
+okb-002,OKB,live,1,sh,OKB addition,Kailash,-1789000000,,"Birth of Ganesha, the first-worshipped",गणेश जन्म और प्रथम पूज्य,0,ganesh-janm-pratham-pujya,हाँ,स्रोत जोड़ना बाकी,match 9.00
+okb-003,OKB,live,1,sh,OKB addition,Pan-India,-1788000000,,Kartikeya slays Tarakasura,कार्तिकेय और तारकासुर वध,0,kartikeya-tarakasur,हाँ,स्रोत जोड़ना बाकी,match 9.00
 01-5,TRY,live,1,c,Itihāsa & Purāṇa tradition,Brahmāvarta,-1700000000,1700000000 BCE (traditional),Pṛthu milks the Earth,राजा पृथु और पृथ्वी का दोहन,6,prithu,हाँ,स्रोत Tryambak में,match 1.83; live: King Prithu Milks the Earth
-okb-004,OKB,pending,1,sh,OKB addition,Pan-India,-1700000000,,Shiva destroys Tripura,त्रिपुरासुर वध — त्रिपुरारी शिव,0,,,स्रोत जोड़ना बाकी,
-okb-005,OKB,live,1,sh,OKB addition,Pan-India,-1600000000,,Durga slays Mahishasura,महिषासुर मर्दिनी दुर्गा,0,durga-mahishasura-mardini,नहीं,स्रोत जोड़ना बाकी,match 9.00
+okb-004,OKB,live,1,sh,OKB addition,Pan-India,-1700000000,,Shiva destroys Tripura,त्रिपुरासुर वध — त्रिपुरारी शिव,0,tripurasur-vadh,नहीं,स्रोत जोड़ना बाकी,match 9.00
+okb-005,OKB,live,1,sh,OKB addition,Pan-India,-1600000000,,Durga slays Mahishasura,महिषासुर मर्दिनी दुर्गा,0,durga-mahishasura-mardini,हाँ,स्रोत जोड़ना बाकी,match 9.00
 okb-006,OKB,pending,1,sh,OKB addition,Pan-India,-1590000000,,Chandi slays Shumbha-Nishumbha,शुंभ-निशुंभ वध और चंडी,0,,,स्रोत जोड़ना बाकी,
-okb-007,OKB,live,1,sh,OKB addition,Pan-India,-1000000000,,Markandeya saved from Yama,मार्कंडेय और महामृत्युंजय,0,markandeya-mahamrityunjay,नहीं,स्रोत जोड़ना बाकी,match 9.00
-okb-010,OKB,pending,1,sh,OKB addition,Arunachala,-700000000,,"Lingodbhava, the endless pillar of light",लिंगोद्भव — अनंत ज्योति-स्तंभ,0,,,स्रोत जोड़ना बाकी,
+okb-007,OKB,live,1,sh,OKB addition,Pan-India,-1000000000,,Markandeya saved from Yama,मार्कंडेय और महामृत्युंजय,0,markandeya-mahamrityunjay,हाँ,स्रोत जोड़ना बाकी,match 9.00
+okb-010,OKB,live,1,sh,OKB addition,Arunachala,-700000000,,"Lingodbhava, the endless pillar of light",लिंगोद्भव — अनंत ज्योति-स्तंभ,0,lingodbhava,नहीं,स्रोत जोड़ना बाकी,match 9.00
 01-6,TRY,live,1,c,Itihāsa & Purāṇa tradition,Cosmic,-500000000,500000000 BCE (traditional),Samudra Manthana: churning of the ocean,समुद्र मंथन और कूर्म अवतार,7,samudra-manthan-kurma,हाँ,स्रोत Tryambak में,match 1.11; live: Samudra Manthan and the Kurma Avatar
 01-7,TRY,live,1,c,Itihāsa & Purāṇa tradition,Cosmic,-499999000,499999000 BCE (traditional),Śiva becomes Nīlakaṇṭha,महादेव बने नीलकंठ,7,neelkanth-shiv,हाँ,स्रोत Tryambak में,match 1.26; live: Mahadev Becomes Neelkanth
 01-8,TRY,live,1,c,Itihāsa & Purāṇa tradition,"Prayāga, Haridvāra, Ujjayinī, Nāsika",-499998000,499998000 BCE (traditional),Mohinī and the origin of Kumbha,मोहिनी अवतार और कुंभ की कथा,7,mohini-kumbh,हाँ,स्रोत Tryambak में,match 1.31; live: Mohini Avatar and the Story of Kumbh
-okb-011,OKB,live,1,a,OKB addition,Trikuta,-400000000,,Gajendra Moksha,गजेंद्र मोक्ष,0,gajendra-moksha,नहीं,स्रोत जोड़ना बाकी,match 9.00
+okb-011,OKB,live,1,a,OKB addition,Trikuta,-400000000,,Gajendra Moksha,गजेंद्र मोक्ष,0,gajendra-moksha,हाँ,स्रोत जोड़ना बाकी,match 9.00
 01-9,TRY,live,1,c,Itihāsa & Purāṇa tradition,Cosmic,-120533102,120533102 BCE (traditional),Vaivasvata Manvantara begins,वैवस्वत मन्वंतर का आरंभ,8,manvantar,हाँ,स्रोत Tryambak में,match 1.35; live: Beginning of the Vaivasvata Manvantara
 01-10,TRY,live,1,c,Itihāsa & Purāṇa tradition,Himalaya,-120533000,120533000 BCE (traditional),Matsya Avatāra and the great flood,मत्स्य अवतार और महाप्रलय,7,matsya-avatar,हाँ,स्रोत Tryambak में,match 1.93; live: Matsya Avatar and the Great Flood
 01-11,TRY,live,1,c,Itihāsa & Purāṇa tradition,Ayodhyā,-120000000,120000000 BCE (traditional),Ikṣvāku founds the Solar dynasty,इक्ष्वाकु और सूर्यवंश,8,ikshvaku-suryavansh,हाँ,स्रोत Tryambak में,match 1.87; live: Ikshvaku and the Solar Dynasty
 01-12,TRY,live,1,c,Itihāsa & Purāṇa tradition,Pratiṣṭhāna (Prayāga),-119990000,119990000 BCE (traditional),Purūravas founds the Lunar dynasty,पुरूरवा और चंद्रवंश,8,pururava-chandravansh,हाँ,स्रोत Tryambak में,match 1.85; live: Pururava and the Lunar Dynasty
 01-13,TRY,live,1,c,Itihāsa & Purāṇa tradition,Bhāratavarṣa,-3891102,3891102 BCE (traditional),Satya (Kṛta) Yuga of the 28th Mahāyuga,सत्ययुग का आरंभ,8,satyug,हाँ,स्रोत Tryambak में,match 8.00; live: Beginning of Satya Yuga
-okb-015,OKB,live,1,s,OKB addition,Pan-India,-3700000,,"Narada, the eternal devotee",नारद मुनि — देवर्षि,0,narad-muni-devarshi,नहीं,स्रोत जोड़ना बाकी,match 9.00
+okb-015,OKB,live,1,s,OKB addition,Pan-India,-3700000,,"Narada, the eternal devotee",नारद मुनि — देवर्षि,0,narad-muni-devarshi,हाँ,स्रोत जोड़ना बाकी,match 9.00
 01-14,TRY,live,1,c,Itihāsa & Purāṇa tradition,Ahobilam (tradition),-3500000,3500000 BCE (traditional),Narasiṃha Avatāra saves Prahlāda,नृसिंह अवतार — प्रह्लाद की रक्षा,7,narsingh-prahlad-holi,हाँ,स्रोत Tryambak में,match 1.99; live: Narasimha Avatar — Prahlada Saved
 01-15,TRY,live,1,c,Itihāsa & Purāṇa tradition,"Ayodhyā, Kāśī",-3000000,3000000 BCE (traditional),Hariścandra's ordeal of truth,राजा हरिश्चंद्र की सत्य-परीक्षा,7,harishchandra,हाँ,स्रोत Tryambak में,match 1.47; live: King Harishchandra's Test of Truth
-okb-016,OKB,live,1,s,OKB addition,Madra,-3000000,,Savitri and Satyavan,सावित्री-सत्यवान,0,savitri-satyavan,नहीं,स्रोत जोड़ना बाकी,match 9.00
-okb-017,OKB,live,1,s,OKB addition,Pan-India,-2900000,,Nachiketa and Yama,नचिकेता और यम संवाद,0,nachiketa-yama,नहीं,स्रोत जोड़ना बाकी,match 9.00
-okb-019,OKB,live,1,s,OKB addition,Chitrakoot,-2200000,,"Atri, Anasuya and the birth of Dattatreya",अत्रि-अनसूया और दत्तात्रेय जन्म,0,atri-anasuya-dattatreya,नहीं,स्रोत जोड़ना बाकी,match 9.00
+okb-016,OKB,live,1,s,OKB addition,Madra,-3000000,,Savitri and Satyavan,सावित्री-सत्यवान,0,savitri-satyavan,हाँ,स्रोत जोड़ना बाकी,match 9.00
+okb-017,OKB,live,1,s,OKB addition,Pan-India,-2900000,,Nachiketa and Yama,नचिकेता और यम संवाद,0,nachiketa-yama,हाँ,स्रोत जोड़ना बाकी,match 9.00
+okb-019,OKB,live,1,s,OKB addition,Chitrakoot,-2200000,,"Atri, Anasuya and the birth of Dattatreya",अत्रि-अनसूया और दत्तात्रेय जन्म,0,atri-anasuya-dattatreya,हाँ,स्रोत जोड़ना बाकी,match 9.00
 01-16,TRY,live,1,c,Itihāsa & Purāṇa tradition,Bhāratavarṣa,-2163102,2163102 BCE (traditional),Tretā Yuga begins,त्रेतायुग का आरंभ,8,treta-yug,हाँ,स्रोत Tryambak में,match 0.95; live: Beginning of Treta Yuga
 01-17,TRY,live,1,c,Itihāsa & Purāṇa tradition,Bhṛgukaccha (tradition),-2100000,2100000 BCE (traditional),Vāmana Avatāra and Mahābali,वामन अवतार और राजा बलि,8,vaman-bali-onam,हाँ,स्रोत Tryambak में,match 1.51; live: Vamana Avatar and King Bali
 01-18,TRY,live,1,c,Itihāsa & Purāṇa tradition,Gaṅgotrī,-2000000,2000000 BCE (traditional),Bhagīratha brings down the Gaṅgā,भगीरथ ने गंगा को धरती पर उतारा,8,bhagirath-ganga,हाँ,स्रोत Tryambak में,match 1.66; live: Bhagiratha Brings Ganga to Earth
-okb-020,OKB,live,1,r,OKB addition,Kishkindha,-2000000,,Birth of Hanuman,हनुमान जन्म,0,hanuman-janm,नहीं,स्रोत जोड़ना बाकी,match 9.00
+okb-020,OKB,live,1,r,OKB addition,Kishkindha,-2000000,,Birth of Hanuman,हनुमान जन्म,0,hanuman-janm,हाँ,स्रोत जोड़ना बाकी,match 9.00
 01-19,TRY,live,1,c,Itihāsa & Purāṇa tradition,Kānyakubja,-1800000,1800000 BCE (traditional),Viśvāmitra becomes a Brahmarṣi,विश्वामित्र बने ब्रह्मर्षि,7,vishwamitra-gayatri,हाँ,स्रोत Tryambak में,match 1.95; live: Vishwamitra Becomes a Brahmarshi
 01-20,TRY,live,1,c,Itihāsa & Purāṇa tradition,"Narmadā, Koṅkaṇa",-1500000,1500000 BCE (traditional),Paraśurāma Avatāra clears the earth,परशुराम अवतार,7,parshuram,हाँ,स्रोत Tryambak में,match 1.38; live: Parashurama Avatar
 01-21,TRY,live,1,c,Itihāsa & Purāṇa tradition,"Vindhya, Podhigai",-1400000,1400000 BCE (traditional),Agastya crosses the Vindhyas,अगस्त्य ऋषि ने विंध्य पार किया,8,agastya,हाँ,स्रोत Tryambak में,match 1.86; live: Sage Agastya Crosses the Vindhyas
 01-22,TRY,live,1,c,Itihāsa & Purāṇa tradition,Ayodhyā,-869200,869200 BCE (traditional),Birth of Śrī Rāma,श्रीराम का जन्म,8,ram-janm-ramnavami,हाँ,स्रोत Tryambak में,match 1.42; live: Birth of Shri Ram
-okb-021,OKB,live,1,r,OKB addition,Mithila,-869190,,Rama frees Ahalya,अहल्या उद्धार,0,ahalya-uddhar,नहीं,स्रोत जोड़ना बाकी,match 9.00
+okb-021,OKB,live,1,r,OKB addition,Mithila,-869190,,Rama frees Ahalya,अहल्या उद्धार,0,ahalya-uddhar,हाँ,स्रोत जोड़ना बाकी,match 9.00
 01-23,TRY,live,1,c,Itihāsa & Purāṇa tradition,Mithilā,-869185,869185 BCE (traditional),Sītā Svayaṃvara at Mithilā,सीता स्वयंवर,7,sita-swayamvar-vivah-panchami,हाँ,स्रोत Tryambak में,match 1.42; live: Sita Swayamvar
 01-24,TRY,live,1,c,Itihāsa & Purāṇa tradition,"Ayodhyā, Citrakūṭa",-869175,869175 BCE (traditional),Rāma's exile to the forest,श्रीराम का वनवास,7,vanvas-chitrakoot,हाँ,स्रोत Tryambak में,match 1.01; live: Shri Ram's Exile
 okb-022,OKB,live,1,r,OKB addition,Shringverpur,-869175,,Kevat ferries Rama,केवट प्रसंग,0,kevat-prasang,नहीं,स्रोत जोड़ना बाकी,match 9.00
-okb-023,OKB,live,1,r,OKB addition,Chitrakoot,-869172,,"Bharat meets Rama, the padukas",भरत मिलाप और चरण-पादुका,0,bharat-milap-paduka,नहीं,स्रोत जोड़ना बाकी,match 9.00
-okb-024,OKB,live,1,r,OKB addition,Panchavati,-869163.5,,Jatayu's sacrifice,जटायु का बलिदान,0,jatayu-balidan,नहीं,स्रोत जोड़ना बाकी,match 9.00
-okb-025,OKB,live,1,r,OKB addition,Pampa,-869163.2,,Shabari's berries,शबरी के बेर,0,shabari-ber,नहीं,स्रोत जोड़ना बाकी,match 9.00
-okb-026,OKB,live,1,r,OKB addition,Kishkindha,-869163.1,,Rama meets Hanuman; friendship with Sugriva,राम-हनुमान मिलन और सुग्रीव मैत्री,0,ram-hanuman-milan-sugriv,नहीं,स्रोत जोड़ना बाकी,match 9.00
+okb-023,OKB,live,1,r,OKB addition,Chitrakoot,-869172,,"Bharat meets Rama, the padukas",भरत मिलाप और चरण-पादुका,0,bharat-milap-paduka,हाँ,स्रोत जोड़ना बाकी,match 9.00
+okb-024,OKB,live,1,r,OKB addition,Panchavati,-869163.5,,Jatayu's sacrifice,जटायु का बलिदान,0,jatayu-balidan,हाँ,स्रोत जोड़ना बाकी,match 9.00
+okb-025,OKB,live,1,r,OKB addition,Pampa,-869163.2,,Shabari's berries,शबरी के बेर,0,shabari-ber,हाँ,स्रोत जोड़ना बाकी,match 9.00
+okb-026,OKB,live,1,r,OKB addition,Kishkindha,-869163.1,,Rama meets Hanuman; friendship with Sugriva,राम-हनुमान मिलन और सुग्रीव मैत्री,0,ram-hanuman-milan-sugriv,हाँ,स्रोत जोड़ना बाकी,match 9.00
 01-25,TRY,live,1,c,Itihāsa & Purāṇa tradition,Pañcavaṭī (Nāsika),-869163,869163 BCE (traditional),Abduction of Sītā,सीता हरण,7,sita-haran-jatayu,हाँ,स्रोत Tryambak में,match 8.00; live: Sita Taken by Ravana
 01-26,TRY,live,1,c,Itihāsa & Purāṇa tradition,Laṅkā,-869162,869162 BCE (traditional),Hanumān leaps to Laṅkā,हनुमान जी की लंका छलांग,7,hanuman-lanka,हाँ,स्रोत Tryambak में,match 1.88; live: Hanuman's Leap to Lanka
 01-27,TRY,live,1,c,Itihāsa & Purāṇa tradition,Rāmeśvaram,-869161,869161 BCE (traditional),Rāma Setu is built,राम सेतु का निर्माण,8,ram-setu-rameshwaram,हाँ,स्रोत Tryambak में,match 8.00; live: Building of Ram Setu
-okb-027,OKB,live,1,r,OKB addition,Lanka,-869161,,Lakshmana revived by Sanjivani,लक्ष्मण शक्ति और संजीवनी,0,lakshman-shakti-sanjivani,नहीं,स्रोत जोड़ना बाकी,match 9.00
+okb-027,OKB,live,1,r,OKB addition,Lanka,-869161,,Lakshmana revived by Sanjivani,लक्ष्मण शक्ति और संजीवनी,0,lakshman-shakti-sanjivani,हाँ,स्रोत जोड़ना बाकी,match 9.00
 01-28,TRY,live,1,c,Itihāsa & Purāṇa tradition,Laṅkā,-869160,869160 BCE (traditional),Fall of Rāvaṇa,रावण का अंत,7,ravan-dussehra,हाँ,स्रोत Tryambak में,match 1.12; live: The End of Ravana
 01-29,TRY,live,1,c,Itihāsa & Purāṇa tradition,Ayodhyā,-869159,869159 BCE (traditional),Rāma's return and Rāma-rājya,श्रीराम की वापसी और राम-राज्य,6,diwali-ram-rajya,हाँ,स्रोत Tryambak में,match 1.61; live: Shri Ram's Return and Ram Rajya
-okb-028,OKB,live,1,r,OKB addition,Valmiki ashram,-869159,,Lava and Kusha,लव-कुश,0,lav-kush,नहीं,स्रोत जोड़ना बाकी,match 9.00
+okb-028,OKB,live,1,r,OKB addition,Valmiki ashram,-869159,,Lava and Kusha,लव-कुश,0,lav-kush,हाँ,स्रोत जोड़ना बाकी,match 9.00
 01-30,TRY,live,1,c,Itihāsa & Purāṇa tradition,Tamasā river,-869150,869150 BCE (traditional),Vālmīki composes the Rāmāyaṇa (tradition),वाल्मीकि ने रामायण रची,8,valmiki-ramayan,हाँ,स्रोत Tryambak में,match 1.80; live: Valmiki Composes the Ramayana
 01-31,TRY,live,1,c,Itihāsa & Purāṇa tradition,Bhāratavarṣa,-867102,867102 BCE (traditional),Dvāpara Yuga begins,द्वापरयुग का आरंभ,8,dwapar-yug,हाँ,स्रोत Tryambak में,match 1.00; live: Beginning of Dvapara Yuga
 01-32,TRY,live,1,c,Itihāsa & Purāṇa tradition,Hastināpura region,-500000,500000 BCE (traditional),"Bharata Dauṣyanti, the eponymous emperor","चक्रवर्ती भरत — जिनसे ""भारत""",8,bharat-shakuntala,हाँ,स्रोत Tryambak में,"match 1.17; live: Emperor Bharata — the Name ""Bharat"""
@@ -58,27 +58,27 @@ okb-028,OKB,live,1,r,OKB addition,Valmiki ashram,-869159,,Lava and Kusha,लव-
 01-34,TRY,live,1,c,Itihāsa & Purāṇa tradition,Yamunā,-3300,3300 BCE (traditional),Vyāsa born to Satyavatī and Parāśara,वेदव्यास का जन्म,8,vyas-guru-purnima,हाँ,स्रोत Tryambak में,match 8.00; live: Birth of Ved Vyasa
 01-35,TRY,live,1,c,Itihāsa & Purāṇa tradition,Hastināpura,-3250,3250 BCE (traditional),Bhīṣma's terrible vow,भीष्म की प्रतिज्ञा,8,bhishma-pratigya,हाँ,स्रोत Tryambak में,match 1.18; live: Bhishma's Vow
 01-36,TRY,live,1,c,Itihāsa & Purāṇa tradition,Mathurā,-3228,3228 BCE (traditional),Birth of Śrī Kṛṣṇa,श्रीकृष्ण का जन्म,8,krishna-janm-janmashtami,हाँ,स्रोत Tryambak में,match 8.00; live: Birth of Shri Krishna
-okb-029,OKB,pending,1,k,OKB addition,Gokul,-3227,,Putana and the butter thief,पूतना वध और माखन चोर लीला,0,,,स्रोत जोड़ना बाकी,
+okb-029,OKB,live,1,k,OKB addition,Gokul,-3227,,Putana and the butter thief,पूतना वध और माखन चोर लीला,0,putana-makhan-chor,नहीं,स्रोत जोड़ना बाकी,match 9.00
 01-37,TRY,live,1,c,Itihāsa & Purāṇa tradition,Vṛndāvana,-3225,3225 BCE (traditional),Kṛṣṇa's Vraja līlā,वृंदावन की लीलाएँ,8,vrindavan-leela-govardhan,हाँ,स्रोत Tryambak में,match 8.00; live: The Leelas of Vrindavan
-okb-030,OKB,live,1,k,OKB addition,Vrindavan,-3224,,Krishna subdues Kaliya,कालिय नाग दमन,0,kaliya-daman,नहीं,स्रोत जोड़ना बाकी,match 9.00
-okb-031,OKB,live,1,k,OKB addition,Braj,-3223,,Krishna lifts Govardhan,गोवर्धन लीला,0,govardhan-leela,नहीं,स्रोत जोड़ना बाकी,match 9.00
+okb-030,OKB,live,1,k,OKB addition,Vrindavan,-3224,,Krishna subdues Kaliya,कालिय नाग दमन,0,kaliya-daman,हाँ,स्रोत जोड़ना बाकी,match 9.00
+okb-031,OKB,live,1,k,OKB addition,Braj,-3223,,Krishna lifts Govardhan,गोवर्धन लीला,0,govardhan-leela,हाँ,स्रोत जोड़ना बाकी,match 9.00
 okb-032,OKB,pending,1,k,OKB addition,Vrindavan,-3222,,The Maharas,महारास,0,,,स्रोत जोड़ना बाकी,
 01-38,TRY,live,1,c,Itihāsa & Purāṇa tradition,Mathurā,-3217,3217 BCE (traditional),Kṛṣṇa slays Kaṃsa,श्रीकृष्ण ने कंस का वध किया,8,kans-vadh,हाँ,स्रोत Tryambak में,match 1.42; live: Shri Krishna Ends Kamsa
 01-39,TRY,live,1,c,Itihāsa & Purāṇa tradition,Ujjayinī,-3215,3215 BCE (traditional),Kṛṣṇa at Sāndīpani's āśrama,सांदीपनि आश्रम में शिक्षा,8,sandipani-sudama,हाँ,स्रोत Tryambak में,match 1.45; live: Studies at Sandipani Ashram
 01-40,TRY,live,1,c,Itihāsa & Purāṇa tradition,Dvārakā,-3200,3200 BCE (traditional),Founding of Dvārakā,द्वारका की स्थापना,8,dwarka,हाँ,स्रोत Tryambak में,match 1.67; live: Founding of Dwarka
-okb-033,OKB,live,1,k,OKB addition,Vidarbha,-3199,,Krishna and Rukmini,रुक्मिणी हरण,0,rukmini-haran,नहीं,स्रोत जोड़ना बाकी,match 9.00
-okb-034,OKB,live,1,k,OKB addition,Dwarka,-3190,,Sudama meets Krishna,सुदामा मिलन,0,sudama-milan,नहीं,स्रोत जोड़ना बाकी,match 9.00
-okb-036,OKB,live,1,m,OKB addition,Kuru,-3180,,Ekalavya's guru-dakshina,एकलव्य की गुरु-दक्षिणा,0,eklavya-guru-dakshina,नहीं,स्रोत जोड़ना बाकी,match 9.00
+okb-033,OKB,live,1,k,OKB addition,Vidarbha,-3199,,Krishna and Rukmini,रुक्मिणी हरण,0,rukmini-haran,हाँ,स्रोत जोड़ना बाकी,match 9.00
+okb-034,OKB,live,1,k,OKB addition,Dwarka,-3190,,Sudama meets Krishna,सुदामा मिलन,0,sudama-milan,हाँ,स्रोत जोड़ना बाकी,match 9.00
+okb-036,OKB,live,1,m,OKB addition,Kuru,-3180,,Ekalavya's guru-dakshina,एकलव्य की गुरु-दक्षिणा,0,eklavya-guru-dakshina,हाँ,स्रोत जोड़ना बाकी,match 9.00
 01-41,TRY,live,1,c,Itihāsa & Purāṇa tradition,Kāmpilya,-3170,3170 BCE (traditional),Draupadī Svayaṃvara at Kāmpilya,द्रौपदी स्वयंवर,8,draupadi-arjun,हाँ,स्रोत Tryambak में,match 1.43; live: Draupadi Swayamvar
 01-42,TRY,live,1,c,Itihāsa & Purāṇa tradition,Indraprastha,-3160,3160 BCE (traditional),Indraprastha and the Rājasūya,इंद्रप्रस्थ और राजसूय यज्ञ,8,indraprastha-rajsuya,हाँ,स्रोत Tryambak में,match 1.60; live: Indraprastha and the Rajasuya Yajna
 01-43,TRY,live,1,c,Itihāsa & Purāṇa tradition,Hastināpura,-3152,3152 BCE (traditional),The dice game and Draupadī's humiliation,द्यूत क्रीड़ा और द्रौपदी की लाज,7,chirharan-draupadi,हाँ,स्रोत Tryambak में,match 1.80; live: The Dice Game and Draupadi's Honour
 okb-038,OKB,live,1,m,OKB addition,Dwaitavan,-3141,,Yaksha's questions to Yudhishthira,यक्ष प्रश्न,0,yaksha-prashna,नहीं,स्रोत जोड़ना बाकी,match 9.00
 01-44,TRY,live,1,c,Itihāsa & Purāṇa tradition,Indrakīla,-3140,3140 BCE (traditional),Arjuna obtains the Pāśupata,अर्जुन को पाशुपतास्त्र,8,pashupatastra-kirat,हाँ,स्रोत Tryambak में,match 1.44; live: Arjuna Receives the Pashupatastra
 01-45,TRY,live,1,c,Itihāsa & Purāṇa tradition,Hastināpura,-3139,3139 BCE (traditional),Kṛṣṇa's peace embassy fails,श्रीकृष्ण बने शांति-दूत,8,shanti-doot,हाँ,स्रोत Tryambak में,match 1.13; live: Shri Krishna as the Messenger of Peace
-okb-039,OKB,live,1,m,OKB addition,Hastinapur,-3138.5,,Karna gives away his armour,कर्ण का कवच-कुंडल दान,0,karna-kavach-kundal,नहीं,स्रोत जोड़ना बाकी,match 9.00
+okb-039,OKB,live,1,m,OKB addition,Hastinapur,-3138.5,,Karna gives away his armour,कर्ण का कवच-कुंडल दान,0,karna-kavach-kundal,हाँ,स्रोत जोड़ना बाकी,match 9.00
 01-46,TRY,live,1,c,Itihāsa & Purāṇa tradition,Kurukṣetra,-3138,3138 BCE (traditional),Bhagavad Gītā spoken at Kurukṣetra,भगवद्गीता का उपदेश,7,gita-updesh-geeta-jayanti,हाँ,स्रोत Tryambak में,match 1.09; live: The Teaching of the Bhagavad Gita
-okb-040,OKB,live,1,m,OKB addition,Kurukshetra,-3137.95,,Abhimanyu and the Chakravyuha,अभिमन्यु और चक्रव्यूह,0,abhimanyu-chakravyuh,नहीं,स्रोत जोड़ना बाकी,match 9.00
-okb-041,OKB,live,1,m,OKB addition,Kurukshetra,-3137.92,,Bhishma teaches the Vishnu Sahasranama,विष्णु सहस्रनाम — भीष्म का उपदेश,0,vishnu-sahasranama-bhishma,नहीं,स्रोत जोड़ना बाकी,match 9.00
+okb-040,OKB,live,1,m,OKB addition,Kurukshetra,-3137.95,,Abhimanyu and the Chakravyuha,अभिमन्यु और चक्रव्यूह,0,abhimanyu-chakravyuh,हाँ,स्रोत जोड़ना बाकी,match 9.00
+okb-041,OKB,live,1,m,OKB addition,Kurukshetra,-3137.92,,Bhishma teaches the Vishnu Sahasranama,विष्णु सहस्रनाम — भीष्म का उपदेश,0,vishnu-sahasranama-bhishma,हाँ,स्रोत जोड़ना बाकी,match 9.00
 01-47,TRY,live,1,c,Itihāsa & Purāṇa tradition,Kurukṣetra,-3137.9,3137.9 BCE (traditional),The Mahābhārata War,महाभारत का युद्ध,9,mahabharat-yudh,हाँ,स्रोत Tryambak में,match 1.45; live: The Mahabharata War
 01-48,TRY,live,1,c,Itihāsa & Purāṇa tradition,Kurukṣetra,-3137.8,3137.8 BCE (traditional),Bhīṣma on the bed of arrows,शरशय्या पर भीष्म,8,bhishma-sahasranam,हाँ,स्रोत Tryambak में,match 1.70; live: Bhishma on the Bed of Arrows
 01-49,TRY,live,1,c,Itihāsa & Purāṇa tradition,Hastināpura,-3137,3137 BCE (traditional),Yudhiṣṭhira's coronation and Aśvamedha,युधिष्ठिर का राज्याभिषेक,8,yudhishthir,हाँ,स्रोत Tryambak में,match 1.18; live: Coronation of Yudhishthira
@@ -90,7 +90,7 @@ okb-041,OKB,live,1,m,OKB addition,Kurukshetra,-3137.92,,Bhishma teaches the Vish
 01-54,TRY,live,1,c,Itihāsa & Purāṇa tradition,Śukatāla,-3080,3080 BCE (traditional),Parīkṣit hears the Bhāgavata from Śuka,शुकदेव ने परीक्षित को भागवत सुनाई,8,bhagwat-katha-shukdev,हाँ,स्रोत Tryambak में,match 1.27; live: Shukadeva Recites the Bhagavata to Parikshit
 01-55,TRY,live,1,c,Itihāsa & Purāṇa tradition,Takṣaśilā,-3070,3070 BCE (traditional),"Janamejaya's Sarpa-satra, the snake sacrifice",जनमेजय का सर्प-सत्र,8,janmejay,हाँ,स्रोत Tryambak में,match 1.73; live: Janamejaya's Snake Sacrifice
 01-56,TRY,live,1,c,Itihāsa & Purāṇa tradition,Naimiṣāraṇya,-3060,3060 BCE (traditional),Sūta recites the epic at Naimiṣāraṇya,नैमिषारण्य में सूत जी की कथा,7,naimisharanya-sut,हाँ,स्रोत Tryambak में,match 1.46; live: Suta's Katha at Naimisharanya
-03-0,TRY,live,1,-,Scriptures & texts,Sapta Sindhu,-1500,c. 1500 BCE,Ṛgveda Saṃhitā composed,ऋग्वेद — सबसे प्राचीन ग्रंथ,7,rigveda,नहीं,स्रोत Tryambak में,match 8.00; live: The Rigveda
+03-0,TRY,live,1,-,Scriptures & texts,Sapta Sindhu,-1500,c. 1500 BCE,Ṛgveda Saṃhitā composed,ऋग्वेद — सबसे प्राचीन ग्रंथ,7,rigveda,हाँ,स्रोत Tryambak में,match 8.00; live: The Rigveda
 03-1,TRY,pending,1,-,Scriptures & texts,Sapta Sindhu,-1500,c. 1500 BCE,Family books of the Ṛgveda,,6,,,स्रोत Tryambak में,
 03-4,TRY,pending,1,-,Scriptures & texts,Sapta Sindhu,-1400,c. 1400 BCE,Indra slays Vṛtra in Ṛgveda hymns,,8,,,स्रोत Tryambak में,
 03-6,TRY,pending,1,s,"Ācāryas, saints & seers",Sapta Sindhu,-1350,c. 1350 BCE,Women seers of the Ṛgveda,,7,,,स्रोत Tryambak में,
@@ -113,7 +113,7 @@ okb-041,OKB,live,1,m,OKB addition,Kurukshetra,-3137.92,,Bhishma teaches the Vish
 03-121,TRY,pending,1,t,Temples & tīrthas,Sarasvatī,-800,c. 800 BCE,Sarasvatī sattras along the sacred river,,8,,,स्रोत Tryambak में,
 03-35,TRY,pending,1,-,Scriptures & texts,Videha,-700,c. 700 BCE,Bṛhadāraṇyaka Upaniṣad and Yājñavalkya's teaching,,7,,,स्रोत Tryambak में,
 03-36,TRY,pending,1,s,"Ācāryas, saints & seers",Mithilā,-700,c. 700 BCE,Gārgī questions Yājñavalkya,,7,,,स्रोत Tryambak में,
-03-37,TRY,live,1,s,"Ācāryas, saints & seers",Videha,-700,c. 700 BCE,Yājñavalkya and Maitreyī on the Self,याज्ञवल्क्य-मैत्रेयी संवाद,7,yajnavalkya-maitreyi,नहीं,स्रोत Tryambak में,match 8.00; live: Yajnavalkya and Maitreyi
+03-37,TRY,live,1,s,"Ācāryas, saints & seers",Videha,-700,c. 700 BCE,Yājñavalkya and Maitreyī on the Self,याज्ञवल्क्य-मैत्रेयी संवाद,7,yajnavalkya-maitreyi,हाँ,स्रोत Tryambak में,match 8.00; live: Yajnavalkya and Maitreyi
 03-38,TRY,pending,1,-,Scriptures & texts,Kuru–Pāñcāla,-700,c. 700 BCE,Chāndogya Upaniṣad and tat tvam asi,,8,,,स्रोत Tryambak में,
 03-40,TRY,pending,1,s,"Ācāryas, saints & seers",Kuru–Pāñcāla,-700,c. 700 BCE,Satyakāma Jābāla admitted as student,,8,,,स्रोत Tryambak में,
 03-117,TRY,pending,1,-,Scriptures & texts,North India,-700,c. 700 BCE,"""Itihāsa-Purāṇa"" named as fifth Veda",,9,,,स्रोत Tryambak में,
@@ -155,7 +155,7 @@ okb-041,OKB,live,1,m,OKB addition,Kurukshetra,-3137.92,,Bhishma teaches the Vish
 05-6,TRY,pending,1,t,Temples & tīrthas,Rajasthan,-150,c. 150 BCE,Ghosuṇḍī inscription,,8,,,स्रोत Tryambak में,
 05-8,TRY,pending,1,t,Temples & tīrthas,Vidiśā,-113,c. 113 BCE,Heliodorus pillar at Vidiśā,,8,,,स्रोत Tryambak में,
 05-10,TRY,pending,1,t,Temples & tīrthas,Andhra,-100,c. 100 BCE,Guḍimallam Liṅga,,8,,,स्रोत Tryambak में,
-05-22,TRY,live,1,-,Darśana & philosophy,North India,1,c. 1 CE,Yoga Sūtra of Patañjali,पतंजलि का योगसूत्र,6,patanjali-yoga-sutra,नहीं,स्रोत Tryambak में,match 8.00; live: The Yoga Sutra of Patanjali
+05-22,TRY,live,1,-,Darśana & philosophy,North India,1,c. 1 CE,Yoga Sūtra of Patañjali,पतंजलि का योगसूत्र,6,patanjali-yoga-sutra,हाँ,स्रोत Tryambak में,match 8.00; live: The Yoga Sutra of Patanjali
 05-12,TRY,pending,1,t,Temples & tīrthas,Mathurā,25,c. 25 CE,Mora Well inscription of the five Vṛṣṇi heroes,,8,,,स्रोत Tryambak में,
 03-118,TRY,pending,1,-,Scriptures & texts,North India,100,c. 100 CE,Jābāla and Saṃnyāsa Upaniṣads,,8,,,स्रोत Tryambak में,
 02-52,TRY,pending,1,t,Temples & tīrthas,Prayāga,100,c. 100 CE,Triveṇī Saṅgama at Prayāga,,9,,,स्रोत Tryambak में,
@@ -168,9 +168,9 @@ okb-041,OKB,live,1,m,OKB addition,Kurukshetra,-3137.92,,Bhishma teaches the Vish
 06-3,TRY,pending,1,-,Scriptures & texts,North India,350,c. 350 CE,Viṣṇu Purāṇa,,8,,,स्रोत Tryambak में,
 06-4,TRY,pending,1,-,Scriptures & texts,Narmadā region,350,c. 350 CE,Mārkaṇḍeya Purāṇa,,9,,,स्रोत Tryambak में,
 06-5,TRY,pending,1,-,Scriptures & texts,North India,350,c. 350 CE,Matsya Purāṇa,,9,,,स्रोत Tryambak में,
-20-1,TRY,live,1,t,Temples & tīrthas,Bhāratavarṣa,400,c. 400 CE,Mahāśivarātri and Ekādaśī vratas,महाशिवरात्रि और एकादशी व्रत,9,shivratri-ekadashi-vrat,नहीं,स्रोत Tryambak में,match 8.00; live: Mahashivaratri and Ekadashi Vows
+20-1,TRY,live,1,t,Temples & tīrthas,Bhāratavarṣa,400,c. 400 CE,Mahāśivarātri and Ekādaśī vratas,महाशिवरात्रि और एकादशी व्रत,9,shivratri-ekadashi-vrat,हाँ,स्रोत Tryambak में,match 8.00; live: Mahashivaratri and Ekadashi Vows
 06-60,TRY,pending,1,t,Temples & tīrthas,North India,400,c. 400 CE,Gaṅgā and Yamunā at temple doors,,8,,,स्रोत Tryambak में,
-20-4,TRY,live,1,u,Temples & tīrthas,Pan-India,400,c. 400 CE,Ratha-yātrā festivals,रथ यात्रा,8,rath-yatra,नहीं,स्रोत Tryambak में,match 8.00; live: Ratha Yatra
+20-4,TRY,live,1,u,Temples & tīrthas,Pan-India,400,c. 400 CE,Ratha-yātrā festivals,रथ यात्रा,8,rath-yatra,हाँ,स्रोत Tryambak में,match 8.00; live: Ratha Yatra
 06-8,TRY,pending,1,t,Temples & tīrthas,Vidiśā,401,401 CE,Udayagiri caves,,8,,,स्रोत Tryambak में,
 06-25,TRY,pending,1,t,Temples & tīrthas,Central India,415,c. 415 CE,Temple 17 at Sāñcī and Tigawa,,9,,,स्रोत Tryambak में,
 17-5,TRY,pending,1,t,Temples & tīrthas,Uttar Pradesh,415,415 CE,Gupta temple inscriptions at Bilsad and Gadhwa,,8,,,स्रोत Tryambak में,
@@ -184,7 +184,7 @@ okb-041,OKB,live,1,m,OKB addition,Kurukshetra,-3137.92,,Bhishma teaches the Vish
 06-35,TRY,pending,1,t,Temples & tīrthas,Bundelkhand,500,c. 500 CE,Nachna and Bhumara Śiva temples,,9,,,स्रोत Tryambak में,
 06-80,TRY,live,1,t,Temples & tīrthas,Mumbai harbour,500,c. 500 CE,Elephanta's Great Cave begun,एलीफेंटा की गुफाएँ और सदाशिव,7,elephanta-caves,हाँ,स्रोत Tryambak में,match 1.26; live: Elephanta Caves and Sadashiva
 06-81,TRY,pending,1,t,Temples & tīrthas,Mumbai,500,c. 500 CE,Jogeśvarī and Maṇḍapeśvar caves,,8,,,स्रोत Tryambak में,
-20-3,TRY,live,1,t,Temples & tīrthas,Pan-India,500,c. 500 CE,Navarātri and the autumn Durgā festival,नवरात्रि और शारदीय दुर्गा उत्सव,7,navratri-durga,नहीं,स्रोत Tryambak में,match 8.00; live: Navaratri and the Autumn Durga Festival
+20-3,TRY,live,1,t,Temples & tīrthas,Pan-India,500,c. 500 CE,Navarātri and the autumn Durgā festival,नवरात्रि और शारदीय दुर्गा उत्सव,7,navratri-durga,हाँ,स्रोत Tryambak में,match 8.00; live: Navaratri and the Autumn Durga Festival
 na-24,TRY,pending,1,t,Temples & tīrthas,Tezpur,500,c. 500 CE,Dah Parvatiya doorframe and Assam's earliest temple art,,7,,,स्रोत Tryambak में,
 05-53,TRY,pending,1,-,Scriptures & texts,North India,532,532 CE,"Mahābhārata described as 100,000 verses",,8,,,स्रोत Tryambak में,
 07-0,TRY,live,1,t,Temples & tīrthas,Karnataka,550,c. 550 CE,Bādāmi cave temples,बादामी की विष्णु गुफा,7,badami-cave-temples,हाँ,स्रोत Tryambak में,match 1.11; live: Vishnu Cave of Badami
@@ -194,11 +194,11 @@ na-24,TRY,pending,1,t,Temples & tīrthas,Tezpur,500,c. 500 CE,Dah Parvatiya door
 16-15,TRY,pending,1,-,Scriptures & texts,Kashmir,600,c. 600 CE,Viṣṇudharmottara Purāṇa and the Citrasūtra,,6,,,स्रोत Tryambak में,
 06-57,TRY,pending,1,-,Scriptures & texts,North India,600,c. 600 CE,Skanda Purāṇa (early recension),,5,,,स्रोत Tryambak में,
 06-62,TRY,pending,1,s,"Ācāryas, saints & seers",Tamil Nadu,600,c. 600 CE,First three Āḻvārs,,5,,,स्रोत Tryambak में,
-07-4,TRY,live,1,s,"Ācāryas, saints & seers",Tamil Nadu,600,c. 600 CE,Appar (Tirunāvukkarasar),अप्पर — तिरुनावुक्करसर,8,appar-tirunavukkarasar,नहीं,स्रोत Tryambak में,match 8.00; live: Appar (Tirunavukkarasar)
+07-4,TRY,live,1,s,"Ācāryas, saints & seers",Tamil Nadu,600,c. 600 CE,Appar (Tirunāvukkarasar),अप्पर — तिरुनावुक्करसर,8,appar-tirunavukkarasar,हाँ,स्रोत Tryambak में,match 8.00; live: Appar (Tirunavukkarasar)
 16-18,TRY,pending,1,-,Scriptures & texts,Pan-India,600,c. 600 CE,The Īśvara Gītā and later Gītās,,7,,,स्रोत Tryambak में,
 17-11,TRY,pending,1,t,Temples & tīrthas,Tamil Nadu,600,c. 600 CE,Maṇḍagappaṭṭu cave temple of Mahendravarman,,7,,,स्रोत Tryambak में,
 20-16,TRY,pending,1,-,Scriptures & texts,Kashmir,630,c. 630 CE,Nīlamata Purāṇa,,5,,,स्रोत Tryambak में,
-07-16,TRY,live,1,s,"Ācāryas, saints & seers",Tamil Nadu,640,c. 640 CE,Tiruñāṉacampantar,संबंदर — बाल-संत,7,sambandar,नहीं,स्रोत Tryambak में,"match 8.00; live: Sambandar, the Child-Saint"
+07-16,TRY,live,1,s,"Ācāryas, saints & seers",Tamil Nadu,640,c. 640 CE,Tiruñāṉacampantar,संबंदर — बाल-संत,7,sambandar,हाँ,स्रोत Tryambak में,"match 8.00; live: Sambandar, the Child-Saint"
 07-15,TRY,pending,1,t,Temples & tīrthas,Prayāga,643,643 CE,Harṣa's Prayāga assembly,,8,,,स्रोत Tryambak में,
 06-58,TRY,pending,1,-,Scriptures & texts,North India,650,c. 650 CE,Kūrma Purāṇa and the Īśvara Gītā,,6,,,स्रोत Tryambak में,
 07-17,TRY,pending,1,t,Temples & tīrthas,Tamil Nadu,650,c. 650 CE,Māmallapuram rock-cut monuments,,7,,,स्रोत Tryambak में,
@@ -216,7 +216,7 @@ na-22,TRY,pending,1,t,Temples & tīrthas,Choa Saidanshah,650,c. 650 CE,"Katas Ra
 17-20,TRY,pending,1,t,Temples & tīrthas,Himachal Pradesh,700,c. 700 CE,Māsrūr rock-cut temples,,7,,,स्रोत Tryambak में,
 18-39,TRY,pending,1,t,Temples & tīrthas,Tamil Nadu,700,c. 700 CE,Kaḻugumalai Veṭṭuvāṉ Kōyil,,7,,,स्रोत Tryambak में,
 20-5,TRY,pending,1,u,Temples & tīrthas,Kerala,700,c. 700 CE,Oṇam in Tamil and Kerala sources,ओणम और राजा महाबली,8,,,स्रोत Tryambak में,
-20-17,TRY,live,1,t,Temples & tīrthas,Kashmir,700,c. 700 CE,"Śāradā Pīṭha, Kashmir's seat of learning","शारदा पीठ, कश्मीर",7,sharada-peeth-kashmir,नहीं,स्रोत Tryambak में,"match 8.00; live: Sharada Peeth, Kashmir"
+20-17,TRY,live,1,t,Temples & tīrthas,Kashmir,700,c. 700 CE,"Śāradā Pīṭha, Kashmir's seat of learning","शारदा पीठ, कश्मीर",7,sharada-peeth-kashmir,हाँ,स्रोत Tryambak में,"match 8.00; live: Sharada Peeth, Kashmir"
 na-14,TRY,pending,1,t,Temples & tīrthas,Bharmour,700,c. 700 CE,Meruvarman's Lakṣaṇā Devī temple at Bharmour,,5,,,स्रोत Tryambak में,
 07-38,TRY,pending,1,t,Temples & tīrthas,Multan,713,713 CE,Multan's Sun temple spared for revenue,,6,,,स्रोत Tryambak में,
 17-21,TRY,live,1,t,Temples & tīrthas,Kashmir,725,c. 725 CE,Mārtaṇḍa Sun temple,मार्तंड सूर्य मंदिर,6,martand-sun-temple,हाँ,स्रोत Tryambak में,match 1.42; live: Martand Sun Temple
@@ -228,7 +228,7 @@ na-16,TRY,live,1,t,Temples & tīrthas,Māmallapuram,725,c. 725 CE,Narasiṃhavar
 07-51,TRY,pending,1,s,"Ācāryas, saints & seers","Tamil Nadu, Kerala",750,c. 750 CE,Periyāḻvār and Kulaśekhara,,6,,,स्रोत Tryambak में,
 07-53,TRY,pending,1,-,Scriptures & texts,North India,750,c. 750 CE,Agni and Garuḍa Purāṇas,,6,,,स्रोत Tryambak में,
 07-54,TRY,pending,1,-,Scriptures & texts,North India,750,c. 750 CE,Liṅga and Kūrma Purāṇas,,7,,,स्रोत Tryambak में,
-07-107,TRY,live,1,t,Temples & tīrthas,Kathmandu,750,c. 750 CE,Paśupatinātha in Licchavi Nepal,"पशुपतिनाथ, काठमांडू",7,pashupatinath,नहीं,स्रोत Tryambak में,"match 8.00; live: Pashupatinath, Kathmandu"
+07-107,TRY,live,1,t,Temples & tīrthas,Kathmandu,750,c. 750 CE,Paśupatinātha in Licchavi Nepal,"पशुपतिनाथ, काठमांडू",7,pashupatinath,हाँ,स्रोत Tryambak में,"match 8.00; live: Pashupatinath, Kathmandu"
 17-22,TRY,pending,1,t,Temples & tīrthas,Kashmir,750,c. 750 CE,Śaṅkarācārya Temple on Gopādri hill,,6,,,स्रोत Tryambak में,
 07-47,TRY,live,1,t,Temples & tīrthas,Ellora,760,c. 760 CE,"Kailāsa temple, Ellora",एलोरा का कैलाश मंदिर,8,kailasa-ellora,हाँ,स्रोत Tryambak में,match 1.63; live: Kailasa Temple of Ellora
 17-23,TRY,pending,1,t,Temples & tīrthas,Madhya Pradesh,775,c. 775 CE,Naresar and Baṭeśvar temple groups,,6,,,स्रोत Tryambak में,
@@ -252,9 +252,9 @@ okb-live-badrinath,OKB,live,1,t,OKB (live),बद्रीनाथ (उत्�
 07-61,TRY,pending,1,s,"Ācāryas, saints & seers",Māhiṣmatī,807,807 CE (traditional),Ubhaya Bhāratī challenges Śaṅkara,,8,,,स्रोत Tryambak में,
 07-65,TRY,pending,1,s,"Ācāryas, saints & seers","Śāradā Pīṭha, Kashmir",816,816 CE (traditional),Śaṅkara ascends the Sarvajña Pīṭha,,8,,,स्रोत Tryambak में,
 07-67,TRY,live,1,s,"Ācāryas, saints & seers",Kedāranātha,820,820 CE (traditional),Śaṅkara's mahāsamādhi at Kedāranātha,केदारनाथ धाम,8,kedarnath,हाँ,स्रोत Tryambak में,match 8.00; live: Kedarnath Dham
-07-33,TRY,live,1,s,"Ācāryas, saints & seers",Tirukkurukūr,850,c. 850 CE,Nammāḻvār's Tiruvāymoḻi,नम्मालवार और तिरुवायमोऴि,8,nammalvar-thiruvaimozhi,नहीं,स्रोत Tryambak में,match 8.00; live: Nammalvar's Tiruvaymoli
+07-33,TRY,live,1,s,"Ācāryas, saints & seers",Tirukkurukūr,850,c. 850 CE,Nammāḻvār's Tiruvāymoḻi,नम्मालवार और तिरुवायमोऴि,8,nammalvar-thiruvaimozhi,हाँ,स्रोत Tryambak में,match 8.00; live: Nammalvar's Tiruvaymoli
 07-91,TRY,pending,1,t,Temples & tīrthas,"Odisha, Central India",850,c. 850 CE,Circular yoginī temples of central India and Odisha,,9,,,स्रोत Tryambak में,
-07-109,TRY,live,1,s,"Ācāryas, saints & seers",Madurai,850,c. 850 CE,Māṇikkavācakar's Tiruvācakam,माणिक्कवाचकर और तिरुवाचकम्,9,manikkavasagar-thiruvasagam,नहीं,स्रोत Tryambak में,match 8.00; live: Manikkavacakar's Tiruvacakam
+07-109,TRY,live,1,s,"Ācāryas, saints & seers",Madurai,850,c. 850 CE,Māṇikkavācakar's Tiruvācakam,माणिक्कवाचकर और तिरुवाचकम्,9,manikkavasagar-thiruvasagam,हाँ,स्रोत Tryambak में,match 8.00; live: Manikkavacakar's Tiruvacakam
 16-25,TRY,pending,1,-,Scriptures & texts,South India,850,c. 850 CE,Uddhava Gītā and Bhramara Gītā in the Bhāgavata,,7,,,स्रोत Tryambak में,
 17-26,TRY,pending,1,t,Temples & tīrthas,Tamil Nadu,850,c. 850 CE,"Vijayālaya Cōḻīśvaram, Nārttāmalai",,8,,,स्रोत Tryambak में,
 17-37,TRY,pending,1,t,Temples & tīrthas,Uttarakhand,850,c. 850 CE,Kaṭārmal Sun temple and Katyūrī shrines,,7,,,स्रोत Tryambak में,
@@ -320,7 +320,7 @@ okb-live-omkareshwar,OKB,live,1,t,OKB (live),मांधाता द्वी�
 08-107,TRY,pending,1,t,Temples & tīrthas,Cidambaram,1150,c. 1150 CE,Cōḻa enlargement of the Cidambaram temple,,9,,,स्रोत Tryambak में,
 16-38,TRY,pending,1,s,"Ācāryas, saints & seers",Karnataka,1150,c. 1150 CE,Siddharāma and Cennabasava,,7,,,स्रोत Tryambak में,
 17-41,TRY,pending,1,t,Temples & tīrthas,Gujarat,1150,c. 1150 CE,"Rudra Mahālaya, Siddhapur",,6,,,स्रोत Tryambak में,
-08-70,TRY,live,1,s,"Ācāryas, saints & seers","Karnataka, Śrīśaila",1160,c. 1160 CE,Akka Mahādevī,अक्का महादेवी,7,akka-mahadevi,नहीं,स्रोत Tryambak में,match 8.00; live: Akka Mahadevi
+08-70,TRY,live,1,s,"Ācāryas, saints & seers","Karnataka, Śrīśaila",1160,c. 1160 CE,Akka Mahādevī,अक्का महादेवी,7,akka-mahadevi,हाँ,स्रोत Tryambak में,match 8.00; live: Akka Mahadevi
 08-104,TRY,pending,1,t,Temples & tīrthas,Telangana,1163,1163 CE,Rudradeva Kākatīya and the Thousand Pillar temple,,8,,,स्रोत Tryambak में,
 okb-live-rameswaram,OKB,live,1,t,OKB (live),रामेश्वरम (तमिलनाडु),1170,,"Ramanathaswamy Temple, Rameswaram",रामेश्वरम का रामनाथस्वामी मंदिर,,rameswaram,हाँ,,"live, Tryambak में मेल नहीं"
 16-42,TRY,pending,1,-,"Arts, sciences & letters",Devagiri,1200,c. 1200 CE,Śārṅgadeva's Saṅgīta Ratnākara,,7,,,स्रोत Tryambak में,
@@ -344,7 +344,7 @@ okb-live-rameswaram,OKB,live,1,t,OKB (live),रामेश्वरम (तम�
 16-48,TRY,pending,1,-,Scriptures & texts,South India,1300,c. 1300 CE,Muktikā canon of 108 Upaniṣads,,6,,,स्रोत Tryambak में,
 16-49,TRY,pending,1,-,Scriptures & texts,South India,1300,c. 1300 CE,Yoga Upaniṣads,,5,,,स्रोत Tryambak में,
 16-51,TRY,pending,1,s,"Ācāryas, saints & seers","Odisha, Karnataka",1300,c. 1300 CE,Narahari Tīrtha and Padmanābha Tīrtha,,8,,,स्रोत Tryambak में,
-16-53,TRY,live,1,s,"Ācāryas, saints & seers",Maharashtra,1300,c. 1300 CE,"Janābāī, Muktābāī and Soyarābāī","जनाबाई, मुक्ताबाई और सोयराबाई",7,janabai-muktabai,नहीं,स्रोत Tryambak में,"match 8.00; live: Janabai, Muktabai and Soyarabai"
+16-53,TRY,live,1,s,"Ācāryas, saints & seers",Maharashtra,1300,c. 1300 CE,"Janābāī, Muktābāī and Soyarābāī","जनाबाई, मुक्ताबाई और सोयराबाई",7,janabai-muktabai,हाँ,स्रोत Tryambak में,"match 8.00; live: Janabai, Muktabai and Soyarabai"
 16-54,TRY,live,1,s,"Ācāryas, saints & seers",Paṇḍharpūr,1300,c. 1300 CE,"Cokhāmeḷā, the Mahār saint of Paṇḍharpūr",संत चोखामेला,7,chokhamela,हाँ,स्रोत Tryambak में,match 8.00; live: Sant Chokhamela
 17-45,TRY,pending,1,t,Temples & tīrthas,Purī,1300,c. 1300 CE,Jagannātha's Navakalevara rite,,7,,,स्रोत Tryambak में,
 18-79,TRY,pending,1,-,Scriptures & texts,Pan-India,1300,c. 1300 CE,Gītā commentaries across the schools,,7,,,स्रोत Tryambak में,
@@ -352,8 +352,8 @@ okb-live-rameswaram,OKB,live,1,t,OKB (live),रामेश्वरम (तम�
 09-40,TRY,live,1,s,"Ācāryas, saints & seers",Kashmir,1320,c. 1320 CE,"Lallā, the Kashmiri yoginī poet",लल्लेश्वरी — लल्ल देद,6,lal-ded,नहीं,स्रोत Tryambak में,match 8.00; live: Lalleshwari — Lal Ded
 okb-live-vidyaranya,OKB,live,1,s,OKB (live),हम्पी,1336,,Vidyaranya and Vijayanagara,विद्यारण्य और विजयनगर,,vidyaranya,हाँ,,"live, Tryambak में मेल नहीं"
 09-44,TRY,pending,1,-,Scriptures & texts,North India,1350,c. 1350 CE,"Adhyātma Rāmāyaṇa, a Vedāntic Rāma story",,5,,,स्रोत Tryambak में,
-09-58,TRY,live,1,t,Temples & tīrthas,Pan-India,1350,c. 1350 CE,Twelve jyotirliṅgas listed in the Śiva Purāṇa,द्वादश ज्योतिर्लिंग,8,dwadash-jyotirlinga,नहीं,स्रोत Tryambak में,match 8.00; live: The Twelve Jyotirlingas
-09-59,TRY,live,1,t,Temples & tīrthas,Pan-India,1350,c. 1350 CE,Fifty-one Śakti Pīṭhas,51 शक्तिपीठ,8,51-shaktipeeth,नहीं,स्रोत Tryambak में,match 8.00; live: The 51 Shakti Peethas
+09-58,TRY,live,1,t,Temples & tīrthas,Pan-India,1350,c. 1350 CE,Twelve jyotirliṅgas listed in the Śiva Purāṇa,द्वादश ज्योतिर्लिंग,8,dwadash-jyotirlinga,हाँ,स्रोत Tryambak में,match 8.00; live: The Twelve Jyotirlingas
+09-59,TRY,live,1,t,Temples & tīrthas,Pan-India,1350,c. 1350 CE,Fifty-one Śakti Pīṭhas,51 शक्तिपीठ,8,51-shaktipeeth,हाँ,स्रोत Tryambak में,match 8.00; live: The 51 Shakti Peethas
 09-76,TRY,pending,1,-,Scriptures & texts,Andhra,1350,c. 1350 CE,Āndhra Mahābhāratamu completed,,7,,,स्रोत Tryambak में,
 09-53,TRY,pending,1,s,"Ācāryas, saints & seers",Śrīraṅgam,1370,c. 1370 CE,Maṇavāḷa Māmuni revives Śrīvaiṣṇava teaching,,6,,,स्रोत Tryambak में,
 09-45,TRY,pending,1,s,"Ācāryas, saints & seers",Mithilā,1380,c. 1380 CE,"Vidyāpati, poet of Mithilā",,6,,,स्रोत Tryambak में,
@@ -375,7 +375,7 @@ okb-live-srisailam,OKB,live,1,t,OKB (live),श्रीशैलम (आंध�
 09-75,TRY,pending,1,-,Scriptures & texts,Telangana,1450,c. 1450 CE,Potana's Telugu Bhāgavatamu,,7,,,स्रोत Tryambak में,
 09-64,TRY,live,1,s,"Ācāryas, saints & seers",Kāśī,1450,c. 1450 CE,"Ravidāsa, Sant poet of Kāśī",संत रविदास,8,ravidas,हाँ,स्रोत Tryambak में,match 8.00; live: Sant Ravidas
 09-72,TRY,pending,1,-,Scriptures & texts,Odisha,1450,c. 1450 CE,Saraḷā Dāsa's Oḍiā Mahābhārata,,8,,,स्रोत Tryambak में,
-09-73,TRY,live,1,-,Scriptures & texts,Bengal,1450,c. 1450 CE,Kṛttivāsa's Bengali Rāmāyaṇa,कृत्तिवासी रामायण,7,krittivasi-ramayan,नहीं,स्रोत Tryambak में,match 8.00; live: The Krittivasi Ramayana
+09-73,TRY,live,1,-,Scriptures & texts,Bengal,1450,c. 1450 CE,Kṛttivāsa's Bengali Rāmāyaṇa,कृत्तिवासी रामायण,7,krittivasi-ramayan,हाँ,स्रोत Tryambak में,match 8.00; live: The Krittivasi Ramayana
 17-50,TRY,live,1,t,Temples & tīrthas,Jammu,1450,c. 1450 CE,Vaiṣṇo Devī cave shrine in the Trikūṭa hills,माता वैष्णो देवी की गुफा,7,vaishno-devi,हाँ,स्रोत Tryambak में,match 1.09; live: Cave of Mata Vaishno Devi
 15-91,TRY,pending,1,t,Temples & tīrthas,Mewar,1458,1458 CE,Rāṇā Kumbha's Kumbhalgaṛh,,8,,,स्रोत Tryambak में,
 09-83,TRY,pending,1,s,"Ācāryas, saints & seers",Vijayanagara,1460,1460 CE,"Vyāsatīrtha, Dvaita scholar at Vijayanagara",,8,,,स्रोत Tryambak में,
@@ -419,7 +419,7 @@ nb-03,TRY,pending,1,t,Temples & tīrthas,Tripura,1501,1501 CE,Dhanya Māṇikya 
 nb-24,TRY,pending,1,t,Temples & tīrthas,Goa,1560,1560 CE,Mangeśa liṅga moved from Kuśasthalī to Priol,,8,,,स्रोत Tryambak में,
 17-66,TRY,live,1,t,Temples & tīrthas,Guwahati,1565,1565 CE,Kāmākhyā temple rebuilt; Ambubācī festival,कामाख्या मंदिर का पुनर्निर्माण,8,kamakhya,हाँ,स्रोत Tryambak में,match 1.16; live: Kamakhya Temple Rebuilt
 16-69,TRY,pending,1,s,"Ācāryas, saints & seers",Braj,1570,c. 1570 CE,Nanddās and Kṛṣṇadās,,6,,,स्रोत Tryambak में,
-10-102,TRY,live,1,s,Scriptures & texts,Assam,1570,c. 1570 CE,Mādhavadeva composes the Nāmaghoṣā,माधवदेव और नामघोषा,8,madhavdev-namghosa,नहीं,स्रोत Tryambak में,match 8.00; live: Madhavdev and the Namghosha
+10-102,TRY,live,1,s,Scriptures & texts,Assam,1570,c. 1570 CE,Mādhavadeva composes the Nāmaghoṣā,माधवदेव और नामघोषा,8,madhavdev-namghosa,हाँ,स्रोत Tryambak में,match 8.00; live: Madhavdev and the Namghosha
 10-92,TRY,pending,1,t,Temples & tīrthas,Orchā,1575,c. 1575 CE,Orchā's Caturbhuja and Rāma Rājā temples,,8,,,स्रोत Tryambak में,
 10-28,TRY,pending,1,t,Temples & tīrthas,Punjab,1577,1577 CE,Amritsar founded by Guru Rām Dās,,9,,,स्रोत Tryambak में,
 10-32,TRY,pending,1,-,"Arts, sciences & letters",Fatehpur Sīkrī,1580,c. 1580 CE,Razmnāma: the Persian Mahābhārata,,9,,,स्रोत Tryambak में,
@@ -434,7 +434,7 @@ okb-live-baidyanath,OKB,live,1,t,OKB (live),देवघर (झारखंड)
 16-80,TRY,pending,1,s,"Ācāryas, saints & seers",North India,1600,c. 1600 CE,Malūkdās and Sundardās,,8,,,स्रोत Tryambak में,
 10-41,TRY,live,1,t,Temples & tīrthas,Madurai,1600,c. 1600 CE,Madurai Nāyakas and the Mīnākṣī temple,मदुरै का मीनाक्षी मंदिर,8,meenakshi,हाँ,स्रोत Tryambak में,"match 8.00; live: Meenakshi Temple, Madurai"
 17-56,TRY,pending,1,t,Temples & tīrthas,Pan-India,1600,c. 1600 CE,Setu–Gaṅgā pilgrimage between Rāmeśvaram and Kāśī,,9,,,स्रोत Tryambak में,
-17-57,TRY,live,1,t,Temples & tīrthas,Pan-India,1600,c. 1600 CE,Cār Dhām of Bhārata,भारत के चार धाम,7,char-dham-bharat,नहीं,स्रोत Tryambak में,match 8.00; live: The Char Dham of India
+17-57,TRY,live,1,t,Temples & tīrthas,Pan-India,1600,c. 1600 CE,Cār Dhām of Bhārata,भारत के चार धाम,7,char-dham-bharat,हाँ,स्रोत Tryambak में,match 8.00; live: The Char Dham of India
 17-58,TRY,pending,1,t,Temples & tīrthas,Pan-India,1600,c. 1600 CE,"The Sapta Purī, seven sacred cities",,8,,,स्रोत Tryambak में,
 18-45,TRY,pending,1,t,Temples & tīrthas,Bengal,1600,1600 CE,Viṣṇupur's terracotta temples,,9,,,स्रोत Tryambak में,
 10-45,TRY,live,1,s,"Ācāryas, saints & seers",Dehū,1608,c. 1608 CE,Saint Tukārāma born at Dehū,संत तुकाराम,7,tukaram,हाँ,स्रोत Tryambak में,match 1.07; live: Sant Tukaram
@@ -446,11 +446,11 @@ okb-live-baidyanath,OKB,live,1,t,OKB (live),देवघर (झारखंड)
 10-83,TRY,live,1,t,Temples & tīrthas,Haridvāra,1650,c. 1650 CE,Bathing fairs at Haridvāra and the Kumbha,"हर की पौड़ी, हरिद्वार",8,har-ki-pauri,हाँ,स्रोत Tryambak में,"match 8.00; live: Har Ki Pauri, Haridwar"
 10-56,TRY,pending,1,s,"Ācāryas, saints & seers",Dehū,1650,1650 CE,Tukārāma's departure from Dehū,,7,,,स्रोत Tryambak में,
 20-62,TRY,pending,1,-,Scriptures & texts,South India,1650,c. 1650 CE,Raṅgarāmānuja's Upaniṣad commentaries,,7,,,स्रोत Tryambak में,
-11-82,TRY,live,1,s,"Ācāryas, saints & seers",Cincvaḍ,1651,c. 1651 CE,"Morayā Gosāvī, saint of Gaṇeśa devotion",मोरया गोसावी — गणेश भक्त,7,morya-gosavi,नहीं,स्रोत Tryambak में,"match 8.00; live: Morya Gosavi, Saint of Ganesha"
+11-82,TRY,live,1,s,"Ācāryas, saints & seers",Cincvaḍ,1651,c. 1651 CE,"Morayā Gosāvī, saint of Gaṇeśa devotion",मोरया गोसावी — गणेश भक्त,7,morya-gosavi,हाँ,स्रोत Tryambak में,"match 8.00; live: Morya Gosavi, Saint of Ganesha"
 17-60,TRY,pending,1,t,Temples & tīrthas,Udaipur,1651,1651 CE,Jagdīś temple at Udaipur,,9,,,स्रोत Tryambak में,
 10-53,TRY,pending,1,-,"Arts, sciences & letters","Delhi, Kāśī",1657,1657 CE,Dārā Shukoh and the Upaniṣads,,9,,,स्रोत Tryambak में,
 16-96,TRY,pending,1,s,"Ācāryas, saints & seers","Tamil Nadu, Kāśī",1660,c. 1660 CE,Kumāragurupara founds the Kāśī Maṭh,,7,,,स्रोत Tryambak में,
-nb-02,TRY,live,1,s,"Ācāryas, saints & seers",Mantrālaya,1671,1671 CE (traditional),Raghavendra Tīrtha enters the Mantrālaya brindāvana,"गुरु राघवेंद्र स्वामी, मंत्रालयम",8,raghavendra-swami-mantralayam,नहीं,स्रोत Tryambak में,"match 8.00; live: Guru Raghavendra Swami, Mantralayam"
+nb-02,TRY,live,1,s,"Ācāryas, saints & seers",Mantrālaya,1671,1671 CE (traditional),Raghavendra Tīrtha enters the Mantrālaya brindāvana,"गुरु राघवेंद्र स्वामी, मंत्रालयम",8,raghavendra-swami-mantralayam,हाँ,स्रोत Tryambak में,"match 8.00; live: Guru Raghavendra Swami, Mantralayam"
 10-81,TRY,live,1,s,"Ācāryas, saints & seers",Bhadrācalam,1675,c. 1675 CE,Bhadrācala Rāmadāsu's Rāma kīrtanas,भद्राचलम का राम मंदिर,8,bhadrachalam,हाँ,स्रोत Tryambak में,match 1.04; live: Rama Temple of Bhadrachalam
 11-8,TRY,pending,1,s,"Ācāryas, saints & seers",Sajjangaḍ,1681,1681 CE,Samartha Rāmadāsa's samādhi,,6,,,स्रोत Tryambak में,
 19-53,TRY,pending,1,s,"Ācāryas, saints & seers",Rāygaḍ,1689,1689 CE,"Kavi Kalaś, Sambhājī's counsellor",,8,,,स्रोत Tryambak में,
@@ -485,7 +485,7 @@ nb-17,TRY,pending,1,t,Temples & tīrthas,Ḍākor,1770,c. 1770 CE,Raṇachoḍar
 11-87,TRY,pending,1,t,Temples & tīrthas,Kāśī,1785,c. 1785 CE,Maratha ghāṭs of Kāśī,,7,,,स्रोत Tryambak में,
 11-97,TRY,pending,1,-,"Arts, sciences & letters","Kolkata, London",1785,1785 CE,Wilkins translates the Bhagavad Gītā,,8,,,स्रोत Tryambak में,
 okb-live-bhimashankar,OKB,live,1,t,OKB (live),सह्याद्रि (पुणे),1785,,Bhimashankar Jyotirlinga,भीमाशंकर ज्योतिर्लिंग,,bhimashankar,हाँ,,"live, Tryambak में मेल नहीं"
-11-67,TRY,live,1,t,Temples & tīrthas,Gayā,1787,1787 CE,"Viṣṇupada temple, Gayā",गया का विष्णुपद मंदिर,6,vishnupad-gaya,नहीं,स्रोत Tryambak में,"match 8.00; live: Vishnupad Temple, Gaya"
+11-67,TRY,live,1,t,Temples & tīrthas,Gayā,1787,1787 CE,"Viṣṇupada temple, Gayā",गया का विष्णुपद मंदिर,6,vishnupad-gaya,हाँ,स्रोत Tryambak में,"match 8.00; live: Vishnupad Temple, Gaya"
 11-115,TRY,pending,1,t,Temples & tīrthas,Haridvāra,1796,1796 CE,Sikhs and Gosains clash at Haridvāra Kumbha,,8,,,स्रोत Tryambak में,
 16-98,TRY,pending,1,s,"Ācāryas, saints & seers",Gujarat,1800,c. 1800 CE,Swaminarayan saints Guṇātītānanda and Gopālānanda,,6,,,स्रोत Tryambak में,
 nb-04,TRY,live,1,t,Temples & tīrthas,Mumbai,1801,1801 CE,Siddhivināyaka temple completed at Prabhādevī,मुंबई का सिद्धिविनायक,7,siddhivinayak,हाँ,स्रोत Tryambak में,"match 1.03; live: Siddhivinayak, Mumbai"
@@ -506,7 +506,7 @@ okb-live-gangotri,OKB,live,1,t,OKB (live),गंगोत्री (उत्त
 nb-19,TRY,pending,1,-,"Arts, sciences & letters",Oxford,1849,1849 CE,Max Müller begins editing the Ṛgveda with Sāyaṇa,,8,,,स्रोत Tryambak में,
 16-104,TRY,pending,1,s,"Ācāryas, saints & seers",Kerala,1853,1853 CE,"Birth of Cattampi Svāmikaḷ, Kerala reformer",,7,,,स्रोत Tryambak में,
 12-21,TRY,live,1,t,Temples & tīrthas,Kolkata,1855,1855 CE,Dakṣiṇeśvara Kālī temple consecrated,दक्षिणेश्वर काली मंदिर,8,dakshineswar-kali-temple,हाँ,स्रोत Tryambak में,match 1.48; live: Dakshineswar Kali Temple
-16-102,TRY,live,1,s,"Ācāryas, saints & seers",Maharashtra,1856,1856 CE,Akkalkoṭ Svāmī Samartha,अक्कलकोट के स्वामी समर्थ,7,akkalkot-swami-samarth,नहीं,स्रोत Tryambak में,match 8.00; live: Swami Samarth of Akkalkot
+16-102,TRY,live,1,s,"Ācāryas, saints & seers",Maharashtra,1856,1856 CE,Akkalkoṭ Svāmī Samartha,अक्कलकोट के स्वामी समर्थ,7,akkalkot-swami-samarth,हाँ,स्रोत Tryambak में,match 8.00; live: Swami Samarth of Akkalkot
 16-108,TRY,live,1,s,"Ācāryas, saints & seers",Rānīkhet,1861,1861 CE,Lāhiṛī Mahāśaya receives Kriyā Yoga,लाहिड़ी महाशय और क्रिया योग,6,lahiri-mahasaya,हाँ,स्रोत Tryambak में,match 2.02; live: Lahiri Mahasaya and Kriya Yoga
 12-34,TRY,pending,1,s,"Ācāryas, saints & seers",Kolkata,1863,1863 CE,Birth of Vivekānanda in Calcutta,,8,,,स्रोत Tryambak में,
 12-35,TRY,pending,1,s,"Ācāryas, saints & seers",Dakṣiṇeśvara,1864,1864 CE,Tota Purī initiates Rāmakṛṣṇa,,8,,,स्रोत Tryambak में,
@@ -539,7 +539,7 @@ okb-live-belur-math,OKB,live,1,t,OKB (live),"बेलूर (हावड़ा
 12-83,TRY,pending,1,-,Scriptures & texts,Mandalay,1910,1910 CE,Ṭiḷak writes Gītā Rahasya at Mandalay,,8,,,स्रोत Tryambak में,
 12-88,TRY,live,1,s,"Ācāryas, saints & seers",Pondicherry,1910,1910 CE,Aurobindo arrives at Pondicherry,"श्री अरविंद, पुदुचेरी",8,sri-aurobindo,हाँ,स्रोत Tryambak में,"match 8.00; live: Sri Aurobindo, Puducherry"
 nb-06,TRY,pending,1,t,Beyond Bhārata,Janakpur,1910,1910 CE,Janakī Mandir built at Janakpur,जनकपुर — जानकी मंदिर,6,,,स्रोत Tryambak में,
-16-109,TRY,live,1,s,"Ācāryas, saints & seers",Bengal,1911,1911 CE,"Bāmākṣepā, the mad saint of Tārāpīṭh",बामाखेपा — तारापीठ के संत,8,bamakhepa-tarapith,नहीं,स्रोत Tryambak में,match 8.00; live: Bamakhepa of Tarapith
+16-109,TRY,live,1,s,"Ācāryas, saints & seers",Bengal,1911,1911 CE,"Bāmākṣepā, the mad saint of Tārāpīṭh",बामाखेपा — तारापीठ के संत,8,bamakhepa-tarapith,हाँ,स्रोत Tryambak में,match 8.00; live: Bamakhepa of Tarapith
 16-119,TRY,pending,1,s,"Ācāryas, saints & seers",Śṛṅgeri,1912,1912 CE,Candraśekhara Bhāratī III becomes Śṛṅgeri jagadguru,,6,,,स्रोत Tryambak में,
 16-111,TRY,pending,1,s,"Ācāryas, saints & seers",Maharashtra,1913,1913 CE,Brahmacaitanya Goṇḍavalekar and Rāma-nāma,,6,,,स्रोत Tryambak में,
 16-113,TRY,pending,1,s,"Ācāryas, saints & seers","Maharashtra, Gujarat",1914,1914 CE,Ṭembe Svāmī (Vāsudevānanda Sarasvatī),,6,,,स्रोत Tryambak में,
@@ -652,55 +652,55 @@ okb-live-neem-karoli-baba,OKB,live,1,s,OKB (live),कैंची धाम (न
 14-11,TRY,live,1,b,Foretold & scheduled,Kalāpa,428898,428898 CE (traditional),Maru and Devāpi restore the royal lines,मरु और देवापि लौटेंगे,7,maru-devapi,हाँ,स्रोत Tryambak में,match 1.32; live: Maru and Devapi Will Return
 14-12,TRY,live,1,b,Foretold & scheduled,Bhāratavarṣa,428899,428899 CE (traditional),Kali Yuga ends,कलियुग का अंत,7,kalyug-ant,हाँ,स्रोत Tryambak में,match 1.00; live: The End of Kali Yuga
 14-13,TRY,live,1,b,Foretold & scheduled,Bhāratavarṣa,428899.5,428899.5 CE (traditional),Satya Yuga returns,सत्ययुग की वापसी,7,satyug-wapsi,हाँ,स्रोत Tryambak में,match 1.70; live: Satya Yuga Returns
-okb-042,OKB,pending,1,t,OKB addition,Gujarat,,,Nageshwar Jyotirlinga,नागेश्वर ज्योतिर्लिंग,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-043,OKB,pending,1,t,OKB addition,Uttarakhand,,,Yamunotri Dham,यमुनोत्री धाम,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-044,OKB,pending,1,t,OKB addition,Bundelkhand,,,"Chitrakoot, Kamadgiri",चित्रकूट — कामदगिरि,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-045,OKB,pending,1,t,OKB addition,Rajasthan,,,"Brahma temple, Pushkar",पुष्कर का ब्रह्मा मंदिर,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-046,OKB,pending,1,t,OKB addition,Braj,,,"Krishna Janmabhoomi, Mathura",मथुरा — श्रीकृष्ण जन्मभूमि,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-047,OKB,pending,1,t,OKB addition,Braj,,,"Radha Rani temple, Barsana",बरसाना — श्री राधा रानी मंदिर,0,,,स्रोत जोड़ना बाकी; साल बाकी,
+okb-042,OKB,live,1,t,OKB addition,Gujarat,,,Nageshwar Jyotirlinga,"नागेश्वर ज्योतिर्लिंग, द्वारका",0,nageshwar-jyotirlinga,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-043,OKB,live,1,t,OKB addition,Uttarakhand,,,Yamunotri Dham,यमुनोत्री धाम,0,yamunotri-dham,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-044,OKB,live,1,t,OKB addition,Bundelkhand,,,"Chitrakoot, Kamadgiri",चित्रकूट — कामदगिरि,0,chitrakoot-kamadgiri,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-045,OKB,live,1,t,OKB addition,Rajasthan,,,"Brahma temple, Pushkar",पुष्कर का ब्रह्मा मंदिर,0,pushkar-brahma,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-046,OKB,live,1,t,OKB addition,Braj,,,"Krishna Janmabhoomi, Mathura",मथुरा — श्रीकृष्ण जन्मभूमि,0,mathura-krishna-janmabhoomi,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-047,OKB,live,1,t,OKB addition,Braj,,,"Radha Rani temple, Barsana",बरसाना — श्री राधा रानी मंदिर,0,barsana-radha-rani,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
 okb-048,OKB,pending,1,t,OKB addition,Braj,,,Govardhan parikrama,गोवर्धन परिक्रमा,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-053,OKB,pending,1,t,OKB addition,Gujarat,,,"Girnar, Dattatreya peak",गिरनार — दत्तात्रेय शिखर,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-055,OKB,pending,1,t,OKB addition,Ayodhya,,,"Hanumangarhi, Ayodhya",अयोध्या का हनुमानगढ़ी,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-056,OKB,pending,1,t,OKB addition,Kashi,,,"Sankat Mochan, Varanasi",काशी का संकटमोचन हनुमान,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-057,OKB,pending,1,t,OKB addition,Tamil Nadu,,,"Kamakshi, Kanchipuram",कांची कामाक्षी,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-058,OKB,pending,1,t,OKB addition,Himachal,,,Jwalamukhi Shaktipeeth,ज्वालामुखी शक्तिपीठ,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-059,OKB,pending,1,t,OKB addition,Himachal,,,Naina Devi,नैना देवी,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-061,OKB,pending,1,t,OKB addition,Uttar Pradesh,,,"Vindhyavasini, Mirzapur","विंध्यवासिनी, मिर्ज़ापुर",0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-062,OKB,pending,1,t,OKB addition,Gujarat,,,Ambaji Shaktipeeth,अंबाजी शक्तिपीठ,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-063,OKB,pending,1,t,OKB addition,Gujarat,,,"Mahakali, Pavagadh",पावागढ़ की महाकाली,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-064,OKB,pending,1,t,OKB addition,Maharashtra,,,"Mahalakshmi, Kolhapur",कोल्हापुर की महालक्ष्मी,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-065,OKB,pending,1,t,OKB addition,Maharashtra,,,"Tulja Bhavani, Tuljapur",तुलजापुर की तुलजा भवानी,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-068,OKB,pending,1,t,OKB addition,Balochistan,,,Hinglaj Mata,हिंगलाज माता,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-070,OKB,pending,1,t,OKB addition,Kashmir,,,"Kheer Bhawani, Tulmul","क्षीर भवानी, तुलमुल",0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-072,OKB,pending,1,t,OKB addition,Bengal,,,Tarapith,तारापीठ,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-073,OKB,pending,1,t,OKB addition,Tamil Nadu,,,"Devi Kumari, Kanyakumari",कन्याकुमारी — देवी कुमारी,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-074,OKB,pending,1,t,OKB addition,Karnataka,,,"Mookambika, Kollur","मूकाम्बिका, कोल्लूर",0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-075,OKB,pending,1,t,OKB addition,Karnataka,,,"Chamundeshwari, Mysuru","चामुंडेश्वरी, मैसूर",0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-076,OKB,pending,1,t,OKB addition,Karnataka,,,"Sharadamba, Sringeri",शृंगेरी की शारदांबा,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-085,OKB,pending,1,t,OKB addition,Madhya Pradesh,,,"Sharada Mata, Maihar","माँ शारदा, मैहर",0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-088,OKB,pending,1,t,OKB addition,Tamil Nadu,,,Palani Murugan,पलनी के दंडायुधपाणि,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-089,OKB,pending,1,t,OKB addition,Tamil Nadu,,,Tiruchendur Murugan,तिरुचेंदूर मुरुगन,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-091,OKB,pending,1,t,OKB addition,Tamil Nadu,,,"Arunachaleshwara, Tiruvannamalai","अरुणाचलेश्वर, तिरुवण्णामलै",0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-092,OKB,pending,1,t,OKB addition,Andhra,,,Srikalahasti,श्रीकालहस्ती,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-094,OKB,pending,1,t,OKB addition,Andhra,,,Simhachalam Varaha-Narasimha,सिंहाचलम के वराह-नृसिंह,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-095,OKB,pending,1,t,OKB addition,Andhra,,,"Nava Narasimha, Ahobilam",अहोबिलम के नव नृसिंह,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-098,OKB,pending,1,t,OKB addition,Tamil Nadu,,,Kumbakonam and Mahamaham,कुंभकोणम और महामहम,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-100,OKB,pending,1,t,OKB addition,Karnataka,,,Gokarna Mahabaleshwar,गोकर्ण महाबलेश्वर,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-105,OKB,pending,1,t,OKB addition,Rajasthan,,,Mehandipur Balaji,मेहंदीपुर बालाजी,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-106,OKB,pending,1,t,OKB addition,Rajasthan,,,"Ramdevra, Baba Ramdev",रामदेवरा — बाबा रामदेव,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-108,OKB,pending,1,t,OKB addition,Maharashtra,,,"Khandoba, Jejuri",जेजुरी के खंडोबा,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-109,OKB,pending,1,t,OKB addition,Maharashtra,,,Shani Shingnapur,शनि शिंगणापुर,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-118,OKB,pending,1,t,OKB addition,Assam,,,Sattras of Majuli,माजुली के सत्र,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-120,OKB,pending,1,t,OKB addition,Bengal,,,Gangasagar,गंगासागर,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-122,OKB,pending,1,u,OKB addition,Bihar,,,Chhath Mahaparv,छठ महापर्व,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-123,OKB,pending,1,u,OKB addition,Pan-India,,,Pongal / Makar Sankranti,पोंगल / मकर संक्रांति,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-124,OKB,pending,1,u,OKB addition,Assam,,,Bihu,बिहू,0,,,स्रोत जोड़ना बाकी; साल बाकी,
+okb-053,OKB,live,1,t,OKB addition,Gujarat,,,"Girnar, Dattatreya peak",गिरनार — दत्तात्रेय शिखर,0,girnar-dattatreya,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-055,OKB,live,1,t,OKB addition,Ayodhya,,,"Hanumangarhi, Ayodhya",अयोध्या का हनुमानगढ़ी,0,hanumangarhi-ayodhya,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-056,OKB,live,1,t,OKB addition,Kashi,,,"Sankat Mochan, Varanasi",काशी का संकटमोचन हनुमान,0,sankat-mochan-varanasi,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-057,OKB,live,1,t,OKB addition,Tamil Nadu,,,"Kamakshi, Kanchipuram",कांची कामाक्षी,0,kanchi-kamakshi,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-058,OKB,live,1,t,OKB addition,Himachal,,,Jwalamukhi Shaktipeeth,ज्वालामुखी शक्तिपीठ,0,jwalamukhi-shaktipeeth,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-059,OKB,live,1,t,OKB addition,Himachal,,,Naina Devi,"नैना देवी, बिलासपुर",0,naina-devi-himachal,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-061,OKB,live,1,t,OKB addition,Uttar Pradesh,,,"Vindhyavasini, Mirzapur","विंध्यवासिनी, मिर्ज़ापुर",0,vindhyavasini-mirzapur,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-062,OKB,live,1,t,OKB addition,Gujarat,,,Ambaji Shaktipeeth,अंबाजी शक्तिपीठ,0,ambaji-shaktipeeth,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-063,OKB,live,1,t,OKB addition,Gujarat,,,"Mahakali, Pavagadh",पावागढ़ की महाकाली,0,pavagadh-kalika,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-064,OKB,live,1,t,OKB addition,Maharashtra,,,"Mahalakshmi, Kolhapur",कोल्हापुर की महालक्ष्मी,0,kolhapur-mahalakshmi,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-065,OKB,live,1,t,OKB addition,Maharashtra,,,"Tulja Bhavani, Tuljapur",तुलजापुर की तुलजा भवानी,0,tulja-bhavani,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-068,OKB,live,1,t,OKB addition,Balochistan,,,Hinglaj Mata,हिंगलाज माता,0,hinglaj-mata,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-070,OKB,live,1,t,OKB addition,Kashmir,,,"Kheer Bhawani, Tulmul","क्षीर भवानी, तुलमुल",0,kheer-bhawani-tulmul,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-072,OKB,live,1,t,OKB addition,Bengal,,,Tarapith,तारापीठ,0,tarapith-temple,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-073,OKB,live,1,t,OKB addition,Tamil Nadu,,,"Devi Kumari, Kanyakumari",कन्याकुमारी — देवी कुमारी,0,kanyakumari-devi,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-074,OKB,live,1,t,OKB addition,Karnataka,,,"Mookambika, Kollur","मूकाम्बिका, कोल्लूर",0,kollur-mookambika,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-075,OKB,live,1,t,OKB addition,Karnataka,,,"Chamundeshwari, Mysuru","चामुंडेश्वरी, मैसूर",0,chamundeshwari-mysore,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-076,OKB,live,1,t,OKB addition,Karnataka,,,"Sharadamba, Sringeri",शृंगेरी की शारदांबा,0,sringeri-sharadamba,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-085,OKB,live,1,t,OKB addition,Madhya Pradesh,,,"Sharada Mata, Maihar",मैहर की माँ शारदा,0,maihar-sharda-mata,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-088,OKB,live,1,t,OKB addition,Tamil Nadu,,,Palani Murugan,पलनी के दंडायुधपाणि मुरुगन,0,palani-murugan,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-089,OKB,live,1,t,OKB addition,Tamil Nadu,,,Tiruchendur Murugan,तिरुचेंदूर मुरुगन,0,tiruchendur-murugan,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-091,OKB,live,1,t,OKB addition,Tamil Nadu,,,"Arunachaleshwara, Tiruvannamalai","अरुणाचलेश्वर, तिरुवण्णामलै",0,arunachaleswarar-tiruvannamalai,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-092,OKB,live,1,t,OKB addition,Andhra,,,Srikalahasti,श्रीकालहस्ती,0,srikalahasti-kannappa,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-094,OKB,live,1,t,OKB addition,Andhra,,,Simhachalam Varaha-Narasimha,सिंहाचलम के वराह-नृसिंह,0,simhachalam-narasimha,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-095,OKB,live,1,t,OKB addition,Andhra,,,"Nava Narasimha, Ahobilam",अहोबिलम के नव नृसिंह,0,ahobilam-nava-narasimha,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-098,OKB,live,1,t,OKB addition,Tamil Nadu,,,Kumbakonam and Mahamaham,कुंभकोणम और महामहम,0,kumbakonam-mahamaham,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-100,OKB,live,1,t,OKB addition,Karnataka,,,Gokarna Mahabaleshwar,गोकर्ण महाबलेश्वर,0,gokarna-mahabaleshwar,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-105,OKB,live,1,t,OKB addition,Rajasthan,,,Mehandipur Balaji,मेहंदीपुर बालाजी,0,mehandipur-balaji,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-106,OKB,live,1,t,OKB addition,Rajasthan,,,"Ramdevra, Baba Ramdev",रामदेवरा — बाबा रामदेव,0,ramdevra-baba-ramdev,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-108,OKB,live,1,t,OKB addition,Maharashtra,,,"Khandoba, Jejuri",जेजुरी के खंडोबा,0,jejuri-khandoba,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-109,OKB,live,1,t,OKB addition,Maharashtra,,,Shani Shingnapur,शनि शिंगणापुर,0,shani-shingnapur,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-118,OKB,live,1,t,OKB addition,Assam,,,Sattras of Majuli,माजुली के सत्र,0,majuli-satra,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-120,OKB,live,1,t,OKB addition,Bengal,,,Gangasagar,गंगासागर — कपिल मुनि आश्रम,0,gangasagar-kapil-muni,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-122,OKB,live,1,u,OKB addition,Bihar,,,Chhath Mahaparv,छठ महापर्व,0,chhath-mahaparv,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-123,OKB,live,1,u,OKB addition,Pan-India,,,Pongal / Makar Sankranti,पोंगल और मकर संक्रांति,0,pongal-makar-sankranti,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-124,OKB,live,1,u,OKB addition,Assam,,,Bihu,बिहू,0,bihu-assam,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
 okb-129,OKB,pending,1,u,OKB addition,Maharashtra,,,Pandharpur Wari,पंढरपुर की वारी,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-130,OKB,pending,1,u,OKB addition,North India,,,Kanwar Yatra,कांवड़ यात्रा,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-134,OKB,pending,1,u,OKB addition,Prayagraj,,,Prayag Kumbh,प्रयाग कुंभ / महाकुंभ,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-136,OKB,pending,1,t,OKB addition,Manipur,,,"Shri Govindajee temple, Imphal","श्री गोविंदजी मंदिर, इंफाल",0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-137,OKB,pending,1,u,OKB addition,Manipur,,,Manipuri Ras Leela,मणिपुरी रास लीला,0,,,स्रोत जोड़ना बाकी; साल बाकी,
-okb-138,OKB,pending,1,t,OKB addition,Arunachal Pradesh,,,Parashuram Kund,परशुराम कुंड,0,,,स्रोत जोड़ना बाकी; साल बाकी,
+okb-130,OKB,live,1,u,OKB addition,North India,,,Kanwar Yatra,कांवड़ यात्रा,0,kanwar-yatra,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-134,OKB,live,1,u,OKB addition,Prayagraj,,,Prayag Kumbh,प्रयागराज महाकुंभ,0,prayagraj-mahakumbh,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-136,OKB,live,1,t,OKB addition,Manipur,,,"Shri Govindajee temple, Imphal","श्री गोविंदजी मंदिर, इंफाल",0,shri-govindajee-imphal,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-137,OKB,live,1,u,OKB addition,Manipur,,,Manipuri Ras Leela,मणिपुरी रास लीला,0,manipuri-ras-leela,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
+okb-138,OKB,live,1,t,OKB addition,Arunachal Pradesh,,,Parashuram Kund,परशुराम कुंड,0,parshuram-kund,नहीं,स्रोत जोड़ना बाकी; साल बाकी,match 9.00
 okb-008,OKB,pending,2,sh,OKB addition,Himalaya,-900000000,,Shiva burns Kamadeva,कामदेव दहन,0,,,स्रोत जोड़ना बाकी,
 okb-009,OKB,pending,2,sh,OKB addition,Pan-India,-800000000,,Ardhanarishvara form,अर्धनारीश्वर रूप,0,,,स्रोत जोड़ना बाकी,
 okb-012,OKB,pending,2,a,OKB addition,Pan-India,-200000000,,Ambarisha and the Sudarshana chakra,अंबरीष और सुदर्शन चक्र,0,,,स्रोत जोड़ना बाकी,
