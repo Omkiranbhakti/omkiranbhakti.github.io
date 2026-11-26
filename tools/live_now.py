@@ -18,11 +18,12 @@ def check(cid):
             b = r.read().decode("utf-8", "replace")
     except Exception:
         return cid, None
-    m = re.search(r'"videoDetails":\{"videoId":"([\w-]{11})"', b)
-    if m:
-        seg = b[m.start():m.start() + 6000]
-        if '"isLive":true' in seg and '"isUpcoming":true' not in seg:
-            return cid, m.group(1)
+    # Live: /live opens the stream (page has "isLive":true and the video id). Not live: /live falls back to the channel page,
+    # whose canonical link is the channel URL.
+    can = re.search(r'<link rel="canonical" href="([^"]+)"', b)
+    if '"isLive":true' in b and not (can and "/channel/" in can.group(1)):
+        v = re.search(r'"videoId":"([\w-]{11})"', b)
+        if v: return cid, v.group(1)
     return cid, ""
 
 if __name__ == "__main__":
