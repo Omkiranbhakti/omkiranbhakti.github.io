@@ -1814,5 +1814,405 @@
   "licurl": "",
   "artist": "Chitrashala Press, Poona",
   "kb": 32
+ },
+ "tripurasur-vadh": {
+  "file": "File:Brihadisvara Temple-Museum-Chola frescos-Tripurantaka-WUS-03488.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Brihadisvara_Temple-Museum-Chola_frescos-Tripurantaka-WUS-03488.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Wuselig",
+  "kb": 44
+ },
+ "lingodbhava": {
+  "file": "File:Lingodbhava, Chola, 12th century CE, South India, National Museum, New Delhi.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Lingodbhava,_Chola,_12th_century_CE,_South_India,_National_Museum,_New_Delhi.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "SpeakingArch",
+  "kb": 9
+ },
+ "chitrakoot-kamadgiri": {
+  "file": "File:Bharata meets Rama in Chitrakoot.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Bharata_meets_Rama_in_Chitrakoot.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Possibly Guman / Guman",
+  "kb": 45
+ },
+ "putana-makhan-chor": {
+  "file": "File:Krishna kills the Demoness Putana; Ascribed to Laharu of Chamba.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Krishna_kills_the_Demoness_Putana;_Ascribed_to_Laharu_of_Chamba.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Laharu of Chamba",
+  "kb": 30
+ },
+ "gokarna-mahabaleshwar": {
+  "file": "File:Main entry to the Mahabaleshwar Temple at Gokaran.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Main_entry_to_the_Mahabaleshwar_Temple_at_Gokaran.jpg",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Nvvchar",
+  "kb": 24
+ },
+ "gangasagar-kapil-muni": {
+  "file": "File:GangaSagar West Bengal India.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:GangaSagar_West_Bengal_India.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Jordanrockwi",
+  "kb": 3
+ },
+ "chhath-mahaparv": {
+  "file": "File:Sandhya Argh – Chhath Dala Evening puja-7.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Sandhya_Argh_%E2%80%93_Chhath_Dala_Evening_puja-7.jpg",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Ramesh Lalwani",
+  "kb": 21
+ },
+ "kanyakumari-devi": {
+  "file": "File:Kanyakumari Bhagavathy Amman.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Kanyakumari_Bhagavathy_Amman.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Sujithshivam511",
+  "kb": 19
+ },
+ "girnar-dattatreya": {
+  "file": "File:Dattatreya Temple of Girnar.JPG",
+  "desc": "https://commons.wikimedia.org/wiki/File:Dattatreya_Temple_of_Girnar.JPG",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Sachinvenga",
+  "kb": 12
+ },
+ "palani-murugan": {
+  "file": "File:Palani Murugan Hill Temple.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Palani_Murugan_Hill_Temple.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Spsarvana",
+  "kb": 17
+ },
+ "tiruchendur-murugan": {
+  "file": "File:Tiruchendur murugan temple.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Tiruchendur_murugan_temple.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "vaikundaraja.s",
+  "kb": 16
+ },
+ "pongal-makar-sankranti": {
+  "file": "File:Photo of makar sankranti devootees.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Photo_of_makar_sankranti_devootees.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Abhay12253",
+  "kb": 23
+ },
+ "vindhyavasini-mirzapur": {
+  "file": "File:Maa Vindhyavasini temple, Vindhyachal.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Maa_Vindhyavasini_temple,_Vindhyachal.jpg",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Godric_ki_Kothri",
+  "kb": 16
+ },
+ "arunachaleswarar-tiruvannamalai": {
+  "file": "File:Thiruvannamalai, Arunachalesvara Temple, Annamalaiyar Temple, India.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Thiruvannamalai,_Arunachalesvara_Temple,_Annamalaiyar_Temple,_India.jpg",
+  "lic": "CC BY 4.0",
+  "licurl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Vyacheslav Argenberg",
+  "kb": 47
+ },
+ "srikalahasti-kannappa": {
+  "file": "File:Srikalahasti temple and Hill.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Srikalahasti_temple_and_Hill.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "iMahesh",
+  "kb": 11
+ },
+ "kanchi-kamakshi": {
+  "file": "File:Kamakshi Amman Temple East Gopuram.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Kamakshi_Amman_Temple_East_Gopuram.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Shivashanky",
+  "kb": 40
+ },
+ "kolhapur-mahalakshmi": {
+  "file": "File:Mahalakshmi temple, Kolhapur.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Mahalakshmi_temple,_Kolhapur.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "Own work",
+  "kb": 32
+ },
+ "naina-devi-himachal": {
+  "file": "File:Naina Devi Temple, Himachal.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Naina_Devi_Temple,_Himachal.jpg",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "https://www.flickr.com/photos/ramansharma/",
+  "kb": 13
+ },
+ "kollur-mookambika": {
+  "file": "File:Kollur Mookambika Temple main shrine.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Kollur_Mookambika_Temple_main_shrine.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Starstuffseyyon",
+  "kb": 20
+ },
+ "sringeri-sharadamba": {
+  "file": "File:Dakshinamnaya Sri Sharada Peetham 8, Sringeri, Karnataka 01.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Dakshinamnaya_Sri_Sharada_Peetham_8,_Sringeri,_Karnataka_01.jpg",
+  "lic": "CC0",
+  "licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "A.Murali",
+  "kb": 18
+ },
+ "mehandipur-balaji": {
+  "file": "File:Mehandipur Balaji exterior.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Mehandipur_Balaji_exterior.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "VikramKaushik1976",
+  "kb": 27
+ },
+ "ambaji-shaktipeeth": {
+  "file": "File:0081323 Arasuri Ambaji mandir, Shakti Peeth, north Gujarat 044.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:0081323_Arasuri_Ambaji_mandir,_Shakti_Peeth,_north_Gujarat_044.jpg",
+  "lic": "CC0",
+  "licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "Ms Sarah Welch",
+  "kb": 37
+ },
+ "pavagadh-kalika": {
+  "file": "File:Pavagadh, Kalika Mata Temple (9840241633).jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Pavagadh,_Kalika_Mata_Temple_(9840241633).jpg",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Arian Zwegers from Brussels, Belgium",
+  "kb": 31
+ },
+ "hinglaj-mata": {
+  "file": "File:Hinglaj Mata Mandir Cave entrance, Pakistan - panoramio.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Hinglaj_Mata_Mandir_Cave_entrance,_Pakistan_-_panoramio.jpg",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Abrar Alam Khan",
+  "kb": 31
+ },
+ "parshuram-kund": {
+  "file": "File:Parshuram Kund.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Parshuram_Kund.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Caper Travel India",
+  "kb": 12
+ },
+ "simhachalam-narasimha": {
+  "file": "File:Varaha Lakshmi Narasimha temple in Simhachalam.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Varaha_Lakshmi_Narasimha_temple_in_Simhachalam.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "eclicks_by_bunny",
+  "kb": 30
+ },
+ "tulja-bhavani": {
+  "file": "File:Tulja Bhavani Mandir, Tuljapur.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Tulja_Bhavani_Mandir,_Tuljapur.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "अमर राऊत",
+  "kb": 34
+ },
+ "maihar-sharda-mata": {
+  "file": "File:Maa Sharda Temple, Maihar.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Maa_Sharda_Temple,_Maihar.jpg",
+  "lic": "CC0",
+  "licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "RishiAgrahari95",
+  "kb": 35
+ },
+ "jejuri-khandoba": {
+  "file": "File:Khandoba Poona painting 1800-05.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Khandoba_Poona_painting_1800-05.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "unknown Pune artist",
+  "kb": 21
+ },
+ "nageshwar-jyotirlinga": {
+  "file": "File:Nageshwar Temple Gujarat.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Nageshwar_Temple_Gujarat.jpg",
+  "lic": "CC BY 4.0",
+  "licurl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "YAKSH75",
+  "kb": 16
+ },
+ "pushkar-brahma": {
+  "file": "File:Brahma Temple, Pushkar.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Brahma_Temple,_Pushkar.jpg",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "https://www.flickr.com/photos/vasantv/",
+  "kb": 23
+ },
+ "ahobilam-nava-narasimha": {
+  "file": "File:Upper Ahobilam temple Gopuram 02.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Upper_Ahobilam_temple_Gopuram_02.jpg",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Gopal Venkatesan",
+  "kb": 30
+ },
+ "ramdevra-baba-ramdev": {
+  "file": "File:Ramdevra-03-20131009.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Ramdevra-03-20131009.jpg",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Daniel VILLAFRUELA.",
+  "kb": 27
+ },
+ "majuli-satra": {
+  "file": "File:Garmur Satra, Majuli.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Garmur_Satra,_Majuli.jpg",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Homen Biswas",
+  "kb": 21
+ },
+ "barsana-radha-rani": {
+  "file": "File:Radha Rani Temple in Barsana.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Radha_Rani_Temple_in_Barsana.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Imakanksha",
+  "kb": 14
+ },
+ "sankat-mochan-varanasi": {
+  "file": "File:Sankat Mochan Temple in Varanasi (8527226316).jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Sankat_Mochan_Temple_in_Varanasi_(8527226316).jpg",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "Matt Zimmerman",
+  "kb": 23
+ },
+ "kumbakonam-mahamaham": {
+  "file": "File:Mahamaham4.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Mahamaham4.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Ssriram mt",
+  "kb": 27
+ },
+ "mathura-krishna-janmabhoomi": {
+  "file": "File:Keshav Dev Temple at the Shri Krishna Janma-Bhoomi - Mathura - India - 2013-03 096 (11552205214).jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Keshav_Dev_Temple_at_the_Shri_Krishna_Janma-Bhoomi_-_Mathura_-_India_-_2013-03_096_(11552205214).jpg",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "Edmund Gall",
+  "kb": 23
+ },
+ "shani-shingnapur": {
+  "file": "File:Pouring Til oil on the Shani idol at Shani Shingnapur, maharastra.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Pouring_Til_oil_on_the_Shani_idol_at_Shani_Shingnapur,_maharastra.jpg",
+  "lic": "CC0",
+  "licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "K.Venkataramana",
+  "kb": 38
+ },
+ "bihu-assam": {
+  "file": "File:A group of 'Husori' for the occasion of Assamese 'Bohag Bihu' in their traditional attire.png",
+  "desc": "https://commons.wikimedia.org/wiki/File:A_group_of_%27Husori%27_for_the_occasion_of_Assamese_%27Bohag_Bihu%27_in_their_traditional_attire.png",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Abhijit Saikia",
+  "kb": 31
+ },
+ "hanumangarhi-ayodhya": {
+  "file": "File:Hanuman Garhi Temple-26.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Hanuman_Garhi_Temple-26.jpg",
+  "lic": "CC BY 4.0",
+  "licurl": "https://creativecommons.org/licenses/by/4.0",
+  "artist": "Immanuelle",
+  "kb": 27
+ },
+ "shri-govindajee-imphal": {
+  "file": "File:Shree Govindaji temple, Manipur.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Shree_Govindaji_temple,_Manipur.jpg",
+  "lic": "CC BY-SA 2.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "artist": "kknila",
+  "kb": 22
+ },
+ "manipuri-ras-leela": {
+  "file": "File:Rasa Lila in Manipuri dance style.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Rasa_Lila_in_Manipuri_dance_style.jpg",
+  "lic": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "artist": "https://www.flickr.com/photos/matsukin/",
+  "kb": 20
+ },
+ "jwalamukhi-shaktipeeth": {
+  "file": "File:Jwalamukhi temple,kangra, himachal pradesh..JPG",
+  "desc": "https://commons.wikimedia.org/wiki/File:Jwalamukhi_temple,kangra,_himachal_pradesh..JPG",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Nswn03",
+  "kb": 38
+ },
+ "tarapith-temple": {
+  "file": "File:Tarapith Temple 01.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Tarapith_Temple_01.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Tarunsamanta",
+  "kb": 14
+ },
+ "chamundeshwari-mysore": {
+  "file": "File:Chamundeshwari Temple atop Chamundi Hills.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Chamundeshwari_Temple_atop_Chamundi_Hills.jpg",
+  "lic": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "artist": "Saravana Kumar",
+  "kb": 24
+ },
+ "yamunotri-dham": {
+  "file": "File:JumnotreeFraser.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:JumnotreeFraser.jpg",
+  "lic": "Public domain",
+  "licurl": "",
+  "artist": "James Baillie Fraser",
+  "kb": 22
+ },
+ "kheer-bhawani-tulmul": {
+  "file": "File:Kheer Bhawani, Ksheer Bhawani or the Ragnya Devi temple, Hanumar Temple.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Kheer_Bhawani,_Ksheer_Bhawani_or_the_Ragnya_Devi_temple,_Hanumar_Temple.jpg",
+  "lic": "CC0",
+  "licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "artist": "GharWapsi",
+  "kb": 52
+ },
+ "kanwar-yatra": {
+  "file": "File:Kanwar Yatra.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Kanwar_Yatra.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "Gopal.panchal65",
+  "kb": 37
+ },
+ "prayagraj-mahakumbh": {
+  "file": "File:Kumbh Mela in Prayagraaj, India 2019.jpg",
+  "desc": "https://commons.wikimedia.org/wiki/File:Kumbh_Mela_in_Prayagraaj,_India_2019.jpg",
+  "lic": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "artist": "TUMBURU",
+  "kb": 32
  }
 }
