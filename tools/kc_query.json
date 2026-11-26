@@ -1,210 +1,67 @@
 {
-"shiv-parvati-vivah": [
-"Parvati",
-"Parvati painting"
-],
-"ganesh-janm-pratham-pujya": [
-"Ganesha",
-"Ganesha painting"
-],
-"kartikeya-tarakasur": [
-"Kartikeya",
-"Kartikeya painting"
-],
-"durga-mahishasura-mardini": [
-"Mahishasura Mardini",
-"Mahishasura Mardini painting"
-],
-"markandeya-mahamrityunjay": [
-"Markandeya",
-"Markandeya painting"
-],
-"gajendra-moksha": [
-"Gajendra Moksha",
-"Gajendra Moksha painting"
-],
-"narad-muni-devarshi": [
-"Narada",
-"Narada painting"
-],
-"savitri-satyavan": [
-"Savitri and Satyavan",
-"Savitri and Satyavan painting"
-],
-"nachiketa-yama": [
-"Nachiketa",
-"Nachiketa painting"
-],
-"atri-anasuya-dattatreya": [
-"Dattatreya",
-"Dattatreya painting"
-],
-"hanuman-janm": [
-"Hanuman",
-"Hanuman painting"
-],
-"ahalya-uddhar": [
-"Ahalya",
-"Ahalya painting"
-],
-"kevat-prasang": [
-"Kevat",
-"Kevat painting"
-],
-"bharat-milap-paduka": [
-"Bharata (Ramayana)",
-"Bharata (Ramayana) painting"
-],
-"jatayu-balidan": [
-"Jatayu",
-"Jatayu painting"
-],
-"shabari-ber": [
-"Shabari",
-"Shabari painting"
-],
-"ram-hanuman-milan-sugriv": [
-"Sugriva",
-"Sugriva painting"
-],
-"lakshman-shakti-sanjivani": [
-"Sanjivani (Ramayana)",
-"Sanjivani (Ramayana) painting"
-],
-"lav-kush": [
-"Lava and Kusha",
-"Lava and Kusha painting"
-],
-"kaliya-daman": [
-"Kaliya",
-"Kaliya painting"
-],
-"govardhan-leela": [
-"Govardhan Hill",
-"Govardhan Hill painting"
-],
-"rukmini-haran": [
-"Rukmini",
-"Rukmini painting"
-],
-"sudama-milan": [
-"Sudama",
-"Sudama painting"
-],
-"eklavya-guru-dakshina": [
-"Ekalavya",
-"Ekalavya painting"
-],
-"yaksha-prashna": [
-"Yaksha Prashna",
-"Yaksha Prashna painting"
-],
-"karna-kavach-kundal": [
-"Karna",
-"Karna painting"
-],
-"abhimanyu-chakravyuh": [
-"Abhimanyu",
-"Abhimanyu painting"
-],
-"vishnu-sahasranama-bhishma": [
-"Vishnu Sahasranama",
-"Vishnu Sahasranama painting"
-],
-"rigveda": [
-"Rigveda",
-"Rigveda painting"
-],
-"yajnavalkya-maitreyi": [
-"Maitreyi",
-"Maitreyi painting"
-],
-"patanjali-yoga-sutra": [
-"Yoga Sutras of Patanjali",
-"Yoga Sutras of Patanjali painting"
-],
-"shivratri-ekadashi-vrat": [
-"Maha Shivaratri",
-"Maha Shivaratri painting"
-],
-"navratri-durga": [
-"Navaratri",
-"Navaratri painting"
-],
-"appar-tirunavukkarasar": [
-"Appar",
-"Appar painting"
-],
-"sambandar": [
-"Sambandar",
-"Sambandar painting"
-],
-"manikkavasagar-thiruvasagam": [
-"Manikkavacakar",
-"Manikkavacakar painting"
-],
-"nammalvar-thiruvaimozhi": [
-"Nammalvar",
-"Nammalvar painting"
-],
-"madhavdev-namghosa": [
-"Madhavdev",
-"Madhavdev painting"
-],
-"krittivasi-ramayan": [
-"Krittivasi Ramayan",
-"Krittivasi Ramayan painting"
-],
-"akkalkot-swami-samarth": [
-"Swami Samarth",
-"Swami Samarth painting"
-],
-"bamakhepa-tarapith": [
-"Bamakhepa",
-"Bamakhepa painting"
-],
-"morya-gosavi": [
-"Morya Gosavi",
-"Morya Gosavi painting"
-],
-"janabai-muktabai": [
-"Janabai",
-"Janabai painting"
-],
-"akka-mahadevi": [
-"Akka Mahadevi",
-"Akka Mahadevi painting"
-],
-"raghavendra-swami-mantralayam": [
-"Raghavendra Tirtha",
-"Raghavendra Tirtha painting"
-],
-"sharada-peeth-kashmir": [
-"Sharada Peeth",
-"Sharada Peeth painting"
-],
-"pashupatinath": [
-"Pashupatinath Temple",
-"Pashupatinath Temple painting"
-],
-"dwadash-jyotirlinga": [
-"Jyotirlinga",
-"Jyotirlinga painting"
-],
-"51-shaktipeeth": [
-"Shakti Peetha",
-"Shakti Peetha painting"
-],
-"char-dham-bharat": [
-"Char Dham",
-"Char Dham painting"
-],
-"vishnupad-gaya": [
-"Vishnupad Mandir",
-"Vishnupad Mandir painting"
-],
-"rath-yatra": [
-"Ratha Yatra",
-"Ratha Yatra painting"
-]
+ "kevat-prasang": [
+  "Rama crossing Ganga boat",
+  "Guha Rama boat painting",
+  "Kevat Rama"
+ ],
+ "nachiketa-yama": [
+  "Nachiketa",
+  "Nachiketa Yama painting",
+  "Katha Upanishad Nachiketa"
+ ],
+ "yajnavalkya-maitreyi": [
+  "Yajnavalkya",
+  "Yajnavalkya painting",
+  "Yajnavalkya sage"
+ ],
+ "janabai-muktabai": [
+  "Sant Janabai",
+  "Muktabai",
+  "Janabai Vitthal"
+ ],
+ "char-dham-bharat": [
+  "Badrinath Temple",
+  "Rameswaram temple",
+  "Dwarkadhish temple"
+ ],
+ "51-shaktipeeth": [
+  "Shiva carrying Sati",
+  "Shiva carrying corpse of Sati",
+  "Sati Shiva painting"
+ ],
+ "navratri-durga": [
+  "Durga Puja Kolkata idol",
+  "Durga Puja pandal",
+  "Navaratri Durga"
+ ],
+ "vishnu-sahasranama-bhishma": [
+  "Bhishma bed of arrows",
+  "Bhishma Sharashayya",
+  "Bhishma arrows painting"
+ ],
+ "lakshman-shakti-sanjivani": [
+  "Hanuman carrying mountain",
+  "Hanuman Dronagiri",
+  "Hanuman mountain painting"
+ ],
+ "yaksha-prashna": [
+  "Yudhishthira Yaksha",
+  "Yaksha Yudhishthira painting",
+  "Pandavas lake Yaksha"
+ ],
+ "karna-kavach-kundal": [
+  "Karna Indra armour",
+  "Karna painting Mahabharata",
+  "Karna Raja Ravi Varma"
+ ],
+ "ram-hanuman-milan-sugriv": [
+  "Rama meets Hanuman",
+  "Hanuman meets Rama painting",
+  "Rama Sugriva alliance"
+ ],
+ "morya-gosavi": [
+  "Morya Gosavi",
+  "Chinchwad Morya Gosavi temple",
+  "Morgaon Ganesh temple"
+ ]
 }
