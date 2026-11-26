@@ -25,6 +25,11 @@ def check(cid):
 
 if __name__ == "__main__":
     ch = channels()
+    # health check: a channel that streams 24x7 (Lofi Girl). If it doesn't show as live, detection is broken -> don't publish.
+    probe = check("UCSJ4gkVC6NrvII8umztf0Ow")[1]
+    print("probe:", repr(probe))
+    if not probe:
+        sys.exit("detection check failed (24x7 test channel not seen as live); not publishing")
     with ThreadPoolExecutor(8) as ex:
         res = list(ex.map(check, ch))
     ok = sum(1 for _, v in res if v is not None)
